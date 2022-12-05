@@ -1,5 +1,13 @@
 # Weather Report
 
+# Agreement:
+1) accees needs - no for Melissa, Viktoriia
+2) learning style: Melissa - visual, Viktoriia - visual, practical
+3) Prefer receive feedback: Melissa and Viktoriia: at the moment of doing, verbal;
+4) Skills to improve: Melissa - communication skills while solving problems, 
+  Viktoriia - communication, collaboration skills.
+5) Schedule: from 9 to 10 Tue - Thursday and class times.
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
