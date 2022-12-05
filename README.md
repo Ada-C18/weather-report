@@ -1,5 +1,48 @@
 # Weather Report
 
+## Learning Plan
+
+### Kimia Hasnai
+
+Access needs
+
+- I’m available on weekdays and weekends
+- I have to leave at 3 but after we can meet on zoom
+
+Your learning style
+
+- Visual learner
+- Prefer to learn by doing
+
+How you prefer to receive feedback
+
+- Text, email , …
+
+One team communication skill you want to improve with this experience
+
+- confidence
+
+### Max Pasqualis
+
+Access Needs
+
+- available on weekdays and weekends
+- okay with working remotely if needed
+
+My Learning Style
+
+- visual learner
+- prefer to learn by doing
+
+How I Prefer To Receive Feedback
+
+- I do well with straightforward feedback as long as it’s constructive
+
+One team communication skill you want to improve with this experience
+
+- explaining my thought processes clearly
+- coworking on one project in general
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
