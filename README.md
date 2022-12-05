@@ -1,5 +1,17 @@
 # Weather Report
 
+# Pair Plan of Action
+-Nancy requests quiet working space
+-Shweet communicates through text or slack
+-Nancy comminicates through slack, in person, or text
+-Nancy learning style talk out loud
+-Shweet time to read and think question before starting
+-Nancy/Shweet work via in person or zoom
+-Research or ask TA or instructor if extra help is needed
+-Feedback in person or written 
+-Nancy wants to improve merge conflict resolutions on git 
+-Shweet wants to improve javascript, html, css knowledge
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
