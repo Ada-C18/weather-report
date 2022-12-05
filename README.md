@@ -1,3 +1,14 @@
+Action Plan:
+Availability to meet: - Nina: early evenings during the weekdays
+- Tatiana: same until : 7-8pm
+- Workflow: - designate wave per day: work on the wave, meet the requirements-- go back to it if we have time. Otherwise, keep going.
+- Feedback: Both: talk to each other. 
+- Meet: using Google calendar. Meet daily outside of class and during coworking time.
+- Learning style: Nina: Takes some time to process alone or have the other person explained step by step
+- Tatiana: same as above.
+- Communication skill to work on:  Tatiana: become a better listener. Not interrup others.
+- Nina: getting better at talking about code. Speak up more.
+
 # Weather Report
 
 ## Skills Assessed
