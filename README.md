@@ -1,3 +1,17 @@
+Access needs-We both agree we will be in class to work together during classtime and we will communicate about our absense or working remotely in advanced. When we have to work outside of class, we will do it online max till 8/9pm. We both have same bus schedules, so after we both go home we can probably work.
+
+Your learning style-Puja- processing 1st and then writing. Visual learner. 
+Milena- Visual learner. Check in if things dont make sense. Keep timers as well for timeboxing.
+Not work on any code without discussing or communicating since this is a pair project. 
+
+How you prefer to receive feedback- Puja- prefers feedback on face. 
+Milena-1st choice is talk in person and follow up if questions. 
+Ask before giving feedback and timing. Tell it as soon as it happens. 
+
+One team communication skill you want to improve with this experience-Milena Communication Skill: listen more, ask questions if I don’t understand.
+Puja- speaking out loud more while writing code 
+
+
 # Weather Report
 
 ## Skills Assessed
