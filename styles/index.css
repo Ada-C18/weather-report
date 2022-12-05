@@ -64,9 +64,9 @@ header {
 }
 
 #garden-box{
-    min-height: 200px;
-    max-height: auto;
-    max-width: fit-content;
+    height: 200px 100%;
+    width: auto 100%;
+    grid-row: 1/-1;
     margin: auto;
     padding: 2rem;
     display: flex;
@@ -79,8 +79,14 @@ header {
 
 #sky{
     display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2rem;
 }
 
 #landscape{
     display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2rem;
 }
