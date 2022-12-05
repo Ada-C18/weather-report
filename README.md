@@ -1,5 +1,13 @@
 # Weather Report
 
+Plan of Action:
+Meet ins with agendas for divide and conquer will work well for different schedules.
+Use coworking time as much as possible
+check in code reviews so that we both understand what the partner worked on
+Both need time to process and ingest the project goals
+Prefer in person communication and use slack to check in
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
