@@ -1,5 +1,13 @@
 # Weather Report
 
+- Access needs
+- Your learning style
+    -if one person doesn't get it, the other person shouldn't move on without their partner.
+    -instead, we should work together until everyone understands before moving on.
+- How you prefer to receive feedback
+- One team communication skill you want to improve with this experience
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
