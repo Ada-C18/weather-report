@@ -1,5 +1,25 @@
 # Weather Report
 
+Time Budget: Aim to have wave 3 done by Wednesday afternoon, whole project done by Thursday
+Pair plan:
+
+Access needs
+We can't think of any
+
+
+Your learning style
+Margaret: Random bullshit go
+Hannah: Learning by doing
+
+How you prefer to receive feedback
+Margaret: Talk about it
+Hannah: Talk about it
+
+One team communication skill you want to improve with this experience
+Margaret: Legit, JS is terrible so I can say anything it'll be good
+Hannah: Active listening
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension

@@ -1,0 +1,65 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+    font-family: Rubik,sans-serif;
+    font-size: 18px;
+    background-color: #1b69f9;
+    margin: 2rem;
+    border: 1px solid brown
+}
+
+header {
+    font-size: 16px;
+}
+
+#current-city{
+    font-size: 14px;
+}
+
+#temp-box{
+    display: flex;
+}
+#temp-up, #temp-down{
+    color: black;
+}
+#temp-current{
+    color: black;
+}
+
+#temp-get-button{
+    color:blue;
+}
+
+#sky-box{
+    display: flex;
+}
+
+#sky-selector{
+    font-size:1 rem;
+}
+
+#city-box{
+    display: flex;
+}
+
+#city-input{
+    font-weight: 800;
+}
+
+#city-reset{
+    background-color: blue;
+}
+
+#garden-box{
+    display: flex;
+}
+
+#sky{
+    display: flex;
+}
+
+#landscape{
+    display: flex;
+}

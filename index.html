@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/index.css" rel="stylesheet">
+    
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Current Weather Report</h1>
+        <p id="current-city">This is weather for Seattle</p>
+    </header>
+    <body>
+        <section id="temp-box">
+            <div id="temp-up">temp up</div>
+            <div id="temp-current">curr temp</div>
+            <div id="temp-down">temp down</div>
+            <div id="temp-get-button">get temp</div>
+        </section>
+        <section id="sky-box">
+            <div id="sky-selector">which sky</div>
+        </section>
+        <section id="city-box">
+            <div id="city-input">a form</div>
+            <div id="city-reset">reset to Seattle</div>
+        </section>
+        <section id="garden-box">
+            <div id="sky">skyskysky</div>
+            <div id="landscape">landlandland</div>
+        </section>
+    </body>
 </body>
+    <link href="./src/index.js" rel="script">
+    <link href="./node_modules/axios/dist/axios.min.js" rel="script">
 </html>
