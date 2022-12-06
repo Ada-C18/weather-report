@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <script src="./node_modules/axios/dist/axios.min.js" defer></script>
+    <script src="src/index.js" defer></script>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+
+  <body>
+    <main id="weather-app">
+      <div id="city-box">
+        <h1 id="city-name">Hot-lanta</h1>
+        <label for="city-selector"
+          >Change city: <input id="city-selector" type="text"
+        /></label>
+      </div>
+      <div id="report-box">
+        <h1><span id="temperature">100</span>&deg F</h1>
+        <h2 id="weather">sunny</h2>
+      </div>
+    </main>
+  </body>
 </html>
