@@ -121,3 +121,17 @@ Wave 6:
 [Wave 6: Resetting the City Name](./ada-project-docs/wave-06.md)
 
 [Optional Enhancements to inspire you](./ada-project-docs/optional-enhancements.md)
+
+## Workflow Plan
+
+Working asynchronously 
+
+- Check code locally via Liveserver and validate functionality
+- Send messages via Slack before/after pushes so other can pull
+
+Wave 1: Niloo
+Wave 2: Yael
+Wave 3: Niloo
+Wave 4: Yael
+Wave 5: Niloo
+Wave 6: Yael
