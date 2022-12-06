@@ -128,6 +128,7 @@ Working asynchronously
 
 - Check code locally via Liveserver and validate functionality
 - Send messages via Slack before/after pushes so other can pull
+- Talk about each wave/feature after completion
 
 Wave 1: Niloo
 Wave 2: Yael
