@@ -10,6 +10,7 @@ const upTemp = () => {
     const tempContainer = document.querySelector("#temp-current");
     tempContainer.textContent = `${currentTemp.currTemp}`;
     tempColor(currentTemp.currTemp)
+    landTitle()
   };
 
   const downTemp = () => {
@@ -18,6 +19,7 @@ const upTemp = () => {
     const tempContainer = document.querySelector("#temp-current");
     tempContainer.textContent = `${currentTemp.currTemp}`;
     tempColor(currentTemp.currTemp)
+    landTitle()
   };
 
 /*
@@ -52,7 +54,33 @@ const upTemp = () => {
     tempCurrent.className = color;
     }
     
-  
+    // | 80+             | `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`       |
+    // | 70-79           | `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`      |
+    // | 60-69           | `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`        |
+    // | 59 or below     | `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"` |
+
+  const landTitle = () => {
+    const landStr = document.getElementById('landscape')
+    const tempCurrent = document.getElementById('temp-current')
+    const numericTemp = parseInt(tempCurrent.innerHTML)
+    let text;
+    switch (true) {
+        case (numericTemp >= 80):
+            text = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+            break;
+        case (numericTemp >= 70):
+            text = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+            break;
+        case (numericTemp >= 60):
+            text = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+            break;
+        default:
+            text = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+            break;
+    }
+    landStr.textContent = text;
+    }
+
   const registerEventHandlers = () => {
     const increaseTemp = document.getElementById("temp-up");
     increaseTemp.addEventListener("click", upTemp);

@@ -29,6 +29,7 @@ header {
 }
 #temp-current{
     font-size: 4em;
+    font-weight: 800;
 }
 
 #temp-get-button{
