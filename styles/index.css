@@ -28,7 +28,7 @@ header {
     color: black;
 }
 #temp-current{
-    color: black;
+    font-size: 4em;
 }
 
 #temp-get-button{
@@ -91,3 +91,24 @@ header {
     padding: 2rem;
 }
 
+/* Classes for temp */
+
+.red{
+    color: red
+}
+
+.orange{
+    color:orange
+}
+
+.yellow{
+    color:yellow
+}
+
+.green{
+    color:green
+}
+
+.teal{
+    color:teal
+}
