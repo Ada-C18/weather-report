@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report</h1>
+        <span>For the wonderfull city of</span> <span>Seattle</span>
+    </header>
+    <main>
+        <section>
+            <h2>Tempearture</h2>
+            <span>up arrow</span>
+            <span>temperature</span>
+            <span>down arrow</span>
+            <button>Get Real Time Temperature</button>
+        </section>
+        <section>
+            <h2>Sky</h2>
+            <button>button drop down</button>
+        </section>
+        <section>
+            <h2>City Name</h2>
+            <input type="text">
+            <input type="reset" value="Reset">
+        </section>
+        <section>
+            <h2>Weather Garden</h2>
+            <span>icon sky</span>
+            <span>icon ground</span>
+        </section>
+    </main>
+    <footer>
+        <p>copyright 2022 Melissa Pena - Viktoriia Zolotova</p>  
+    </footer>
+    <scrip src="src/index.js"></scrip>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
