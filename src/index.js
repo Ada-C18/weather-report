@@ -2,6 +2,7 @@
 const state = {
   temp: 80,
   tempColor: 'red',
+  city: 'seattle',
 };
 // const tempValue = document.getElementById(‘tempValue’);
 // tempValue.textContent = state.temp;
@@ -24,6 +25,28 @@ const showTemperature = () => {
   // tempValue.style.color = ‘red’;
   console.log(tempValue);
 };
+
+const updateCity = () => {
+  // const cityName = document.getElementById('city-name');
+  // cityName.textContent = '✨ ' + `${state.city}` + '✨ ';
+  const updateCity = document.getElementById('city-name-input').value;
+  const cityName = document.getElementById('city-name');
+  state.city = updateCity;
+  cityName.textContent = state.city;
+};
+
+const resetCity = () => {
+  const updateCity = document.getElementById('city-name-input');
+  const cityName = document.getElementById('city-name');
+  state.city = '';
+  cityName.textContent = state.city;
+  updateCity.value = state.city;
+
+  // const searchfieldInput = document.getElementById('city-name-input');
+  // state.city = searchfieldInput.Value;
+  // updateCity();
+};
+// resetCity();
 
 const tempColorAndLandscape = () => {
   const tempColorElement = document.getElementById('tempValue');
@@ -63,6 +86,13 @@ const changeTemp = (e) => {
 };
 
 const allEventHandlers = () => {
+  const resetButton = document.getElementById('city-name-btn');
+  resetButton.addEventListener('click', resetCity);
+  const cityName = document.getElementById('city-name-input');
+  cityName.addEventListener('input', updateCity);
+  // cityInput.addEventListener('input', updateCity);
+  // resetCity.addEventListener('click', resetCity);
+
   const increaseArrow = document.getElementById('tempUp');
   increaseArrow.addEventListener('click', changeTemp);
   increaseArrow.addEventListener('click', tempColorAndLandscape);
