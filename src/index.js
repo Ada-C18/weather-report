@@ -1,20 +1,38 @@
 'use strict';
-let temperature = 0;
+let temperature = 50;
 
-const changeTemp = () => {
+const increaseTemp = () => {
   // let arrowDown = document.querySelector('#arrow-down');
   const spanTempNumber = document.getElementById('temperature-value');
-  spanTempNumber.textContent = `${temperature}`;
+
   temperature += 1;
   changeLandscape();
   changeTempNumberColor();
+  spanTempNumber.textContent = `${temperature}`;
   // else temperature -= 1;
-  console.log(spanTempNumber.textContent);
+  console.log('inside of increase', spanTempNumber.textContent);
 };
 
 const increaseTempOnClick = () => {
   let arrowUp = document.querySelector('#arrow-up');
-  arrowUp.addEventListener('click', changeTemp);
+  arrowUp.addEventListener('click', increaseTemp);
+};
+
+// decrease temp
+const decreaseTemp = () => {
+  const spanTempNumber = document.getElementById('temperature-value');
+
+  temperature -= 1;
+  changeLandscape();
+  changeTempNumberColor();
+  spanTempNumber.textContent = `${temperature}`;
+
+  console.log('inside of decrease', spanTempNumber.textContent);
+};
+
+const decreaseTempOnClick = () => {
+  let arrowDown = document.querySelector('#arrow-down');
+  arrowDown.addEventListener('click', decreaseTemp);
 };
 
 const changeTempNumberColor = () => {
@@ -41,9 +59,9 @@ const changeLandscape = () => {
     document.getElementById('temperature-value').innerText
   );
   let iconGround = document.getElementById('ground-icons');
-  console.log(iconGround);
+  // console.log(iconGround);
 
-  console.log(tempNumber);
+  // console.log(tempNumber);
 
   if (tempNumber <= 59)
     iconGround.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
@@ -56,3 +74,4 @@ const changeLandscape = () => {
 // changeTempNumberColor();
 // changeTempOnClick();
 document.addEventListener('DOMContentLoaded', increaseTempOnClick);
+document.addEventListener('DOMContentLoaded', decreaseTempOnClick);
