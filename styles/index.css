@@ -1,0 +1,81 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    background-color: rgb(168, 53, 53);
+}
+
+header {
+    grid-row: 1;
+    background-color: blue;
+    grid-template-rows: 3fr 1fr;
+}
+header h1{
+    grid-row: 1;
+}
+
+header .city_bar{
+    grid-row: 2;
+    display: inline block;
+}
+
+.sky_vis{
+    grid-row:2;
+    background-color: darkorange;
+}
+
+.ground-vis{
+    grid-row:3;
+    background-color: plum;
+}
+
+.menu{
+    background-color: blueviolet;
+    width: 200px;
+    height: 250px;
+    position: absolute;
+    top: 30vh;
+    left: 5vw ;
+    display: grid;
+    grid-template: 4fr 1fr / 1fr 1fr ;
+    align-items: center;
+    text-align: center;
+}
+
+#temp_display {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: antiquewhite;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    
+}
+
+#buttons {
+    grid-row: 1;
+    grid-column: 2;
+    margin:auto;
+
+
+    
+}
+
+#buttons button{
+    margin: 10px;
+}
+
+#sky_select{
+    grid-row: 2 ;
+    grid-column: 1 / span 2;
+    padding: auto;
+    margin: auto;
+    padding-bottom: 35px;
+}
