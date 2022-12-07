@@ -3,9 +3,9 @@
 
 axios;
 
-var clicks = 32;
+let clicks = 32;
 
-function changeColor(el, el2) {
+function changeColor() {
   let color = 'black';
   if (clicks <= 49) {
     color = 'teal';
@@ -18,28 +18,34 @@ function changeColor(el, el2) {
   } else if (clicks > 79) {
     color = 'red';
   }
-  el.style.color = color;
-  el2.style.color = color;
+  document.getElementById('tempNumber').style.color = color;
+  document.getElementById('tempHeader').style.color = color;
 }
 
 function clicksUpTemp() {
   clicks += 1;
   document.getElementById('tempNumber').innerHTML = clicks;
-  changeColor(
-    document.getElementById('tempNumber'),
-    document.getElementById('tempHeader')
-  ); //connecting colorchanging Temp header and Temp Number to clicks
+  changeColor();
+  changeLandscape();
 }
 
 function clicksDownTemp() {
   clicks -= 1;
   document.getElementById('tempNumber').innerHTML = clicks;
-  changeColor(
-    document.getElementById('tempNumber'),
-    document.getElementById('tempHeader')
-  );
+  changeColor();
+  changeLandscape();
 }
 
-// function changeLandscape(el) {
-//   let landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-// }
+function changeLandscape() {
+  let landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  if (clicks <= 59) {
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (clicks <= 69) {
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (clicks <= 79) {
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (clicks > 79) {
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  }
+  document.getElementById('landscapeImage').innerHTML = landscape;
+}
