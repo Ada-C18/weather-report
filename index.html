@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet">
-    <script src="index.js"></script> 
+    <script src="src/index.js"></script> 
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </head>
 <body>
@@ -16,17 +16,13 @@
     <div id="Temperature"> 
         <h2> Temperature </h2> 
 
-        <!-- <div button onclick="increaseTempControl">⬆️</button></div>
-        <div input type="text" id="inc" value="0"></input></div> -->
-
 
         <div id="number">
-        <button class="inc" onclick="incrementButton()">⬆️</button>
-        <h3> Temp Number to be updated </h3>
-        <button class="dec" onclick="decreaseButton()">⬇️</button>
+        <button id="inc" onclick="incrementButton()">⬆️</button>
+        <h3 id="counter"> 0 </h3>
+        <button id="dec" onclick="decreaseButton()">⬇️</button>
         </div>
-<!-- 
-        <div button id="decreaseTempControl">⬇️</button></div> -->
+
 
         <div id="Get Realtime Temperature"> 
             <h4> Get Realtime Temperature </h4>

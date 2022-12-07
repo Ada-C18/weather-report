@@ -8,21 +8,22 @@
 }
 
 function incrementButton() {
-  var element = document.getElementById('inc');
+  console.log('hello world');
+  var element = document.getElementById('counter');
   var value = element.innerHTML;
 
   ++value;
 
   console.log(value);
-  document.getElementById('inc').innerHTML = value;
+  document.getElementById('counter').innerHTML = value;
 }
 
-function decreasButton() {
-  var element = document.getElementById('dec');
+function decreaseButton() {
+  var element = document.getElementById('counter');
   var value = element.innerHTML;
 
   --value;
 
   console.log(value);
-  document.getElementById('dec').innerHTML = value;
+  document.getElementById('counter').innerHTML = value;
 }
