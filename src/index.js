@@ -42,14 +42,21 @@ const tempLandscapeColorChange = () => {
   }
 };
 
+const changeName = () => {
+  let name = document.getElementById('city-name-display')
+  let newName = document.getElementById('city-name-input')
+  name.textContent = newName.value
+}
+
 
 const registerEvents = () => {
   const upButton = document.getElementById('temp-up');
   const downButton = document.getElementById('temp-down');
-  
+  const input = document.querySelector('input')
+
   upButton.addEventListener('click', tempUp);
   downButton.addEventListener('click', tempDown);
+  input.addEventListener('input', changeName);
 };
-
 
 document.addEventListener("DOMContentLoaded", registerEvents);
