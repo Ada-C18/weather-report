@@ -135,16 +135,20 @@ const changeSky = () => {
   const currentSky = document.getElementById('sky-selector');
   const skyValue = currentSky.value;
   console.log(skyValue,currentSky)
-  let skyPicl
+  let skyPic;
   switch (skyValue) {
     case 'Sunny':
       skyPic = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+      break;
     case 'Cloudy':
       skyPic = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+      break;
     case 'Rainy':
       skyPic = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+      break;
     case 'Snowy':
       skyPic = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+      break;
   }
   const skyBox = document.getElementById('sky')
   skyBox.innerHTML = skyPic
