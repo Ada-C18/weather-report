@@ -5,28 +5,31 @@ const decrementCount = document.getElementById('decreaseTemp');
 
 const totalCount = document.getElementById('temperatureValue');
 
-let temp = 58;
+// let temp = 58;
+const state = {
+  temp: 58,
+};
 
-temperatureValue.innerHTML = temp;
+temperatureValue.innerHTML = `${state.temp}°f`;
 
 const handleIncrement = () => {
-  temp++;
-  temperatureValue.innerHTML = temp;
+  state.temp++;
+  temperatureValue.innerHTML = `${state.temp}°f`;
   changeColor();
 };
 
 const handleDecrement = () => {
-  temp--;
-  temperatureValue.innerHTML = temp;
+  state.temp--;
+  temperatureValue.innerHTML = `${state.temp}°f`;
   changeColor();
 };
 
 incrementCount.addEventListener('click', handleIncrement);
 decrementCount.addEventListener('click', handleDecrement);
 
-const state = {
-  temp: 58,
-};
+// const state = {
+//   temp: 58,
+// };
 
 const changeColor = () => {
   let temp = state.temp;
