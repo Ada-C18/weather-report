@@ -1,0 +1,65 @@
+body {
+    display: grid;
+    grid-template: 5 / 2;
+}
+
+.temperature-setting {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    grid-column: 1 / 2;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+#weather-report {
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: bisque;
+    text-align: center;
+}
+
+#description {
+    grid-area: 1 / 2 / 2 / 2;
+    justify-content: center;
+    align-content: center;
+    text-align: left;
+}
+
+
+
+#temperature {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+#temp {
+    color: green;
+    text-align: center;
+}
+
+#sky {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+#city-name {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+#landscape {
+    display: flex;
+    flex-direction: column;
+    grid-area: 2 / 2 / 5 / 2;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid red;
+}
+
+#landscape-display {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(142, 154, 226, 0.233);
+    align-content: center;
+    justify-content: center;
+    margin: 30px;
+}
+
