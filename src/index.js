@@ -1,11 +1,12 @@
-const state = { temp: 42 };
+const state = { temp: 42,
+              city: cityInput };
 const thingToConnectToAPI = {temp: 46};
 
 
 const increaseTemp = () => {
   const tempDisplay = document.getElementById('temp');
   state.temp += 1;
-  tempDisplay.textContent = state.temp
+  tempDisplay.textContent = state.temp;
   changeTempColor(state.temp);
 };
 
@@ -47,14 +48,25 @@ const changeTempColor = (temp) => {
   }
 };
 
+const changeCity = () => {
+    const userInput = document.getElementById("cityInput");
+    const currentCity = document.getElementById('city');
+    let cityInput = userInput.value;
+    state.city = cityInput;
+    currentCity.textContent = state.city;
+};
+
+
 const upButton = document.getElementById('up');
 const downButton = document.getElementById('down');
 const centerButton = document.getElementById('current');
+const cityButton  = document.getElementById('change_city');
 
 const registerEventHandlers = () => {
   upButton.addEventListener('click', increaseTemp);
   downButton.addEventListener('click', decreaseTemp);
   centerButton.addEventListener('click', currentTemp);
+  cityButton.addEventListener('click', changeCity);
 };
 
 
