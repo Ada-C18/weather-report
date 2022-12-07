@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/index.css" rel="stylesheet"/>
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <section id="weather-report-container">
+        <section id="weather-header-section">
+            <header>
+                <h1>Weather Report</h1>
+            </header>
+            <p id="city-text">For the lovely city of </p>
+            <p id="city">City Name Here</p>
+        </section>
+        <main id="module-section">
+            <section id="weather-modules-section">
+                <section class="module", id="temperature-module">
+                    <p class="module-text">Temperature</p>
+                    <section id="temperature-display">
+                        <p>Up Arrow</p>
+                        <p>999</p>
+                        <p>Down Arrow</p>
+                    </section>
+                    <button>Get Realtime Temperature</button>
+                </section>
+                <section class="module">
+                    <p class="module-text">Sky</p>
+                    <select id="sky-dropdown">
+                        <option value="snowy">Snowy</option>
+                    </select>
+                </section>
+                <section class="module">
+                    <p class="module-text">City</p>
+                    <select id="city-dropdown">
+                        <option value="New York">New York</option>
+                    </select>
+                </section>
+            </section>
+            <section id="weather-garden-section">
+                <p class="module-text">Weather Garden</p>
+            </section>
+        </main>
+    </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
