@@ -1,14 +1,15 @@
-let state = {temp: 42};
+const state = { temp: 42 };
 
-const upButton = document.querySelector("#up");
-
-const increaseTemp  = () => {
-  const tempDisplay = document.querySelector("#temp");
+const increaseTemp = () => {
+  const tempDisplay = document.getElementById('temp');
   state.temp += 1;
-  tempDisplay.textContent = `${state.temp}`
-}
+  tempDisplay.textContent = state.temp;
+};
+
+const upButton = document.getElementById('up');
 
 const registerEventHandlers = () => {
-  const upButton = document.querySelector('#up');
-  upButton.addEventListener("click", increaseTemp);
-}
+  upButton.addEventListener('click', increaseTemp);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
