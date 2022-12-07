@@ -25,19 +25,20 @@ const changeTempNumberColor = () => {
 
 const changeLandscape = () => {
   const tempNumber = Number(document.getElementById('temperature-value').innerText);
-  let iconGround = document.getElementById('ground-icons').innerText;
-
+  let iconGround = document.getElementById('ground-icons');
   console.log(iconGround)
 
   console.log(tempNumber)
 
-  if (tempNumber <= 59) iconGround = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  if (tempNumber <= 59) iconGround.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
 
-  else if (tempNumber < 69 ) iconGround = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+  else if (tempNumber < 69 ) iconGround.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
 
-  else if (tempNumber < 79 ) iconGround = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+  else if (tempNumber < 79 ) iconGround.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
 
-  else iconGround = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+  else iconGround.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+
+
 
 };
 
