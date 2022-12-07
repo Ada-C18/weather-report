@@ -10,32 +10,32 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <span>For the wonderfull city of</span> <span>Seattle</span>
+        <span>For the wonderfull city of</span> <span id="city">Seattle</span>
     </header>
     <main>
-        <section>
+        <section id="section-temperature">
             <h2>Tempearture</h2>
-            <span>up arrow</span>
-            <span>temperature</span>
-            <span>down arrow</span>
-            <button>Get Real Time Temperature</button>
+            <span id="arrow-up">⬆️</span>
+            <span id="temperature-value">50</span>
+            <span id="arrow-down">⬇️</span>
+            <button id="temperature-button">Get Real Time Temperature</button>
         </section>
-        <section>
+        <section id="sectoin-sky">
             <h2>Sky</h2>
-            <button>button drop down</button>
+            <button id="sky-button">button drop down</button>
         </section>
-        <section>
+        <section id="section-city-name">
             <h2>City Name</h2>
             <input type="text">
-            <input type="reset" value="Reset">
+            <input id="reset-button" type="reset" value="Reset">
         </section>
-        <section>
+        <section id="section-weather-garden">
             <h2>Weather Garden</h2>
-            <span>icon sky</span>
-            <span>icon ground</span>
+            <span id="sky-icons">icon sky</span>
+            <span id="ground-icons">icon ground</span>
         </section>
     </main>
-    <footer>
+    <footer id="footer">
         <p>copyright 2022 Melissa Pena - Viktoriia Zolotova</p>  
     </footer>
     <scrip src="src/index.js"></scrip>
