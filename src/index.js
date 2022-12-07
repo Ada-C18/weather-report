@@ -48,6 +48,11 @@ const changeColor = () => {
   totalCount.className = color;
 };
 
+const changeLandscape = () => {
+  if (temp > 80) {
+  }
+};
+
 const registerEventHandlers = () => {
   changeColor();
 };
