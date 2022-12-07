@@ -26,8 +26,11 @@ const registerEventHandlers = () => {
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-//landscape
+//temperature decorations
 const tempColor = () => {
-  if (state.temp) {
+  const temperature = document.getElementById('temperature');
+
+  if (state.temp >= 80) {
+    temperature.color = red;
   }
 };

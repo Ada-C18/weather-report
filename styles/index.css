@@ -36,5 +36,31 @@
 }
 
 #landscape {
-    
+
+}
+
+#temperature {
+    color:black
+}
+
+/* classes */
+/* temperature colors */
+.color-49 {
+    color: teal
+}
+
+.color-50-59 {
+    color: green
+}
+
+.color-60-69 {
+    color: Yellow
+}
+
+.color-70-79 {
+    color: Orange
+}
+
+.color-80 {
+    color: red
 }
