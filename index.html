@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <link href="styles/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header id="">
+      <h1>Weather Report</h1>
+    </header>
+
+    <main>
+      <section id="white-boxes">
+        <section class="temperature">
+          <h2>Temperature</h2>
+          <div class="number"></div>
+          <button id="get-temp"></button>
+        </section>
+
+        <section id="sky">
+          <h2>Sky</h2>
+          <button class="dropdown"></button>
+        </section>
+
+        <section id="city-name">
+          <h2>City Name</h2>
+          <div id="search-bar">
+            <!-- replace div with proper element tag -->
+          </div>
+          <button class="reset"></button>
+        </section>
+      </section>
+
+      <section id="weather-garden">
+        <h2>Weather Garden</h2>
+        <div id="emojis"></div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
