@@ -1,5 +1,23 @@
 body {
-    background-color: aqua;
+    background-color: #355764;
+    font-family: "Josefin Sans", sans-serif;
+    color: white
+}
+
+header {
+    
+}
+
+h1 {
+    display: inline-block;
+    font-size: 7vh;
+}
+
+#city-name {
+    display: inline-block;
+    padding-left: 10vw;
+    font-size: 7vh;
+    text-decoration: underline;
 }
 
 #main-container {
