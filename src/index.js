@@ -4,6 +4,7 @@ const state = {
   city: "Seattle",
 };
 
+//Creating addTemp and minus Temp events
 const addTemp = (event) => {
   state.temp += 1;
   const tempControl = document.querySelector('#currentTemp');
@@ -47,6 +48,20 @@ const changeTempNumColor = () => {
   }
 };
 
+
+//create an event to receive user input
+// const input = document.querySelector('input');
+// const updatedCityName = document.getElementById('headerCityName');
+
+// input.addEventListener('input', updateCityName);
+
+////Creating an event to update headerCityName
+const updateCityName = (event) => {
+  const updatedCityName = document.getElementById('headerCityName');
+  updatedCityName.textContent = event.target.value;
+};
+
+////Registering Event handlers and add event listeners
 const registerEventHandlers = (event) => {
   const decreaseTempButton = document.querySelector('#decreaseTemp');
   decreaseTempButton.addEventListener('click', minusTemp);
@@ -54,6 +69,11 @@ const registerEventHandlers = (event) => {
   const increaseTempButton = document.querySelector('#increaseTemp');
   increaseTempButton.addEventListener('click', addTemp);
   console.log('click click!!');
+
+  const input = document.querySelector('input');
+  input.addEventListener('input', updateCityName);
+
 };
 
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+document.addEventListener('DOMContentLoaded',registerEventHandlers);
