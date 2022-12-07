@@ -20,24 +20,32 @@
         <h2>Landscape</h2>
 
     </section>
-    <section class="temperature-box">
+    <section class="temperature_container">
         <h2>Temperature</h2>
-        <div class="temperature-elements">
-           <button id="temperature-btn">
+        <div class="temperature_elements">
+           <button id="temperature_btn">
             Temperature Right Now in Fahrenheit!
            </button> 
-           <div class="temperature-display">
-            <button id="up-button">⬆️</button>
-            <span id="temperature-value">60</span>
-            <button id="up-button">⬇️</button>
+           <div class="temperature_display">
+            <button id="up_button">⬆️</button>
+            <span id="temperature_value">60</span>
+            <button id="up_button">⬇️</button>
            </div>
         </div>
     </section>
-    <section>
+    <section class="sky_container">
         <h2>Sky</h2>
+        <select id="sky_select"></select>
+        <option>Sunny</option>
+        <option>Cloudy</option>
+        <option>Rainy</option>
+        <option>Snowy</option>
     </section>
-    <section>
+    <section class="city_name_container">
         <h2>City Name</h2>
+        <input type="text" id="city_name_input" value="San Francisco"></input>
+        <button id="city_name_reset" class="city_name_reset_button">Reset</button>
+
     </section>
 <script src="./node_modules/axios/dist/axios.min.js"></script>  
 <script src="src/index.js"></script>
