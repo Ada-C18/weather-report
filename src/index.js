@@ -52,7 +52,7 @@ const changeTempNumColor = () => {
 ////Creating an event to update headerCityName
 const updateCityName = (event) => {
   const updatedCityName = document.getElementById('headerCityName');
-  updatedCityName.textContent = event.target.value;
+  updatedCityName.textContent = `🌍🌟${event.target.value}🌟🌍`;
 };
 
 ////Registering Event handlers and add event listeners
