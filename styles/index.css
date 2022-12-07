@@ -1,37 +1,20 @@
-.container {
-    display: flex;
-    background-color: blue;
-    justify-content: space-evenly;
-    margin: 10px;
+body {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
 }
-.header {
-    background-color: aquamarine;
-    width: 100vw;
+
+header {
+    text-align: center;
+    grid-column: 1/span 6;
     height: 20vh;
-    margin: auto auto;
-}
-.sky-image {
-    background-color: blueviolet;
-
 }
 
-.item {
-    margin: 10px;
-    background-color: yellow;
-    display: inline;
-}
-.lanscape {
-    background-color: blanchedalmond;
+#temperature {
+    grid-column: 2/3
 }
 
-.temperature {
-    background-color: aqua;
-}
-
-.city {
-    background-color: red;
-}
-
-.sky {
-    background-color: bisque;
+#sky {
+    grid-column: 1/2;
+    display: block;
+    background-image: url("assets/Cloudy.webp");
 }

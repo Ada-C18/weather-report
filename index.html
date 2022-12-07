@@ -5,33 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-    <link href="styles/index.css" rel="stylesheet" />
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <div class = "container">
-            <header class = "header ">
-                <h1>Hello</h1>
-            </header>
-        </div>    
-        <div class = "container">
-            <div class="item">World</div>
-            <div class="item">World</div>
-            <div class="item">World</div>
-        
-        <!-- <div class = "landscape grid-item">
-
+    <header>
+        <div>
+            Check out the weather in
         </div>
-        <div class = "temperature grid-item">
-
+        <div id="city-name">
+            Austin
         </div>
-        <div class = "city grid-item">
-
-        </div>
-        <div class = "sky grid-item">
-
-        </div> -->
-        </div>
-    </main>
+    </header>
+    <section id="sky">
+    </section>
+    <section id="Temperature" class = "bodybox">
+        <h2>Temperature</h2>
+        <button>Up</button>
+        <div id="temp-number"> 50 </div>
+        <button>Down</button>
+    </section>
+    <section id="landscape">
+        <img src="assets/Winter.jpeg">
+    </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
