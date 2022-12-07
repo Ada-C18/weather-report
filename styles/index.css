@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    background-color: blue;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+.header {
+    background-color: aquamarine;
+    width: 100vw;
+    height: 20vh;
+    margin: auto auto;
+}
+.sky-image {
+    background-color: blueviolet;
+
+}
+
+.item {
+    margin: 10px;
+    background-color: yellow;
+    display: inline;
+}
+.lanscape {
+    background-color: blanchedalmond;
+}
+
+.temperature {
+    background-color: aqua;
+}
+
+.city {
+    background-color: red;
+}
+
+.sky {
+    background-color: bisque;
+}
