@@ -46,7 +46,6 @@ const changeCityName = (input) => {
   state.cityName = input;
   const cityName = document.getElementById('city-name');
   cityName.textContent = state.cityName;
-  console.log(state.cityName);
 };
 
 const getWeather = () => {
@@ -65,6 +64,7 @@ const getWeather = () => {
         .then((response) => {
           const tempKelvin = response.data.main.temp;
           state.temperature = Math.round(1.8 * (tempKelvin - 273) + 32);
+          updateTemperature();
         })
         .catch((error) => {
           console.log('error getting temperature');
@@ -75,8 +75,6 @@ const getWeather = () => {
       console.log('error getting coordinates');
       console.log(error);
     });
-  console.log(state.temperature);
-  updateTemperature();
 };
 
 const initializeContent = () => {
