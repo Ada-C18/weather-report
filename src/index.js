@@ -58,10 +58,20 @@ const getWeather = () => {
     .then((response) => {
       const lat = response.data[0].lat;
       const lon = response.data[0].lon;
-      console.log(`${state.cityName} lat: ${lat} lon: ${lon}`);
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: { lat: lat, lon: lon },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+
+        .catch((error) => {
+          console.log('error getting temperature');
+        });
     })
     .catch((error) => {
-      console.log(error);
+      console.log('error getting coordinates');
     });
 };
 
