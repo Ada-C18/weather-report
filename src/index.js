@@ -5,6 +5,8 @@ const updateTemp = (temp) => {
   console.log('update called');
   const tempValueContainer = document.getElementById('tempValue');
   tempValueContainer.textContent = temp;
+  updateTempColor(temp);
+  changeLandscape(temp);
 };
 
 const increaseTemp = () => {
@@ -18,19 +20,47 @@ const decreaseTemp = () => {
   updateTemp(temp);
 };
 
+const updateTempColor = (temp) => {
+  const tempValueColor = document.getElementById('tempValue');
+  let color = 'cold';
+  if (temp >= 80) {
+    color = 'hot';
+  } else if (temp >= 70) {
+    color = 'warm';
+  } else if (temp >= 60) {
+    color = 'cozy';
+  } else if (temp >= 50) {
+    color = 'cool';
+  }
+  tempValueColor.className = color;
+};
+
+const changeLandscape = (temp) => {
+  const landscape = document.getElementById('landscape');
+  let ground = '🥶__🧤_🏂_🧊__🧊_';
+  if (temp >= 80) {
+    ground = '`"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"';
+  } else if (temp >= 70) {
+    ground = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+  } else if (temp >= 60) {
+    ground = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+  } else if (temp >= 50) {
+    ground = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+  }
+  landscape.textContent = ground;
+};
+
 const renderAndUpdate = () => {
   console.log('render called');
   const upButton = document.getElementById('up');
   const downButton = document.getElementById('down');
   updateTemp(temp);
-
   upButton.addEventListener('click', increaseTemp);
-  downButton.addEventListener('click', () => decreaseTemp());
+  downButton.addEventListener('click', decreaseTemp);
 };
 
 if (document.readyState !== 'loading') {
   renderAndUpdate();
 } else {
-  //not fully loaded yet, add a content loaded event listener
   document.addEventListener('DOMContentLoaded', renderAndUpdate);
 }
