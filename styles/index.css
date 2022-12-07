@@ -6,3 +6,11 @@ body {
     font-family: sans-serif;
     background-color: lightblue;
 }
+
+#white-boxes {
+    background-color: white;
+}
+
+#weather-garden {
+    background-color: lightgray;
+}
