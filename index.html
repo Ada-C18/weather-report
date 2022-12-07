@@ -10,15 +10,40 @@
 <body>
     <header>
         <h1>City Weather Report</h1>
-        <p id="city">For the beautiful <strong>Seattle</strong> </p>
+        <p id="city">For the beautiful city of <strong>Seattle</strong> </p>
     </header>
     <section>
-        <h2>Temperature
-            <button></button>
-        </h2>
-        <h2>Sky</h2>
-        <h2>City name</h2>
-        <h2>Weather Garden</h2>
+        <section class="temperature-container">
+            <h2>Temperature</h2>
+                <button id="up-button">⬆️</button>
+                <span id="temp-value" class="weather">70</span>
+                <button id="down-button">⬇️</button>
+                <button id="temp-button">Get temperature</button>
+        </section>
+        <section class="sky-container">
+            <h2>Sky</h2>
+            <div class="dropdown">
+                <button id="options-id" class="dropbtn">Options</button>
+                <div id="skyDropdown" class="dropdown-content">
+                    <a href="#cloudy">cloudy</a>
+                    <a href="#sunny">sunny</a>
+                    <a href="#rainy">rainy</a>
+                    <a href="#snowy">snowy</a>
+                </div>
+                </div>
+        </section>
+        <section class="city-container">
+            <h2>City name</h2>
+            <input type="text" id="city-input" value="Seattle">
+            <button id="reset-button">reset</button>
+        </section>
+        <section class="weather-garden-container">
+            <h2>Weather Garden</h2>
+            <div id="weather-display" class="garden-content-season">
+                <div id="sky">☁️☁️☁️☁️☁️☁️☁️☁️</div>
+                <div id="ground">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+            </div>
+        </section>
     </section>
     <script src="src/index.js" type="text/javascript"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
