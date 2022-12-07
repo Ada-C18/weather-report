@@ -9,6 +9,48 @@
     <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1 id="weatherHeader">Weather Report</h1>
+    </header>
+    
+    <section>
+        <h2 id="changeTemperature"> Temperature</h2>
+
+        <button id="increaseButton">⬆️</button>
+
+        <p id="startingTemp">
+            60
+        </p>
+
+        <button id="decreaseButton">⬇️</button>
+    </section>
+    
+    <section>
+        <h2 id="skyView"> Sky</h2>
+
+        <select id="skyChoice">
+            <option value="rainy">Rainy</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </section>
+
+    <section>
+        <h2 id="cityName"> City Name</h2>
+        <form class="example">
+            <input type="text" placeholder="Search.." name="Seattle">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </section>
+    
+    <section>
+        <h2 id="weatherGarden">Weather Garden</h2>
+        <p id="skyIcons">🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧</p>
+        <p id="landscapeIcons">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</p>
+
+    </section>
+
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>    
 </body>
