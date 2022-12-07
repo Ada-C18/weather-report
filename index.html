@@ -8,19 +8,24 @@
     <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1 id="site title">The Weather Station</h1>
-        <span class="banner" id="sky banner">...</span>
-    </header>
-    <div class="container">
-        <div>City Name</div>
-        <div>Sky Condition</div>
-        <div>Date & Time</div>
-        <div>Temperature</div>
-    </div>
-    <span class="banner" id="landscape"></span>
-    <footer>Copyright Adies of D18 2022</footer>   
-    
+    <main>
+        <header>
+            <h1 id="siteTitle">The Weather Station</h1>
+            <span class="banner" id="sky banner">...</span>
+        </header>
+        <section class="container">
+            <div>City Name</div>
+            <div>Sky Condition</div>
+            <div>Date & Time</div>
+            <div>
+                <button id="increaseTempButton">Increase Temp</button>
+                <p id="Temperature">Temperature</p>
+                <button id="decreaseTempButton">Decrease Temp</button>
+            </div>
+        </section>
+        <span class="banner" id="landscape">...</span>
+        <footer>Copyright Adies of D18 2022</footer>   
+    </main>
     <script src="scripts/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
