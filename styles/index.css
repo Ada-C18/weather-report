@@ -13,6 +13,7 @@
 #module-section {
     display: flex;
     flex-direction: row;
+    background-color: brown;
 }
 
 #temperature-module {
