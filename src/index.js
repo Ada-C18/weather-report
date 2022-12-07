@@ -60,7 +60,7 @@ let sky = document.getElementById('sky-emoji');
 const changeSky = (selectSky) => {
   if (selectSky.options.value === 'Sunny') {
     sky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (selectSky.options[selectedIndex] === 'Cloudy') {
+  } else if (selectSky.options[selectSky.selectedIndex].value === 'Cloudy') {
     sky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (selectSky.value === 'Rainy') {
     sky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
