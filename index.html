@@ -5,9 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
-    <title>Weather Report</title>
+    <title>Valentina's Weather Report</title>
 </head>
-<body>
+<body class="body">
+    <h2 id="weather-report">Weather Report</h2>
+    <section class="inner-body">
+        <div id="city-container">
+            <h1 id="city-name" contenteditable="true">Choose your city</h1>
+        </div>
+        <div id="temp-container">
+            <h2 id="temp-title">Temperature</h2>
+            <button class="button" id="up-arrow">&UpArrow;</button>
+            <button class="button" id="down-arrow">&DownArrow;</button>
+            <h3>Temp # goes here</h3>
+        </div>
+        <div id="sky-container">
+            <h2 id="sky-title">Choose the sky type</h2>
+            <div class="dropdown-fn">
+                <button class="button" id="dropdown-button">Sky Type &downarrow;</button>
+                <div class="dropdown-content" id="dropdown">
+                    <a href="#" id="sunny">Sunny</a>
+                    <a href="#" id="cloudy">Cloudy</a>
+                    <a href="#" id="rainy">Rainy</a>
+                    <a href="#" id="snowy">Snowy</a>
+                </div>
+            </div>
+        </div>
+        <div id="land-container">
+            <!-- emoji landscape -->
+        </div>
+    </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
