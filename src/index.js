@@ -9,7 +9,7 @@
 
 // const temperature = document.getElementById("display-temp")
 
-//Set default temp (will update with Weather API)
+//Set default temp (will update with Weather API using proxy server)
 // window.onLoad = function() => {temperature.innerText = 50}
 
 //Temp Buttons:
