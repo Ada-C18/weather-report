@@ -1,7 +1,17 @@
+//increases or decreases temperature from click
+let currentTemp = 70;
+const tempUp = () => {
+  const tempValue = document.querySelector('#temp-value');
+  currentTemp += 1;
+  tempValue.innerHTML = currentTemp;
+};
+
+//Tatiana does down function
+const tempDown = () => {};
+
 //city input text updates city name
 const cityName = document.getElementById('city-name');
 const cityInput = document.getElementById('city-input');
-
 const inputHandler = function (e) {
   cityName.innerHTML = e.target.value;
 };
@@ -18,6 +28,9 @@ const registerEventHandlers = () => {
 
   cityInput.addEventListener('input', inputHandler);
   cityInput.addEventListener('propertychange', inputHandler);
+
+  const tempUpButton = document.querySelector('#up-button');
+  tempUpButton.addEventListener('click', tempUp);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
