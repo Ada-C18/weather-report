@@ -13,6 +13,7 @@ const increaseTemp = () => {
     state.temp += 1;
     displayTemp.textContent = `${state.temp}°  F`;
     tempColor(state.temp);
+    gardenDisplayer(state.temp);
 }
 
 const decreaseTemp = () => {
@@ -20,11 +21,11 @@ const decreaseTemp = () => {
     state.temp -= 1;
     displayTemp.textContent = `${state.temp}°  F`;
     tempColor(state.temp);
+    gardenDisplayer(state.temp);
 }
 
 const tempColor = (temp) => {
     const tempBG = document.getElementById("temperature");
-    //depending on value of state.temp, set bgColor
     if (temp >= 80) {
         tempBG.style.backgroundColor = 'red';
     } else if (70 <= temp && temp < 80) {
@@ -53,6 +54,19 @@ const tempColor = (temp) => {
 
 }
 
+const gardenDisplayer = (temp) => {
+    const gardenPics = document.getElementById("garden-pics");
+    if (temp >= 80) {
+        gardenPics.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
+    } else if (70 <= temp && temp < 80) {
+        gardenPics.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
+    } else if (60 <= temp && temp < 70) {
+        gardenPics.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
+    } else if (50 <= temp && temp < 60) {
+        gardenPics.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
+    };
+}
+
 const registerEventHandlers = () => {
     const increaseButton = document.getElementById("increaseButton");
     increaseButton.addEventListener("click", increaseTemp)
@@ -62,3 +76,4 @@ const registerEventHandlers = () => {
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 document.addEventListener("DOMContentLoaded", tempColor(state.temp));
+document.addEventListener("DOMContentLoaded", gardenDisplayer(state.temp));
