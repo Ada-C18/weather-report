@@ -82,11 +82,20 @@ h1 {
     padding: 2vw;
     margin: 1vw;
     margin-left: 2vw;
+}
 
-
+#weather-garden {
+    background-color: lightblue;
+    padding: 4vw;
+    font-size: 5vh;
+    /* width: 4vw;
+    /* height: 3vh; */ */
 }
 
 #right-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 15vw;;
     border: 1px blueviolet solid;
 }

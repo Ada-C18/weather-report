@@ -4,20 +4,24 @@ const state = {
 
 const increaseTemp = (event) => {
   const tempDisplay = document.querySelector('#temperature');
+  const landScape = document.querySelector('#landscape');
 
   state.temperature++;
   tempDisplay.textContent = `${state.temperature}`;
 
   changeTemperatureColor(state.temperature, tempDisplay);
+  changeLandScape(state.temperature, landScape);
 };
 
 const decreaseTemp = (event) => {
   const tempDisplay = document.querySelector('#temperature');
+  const landScape = document.querySelector('#landscape');
 
   state.temperature--;
   tempDisplay.textContent = `${state.temperature}`;
 
   changeTemperatureColor(state.temperature, tempDisplay);
+  changeLandScape(state.temperature, landScape);
 };
 
 const changeTemperatureColor = (temp, tempDisplay) => {
@@ -31,6 +35,20 @@ const changeTemperatureColor = (temp, tempDisplay) => {
     tempDisplay.style.color = 'lightgreen';
   } else if (temp <= 49) {
     tempDisplay.style.color = 'white';
+  }
+};
+
+const changeLandScape = (temp, landscape) => {
+  if (temp >= 80) {
+    landscape.textContent = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
+  } else if (temp >= 70) {
+    landscape.textContent = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+  } else if (temp >= 60) {
+    landscape.textContent = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+  } else if (temp > 50) {
+    landscape.textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+  } else if (temp <= 49) {
+    landscape.textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
   }
 };
 
