@@ -1,3 +1,5 @@
+import { landscapeEmoji } from './constants.js';
+
 // temperature controls
 const state = {
   temp: 39,
@@ -7,12 +9,14 @@ const increaseTemp = () => {
   state.temp += 1;
   const currentTemperature = document.getElementById('temperature');
   currentTemperature.textContent = `${state.temp}`;
+  tempColorAndLandscape();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
   const currentTemperature = document.getElementById('temperature');
   currentTemperature.textContent = `${state.temp}`;
+  tempColorAndLandscape();
 };
 
 const registerEventHandlers = () => {
@@ -27,10 +31,24 @@ const registerEventHandlers = () => {
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 //temperature decorations
-const tempColor = () => {
+const tempColorAndLandscape = () => {
   const temperature = document.getElementById('temperature');
+  const landscape = document.getElementById('landscape');
 
   if (state.temp >= 80) {
-    temperature.color = red;
+    temperature.style.color = 'red';
+    landscape.textContent = landscapeEmoji.hot;
+  } else if (state.temp >= 70) {
+    temperature.style.color = 'orange';
+    landscape.textContent = landscapeEmoji.warm;
+  } else if (state.temp >= 60) {
+    temperature.style.color = 'yellow';
+    landscape.textContent = landscapeEmoji.cool;
+  } else if (state.temp >= 50) {
+    temperature.style.color = 'green';
+    landscape.textContent = landscapeEmoji.freezing;
+  } else {
+    temperature.style.color = 'teal';
+    landscape.textContent = landscapeEmoji.freezing;
   }
 };
