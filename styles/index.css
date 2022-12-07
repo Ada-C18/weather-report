@@ -89,6 +89,29 @@ body {
   text-align: center;
 }
 
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: gold;
+}
+
+.yellow-green {
+  color: yellowgreen;
+}
+
+.green {
+  color: green;
+}
+
+.teal {
+  color: teal;
+}
 /* .container {
   display: flex;
   align-items: baseline;

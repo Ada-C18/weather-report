@@ -11,21 +11,52 @@ const state = {
   temperature: 72,
 };
 
+// temperature color changes based on temp
+const colorEnvChange = () => {
+  let temperature = state.temperature;
+  let color = 'orange';
+  let environment = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  if (temperature >= 80) {
+    color = 'red';
+    environment = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temperature >= 70) {
+    color = 'orange';
+    environment = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temperature >= 60) {
+    color = 'yellow';
+    environment = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (temperature >= 50) {
+    color = 'green';
+    environment = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else {
+    color = 'teal';
+  }
+  const temp = document.getElementById('temperature');
+  temp.className = color;
+
+  const enviro = document.getElementById('landscape');
+  enviro.textContent = environment;
+  // temp.textContent = String(state.temperature);
+};
+
 // create functions
 const increaseTemp = () => {
   state.temperature++;
   temperature.textContent = `${state.temperature}°`;
-  colorChange();
+  colorEnvChange();
 };
 
 const decreaseTemp = () => {
   state.temperature--;
   temperature.textContent = `${state.temperature}°`;
+  colorEnvChange();
 };
 
 // register event handlers
 const registerEventHandlers = () => {
   // Increase Decrease Arrows
+  colorEnvChange();
+
   const arrowUp = document.getElementById('arrow-up');
   arrowUp.addEventListener('click', increaseTemp);
 
@@ -34,10 +65,3 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-// temperature color changes based on temp
-const colorChange = () => {
-  if (temperature.textContent >= 80) {
-    temperature.textContent.style.color = 'red';
-  }
-};
