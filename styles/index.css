@@ -3,11 +3,12 @@
 body{
     background-color: rgb(247, 237, 219);
     font-family: 'Work Sans';
+    font-size: large;
 }
 
 .teal {
     color: rgb(12, 164, 177)
-    
+
 }
 
 .green {
@@ -15,7 +16,7 @@ body{
 }
 
 .yellow {
-    color: yellow
+    color: rgb(173, 173, 0)
 }
 
 .orange {
@@ -37,4 +38,9 @@ body{
     justify-content: space-between;
     font-size: xx-large;
 
+}
+
+#increaseTemp, #decreaseTemp {
+    border: transparent;
+    padding: 0;
 }

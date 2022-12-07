@@ -1,25 +1,26 @@
 // logic to change temperature using the buttons
 const state = {
-  defaultTemp: 45,
+  temp: 45,
+  city: "Seattle",
 };
 
 const addTemp = (event) => {
-  state.defaultTemp += 1;
+  state.temp += 1;
   const tempControl = document.querySelector('#currentTemp');
-  tempControl.textContent = state.defaultTemp;
+  tempControl.textContent = state.temp;
   changeTempNumColor();
 };
 
 const minusTemp = (event) => {
-  state.defaultTemp -= 1;
+  state.temp -= 1;
   const tempControl = document.querySelector('#currentTemp');
-  tempControl.textContent = state.defaultTemp;
+  tempControl.textContent = state.temp;
   changeTempNumColor();
 };
 
-//HELPER FUNCTION logic for temperture color to change
+//HELPER FUNCTION logic for temperture to change color font, landscape and sky
 const changeTempNumColor = () => {
-  let temp = state.defaultTemp;
+  let temp = state.temp;
   const skyElement = document.querySelector('#sky');
   const landScapeElement = document.querySelector('#gardenlandscape');
 
@@ -46,16 +47,6 @@ const changeTempNumColor = () => {
   }
 };
 
-//HELPER FUNCTION TO CHANGE SKY AND LANDSCAPE
-
-// const changeSkyAndLandscape = () =>{
-//   const skyElement = document.querySelector('#sky');
-//   const landScapeElement = document.querySelector('#landscape');
-
-//   let temp = 
-// }
-
-// event handlers and listeners
 const registerEventHandlers = (event) => {
   const decreaseTempButton = document.querySelector('#decreaseTemp');
   decreaseTempButton.addEventListener('click', minusTemp);
