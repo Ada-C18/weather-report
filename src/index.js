@@ -1,8 +1,9 @@
 'use strict';
 
 const increaseTemp = () => {
+  let x = 0;
   const currentTemp = document.querySelector("#temp_value");
-  currentTemp++;
+  currentTemp.textContent = x++;
 }
 
 const decreaseTemp = () => {
