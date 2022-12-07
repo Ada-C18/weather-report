@@ -9,26 +9,33 @@
 </head>
 <body>
     <section class="firstheader">
-        <h1>Weather Report</h1><br><p class="headerp">for the lovely city of <span>&#10024;</span> Seattle <span>&#10024;</span></p>
+        <h1>Weather Report</h1><br><br>
+        <p class="headerp">for the lovely city of <span>&#10024;</span> Seattle <span>&#10024;</span></p>
     </section>
-    <section>
-        <div>
-            <button id="up"><span>&#9195;</span></button>
-            <h3>Temperature</h3>
-            <button id="down"><span>&#9196;</span></button>
-            <button>Get Realtime Temperature</button>
+    <section class="secondpart">
+        <div id="temperatureBox">
+            <div id="temperaturecontral">
+                <h3 class="topic">Temperature</h3>
+                <button id="up"><span>&#9195;</span></button>
+                temperature
+                <button id="down"><span>&#9196;</span></button>
+            </div>
+            <button id="gettemperature">Get Realtime Temperature</button>
         </div>
-        <div>
-            <h3>Sky</h3>
-            <ul>
-                <li>Cloudy</li>
-                <li>Sunny</li>
-                <li>Snowy</li>
-                <li>Rainy</li>
-            </ul>
+        <div class="skyBox">
+            <h3 class="topic">Sky</h3>
+            <nav>
+                <label for="touch"><span>weather</span></label>               
+                <ul class="slide">
+                    <li><a href="#">Cloudy</a></li> 
+                    <li><a href="#">Sunny</a></li> 
+                    <li><a href="#">Snowy</a></li>
+                    <li><a href="#">Rainy</a></li>
+                </ul>
+              </nav> 
         </div>
-        <div>
-            <h3>City Name</h3>
+        <div class="skyBox">
+            <h3 class="topic">City Name</h3>
             <input>
             <button>Reset</button>
         </div>
@@ -38,6 +45,6 @@
         <div><img>put picture here</div>
     </section>
 
-    
+    <script src="src/index.js"></script>
 </body>
 </html>
