@@ -1,8 +1,8 @@
 body {
     background-color: lightblue;
     display: grid;
-    /* grid-template-columns: */
-    grid-template-rows: 1fr 4fr 2fr;
+    /* grid-template-columns: 1fr 4fr 2fr; */
+    grid-template-rows: 1fr 4fr 3fr;
     grid-gap: 1rem;
     row-gap: 1rem;
     font-family: Rubik,sans-serif;
@@ -10,14 +10,16 @@ body {
     margin: 2rem;
 }
 
+
 #headerContainer {background-color: green;
+    grid-template-columns: 1fr 1fr;
 }
 
-#tempandskycontainer { 
+#tempskycitycontainer { 
     background-color: plum; 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     column-gap: 1in;
     justify-content:center;
 
@@ -29,15 +31,22 @@ body {
 }
 
 #tempContainer h2 {
-    padding: 25%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 10%;
 }
 
 #skyContainer { 
     border: 1px solid;
 }
 
+#citycontainer { 
+    border: 1px solid;
+    padding: 10%;
+}
 #skyContainer h2 { 
-    padding: 25%;
+    padding: 10%;
 }
 
 #gardenContainer { background-color: green; 
