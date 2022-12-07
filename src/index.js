@@ -19,8 +19,9 @@ const changeTempColor = () => {
   const box = document.getElementById('currentTemp');
   if (state.currentTemp >= 80) {
       box.style.color = 'red';
-      newLandscape.textContent = "🌵";
-      landscapeContainer.appendChild(newLandscape)
+      newLandscape.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+      landscapeContainer.replaceChild(newLandscape)
+      // appendChild(newLandscape)
 
   }else if ( state.currentTemp >= 70 && state.currentTemp <=79){
     box.style.color = 'orange';
