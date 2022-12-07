@@ -1,25 +1,75 @@
+<!-- soleil edits? -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-    <link href="styles/index.css" rel="stylesheet" type="text/css"/>
-</head>
-<body >
-    <header >
-        <h1>Weather Report</h1>
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>Weather Report</h1>
+      <section class="searchBox">
+        <input id="search-box" type="text" placeholder="Enter A City" />
+        <button id="search-reset-btn">Reset</button>
+      </section>
+    </header>
+    <main class="flex-container">
+      <section class="item temp">
+        <section id="temp-arrow-buttons">
+          <h1>Temperature</h1>
+          <button id="arrow-up">⬆️</button>
+          <span id="temperature">72°</span>
+          <button id="arrow-down">⬇️</button>
+        </section>
+      </section>
+      <section class="item sky">
+        <section id="drop-down-menu">
+          <select id="select-choices">
+            <option>Choose Your Sky</option>
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+          </select>
+        </section>
+      </section>
+      <section class="item cityName">City</section>
+      <section class="item weatherGarden">Weather</section>
+    </main>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>Weather Report</h1>
     </header>
     <section class="container">
-        <h1>Temprature</h1>
+      <h1>Temprature</h1>
     </section>
     <section class="container">
-        <h1>Sky</h1>
+      <h1>Sky</h1>
     </section>
     <section class="container">
-        <h1>City Name</h1>
+      <h1>City Name</h1>
     </section>
-    <script src="./node_modules/axios/dist/axios.min.js" src="src/index.js"></script>
-</body>
-</html>
+    <script
+      src="./node_modules/axios/dist/axios.min.js"
+      src="src/index.js"
+    ></script>
+  </body>
+</html> -->
