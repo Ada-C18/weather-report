@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-    <link href="styles/index.css" rel="'stylesheet"/>
+    <link href="styles/index.css" rel="stylesheet"/>
 </head>
 <body>
     <section>
@@ -16,10 +16,19 @@
         <main>
             <h3>Weather Garden</h3>
         </main>
-        <aside>
-            <div>
+        <aside class="container">
+            <div id="temp">
                 <h3>Temperature</h3>
+                <div class="temp_content">
+                    <span id="increase_temp">⬆️</span>
+                    <span id="temp_value">49</span>
+                    <span id="decrease_temp">⬇️</span>
+                </div>
+                <div>
+                    <button>Get Realtime Temperature</button>
+                </div>
             </div>
+
             <div>
                 <h3>Sky</h3>
             </div>
