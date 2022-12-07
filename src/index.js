@@ -53,12 +53,26 @@ const decreaseTemp = () => {
   setLandscape();
 };
 
+const renameCity = () => {
+  const cityInput = document.getElementById('city-input');
+  let newCity = cityInput.value;
+  console.log(newCity);
+  const cityName = document.querySelector('#city-name');
+  cityName.textContent = newCity;
+};
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.querySelector('#increase-temp');
   increaseTempButton.addEventListener('click', increaseTemp);
 
   const decreaseTempButton = document.querySelector('#decrease-temp');
   decreaseTempButton.addEventListener('click', decreaseTemp);
+
+  const citySubmit = document.querySelector('#rename-city');
+  citySubmit.addEventListener('submit', (event) => {
+    event.preventDefault();
+    renameCity();
+  });
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
