@@ -1,0 +1,24 @@
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: grid;
+    grid-template: 1 fr 3 fr 2fr;
+    background-color: rgb(168, 53, 53);
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    grid-row: 1;
+    background-color: blue;
+}
+
+.sky_vis{
+    grid-row:2;
+    background-color: darkorange;
+}
+
+.ground-vis{
+    grid-row:3;
+    background-color: plum;
+}
