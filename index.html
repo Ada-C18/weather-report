@@ -13,18 +13,18 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <h4>for the lovely city of ✨<span></span>✨</h4>
+        <h4>for the lovely city of ✨<span id="city-name"></span>✨</h4>
     </header>
     <aside>
         <section>
             <section>
                 <h4>Temperature</h4>
-                <button>⬆️</button>
-                <h3></h3>
-                <button>⬇️</button>
+                <button id="temp-up">⬆️</button>
+                <h3 id ="display-temp"></h3>
+                <button id="temp-down">⬇️</button>
             </section>
             <section>
-                <button>Get RealTime Temperature</button>
+                <button id="realtime">Get RealTime Temperature</button>
             </section>
         </section>
         <section>
@@ -38,17 +38,17 @@
         </section>
         <section>
             <h4>City Name</h4>
-            <input type="text">
-            <button>Reset</button>
+            <input type="text" id="input-city">
+            <button id="reset">Reset</button>
         </section>
     </aside>
     <main>
         <h2>Weather Garden</h2>
         <section>
-            <p>🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧</p>
+            <p id="sky-emoji">🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧</p>
         </section>
         <section>
-            <p>🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</p>
+            <p id="ground-emoji">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</p>
         </section>
     </main>
 </body>
