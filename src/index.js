@@ -10,47 +10,50 @@
 
 // Wave 2
 // REQS
-// 1. 2 clickable elements
+// -- 2 clickable elements
 // add event listeners
+
 // 1. increase
+let state = {
+  temp: 60,
+};
+
+// set state temp value in #degrees
+// setup
+
+const addDegree = (event) => {
+  // Crab Count Behavior
+  state.temp += 1;
+  console.log('state temp', state.temp);
+
+  const tempContainer = document.querySelector('#degrees'); // output: null
+  // console.log('temp container', tempContainer); // null
+
+  tempContainer.textContent = state.temp;
+};
+
 // 2. decrease
+const subtractDegree = (event) => {
+  // Crab Count Behavior
+  state.temp -= 1;
+  console.log('state temp', state.temp);
 
-// increase
-// const addDegree = () => {
+  const tempContainer = document.querySelector('#degrees'); // output: null
+  // console.log('temp container', tempContainer); // null
 
-// };
-
-// let temp = 85;
-
-// descrease
-// BUG
-// - either method
-// - attributes, class or id names
-// - create temp variable in js
-const subtractDegree = () => {
-  let temp = document.querySelector('degrees'); // grabs whole element
-  console.log(temp); // need to get
-
-  let newTemp;
-  if (temp) {
-    newTemp = temp.getAttribute('nav');
-    // console.log(newTemp);
-  }
-  newTemp = newTemp.parseInt();
-
-  newTemp = newTemp - 1;
-  return newTemp;
-
-  // let temp = document.textContent;
-  // console.log(temp);
+  tempContainer.textContent = state.temp;
 };
 
-const registerEventHandlers = () => {
-  const decreaseTemp = document.querySelector('#down-arrow');
-  decreaseTemp.addEventListener('click', subtractDegree);
+// registers all handles once DOM loaded
+const registerHandlers = (event) => {
+  const downArrow = document.querySelector('#down-arrow');
+  downArrow.addEventListener('click', subtractDegree);
+
+  const upArrow = document.querySelector('#up-arrow');
+  upArrow.addEventListener('click', addDegree);
 };
 
-document.addEventListener('DOMContentLoaded', registerEventHandlers); // BUG
+document.addEventListener('DOMContentLoaded', registerHandlers);
 
 // 2. temp ranges
 // -- number color changes
