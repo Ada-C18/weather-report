@@ -1,5 +1,6 @@
 const state = {
   temperature: 70,
+  cityName: 'Seattle',
 };
 
 const increaseTemp = (event) => {
@@ -52,6 +53,14 @@ const changeLandScape = (temp, landscape) => {
   }
 };
 
+const changeCityName = (event) => {
+  const cityName = document.querySelector('#city-name');
+  const input = document.querySelector('#city-search').value;
+
+  state.cityName = input;
+  cityName.textContent = `${state.cityName}`;
+};
+
 const registerEventHandlers = (event) => {
   console.log('registerEventHandlers called');
   const increaseButton = document.querySelector('#increase-temp');
@@ -59,6 +68,9 @@ const registerEventHandlers = (event) => {
 
   const decreaseButton = document.querySelector('#decrease-temp');
   decreaseButton.addEventListener('click', decreaseTemp);
+
+  const citySearchButton = document.querySelector('#change-city');
+  citySearchButton.addEventListener('click', changeCityName);
 };
 
 if (document.readyState !== 'loading') {
