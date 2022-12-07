@@ -46,15 +46,14 @@ header .city_bar{
     grid-template: 4fr 1fr / 1fr 1fr ;
     align-items: center;
     text-align: center;
+    padding: 10px;
 }
 
 #temp_display {
     grid-row: 1;
     grid-column: 1;
-    background-color: antiquewhite;
     margin: auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 20px;
 
     
 }
@@ -78,4 +77,32 @@ header .city_bar{
     padding: auto;
     margin: auto;
     padding-bottom: 35px;
+}
+
+
+
+/* cahnges temp color */
+
+ .red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.white {
+    background-color: aliceblue;
 }
