@@ -4,46 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <header>
+    <header class ="header__header">
         <h1>Weather Report</h1>
-        <h2>City</h2>
+        <span>Love Mother Nature
+            <span id="headerCityName" class="'header__city-name">
+                Seattle   
+            </span>
+        </span>
     </header>
-    <section id = "controls-section" class = "flex-container">
-        <h3>Control the Weather!</h3>
-        <div>
-            <div class = "flex-el">
-                <h4>Enter a City</h4>
-                <input type="text">
+    <section class=""temperature__section>
+        <h2>Temperature</h2>
+        <div class="temperature__content"> 
+            <div class="temperature__controls">
+                <span id="increaseTempControl"></span>
+                <span id="tempValue" class></span>
+                <span id="decreaseTempControl"></span>
             </div>
-            <div class = "flex-el">
-                <h4>Pick the Sky</h4>
-                <select>
-                    <option>A</option>
-                    <option>A</option>
-                    <option>A</option>
-                    <option>A</option>
-                </select>
-            </div>
-            <div class = "flex-el"> 
-                <h4>Choose Temperature or Toggle</h4>
-                <span id = "tempDisplay">0</span>
-                <input type="text">
-                <button id="increaseButton">Increase</button>
-                <button id="decreaseButton">Decrease</button>
-            </div>
+            <button id="currentTempButton">Get Realtime Temperature</button>
         </div>
     </section>
-    <section id = "report-section">
-        <h3>Today's Forecast</h3>
-        <div>
-            <span id="landscapeDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
-        </div>
-        <h3>Report</h3>
+    <section class=""sky__section>
+        <h2>Sky</h2>
+        <select id="skySelect">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
     </section>
-    <script src="./src/index.js"></script>
+    <section class="city-name__section">
+        <h2>City Name</h2>
+        <input id="cityNameInput" type="text" value="Seattle">
+        <button id=""cityNameReset class=""city-name__reset-btn>
+        Reset</button>
+    </section>
+    <section class="garden__section">
+        <h2>Weather Garden</h2>
+        <div id="gardenContent" class="garden__content snowy"></div>
+    </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="/src/index.js"></script>
 </body>
 </html>
