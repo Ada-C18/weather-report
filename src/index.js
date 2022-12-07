@@ -1,7 +1,9 @@
-//const { default: axios } = require("axios");
+// const { default: axios } = require("axios");
+
 'use strict';
 
 axios;
+
 
 var clicks = 32;
 
