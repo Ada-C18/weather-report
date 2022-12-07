@@ -12,13 +12,16 @@
         <h1>Weather Report</h1>
           <div>
             <h3>For the city of
-            <span>San Francisco</span>
+            <span id="city">San Francisco</span>
               </h3>
           </div>
     </header>
-    <section>
-        <h2>Landscape</h2>
-
+    <section class="environment_box">
+        <h2>Environment</h2>
+        <div class="environment_elements">
+            <div id="landscape_image">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</div>
+            <div id="sky_image"></div>
+        </div>
     </section>
     <section class="temperature_container">
         <h2>Temperature</h2>
@@ -26,10 +29,10 @@
            <button id="temperature_btn">
             Temperature Right Now in Fahrenheit!
            </button> 
-           <div class="temperature_display">
-            <button id="up_button">⬆️</button>
-            <span id="temperature_value">60</span>
-            <button id="up_button">⬇️</button>
+           <div class="temperature-display">
+            <button id="up-button">⬆️</button>
+            <span class= "yellow" id="temperature-value">60</span>
+            <button id="down-button">⬇️</button>
            </div>
         </div>
     </section>
