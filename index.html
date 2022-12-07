@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script src="./src/index.js"></script>
-    <link href="./styles/index.css" rel="stylesheet" />
-</head>
-<body>
-    <section id="temperature">
-        <h1>Temperature</h1>
-        <span id="temperature-reading"> 70 </span>
-        <a id="temperature-up"> ⬆️ </a>
-        <a id="temperature-down"> ⬇️ </a>
-    </section>
-    <!-- <section id="temperature-garden"></section> -->
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <script src="./node_modules/axios/dist/axios.min.js"></script>
+        <script src="./src/index.js"></script>
+        <link href="./styles/index.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+            <header>
+                <section class="top-banner">
+                    <div class="container">
+                        <h1 class="heading">Weather Channel</h1>
+                        <form>
+                            <input type="text" placeholder="Search for a city" autofocus>
+                            <button type="submit">SUBMIT</button>
+                            <span class="msg"></span>
+                        </form>
+                    </div>
+                </section>
+        
+                <section class="ajax-section">
+                    <div class="container">
+                        <ul class="cities"></ul>
+                    </div>
+                </section>
+            </header>
+            <main>
+                My content
+            </main>
+            <aside id="temp">
+                <section id="temperature">
+                    <h1>Temperature</h1>
+                    <span id="temperature-reading"> 70 </span>
+                    <a id="temperature-up"> ⬆️ </a>
+                    <a id="temperature-down"> ⬇️ </a>
+                </section>
+            </aside>
+            <aside id="mysky">
+                My sky
+            </aside>
+            <footer>
+                Contact me
+            </footer>
+        </div>
+    </body>
 </html>
