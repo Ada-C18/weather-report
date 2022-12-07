@@ -1,29 +1,23 @@
-let counterDisplayElem = document.querySelector('#counter-display');
+let counterDisplayElem = document.querySelector('.count');
 let counterMinusElem = document.querySelector('.counter-minus');
 let counterPlusElem = document.querySelector('.counter-plus');
 
 let count = 0;
-updateDisplay();
 
-counterPlusElem.addEventListener('click', () => {
-  count++;
-  updateDisplay();
-});
+const registerEventHandlers = () => {
+  counterPlusElem.addEventListener('click', () => {
+    counterDisplayElem.innerHTML++;
+  });
 
-counterMinusElem.addEventListener('click', () => {
-  count++;
-  updateDisplay();
-});
-
-const updateDisplay = () => {
-  counterDisplayElem.innerHTML = count;
+  counterMinusElem.addEventListener('click', () => {
+    counterDisplayElem.innerHTML--;
+  });
 };
-
-
-
 
 //City Search Bar
 
-document.getElementById("submit-button").addEventListener("click", () => {
-  console.log(document.getElementById("submit-city"));
-});
+// document.getElementById('submit-button').addEventListener('click', () => {
+//   console.log(document.getElementById('submit-city'));
+// });
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
