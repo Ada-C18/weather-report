@@ -4,21 +4,23 @@
 
 // WAVE 2
 const currentTemp = {
-  currTemp: 72, //This will be a function call in later wave
+  currTemp: 59, //This will be a function call in later wave
 };
 
 const upTemp = () => {
   console.log('up');
   currentTemp.currTemp++;
-  const tempContainer = document.querySelector('#temp-current');
-  tempContainer.textContent = `${currentTemp.currTemp}`;
-  tempColor(currentTemp.currTemp);
-  landTitle();
+  setTempNColor();
 };
 
 const downTemp = () => {
   console.log('down');
   currentTemp.currTemp--;
+  setTempNColor();
+};
+
+const setTempNColor = () => {
+  console.log(currentTemp.currTemp);
   const tempContainer = document.querySelector('#temp-current');
   tempContainer.textContent = `${currentTemp.currTemp}`;
   tempColor(currentTemp.currTemp);
@@ -85,44 +87,56 @@ const landTitle = () => {
 };
 
 // WAVE 3
-const originalCity = {target:{value:'Seattle'}};
+const originalCity = { target: { value: 'Seattle' } };
 
 const changeCityText = (e) => {
   // const newCityName = document.getElementById('city-input').value;
   const currentCityName = document.getElementById('current-city');
   currentCityName.innerHTML = `This is the weather for ${e.target.value}`;
-  console.log(e);
-  // getWeather(e.target.value);
+  // console.log(e);
+  findLatitudeAndLongitude(e.target.value)
+    .then((response) => (currentTemp.currTemp = response))
+    .finally(console.log(currentTemp.currTemp));
+  setTempNColor();
 };
 
 // WAVE 4
-/*const findLatitudeAndLongitude = (query) => {
+const findLatitudeAndLongitude = (city_name_str) => {
   let latitude, longitude;
-  axios
+  console.log(city_name_str);
+  return axios
     .get('http://127.0.0.1:5000/location', {
-      q: query,
+      params: {
+        q: city_name_str,
+      },
     })
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
       console.log('success in findLatitudeAndLongitude!', latitude, longitude);
-      return { lat: latitude, lon: longitude };
+      return getWeather({ lat: latitude, lon: longitude });
     })
     .catch((error) => {
-      console.log('error in findLatitudeAndLongitude!');
+      console.log(`error in findLatitudeAndLongitude: ${error}`);
     });
 };
 
 const getWeather = (query) => {
-  axios
-    .get('http://127.0.0.1:5000/weather', findLatitudeAndLongitude(query))
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: query.lat,
+        lon: query.lon,
+      },
+    })
     .then((response) => {
-      console.log(response);
+      // return response.data.main.temp);
+      return Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
     })
     .catch((error) => {
       console.log('there was an error with weather API');
     });
-};*/
+};
 
 //WAVE 5
 /*
@@ -134,31 +148,32 @@ const getWeather = (query) => {
 const changeSky = () => {
   const currentSky = document.getElementById('sky-selector');
   const skyValue = currentSky.value;
-  console.log(skyValue,currentSky)
+  console.log(skyValue, currentSky);
   let skyPic;
   switch (skyValue) {
     case 'Sunny':
-      skyPic = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+      skyPic = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
       break;
     case 'Cloudy':
-      skyPic = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+      skyPic = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
       break;
     case 'Rainy':
-      skyPic = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+      skyPic = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
       break;
     case 'Snowy':
-      skyPic = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+      skyPic = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
       break;
   }
-  const skyBox = document.getElementById('sky')
-  skyBox.innerHTML = skyPic
-}
+  const skyBox = document.getElementById('sky');
+  skyBox.innerHTML = skyPic;
+};
 
 // WAVE 6
 const resetCity = () => {
-  changeCityText(originalCity)
-  
-}
+  changeCityText(originalCity);
+};
+
+// resetCity();
 
 // EVENT HANDLERS
 
