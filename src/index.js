@@ -26,6 +26,9 @@ const registerEventHandlers = () => {
   //decrease temp
   const decreaseTempButton = document.getElementById('dec-temp');
   decreaseTempButton.addEventListener('click', decreaseTemp);
+  //text input
+  const inputBox = document.getElementById('text-field');
+  inputBox.addEventListener('keyup', displayText);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -51,4 +54,12 @@ const tempColorAndLandscape = () => {
     temperature.style.color = 'teal';
     landscape.textContent = landscapeEmoji.freezing;
   }
+};
+
+// text field input
+const displayText = () => {
+  const cityName = document.getElementById('city-name');
+  const textField = document.getElementById('text-field');
+
+  cityName.textContent = textField.value;
 };

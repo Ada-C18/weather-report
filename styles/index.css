@@ -1,66 +1,30 @@
 /* IDs */
-#header {
+/* sections */
+#header {}
 
-}
+#navigation {}
 
-#navigation {
+#local-temperature {}
 
-}
+#sky-drop-down {}
 
-#local-temperature {
+#city-selector {}
 
-}
+#weather-garden {}
 
-#sky-drop-down {
+/* assets */
+#inc-temp {}
 
-}
+#dec-temp {}
 
-#city-selector {
+#weather-emojis {}
 
-}
+#landscape {}
 
-#weather-garden {
-    
-}
+#temperature {}
 
-#inc-temp {
+#text-field {}
 
-}
-
-#dec-temp {
-
-}
-
-#weather-emojis {
-    
-}
-
-#landscape {
-
-}
-
-#temperature {
-    color:black
-}
+#city-name {}
 
 /* classes */
-/* temperature colors */
-.color-49 {
-    color: teal
-}
-
-.color-50-59 {
-    color: green
-}
-
-.color-60-69 {
-    color: Yellow
-}
-
-.color-70-79 {
-    color: Orange
-}
-
-.color-80 {
-    color: red
-}
