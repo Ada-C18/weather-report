@@ -9,11 +9,11 @@
 	<script src="./node_modules/axios/dist/axios.min.js"></script>
     <title>Weather Report</title>
 </head>
-<body>
-    <div id="temperature"><span class="temp">100</span><span class="unit">F</span></div>
+<body id="body">
+    <div class="temp_display"><span id="temp">100</span><span class="unit">F</span></div>
     <div class="controls">
-        <button id="temp_increase">Increase Temp</button>
-        <button id="temp_decrease">Decrease Temp</button>
+        <button onclick="increaseTemp()" id="temp_increase">Increase Temp</button>
+        <button onclick="decreaseTemp()" id="temp_decrease">Decrease Temp</button>
     </div>
     <div id="landscape">This is a landscape</div>
 </body>
