@@ -1,7 +1,7 @@
 'use strict';
 const state = {
   temperature: 70,
-  cityName: 'Seattle',
+  cityName: '',
 };
 
 const updateTemperature = () => {
@@ -47,8 +47,12 @@ const changeCityName = (input) => {
   cityName.textContent = state.cityName;
 };
 
-const registerEventHandlers = () => {
+const initializeContent = () => {
   updateTemperature();
+  changeCityName('Seattle');
+};
+
+const registerEventHandlers = () => {
   const tempUpButton = document.getElementById('temp-up-btn');
   tempUpButton.addEventListener('click', function () {
     incrementTemperature('add');
@@ -66,3 +70,4 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+document.addEventListener('DOMContentLoaded', initializeContent);
