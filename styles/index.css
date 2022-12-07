@@ -10,7 +10,6 @@ header {
     color: rgb(19, 9, 9);
 }
 
-
 .group-container {
     display: grid;
     grid-template-columns: 1fr auto auto 1fr;
@@ -47,6 +46,7 @@ width: 300px;
 /* background-color: gray; */
 }  
 
+/* drop down button style */
 .dropbtn {
     background-color: #3498DB;
     color: white;
@@ -85,3 +85,23 @@ width: 300px;
 .dropdown a:hover {background-color: #ddd;}
   
 .show {display: block;}
+
+/* text colors */
+.red {
+    color:red;
+}
+.orange {
+    color:orange;
+}
+
+.yellow {
+    color:yellow;
+}
+.green {
+    color:green;
+}
+.teal {
+    color: teal;
+}
+
+

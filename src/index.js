@@ -1,13 +1,43 @@
-//increases or decreases temperature from click
+`"use strict";`
+
+
+//increases temperature from click
 let currentTemp = 70;
 const tempUp = () => {
   const tempValue = document.querySelector('#temp-value');
   currentTemp += 1;
   tempValue.innerHTML = currentTemp;
+  changeTemperatureColor();
+};
+//decreases temperature from click
+const tempDown = () => {
+  const tempValue = document.querySelector("#temp-value")
+  currentTemp -= 1;
+  tempValue.innerHTML = currentTemp;
+  changeTemperatureColor();
 };
 
-//Tatiana does down function
-const tempDown = () => {};
+
+//changes colors according to temperature
+const changeTemperatureColor = () => {
+  const textColor = document.getElementById("temp-value");
+  const groundLand = document.getElementById("ground");
+  if (currentTemp >= 80) {
+    textColor.className = "red";
+    groundLand.innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+  } else if (currentTemp >= 70 && currentTemp <= 79) {
+    textColor.className = "orange";
+    groundLand.innerHTML = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+  } else if (currentTemp >= 60 && currentTemp <= 69) {
+    textColor.className = "yellow";
+    groundLand.innerHTML = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+  } else if (currentTemp >= 50 && currentTemp <= 59) {
+    textColor.className = "green";
+    groundLand.innerHTML = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  } else {
+    textColor.className = "teal";
+    groundLand.innerHTML = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+}};
 
 //city input text updates city name
 const cityName = document.getElementById('city-name');
@@ -31,6 +61,9 @@ const registerEventHandlers = () => {
 
   const tempUpButton = document.querySelector('#up-button');
   tempUpButton.addEventListener('click', tempUp);
+
+  const tempDownButton = document.querySelector('#down-button');
+  tempDownButton.addEventListener('click',tempDown);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
