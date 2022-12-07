@@ -5,8 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="../styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <main>
+        <h1>Weather Report</h1>
+        <h2>Today in <span>Location-Placeholder</span></h2>
+        <section class="grid-container">
+            <img id="cloud-icon">
+            <h3 class="temp" id="curr-temp">CurrentTempFromAPI-Placeholder</h3>
+            <button class="temp" id="change-temp">Increase-Decrease-Temp</button>
+            <button id="sky-dropdown">Select Sky</button>
+            <button id="reset-temp-btn">Reset Temperature</button>
+        </section>
+    </main>
+    <script src="index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

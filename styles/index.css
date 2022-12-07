@@ -1,0 +1,23 @@
+* {
+    border: 1px solid red;
+}
+main h1, main h2 {
+    text-align: center;
+}
+.grid-container {
+    display:grid;
+    grid-template-rows: 50vw 50vw;
+    grid-template-columns: 50vw 50vw;
+}
+#cloud-icon {
+    grid-column-start: 1;
+}
+.temp {
+    grid-column-start: 2;
+}
+#sky-dropdown {
+    grid-column-start: 1;
+}
+#reset-temp-btn {
+    grid-column-start: 2;
+}
