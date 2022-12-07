@@ -1,4 +1,5 @@
-'use strict';
+('use strict');
+
 const state = {
   temperature: 70,
   cityName: '',
@@ -45,6 +46,23 @@ const changeCityName = (input) => {
   state.cityName = input;
   const cityName = document.getElementById('city-name');
   cityName.textContent = state.cityName;
+  console.log(state.cityName);
+};
+
+const getWeather = () => {
+  // const axios = require('axios');
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: { q: `${state.cityName}` },
+    })
+    .then((response) => {
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
+      console.log(`${state.cityName} lat: ${lat} lon: ${lon}`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 const initializeContent = () => {
@@ -54,18 +72,23 @@ const initializeContent = () => {
 
 const registerEventHandlers = () => {
   const tempUpButton = document.getElementById('temp-up-btn');
-  tempUpButton.addEventListener('click', function () {
+  tempUpButton.addEventListener('click', () => {
     incrementTemperature('add');
   });
 
   const tempDownButton = document.getElementById('temp-down-btn');
-  tempDownButton.addEventListener('click', function () {
+  tempDownButton.addEventListener('click', () => {
     incrementTemperature('subtract');
   });
 
   const cityInput = document.getElementById('input-city');
-  cityInput.addEventListener('input', function () {
+  cityInput.addEventListener('input', () => {
     changeCityName(cityInput.value);
+  });
+
+  const getTempButton = document.getElementById('get-temp-btn');
+  getTempButton.addEventListener('click', () => {
+    getWeather();
   });
 };
 
