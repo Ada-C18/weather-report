@@ -16,12 +16,14 @@ const handleIncrement = () => {
   state.temp++;
   temperatureValue.innerHTML = `${state.temp}°f`;
   changeColor();
+  changeLandscape();
 };
 
 const handleDecrement = () => {
   state.temp--;
   temperatureValue.innerHTML = `${state.temp}°f`;
   changeColor();
+  changeLandscape();
 };
 
 incrementCount.addEventListener('click', handleIncrement);
@@ -48,11 +50,24 @@ const changeColor = () => {
   totalCount.className = color;
 };
 
+const ground = document.getElementById('ground');
+
 const changeLandscape = () => {
+  let temp = state.temp;
+  let ground = '';
   if (temp > 80) {
+    ground = '🌵_🏜__🌵🐍';
+  } else if (temp > 70) {
+    ground = '🏝_⛱__🏝_🌊';
+  } else if (temp > 60) {
+    ground = '🌳_🌈__🌳_🌸';
+  } else {
+    ground = '🌲_🌲__⛄️_🌲🌲';
   }
+  // ground-contents.className = ground;
 };
 
 const registerEventHandlers = () => {
   changeColor();
+  changeLandscape();
 };
