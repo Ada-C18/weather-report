@@ -10,6 +10,43 @@ header {
     color: rgb(19, 9, 9);
 }
 
+
+.group-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    grid-template-rows: 1fr,1fr;
+    grid-gap: 20px;
+}
+.temperature-container {
+grid-column: 2/3;
+grid-row: 1/2;
+height: 300px;
+width: 300px;
+/* background-color: gray; */
+}
+
+.sky-container {
+grid-column: 2/3;
+grid-row: 2/3;
+height: 300px;
+width: 300px;
+/* background-color: gray; */
+}
+.city-container {
+grid-column: 3/4;
+grid-row: 1/2;
+height: 300px;
+width: 300px;
+/* background-color: gray; */
+}
+.weather-garden-container {
+grid-column: 3/4;
+grid-row: 2/3;
+height: 300px;
+width: 300px;
+/* background-color: gray; */
+}  
+
 .dropbtn {
     background-color: #3498DB;
     color: white;
