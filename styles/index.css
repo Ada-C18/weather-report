@@ -1,3 +1,15 @@
+body {
+    background-color: #50c9c9;
+    font-family: monospace;
+}
+
+header {
+    font-size: 2em;
+    text-align: center;
+    font-family: monospace;
+    color: rgb(19, 9, 9);
+}
+
 .dropbtn {
     background-color: #3498DB;
     color: white;
