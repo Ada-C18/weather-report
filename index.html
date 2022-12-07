@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/index.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body>
     <header>
-        <img>Sky</img>
+        <img id="sky">Sky</img>
         <nav>
             <select>
                 <option id="sunny"> Sunny</option>
@@ -17,19 +18,23 @@
                 <option id="snowy"> Snowy</option>
             </select>
         </nav>
-        <h1>City</h1>
-        <h2>Weather Report</h2>
+        <h1 id="city-name-display">City</h1>
+        <h2 id="weather-report-heading">Weather Report</h2>
     </header>
     <main>
-        <a>Temp</a>
-        <a>Plus</a>
-        <a>Minus</a>
+        <a id="temp-display">Temp</a>
+        <a id="temp-plus">Plus</a>
+        <a id="temp-minus">Minus</a>
         <input value="rename">
-        <button>current temp</button>
-        <button>reset</button>
+        <button id="reset-temp">current temp</button>
+        <button id="reset-city-button">reset</button>
     </main>
     <footer>
-        <img>landscape image </img>
+        <img id="landscape">landscape image </img>
+        <p>
+            
+        </p>
+        <a>test</a>
     </footer>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>

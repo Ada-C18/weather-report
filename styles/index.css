@@ -1,0 +1,29 @@
+h2 {
+    font-family: Trattatello, fantasy;
+}
+
+body {
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)
+}
+
+header {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+main {
+    text-align: center;
+    position: relative;
+    height: 20vh;
+}
+
+footer {
+    text-align: center;
+    position: relative;
+    bottom: auto;
+}
+
+/* #temp-display {
+    border: 1px solid black;
+} */
