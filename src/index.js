@@ -1,12 +1,12 @@
 'use strict';
 const state = {
   temperature: 70,
-  landScape: '----',
 };
 
 const updateTemperature = () => {
   const tempDisplay = document.getElementById('temp-display');
   tempDisplay.textContent = `${state.temperature} degrees`;
+  changeColor();
 };
 
 const incrementTemperature = (type) => {
@@ -17,6 +17,27 @@ const incrementTemperature = (type) => {
     state.temperature -= 1;
   }
   updateTemperature();
+};
+
+const changeColor = () => {
+  let tempDisplay = document.getElementById('temp-display');
+  let landScape = document.getElementById('landscape-display');
+  if (state.temperature >= 80) {
+    tempDisplay.style.color = 'red';
+    landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (state.temperature >= 70 && state.temperature <= 79) {
+    tempDisplay.style.color = 'orange';
+    landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (state.temperature >= 60 && state.temperature <= 69) {
+    tempDisplay.style.color = 'yellow';
+    landScape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (state.temperature >= 50 && state.temperature <= 59) {
+    tempDisplay.style.color = 'Green';
+    landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (state.temperature <= 49) {
+    tempDisplay.style.color = 'Teal';
+    landScape.textContent = '🌨❄️⛄️☃️❄️🌨⛄️☃️❄️🌨';
+  }
 };
 
 const registerEventHandlers = () => {
