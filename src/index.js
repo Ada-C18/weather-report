@@ -85,13 +85,13 @@ const landTitle = () => {
 };
 
 // WAVE 3
-const originalCity = 'Seattle';
+const originalCity = {target:{value:'Seattle'}};
 
 const changeCityText = (e) => {
   // const newCityName = document.getElementById('city-input').value;
   const currentCityName = document.getElementById('current-city');
   currentCityName.innerHTML = `This is the weather for ${e.target.value}`;
-  console.log(e.target.value);
+  console.log(e);
   // getWeather(e.target.value);
 };
 
@@ -154,6 +154,12 @@ const changeSky = () => {
   skyBox.innerHTML = skyPic
 }
 
+// WAVE 6
+const resetCity = () => {
+  changeCityText(originalCity)
+  
+}
+
 // EVENT HANDLERS
 
 const registerEventHandlers = () => {
@@ -168,6 +174,9 @@ const registerEventHandlers = () => {
 
   const changeSkybox = document.getElementById('sky-selector');
   changeSkybox.addEventListener('change', changeSky);
+
+  const resetCityButton = document.getElementById('city-reset');
+  resetCityButton.addEventListener('click', resetCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
