@@ -1,0 +1,25 @@
+body {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+header {
+    text-align: center;
+    grid-column: 1/span 6;
+    height: 20vh;
+}
+
+#temperature {
+    grid-column: 2/3
+}
+
+#sky {
+    grid-column: 1/2;
+    display: block;
+    background-image: url("assets/Cloudy.webp");
+}
+
+#landscape {
+    grid-column: 5/6;
+    display: block;
+}
