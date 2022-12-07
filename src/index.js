@@ -1,4 +1,6 @@
-'use strict';
+// 'use strict';
+// import axios from 'axios';
+const axios = require('axios');
 
 // WAVE 2
 const currentTemp = {
@@ -89,6 +91,37 @@ const changeCityText = (e) => {
   // const newCityName = document.getElementById('city-input').value;
   const currentCityName = document.getElementById('current-city');
   currentCityName.innerHTML = `This is the weather for ${e.target.value}`;
+  console.log(e.target.value);
+  getWeather(e.target.value);
+};
+
+// WAVE 4
+const findLatitudeAndLongitude = (query) => {
+  let latitude, longitude;
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      q: query,
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+      return { lat: latitude, lon: longitude };
+    })
+    .catch((error) => {
+      console.log('error in findLatitudeAndLongitude!');
+    });
+};
+
+const getWeather = (query) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', findLatitudeAndLongitude(query))
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log('there was an error with weather API');
+    });
 };
 
 // EVENT HANDLERS
