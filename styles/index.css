@@ -1,0 +1,37 @@
+body {
+
+}
+
+#city {
+    grid-column: span 2;
+}
+
+#container {
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr / auto auto;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+div {
+    border: 1px red solid;
+}
+
+footer {
+    padding: 15px;
+}
+
+#garden {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+h1, h2, h3, h4 {
+
+}
+
+/* #sky {
+    grid-row-start: 3;
+} */
+
