@@ -1,0 +1,114 @@
+body {
+    background-color: rgb(65, 176, 240);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom:0;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+p {
+    margin-top: 1px;
+    text-align: center;
+    font-size: 2em;
+    color: blue;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 0.2em;
+}
+
+h4 {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.columns {
+    display: flex;
+    align-items:flex-start;
+}
+
+.one_column{
+    display: block;
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 5;
+    padding: 20px;
+    border: 10px solid;
+    border-color: blue;
+    margin-left: 2em;
+    margin-right: 2em;
+    background-color: rgba(0, 0, 255, 0.5);
+    border-radius: 2em;
+}
+
+#garden {
+    /* display: block; */
+    /* padding-bottom: 5px; */
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2em;
+    text-align: center;
+    background-color: gray;
+    border-radius: 2em;
+}
+
+#landscape {
+    padding: 2em;
+}
+
+#temp_box, #sky_box, #city_box {
+    text-align: center;
+}
+
+#adjustRealtime {
+    padding: 2em;
+}
+
+.tempButtons {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#realtimeButton {
+    background-color: rgb(99, 128, 154);
+    padding: 0.5em;
+    cursor: pointer;
+    color: white;
+}
+
+.default75 {
+    color: orange;
+}
+
+.temp_red {
+    color: red;
+}
+
+.temp_orange {
+    color: orange;
+}
+
+.temp_yellow {
+    color: yellow;
+}
+
+.temp_green {
+    color: green;
+}
+
+.temp_teal {
+    color: teal;
+}
+
+.temp_aqua {
+    color:aqua;
+}
