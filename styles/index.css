@@ -8,13 +8,29 @@
 body {
     background-color: #E8F3D6;
 }
+button {
+    background-color: #8caf9a;
+    border: none;
+    color: white;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 50px auto;
+}
+h2{
+    border: 30px;
+    color: #434242;
+}
 .container {
     display: grid;
     grid-template-rows: 25% 30% 20% 25% ;
     grid-template-columns: 30% 70%;
     margin:auto;
-    width: 100vw;
-    height: 80vw;
+    width: auto;
+    height: 800PX;
     
   }
 .header{
@@ -45,5 +61,14 @@ body {
     grid-row: 2/5;
     grid-column: 2/3;
     margin: 0px 2em;
-    display: block;
+    
+}
+.weatherGardenBox{
+    grid-row: 2/5;
+    grid-column: 2/3;
+    height: 200px;
+    width: 200x;
+    background-color: #f7ebdb;
+    border: 100px;
+    
 }
