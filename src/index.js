@@ -49,12 +49,6 @@ const changeTempNumColor = () => {
 };
 
 
-//create an event to receive user input
-// const input = document.querySelector('input');
-// const updatedCityName = document.getElementById('headerCityName');
-
-// input.addEventListener('input', updateCityName);
-
 ////Creating an event to update headerCityName
 const updateCityName = (event) => {
   const updatedCityName = document.getElementById('headerCityName');
