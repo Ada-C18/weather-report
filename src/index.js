@@ -1,6 +1,6 @@
 // 'use strict';
 // import axios from 'axios';
-const axios = require('axios');
+// const axios = require('axios');
 
 // WAVE 2
 const currentTemp = {
@@ -92,11 +92,11 @@ const changeCityText = (e) => {
   const currentCityName = document.getElementById('current-city');
   currentCityName.innerHTML = `This is the weather for ${e.target.value}`;
   console.log(e.target.value);
-  getWeather(e.target.value);
+  // getWeather(e.target.value);
 };
 
 // WAVE 4
-const findLatitudeAndLongitude = (query) => {
+/*const findLatitudeAndLongitude = (query) => {
   let latitude, longitude;
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -122,7 +122,33 @@ const getWeather = (query) => {
     .catch((error) => {
       console.log('there was an error with weather API');
     });
-};
+};*/
+
+//WAVE 5
+/*
+| Sunny  | `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"`         |
+| Cloudy | `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"` |
+| Rainy  | `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"`          |
+| Snowy  | `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"`       |
+*/
+const changeSky = () => {
+  const currentSky = document.getElementById('sky-selector');
+  const skyValue = currentSky.value;
+  console.log(skyValue,currentSky)
+  let skyPicl
+  switch (skyValue) {
+    case 'Sunny':
+      skyPic = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+    case 'Cloudy':
+      skyPic = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+    case 'Rainy':
+      skyPic = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+    case 'Snowy':
+      skyPic = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+  }
+  const skyBox = document.getElementById('sky')
+  skyBox.innerHTML = skyPic
+}
 
 // EVENT HANDLERS
 
@@ -135,6 +161,9 @@ const registerEventHandlers = () => {
 
   const changeCity = document.getElementById('city-input');
   changeCity.addEventListener('change', changeCityText);
+
+  const changeSkybox = document.getElementById('sky-selector');
+  changeSkybox.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
