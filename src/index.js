@@ -1,4 +1,6 @@
 import { landscapeEmoji } from './constants.js';
+import * as dotenv from 'dotenv';
+import express from 'express';
 
 // temperature controls
 const state = {
@@ -29,6 +31,9 @@ const registerEventHandlers = () => {
   //text input
   const inputBox = document.getElementById('text-field');
   inputBox.addEventListener('keyup', displayText);
+  //real time temperature
+  const realTimeTempButton = document.getElementById('real-time-temp');
+  realTimeTempButton.addEventListener('click', getRealTimeTemp);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -63,3 +68,7 @@ const displayText = () => {
 
   cityName.textContent = textField.value;
 };
+
+const getRealTimeTemp = () => {
+
+}
