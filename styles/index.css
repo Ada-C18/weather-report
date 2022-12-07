@@ -25,14 +25,23 @@ header .city_bar{
     display: inline block;
 }
 
-.sky_vis{
+#sky{
     grid-row:2;
     background-color: darkorange;
 }
 
-.ground-vis{
+#sky_vis{
+    text-align: center;
+}
+
+#ground{
     grid-row:3;
     background-color: plum;
+    
+}
+
+#ground_vis{
+    text-align: center;
 }
 
 .menu{

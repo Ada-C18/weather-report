@@ -19,25 +19,31 @@ const decreaseTemp = () => {
 const currentTemp = () => {
   const tempDisplay = document.getElementById('temp');
   tempDisplay.textContent = thingToConnectToAPI.temp;
-  changeTempColor(state.temp);
+  changeTempColor(thingToConnectToAPI.temp);
 };
 
 const changeTempColor = (temp) => {
     const tempDisplay = document.getElementById('temp_display');
+    const groundVis = document.getElementById("ground_vis");
     if (temp >= 80) {
         tempDisplay.className = 'red';
+        groundVis.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
     }
   else if (temp >= 70) {
      tempDisplay.className = "orange";
+     groundVis.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
     }
   else if (temp >= 60) {
         tempDisplay.className = "yellow";
+        groundVis.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
     }
   else if (temp >= 50) {
     tempDisplay.className = "green";
+    groundVis.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
     }
   else {
     tempDisplay.className = "teal";
+    groundVis.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   }
 };
 
