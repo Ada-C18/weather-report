@@ -1,17 +1,23 @@
-const cityNameFunction = () => {
-  document.getElementById('city-input').value;
+//city input text updates city name
+const cityName = document.getElementById('city-name');
+const cityInput = document.getElementById('city-input');
+
+const inputHandler = function (e) {
+  cityName.innerHTML = e.target.value;
 };
 
+//sky drop down options
 function skyFunction() {
   document.getElementById('skyDropdown').classList.toggle('show');
 }
 
+//register event handlers
 const registerEventHandlers = () => {
-  // const cityNameInput = document.querySelector('#city-input');
-  // cityNameInput.addEventListener()
-
   const skyOptionsButton = document.querySelector('#options-id');
   skyOptionsButton.addEventListener('click', skyFunction);
+
+  cityInput.addEventListener('input', inputHandler);
+  cityInput.addEventListener('propertychange', inputHandler);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
