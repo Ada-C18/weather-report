@@ -1,0 +1,40 @@
+body {
+  background-color: #f7f7f7;
+  margin-top: 60px;
+}
+i {
+  font-size: 150px;
+  margin-left: 60px;
+}
+
+.container {
+  background: linear-gradient(-45deg, #eaf6f6 0%, #66bfbf 100%);
+  border: 3px solid #edc548;
+  border-radius: 175px;
+  max-width: fit-content;
+  max-height: fit-content;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+}
+.search-label {
+  margin-left: 225px;
+  font-size: 18px;
+}
+
+.current-temp {
+  margin-left: 20px;
+}
+.current-city {
+  font-size: 35px;
+  text-align: center;
+}
+.current-city-temp {
+  font-size: 50px;
+}
+
+.forecast {
+  text-align: center;
+  margin: 10px 20px 10px 70px;
+  padding: 10px 10px;
+}
