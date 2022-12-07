@@ -2,7 +2,7 @@
 
 const state = {
   temperature: 79,
-  //tempColor: 'red',
+  //tempColor: 'red', we need to make this text bigger
 };
 
 document.getElementById('temperatureNumber').style.color = 'red';
