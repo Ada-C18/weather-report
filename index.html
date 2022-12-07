@@ -7,17 +7,38 @@
     <title>Weather Report</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <link href="/styles/index.css" rel="stylesheet">  
+    <link href="./node_modules/axios/dist/axios.min.js">
 </head>
 <body>
     <div>
-        <header>Weather Report</header>
-        <main>Weather Garden</main>
-        <aside>
-            <section>Tempurature</section>
-            <section>Sky</section>
-            <section>City Name</section>
-        </aside>
+        <header>
+            <h1>Weather Report</h1>
+            <p>For the lovely city of ...</p> 
+        </header>
     </div>
-    <script src="index.js"></script>
+    <section class = "boxes">
+        <div class="flex_boxes_container">
+            <section id = "tempurature_box">
+                <h2>Tempurature</h2>
+                <div>
+                    <span id = "up" >⬆️</span>
+                    <span id = "down">⬇️</span>
+                </div>
+                <div>
+                    <h2 id = "tempValue"></h2>
+                </div>
+            </section>
+            <section id = "sky_box">
+                <h2>Sky</h2>
+            </section>
+            <section id = "sky_box">
+                <h2>City Name</h2>
+            </section>
+        </div>
+        <div class = "weather_garden_box">
+                <h3>Weather Garden</h3>
+        </div>
+    </section>
+    <script src="src/index.js"></script>
 </body>
 </html>
