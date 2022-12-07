@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    
+
 }
 
 h1 {
@@ -34,14 +34,55 @@ h1 {
 
 #search-box {
     border: 1px yellow solid;
+    background-color: #487687;
+    padding: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
 }
 
 #temp-box {
+    display: flex;
+    flex-direction: column;
     border: 1px brown solid;
+    background-color: #487687;
+    padding: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
+
+
 }
 
+#temp-and-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid salmon;
+
+}
+
+#temperature-change-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#temperature {
+    font-size: 5vh;
+    padding: 1vw;
+}
+
+#current-temp {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
 #sky-box {
     border: 1px orange solid;
+    background-color: #487687;
+    padding: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
+
+
 }
 
 #right-container {
