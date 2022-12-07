@@ -18,3 +18,12 @@ counterMinusElem.addEventListener('click', () => {
 const updateDisplay = () => {
   counterDisplayElem.innerHTML = count;
 };
+
+
+
+
+//City Search Bar
+
+document.getElementById("submit-button").addEventListener("click", () => {
+  console.log(document.getElementById("submit-city"));
+});
