@@ -12,29 +12,29 @@
     <header>
         <h1>Weather Report</h1>
         <h3> ~  Love Mother Nature  ~ </h3>
-        <h2 id="cityName">Seattle</h2>
+        <h2 id="cityNameDisplay">Seattle</h2>
     </header>
     <section id = "controls-section">
         <div  class = "flex-container">
             <div class = "flex-el">
                 <h4>Enter a City</h4>
                 <input id="cityInput" type="text" value="Seattle">
-                <button id="cityReset">Reset</button>
+                <button id="resetButton">Reset</button>
             </div>
             <div class = "flex-el">
                 <h4>Pick the Sky</h4>
-                <select id="skySelect">
-                    <option>Sunny</option>
-                    <option>Cloudy</option>
-                    <option>Rainy</option>
-                    <option>Snowy</option>
+                <select name="skies" id="skySelect">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
                 </select>
             </div>
             <div class = "flex-el"> 
                 <h4>Toggle or Get Weather</h4>
                 <button id="increaseButton">⬆️</button>
                 <button id="decreaseButton">⬇️ </button>
-                <button id="currentTempButton">Get Realtime Temperature</button>
+                <button id="getTempButton">Get Realtime Temperature</button>
             </div>
         </div>
     </section>
