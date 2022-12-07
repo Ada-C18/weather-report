@@ -1,0 +1,48 @@
+body {
+    background: rgb(58, 118, 238);
+    
+}
+
+#section-temperature {
+    background: greenyellow;
+    width: 50%;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+
+#section-sky {
+    background: rgb(90, 180, 219);
+    width: 50%;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+#section-city-name {
+    background: rgb(227, 89, 209);
+    width: 50%;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+#section-weather-garden {
+    background: rgb(227, 192, 89);
+    width: 50%;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+.number-color-red {
+    color: red;
+}
+.number-color-orange {
+    color: orange;
+}
+.number-color-yellow {
+    color: yellow;
+}
+.number-color-green {
+    color: green;
+}
+.number-color-teal {
+    color: teal;
+}
+
+
+
