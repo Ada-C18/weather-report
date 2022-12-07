@@ -69,6 +69,7 @@ h1 {
 #temperature {
     font-size: 5vh;
     padding: 1vw;
+    color: yellow
 }
 
 #current-temp {

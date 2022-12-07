@@ -7,6 +7,8 @@ const increaseTemp = (event) => {
 
   state.temperature++;
   tempDisplay.textContent = `${state.temperature}`;
+
+  changeTemperatureColor(state.temperature, tempDisplay);
 };
 
 const decreaseTemp = (event) => {
@@ -14,6 +16,22 @@ const decreaseTemp = (event) => {
 
   state.temperature--;
   tempDisplay.textContent = `${state.temperature}`;
+
+  changeTemperatureColor(state.temperature, tempDisplay);
+};
+
+const changeTemperatureColor = (temp, tempDisplay) => {
+  if (temp > 80) {
+    tempDisplay.style.color = 'red';
+  } else if (temp > 70) {
+    tempDisplay.style.color = 'orange';
+  } else if (temp > 60) {
+    tempDisplay.style.color = 'yellow';
+  } else if (temp > 50) {
+    tempDisplay.style.color = 'lightgreen';
+  } else if (temp <= 49) {
+    tempDisplay.style.color = 'white';
+  }
 };
 
 const registerEventHandlers = (event) => {
