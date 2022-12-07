@@ -11,32 +11,33 @@
     <section class="headerContainer">
         <header><h1 class="header1">Weather Report</h1></header>
         <header><h3 class="header2">Currently Displaying:</h3></header>
-        <header><h2 id="currentCity" class="header3">Boulder</h2></header>
+        <header><h2 id="currentCity" class="header3">Narnia</h2></header>
     </section>
     <section class="boxContainer">
         <!-- Temp/Sky Button Box -->
         <section class="box">
             <section class="tempSkyBox">
                 <section class="temp_section">
-                    <header class="boxHeader"><h4>Temp</h4></header>
-                    <button type="button" class="actionButton" id="upTempButton">&#8593</button>
-                    <span id="temp_number">32</span>
-                    <button type="button" class="actionButton" id="downTempButton">&#8595</button>
+                    <header class="boxHeader"><h4 class="tempHeader" id="tempHeader" >Temp</h4></header>
+                    <button type="button" class="actionButton" id="upTempButton" onClick="clicksUpTemp()" >&#8593</button>
+                    <span class="tempNumber" id="tempNumber">32</span>
+                    <button type="button" class="actionButton" id="downTempButton" onClick="clicksDownTemp()" >&#8595</button>
                 </section>
                 <section class="sky_section">
                     <header class="boxHeader"><h4>Sky</h4></header>
                     <select id="sky_menu">
-                        <option value="sunny">Sunny</option>
+                        <option value="sunny">Snowy</option>
                         <option value="cloudy">Cloudy</option>
                         <option value="rainy">Rainy</option>
-                        <option value="snowy">Snowy</option>
+                        <option value="snowy">Sunny</option>
                     </select>
                 </section>
             </section>
         </section>
         <!-- Sky Image Box-->
-        <section class="box" id="skyBox">
+        <section class="box skyBox" id="skyBox">
             <header class="boxHeader"><h4>Sky</h4></header>
+            <span class="skyImage" id="skyImage">🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨</span>
         </section>
         <!-- City Name Box-->
         <section class="box">
@@ -46,8 +47,9 @@
             <button type="button" class="actionButton" id="resetButton">Reset</button>
         </section>
         <!--Landscape Image Box-->
-        <section class="box" id="landscapeBox">
+        <section class="box landscapeBox" id="landscapeBox">
             <header class="boxHeader"><h4>Landscape</h4></header>
+            <span class="landscapeImage" id="landscapeImage">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</span>
         </section>
     </section>
 
