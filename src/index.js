@@ -1,6 +1,7 @@
 'use strict';
 const state = {
   temperature: 70,
+  cityName: 'Seattle',
 };
 
 const updateTemperature = () => {
@@ -40,6 +41,12 @@ const changeColor = () => {
   }
 };
 
+const changeCityName = (input) => {
+  state.cityName = input;
+  const cityName = document.getElementById('city-name');
+  cityName.textContent = state.cityName;
+};
+
 const registerEventHandlers = () => {
   updateTemperature();
   const tempUpButton = document.getElementById('temp-up-btn');
@@ -50,6 +57,11 @@ const registerEventHandlers = () => {
   const tempDownButton = document.getElementById('temp-down-btn');
   tempDownButton.addEventListener('click', function () {
     incrementTemperature('subtract');
+  });
+
+  const cityInput = document.getElementById('input-city');
+  cityInput.addEventListener('input', function () {
+    changeCityName(cityInput.value);
   });
 };
 
