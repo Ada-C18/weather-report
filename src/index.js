@@ -63,16 +63,20 @@ const getWeather = () => {
           params: { lat: lat, lon: lon },
         })
         .then((response) => {
-          console.log(response);
+          const tempKelvin = response.data.main.temp;
+          state.temperature = Math.round(1.8 * (tempKelvin - 273) + 32);
         })
-
         .catch((error) => {
           console.log('error getting temperature');
+          console.log(error);
         });
     })
     .catch((error) => {
       console.log('error getting coordinates');
+      console.log(error);
     });
+  console.log(state.temperature);
+  updateTemperature();
 };
 
 const initializeContent = () => {
