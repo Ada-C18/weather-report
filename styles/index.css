@@ -1,0 +1,13 @@
+body{
+    background-color: lightblue;
+}
+.firstheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+.headerp{
+    font-size: 20px;
+    grid-area: 10px;
+}
