@@ -9,45 +9,52 @@
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <header class ="header__header">
+    <header>
         <h1>Weather Report</h1>
-        <span>Love Mother Nature
-            <span id="headerCityName" class="'header__city-name">
-                Seattle   
-            </span>
-        </span>
+        <h3> ~  Love Mother Nature  ~ </h3>
+        <h2 id="cityName">Seattle</h2>
     </header>
-    <section class=""temperature__section>
-        <h2>Temperature</h2>
-        <div class="temperature__content"> 
-            <div class="temperature__controls">
-                <span id="increaseTempControl"></span>
-                <span id="tempValue" class></span>
-                <span id="decreaseTempControl"></span>
+    <section id = "controls-section">
+        <div  class = "flex-container">
+            <div class = "flex-el">
+                <h4>Enter a City</h4>
+                <input id="cityInput" type="text" value="Seattle">
+                <button id="cityReset">Reset</button>
             </div>
-            <button id="currentTempButton">Get Realtime Temperature</button>
+            <div class = "flex-el">
+                <h4>Pick the Sky</h4>
+                <select id="skySelect">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </div>
+            <div class = "flex-el"> 
+                <h4>Toggle or Get Weather</h4>
+                <button id="increaseButton">⬆️</button>
+                <button id="decreaseButton">⬇️ </button>
+                <button id="currentTempButton">Get Realtime Temperature</button>
+            </div>
         </div>
     </section>
-    <section class=""sky__section>
-        <h2>Sky</h2>
-        <select id="skySelect">
-            <option>Sunny</option>
-            <option>Cloudy</option>
-            <option>Rainy</option>
-            <option>Snowy</option>
-        </select>
-    </section>
-    <section class="city-name__section">
-        <h2>City Name</h2>
-        <input id="cityNameInput" type="text" value="Seattle">
-        <button id=""cityNameReset class=""city-name__reset-btn>
-        Reset</button>
-    </section>
-    <section class="garden__section">
-        <h2>Weather Garden</h2>
-        <div id="gardenContent" class="garden__content snowy"></div>
+    <section class = "report-section">
+        <h3>Today's Forecast</h3>
+        <div>
+            <div>
+            <span id="skyDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
+            </div>
+            <div id="tempDisplayContainer">
+                <span id = "tempDisplay">0</span>
+                <span>°F</span>
+            </div>
+            <div>
+            <span id="landscapeDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
+        </div>
+
+        </div>
     </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script src="/src/index.js"></script>
+    <script src="./src/index.js"></script>
 </body>
 </html>
