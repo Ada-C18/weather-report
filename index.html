@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <p></p>
+        <p>For the lovely city of ✨ <span id="city"></span>✨</p>
     </header>
     <section id="temperature">
         <h2>Temperature</h2>
@@ -40,8 +40,10 @@
     <section>
         <h2>City Name</h2>
         <div>
-            <input type="text">
-            <button id="reset">Reset</button>
+            <input type="text" placeholder="Enter a city name" id="cityName" />
+            <!-- <input type="button" onclick="resetInput()" id="reset" value ="Reset"/> -->
+            <button id="reset" >Reset</button>
+            <!-- onclick="document.getElementById('cityName').value=''" -->
         </div>
     </section>
     <section>

@@ -5,21 +5,44 @@ const state = {
   //tempColor: 'red',
 };
 
-document.getElementById('temperatureNumber').style.color = 'red';
+document.getElementById('temperatureNumber').style.color = 'black';
 
 const addTemperatureButton = document.getElementById('upButton');
 const decreaseTemperatureButton = document.getElementById('downButton');
+const temperatureDisplay = document.getElementById('temperatureNumber');
+const resetButton = document.getElementById('reset');
+// console.log(resetButton)
+const cityName = document.getElementById('cityName') ;
+const city = document.getElementById('city');
+  
+cityName.addEventListener('input', display);
+
+function display(e){
+  console.log(e);
+  city.textContent = e.target.value ;
+  
+}
+
+function resetInput() {
+  console.log('Hello');
+  cityName.value="";
+  city.textContent="";
+  // cityName.reset();
+  
+}
+
+resetButton.addEventListener('click', resetInput);
 
 
 
-const textColorAndLandscape = (temperatureDisplay) => {
+const textColorAndLandscape = () => {
     const landscapeDisplay = document.getElementById("landscape"); //? is this the right position?
 
   if (state.temperature >= 80) {
     temperatureDisplay.style.color = 'red';
     landscapeDisplay.innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (state.temperature >= 70 && state.temperature <= 79) {
-    temperatureDisplay.style.color = 'orange';
+    temperatureDisplay.style.color  = 'orange';
     landscapeDisplay.innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.temperature >= 60 && state.temperature <= 69) {
     temperatureDisplay.style.color = 'yellow';
@@ -36,17 +59,16 @@ const textColorAndLandscape = (temperatureDisplay) => {
 
 
 const addTemperature = () => {
-  const temperatureDisplay = document.getElementById('temperatureNumber');
   state.temperature += 1;
   temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
-  textColorAndLandscape(temperatureDisplay);
+  textColorAndLandscape();
 };
 
 const decreaseTemperature = () => {
-  const temperatureDisplay = document.getElementById('temperatureNumber');
+  
   state.temperature -= 1;
   temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
-  textColorAndLandscape(temperatureDisplay);
+  textColorAndLandscape();
 };
 
 // group
