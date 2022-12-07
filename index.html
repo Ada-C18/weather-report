@@ -8,50 +8,49 @@
     <link href="/styles/index.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>Weather Report</h1>
         <span>For the lovely city of </span>
         <span id="headerCityName">I don't know where I am</span>
     </header>
-    <main id="background">
-        <section id="temperatureSection">
-            <h2>Temperature</h2>
-            <section id="temperatureControls">
-                <button type="button" id="increaseTempBtn">
-                    ⬆️
-                </button>
-                <h2 id="currentTemp">75</h2>
-                <button type="button" id="decreaseTempBtn">
-                    ⬇️
-                </button>
+    <main  id="container">
+        <secction>
+            <section id="temperatureSection">
+                <h2>Temperature</h2>
+                <nav id="temperatureControls">
+                    <button type="button" id="increaseTempBtn">⬆️</button>
+                    <h2 id="currentTemp">75</h2>
+                    <button type="button" id="decreaseTempBtn">⬇️</button>
+                </nav>
+                <button type="button" id="currentTempBtn">REALTIME TEMPERATURE</button>
             </section>
-            <button type="button" id="currentTempBtn">REALTIME TEMPERATURE</button>
-        </section>
-        <section id="skySection">
-            <h2>Sky</h2>
-            <section id="skySelection">
-                <label for="skySelect"></label>
-                <select>
-                    <option value="sunny">Sunny</option>
-                    <option value="cloudy">Cloudy</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="snowy">Snowy</option>
-                </select>
+            <section id="skySection">
+                <h2>Sky</h2>
+                <section id="skySelection">
+                    <!-- <label for="skySelection"></label> -->
+                    <select>
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select>
+                </section>
             </section>
-        </section>
-        <section id="cityNameSection">
-            <h2>Enter City Name:</h2>
-            <input type="text" id="cityNameInput">
-            <button type="button" id="cityNameReset">Reset City</button>
-        </section>
+            <section id="cityNameSection">
+                <h2>Enter City Name:</h2>
+                <input type="text" id="cityNameInput">
+                <button type="button" id="cityNameReset">Reset City</button>
+            </section>
+        </secction>
         <section id="gardenSection">
             <h2>Weather Garden</h2>
             <div id="gardenContent">
                 <div id="sky"></div>
-                <div id="mainPicture"></div>
+                <div id="mainPicture">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
             </div>
+        </section>
     </main>
-    <footer>
+    <footer id="footer">
         <h3 id="copyrightInfo">&copy; 2022 Ada Developers Academy | Presley | Galina</h3>
     </footer>
     <script src="/src/index.js" type="text/javascript"></script>
