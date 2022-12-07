@@ -36,6 +36,10 @@ span {
 content: "❤️";
 }
 
+.headerCity_name {
+    color: #8fe0ff
+}
+
 .temperature_section,
 .sky_section,
 .city_name_section,
