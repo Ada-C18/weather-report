@@ -1,4 +1,5 @@
 # Wave 5: Selecting the Sky
+id: sky
 
 There must be a [`<select> element`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) that lets users to determine what sky to display.
 
@@ -26,3 +27,7 @@ Our solution uses the following sky options, which you may use if desired:
 - The event for changing a `<select>` element is not called `"click"`! You'll need to find the correct name for this event.
   - "html select change event" is a reasonable Internet search to start.
 - This feature requires you to research how do you get the _value_ of the `<select>` element.
+
+# List of elements
+- dropdown element
+- container for Sky

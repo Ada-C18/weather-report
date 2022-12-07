@@ -1,4 +1,5 @@
 # Wave 3: Naming the City
+id: city-lookup
 
 As mentioned before, there are two required elements:
 
