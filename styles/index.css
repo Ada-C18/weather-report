@@ -9,17 +9,34 @@ header {
     height: 20vh;
 }
 
+.bodybox {
+    text-align: center;
+}
+
 #temperature {
-    grid-column: 2/3
+    grid-column: 2/3;
+    top: 50%
+}
+
+#temperature button {
+    display: inline-block;
+}
+
+#temp-number {
+    display: inline-block;
+    font-size: 200%;
 }
 
 #sky {
     grid-column: 1/2;
     display: block;
-    background-image: url("assets/Cloudy.webp");
+    background-image: url("../assets/Cloudy.webp");
 }
 
 #landscape {
     grid-column: 5/6;
     display: block;
+    background-image: url("../assets/Winter.jpeg");
+    height: 80vh;
+    top: 20vh;
 }
