@@ -1,4 +1,4 @@
-let counterDisplayElem = document.querySelector('.counter-display');
+let counterDisplayElem = document.querySelector('#counter-display');
 let counterMinusElem = document.querySelector('.counter-minus');
 let counterPlusElem = document.querySelector('.counter-plus');
 
