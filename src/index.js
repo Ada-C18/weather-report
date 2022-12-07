@@ -1,3 +1,5 @@
+'use strict';
+
 //increases or decreases temperature from click
 let currentTemp = 70;
 const tempUp = () => {
