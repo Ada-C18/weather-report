@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto auto auto;
     grid-gap: 1rem;
     border: 1px solid black;
@@ -13,13 +13,57 @@ body {
 
 header {
     display: flex;
-    align-items: center;
-    justify-content: center;
     color: white;
     width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
-header > h1 {
-    margin-right: 2rem;
-    font-size: 3em;
+h1 {
+    margin: 1rem;
+    font-size: 4em;
+}
+
+span {
+    font-size: 2em;
+}
+
+.headerCity_name::before,
+.headerCity_name::after {
+content: "❤️";
+}
+
+.temperature_section,
+.sky_section,
+.city_name_section,
+.garden_section {
+border-radius: 8px;
+padding: 2rem;
+background-color: white;
+text-align: center;
+align-self: center;
+}
+
+.garden_section {
+grid-column-start: 1;
+grid-row-start: 2;
+grid-row-end: 5;
+}
+
+.city_name_section {
+grid-column-start: 2;
+grid-row-start: 2;
+}
+
+.temperature_section {
+grid-column-start: 2;
+grid-row-start: 3;
+}
+
+.sky_section {
+grid-column-start: 2;
+grid-row-start: 4;
 }
