@@ -22,8 +22,8 @@ const updateDisplay = () => {
 
 
 
-//City Search Bar
+//City Submit Bar
 
 document.getElementById("submit-button").addEventListener("click", () => {
-  console.log(document.getElementById("submit-city"));
+  console.debug(document.getElementById("submit-city"));
 });
