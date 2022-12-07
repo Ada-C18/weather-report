@@ -1,0 +1,32 @@
+body {
+    background-color: aqua;
+}
+
+#main-container {
+    display: flex;
+    border: 1px red solid;
+    justify-content: space-between;
+}
+
+#left-container {
+    display: flex;
+    border: 1px green solid;
+    flex-direction: column;
+}
+
+#search-box {
+    border: 1px yellow solid;
+}
+
+#temp-box {
+    border: 1px brown solid;
+}
+
+#sky-box {
+    border: 1px orange solid;
+}
+
+#right-container {
+    display: flex;
+    border: 1px blueviolet solid;
+}

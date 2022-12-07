@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report for the City of</h1>
+        <h2 id="city-name">blank</h2>
+    </header>
+    <section id="main-container">
+        <section id="left-container">
+            <section id="search-box">
+                <h3>City Name</h3>
+                <input type="text" placeholder="Search city">
+                <button type="submit">Change city</button>
+            </section>
+            <section id="temp-box">
+                <h3>Current Temperature</h3>
+                <button type="button">Get current temperature</button>
+                <section id="temperature-change-box">
+                    <button type="button" id="increase-temp"></button>
+                    <p id="temperature">72</p>
+                    <button type="button" id="decrease-temp"></button>
+                </section>
+            </section>
+            <section id="sky-box">
+                <h3>Sky</h3>
+                <select name="sky-type" id="sky-type">
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                </select>
+            </section>
+        </section>
+        <section id="right-container">
+            <h3>Weather Garden</h3>
+            <section id="weather-garden"></section>
+        </section>
+    </section>
+    <script src="/src/index.js" type="text/javascript"></script>
 </body>
 </html>
