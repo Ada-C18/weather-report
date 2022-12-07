@@ -1,5 +1,23 @@
 # Weather Report
 
+Create a Pair Plan of Action :
+  
+  - Wave 1 - Simple CSS (1.5 hrs) - decide on layout and flexbox and grid layout
+  - Wave 2 - Temperature buttons - and then updating UI
+
+  Timeline - 
+
+
+
+One person should fork from Ada-C18 repo
+Invite your partner(s) as collaborators 
+
+Both pairs should clone from the forked repo
+
+Install dependencies
+
+Start Wave 1: Create a wireframe to visualize the layout
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
