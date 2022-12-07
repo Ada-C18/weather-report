@@ -1,0 +1,18 @@
+body {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+    font-family: Rubik,sans-serif;
+    font-size: 18px;
+    margin: 2rem;
+}
+
+#headerContainer { background-color: green; };
+
+#tempContainer { background-color: green};
+
+#skyContainer { background-color: green};
+
+#gardenContainer { background-color: green; };
