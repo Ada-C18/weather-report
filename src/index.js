@@ -50,3 +50,10 @@ function changeLandscape() {
   }
   document.getElementById('landscapeImage').innerHTML = landscape;
 }
+
+// const currentCity = document.getElementById('currentCity');
+// const userInput = document.getElementById('cityName');
+function changeCityName() {
+  var x = document.getElementById('cityName').value;
+  document.getElementById('currentCity').innerHTML = x;
+}
