@@ -86,21 +86,23 @@ const landTitle = () => {
 // WAVE 3
 const originalCity = { target: { value: 'Seattle' } };
 
-let currentCity = "Seattle"
+let currentCity = 'Seattle';
 
 const changeCityText = (e) => {
   // const newCityName = document.getElementById('city-input').value;
   const currentCityName = document.getElementById('current-city');
-  currentCityName.innerHTML = `This is the weather for ${e.target.value}`;
-  currentCity = e.target.value
+  currentCityName.innerHTML = `This is the weather for ${e.target.value}!`;
+  currentCity = e.target.value;
 };
 
 const changeTemptoCurrCity = () => {
   // console.log(e);
   findLatitudeAndLongitude(currentCity)
-    .then((response) => currentTemp.currTemp = response)
-      .then(response => setTempNColor())
-    .catch((error) => console.log(`Error finding the latitude and longitude:" ${error}`))
+    .then((response) => (currentTemp.currTemp = response))
+    .then((response) => setTempNColor())
+    .catch((error) =>
+      console.log(`Error finding the latitude and longitude:" ${error}`)
+    );
 
   const inputField = document.getElementById('city-input');
   inputField.value = '';
@@ -123,7 +125,7 @@ const findLatitudeAndLongitude = (city_name_str) => {
     })
     .catch((error) => {
       console.log(`This city does not exist`);
-      return currentTemp.currTemp
+      return currentTemp.currTemp;
     });
 };
 

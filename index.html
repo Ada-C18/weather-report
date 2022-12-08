@@ -10,40 +10,45 @@
 </head>
 <body>
     <header>
-        <h1>Current Weather Report</h1>
+        <h1>CURRENT WEATHER REPORT</h1>
         <p id="current-city">This is weather for Seattle</p>
     </header>
-    <body>
+    <main>
         <section id="temp-box">
-            <h2>Temperature</h2>
-            <div>
-            <button id="temp-up">🔥🔥🔥</button>
-            <div id="temp-current"></div>
-            <button id="temp-down">❄️❄️❄️</button>
-            <button id="temp-get-button">get temp for city</button>
+            <h2 class='content-title'>TEMPERATURE</h2>
+            <div class='content'>
+                <div id='temp-div'>
+                    <button id="temp-up">🔥</button>
+                    <div id="temp-current"></div>
+                    <button id="temp-down">❄️</button>
+                </div>
+                <button id="temp-get-button">Get Realtime Temperature</button>
             </div>
         </section>
         <section id="sky-box">
-            <h2>The Sky</h2>
-            <select id="sky-selector">
-                <option value="Sunny">Sunny</option>
-                <option value="Cloudy">Cloudy</option>
-                <option value="Rainy">Rainy</option>
-                <option value="Snowy">Snowy</option>
-            </select>
+            <h2 class='content-title'>SKY</h2>
+            <div class='content'>
+                <select id="sky-selector">
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                </select>
+            </div>
         </section>
         <section id="city-box">
-            <h2>City</h2>
-            <div>
-            <input id="city-input" type="text">Choose a city</input>
-            <button id="city-reset">reset to Seattle</button>
+            <h2 class='content-title'>CITY</h2>
+            <div class='city-div'>
+                <input id="city-input" type="text" placeholder='Choose a city'></input>
+                <button id="city-reset">Reset to Seattle</button>
             </div>
         </section>
         <section id="garden-box">
+            <h2 class='content-title'>WEATHER GARDEN</h2>
             <div id="sky">skyskysky</div>
             <div id="landscape">landlandland</div>
         </section>
-    </body>
+    </main>
 
     <script src="./src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
