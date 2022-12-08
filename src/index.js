@@ -7,7 +7,8 @@ axios
 
 const state = {
   temperature: 75,
-  landscape: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'
+  landscape: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
+  aboveEarth: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️'
 };
 
 // Wave 02: Temperature Ranges Change Text Color and Landscape
@@ -54,12 +55,21 @@ const changeColorAndLandscape = () => {
   }
 }
 
+const changeSkyType = () => {
+  state.aboveEarth == '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  const sky = document.getElementById("sky");
+  sky.className = 'cloudy';
+  
+
 const registerEventHandlers = () => {
   const incButton = document.querySelector("#increaseButton");
   incButton.addEventListener("click", increaseTemp);
 
   const decButton = document.querySelector("#decreaseButton");
   decButton.addEventListener("click", decreaseTemp);
+
+  const skyType = document.getElementById("aboveEarth");
+  skyType.addEventListener("click", changeSkyType)
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
