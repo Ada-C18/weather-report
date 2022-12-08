@@ -1,4 +1,5 @@
 'use strict';
+
 const state = {
   temp: 65,
   city: 'Seattle',
@@ -57,12 +58,31 @@ const toFahrenheit = (temp) => {
   return Math.floor(1.8 * (temp - 273) + 32);
 };
 
+const updateCity = () => {
+  const inputCity = document.getElementById('cityNameInput').value;
+  const headerCity = document.getElementById('headerCityname');
+  headerCity.textContent = inputCity;
+};
+
+const resetCity = () => {
+  const cityReset = document.getElementById('cityNameInput');
+  cityReset.value = 'Name of City Here';
+  const headerCity = document.getElementById('headerCityname');
+  headerCity.textContent = 'Seattle';
+};
+
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById('increase');
   tempIncreaseButton.addEventListener('click', increaseTemp);
 
   const tempDecreaseButton = document.getElementById('decrease');
   tempDecreaseButton.addEventListener('click', decreaseTemp);
+
+  const inputCity = document.getElementById('submitButton');
+  inputCity.addEventListener('click', updateCity);
+
+  const resetCityButton = document.getElementById('resetButton');
+  resetCityButton.addEventListener('click', resetCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

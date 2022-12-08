@@ -44,7 +44,7 @@ color: #8fe0ff
 .sky_section,
 .city_name_section,
 .garden_section {
-border-radius: 8px;
+border-radius: 50px;
 padding: 2rem;
 background-color: white;
 text-align: center;
