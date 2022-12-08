@@ -47,10 +47,25 @@ const changeSky = () => {
   const skyDisplay = document.getElementById('sky-display');
   let selectedSky = skyMenu.options[skyMenu.selectedIndex].text;
   if (selectedSky === 'Sunny') {
-    skyDisplay.style.backgroundColor = 'blue';
+    skyDisplay.style.backgroundColor = 'orange';
     skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
   }
+<<<<<<< HEAD
   
+=======
+  if (selectedSky === 'Cloudy') {
+    skyDisplay.style.backgroundColor = 'gray';
+    skyDisplay.style.backgroundImage = "url('./assets/cloudy.gif')";
+  }
+  if (selectedSky === 'Rainy') {
+    skyDisplay.style.backgroundColor = 'blue';
+    skyDisplay.style.backgroundImage = "url('./assets/rainy.gif')";
+  }
+  if (selectedSky === 'Snowy') {
+    skyDisplay.style.backgroundColor = 'lightblue';
+    skyDisplay.style.backgroundImage = "url('./assets/snow.gif')";
+  }
+>>>>>>> bf426ed44150c8f3accecc7fcd9ee781c7f5f9ba
 };
 
 const changeCityName = (input) => {
@@ -104,7 +119,7 @@ const registerEventHandlers = () => {
     incrementTemperature('subtract');
   });
 
-  const cityInput = document.getElementById('input-city');
+  let cityInput = document.getElementById('input-city');
   cityInput.addEventListener('input', () => {
     changeCityName(cityInput.value);
   });
@@ -117,6 +132,12 @@ const registerEventHandlers = () => {
   const skySelector = document.getElementById('sky-selector');
   skySelector.addEventListener('change', () => {
     changeSky();
+  });
+
+  const resetCityNameButton = document.getElementById('reset-city-btn');
+  resetCityNameButton.addEventListener('click', () => {
+    changeCityName('Seattle');
+    cityInput.value = '';
   });
 };
 
