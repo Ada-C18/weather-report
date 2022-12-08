@@ -1,12 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <link rel="stylesheet" href="styles/index.css">
+        <script src="src/index.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <h1>What are the conditions like in Chattanooga?</h1>
+            <form role="search">
+                <div>
+                    <label for="city-search">City name:</label>
+                    <input
+                    type="search" 
+                    id="city-search" 
+                    name="search"
+                    placeholder="Chattanooga" />
+                    <!-- replace search text with icon -->
+                    <button>Search</button> 
+                    <button>Reset</button>
+                </div>
+            </form>
+        </header>
+        <main>
+            <section>
+                <div id="weather-panel-container">
+                    <!-- flex box for five day weather panels -->
+                    <div id="day-one">
+                        <h3>Monday</h3>
+                            <h4>Temperature</h4>
+                                <p>temp number here</p>
+                            <h4>Humidity</h4>
+                                <p>humidity percentage here</p>
+                    </div>
+                    <div id="day-two">
+                        <h3>Tuesday</h3>
+                            <h4>Temperature</h4>
+                                <p>temp number here</p>
+                            <h4>Humidity</h4>
+                                <p>humidity percentage here</p>
+                    </div>
+                    <div id="day-three">
+                        <h3>Wednesday</h3>
+                            <h4>Temperature</h4>
+                                <p>temp number here</p>
+                            <h4>Humidity</h4>
+                                <p>humidity percentage here</p>
+                    </div>
+                    <div id="day-four">
+                        <h3>Thursday</h3>
+                            <h4>Temperature</h4>
+                                <p>temp number here</p>
+                            <h4>Humidity</h4>
+                                <p>humidity percentage here</p>
+                    </div>
+                    <div id="day-five">
+                        <h3>Friday</h3>
+                            <h4>Temperature</h4>
+                                <p>temp number here</p>
+                            <h4>Humidity</h4>
+                                <p>humidity percentage here</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>What do you wish they were?</h2>
+                <div id="dream-weather-container">
+                    <!-- flex box of dream temp, sky, humidity -->
+                    <div id="dream-temp">
+                        <h3>Dream Temperature</h3>
+                            <p>temp number here</p>
+                            <button id="increase-temp"></button>
+                            <button id="decrease-temp"></button>
+                    </div>
+                    <div id="dream-sky">
+                        <h3>Dream Sky</h3>
+                            <select name="skies" id="sky-select">
+                                <option value="sunshine">
+                                    Sunshine
+                                </option>
+                                <option value="cloudy">
+                                    Cloudy
+                                </option>
+                                <option value="rain">
+                                    Rain
+                                </option>
+                                <option value="snow">
+                                    Snow
+                                </option>
+                            </select>      
+                    </div>
+                    <div id="dream-humidity">
+                        <h3>Dream Humidity</h3>
+                            <p>humidity percent here</p>
+                            <button id="increase-humidity"></button>
+                            <button id="decrease-humidity"></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div id="changing-weather-container">
+                <!-- flex box of changing emojis? -->
+            </div>
+        </footer>
+    </body>
 </html>
