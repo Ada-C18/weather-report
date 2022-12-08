@@ -4,15 +4,7 @@
 // - requests to weather API
 // - then, catch
 
-// GOALS: WED
-// -- CSS code, separate sections
-// -- Wave 2
-
-// Wave 2
-// REQS
-// -- 2 clickable elements
-// add event listeners
-
+// ------------- Wave 2 ----------------------
 // 1. increase
 let state = {
   temp: 60,
@@ -77,18 +69,22 @@ const registerHandlers = (event) => {
   upArrow.addEventListener('click', addDegree);
 
   const changeTempColor = document.querySelector('#degrees');
+
+  const updateCityName = document.querySelector('#search-bar');
+  updateCityName.addEventListener('input', updateCity);
+
   changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
 };
 
 document.addEventListener('DOMContentLoaded', registerHandlers);
 
-// if temp > 80, red
-// 70-79, orange
-// 60-69, yellow
-// 50-59, green
-// temp < 49, teal
+// ------------- Wave 3 ----------------------
+const updateCity = () => {
+  let myTextInput = document.getElementById('search-bar');
 
-// 3. Landscape
-// - id=weather garden
-// - emojis, background color change
-// - 1 landscape at a time
+  let cityName = myTextInput.value;
+
+  console.log(cityName); // it works!!
+
+  // TODO-> update "City of:"" string too
+};
