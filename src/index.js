@@ -32,3 +32,11 @@ const temperatureStyle = (temp) => {
     return { bg_color: 'teal', landscape: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲' };
   }
 };
+
+const cityUpdate = (event) => {
+  console.log(event);
+}
+
+document.getElementById('temp_increase').addEventListener('onClick', increaseTemp);
+document.getElementById('temp_decrease').addEventListener('onClick', decreaseTemp);
+document.getElementById('city_input').addEventListener('onChange', cityUpdate);
