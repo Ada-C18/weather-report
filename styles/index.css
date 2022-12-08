@@ -1,0 +1,23 @@
+body {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto auto auto auto;
+  grid-gap: 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: brown;
+  font-size: 18px;
+  background-color: #f6be00;
+  margin: 2rem;
+}
+
+.header_header {
+  display: grid;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: red;
+  font-size: 2em;
+  font-weight: bold;
+}
