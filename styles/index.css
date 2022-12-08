@@ -1,0 +1,58 @@
+header {
+    background-color: rgba(17,85,212,1);
+    color: white;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    text-align: center;
+}
+
+body {
+    background-color: rgba(89,142,241,1);
+}
+
+.background {
+    background-color: azure;
+    text-align: center;
+    margin: 2rem;
+    padding: 50px;
+    border-radius: 7%;
+}
+
+h2 {
+    color: blue;
+    font-size: x-large;   
+}
+
+button {
+    background-color: rgba(54,114,226,1);
+    color: bisque;
+}
+
+button:hover {
+    background-color: rgba(205,42,237,1);
+}
+
+#outter {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#temperatureNumber {
+    font-size: 30px;
+    
+}
+
+#inner {
+    display: flex;
+}
+
+#getTemperature {
+    margin: 50px;
+}
+
+#weatherGarden {
+    padding: 10px;
+    margin-left: 25rem;
+    margin-right: 25rem;
+}

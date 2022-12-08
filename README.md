@@ -1,5 +1,13 @@
 # Weather Report
 
+# Pair Plan of Action
+
+Access needs: Slack; Classroom time; Update each other frequently, if there is any change, push to git hub to avoid merge conflict.
+Your learning style: Understand requirements and then start coding;
+How you prefer to receive feedback: Immediate feedback;
+One team communication skill you want to improve with this experience: Explain logic and code at same time, patient. 
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
