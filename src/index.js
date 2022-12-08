@@ -3,7 +3,8 @@
 // make body background reactive to state of temp counter
 
 const state = {
-  tempCount: 0,
+  tempCount: 49,
+  city: 'Seattle',
 };
 
 const changeTempColor = () => {
@@ -50,13 +51,21 @@ const removeDegree = () => {
   changeBackground();
 };
 
+const updateCity = () => {
+  state.city = document.querySelector('#city').value;
+  const cityDisplay = document.querySelector('#cityDisplay');
+  cityDisplay.textContent = `for the lovely city of ${state.city}`;
+};
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.querySelector('#increaseTempButton');
   increaseTempButton.addEventListener('click', addDegree);
-  // increaseTempButton.addEventListener('click', changeBackground);
 
   const decreaseTempButton = document.querySelector('#decreaseTempButton');
   decreaseTempButton.addEventListener('click', removeDegree);
+
+  const submitCityButton = document.querySelector('#submit');
+  submitCityButton.addEventListener('click', updateCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
