@@ -13,13 +13,13 @@
         <div id="city-container">
             <h1 id="city-name" contenteditable="true">Choose your city</h1>
         </div>
-        <div id="temp-container">
+        <div class="mid-row" id="temp-container">
             <h2 id="temp-title">Temperature</h2>
             <button class="button" id="up-arrow">&UpArrow;</button>
             <button class="button" id="down-arrow">&DownArrow;</button>
-            <h3>Temp # goes here</h3>
+            <h3 id="temperature" value="65">65</h3>
         </div>
-        <div id="sky-container">
+        <div class="mid-row" id="sky-container">
             <h2 id="sky-title">Choose the sky type</h2>
             <div class="dropdown-fn">
                 <button class="button" id="dropdown-button">Sky Type &downarrow;</button>
@@ -36,5 +36,6 @@
         </div>
     </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
 </html>
