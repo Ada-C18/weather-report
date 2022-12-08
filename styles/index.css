@@ -1,16 +1,19 @@
-body {
+#columns {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
+    background-color: blueviolet;
+    height: 80vh
 }
 
 header {
     text-align: center;
     grid-column: 1/span 6;
     height: 20vh;
+    background-color: red;
 }
 
 #temperature {
-    grid-column: 2/3
+    grid-column: 2/3;
 }
 
 #sky {
@@ -18,3 +21,25 @@ header {
     display: block;
     background-image: url("assets/Cloudy.webp");
 }
+
+#sky-description {
+    grid-column: 3/4;
+}
+
+#city {
+    grid-column: 4/5;
+}
+
+.bodybox {
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    text-align: center;
+    background-color: aqua;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+#reset-button {
+    margin-top: 10px;
+}
+

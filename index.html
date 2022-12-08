@@ -16,17 +16,35 @@
             Austin
         </div>
     </header>
-    <section id="sky">
-    </section>
-    <section id="Temperature" class = "bodybox">
-        <h2>Temperature</h2>
-        <button>Up</button>
-        <div id="temp-number"> 50 </div>
-        <button>Down</button>
-    </section>
-    <section id="landscape">
-        <img src="assets/Winter.jpeg">
-    </section>
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
-</body>
+    <div id='columns'>
+        <section id="sky">
+            <h4>will put a sky pic</h4>
+        </section>
+        <section id="temperature" class="bodybox">
+            <h4>Temperature</h4>
+            <button id="temp-increase" onclick="increaseTemp()">Up</button>
+            <div id="temp-number"> 50 </div>
+            <button id="temp-decrease">Down</button>
+        </section>
+        <section id="sky-description" class="bodybox">
+            <h4>Sky</h4>
+            <select>
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Snowy</option>
+                <option>Rainy</option>
+            </select>
+        </section>
+        <section id="city" class="bodybox">
+            <h4>City Name</h4>
+            <input type="text" id="city-name-input" oninput="updateCityName()">
+            <input type="reset" id="reset-button" onclick="resetCityName()">
+        </section>
+        <section id="landscape">
+            <img src="assets/Winter.jpeg" alt="pic">
+        </section>
+</div>
+<script src="src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+</body> 
 </html>
