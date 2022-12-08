@@ -27,7 +27,7 @@ const addDegree = (event) => {
   // console.log('temp container', tempContainer); // null
 
   tempContainer.textContent = state.temp;
-  updateColors();
+  updateColorsAndEmojis();
 };
 
 // 2. decrease
@@ -40,22 +40,28 @@ const subtractDegree = (event) => {
   // console.log('temp container', tempContainer); // null
 
   tempContainer.textContent = state.temp;
-  updateColors();
+  updateColorsAndEmojis();
 };
 
 // 2. temp ranges
 // -- number color changes
-const updateColors = () => {
+const updateColorsAndEmojis = () => {
   if (state.temp > 80) {
     document.getElementById('degrees').style.color = 'red';
+    document.getElementById('emojis').innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (state.temp >= 70 && state.temp <= 79) {
-    document.getElementById('degrees').style.color = 'orange';
+    document.getElementById('emojis').innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    // document.getElementById('emojis').
   } else if (state.temp >= 60 && state.temp <= 69) {
     document.getElementById('degrees').style.color = 'yellow';
+    document.getElementById('emojis').innerText = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (state.temp > 50 && state.temp <= 59) {
     document.getElementById('degrees').style.color = 'green';
-  } else if (state.temp < 49) {
+    document.getElementById('emojis').innerText = '🌲🌲';
+  } else if (state.temp < 59) {
     document.getElementById('degrees').style.color = 'teal';
+    document.getElementById('emojis').innerText =
+      '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
@@ -71,7 +77,7 @@ const registerHandlers = (event) => {
   upArrow.addEventListener('click', addDegree);
 
   const changeTempColor = document.querySelector('#degrees');
-  changeTempColor.addEventListener('click', updateColors); // is 'click' the rigth event?
+  changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
 };
 
 document.addEventListener('DOMContentLoaded', registerHandlers);
