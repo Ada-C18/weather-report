@@ -79,7 +79,7 @@ const changeTempColor = () => {
   } else if (state.temp > 49 && state.temp <= 59) {
     document.querySelector('#temperatureDisplay').style.color = 'green';
   } else if (state.temp > 59 && state.temp <= 69) {
-    document.querySelector('#temperatureDisplay').style.color = 'yellow';
+    document.querySelector('#temperatureDisplay').style.color = 'gold';
   } else if (state.temp > 69 && state.temp <= 79) {
     document.querySelector('#temperatureDisplay').style.color = 'orange';
   } else if (state.temp > 79) {
@@ -117,10 +117,16 @@ const inputCity = (event) => {
 
 const changeSky = (event) => {
   const skySelector = document.querySelector('#skySelector');
-  const sky = document.querySelector('#weatherGarden');
+  const sky = document.querySelector('#skyDisplay');
   if (skySelector.value === 'cloudy') {
-    document.querySelector('#weatherGarden').textContent +=
+    document.querySelector('#skyDisplay').textContent =
       '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skySelector.value === 'raining') {
+    document.querySelector('#skyDisplay').textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skySelector.value === 'snowing') {
+    document.querySelector('#skyDisplay').textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  } else if (skySelector.value === 'sunny') {
+    document.querySelector('#skyDisplay').textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
   }
 };
 
