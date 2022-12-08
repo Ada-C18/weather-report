@@ -3,7 +3,7 @@
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
 }
 body {
     background-color: #E8F3D6;
@@ -79,14 +79,16 @@ h2{
     grid-row: 2/5;
     grid-column: 2/3;
     margin:20px;
-    
+    place-content : cetner center;
+    place-items: center center;
 }
 .weatherGardenBox{
-    
+    margin-top: 10px;
     height: 200px;
     width: 100x;
     background-color: #f7ebdb;
     border: 50px;
+    display:inline-grid;
 }
 
 
