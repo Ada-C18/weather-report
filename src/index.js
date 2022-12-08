@@ -19,25 +19,6 @@ const decreaseTemp = () => {
   tempColorAndLandscape();
 };
 
-const registerEventHandlers = () => {
-  //increase temp
-  const increaseTempButton = document.getElementById('inc-temp');
-  increaseTempButton.addEventListener('click', increaseTemp);
-  //decrease temp
-  const decreaseTempButton = document.getElementById('dec-temp');
-  decreaseTempButton.addEventListener('click', decreaseTemp);
-  //text input
-  const inputBox = document.getElementById('text-field');
-  inputBox.addEventListener('keyup', displayText);
-  //real time temperature
-  const realTimeTempButton = document.getElementById('real-time-temp');
-  realTimeTempButton.addEventListener('click', getRealTimeTemp);
-  const skySelector = document.getElementById('sky-selector');
-  skySelector.addEventListener('change', updateSky);
-};
-
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
 //temperature decorations
 const tempColorAndLandscape = () => {
   const temperature = document.getElementById('temperature');
@@ -67,16 +48,12 @@ const updateSky = () => {
   const weatherEmojiContainer = document.getElementById('weather-emojis');
 
   if (selectedSky === 'sunny') {
-    console.log('sunny selected!');
     weatherEmojiContainer.textContent = skyEmoji.sunny;
   } else if (selectedSky === 'cloudy') {
-    console.log('cloudy selected!');
     weatherEmojiContainer.textContent = skyEmoji.cloudy;
   } else if (selectedSky === 'rainy') {
-    console.log('rainy selected!');
     weatherEmojiContainer.textContent = skyEmoji.rainy;
   } else if (selectedSky === 'snowy') {
-    console.log('snowy selected!');
     weatherEmojiContainer.textContent = skyEmoji.snowy;
   }
 };
@@ -89,4 +66,72 @@ const displayText = () => {
   cityName.textContent = textField.value;
 };
 
-const getRealTimeTemp = () => {};
+// get the lat and lon of the city in the input text box
+const getLatAndLon = () => {
+  // const cityName = document.getElementById('city-name').innerText;
+  axios
+    .get('http://127.0.0.1:5000/location', { params: { q: cityName } })
+    .then((response) => {
+      console.log(`getting a response from ${cityName}`);
+      console.log(response.data);
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
+      // console.log(`lat is ${lat} and lon is ${lon}`);
+      return { lat: lat, lon: lon };
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const getTemperature = () => {
+  // const cityLocation = getLatAndLon();
+  // console.log(`Inside getTemperature, The city location is ${cityLocation}`);
+  // console.log(`Inside the getTemperature, lat is ${cityLocation.lat} and lon is ${cityLocation.lon}`);
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: { lat: cityLocation.lat, lon: cityLocation.lon },
+    })
+    .then((response) => {
+      console.log(`The response data is ${response.data}`);
+      console.log(`The main part of the response data is ${response.data.main}`);
+      const kelvinDegree = response.data.main.temp;
+      
+      const fahrenheitDegree = ((kelvinDegree - 273.15) * 9) / 5 + 32;
+      console.log(fahrenheitDegree);
+      return fahrenheitDegree;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+
+
+/**
+ * 1. get the city from the documnet
+ * 2. pass in the city name and make an API call to LOCATIONIQ, get the lat and lon
+ * 3. pass in the lat and lon, make an API call to OpenWeather, get the temperature
+ * 4. convert temperature to fahrenheit
+ * 5. display the temperature on click
+ */
+
+const registerEventHandlers = () => {
+  //increase temp
+  const increaseTempButton = document.getElementById('inc-temp');
+  increaseTempButton.addEventListener('click', increaseTemp);
+  //decrease temp
+  const decreaseTempButton = document.getElementById('dec-temp');
+  decreaseTempButton.addEventListener('click', decreaseTemp);
+  //text input
+  const inputBox = document.getElementById('text-field');
+  inputBox.addEventListener('keyup', displayText);
+  //real time temperature
+  const realTimeTempButton = document.getElementById('real-time-temp');
+  realTimeTempButton.addEventListener('click', getTemperature);
+  // select sky
+  const skySelector = document.getElementById('sky-selector');
+  skySelector.addEventListener('change', updateSky);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
