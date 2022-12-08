@@ -57,18 +57,29 @@ inputCity.addEventListener('change', () => {
 
 let selectSky = document.getElementById('sky');
 let sky = document.getElementById('sky-emoji');
-const changeSky = (selectSky) => {
-  if (selectSky.options.value === 'Sunny') {
-    sky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (selectSky.options[selectSky.selectedIndex].value === 'Cloudy') {
-    sky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (selectSky.value === 'Rainy') {
-    sky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (selectSky.value === 'Snowy') {
-    sky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-  }
-};
+// const changeSky = (selectedSky) => {
+//   if (selectedSky === 'Sunny') {
+//     sky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+//   } else if (selectSky.options[selectSky.selectedIndex].value === 'Cloudy') {
+//     sky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+//   } else if (selectSky.value === 'Rainy') {
+//     sky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+//   } else if (selectSky.value === 'Snowy') {
+//     sky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+//   }
+// };
 selectSky.addEventListener('change', () => {
-  console.log('click');
-  changeSky(selectSky);
+  console.log(selectSky.options[selectSky.selectedIndex].value);
+  changeSky(selectSky.options[selectSky.selectedIndex].value);
 });
+const changeSky = (selectedSky) => {
+    if (selectedSky === 'sunny') {
+      sky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    } else if (selectedSky === 'cloudy') {
+      sky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    } else if (selectedSky === 'rainy') {
+      sky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    } else if (selectedSky === 'snowy') {
+      sky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    }
+  };
