@@ -1,6 +1,8 @@
 const state = {
   currentTemp: 80,
   city: 'Seattle',
+  lat: 47.6038321,
+  lon: -122.330062
 };
 
 const increaseTemp = () => {
@@ -47,6 +49,58 @@ const updateCity = () => {
   state.city = inputCity;
   cityName.textContent = state.city;
 };
+
+const getLiveTemp = () => {
+  const tempValue = document.getElementById('tempValue');
+
+  getLatAndLon(state.city).then((result) => {
+    console.log("in location");
+  })
+  .then((result) => {
+    getWeather(state.lat, state.lon)
+    .then((result) => {
+      console.log("in weather");
+      state.currentTemp = result;
+      tempValue.textContent = state.currentTemp;
+      temperatureColorCheck(state.currentTemp);
+    })
+  })
+  console.log("end of function");
+}
+
+const getLatAndLon = (city) => {
+  return axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: city,
+      },
+    })
+    .then((response) => {
+      state.lat = response.data[0].lat;
+      state.lon = response.data[0].lon;
+      // return { lat, lon };
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const getWeather = (lat, lon) => {
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon
+      }
+    })
+    .then((response) => {
+      temp = response.data.main.temp
+      convertedTemp = (temp - 273.15) * 9/5 + 32 
+      return convertedTemp
+    })
+}
+
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.getElementById('increaseTempButton');
   increaseTempButton.addEventListener('click', increaseTemp);
@@ -56,23 +110,9 @@ const registerEventHandlers = () => {
 
   const inputCityBox = document.getElementById('input-city');
   inputCityBox.addEventListener('input', updateCity);
-};
 
-// const getLatAndLon = (city) => {
-//   return axios
-//     .get('http://127.0.0.1:5000/location', {
-//       params: {
-//         q: city,
-//       },
-//     })
-//     .then((response) => {
-//       const latitude = response[0].lat;
-//       const longitude = response[0].lon;
-//       return { latitude, longitude };
-//     })
-//     .catch((error) => {
-//       console.log('Error!');
-//     });
-// };
+  const liveTemperatureButton = document.getElementById('liveTemperatureButton');
+  liveTemperatureButton.addEventListener('click', getLiveTemp)
+};
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
