@@ -1,7 +1,7 @@
 
 'use strict'
 
-const temperatureColor = (temperature) => {
+const temperatureArrowColor = (temperature) => {
     if (temperature >= 80) {
         return 'red';
     } else if (temperature >= 70){
@@ -15,7 +15,7 @@ const temperatureColor = (temperature) => {
     }
 };
 
-const temperatureArt = (temperature) => {
+const seasonTheme = (temperature) => {
     if (temperature >= 80) {
         return `🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂`;
     } else if (temperature >= 70) {
@@ -27,4 +27,39 @@ const temperatureArt = (temperature) => {
     }
 };
 
+const temperatureChange = (temperature) => {
+    document.getElementById('temperature_numbers').innerText = temperature;
+    document.getElementById('temperature_numbers').style.color =
+    temperatureArrowColor(temperature);
+    document.getElementById('garden_icons').innerText =
+    seasonTheme(temperature);
+};
+    document.addEventListener('DOMContentLoaded', () => {
+    let temperature = 70;
+    temperatureChange(temperature);
+    document.getElementById('temp_go_up').addEventListener('click', () => {
+        temperature += 1;
+    temperatureChange(temperature);
+    });
+    document.getElementById('temp_go_down').addEventListener('click', () => {
+        temperature -= 1;
+    temperatureChange(temperature);
+    });
+});
 
+// wave 3
+const updateCityName = () => {
+    const cityElement = document.getElementById('chosen-city');
+    const cityName = document.querySelector('#input-city').value;
+    cityElement.innerText = cityName;
+
+    setCity(cityName);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const enterCityButton = document.getElementById('#enter-city-button');
+
+    enterCityButton.addEventListener('click', () => {
+    updateCityName();
+    });
+});
