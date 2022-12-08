@@ -1,15 +1,18 @@
 let temperature = document.getElementById('display-temp');
+let cityName = document.getElementById('city-name');
+let defaultCity = 'Seattle'
 
 window.onload = () => {
   temperature.innerHTML = 50;
 };
+window.onload(cityName.innerHTML = defaultCity)
 
 const landscape = document.getElementById('ground-emoji');
 const tempUp = document.getElementById('temp-up');
 const tempDown = document.getElementById('temp-down');
 
 let inputCity = document.getElementById('input-city');
-let cityName = document.getElementById('city-name');
+
 
 tempUp.addEventListener('click', () => {
   let tempHTML = Number(temperature.innerHTML);
@@ -83,3 +86,8 @@ const changeSky = (selectedSky) => {
       sky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
     }
   };
+
+const resetButton = document.getElementById('reset-button')
+resetButton.addEventListener('click', () => {
+    cityName.innerHTML = defaultCity
+})
