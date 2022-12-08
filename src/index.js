@@ -1,30 +1,20 @@
 'use strict';
 
-const increaseTemp = () => {
-  let x = 0;
-  const currentTemp = document.querySelector("#temp_value");
-  currentTemp.textContent = x++;
-}
+let x = 65;
+const registerEventHandlers = () => {
+  const value = document.querySelector('#temp_value');
+  const increment = document.getElementById('increase_temp');
+  const decrement = document.getElementById('decrease_temp');
 
-const decreaseTemp = () => {
-  const currentTemp = document.querySelector('#temp_value');
-  currentTemp--;
-}
+  increment.addEventListener('click', function () {
+    value.textContent = x++;
+  });
 
-const registerEventHandlers = (event) => {
-  const increaseButton = document.querySelector("#increase_temp");
-  increaseButton.addEventListener('click', increaseTemp);
-  const decreaseButton = document.querySelector('#decrease_temp');
-  decreaseButton.addEventListener('click', decreaseTemp);
-}
+  decrement.addEventListener('click', function () {
+    value.textContent = x--;
+  });
+};
 
-const setup = () => {
-  increaseTemp();
-  decreaseTemp();
-}
+document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
-if (document.readyState !== "loading") {
-  setup();
-} else {
-  document.addEventListener("DOMContentLoaded", setup);
-}
+
