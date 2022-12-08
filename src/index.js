@@ -53,30 +53,16 @@ const changeTempColorAndLandscape = () => {
 
 const updateCityName = ()=>{
   const chosenCityInputName = document.getElementById('city_name_input').value;
-  const headerCityName = document.getElementById('city');
+  const titleCityName = document.getElementById('city');
   state.city = chosenCityInputName;
-  headerCityName.textContent = state.city;
-
-  // const updateCityName = () => {
-  //   const inputName = document.getElementById('cityNameInput').value;
-  //   const headerCityName = document.getElementById('headerCityName');
-  //   state.city = inputName;
-  //   headerCityName.textContent = state.city;
-  // };
-
-
+  titleCityName.textContent = state.city;
 };
 
 const resetCityName = ()=>{
-  const originalNameInput = document.getElementById('cityNameInput');
-  updateCityName(); //callback function
+  const defaultNameInput = document.getElementById('city_name_input');
+  defaultNameInput.value='Name a City';
+  updateCityName(); //callback function...able to use state from this function
 };
-
-// const updateCrabCount = () => {
-//   const crabCounterElement = document.querySelector('#crabCounter');
-//   crabCounterElement.textContent = `Total Crab: ${state.crabCount}`;
-  
-// };
 
 //register event handlers
 const registerEventHandlers = () => {
@@ -90,6 +76,8 @@ const registerEventHandlers = () => {
     const cityNameInput = document.getElementById('city_name_input');
     cityNameInput.addEventListener('input', updateCityName);
 
+    const changeCityNamebtn = document.getElementById('city_name_reset');
+    changeCityNamebtn.addEventListener('click', resetCityName);
 }
 
 
