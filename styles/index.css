@@ -1,20 +1,23 @@
 body {
-    background-color: #50c9c9;
+    background-color: #3481ed;
     font-family: monospace;
 }
 
 header {
+    display: grid;
+    grid-template-columns: 1fr;
     font-size: 2em;
     text-align: center;
     font-family: monospace;
-    color: rgb(19, 9, 9);
+    color: rgb(214, 202, 202);
 }
 
 .group-container {
     display: grid;
     grid-template-columns: 1fr auto auto 1fr;
     grid-template-rows: 1fr,1fr;
-    grid-gap: 20px;
+    grid-gap: 10px;
+    align-content: space-evenly;
 }
 .temperature-container {
 grid-column: 2/3;
