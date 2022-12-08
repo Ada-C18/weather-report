@@ -1,12 +1,6 @@
 "use strict";
 
 
-// make a color temp function
-// const colorChangeByTemp =function(number) {
-
-
-// } return color
-
 let number = parseInt(document.querySelector('.number').innerHTML);
 const plus = document.querySelector('.plus_minus'),
   minus = document.querySelector('.minus_plus');
@@ -14,6 +8,7 @@ const plus = document.querySelector('.plus_minus'),
 plus.addEventListener('click',() => {
     number++ ;
     document.querySelector('.number').innerHTML = number;
+
     if(number >= 80){
         document.querySelector('.number').classList.add("burning")
     }else if(number >=70) {
@@ -28,9 +23,11 @@ plus.addEventListener('click',() => {
    }});
 
 
+
 minus.addEventListener('click',() => {
     number--;
     document.querySelector('.number').innerHTML = number;
+
     if(number >= 80) {
         document.querySelector('.number').classList.add("burning")
     } else if(number >=70) {
