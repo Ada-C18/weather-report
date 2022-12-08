@@ -1,30 +1,39 @@
-import axios from "axios";
-// "use strict";
-
-// still need to link to html! wave 1 content//
+// import axios from "axios";
 
 
-const tempText = document.getElementById("temperature");
-console.log(tempText);
+// alert('Hello World');
+// const axios = require('axios');
+// axios.get()
+const tempValue = document.getElementById("tempValue");
+// console.log(tempValue);
 
-// const tempRange = tempText => {
-//     if (tempText < 49) {
+// const tempRange = num => {
+//     num = tempValue
+//     console.log(num);
+//     if (num < 49) {
 //         return 'teal';
-//     } else if (tempText < 59) {
+//     } else if (num < 59) {
 //         return 'green';
-//     } else if (tempText < 69) {
+//     } else if (num < 69) {
+//         console.log('yellow');
 //         return 'yellow';
-//     } else if (tempText < 79) {
+//     } else if (num < 79) {
 //         return 'orange';
 //     } else {
 //         return 'red';
 //     }
 // }
+// console.log(tempRange);
 
-const upButton = document.getElementById("up-arrow");
+const upButton = document.getElementById('increaseTemp');
+upButton.addEventListener('click', e => {
+    tempValue.innerHTML = Number(tempValue.innerHTML) + 1;
+    // tempValue.style.color = tempRange
+    // console.log(e);
+});
 
-upButton.addEventListener('click', function onClick(event){
-    // tempText.value
-    tempText.style.color = tempRange
+const downButton = document.getElementById('decreaseTemp');
+downButton.addEventListener('click', e => {
+    tempValue.innerHTML = Number(tempValue.innerHTML) - 1;
 
-})
+});
