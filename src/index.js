@@ -8,7 +8,9 @@ axios
 const state = {
   temperature: 75,
   landscape: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
-  aboveEarth: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️'
+  aboveEarth: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+  skyDropdown: null,
+  cityBox: null
 };
 
 // Wave 02: Temperature Ranges Change Text Color and Landscape
@@ -32,34 +34,52 @@ const changeColorAndLandscape = () => {
   // selects HTML element with id="landscape"
   const landscapeUpdate = document.getElementById("landscape");
   if (state.temperature >= 80){
-    console.log("higher than 80")
     tempColor.className = 'temp_red';
     landscapeUpdate.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
   }else if(70 <= state.temperature && state.temperature < 80){
     tempColor.className = 'temp_orange';
     landscapeUpdate.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
   }else if (60 <= state.temperature && state.temperature < 70){
-    console.log("between 60 and 70")
     tempColor.className = 'temp_yellow';
     landscapeUpdate.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
   }else if (50 <= state.temperature && state.temperature < 60){
-    console.log("between 50 and 60")
     tempColor.className = 'temp_green';
     landscape.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   }else if (40 <= state.temperature && state.temperature < 50){
     tempColor.className = 'temp_teal';
     landscapeUpdate.textContent = "🌲☃️⛄️🌲⛄️❄️🌲❄️🌲☃️⛄️❄️🌲"
   }else if (state.temperature < 40){
-  tempColor.className = 'temp_aqua';
-  landscapeUpdate.textContent = "🧊🧊⛄️🌬️⛄️❄️☃️❄️🌬️🧊⛄️❄️☃️"
+    tempColor.className = 'temp_aqua';
+    landscapeUpdate.textContent = "🧊🧊⛄️🌬️⛄️❄️☃️❄️🌬️🧊⛄️❄️☃️"
   }
 }
 
 const changeSkyType = () => {
-  state.aboveEarth == '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  const sky = document.getElementById("sky");
-  sky.className = 'cloudy';
-  
+  // Grabs the value that the user selected
+  const selectorVal = document.getElementById("sky_selector").value;
+  // selects HTML element with id="aboveEarth"
+  const sky = document.getElementById("aboveEarth");
+  if (selectorVal === 'cloudy'){
+    console.log("testing cloudy");
+    sky.textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+  } else if (selectorVal === 'sunny') {
+    sky.textContent = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+  } else if (selectorVal === 'rainy'){
+    sky.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+  }else if (selectorVal === 'snowy'){
+    sky.textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+  }
+}
+
+const changeCityName = () => {
+  // Grabs the value of text that the user types in the input box
+  const cityBoxVal = document.getElementById("search-box").value;
+  // selects HTML header element with id="current_city"
+  const city = document.getElementById("current_city");
+  // assigns the HTML header element with id="current_city" to
+  // the text that the user types
+  city.textContent = cityBoxVal;
+}
 
 const registerEventHandlers = () => {
   const incButton = document.querySelector("#increaseButton");
@@ -68,8 +88,11 @@ const registerEventHandlers = () => {
   const decButton = document.querySelector("#decreaseButton");
   decButton.addEventListener("click", decreaseTemp);
 
-  const skyType = document.getElementById("aboveEarth");
-  skyType.addEventListener("click", changeSkyType)
+  const skyDropdown = document.querySelector("#sky_selector");
+  skyDropdown.addEventListener("change", changeSkyType);
+
+  const cityBox = document.querySelector("#search-box");
+  cityBox.addEventListener("input", changeCityName);
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
