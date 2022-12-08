@@ -50,9 +50,6 @@ const changeSky = () => {
     skyDisplay.style.backgroundColor = 'orange';
     skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
   }
-<<<<<<< HEAD
-  
-=======
   if (selectedSky === 'Cloudy') {
     skyDisplay.style.backgroundColor = 'gray';
     skyDisplay.style.backgroundImage = "url('./assets/cloudy.gif')";
@@ -65,7 +62,6 @@ const changeSky = () => {
     skyDisplay.style.backgroundColor = 'lightblue';
     skyDisplay.style.backgroundImage = "url('./assets/snow.gif')";
   }
->>>>>>> bf426ed44150c8f3accecc7fcd9ee781c7f5f9ba
 };
 
 const changeCityName = (input) => {

@@ -15,9 +15,7 @@ body{
     
     
 }
-#city-selector{
-    background-color: hsla(170, 25%, 75%, 1);
-}
+
 h1{
     text-align: center;
 }
@@ -41,4 +39,14 @@ h1{
     padding-left: 130px;
     font-size: 24px;
 
+}
+#city-selector{
+    display: flex;
+    justify-content:space-around;
+    width:500px;
+    height: 30px;
+    padding: 25px 50px 50px 70px;
+}
+#weather-display{
+    padding: 25px 50px 75px 70px;
 }
