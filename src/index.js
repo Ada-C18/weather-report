@@ -15,7 +15,6 @@ const findLocation = () => {
       console.log('error!');
     });
 };
-// findLocation();
 if (document.readyState !== 'loading') {
   findLocation();
 } else {
