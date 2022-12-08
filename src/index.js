@@ -1,18 +1,11 @@
-// const { default: axios } = require("axios");
-
-console.log('hello world Yang');
-
-// const { default: axios } = require('axios');
-// const mySecret =.env['LOCATION_KEY'];
-// console.log(axios);
-
+console.log('hello world');
 const findLocation = () => {
   console.log('check function work');
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
         q: 'seattle',
-        // format: 'json',
+        format: 'json',
       },
     })
     .then((response) => {
