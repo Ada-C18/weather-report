@@ -6,7 +6,8 @@ const increaseTemp = () => {
 
   const tempValue = document.getElementById("tempValue")
 
-  tempValue.textContent = state.currentTemp  
+  tempValue.textContent = state.currentTemp
+  temperatureColorCheck(state.currentTemp)  
 }
 
 const decreaseTemp = () => {
@@ -15,6 +16,24 @@ const decreaseTemp = () => {
   const tempValue = document.getElementById("tempValue")
 
   tempValue.textContent = state.currentTemp  
+  temperatureColorCheck(state.currentTemp)  
+
+}
+
+const temperatureColorCheck = (temp) => {
+  const tempValue = document.getElementById("tempValue")
+
+  if (temp >= 80) {
+    tempValue.className = "red"
+  } else if (temp >= 70) {
+    tempValue.className = "orange"
+  } else if (temp >= 60) {
+    tempValue.className = "yellow"
+  } else if (temp >= 50) {
+    tempValue.className = "green"
+  } else {
+    tempValue.className = "teal"
+  }
 }
 
 
