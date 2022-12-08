@@ -1,6 +1,4 @@
 'use strict';
-//import axios from 'axios';
-//const axios = require('axios');
 
 // Wave 2
 const state = {
@@ -73,15 +71,14 @@ const allEventHandlers = () => {
 
 //Wave 4
 
-const findTemperature = () => {
+const findTemperature = async () => {
   let latitude, longitude;
-  console.log("call test");
 
-  axios
+  await axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        //q: state.cityNameValue
-        q: `${state.cityNameValue}`,
+        q: state.cityNameValue,
+        //q: `${state.cityNameValue}`,
       },
     })
     .then((response) => {
@@ -91,6 +88,7 @@ const findTemperature = () => {
     .catch((error) => {
       console.log('error in finding location!');
     });
+
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
@@ -115,29 +113,28 @@ const getTempButton = document.getElementById('getTemperature');
 getTempButton.addEventListener('click', findTemperature); //??
 
 // Wave 5
-// const skyView = document.getElementById('sky');
+
 let skyView = document.querySelector('.skyView');
 
 const skyDisplay = (event) => {
-  //skyView.onchange = function skyDisplay () {
   console.log(event);
   let skyPic = document.getElementById('skyPictures');
-  if (skyView.value === 'Sunny') {   // 1) changed from = to ===; 2) update .value;
+  if (skyView.value === 'Sunny') {
+    // 1) changed from = to ===; 2) update .value;
     skyPic.innerText = '🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞';
-    console.log("text1", skyPic);
+    console.log('text1', skyPic);
   } else if (skyView.value === 'Cloudy') {
     skyPic.innerText = '🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️';
-    console.log("text2", skyPic);
+    console.log('text2', skyPic);
   } else if (skyView.value === 'Rainy') {
     skyPic.innerText = '🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️';
   } else if (skyView.value === 'Snowy') {
     skyPic.innerText = '🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️';
   }
-  
 };
 
-//skyView.onchange = skyDisplay; // 3)referring to the function, not calling the function with (); O1
+//skyView.onchange = skyDisplay; // 3)referring to the function, not calling the function with (); Option 1
 
-skyView.addEventListener('change', skyDisplay); //O2;
+skyView.addEventListener('change', skyDisplay); //Option 2;
 
 document.addEventListener('DOMContentLoaded', allEventHandlers);
