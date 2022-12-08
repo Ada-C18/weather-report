@@ -1,4 +1,4 @@
-import { landscapeEmoji } from './constants.js';
+import { landscapeEmoji, skyEmoji } from './constants.js';
 
 // temperature controls
 const state = {
@@ -32,6 +32,8 @@ const registerEventHandlers = () => {
   //real time temperature
   const realTimeTempButton = document.getElementById('real-time-temp');
   realTimeTempButton.addEventListener('click', getRealTimeTemp);
+  const skySelector = document.getElementById('sky-selector');
+  skySelector.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -59,7 +61,27 @@ const tempColorAndLandscape = () => {
   }
 };
 
-// text field input
+// sky selector - drop-down for sky art
+const updateSky = () => {
+  const selectedSky = document.getElementById('sky-selector').innerText;
+  const weatherEmojiContainer = document.getElementById('weather-emojis');
+
+  if (selectedSky === 'sunny') {
+    console.log('sunny selected!');
+    weatherEmojiContainer.textContent = skyEmoji.sunny;
+  } else if (selectedSky === 'cloudy') {
+    console.log('cloudy selected!');
+    weatherEmojiContainer.textContent = skyEmoji.cloudy;
+  } else if (selectedSky === 'rainy') {
+    console.log('rainy selected!');
+    weatherEmojiContainer.textContent = skyEmoji.rainy;
+  } else if (selectedSky === 'snowy') {
+    console.log('snowy selected!');
+    weatherEmojiContainer.textContent = skyEmoji.snowy;
+  }
+};
+
+// text field input - for city name
 const displayText = () => {
   const cityName = document.getElementById('city-name');
   const textField = document.getElementById('text-field');
@@ -67,6 +89,4 @@ const displayText = () => {
   cityName.textContent = textField.value;
 };
 
-const getRealTimeTemp = () => {
-
-}
+const getRealTimeTemp = () => {};
