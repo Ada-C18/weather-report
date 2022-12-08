@@ -56,7 +56,16 @@ const removeDegree = () => {
 };
 
 const updateCity = () => {
-  state.city = document.querySelector('#city').value;
+  if (document.querySelector('#city').value) {
+    state.city = document.querySelector('#city').value;
+  }
+  const cityDisplay = document.querySelector('#cityDisplay');
+  cityDisplay.textContent = `for the lovely city of ${state.city}`;
+};
+
+const resetCity = () => {
+  state.city = 'Seattle';
+  document.querySelector('#city').value = '';
   const cityDisplay = document.querySelector('#cityDisplay');
   cityDisplay.textContent = `for the lovely city of ${state.city}`;
 };
@@ -124,8 +133,8 @@ const registerEventHandlers = () => {
   const decreaseTempButton = document.querySelector('#decreaseTempButton');
   decreaseTempButton.addEventListener('click', removeDegree);
 
-  // const submitCityButton = document.querySelector('#submit');
-  // submitCityButton.addEventListener('click', updateCity);
+  const resetCityButton = document.querySelector('#reset');
+  resetCityButton.addEventListener('click', resetCity);
 
   const skySelect = document.querySelector('#sky');
   skySelect.addEventListener('change', changeSky);
