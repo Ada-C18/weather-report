@@ -70,6 +70,11 @@ const updateTempColor = () => {
     temperature.classList = 'teal';
   }
 };
+const updateCityName = () => {
+let cityNameInput = document.getElementById('cityNameInput').value;
+let headerCityName = document.getElementById('headerCityName');
+headerCityName.textContent = cityNameInput;
+};
 
 const updateSky = () => {
   const sky = document.getElementById('sky');
@@ -89,8 +94,6 @@ const updateSky = () => {
   }
 };
 
-const inputName = document.getElementById('cityNameInput').value;
-
 const registerEventHandlers = () => {
 
   const increaseTempBtn = document.getElementById('increaseTempBtn');
@@ -102,6 +105,7 @@ const registerEventHandlers = () => {
   const skySelection = document.getElementById('skySelection');
   skySelection.addEventListener('change', updateSky);
 
+  cityNameInput.addEventListener('input', updateCityName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
