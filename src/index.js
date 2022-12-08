@@ -3,7 +3,6 @@ const state = {
   tempCount: 64,
 };
 
-
 const updateLandscapeColor = () => {
   const tempDisplay = document.querySelector("#temperature");
   const landscape = document.querySelector("#landscape");
@@ -25,26 +24,21 @@ const updateLandscapeColor = () => {
   }
 }
 
-const increaseTemp = (event) => {
+const updateTemp = (event, changeFactor) => {
   const tempDisplay = document.querySelector("#temperature");
-  tempDisplay.textContent = `${state.tempCount++}`
+  state.tempCount = state.tempCount + changeFactor
+  tempDisplay.textContent = `${state.tempCount}`
   updateLandscapeColor()
 
-};
-
-
-const decreaseTemp = (event) => {
-  const tempDisplay = document.querySelector("#temperature");
-  tempDisplay.textContent = `${state.tempCount--}`
-  updateLandscapeColor()
 };
 
 
 const registerEventHandlers = (event) => {
+  updateLandscapeColor()
   const increaseButton = document.querySelector("#increaseTemp");
-  increaseButton.addEventListener("click",increaseTemp)
+  increaseButton.addEventListener("click",(event)=>updateTemp(event,1))
   const decreaseButton = document.querySelector("#decreaseTemp");
-  decreaseButton.addEventListener("click",decreaseTemp)
+  decreaseButton.addEventListener("click",(event)=>updateTemp(event,-1))
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);

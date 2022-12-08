@@ -11,12 +11,33 @@
 <body>
     <section>
         <button id="increaseTemp"> Increase </button>
-        <h1 id="temperature" class = "yellow">64</h1>
+        <h1 id="temperature">64</h1>
         <button id="decreaseTemp"> Decrease </button>
     </section>
     <section>
         <h1 id="landscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</h1>
     </section>
+    <section>
+        <h1 id="sky">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</h1>
+    </section>
+    <select id="skySelect">
+        <option value="Sunny">Sunny</option>
+        <option value="Cloudy">Cloudy</option>
+        <option value="Rainy">Rainy</option>
+        <option value="Snowy">Snowy</option>
+    </select>
+    <section>
+        <h1 id="city">City Name</h1>
+    </section>
+    <section>
+        <input type="text" id="cityNameInput">
+    </section>
+
+    <section>
+        <button id="getWeather"> Get Weather </button>
+    </section>
+
+
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script type="module" src="/src/index.js"></script>
 </body>
