@@ -6,14 +6,14 @@ A numeric temperature must be displayed. This temperature can be in either Fahre
 
 There must be two clickable elements:
 
-1. An element that increases the temperature by one degree on click
-1. An element that decreases the temperature by one degree on click
+X An element that increases the temperature by one degree on click
+X An element that decreases the temperature by one degree on click
 
 ### Temperature Ranges Change Text Color
 
 Depending on what temperature it is, either:
 
-- the temperature number changes color
+X the temperature number changes color
 - the background of the temperature changes color
 
 There must be at least five categories of distinguishable colors.

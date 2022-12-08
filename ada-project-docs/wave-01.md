@@ -17,7 +17,7 @@ We recommend you get started by writing the HTML in `index.html`.
 You will need to link:
 X `index.css` 
 X `index.js`   
-- `./node_modules/axios/dist/axios.min.js` ##TO DO
+X `./node_modules/axios/dist/axios.min.js`
 
 ## Tips
 

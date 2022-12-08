@@ -1,8 +1,12 @@
 // logic to change temperature using the buttons
 const state = {
   temp: 45,
-  city: "Seattle",
+  city: 'Seattle',
 };
+
+//converting Kelvin to Fahrenheit
+const convertKelvinToF = (temp) => ((temp - 273.15) * 9) / 5 + 32;
+console.log('Temperature is:', convertKelvinToF(271.54));
 
 //Creating addTemp and minus Temp events
 const addTemp = (event) => {
@@ -28,32 +32,33 @@ const changeTempNumColor = () => {
   if (temp >= 80) {
     document.getElementById('currentTemp').className = 'red';
     skyElement.textContent = '🔥🥵🌞🔥🥵🌞🔥🥵🌞';
-    landScapeElement.textContent = '👙🩳⛱🏝🌊👙🩳⛱🏝🌊👙🩳⛱🏝🌊'
+    landScapeElement.textContent = '👙🩳⛱🏝🌊👙🩳⛱🏝🌊👙🩳⛱🏝🌊';
   } else if (temp >= 70 && temp <= 79) {
     document.getElementById('currentTemp').className = 'orange';
     skyElement.textContent = '🌤☁️🌤☁️🌤☁️🌤☁️🌤☁️';
-    landScapeElement.textContent = '🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹🍉'
+    landScapeElement.textContent = '🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹🍉';
   } else if (temp >= 60 && temp <= 69) {
     document.getElementById('currentTemp').className = 'yellow';
     skyElement.textContent = '☁️🌥☁️🌥☁️🌥☁️🌥☁️🌥';
-    landScapeElement.textContent = '🌧☔️🌈🌧☔️🌈🌧☔️🌈🌧☔️🌈'
+    landScapeElement.textContent = '🌧☔️🌈🌧☔️🌈🌧☔️🌈🌧☔️🌈';
   } else if (temp >= 50 && temp <= 59) {
     document.getElementById('currentTemp').className = 'green';
     skyElement.textContent = '☁️☁️☁️☁️🌥☁️☁️☁️☁️';
-    landScapeElement.textContent = '🍁🍂🌲🌳🍁🍂🌲🌳🍁🍂🌲🌳'
+    landScapeElement.textContent = '🍁🍂🌲🌳🍁🍂🌲🌳🍁🍂🌲🌳';
   } else {
     document.getElementById('currentTemp').className = 'teal';
     skyElement.textContent = '☁️🌧❄️☁️🌧❄️☁️🌧❄️☁️🌧❄️';
-    landScapeElement.textContent = '☃️🧤🥶🏔☃️🧤🎄🥶🏔☃️🧤🥶🏔'
+    landScapeElement.textContent = '☃️🧤🥶🏔☃️🧤🎄🥶🏔☃️🧤🥶🏔';
   }
 };
-
 
 ////Creating an event to update headerCityName
 const updateCityName = (event) => {
   const updatedCityName = document.getElementById('headerCityName');
   updatedCityName.textContent = `🌍🌟${event.target.value}🌟🌍`;
 };
+
+//API call for LocationIQ
 
 ////Registering Event handlers and add event listeners
 const registerEventHandlers = (event) => {
@@ -66,8 +71,6 @@ const registerEventHandlers = (event) => {
 
   const input = document.querySelector('input');
   input.addEventListener('input', updateCityName);
-
 };
 
-
-document.addEventListener('DOMContentLoaded',registerEventHandlers);
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
