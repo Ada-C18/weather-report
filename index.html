@@ -10,16 +10,44 @@
 <body>
     
     <div class="container">
-        <header class="header">Weather Report For the lovely city of Seattle</header>
-        <nav class="white-boxes">
-            <div class="white">Temperature<br><br></div>
-            <div class="white">Sky<br><br></div> 
-            <div class="white">City name<br><br></div>
-        </nav> 
+        <header class="header">
+            Weather Report <span>For the lovely city of 
+                <span id="headerCityName">
+                    Seattle
+                </span>
+            </span>
+        </header>
+        <div class="white-boxes">
+            <div class="white" id="temperature_box">
+                <h2>Temperature</h2>
+                <div class="temperature_content">
+                    <div class="change_temperature">
+                        <span id="increaseTemp">⬆️</span>
+                        <span id="temp">NUMBER</span>
+                        <span id="decreaseTemp">⬇️</span>
+                    </div>
+                    <button id="getTemp">Get Realtime Temperature</button>
+                </div>
+            </div>
+            <div class="white" id="sky_box">
+                <h2>Sky</h2>
+                <select id="skySelect">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </div> 
+            <div class="white" id="city_name">
+                <h2>City name</h2>
+                <input type="text" id="cityNameInput" value="Seattle" />
+                <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
+            </div>
+        </div> 
         <div class="content">            
             <div class="garden">Weather Garden</div>
         </div>
-        <footer> This is our web page </footer>
+        <footer> This is our Footer </footer>
 
 
     <!-- <div class="box">

@@ -8,13 +8,12 @@ body {
 
 
 .container {
-    width: 60vw;
-    height: 100vh;
+    width: 90vw;
+    height: 90vh;
     /* background-color: lightblue; */
 
     display: grid;
-    grid-template: 15%
-    auto 20% /1fr 3fr;
+    grid-template: 15% auto 20% /1fr 3fr;
 }
     /* grid-template-columns: 100px 100px; */
 
@@ -25,15 +24,40 @@ body {
     font-size: 50px;
 }
 
-nav {
+.white-boxes {
     background-color: yellow;
-    grid-row: auto / span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    /* grid-row: auto; */
+}
+
+.white {
+    background-color: white;
+    border-radius: 25px;
+    margin: 25px;
+    padding: 55px 52px;
+    
+    
 }
 
 .content {
     background-color: #009e73;
-    grid-row: auto;
+    /* grid-row: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
+}
+
+.garden {
+    background-color: white;
+    border-radius: 25px;
+    margin: 25px;
+    padding: 255px 52px;
+    
+    
 }
 
 footer {
