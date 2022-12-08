@@ -14,7 +14,8 @@
             <span class="banner" id="sky banner">...</span>
         </header>
         <section class="container">
-            <div>City Name</div>
+            <p id="cityName">Seattle</p>
+            <input type="text" id="inputCityName" placeholder="Berlin"/>            
             <div>Sky Condition</div>
             <div>Date & Time</div>
             <div>
@@ -22,9 +23,12 @@
                 <p id="Temperature">Temperature</p>
                 <button id="decreaseTempButton">Decrease Temp</button>
             </div>
+            <button id="updateTempButton">Update Temperature</button>
         </section>
         <span class="banner" id="landscape">...</span>
-        <footer>Copyright Adies of D18 2022</footer>   
+        <footer>
+            <p>Copyright Adies of D18 2022</p>
+        </footer>   
     </main>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
