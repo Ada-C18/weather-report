@@ -21,11 +21,13 @@
                 <section class="module", id="temperature-module">
                     <p class="module-text">Temperature</p>
                     <section id="temperature-display">
-                        <button id="increaseTemp">⬆</button>
-                        <p id="currentTemp">60</p>
-                        <button id="decreaseTemp">⬇</button>
+                        <section id="temperature-buttons">
+                            <button id="increaseTemp">⬆</button>
+                            <p id="currentTemp">60</p>
+                            <button id="decreaseTemp">⬇</button>
+                        </section>
+                        <button>Get Realtime Temperature</button>
                     </section>
-                    <button>Get Realtime Temperature</button>
                 </section>
                 <section class="module">
                     <p class="module-text">Sky</p>
@@ -34,9 +36,8 @@
                     </select>
                 </section>
                 <section class="module">
-                    <p class="module-text">City</p>
-                    <select id="city-dropdown">
-                        <option value="New York">New York</option>
+                    <label for="city-input" class="module-text">City</label>
+                    <input type="text" id="city-input" name="city-input" required>
                     </select>
                 </section>
             </section>
