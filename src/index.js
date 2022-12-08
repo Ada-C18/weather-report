@@ -7,6 +7,7 @@ function incrementButton() {
   value++;
 
   temperatureColor(value);
+  landscapeIcons(value);
 
   document.getElementById('counter').innerHTML = value;
 }
@@ -18,6 +19,7 @@ function decreaseButton() {
   value--;
 
   temperatureColor(value);
+  landscapeIcons(value);
 
   document.getElementById('counter').innerHTML = value;
 }
@@ -34,5 +36,18 @@ function temperatureColor(temp) {
     element.className = 'green';
   } else if (temp <= 49) {
     element.className = 'teal';
+  }
+}
+
+function landscapeIcons(temp) {
+  let emoji = document.getElementById('emojis');
+  if (temp >= 80) {
+    emoji.innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temp >= 70 && temp <= 79) {
+    emoji.innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temp >= 60 && temp <= 69) {
+    emoji.innerText = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (temp <= 59) {
+    emoji.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 }
