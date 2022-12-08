@@ -7,7 +7,7 @@ const state = {
   currentTempCount: 60,
   currentTemp: null,
   landscape: null,
-  cityDisplay: 'City Name Here',
+  cityDisplay: null,
   cityInput: null,
 };
 
@@ -22,7 +22,7 @@ const loadsControls = () => {
 
 const refreshUI = () => {
   state.currentTemp.textContent = state.currentTempCount;
-  state.cityDisplay.textContent = state.cityInput.textContent.value();
+  state.cityDisplay.textContent = state.cityInput.value;
 };
 
 const handleIncreaseTempButtonClicked = (event) => {
@@ -40,7 +40,6 @@ const handleDecreaseTempButtonClicked = (event) => {
 };
 
 const handleCityInputChanged = (event) => {
-  state.cityDisplay.textContent = state.cityInput.value();
   refreshUI();
 };
 
