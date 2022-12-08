@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <title>Daily Weather App</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="wrapper active">
+      <header><i class='bx bx-left-arrow-alt'></i>Today's Weather Report</header>
+      <section class="input-part">
+        <p class="info-txt"></p>
+        <div class="content">
+          <input type="text" spellcheck="false" placeholder="Enter city name" required>
+          <button>Enter</button>
+        </div>
+      </section>
+      <section class="weather-part">
+        <img src="icons/clear.svg" alt="Weather Icon">
+        <div class="temp">
+            <div class="temperature_controls">
+                <span id="increaseTempControl">🔼</span>
+                <span id="decreaseTempControl">🔽</span>
+            </div>
+          <span id="tempValue" class="orange">59</span>
+          <span id="tempdeg" class="orange">° F</span>
+        </div>
+        <div class="weather">Cloudy</div>
+        <div class="location">
+          <i class='bx bx-map'></i>
+          <span>Atlanta, GA</span>
+        </div>
+        <div class="bottom-details">
+          <div class="column feels">
+            <i class='bx bxs-thermometer'></i>
+            <div class="details">
+              <div class="temp">
+                <span class="numb-2">45</span>
+                <span class="deg">°</span>F
+              </div>
+              <p>Feels like</p>
+            </div>
+          </div>
+          <div class="column humidity">
+            <i class='bx bxs-droplet-half'></i>
+            <div class="details">
+              <span>90%</span>
+              <p>Humidity</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        Designed with <span>❤</span> by <a>Makeesha</a>
+    </footer> 
+    </div>
+    </div>
+<script src="src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+</body> 
 </html>
