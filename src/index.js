@@ -6,15 +6,14 @@ const state = {
 
 const formatTempAndLandscape = () => {
   let temp = state.temp;
-  let color = 'fuschia';
-  // const p = document.getElementById('#tempDisplay');
+  let color = 'red';
   if (temp > 80) {
     color = 'red';
-  } else if (temp < 70) {
+  } else if (temp > 70) {
     color = 'orange';
-  } else if (temp < 60) {
+  } else if (temp > 60) {
     color = 'yellow';
-  } else if (temp < 50) {
+  } else if (temp > 50) {
     color = 'green';
   } else {
     color = 'teal';
