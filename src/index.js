@@ -1,13 +1,48 @@
 'use strict';
-import axios from 'axios';
-
 
 // create state
 const state = {
     temperature: 72,
-    cityName: 'Seattle',
-    lat: 47.6038321,
-    lon: -122.3300624,
+    cityName: 'Baltimore',
+    lat: 0,
+    lon: 0,
+    // lat: 39.299236,
+    // lon: -76.609383,
+};
+
+
+const getLatAndLon = () => {
+    axios.get('http://127.0.0.1:5000/location',{
+        params: {
+            q:state.cityName,
+        },
+    })
+    .then((response) => {
+        console.log(response.data);
+        state.lat = response.data[0].lat;
+        state.lon = response.data[0].lon;
+        getWeather();
+    })
+    .catch((error)=> {
+        console.log('Error',error.response)
+    });
+};
+
+const getWeather = () =>{
+    axios.get('http://127.0.0.1:5000/weather',{
+        params: {
+            lat: state.lat,
+            lon: state.lon,
+        },
+    })
+    .then((response) => {
+        const weather =response.data;
+        state.temperature= weather.temperature
+        // state.temperature = Math.round(convertTemp(weather.current.temperature));
+    })
+    .catch((error) => {
+        console.log('Erorr:', error);
+    });
 };
 
 // temperature color changes based on temp
@@ -52,9 +87,11 @@ const decreaseTemp = () => {
 };
 
 const updateCity = () => {
-    const textName = document.getElementById('search-box');
+    const textName = document.getElementById('search-box').value;
     const cityOutPut = document.getElementById('cityOutput');
-    cityOutPut.innerHTML = textName.value;
+    state.cityName = textName;
+    cityOutPut.innerHTML = state.cityName;
+    // cityOutPut.innerHTML = textName.value;
 }
 
 const convertTemp = (temperature) => {
@@ -62,47 +99,17 @@ const convertTemp = (temperature) => {
     return temp
 };
 
-const latAndLon = () => {
-    axios.get('https://us1.locationiq.com/v1/search.php',{
-        params: {
-            q:state.cityName,
-        },
-    })
-    .then((response) => {
-        console.log(response.data);
-        state.lat = response.data[0].lat;
-        state.lon = response.data[0].lon;
-        getWeather();
-    })
-    .catch((error)=> {
-        console.log('Error',error.response)
-    });
-};
 
-const getWeather = () =>{
-    axios.get('https://api.openweathermap.org/data/2.5/weather',{
-        params: {
-            lat: state.lat,
-            lon: state.log,
-        },
-    })
-    .then((response) => {
-        const weather =response.data;
-        state.temperature = Math.round(convertTemp(weather.current.temperature));
-    })
-    .catch((error) => {
-        console.log('Erorr:', error);
-    });
-};
 
 // register event handlers
 const registerEventHandlers = () => {
   // Increase Decrease Arrows
     colorEnvChange();
-    updateCity();
+    getLatAndLon();
+    getWeather();
 
     const getTempButton = document.getElementById('getTemp');
-    getTempButton.addEventListener('click', latAndLon);
+    getTempButton.addEventListener('click', getLatAndLon);
 
     const addCity = document.getElementById('addCityButton');
     addCity.addEventListener('click', updateCity);
