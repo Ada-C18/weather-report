@@ -1,37 +1,35 @@
 'use strict';
 
-// Wave 2
 const state = {
   temperature: 60,
   cityNameValue: 'seattle',
 };
 
-document.getElementById('temperatureNumber').style.color = 'black';
-
+// selecting HTML Elements
 const addTemperatureButton = document.getElementById('upButton');
 const decreaseTemperatureButton = document.getElementById('downButton');
 const temperatureDisplay = document.getElementById('temperatureNumber');
 const resetButton = document.getElementById('reset');
-
-// Wave 3
 const cityName = document.getElementById('cityName');
 const city = document.getElementById('city');
-cityName.addEventListener('input', display);
+const getTempButton = document.getElementById('getTemperature');
+let skyView = document.querySelector('.skyView');
 
-// Wave 2 - function that display cityName immediately
+
+// Wave 3 - function that display cityName immediately
 function display(e) {
   //console.log(e); input event
   city.textContent = e.target.value;
   state.cityNameValue = e.target.value;
 }
-// Wave 2 - function that reset the input
+// Wave 6 - function that reset the input
 function resetInput() {
   cityName.value = ''; //input
   city.textContent = ''; //span
 }
 
-resetButton.addEventListener('click', resetInput);
 
+//Wave 2 - changing text color and landscape 
 const textColorAndLandscape = () => {
   const landscapeDisplay = document.getElementById('landscape'); //? is this the right position?
   if (state.temperature >= 80) {
@@ -52,6 +50,7 @@ const textColorAndLandscape = () => {
   }
 };
 
+//Wave 2
 const addTemperature = () => {
   state.temperature += 1;
   temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
@@ -64,13 +63,8 @@ const decreaseTemperature = () => {
   textColorAndLandscape();
 };
 
-const allEventHandlers = () => {
-  addTemperatureButton.addEventListener('click', addTemperature);
-  decreaseTemperatureButton.addEventListener('click', decreaseTemperature);
-};
 
-//Wave 4
-
+//Wave 4 - API call
 const findTemperature = async () => {
   let latitude, longitude;
 
@@ -78,7 +72,6 @@ const findTemperature = async () => {
     .get('http://127.0.0.1:5000/location', {
       params: {
         q: state.cityNameValue,
-        //q: `${state.cityNameValue}`,
       },
     })
     .then((response) => {
@@ -110,13 +103,8 @@ const findTemperature = async () => {
     });
 };
 
-const getTempButton = document.getElementById('getTemperature');
-getTempButton.addEventListener('click', findTemperature); //??
 
-// Wave 5
-
-let skyView = document.querySelector('.skyView');
-
+// Wave 5 - display the Sky according to dropdown list
 const skyDisplay = (event) => {
   console.log(event);
   let skyPic = document.getElementById('skyPictures');
@@ -134,8 +122,18 @@ const skyDisplay = (event) => {
   }
 };
 
-//skyView.onchange = skyDisplay; // 3)referring to the function, not calling the function with (); Option 1
 
-skyView.addEventListener('change', skyDisplay); //Option 2;
+// function to hold all the Event Handler
+const allEventHandlers = () => {
+  addTemperatureButton.addEventListener('click', addTemperature);
+  decreaseTemperatureButton.addEventListener('click', decreaseTemperature);
+  //skyView.onchange = skyDisplay; // 3)referring to the function, not calling the function with (); Option 1
+  skyView.addEventListener('change', skyDisplay); //Option 2;
+  resetButton.addEventListener('click', resetInput);
+  cityName.addEventListener('input', display);
+  getTempButton.addEventListener('click', findTemperature);
+
+};
+
 
 document.addEventListener('DOMContentLoaded', allEventHandlers);
