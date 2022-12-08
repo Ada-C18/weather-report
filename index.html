@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-
 </head>
 <body>
     <section>
+        <h1 id="city">Weather Report for the wonderful city of City</h1>
         <button id="increaseTemp"> Increase </button>
         <h1 id="temperature" class = "yellow">64</h1>
         <button id="decreaseTemp"> Decrease </button>
@@ -17,6 +17,11 @@
     <section>
         <h1 id="landscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</h1>
     </section>
+    <form>
+        <label for="cityName">City Name</label>
+        <input type="text" id="cityName" name="cityName" required
+        minlength="1" maxlength="35" size="20">
+    </form>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script type="module" src="/src/index.js"></script>
 </body>

@@ -1,6 +1,7 @@
 
 const state = {
   tempCount: 64,
+  //cityName: null,
 };
 
 
@@ -39,6 +40,11 @@ const decreaseTemp = (event) => {
   updateLandscapeColor()
 };
 
+
+const selectCity = (event) => {
+  const cityName = document.getElementById("#city"); 
+  state.cityName = cityName;
+}; 
 
 const registerEventHandlers = (event) => {
   const increaseButton = document.querySelector("#increaseTemp");
