@@ -1,27 +1,32 @@
-//This should be deleted if added: const { Axios } = require("axios");
-
 'use strict';
 
+const state = {
+  cityName: null,
+  currentTemp: 1,
+};
+
+const loadControls = () => {
+  state.cityName = document.getElementById('city-name').textContent;
+  state.currentTemp = document.getElementById('current-temp');
+};
+
 const setTempColor = () => {
-  const temp = document.querySelector('#temp');
-  const Fahrenheit = parseInt(temp.textContent);
+  const Fahrenheit = parseInt(state.currentTemp.textContent);
   if (Fahrenheit >= 80) {
-    temp.className = 'eightyandabove';
+    state.currentTemp.className = 'eightyandabove';
   } else if (Fahrenheit >= 70 && Fahrenheit < 80) {
-    temp.className = 'seventies';
+    state.currentTemp.className = 'seventies';
   } else if (Fahrenheit >= 60 && Fahrenheit < 70) {
-    temp.className = 'sixties';
+    state.currentTemp.className = 'sixties';
   } else if (Fahrenheit >= 50 && Fahrenheit < 60) {
-    temp.className = 'fifties';
+    state.currentTemp.className = 'fifties';
   } else {
-    temp.className = 'fourtiesandbelow';
+    state.currentTemp.className = 'fourtiesandbelow';
   }
 };
 
 const setLandscape = () => {
-  const weatherGarden = document.querySelector('#weather-garden');
-  const Fahrenheit = document.querySelector('#temp');
-  const temp = parseInt(Fahrenheit.textContent);
+  const temp = parseInt(state.currentTemp.textContent);
   const weatherGardenDisplay = document.querySelector(
     '#display-weather-garden'
   );
@@ -36,18 +41,15 @@ const setLandscape = () => {
   }
 };
 
-setTempColor();
-setLandscape();
-
 const increaseTemp = () => {
-  const temp = document.querySelector('#temp');
+  const temp = document.querySelector('#current-temp');
   temp.textContent = parseInt(temp.textContent) + 1;
   setTempColor();
   setLandscape();
 };
 
 const decreaseTemp = () => {
-  const temp = document.querySelector('#temp');
+  const temp = document.querySelector('#current-temp');
   temp.textContent = parseInt(temp.textContent) - 1;
   setTempColor();
   setLandscape();
@@ -56,9 +58,12 @@ const decreaseTemp = () => {
 const renameCity = () => {
   const cityInput = document.getElementById('city-input');
   let newCity = cityInput.value;
-  console.log(newCity);
   const cityName = document.querySelector('#city-name');
   cityName.textContent = newCity;
+  state.cityName = newCity;
+  getLatLon(state.cityName);
+  setTempColor();
+  setLandscape();
 };
 
 const getLatLon = (placeName) => {
@@ -71,8 +76,7 @@ const getLatLon = (placeName) => {
     .then((response) => {
       const lat = response.data[0].lat;
       const lon = response.data[0].lon;
-      console.log(getWeather(lat, lon));
-      return getWeather(lat, lon);
+      getWeather(lat, lon);
     })
     .catch((error) => {
       console.log("Error! Can't find longitute and latitude");
@@ -89,15 +93,17 @@ const getWeather = (lat, lon) => {
     })
     .then((response) => {
       const tempKelvin = response.data.main.temp;
-      tempFahr = 1.8 * (tempKelvin - 273) + 32;
-      return tempFahr;
+      const tempFahr = Math.floor(1.8 * (tempKelvin - 273) + 32);
+      state.currentTemp.textContent = tempFahr;
     })
     .catch((error) => {
       console.log("Error! Can't find temperature");
     });
 };
 
-getLatLon('San Francisco');
+const currentTemp = () => {
+  state.currentTemp = getLatLon(state.cityName);
+};
 
 const registerEventHandlers = () => {
   const increaseTempButton = document.querySelector('#increase-temp');
@@ -111,6 +117,18 @@ const registerEventHandlers = () => {
     event.preventDefault();
     renameCity();
   });
+
+  const currentTempButton = document.querySelector('#current-temp-button');
+  currentTempButton.addEventListener('click', currentTemp);
 };
+
+const onLoaded = () => {
+  loadControls();
+  getLatLon(state.cityName);
+  setTempColor();
+  setLandscape();
+};
+
+onLoaded();
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
