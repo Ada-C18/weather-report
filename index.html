@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    
 </head>
 <body>
-    
+    <main>
+        <Section class="box left" id="temp"><!-- temperature section --> 
+            <h2>
+                Temperature
+            </h2>
+            <div>
+                <button class="arrow" id="up">⬆️</button>
+            </div>
+            <div>
+                <button class="arrow" id="down">⬇️</button>
+            </div>
+            <div>
+                <p><span>70</span> F</p>
+            </div>
+        </Section>
+        
+        <Section class="box left" id="city" ><!-- city section --> 
+            <h2>
+                City Name:
+            </h2>
+            <div>
+                <input type="text" id="name" name="name" placeholder="Seattle"required>
+            </div>
+            <div>
+                <button>Go</button>
+            </div>
+            <div>
+                <button>Reset</button>
+            </div>
+        </Section>
+
+        <Section class="box left" id="sky"><!-- sky section --> 
+            <h2>
+                Sky
+            </h2>
+            <div>
+                <!-- dropdown -->
+
+            </div>
+            <div>
+                <p>☁️ ☁️ ☁️</p>
+            </div>
+        </Section>
+
+        <Section class="box right" id="header"><!-- Weather title section -->
+            <h1> 
+                Weather Report for <span>Seattle</span>
+            </h1>
+        </Section>
+
+        <Section class="box right" id="garden"> <!-- weather garden section -->
+            <h2>
+                Weather Garden
+            </h2>
+            <div></div>
+            <div>
+                <p>🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
+            </div>
+        </Section>
+    </main>
 </body>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="/src/index.js" type="text/javascript"></script>
 </html>
