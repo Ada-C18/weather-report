@@ -47,6 +47,11 @@ const registerEventHandlers = () => {
   down.addEventListener('click', changeTempColor);
 };
 
+const updateCity = () => {
+  const getCityName = document.getElementById("citySection").value;
+  textContent = getCityName;
+
+};
 // reset the city temperature
 const resetCity = () => {
   const cityContainer = document.getElementById(citySection);
