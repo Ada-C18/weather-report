@@ -10,20 +10,22 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-          <div>
+          <div class="city-header">
             <h3>For the city of
             <span id="city">San Francisco</span>
               </h3>
           </div>
     </header>
-    <section class="environment_box">
+    <main>
+    <section class="environment-box">
         <h2>Environment</h2>
         <div class="environment_elements">
             <div id="landscape_image">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</div>
             <div id="sky_image"></div>
         </div>
     </section>
-    <section class="temperature_container">
+    <div class="main-box">
+    <section class="main-box-child">
         <h2>Temperature</h2>
         <div class="temperature_elements">
            <button id="temperature_btn">
@@ -36,7 +38,7 @@
            </div>
         </div>
     </section>
-    <section class="sky_container">
+    <section class="main-box-child">
         <h2>Sky</h2>
         <select id="sky_select"></select>
         <option>Sunny</option>
@@ -44,12 +46,13 @@
         <option>Rainy</option>
         <option>Snowy</option>
     </section>
-    <section class="city_name_container">
+    <section class="main-box-child">
         <h2>City Name</h2>
         <input type="text" id="city_name_input" value="San Francisco"></input>
         <button id="city_name_reset" class="city_name_reset_button">Reset</button>
-
     </section>
+    </div>
+    </main>
 <script src="./node_modules/axios/dist/axios.min.js"></script>  
 <script src="src/index.js"></script>
 </body>
