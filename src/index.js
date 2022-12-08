@@ -1,6 +1,6 @@
 'use strict';
 //import axios from 'axios';
-const axios = require('axios');
+//const axios = require('axios');
 
 // Wave 2
 const state = {
@@ -14,20 +14,19 @@ const addTemperatureButton = document.getElementById('upButton');
 const decreaseTemperatureButton = document.getElementById('downButton');
 const temperatureDisplay = document.getElementById('temperatureNumber');
 const resetButton = document.getElementById('reset');
-//let cityNameValue = "";
 
 // Wave 3
 const cityName = document.getElementById('cityName');
 const city = document.getElementById('city');
 cityName.addEventListener('input', display);
 
-// function that display cityName immediately
+// Wave 2 - function that display cityName immediately
 function display(e) {
   //console.log(e);
   city.textContent = e.target.value;
   state.cityNameValue = e.target.value;
 }
-// function that reset the input
+// Wave 2 - function that reset the input
 function resetInput() {
   cityName.value = ''; //input
   city.textContent = ''; //span
@@ -74,49 +73,72 @@ const allEventHandlers = () => {
 
 //Wave 4
 
-//const cityNameValue = cityName.value;
-const findTemperature = () => {
-  let latitude, longitude;
-  //console.log(state.cityNameValue);
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        //q: `${state.city}`,
-        //q: state.cityNameValue
-        q: `${state.cityNameValue}`,
-      },
-    })
-    .then((response) => {
-      //console.log("hello");
-      latitude = response.data[0].lat;
-      longitude = response.data[0].lon;
-      //console.log(latitude, longitude);
-    })
-    .catch((error) => {
-      //console.log("hello2");
-      console.log('error in finding location!');
-    });
-  axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: {
-        lat: latitude,
-        lon: longitude,
-      },
-    })
-    .then((response) => {
-      const kelvinTemperature = response.data.main.temp;
-      const fahrenheitTemperature = Math.round(
-        (kelvinTemperature - 273.15) * 1.8 + 32
-      );
-      state.temperature = fahrenheitTemperature;
-      temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
-    })
-    .catch((error) => {
-      console.log('error in finding temperature!');
-    });
-};
+// const findTemperature = () => {
+//   let latitude, longitude;
+//   //console.log(state.cityNameValue);
+//   axios
+//     .get('http://127.0.0.1:5000/location', {
+//       params: {
+//         //q: `${state.city}`,
+//         //q: state.cityNameValue
+//         q: `${state.cityNameValue}`,
+//       },
+//     })
+//     .then((response) => {
+//       //console.log("hello");
+//       latitude = response.data[0].lat;
+//       longitude = response.data[0].lon;
+//       //console.log(latitude, longitude);
+//     })
+//     .catch((error) => {
+//       //console.log("hello2");
+//       console.log('error in finding location!');
+//     });
+//   axios
+//     .get('http://127.0.0.1:5000/weather', {
+//       params: {
+//         lat: latitude,
+//         lon: longitude,
+//       },
+//     })
+//     .then((response) => {
+//       const kelvinTemperature = response.data.main.temp;
+//       const fahrenheitTemperature = Math.round(
+//         (kelvinTemperature - 273.15) * 1.8 + 32
+//       );
+//       state.temperature = fahrenheitTemperature;
+//       temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
+//     })
+//     .catch((error) => {
+//       console.log('error in finding temperature!');
+//     });
+// };
 
-const getTempButton = document.getElementById('getTemperature');
-getTempButton.addEventListener('click', findTemperature); //??
+//const getTempButton = document.getElementById('getTemperature');
+//getTempButton.addEventListener('click', findTemperature); //??
+
+// Wave 5
+// const skyView = document.getElementById('sky');
+let skyView = document.querySelector('.skyView');
+
+const skyDisplay = () => {
+  //skyView.onchange = function skyDisplay () {
+
+  let skyPic = document.getElementById('skyPictures');
+  if ((skyView = 'Sunny')) {
+    skyPic.innerText = '🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞';
+    //console.log(skyPic);
+  } else if ((skyView = 'Cloudy')) {
+    skyPic.innerText = '🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️';
+    console.log(skyPic);
+  } else if ((skyView = 'Rainy')) {
+    skyPic.innerText = '🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️';
+  } else if ((skyView = 'Snowy')) {
+    skyPic.innerText = '🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️';
+  }
+};
+skyView.onchange = skyDisplay();
+ 
+//skyView.addEventListener('change', skyDisplay);
 
 document.addEventListener('DOMContentLoaded', allEventHandlers);
