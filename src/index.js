@@ -45,16 +45,23 @@ const inputHandler = function (e) {
   cityName.innerHTML = e.target.value;
 };
 
-//sky drop down options
-function skyFunction() {
-  document.getElementById('skyDropdown').classList.toggle('show');
-}
+//changes sky from drop down menu options
+const changeSky = () => {
+  const skyView = document.getElementById('sky');
+  const skyOption = document.getElementById('dropdown');
+  if (skyOption.value === 'cloudy') {
+    skyView.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyOption.value === 'sunny') {
+    skyView.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyOption.value === 'rainy') {
+    skyView.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyOption.value === 'snowy') {
+    skyView.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
 
 //register event handlers
 const registerEventHandlers = () => {
-  const skyOptionsButton = document.querySelector('#options-id');
-  skyOptionsButton.addEventListener('click', skyFunction);
-
   cityInput.addEventListener('input', inputHandler);
   cityInput.addEventListener('propertychange', inputHandler);
 
@@ -63,6 +70,8 @@ const registerEventHandlers = () => {
 
   const tempDownButton = document.querySelector('#down-button');
   tempDownButton.addEventListener('click', tempDown);
+
+  document.getElementById('dropdown').addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -71,17 +80,3 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 //70-79 🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷
 //60-69 🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃
 //59 or below 🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲
-
-// Close the dropdown if the user clicks outside of it
-// window.onclick = function (event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     const dropdowns = document.getElementsByClassName('dropdown-content');
-//     let i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       const openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// };
