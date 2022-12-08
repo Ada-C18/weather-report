@@ -29,6 +29,19 @@ header {
 }
 #temp {
     grid-column-start: 2;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#increase-temp {
+    font-size: 1.5em;
+}
+#curr-temp {
+    font-size: 3rem;
+    margin-left: 1.5rem;
+}
+#decrease-temp {
+    font-size: 1.5em;
 }
 #sky-dropdown {
     grid-column-start: 1;
