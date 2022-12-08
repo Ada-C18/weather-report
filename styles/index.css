@@ -1,15 +1,19 @@
 body {
-    background-color: #3481ed;
+    background-color: #032a65;
     font-family: monospace;
 }
 
 header {
     display: grid;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     font-size: 2em;
     text-align: center;
     font-family: monospace;
     color: rgb(214, 202, 202);
+    background-color: rgb(53, 51, 136);
+    grid-column: 1;
+    align-content: space-evenly;
+    grid-row: 1 / 3;
 }
 
 .group-container {
@@ -17,13 +21,18 @@ header {
     grid-template-columns: 1fr auto auto 1fr;
     grid-template-rows: 1fr,1fr;
     grid-gap: 10px;
-    align-content: space-evenly;
+    align-content: center;
+    grid-auto-flow: column;
+    color: rgb(111, 166, 87);
+
 }
 .temperature-container {
 grid-column: 2/3;
 grid-row: 1/2;
 height: 300px;
 width: 300px;
+text-align: center;
+font-size: 1.5em;
 /* background-color: gray; */
 }
 
@@ -33,6 +42,8 @@ grid-row: 2/3;
 height: 300px;
 width: 300px;
 /* background-color: gray; */
+text-align: center;
+font-size: 1.5em;
 }
 .city-container {
 grid-column: 3/4;
@@ -40,13 +51,17 @@ grid-row: 1/2;
 height: 300px;
 width: 300px;
 /* background-color: gray; */
+text-align: right;
+font-size: 1.5em;
 }
 .weather-garden-container {
+text-align: end;
 grid-column: 3/4;
 grid-row: 2/3;
 height: 300px;
 width: 300px;
-/* background-color: gray; */
+font-size: 1.5em;
+/* background-color: gray; */ */
 }  
 
 /* text colors */
@@ -68,3 +83,9 @@ width: 300px;
 }
 
 
+footer {
+    text-align: justify;
+    font-family: monospace;
+    font-size: 1em;
+    color: white;
+}

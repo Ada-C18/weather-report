@@ -60,6 +60,11 @@ const changeSky = () => {
   }
 };
 
+//resets button to blank. We can make Seattle default if that is something we want.
+const clearInput = () => {
+  document.getElementById("city-input").value = '';
+};
+
 //register event handlers
 const registerEventHandlers = () => {
   cityInput.addEventListener('input', inputHandler);
@@ -72,6 +77,9 @@ const registerEventHandlers = () => {
   tempDownButton.addEventListener('click', tempDown);
 
   document.getElementById('dropdown').addEventListener('change', changeSky);
+
+  const resetCity = document.querySelector("#reset-button")
+  resetCity.addEventListener('click',clearInput);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
