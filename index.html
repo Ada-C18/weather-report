@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
     <link href="/styles/index.css" rel="stylesheet">
+    
 </head>
 <body>
-    </script> src="./node_modules/axios/dist/axios.min.js"</script> 
+</script src="./node_modules/axios/dist/axios.min.js"></script> 
     <section class="temp-section">
     <div id="temperature"> 
         <h1>Temperature</h1>
@@ -21,21 +22,32 @@
 <section class="sky-section">
 <div id="skyOptions">
     <h2>Sky</h2>
+    <select name="sky-weather" id="climate">
         <option>sunshine</option>
         <option>rain</option>
         <option>snow</option>
         <option>clouds</option>
         <option>wind</option>
+    </select>
 </div>
 </section>
+
 
 <section class="city_section">
 <div id="city-name"> 
     <h2>City</h2>
-    <span id="reset"></span>
     <input type="city">
+    <button id="reset" class="reset-button">Reset</button>
 </div>
 </section>
+
+<section class="emojis">
+    <h3>Weather Visual</h3>
+    <div id="weather-emojis"></div>
+    <div id="template"> 🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂 </div>
+
+</section>
+
 </body>
 <script> src="./src/index.js"</script>
 </html>
