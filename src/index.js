@@ -1,22 +1,58 @@
-let state = 60;
+let state = {
+    startingTemp : 60,
+    // landscapeIcons : 🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃,
+};
+
+// let state = 60;
 
 // increase temoerature 
 const updateTemmperature = state => {
 // const increaseTemperature = () => {
-  const temperatureContainer = document.querySelector("#startingTemp");
-  temperatureContainer.textContent = state;
+  const temperatureContainer = document.getElementById("startingTemp");
+  temperatureContainer.textContent = state.startingTemp;
 };
 
 const increaseTemperature = () => {
-  state += 1;
+  state.startingTemp += 1;
   updateTemmperature(state);
+  updateColor();
+  updateLandscape();
 };
 
 const decreaseTemperature = () => {
-  state -= 1;
+  state.startingTemp -= 1;
   updateTemmperature(state);
+  updateColor();
+  updateLandscape();
 };
 
+const updateColor = () => {
+
+    if (state.startingTemp >= 80) {
+        document.getElementById('startingTemp').style.color = 'red';
+    } else if (state.startingTemp >= 70) {
+        document.getElementById('startingTemp').style.color = 'orange';
+    } else if (state.startingTemp >= 60) {
+        document.getElementById('startingTemp').style.color = 'yellow';
+    }  else if (state.startingTemp >= 50) {
+        document.getElementById('startingTemp').style.color = 'green';
+    } else if (state.startingTemp < 50) {
+        document.getElementById('startingTemp').style.color = 'teal';
+    }
+};
+
+const updateLandscape = () => {
+
+    if (state.startingTemp >= 80) {
+        document.getElementById('landscapeIcons').textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    } else if (state.startingTemp >= 70) {
+        document.getElementById('landscapeIcons').textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    } else if (state.startingTemp >= 60) {
+        document.getElementById('landscapeIcons').textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    }  else if (state.startingTemp < 60) {
+        document.getElementById('landscapeIcons').textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    } 
+};
 
 
 const registerEventHandlers = () => {
