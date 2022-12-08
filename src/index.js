@@ -2,7 +2,7 @@
 
 // Wave 2
 const state = {
-  temperature: 79,
+  temperature: 60,
   cityNameValue: 'seattle',
 };
 
@@ -20,7 +20,7 @@ cityName.addEventListener('input', display);
 
 // Wave 2 - function that display cityName immediately
 function display(e) {
-  //console.log(e);
+  //console.log(e); input event
   city.textContent = e.target.value;
   state.cityNameValue = e.target.value;
 }
@@ -41,13 +41,13 @@ const textColorAndLandscape = () => {
     temperatureDisplay.style.color = 'orange';
     landscapeDisplay.innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.temperature >= 60 && state.temperature <= 69) {
-    temperatureDisplay.style.color = 'yellow';
+    temperatureDisplay.style.color = 'purple';
     landscapeDisplay.innerText = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (state.temperature >= 50 && state.temperature <= 59) {
     temperatureDisplay.style.color = 'green';
     landscapeDisplay.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (state.temperature <= 49) {
-    temperatureDisplay.style.color = 'teal';
+    temperatureDisplay.style.color = 'navy';
     landscapeDisplay.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
@@ -103,6 +103,7 @@ const findTemperature = async () => {
       );
       state.temperature = fahrenheitTemperature;
       temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
+      textColorAndLandscape();
     })
     .catch((error) => {
       console.log('error in finding temperature!', error);
