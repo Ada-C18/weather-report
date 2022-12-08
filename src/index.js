@@ -1,7 +1,10 @@
+
 // console.log('Hello world');
 ('use strict');
 // const axios = require('axios');
-const API = 'http://127.0.0.1:5000/location';
+const API_CITY = 'http://127.0.0.1:5000/location';
+const API_WEATHER = 'http://127.0.0.1:5000/weather';
+
 
 let temperature = 50;
 
@@ -75,7 +78,7 @@ const city = document.querySelector('#city').textContent;
 
 const getInfo = (city) => {
   axios
-    .get(API, { params: { q: city, format: 'json' } })
+    .get(API_CITY, { params: { q: city, format: 'json' } })
     .then((result) => {
       const lat = result.data[0].lat;
       const lon = result.data[0].lon;
@@ -88,11 +91,23 @@ const getInfo = (city) => {
     });
 };
 
+const getweather = (lat,lon) => {
+  axios.get(API_WEATHER, {params: {"lat": lat , "lon": lon}})
+  .then((result) => {
+    const temp = result.data.main.temp;
+    console.log(temp)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+};
+
 const EventHandlers = () => {
   increaseTempOnClick();
   decreaseTempOnClick();
   updateCityNameInput();
   getInfo(city);
+  getweather(47.6038, -122.3301)
 };
 if (document.readyState !== 'loading') {
   EventHandlers();
