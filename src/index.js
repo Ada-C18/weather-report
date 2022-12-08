@@ -7,7 +7,7 @@ const state = {
 
 const updateTemperature = () => {
   const tempDisplay = document.getElementById('temp-display');
-  tempDisplay.textContent = `${state.temperature} degrees`;
+  tempDisplay.textContent = `${state.temperature} °F`;
   changeColor();
 };
 
@@ -28,16 +28,16 @@ const changeColor = () => {
     tempDisplay.style.color = 'red';
     landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (state.temperature >= 70 && state.temperature <= 79) {
-    tempDisplay.style.color = 'orange';
+    tempDisplay.style.color = 'brown';
     landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.temperature >= 60 && state.temperature <= 69) {
-    tempDisplay.style.color = 'yellow';
+    tempDisplay.style.color = 'orange';
     landScape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (state.temperature >= 50 && state.temperature <= 59) {
-    tempDisplay.style.color = 'Green';
+    tempDisplay.style.color = 'navy';
     landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (state.temperature <= 49) {
-    tempDisplay.style.color = 'Teal';
+    tempDisplay.style.color = 'purple';
     landScape.textContent = '🌨❄️⛄️☃️❄️🌨⛄️☃️❄️🌨';
   }
 };
@@ -50,6 +50,7 @@ const changeSky = () => {
     skyDisplay.style.backgroundColor = 'blue';
     skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
   }
+  
 };
 
 const changeCityName = (input) => {
