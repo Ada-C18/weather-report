@@ -1,3 +1,35 @@
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+h2 {
+    text-align: center;
+}
+.city-header {
+    text-align: center;
+}
+
+.environment-box {
+    padding: 2em;
+    padding-bottom: 6em;
+    text-align: center;
+}
+
+.main-box {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly; 
+    flex-wrap: wrap;
+    width: 100%; 
+ }
+
+ .main-box-child {
+    width: 30%;
+    border-radius: 4px;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+   
+ }
+
 .green {
     color: green
 }
@@ -17,3 +49,10 @@
     color: yellow
 }
 
+#city {
+    color: darkmagenta;
+}
+
+#landscape_image {
+    font-size: 3em;
+}
