@@ -1,15 +1,52 @@
+// import axios from "axios";
+const axios = require("axios");
 let temperature = document.getElementById('display-temp');
+let cityName = document.getElementById('city-name');
+let defaultCity = 'Seattle'
+
+const urlLocation ='http://127.0.0.1:5000/location'
+const urlWeather = 'http://127.0.0.1:5000/weather'
+
+let getRealtimeTemp = (cityName) => {
+    axios
+    .get(urlLocation, {
+        params: {
+            q: cityName
+        }
+    })
+    .then(response => {
+        let lat = response.data[0].lat
+        let lon = response.data[0].lon
+        console.log(lat, lon)
+        return axios.get(urlWeather, {
+            params: {
+                lat: lat,
+                lon: lon,
+                units: 'imperial'
+            }
+        })
+    })
+    .then(response => {
+        temperature.innerHTML = response.main.temp
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 
 window.onload = () => {
   temperature.innerHTML = 50;
 };
+window.onload(cityName.innerHTML = defaultCity)
+window.onload(getRealtimeTemp(cityName))
 
 const landscape = document.getElementById('ground-emoji');
 const tempUp = document.getElementById('temp-up');
 const tempDown = document.getElementById('temp-down');
 
 let inputCity = document.getElementById('input-city');
-let cityName = document.getElementById('city-name');
+
 
 tempUp.addEventListener('click', () => {
   let tempHTML = Number(temperature.innerHTML);
@@ -84,3 +121,8 @@ const changeSky = (selectedSky) => {
       sky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
     }
   };
+
+const resetButton = document.getElementById('reset-button')
+resetButton.addEventListener('click', () => {
+    cityName.innerHTML = defaultCity
+})
