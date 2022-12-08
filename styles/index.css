@@ -21,7 +21,7 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 50px 20px;
+    margin: 10px 10px;
 }
 h1{
     font-size: 32px;
@@ -60,6 +60,15 @@ h2{
     padding: 20px;
     font-size: 25px
 }
+.RealtimeTemperature{
+    background-color: #FAAB78;
+    border: none;
+    color: white;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .number{
     font-size: 3rem;
 }
@@ -83,9 +92,11 @@ h2{
     place-items: center center;
 }
 .weatherGardenBox{
+    grid-row: 2/5;
+    grid-column: 2/3;
     margin-top: 10px;
     height: 200px;
-    width: 100x;
+    width: 200x;
     background-color: #f7ebdb;
     border: 50px;
     display:inline-grid;

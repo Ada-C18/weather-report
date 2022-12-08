@@ -11,6 +11,7 @@ plus.addEventListener('click',() => {
 
     if(number >= 80){
         document.querySelector('.number').classList.add("burning");
+        // document.querySelector('.number').className("burning");
         document.querySelector('.landscape').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
     }else if(number >=70) {
         document.querySelector('.number').classList.add("hot");
@@ -34,6 +35,7 @@ minus.addEventListener('click',() => {
     document.querySelector('.number').innerHTML = number;
 
     if(number >= 80) {
+        // document.querySelector('.number').className("burning");
         document.querySelector('.number').classList.add("burning");
         document.querySelector('.landscape').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
     } else if(number >=70) {
