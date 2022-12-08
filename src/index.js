@@ -1,5 +1,7 @@
 'use strict';
 
+const { default: axios } = require("axios");
+
 function delay(fn, ms) {
   let timer = 0;
   return function (...args) {
@@ -16,6 +18,7 @@ const state = {
   landscape: null,
   cityDisplay: null,
   cityInput: null,
+  getTempButton: null
 };
 
 const loadsControls = () => {
@@ -25,6 +28,7 @@ const loadsControls = () => {
   state.landscape = document.getElementById('landscape');
   state.cityDisplay = document.getElementById('city-display');
   state.cityInput = document.getElementById('city-input');
+  state.getTempButton = document.getElementsById('getTempButton');
 };
 
 const refreshTemp = () => {
@@ -51,6 +55,29 @@ const handleCityInputChanged = (event) => {
   state.cityDisplay.textContent = state.cityInput.value;
 };
 
+const getLatLon = cityName => {
+    axios.get("http://us1.locationiq.com/v1/search.php", {
+        params: {
+            q: cityName,
+            format: 'json'
+        }
+    })
+    .then(response => {
+        const lat = response.data[0].lat;
+        const lon = response.data[0].lon;
+
+        return {lat, lon}
+    })
+};
+
+const getWeather = (lat, lon) => {
+    pass
+};
+
+const handleGetTempButtonClicked = (event) => {
+    pass
+};
+
 const registerEvents = () => {
   state.increaseTemp.addEventListener('click', handleIncreaseTempButtonClicked);
   state.decreaseTemp.addEventListener('click', handleDecreaseTempButtonClicked);
@@ -58,6 +85,7 @@ const registerEvents = () => {
     'input',
     delay(handleCityInputChanged, 3000)
   );
+  state.getTempButton.addEventListener('click', handleGetTempButtonClicked);
 };
 
 const tempTextColorChange = () => {
