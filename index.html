@@ -10,6 +10,12 @@
 <body>
     <header class="header">
         <h1>Weather Report</h1>
+        <span>
+            For the lovely city of
+            <span id="cityname" class="city_name_in_header">
+                Seattle
+            </span>
+        </span>
     </header>
     <main>
         <section class="garden">
@@ -27,7 +33,7 @@
                     <span id="decrease_temp">⬇️</span>
                 </div>
                 <div>
-                    <button>Get Realtime Temperature</button>
+                    <button id="realtime_temp">Get Realtime Temperature</button>
                 </div>
             </div>    
             <div id="sky" class="sidebar">
@@ -35,6 +41,9 @@
             </div>
             <div id="city_name" class="sidebar">
                 <h3>City Name</h3>
+                <input type="text" id="name" value="Seattle" size="15">
+                <button id="reset_button">Reset</button>
+
             </div>
     
         </section>

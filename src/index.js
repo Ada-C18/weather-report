@@ -1,7 +1,8 @@
 'use strict';
 
 const state = {
-  temp: 65
+  temp: 65,
+  city: "Seattle"
 };
 
 const changeTempColorAndGardenLandscape = () => {
@@ -43,6 +44,20 @@ const decreaseTemp = () => {
   changeTempColorAndGardenLandscape();
 }
 
+const changeTopCityName = () => {
+  const inputCityName = document.getElementById("name").value;
+  const topCityName = document.getElementById("cityname");
+  state.city = inputCityName;
+  topCityName.textContent = state.city;
+};
+
+const resetCityInput = () => {
+  const cityNameInput = document.getElementById("name");
+  cityNameInput.value = "Seattle";
+  changeTopCityName();
+};
+
+
 const registerEventHandlers = (event) => {
   changeTempColorAndGardenLandscape();
 
@@ -51,6 +66,13 @@ const registerEventHandlers = (event) => {
 
   const decreaseButton = document.querySelector('#decrease_temp');
   decreaseButton.addEventListener('click', decreaseTemp);
+
+  changeTopCityName();
+  const changeCityNameInHeader = document.querySelector('#name');
+  changeCityNameInHeader.addEventListener('input', changeTopCityName);
+
+  const resetCityNameBackToSeattle = document.getElementById('reset_button');
+  resetCityNameBackToSeattle.addEventListener('click', resetCityInput);
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);

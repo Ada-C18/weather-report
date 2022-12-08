@@ -78,3 +78,17 @@ main {
 .teal {
     color: teal;
 }
+
+button {
+    color: white;  
+    background-color: blue;
+    padding:1rem;
+}
+
+.city_name_in_header::before {
+    content: "🌈"
+}
+
+.city_name_in_header::after {
+    content: "💖"
+}
