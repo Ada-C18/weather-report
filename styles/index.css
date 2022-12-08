@@ -10,20 +10,26 @@ header {
     text-align: center;
     position: relative;
     width: 100%;
+    border: 1px solid black;
+    height: 15vh;
 }
 
 main {
     text-align: center;
     position: relative;
-    height: 20vh;
+    height: 40vh;
 }
 
 footer {
     text-align: center;
-    position: relative;
+    position: static; 
     bottom: auto;
+    border: 1px solid black;
+    height: 15vh;
 }
 
 /* #temp-display {
     border: 1px solid black;
 } */
+
+/*position: relative;

@@ -9,41 +9,38 @@
 </head>
 <body>
     <header>
-        <img id="sky">Sky</img>
-        <nav>
-            <select>
-                <option id="sunny"> Sunny</option>
-                <option id="cloudy"> Cloudy</option>
-                <option id="rainy"> Rainy</option>
-                <option id="snowy"> Snowy</option>
-            </select>
-        </nav>
-        <h1 id="city-name-display">City</h1>
-        <h2 id="weather-report-heading">Weather Report</h2>
+        <div id="sky">Sky</div>
+    <section>
+        <select>
+            <option id="sunny"> Sunny</option>
+            <option id="cloudy"> Cloudy</option>
+            <option id="rainy"> Rainy</option>
+            <option id="snowy"> Snowy</option>
+        </select>
+    </section>
     </header>
     <main>
+        <span id="cityNameDisplay">City</span>
+        <h2 id="weatherReportHeading">Weather Report</h2>
         <section>
-            <a id="temp-display">Temp</a>
-            <a id="temp-plus">Plus</a>
-            <a id="temp-minus">Minus</a>
+            <div>
+                <span id="tempDisplay"></span>
+                <span id="tempPlus">🔼</span>
+                <span id="tempMinus">🔽</span>
+            </div>
         </section>
-        <!-- <a id="temp-display">Temp</a> -->
-        <!-- <a id="temp-plus">Plus</a>
-        <a id="temp-minus">Minus</a> -->
         <section>
-            <button id="reset-temp">current temp</button>
-            <input value="rename">
+            <button id="currentTempButton">current temp</button>
+            <input type="text" id="cityNameInput" value="City">
         </section>
         <!-- <button id="reset-temp">current temp</button>
         <input value="rename"> -->
-        <button id="reset-city-button">reset</button>
+        <button id="resetCityButton">reset</button>
     </main>
     <footer>
-        <img id="landscape">landscape image </img>
-        <p>
-
-        </p>
-        <a>test</a>
+        <section>
+            <div id="landscape">landscape image </div>
+        </section>
     </footer>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
