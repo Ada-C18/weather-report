@@ -1,6 +1,7 @@
 
 const state = {
   tempCount: 64,
+  //cityName: null,
 };
 
 const updateLandscapeColor = () => {
@@ -32,6 +33,10 @@ const updateTemp = (event, changeFactor) => {
 
 };
 
+const selectCity = (event) => {
+  const cityName = document.getElementById("#city"); 
+  state.cityName = cityName;
+}; 
 
 const registerEventHandlers = (event) => {
   updateLandscapeColor()
