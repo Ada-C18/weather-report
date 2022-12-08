@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="/styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    </script> src="./node_modules/axios/dist/axios.min.js"</script> 
+    <section class="temp-section">
+    <div id="temperature"> 
+        <h1>Temperature</h1>
+        <span id="up">🔼</span>
+        <span id="temp">number</span>
+        <span id="down">🔽</span>
+        <button id="currentWeather">Get real time weather</button>
+    </div>
+</section>
+<section class="sky-section">
+<div id="skyOptions">
+    <h2>Sky</h2>
+        <option>sunshine</option>
+        <option>rain</option>
+        <option>snow</option>
+        <option>clouds</option>
+        <option>wind</option>
+</div>
+</section>
+
+<section class="city_section">
+<div id="city-name"> 
+    <h2>City</h2>
+    <span id="reset"></span>
+    <input type="city">
+</div>
+</section>
 </body>
+<script> src="./src/index.js"</script>
 </html>
