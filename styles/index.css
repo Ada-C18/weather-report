@@ -80,7 +80,7 @@ header .city_bar{
     margin: 10px;
 }
 
-#sky_select{
+#sky_dropdown{
     grid-row: 2 ;
     grid-column: 1 / span 2;
     padding: auto;
