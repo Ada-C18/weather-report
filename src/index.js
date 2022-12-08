@@ -1,3 +1,5 @@
+// const axios = require('axios');
+
 // Temperature Variables
 let counterDisplayElem = document.getElementById('temp-count');
 let counterMinusElem = document.querySelector('.counter-minus');
@@ -25,10 +27,15 @@ const changeColor = (obj1, obj2) => {
   }
 };
 
-// City Submit Bar Variables
-let inputSubmitButton = document.getElementById('submit-button');
+// Helper for City Submit Bar
+const handleSubmitButton = () => {
+  let submitValue = document.getElementById('submit-city').value;
+  document.getElementById('header-city-name').textContent = submitValue;
+  console.log('helper function');
+};
 
 const registerEventHandlers = () => {
+  // Create "handle" helper functions to put into the registereventhandler
   //Temperature
   counterPlusElem.addEventListener('click', () => {
     counterDisplayElem.innerHTML++;
@@ -41,10 +48,28 @@ const registerEventHandlers = () => {
   });
 
   // City Submit Bar
-  inputSubmitButton.addEventListener('click', () => {
-    let submitValue = document.getElementById('submit-city').value;
-    document.getElementById('city-name').textContent = submitValue;
-  });
+  let submitButton = document.getElementById('submit-button');
+  submitButton.addEventListener('click', handleSubmitButton);
+  console.log('event handler');
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+// Axios calls to proxy server
+// const API = 'http://127.0.0.1:5000/location';
+
+// const getInfo = (location) => {
+//   axios
+//     .get(API, { params: { q: location, format: 'json' } })
+//     .then((result) => {
+//       const lat = result.data[0].lat;
+//       const lon = result.data[0].lon;
+//       console.log(`${location} lat: ${lat} lon: ${lon}`);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+//};
+
+// handle get real time temp
+//event listener
