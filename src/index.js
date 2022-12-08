@@ -65,3 +65,47 @@ function myFunction() {
 document.getElementById("intro").innerHTML = "☁️"
 
 document.querySelector('.burning').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
+
+;
+const axios = require("axios")
+
+const locationAPI = "http://127.0.0.1:5000/location"
+
+
+const findLatandLon = (query) => {
+    let latitude, longitude;
+    axios.get(locationAPI, 
+    {
+        params: {
+            q: Seattle, //replace with cityName or cityName.value
+            format : 'json'
+
+        }
+
+    })
+    .then((response) => {
+        latitude = response.data[0].lat;
+        longitude = response.data[0].lon;
+        console.log('sucess', latitude, longitude);
+    })
+    .catch( (error) => {
+        console.log('error in findLatitudeAndLongitude!');
+      });
+      return {
+          seattleLat: latitude,
+          seattleLon: longitude
+      }
+    }
+
+
+
+// const weatherAPI = "http://127.0.0.1:5000/weather"
+// // const locationAPI = "http://127.0.0.1:5000/location"
+
+
+
+// const response_weather = axios.get(weatherAPI).then(response => {
+
+// });
+// const response_location = axios.get(locationAPI);
+
