@@ -55,6 +55,11 @@ h2{
     margin: 0px 2em;
     display: block;
 }
+.landscape{
+    margin:20px;
+    padding: 20px;
+    font-size: 25px
+}
 .number{
     font-size: 3rem;
 }
@@ -73,7 +78,7 @@ h2{
 .weatherGarden{
     grid-row: 2/5;
     grid-column: 2/3;
-    margin: 0px 2em;
+    margin:20px;
     
 }
 .weatherGardenBox{
