@@ -58,14 +58,14 @@ inputCity.addEventListener('change', () => {
 let selectSky = document.getElementById('sky');
 let sky = document.getElementById('sky-emoji');
 const changeSky = (selectSky) => {
-  if (selectSky.options.value === 'Sunny') {
-    sky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (selectSky.options[selectSky.selectedIndex].value === 'Cloudy') {
-    sky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  if (selectSky.value === 'Sunny') {
+    sky.innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (selectSky.value === 'Cloudy') {
+    sky.innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (selectSky.value === 'Rainy') {
-    sky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    sky.innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (selectSky.value === 'Snowy') {
-    sky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    sky.innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 selectSky.addEventListener('change', () => {
