@@ -7,6 +7,10 @@ const state = {
 
 const temperature = document.getElementById('tempValue');
 
+const getTemperature = () => {
+  
+};
+
 const increaseTemp = () => {
   state.tempValue += 1;
   temperature.textContent = String(state.tempValue) + '°F';
@@ -22,7 +26,7 @@ const updateSky = () => {
   const skySelection = document.getElementById('skySelection').value;
 
   if (skySelection === 'Sunny'){
-    sky.textContent = '☁️  🕊️☁️        ☀️ ☁️';
+    sky.textContent = '☁️   🕊️☁️        ☀️ ☁️';
   }
   else if (skySelection === 'Cloudy'){
     sky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
