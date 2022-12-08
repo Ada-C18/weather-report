@@ -1,18 +1,33 @@
-* {
+/* * {
     border: 1px solid red;
-}
-main h1, main h2 {
+} */
+
+header {
     text-align: center;
 }
+
+
 .grid-container {
     display:grid;
-    grid-template-rows: 50vw 50vw;
-    grid-template-columns: 50vw 50vw;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: center;
+    background-image: url("../assets/desert-nicole-herrero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
 }
+
+.grid-item {
+    background-color: aliceblue;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
 #cloud-icon {
     grid-column-start: 1;
 }
-.temp {
+#temp {
     grid-column-start: 2;
 }
 #sky-dropdown {
@@ -20,4 +35,8 @@ main h1, main h2 {
 }
 #reset-temp-btn {
     grid-column-start: 2;
+}
+
+footer p {
+    text-align: center;
 }

@@ -8,18 +8,29 @@
     <link href="../styles/index.css" rel="stylesheet">
 </head>
 <body>
-    <main>
+    <header>
         <h1>Weather Report</h1>
         <h2>Today in <span>Location-Placeholder</span></h2>
-        <section class="grid-container">
-            <img id="cloud-icon">
-            <h3 class="temp" id="curr-temp">CurrentTempFromAPI-Placeholder</h3>
-            <button class="temp" id="change-temp">Increase-Decrease-Temp</button>
-            <button id="sky-dropdown">Select Sky</button>
-            <button id="reset-temp-btn">Reset Temperature</button>
-        </section>
+    </header>
+    <main class="grid-container">
+        <div id="cloud-icon" class="grid-item">
+            <img src="../assets/cloud-outline.png" alt="cloud icon">
+        </div>
+        <div id="temp" class="grid-item">
+            <p id="curr-temp">CurrentTempFromAPI-Placeholder</p>
+            <button id="change-temp">Increase-Decrease-Temp</button>
+        </div>
+        <div id="sky-dropdown" class="grid-item">
+            <button>Select Sky</button>
+        </div>
+        <div id="reset-temp-btn" class="grid-item">
+            <button>Reset Temperature</button>
+        </div>
     </main>
     <script src="index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
+<footer>
+    <p>Created by Sarah Sanborn and Tapasya Khatri.</p>
+</footer>
 </html>
