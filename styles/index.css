@@ -28,8 +28,30 @@ footer {
     height: 15vh;
 }
 
-/* #temp-display {
-    border: 1px solid black;
-} */
+#tempDisplay {
+    background-color: white;
+}
 
-/*position: relative;
+.fushcia {
+    color: fuchsia;
+}
+
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+.teal { 
+    color: teal;
+}
