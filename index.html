@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+        <h1>Weather Report</h1>
+        <h3>For the lovely city of Seattle</h3>
+    </header>
+    <section id="top-section">
+        <section id="temperature">
+            <h3>Temperature</h3>
+            <button id="up-button"></button>
+            <button id="down-button"></button>
+            <button id="realtime-temp"></button>
+        </section>
+        <section id="sky">
+            <h3>Sky</h3>
+            <select name="sky" id="sky-emojis">
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+            </select>
+
+        </section>
+        <section id="city-name">
+            <h3>City Name</h3>
+            <input type="text" id="fname" name="fname">
+            <button>Reset</button>
+        </section>
+    </section>
+    <section id="weather-garden">
+        <h3>Weather Garden</h3>
+        <span>☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span>
+        <span>🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</span>
+    </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

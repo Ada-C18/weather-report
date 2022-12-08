@@ -1,0 +1,15 @@
+header {
+    text-align: center;
+}
+
+#top-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#weather-garden {
+    display: flex;
+    /* justify-items: center; */
+    flex-direction: column;
+    text-align: center;
+}
