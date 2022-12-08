@@ -1,38 +1,38 @@
 'use strict';
 
 function incrementButton() {
-  console.log('hello world');
-  var element = document.getElementById('counter');
-  var value = element.innerHTML;
+  const element = document.getElementById('counter');
+  let value = element.innerHTML;
 
-  ++value;
+  value++;
 
-  console.log(value);
+  temperatureColor(value);
+
   document.getElementById('counter').innerHTML = value;
 }
 
 function decreaseButton() {
-  var element = document.getElementById('counter');
-  var value = element.innerHTML;
+  const element = document.getElementById('counter');
+  let value = element.innerHTML;
 
-  --value;
+  value--;
 
-  console.log(value);
+  temperatureColor(value);
+
   document.getElementById('counter').innerHTML = value;
 }
 
-const state = { temperature: temperature };
-
-for (let temp of state.temperature) {
+function temperatureColor(temp) {
+  let element = document.getElementById('counter');
   if (temp >= 80) {
-    let red = document.getElementById('red');
+    element.className = 'red';
   } else if (temp >= 70 && temp <= 79) {
-    let orange = document.getElementById('orange');
+    element.className = 'orange';
   } else if (temp >= 60 && temp <= 69) {
-    let yellow = document.getElementById('yellow');
+    element.className = 'yellow';
   } else if (temp >= 50 && temp <= 59) {
-    let green = document.getElementById('green');
+    element.className = 'green';
   } else if (temp <= 49) {
-    let teal = document.getElementById('teal');
+    element.className = 'teal';
   }
 }
