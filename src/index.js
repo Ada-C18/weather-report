@@ -1,26 +1,7 @@
-'use strict';
-
-const axios = require('axios');
-
-const API = "localhost:5000/location"
-
-const location = 'Seattle';
-// const locData = {}
-
-const getInfo = (location) => {
-    axios.get(API, {params:{ q:location, format:"json"}})
-        .then((result) => {
-            const lat = result.data[0].lat;
-            const lon = result.data[0].lon;
-            console.log(`${location} lat: ${lat} lon: ${lon}`);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}
-getInfo('Seattle')
-
-
+// console.log('Hello world');
+('use strict');
+// const axios = require('axios');
+const API = 'http://127.0.0.1:5000/location';
 
 let temperature = 50;
 
@@ -79,19 +60,42 @@ const changeLandscape = () => {
 };
 
 const updateCityName = (event) => {
-  const cityName = document.querySelector("#city");
+  const cityName = document.querySelector('#city');
   cityName.textContent = event.target.value;
-  console.log(cityName)
+  console.log(cityName);
+  return cityName;
 };
-// updateCityName()
 
-const updateCityNameInput = () =>{
-  const inputCity = document.querySelector("#city-name-input");
-  inputCity.addEventListener("input", updateCityName)
+const updateCityNameInput = () => {
+  const inputCity = document.querySelector('#city-name-input');
+  inputCity.addEventListener('input', updateCityName);
+};
+
+const city = document.querySelector('#city').textContent;
+
+const getInfo = (city) => {
+  axios
+    .get(API, { params: { q: city, format: 'json' } })
+    .then((result) => {
+      const lat = result.data[0].lat;
+      const lon = result.data[0].lon;
+      console.log(`${city} lat: ${lat} lon: ${lon}`);
+      console.log(lat, lon);
+      return lat, lon;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const EventHandlers = () => {
+  increaseTempOnClick();
+  decreaseTempOnClick();
+  updateCityNameInput();
+  getInfo(city);
+};
+if (document.readyState !== 'loading') {
+  EventHandlers();
+} else {
+  document.addEventListener('DOMContentLoaded', EventHandlers);
 }
-
-
-
-document.addEventListener('DOMContentLoaded', increaseTempOnClick);
-document.addEventListener('DOMContentLoaded', decreaseTempOnClick);
-document.addEventListener('DOMContentLoaded', updateCityNameInput);
