@@ -12,16 +12,24 @@ const increaseTemp = () => {
 };
 
 const decreaseTemp = () => {
-  state.temp--;
-  currentTemp.textContent = String(state.temp);
-};
+  const currentTemp = document.querySelector('#temp_value');
+  currentTemp--;
+}
 
-const registerEventHandlers = () => {
+const registerEventHandlers = (event) => {
   const increaseButton = document.querySelector("#increase_temp");
   increaseButton.addEventListener('click', increaseTemp);
-
   const decreaseButton = document.querySelector('#decrease_temp');
   decreaseButton.addEventListener('click', decreaseTemp);
-};
+}
 
-document.addEventListener("DOMContentLoaded", registerEventHandlers);
+const setup = () => {
+  increaseTemp();
+  decreaseTemp();
+}
+
+if (document.readyState !== "loading") {
+  setup();
+} else {
+  document.addEventListener("DOMContentLoaded", setup);
+}

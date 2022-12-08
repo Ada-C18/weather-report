@@ -8,30 +8,29 @@
     <link href="styles/index.css" rel="stylesheet"/>
 </head>
 <body>
+    <header class="header">
+        <h1>Weather Report</h1>
+    </header>
     <main>
-        <header>
-            <h1>Weather Report</h1>
-        </header>
         <section class="garden">
             <h3>Weather Garden</h3>
         </section>
         <section class="container">
-            <div id="temp">
+            <div id="temp" class="sidebar">
                 <h3>Temperature</h3>
                 <div class="temp_content">
                     <span id="increase_temp">⬆️</span>
-                    <span id="temp_value"></span>
+                    <span id="temp_value">65</span>
                     <span id="decrease_temp">⬇️</span>
                 </div>
                 <div>
                     <button>Get Realtime Temperature</button>
                 </div>
-            </div>
-    
-            <div>
+            </div>    
+            <div id="sky" class="sidebar">
                 <h3>Sky</h3>
             </div>
-            <div>
+            <div id="city_name" class="sidebar">
                 <h3>City Name</h3>
             </div>
     
