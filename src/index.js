@@ -34,19 +34,19 @@ const textColorAndLandscape = () => {
   const landscapeDisplay = document.getElementById('landscape'); //? is this the right position?
   if (state.temperature >= 80) {
     temperatureDisplay.style.color = 'red';
-    landscapeDisplay.innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    landscapeDisplay.innerText = '🌵🌵🐍🐍🦂🦂🌵🌵🐍🐍🐍🏜🏜🏜🦂';
   } else if (state.temperature >= 70 && state.temperature <= 79) {
     temperatureDisplay.style.color = 'orange';
-    landscapeDisplay.innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    landscapeDisplay.innerText = '🌸🌿🌼🌼🌷🌷🌻🌿🌿☘️🌱🌱🌻🌷🌷';
   } else if (state.temperature >= 60 && state.temperature <= 69) {
     temperatureDisplay.style.color = 'purple';
-    landscapeDisplay.innerText = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    landscapeDisplay.innerText = '🌾🌾🍃🍃🪨🪨🛤🛤🛤🌾🌾🌾🌾🍃🍃';
   } else if (state.temperature >= 50 && state.temperature <= 59) {
     temperatureDisplay.style.color = 'green';
-    landscapeDisplay.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    landscapeDisplay.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲⛄️🍂';
   } else if (state.temperature <= 49) {
     temperatureDisplay.style.color = 'navy';
-    landscapeDisplay.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    landscapeDisplay.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲⛄️🍂';
   }
 };
 
@@ -114,6 +114,7 @@ const skyDisplay = (event) => {
     console.log('text1', skyPic);
   } else if (skyView.value === 'Cloudy') {
     skyPic.innerText = '🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️';
+
     console.log('text2', skyPic);
   } else if (skyView.value === 'Rainy') {
     skyPic.innerText = '🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️';
