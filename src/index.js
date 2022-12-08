@@ -45,17 +45,14 @@ const registerEventHandlers = () => {
   down.addEventListener('click', decreaseTemp);
   up.addEventListener('click', changeTempColor);
   down.addEventListener('click', changeTempColor);
+  const input = document.querySelector('#cityName');
+  input.addEventListener('keyup', updateValue);
+  
 };
 
-const updateCity = () => {
-  const getCityName = document.getElementById("citySection").value;
-  textContent = getCityName;
-
-};
-// reset the city temperature
-const resetCity = () => {
-  const cityContainer = document.getElementById(citySection);
-  cityContainer.value = 'Seattle';
-};
+function updateValue(e) {
+  const log = document.getElementById('cityNameShown');
+  log.textContent = e.target.value;
+}
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

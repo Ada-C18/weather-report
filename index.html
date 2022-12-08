@@ -10,6 +10,7 @@
 <body>
     <header>
         <h1>Weather Report</h1>
+        <span id="headerCityName" class="header_city"></span>
     </header>
     <div>
         <button id="realTimeTemp" class="realTempButton">Real Time</button>
@@ -24,11 +25,10 @@
         </section>
         <section>
             <h2 id="citySection">City Name</h2>
-            <form>
-                <input type="text" id="cityName" name="Seattle" required
-                minlength="4" maxlength="8" size="30">
-                <input type="reset" value="Reset">
-            </form>
+            <input id="cityName" placeholder ="Seattle" type="text"  name="name" required
+            minlength="4" maxlength="30" size="30">
+            <input type="reset" value="Reset">
+            <p id = "cityNameShown"></p>
         </section>
         <section id = "landscapeSection">
             <h2>Weather Garden</h2>
