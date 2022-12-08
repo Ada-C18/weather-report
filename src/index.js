@@ -52,18 +52,17 @@ const updateTemperature = (event) => {
     .then((response) => {
       state.latitude = response.data[0].lat;
       state.longitude = response.data[0].lon;
-      console.log(`lat: ${state.latitude}, lon: ${state.longitude}`);
+      console.log(response.data);
       axios
         .get(
           `http://localhost:5000/weather?lat=${state.latitude}&lon=${state.longitude}`
         )
         .then((response) => {
           const temperatureKelvin = response.data.main.temp;
-          console.log(response.data.main.temp);
           const temperatureFahrenheit =
             ((temperatureKelvin - 273.15) * 9) / 5 + 32;
-          console.log(temperatureFahrenheit);
           tempContainer.textContent = `${Math.round(temperatureFahrenheit)}`;
+          console.log(response.data);
         })
         .catch((error) => {
           console.log('OpenWeather GET request error');
