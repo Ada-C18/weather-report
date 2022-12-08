@@ -1,11 +1,24 @@
 'use strict';
 
+let searchform = document.querySelector('#search-form');
+searchform.addEventListener('submit', search);
+
+const changeCity = () => {
+  document.querySelector('#city').innerHTML = response.data.name;
+};
+
+function search(event) {
+  let city = document.querySelector('#city-input').value;
+  changeCity();
+}
+
+searchform.addEventListener('submit', search);
+
 const incrementCount = document.getElementById('increaseTemp');
 const decrementCount = document.getElementById('decreaseTemp');
 
 const totalCount = document.getElementById('temperatureValue');
 
-// let temp = 58;
 const state = {
   temp: 58,
 };
@@ -70,4 +83,5 @@ const changeLandscape = () => {
 const registerEventHandlers = () => {
   changeColor();
   changeLandscape();
+  changeCity();
 };
