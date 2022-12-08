@@ -61,6 +61,44 @@ const renameCity = () => {
   cityName.textContent = newCity;
 };
 
+const getLatLon = (placeName) => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: placeName,
+      },
+    })
+    .then((response) => {
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
+      console.log(getWeather(lat, lon));
+      return getWeather(lat, lon);
+    })
+    .catch((error) => {
+      console.log("Error! Can't find longitute and latitude");
+    });
+};
+
+const getWeather = (lat, lon) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((response) => {
+      const tempKelvin = response.data.main.temp;
+      tempFahr = 1.8 * (tempKelvin - 273) + 32;
+      return tempFahr;
+    })
+    .catch((error) => {
+      console.log("Error! Can't find temperature");
+    });
+};
+
+getLatLon('San Francisco');
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.querySelector('#increase-temp');
   increaseTempButton.addEventListener('click', increaseTemp);
