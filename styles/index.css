@@ -18,23 +18,26 @@ h1 {
     color: red;
 }
 
-.veryHot {
+
+/* Temp Colors */
+
+.red {
     color: red;
 }
 
-.hot {
+.orange {
     color: orange;
 }
 
-.warm {
+.yellow {
     color: yellow;
 }
 
-.chilly {
+.green {
     color: green;
 }
 
-.cold {
-    background-color: teal;
+.teal {
+    color: teal;
 }
 

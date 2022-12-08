@@ -1,34 +1,31 @@
-let counterDisplayElem = document.querySelector('.count');
+// Temperature Variables
+let counterDisplayElem = document.getElementById('temp-count');
 let counterMinusElem = document.querySelector('.counter-minus');
 let counterPlusElem = document.querySelector('.counter-plus');
-let count = 0;
 
-// Temperature
+// Temperature Helper Function
 const changeColor = (obj) => {
-  if (obj.value < 50) {
-    // obj.cold = 'teal';
-    obj.style.backgroundColor = 'teal';
-    console.log('color changed');
-  } else if (obj.value < 60) {
-    obj.chilly = 'green';
-  } else if (obj.value > 70) {
-    obj.warm = 'yellow';
-  } else if (obj.value < 80) {
-    obj.hot = 'orange';
-  } else if (obj.value > 80) {
-    obj.veryHot = 'red';
+  if (obj.innerHTML < 50) {
+    obj.className = 'teal';
+  } else if (obj.innerHTML < 60) {
+    obj.className = 'green';
+  } else if (obj.innerHTML > 70) {
+    obj.className = 'yellow';
+  } else if (obj.innerHTML < 80) {
+    obj.className = 'orange';
+  } else if (obj.innerHTML > 80) {
+    obj.className = 'red';
   }
 };
 
-// City Search Bar
+// City Submit Bar Variables
 const inputSubmitButton = document.getElementById('submit-button');
 
 const registerEventHandlers = () => {
+  //Temperature 
   counterPlusElem.addEventListener('click', () => {
     counterDisplayElem.innerHTML++;
-    console.log('clicked plus');
     changeColor(counterDisplayElem);
-    console.log('color changed');
   });
 
   counterMinusElem.addEventListener('click', () => {
@@ -36,7 +33,7 @@ const registerEventHandlers = () => {
     changeColor(counterDisplayElem);
   });
 
-  // City Search Bar
+  // City Submit Bar
   inputSubmitButton.addEventListener('click', () => {
     console.log(document.getElementById('submit-city'));
     console.log('you clicked submit');
