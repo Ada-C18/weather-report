@@ -59,25 +59,22 @@ main {
     padding-left: 5%;
 }
 
-
-
-/* .container {
-    
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 50px;
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
+.orange {
+    color: orange;
 }
 
-.container>div {
-    min-width: 33%;
-    min-height: 67%;
+.red {
+    color: red;
 }
 
-.temp_content {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    
-} */
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+}
