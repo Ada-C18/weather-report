@@ -10,39 +10,37 @@
         <link href="./styles/index.css" rel="stylesheet" />
     </head>
     <body>
-        <div>
-            <header>
-                <section class="top-banner">
-                    <div class="container">
-                        <h1 class="heading">Weather Channel</h1>
-                        <form>
-                            <input type="text" placeholder="Search for a city" autofocus>
-                            <button type="submit">SUBMIT</button>
-                            <span class="msg"></span>
-                        </form>
-                    </div>
-                </section>
-        
-                <section class="ajax-section">
-                    <div class="container">
-                        <ul class="cities"></ul>
-                    </div>
-                </section>
-            </header>
-            <main>
-                My content
-            </main>
-            <aside id="temp">
+        <main>
+            <h1 id="welcome">Weather Report</h1>
+            <p id="sub-welcome">For the lovely city of ✨<span id="chosen-city">Seattle</span>✨</p>
+    </body>
                 <section id="temperature">
                     <h1>Temperature</h1>
                     <span id="temperature-reading"> 70 </span>
                     <a id="temperature-up"> ⬆️ </a>
                     <a id="temperature-down"> ⬇️ </a>
                 </section>
-            </aside>
-            <aside id="mysky">
-                My sky
-            </aside>
+                <section id="temperature-garden"></section>
+    <section id="sky">
+        <h1>Sky</h1>
+        <select name="skys" id="sky-select">
+            <option value="Sunny" selected>Sunny</option>
+            <option value="Cloudy">Cloudy</option>
+            <option value="Rainy">Rainy</option>
+            <option value="Snowy">Snowy</option>
+        </select>
+    </section>
+    <section id="sky-garden"></section>
+    <section id="city">
+        <h1>City Name</h1>
+        <input type="text" id="input-city" name="city-name" value="Seattle">
+        <button id="enterCitybutton">Enter</button>
+    </section>
+    <section id="reset">
+        <h1>Default Mode</h1>
+        <button id="resetCitybutton">Reset</button>
+    </section>
+</main>
             <footer>
                 Contact me
             </footer>
