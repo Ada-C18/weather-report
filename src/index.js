@@ -15,7 +15,6 @@ const city = document.getElementById('city');
 const getTempButton = document.getElementById('getTemperature');
 let skyView = document.querySelector('.skyView');
 
-
 // Wave 3 - function that display cityName immediately
 function display(e) {
   //console.log(e); input event
@@ -28,8 +27,7 @@ function resetInput() {
   city.textContent = ''; //span
 }
 
-
-//Wave 2 - changing text color and landscape 
+//Wave 2 - changing text color and landscape
 const textColorAndLandscape = () => {
   const landscapeDisplay = document.getElementById('landscape'); //? is this the right position?
   if (state.temperature >= 80) {
@@ -62,7 +60,6 @@ const decreaseTemperature = () => {
   temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
   textColorAndLandscape();
 };
-
 
 //Wave 4 - API call
 const findTemperature = async () => {
@@ -103,7 +100,6 @@ const findTemperature = async () => {
     });
 };
 
-
 // Wave 5 - display the Sky according to dropdown list
 const skyDisplay = (event) => {
   console.log(event);
@@ -123,7 +119,6 @@ const skyDisplay = (event) => {
   }
 };
 
-
 // function to hold all the Event Handler
 const allEventHandlers = () => {
   addTemperatureButton.addEventListener('click', addTemperature);
@@ -133,8 +128,6 @@ const allEventHandlers = () => {
   resetButton.addEventListener('click', resetInput);
   cityName.addEventListener('input', display);
   getTempButton.addEventListener('click', findTemperature);
-
 };
-
 
 document.addEventListener('DOMContentLoaded', allEventHandlers);
