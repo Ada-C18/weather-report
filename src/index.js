@@ -44,12 +44,31 @@ const increaseTemp = () => {
   state.tempValue += 1;
   temperature.textContent = String(state.tempValue) + '°F';
   updateBackground();
+  updateTempColor();
 };
 
 const decreaseTemp = () => {
   state.tempValue -= 1;
   temperature.textContent = String(state.tempValue +'°F');
   updateBackground();
+  updateTempColor();
+};
+
+const updateTempColor = () => {
+  if (state.tempValue >= 80){
+    temperature.classList = 'red';
+  }
+  else if (state.tempValue >= 70){
+    temperature.classList = 'orange';
+  }
+  else if (state.tempValue >= 60){
+    temperature.classList = 'yellow';
+  }
+  else if (state.tempValue >= 50){
+    temperature.classList = 'green';
+  } else {
+    temperature.classList = 'teal';
+  }
 };
 
 const updateSky = () => {
@@ -69,6 +88,8 @@ const updateSky = () => {
     sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
+
+const inputName = document.getElementById('cityNameInput').value;
 
 const registerEventHandlers = () => {
 

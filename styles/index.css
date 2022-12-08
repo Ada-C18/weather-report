@@ -8,12 +8,6 @@ body {
     display:grid;
     margin: 30px;
 }
-
-#temperature-background {
-    background-color: blue;
-    opacity: .2;
-}
-
 header h1 {
     font-size: 50px;
     color: white;
@@ -41,3 +35,23 @@ html {
     background-repeat:no-repeat;
     background-position: center;
 } 
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: teal;
+}
