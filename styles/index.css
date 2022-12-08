@@ -1,13 +1,37 @@
 * {
-    text-align: center
+    background-color:rgb(29, 178, 242)
 }
 
 .flex-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: inline;
     justify-content: space-evenly;
+    float: none;
+    line-height: normal;
+    text-align: center;
+
 }
 
 .report-section {
     font-size: 30px;
 }
+
+.header-container {
+    grid-column: span 3;
+    display: flex;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
+.flex-el {
+    border-radius: 7px;
+    padding: 2px;
+    background-color: white;
+    box-sizing: content-box;
+    display: block;
+    
+}
+/* .images {
+
+} */
