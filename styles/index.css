@@ -26,32 +26,31 @@ footer {
     bottom: auto;
     border: 1px solid black;
     height: 15vh;
+    /* width: 100vw; */
 }
 
 #tempDisplay {
     background-color: white;
 }
 
-.fushcia {
-    color: fuchsia;
-}
-
-
 .red {
     color: red;
-}
-
+    }
+    
 .orange {
     color: orange;
-}
-
+    }
+    
 .yellow {
-    color: yellow;
-}
+    color: rgb(160, 160, 14);
+    }
+    
 
 .green {
     color: green;
-}
-.teal { 
+    }
+    
+.teal {
     color: teal;
-}
+    }
+    
