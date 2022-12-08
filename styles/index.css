@@ -7,6 +7,9 @@ body {
 .temperature-section {
     display:grid;
     margin: 30px;
+}
+
+#temperature-background {
     background-color: blue;
     opacity: .2;
 }
@@ -16,16 +19,14 @@ body {
     -webkit-text-stroke: 1px black;
 }
 
+#tempValue {
+    font-size: 70px;
+}
+
 #sky {
     font-size: 60px;
 }
 
-body, html {
-    height: 100%;
-    margin: 0;
-    overflow:hidden;
-}
-    
 html {
     background-image: url('../assets/desert.jpg');
     

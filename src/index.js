@@ -2,23 +2,48 @@
 //import axios from 'axios';
 
 const state = {
-  tempValue: 0,
+  tempValue: 80,
 };
 
 const temperature = document.getElementById('tempValue');
 
-const getTemperature = () => {
-  
+
+const updateBackground = () => {
+  const background = document.getElementById('bg');
+
+  if (state.tempValue > 100){
+    background.style.backgroundImage = 'url(../assets/sun-surface.jpg)'
+  }
+  else if (state.tempValue > 80){
+    background.style.backgroundImage = 'url(../assets/desert.jpg)'
+  }
+  else if (state.tempValue > 70){
+    background.style.backgroundImage = 'url(../assets/summer.jpg)'
+  }
+  else if (state.tempValue > 60){
+    background.style.backgroundImage = 'url(../assets/spring.jpg)'
+  }
+  else if (state.tempValue > 50){
+    background.style.backgroundImage = 'url(../assets/spring2.webp)'
+  }
+  else if (state.tempValue > 40){
+    background.style.backgroundImage = 'url(../assets/autumn.jpg)'
+  }
+  else {
+    background.style.backgroundImage = 'url(../assets/winter-lanscape.webp)'
+  }
 };
 
 const increaseTemp = () => {
   state.tempValue += 1;
   temperature.textContent = String(state.tempValue) + '°F';
+  updateBackground();
 };
 
 const decreaseTemp = () => {
   state.tempValue -= 1;
   temperature.textContent = String(state.tempValue +'°F');
+  updateBackground();
 };
 
 const updateSky = () => {
@@ -40,6 +65,7 @@ const updateSky = () => {
 };
 
 const registerEventHandlers = () => {
+
   const increaseTempBtn = document.getElementById('increaseTempBtn');
   increaseTempBtn.addEventListener('click', increaseTemp);
 

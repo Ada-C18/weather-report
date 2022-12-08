@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="bg">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,6 @@
     <link href="/styles/index.css" rel="stylesheet">
 </head>
 <body>
-    <div class="bg"></div>
     <header class="header">
         <div id="sky">☁️   🕊️☁️        ☀️ ☁️</div> 
         <h1>Weather Report</h1>
@@ -30,6 +29,7 @@
             </div>
             <button id="currentTemp">Get Realtime Temperature</button>
         </div>
+        <div id="temperature-background"></div>
     </section>
     <section class="sky-section">
         <select id="skySelection">
@@ -44,12 +44,12 @@
         <input type="text" id="cityNameInput" value="Seattle">
         <button id="cityResetBtn">Reset</button>
     </section>
-    <section class="garden_section">
+    <!-- <section class="garden_section">
         <h2>Weather Garden</h2>
         <div id="gardenContent"> 
             <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div> 
         </div>
-    </section>
+    </section> -->
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
 </body>
