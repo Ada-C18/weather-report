@@ -1,4 +1,27 @@
 'use strict';
+
+const axios = require('axios');
+
+const API = "localhost:5000/location"
+
+const location = 'Seattle';
+// const locData = {}
+
+const getInfo = (location) => {
+    axios.get(API, {params:{ q:location, format:"json"}})
+        .then((result) => {
+            const lat = result.data[0].lat;
+            const lon = result.data[0].lon;
+            console.log(`${location} lat: ${lat} lon: ${lon}`);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+getInfo('Seattle')
+
+
+
 let temperature = 50;
 
 // Increase temperature
@@ -65,7 +88,9 @@ const updateCityName = (event) => {
 const updateCityNameInput = () =>{
   const inputCity = document.querySelector("#city-name-input");
   inputCity.addEventListener("input", updateCityName)
-} 
+}
+
+
 
 document.addEventListener('DOMContentLoaded', increaseTempOnClick);
 document.addEventListener('DOMContentLoaded', decreaseTempOnClick);
