@@ -1,11 +1,13 @@
 'use strict';
 
-// make body background reactive to state of temp counter
-
 const state = {
   tempCount: 49,
   city: 'Seattle',
   sky: 'Sunny',
+};
+
+const convertKelvinToFarenheit = (kelvinTemp) => {
+  return Math.floor((kelvinTemp - 273.15) * (9 / 5) + 32);
 };
 
 const changeTempColor = () => {
@@ -75,6 +77,46 @@ const changeSky = () => {
   }
 };
 
+const getLocationInfo = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      state.tempCount = convertKelvinToFarenheit(response.data['main']['temp']);
+      const tempCounter = document.querySelector('#tempCounter');
+      tempCounter.textContent = `${state.tempCount} \u00B0`;
+      changeTempColor();
+      changeBackground();
+    })
+    .catch((error) => {
+      console.log('error in weather call!', error.response.data);
+    });
+};
+
+const tempByLocation = () => {
+  const location = state.city;
+
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: location,
+        format: 'json',
+      },
+    })
+    .then((response) => {
+      const latitude = response.data[0].lat;
+      const longitude = response.data[0].lon;
+      getLocationInfo(latitude, longitude);
+    })
+    .catch((error) => {
+      console.log('error in location call', error.response.data);
+    });
+};
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.querySelector('#increaseTempButton');
   increaseTempButton.addEventListener('click', addDegree);
@@ -87,6 +129,10 @@ const registerEventHandlers = () => {
 
   const skySelect = document.querySelector('#sky');
   skySelect.addEventListener('change', changeSky);
+
+  const realTempButton = document.querySelector('#realTemp');
+  realTempButton.addEventListener('click', tempByLocation);
+
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
