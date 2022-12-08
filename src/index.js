@@ -24,9 +24,11 @@ const changeTempColor = () => {
 
 const changeBackground = () => {
   let temp = state.tempCount;
+  document.body.style.backgroundSize = "100% 1000px";
   if (temp <= 59) {
     document.body.style.backgroundImage = "url('./assets/59_or_below.jpeg')";
-  } else if (temp <= 69) {
+  } else if (temp <= 69)
+  {
     document.body.style.backgroundImage = "url('./assets/69_or_below.jpeg')";
   } else if (temp <= 79) {
     document.body.style.backgroundImage = "url('./assets/79_or_below.jpeg')";
