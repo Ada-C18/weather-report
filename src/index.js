@@ -1,109 +1,105 @@
+'use strict';
 
-// "use strict";
+const state = {
+  temp: 70,
+};
 
-// const state = {
-//   temp: 70,
-// };
+const increaseTemperature = (event) => {
+  state.temp += 1;
+  const tempCount = document.querySelector('#temperatureDisplay');
+  tempCount.textContent = ` ${state.temp} ℉`;
+};
 
-// const increaseTemperature = (event) => {
-//   state.temp += 1;
-//   const tempCount = document.querySelector("#temperatureDisplay")
-//   tempCount.textContent = ` ${state.temp} ℉`;
+const decreaseTemperature = (event) => {
+  state.temp -= 1;
 
-// };
+  const tempCount = document.querySelector('#temperatureDisplay');
+  tempCount.textContent = ` ${state.temp} ℉`;
+};
+const changeTempColor = () => {
+  if (state.temp <= 49) {
+    document.querySelector('#temperatureDisplay').style.color = 'blue';
+  } else if (state.temp > 49 && state.temp <= 59) {
+    document.querySelector('#temperatureDisplay').style.color = 'green';
+  } else if (state.temp > 59 && state.temp <= 69) {
+    document.querySelector('#temperatureDisplay').style.color = 'yellow';
+  } else if (state.temp > 69 && state.temp <= 79) {
+    document.querySelector('#temperatureDisplay').style.color = 'orange';
+  } else if (state.temp > 79) {
+    document.querySelector('#temperatureDisplay').style.color = 'red';
+  }
+};
 
-// const decreaseTemperature = (event) => {
-//   state.temp -= 1
-  
-//   const tempCount = document.querySelector("#temperatureDisplay")
-//   tempCount.textContent = ` ${state.temp} ℉`;
+const resetCity = (event) => {
+  const resetTheCity = document.querySelector('#cityNameDisplay');
+  resetTheCity.textContent = 'Seattle';
+  const city = document.querySelector('#cityName');
+  city.value = '';
+};
 
+const changeLandscape = (event) => {
+  if (state.temp <= 59) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (state.temp > 59 && state.temp <= 69) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (state.temp > 69 && state.temp <= 79) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (state.temp > 79) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  }
+};
+const inputCity = (event) => {
+  const city = document.querySelector('#cityName');
+  const displayName = document.querySelector('#cityNameDisplay');
+  displayName.textContent = city.value;
+};
 
-// };
-// const changeTempColor = () => {
-  
-//   if (state.temp <= 49) {
-//     document.querySelector("#temperatureDisplay").style.color = "blue";
-//   } else if ( state.temp > 49 && state.temp <= 59){
-//     document.querySelector("#temperatureDisplay").style.color = "green"
-//   }else if ( state.temp > 59 && state.temp <= 69){
-//     document.querySelector("#temperatureDisplay").style.color = "yellow"
-//   }else if ( state.temp > 69 && state.temp <= 79){
-//     document.querySelector("#temperatureDisplay").style.color = "orange"
-//   } else if ( state.temp > 79){
-//     document.querySelector("#temperatureDisplay").style.color = "red"
-//   }
-// }
+const changeSky = (event) => {
+  const skySelector = document.querySelector('#skySelector');
+  const sky = document.querySelector('#weatherGarden');
+  if (skySelector.value === 'cloudy') {
+    document.querySelector('#weatherGarden').textContent +=
+      '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  }
+};
 
-// const resetCity = (event) => {
-//   const resetTheCity = document.querySelector("#cityNameDisplay")
-//   resetTheCity.textContent = 'Seattle';
-//   const city = document.querySelector("#cityName");
-//   city.value = "";
-// };
+const registerEventHandlers = (event) => {
+  const increaseTemp = document.querySelector('#increaseTemperature');
+  increaseTemp.addEventListener('click', increaseTemperature);
 
-// const changeLandscape = (event) => {
-//   if (state.temp <= 59) {
-//     document.querySelector("#weatherGarden").textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
-//   } else if ( state.temp > 59 && state.temp <= 69){
-//     document.querySelector("#weatherGarden").textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
-//   }else if ( state.temp > 69 && state.temp <= 79){
-//     document.querySelector("#weatherGarden").textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
-//   }else if ( state.temp > 79){
-//     document.querySelector("#weatherGarden").textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
-//   };
-// }
-// const inputCity = (event) => {
-//   const city = document.querySelector("#cityName");
-//   const displayName = document.querySelector("#cityNameDisplay");
-//   displayName.textContent = city.value;
-// };
+  const decreaseTemp = document.querySelector('#reduceTemperature');
+  decreaseTemp.addEventListener('click', decreaseTemperature);
 
-// const changeSky = (event) => {
-//   const skySelector = document.querySelector("#skySelector")
-//   const sky = document.querySelector("#weatherGarden")
-//   if (skySelector.value === "cloudy"){
-//     document.querySelector("#weatherGarden").textContent += "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+  const changeColorOnHotter = document.querySelector('#increaseTemperature');
+  changeColorOnHotter.addEventListener('click', changeTempColor);
 
-//   }
-// };
+  const changeColorOnColder = document.querySelector('#reduceTemperature');
+  changeColorOnColder.addEventListener('click', changeTempColor);
 
-// const registerEventHandlers = (event) => {
-//   const increaseTemp = document.querySelector("#increaseTemperature");
-//   increaseTemp.addEventListener("click", increaseTemperature);
+  const defaultCity = document.querySelector('#cityReset');
+  defaultCity.addEventListener('click', resetCity);
 
-//   const decreaseTemp = document.querySelector("#reduceTemperature");
-//   decreaseTemp.addEventListener("click", decreaseTemperature);
+  // const defaultTempColor = document.querySelector("#loadTemperature");
+  // defaultTempColor.addEventListener("click", changeTempColor);
 
-//   const changeColorOnHotter = document.querySelector("#increaseTemperature");
-//   changeColorOnHotter.addEventListener("click", changeTempColor);
+  const newLandscapeOnincrease = document.querySelector('#increaseTemperature');
+  newLandscapeOnincrease.addEventListener('click', changeLandscape);
 
-//   const changeColorOnColder = document.querySelector("#reduceTemperature");
-//   changeColorOnColder.addEventListener("click", changeTempColor);
+  const newLandscapeOnDecreacse = document.querySelector('#reduceTemperature');
+  newLandscapeOnDecreacse.addEventListener('click', changeLandscape);
 
-//   const defaultCity = document.querySelector("#cityReset");
-//   defaultCity.addEventListener("click", resetCity);
+  const newCity = document.querySelector('#cityName');
+  newCity.addEventListener('input', inputCity);
 
-//   // const defaultTempColor = document.querySelector("#loadTemperature");
-//   // defaultTempColor.addEventListener("click", changeTempColor);
+  const newSky = document.querySelector('#skySelector');
+  newSky.addEventListener('change', changeSky);
+};
 
-//   const newLandscapeOnincrease = document.querySelector("#increaseTemperature");
-//   newLandscapeOnincrease.addEventListener("click", changeLandscape)
-
-//   const newLandscapeOnDecreacse = document.querySelector("#reduceTemperature");
-//   newLandscapeOnDecreacse.addEventListener("click", changeLandscape)
-
-//   const newCity = document.querySelector("#cityName");
-//   newCity.addEventListener("input", inputCity )
-
-//   const newSky = document.querySelector("#skySelector")
-//   newSky.addEventListener("change", changeSky)
-// };
-
-// document.addEventListener("DOMContentLoaded", registerEventHandlers);
-
-
-
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // "use strict";
 
@@ -120,14 +116,13 @@
 
 // const decreaseTemperature = (event) => {
 //   state.temp -= 1
-  
+
 //   const tempCount = document.querySelector("#tempCount")
 //   tempCount.textContent = ` ${state.temp} Degrees`;
 
-
 // };
 // const changeTempColor = () => {
-  
+
 //   if (state.temp <= 49) {
 //     document.querySelector("#tempCount").style.color = "purple";
 //   } else if ( state.temp > 49 && state.temp <= 59){
@@ -155,5 +150,3 @@
 // };
 
 // document.addEventListener("DOMContentLoaded", registerEventHandlers);
-
-
