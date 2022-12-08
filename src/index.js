@@ -8,7 +8,7 @@ const increaseTemp = () => {
   changeLandscape();
   changeTempNumberColor();
   spanTempNumber.textContent = `${temperature}`;
-  console.log('inside of increase', spanTempNumber.textContent);
+  // console.log('inside of increase', spanTempNumber.textContent);
 };
 
 const increaseTempOnClick = () => {
@@ -23,7 +23,7 @@ const decreaseTemp = () => {
   changeLandscape();
   changeTempNumberColor();
   spanTempNumber.textContent = `${temperature}`;
-  console.log('inside of decrease', spanTempNumber.textContent);
+  // console.log('inside of decrease', spanTempNumber.textContent);
 };
 
 const decreaseTempOnClick = () => {
