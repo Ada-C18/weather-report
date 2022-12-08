@@ -51,3 +51,12 @@ function landscapeIcons(temp) {
     emoji.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 }
+
+// const input = document.querySelector('city-input');
+// const log = document.getElementById('City-Name-Top');
+
+// input.addEventListener('city-input', cityNameInput);
+
+// function cityNameInput(e) {
+//   log.textContent = e.target.value;
+// }

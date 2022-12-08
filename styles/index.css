@@ -1,3 +1,14 @@
+body {
+    background-color: #00BFFF;
+}
+
+#Weather-Garden {
+    border-radius: 37px;
+    background: #D2E0DB;
+    box-shadow:  35px 35px 0px #939D99,
+             /* -35px -35px 0px #FFFFFF; */
+}
+
 .red {
     color: red;
 }
