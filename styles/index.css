@@ -32,6 +32,7 @@ header .city_bar{
 
 #sky_vis{
     text-align: center;
+    font-size: x-large;
 }
 
 #ground{
@@ -42,6 +43,7 @@ header .city_bar{
 
 #ground_vis{
     text-align: center;
+    font-size: x-large;
 }
 
 .menu{

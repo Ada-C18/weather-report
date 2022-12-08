@@ -48,7 +48,6 @@ const changeSkyViewer = () => {
   let sky = sky_selection.value;
   if (sky === 'sunny') {
     skyVis.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-    console.log(`${sky}`);
   } else if (sky === 'cloudy') {
     skyVis.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (sky === 'rainy') {
