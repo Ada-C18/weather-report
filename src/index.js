@@ -19,7 +19,7 @@ const updateLandscapeColor = () => {
   } else if (state.tempCount >= 70 && state.tempCount <= 79) {
     landscape.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
     tempDisplay.style.color = "orange";
-  } else if (tempCount >= 80) {
+  } else if (state.tempCount >= 80) {
     landscape.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
     tempDisplay.style.color = "red";
   }
