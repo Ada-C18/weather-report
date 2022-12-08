@@ -27,10 +27,10 @@ const changeTempColor = () => {
 
 const changeBackground = () => {
   let temp = state.tempCount;
-  document.body.style.backgroundSize = "100% 900px";
+  document.body.style.backgroundSize = '100% 900px';
   if (temp <= 59) {
     document.body.style.backgroundImage = "url('./assets/59_or_below.jpeg')";
-  } else if (temp <= 69){
+  } else if (temp <= 69) {
     document.body.style.backgroundImage = "url('./assets/69_or_below.jpeg')";
   } else if (temp <= 79) {
     document.body.style.backgroundImage = "url('./assets/79_or_below.jpeg')";
@@ -64,16 +64,16 @@ const updateCity = () => {
 const changeSky = () => {
   let skyChange = document.getElementById('sky');
   let getChange = skyChange.options[skyChange.selectedIndex].value;
-  
-  document.body.style.backgroundSize = "100% 900px";
-  if (getChange === "Sunny"){
+
+  document.body.style.backgroundSize = '100% 900px';
+  if (getChange === 'Sunny') {
     document.body.style.backgroundImage = "url('./assets/sunny.webp')";
-  } else if (getChange === "Rainy"){
-      document.body.style.backgroundImage = "url('./assets/rainy.jpeg')";
-  } else if (getChange === "Cloudy") {
+  } else if (getChange === 'Rainy') {
+    document.body.style.backgroundImage = "url('./assets/rainy.jpeg')";
+  } else if (getChange === 'Cloudy') {
     document.body.style.backgroundImage = "url('./assets/cloudy.webp')";
-  } else if (getChange === "Snowy"){
-      document.body.style.backgroundImage = "url('./assets/snowy.jpg')";
+  } else if (getChange === 'Snowy') {
+    document.body.style.backgroundImage = "url('./assets/snowy.jpg')";
   }
 };
 
@@ -124,18 +124,15 @@ const registerEventHandlers = () => {
   const decreaseTempButton = document.querySelector('#decreaseTempButton');
   decreaseTempButton.addEventListener('click', removeDegree);
 
-  const submitCityButton = document.querySelector('#submit');
-  submitCityButton.addEventListener('click', updateCity);
+  // const submitCityButton = document.querySelector('#submit');
+  // submitCityButton.addEventListener('click', updateCity);
 
   const skySelect = document.querySelector('#sky');
   skySelect.addEventListener('change', changeSky);
 
   const realTempButton = document.querySelector('#realTemp');
+  realTempButton.addEventListener('click', updateCity);
   realTempButton.addEventListener('click', tempByLocation);
-
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-
-
