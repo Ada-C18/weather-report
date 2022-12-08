@@ -73,72 +73,71 @@ const allEventHandlers = () => {
 
 //Wave 4
 
-// const findTemperature = () => {
-//   let latitude, longitude;
-//   //console.log(state.cityNameValue);
-//   axios
-//     .get('http://127.0.0.1:5000/location', {
-//       params: {
-//         //q: `${state.city}`,
-//         //q: state.cityNameValue
-//         q: `${state.cityNameValue}`,
-//       },
-//     })
-//     .then((response) => {
-//       //console.log("hello");
-//       latitude = response.data[0].lat;
-//       longitude = response.data[0].lon;
-//       //console.log(latitude, longitude);
-//     })
-//     .catch((error) => {
-//       //console.log("hello2");
-//       console.log('error in finding location!');
-//     });
-//   axios
-//     .get('http://127.0.0.1:5000/weather', {
-//       params: {
-//         lat: latitude,
-//         lon: longitude,
-//       },
-//     })
-//     .then((response) => {
-//       const kelvinTemperature = response.data.main.temp;
-//       const fahrenheitTemperature = Math.round(
-//         (kelvinTemperature - 273.15) * 1.8 + 32
-//       );
-//       state.temperature = fahrenheitTemperature;
-//       temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
-//     })
-//     .catch((error) => {
-//       console.log('error in finding temperature!');
-//     });
-// };
+const findTemperature = () => {
+  let latitude, longitude;
+  console.log("call test");
 
-//const getTempButton = document.getElementById('getTemperature');
-//getTempButton.addEventListener('click', findTemperature); //??
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        //q: state.cityNameValue
+        q: `${state.cityNameValue}`,
+      },
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+    })
+    .catch((error) => {
+      console.log('error in finding location!');
+    });
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      const kelvinTemperature = response.data.main.temp;
+      const fahrenheitTemperature = Math.round(
+        (kelvinTemperature - 273.15) * 1.8 + 32
+      );
+      state.temperature = fahrenheitTemperature;
+      temperatureDisplay.innerText = `${state.temperature + '\u00B0F'}`;
+    })
+    .catch((error) => {
+      console.log('error in finding temperature!', error);
+    });
+};
+
+const getTempButton = document.getElementById('getTemperature');
+getTempButton.addEventListener('click', findTemperature); //??
 
 // Wave 5
 // const skyView = document.getElementById('sky');
 let skyView = document.querySelector('.skyView');
 
-const skyDisplay = () => {
+const skyDisplay = (event) => {
   //skyView.onchange = function skyDisplay () {
-
+  console.log(event);
   let skyPic = document.getElementById('skyPictures');
-  if ((skyView = 'Sunny')) {
+  if (skyView.value === 'Sunny') {   // 1) changed from = to ===; 2) update .value;
     skyPic.innerText = '🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞';
-    //console.log(skyPic);
-  } else if ((skyView = 'Cloudy')) {
+    console.log("text1", skyPic);
+  } else if (skyView.value === 'Cloudy') {
     skyPic.innerText = '🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️🌥️⛅️';
-    console.log(skyPic);
-  } else if ((skyView = 'Rainy')) {
+    console.log("text2", skyPic);
+  } else if (skyView.value === 'Rainy') {
     skyPic.innerText = '🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️🌦️🌧️⛈️🌩️';
-  } else if ((skyView = 'Snowy')) {
+  } else if (skyView.value === 'Snowy') {
     skyPic.innerText = '🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️🌨️⛄️';
   }
+  
 };
-skyView.onchange = skyDisplay();
- 
-//skyView.addEventListener('change', skyDisplay);
+
+//skyView.onchange = skyDisplay; // 3)referring to the function, not calling the function with (); O1
+
+skyView.addEventListener('change', skyDisplay); //O2;
 
 document.addEventListener('DOMContentLoaded', allEventHandlers);
