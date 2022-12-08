@@ -1,10 +1,13 @@
 const state = {
     temp: 50,
+    city: "Seattle"
 }
 
 const displayTemp = document.getElementById("display-temp");
     displayTemp.textContent = `${state.temp}°  F`;
 
+const displayCity = document.getElementById("city");
+  displayCity.textContent = `Weather report for the lovely city of ${state.city}`;
 
 
 
@@ -67,13 +70,23 @@ const gardenDisplayer = (temp) => {
     };
 }
 
+function updateCity(e) {
+    const city = document.getElementById('city');
+    state.city = e.target.value
+    city.textContent = `Weather report for the lovely city of ${state.city}`;
+  };
+
+
 const registerEventHandlers = () => {
     const increaseButton = document.getElementById("increaseButton");
     increaseButton.addEventListener("click", increaseTemp)
     const decreaseButton = document.getElementById("decreaseButton");
     decreaseButton.addEventListener("click", decreaseTemp)
+    const input = document.getElementById('city-lookup');
+    input.addEventListener('input', updateCity);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 document.addEventListener("DOMContentLoaded", tempColor(state.temp));
 document.addEventListener("DOMContentLoaded", gardenDisplayer(state.temp));
+document.addEventListener("DOMContentLoaded", displayCity)
