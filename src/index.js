@@ -1,1 +1,1 @@
-"use strickt";
+'use strict';
