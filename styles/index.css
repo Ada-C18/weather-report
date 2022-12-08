@@ -21,6 +21,7 @@ header {
     min-height: 100px;
     max-width: fit-content;
     display: flex;
+    flex-direction: column;
     grid-row: 2;
     background-color: white;
 }
@@ -40,6 +41,7 @@ header {
     min-height: 100px;
     max-width: fit-content;
     display: flex;
+    flex-direction: column;
     grid-row: 3;
     background-color: white;
 }
@@ -52,6 +54,7 @@ header {
     min-height: 100px;
     max-width: fit-content;
     display: flex;
+    flex-direction: column;
     grid-row: 4;
     background-color: white;
 }

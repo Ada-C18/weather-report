@@ -86,14 +86,21 @@ const landTitle = () => {
 // WAVE 3
 const originalCity = { target: { value: 'Seattle' } };
 
+let currentCity = "Seattle"
+
 const changeCityText = (e) => {
   // const newCityName = document.getElementById('city-input').value;
   const currentCityName = document.getElementById('current-city');
   currentCityName.innerHTML = `This is the weather for ${e.target.value}`;
+  currentCity = e.target.value
+};
+
+const changeTemptoCurrCity = () => {
   // console.log(e);
-  findLatitudeAndLongitude(e.target.value)
-    .then((response) => (currentTemp.currTemp = response))
-    .then((response) => setTempNColor());
+  findLatitudeAndLongitude(currentCity)
+    .then((response) => currentTemp.currTemp = response)
+      .then(response => setTempNColor())
+    .catch((error) => console.log(`Error finding the latitude and longitude:" ${error}`))
 
   const inputField = document.getElementById('city-input');
   inputField.value = '';
@@ -115,7 +122,8 @@ const findLatitudeAndLongitude = (city_name_str) => {
       return getWeather({ lat: latitude, lon: longitude });
     })
     .catch((error) => {
-      console.log(`error in findLatitudeAndLongitude: ${error}`);
+      console.log(`This city does not exist`);
+      return currentTemp.currTemp
     });
 };
 
@@ -180,7 +188,11 @@ const registerEventHandlers = () => {
   decreaseTemp.addEventListener('click', downTemp);
 
   const changeCity = document.getElementById('city-input');
-  changeCity.addEventListener('change', changeCityText);
+  changeCity.addEventListener('input', changeCityText);
+  changeCity.addEventListener('propertychange', changeCityText);
+
+  const changeTemp = document.getElementById('temp-get-button');
+  changeTemp.addEventListener('click', changeTemptoCurrCity);
 
   const changeSkybox = document.getElementById('sky-selector');
   changeSkybox.addEventListener('change', changeSky);
@@ -189,7 +201,8 @@ const registerEventHandlers = () => {
   resetCityButton.addEventListener('click', resetCity);
 
   resetCity();
-  setTempNColor();
+  // setTempNColor();
+  changeTemptoCurrCity(originalCity.target.value);
   changeSky();
 };
 
