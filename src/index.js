@@ -1,17 +1,17 @@
-const state = {
+// const state = {
     
-}
+// }
 
-const updateCityName = () => {
-    const inputName = document.getElementById('cityNameInput').value;
-    const headerCity = document.getElementById('headerCity');
-    state.city = inputName;
-    headerCity.textContent = state.city;
-};
+// const updateCityName = () => {
+//     const inputName = document.getElementById('cityNameInput').value;
+//     const headerCity = document.getElementById('headerCity');
+//     state.city = inputName;
+//     headerCity.textContent = state.city;
+// };
 
-updateCityName();
-const cityNameInput = document.getElementById('cityNameInput');
-cityNameInput.addEventListener('input', updateCityName);
+// updateCityName();
+// const cityNameInput = document.getElementById('cityNameInput');
+// cityNameInput.addEventListener('input', updateCityName);
 
 let i = 0;
 let currentTemp = document.getElementById("tempValue");
