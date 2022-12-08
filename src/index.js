@@ -27,38 +27,51 @@ const tempcolor = () => {
 
   if (currentTemperature.innerHTML >= 80) {
     currentTemperature.className = 'temp-red';
-    gridContainer.style.backgroundImage = 'url(../assets/desert-nicole-herrero.jpg)';
+    gridContainer.style.backgroundImage =
+      'url(../assets/desert-nicole-herrero.jpg)';
   } else if (currentTemperature.innerHTML >= 70) {
     currentTemperature.className = 'temp-orange';
-    gridContainer.style.backgroundImage = 'url(../assets/tropical-alexis-antonio.jpg)';
+    gridContainer.style.backgroundImage =
+      'url(../assets/tropical-alexis-antonio.jpg)';
   } else if (currentTemperature.innerHTML >= 55) {
     currentTemperature.className = 'temp-yellow';
-    gridContainer.style.backgroundImage = 'url(../assets/green-field-anisur-rahman.jpg)';
+    gridContainer.style.backgroundImage =
+      'url(../assets/green-field-anisur-rahman.jpg)';
   } else if (currentTemperature.innerHTML >= 40) {
     currentTemperature.className = 'temp-green';
-    gridContainer.style.backgroundImage = 'url(../assets/fall-federica-galli.jpg)';
+    gridContainer.style.backgroundImage =
+      'url(../assets/fall-federica-galli.jpg)';
   } else if (currentTemperature.innerHTML <= 39) {
     currentTemperature.className = 'temp-teal';
-    gridContainer.style.backgroundImage = 'url(../assets/winter-christiaan-huynen.jpg)';
+    gridContainer.style.backgroundImage =
+      'url(../assets/winter-christiaan-huynen.jpg)';
   }
-  // create event handler that watches the curr-temp and changes the color accordingly
-  // 80+ is red (desert landscape)
-  // 70-79 is orange (tropical landscape)
-  // 55-69 is yellow (green field landscape)
-  // 40-54 is green (fall landscape)
-  // 39 and below is teal (winter landscape)
+};
+
+// wave 3
+const changeCity = () => {
+  const inputCityName = document.getElementById('city-name');
+  // const headerCityName = document.getElementById('header-city');
+  // headerCityName.innerHTML = inputCityName;
+  inputCityName.addEventListener('input', () => {
+    // const inputCityName = document.getElementById('city-name');
+    const headerCityName = document.getElementById('header-city');
+    headerCityName.textContent = inputCityName.value;
+  });
 };
 
 const setUp = () => {
   increaseTemp();
   decreaseTemp();
   tempcolor();
-}
+  changeCity();
+};
 
 if (document.readyState !== 'loading') {
   increaseTemp();
   decreaseTemp();
   tempcolor();
+  changeCity();
 } else {
   document.addEventListener('DOMContentLoaded', setUp);
 }
