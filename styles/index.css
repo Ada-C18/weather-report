@@ -22,6 +22,14 @@ div.card {background-color: white;
         padding: 1em;
         margin: 1em;}
 
+div#skydisplay {background-color: white;
+    color: black;
+    padding: 1em;
+    margin: 1em;
+
+
+}
+
 div#temperatureContainer {
     display: flex;
     flex-direction: row;
@@ -35,3 +43,4 @@ div#temperatureControlContainer {
 div#temperatureDisplay {
     font-size: 3em;
 }
+
