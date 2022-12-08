@@ -51,3 +51,10 @@ function changeLandscape() {
   document.getElementById('landscapeImage').innerHTML = landscape;
 }
 
+<<<<<<< HEAD
+=======
+function changeCityName() {
+  var x = document.getElementById('cityName').value;
+  document.getElementById('currentCity').innerHTML = x;
+}
+>>>>>>> 471b86c1eac67e73d3ce27e09e87715fcbe0f327
