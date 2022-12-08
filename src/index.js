@@ -42,6 +42,16 @@ const changeColor = () => {
   }
 };
 
+const changeSky = () => {
+  const skyMenu = document.getElementById('sky-selector');
+  const skyDisplay = document.getElementById('sky-display');
+  let selectedSky = skyMenu.options[skyMenu.selectedIndex].text;
+  if (selectedSky === 'Sunny') {
+    skyDisplay.style.backgroundColor = 'blue';
+    skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
+  }
+};
+
 const changeCityName = (input) => {
   state.cityName = input;
   const cityName = document.getElementById('city-name');
@@ -101,6 +111,11 @@ const registerEventHandlers = () => {
   const getTempButton = document.getElementById('get-temp-btn');
   getTempButton.addEventListener('click', () => {
     getWeather();
+  });
+
+  const skySelector = document.getElementById('sky-selector');
+  skySelector.addEventListener('change', () => {
+    changeSky();
   });
 };
 
