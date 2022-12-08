@@ -4,7 +4,7 @@
 
 // WAVE 2
 const currentTemp = {
-  currTemp: 59, //This will be a function call in later wave
+  currTemp: 72, //This will be a function call in later wave
 };
 
 const upTemp = () => {
@@ -96,8 +96,7 @@ const changeCityText = (e) => {
   // console.log(e);
   findLatitudeAndLongitude(e.target.value)
     .then((response) => (currentTemp.currTemp = response))
-    .finally(console.log(currentTemp.currTemp));
-  setTempNColor();
+    .then(setTempNColor());
 };
 
 // WAVE 4
@@ -173,10 +172,7 @@ const resetCity = () => {
   changeCityText(originalCity);
 };
 
-// resetCity();
-
 // EVENT HANDLERS
-
 const registerEventHandlers = () => {
   const increaseTemp = document.getElementById('temp-up');
   increaseTemp.addEventListener('click', upTemp);
@@ -192,6 +188,9 @@ const registerEventHandlers = () => {
 
   const resetCityButton = document.getElementById('city-reset');
   resetCityButton.addEventListener('click', resetCity);
+
+  resetCity();
+  changeSky();
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
