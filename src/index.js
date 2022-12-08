@@ -1,4 +1,34 @@
 "use strict";
+// download axios
+// getWeather endpoint
+// create proxy server
+
+const getLocation = () =>{
+  const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
+  //need to adjust endpoint
+  //This function has a promise..
+  return axios.get(endPoint)
+    .then(response =>{
+      console.log(response)
+    })
+    .catch(error =>{
+      console.log("Location Error: " error);
+    });
+
+}
+
+const getWeather = () =>{
+
+  const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
+  //need to adjust endpoint
+  return axios.get(endPoint)
+    .then(response =>{
+      console.log(response)
+    })
+    .catch(error =>{
+      console.log("Weather Error: "error);
+    });
+};
 
 //to keep track of and to be able to modify current state
 const state = {
