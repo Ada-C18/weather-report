@@ -7,6 +7,8 @@ header {
     text-align: center;
     grid-column: 1/span 6;
     height: 20vh;
+    font-size: x-large;
+    font:
 }
 
 .bodybox {
@@ -32,17 +34,6 @@ header {
     display: block;
     background-image: url("../assets/Cloudy.webp");
 }
-<<<<<<< HEAD
-
-#landscape {
-    grid-column: 5/6;
-    display: block;
-    background-image: url("../assets/Winter.jpeg");
-    height: 80vh;
-    top: 20vh;
-}
-=======
->>>>>>> 3e444e476930859c38b800f03aae27c6436e19fa
 
 #landscape {
     grid-column: 5/6;
