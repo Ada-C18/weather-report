@@ -15,39 +15,38 @@
     
     <div class = "container">
         <div class="header">
-            <h1> Weather Report</h1>
-            <h2 id = "intro">For the lovely city of </h2>
+            <h1> Weather Report </h1>
+            <h2>For the lovely city of</h2>
+            <h2 id = "intro"> * </h2>
         </div>
         <div class = "temperature">
             <h3>Temperature</h3>
-            <img 
-            src="assets/images/temperature.png"
-            alt="task list"
-            loading = "lazy">
-            <form>
-                <input type="text" id="number" value="0"/>
-                <input type="button" onclick="incrementValue()" value="Increment Value" />
-             </form>
-            <!-- <section>
-            <button id="increaseButton" onclick="incrementValue()">⬆</button>
-            <h2 id="Display Temperature">0</h2>
-            <button id="decreaseButton">⬇</button>
-            </section> -->
+            
+            <section>
+            <button class="plus_minus" >⬆</button> 
+            <span class="number">45</span>
+            <button class="minus_plus">⬇</button>
+            </section>
         </div>
         <div class = "sky">
             <h3>Sky</h3>
         </div>
         <div class="cityName">
             <h3>City Name</h3>
-            <input type="text">
+            <input id= "cityName" type="text">
+            <button id="reset">Reset</button> 
         </div>
           
         <div class= "weatherGarden">
             <h3>Weather Garden</h3>
             
+            
 
         </div>
-        <div class="weatherGardenBox"></div>
+        <div class="weatherGardenBox">
+            <div class="sky"></div>
+            <div class="landscape">"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"</div>
+        </div>
        
         
     </div>
@@ -55,5 +54,7 @@
 
 
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js" type="text/javascript"></script>
+
 </body>
 </html>
