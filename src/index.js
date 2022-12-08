@@ -1,8 +1,8 @@
-console.log('Hello, World Fataneh!');
+console.log('Hello, World!');
 
-const axios = require('axios');
+const { default: axios } = require('axios');
 axios
-  .get('API url')
+  .get('https://us1.locationiq.com/v1/search.php')
   .then((response) => {
     console.log('success!');
   })
