@@ -29,7 +29,6 @@ const subtractDegree = (event) => {
   console.log('state temp', state.temp);
 
   const tempContainer = document.querySelector('#degrees'); // output: null
-  // console.log('temp container', tempContainer); // null
 
   tempContainer.textContent = state.temp;
   updateColorsAndEmojis();
@@ -42,8 +41,8 @@ const updateColorsAndEmojis = () => {
     document.getElementById('degrees').style.color = 'red';
     document.getElementById('emojis').innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (state.temp >= 70 && state.temp <= 79) {
+    document.getElementById('degrees').style.color = 'orange';
     document.getElementById('emojis').innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-    // document.getElementById('emojis').
   } else if (state.temp >= 60 && state.temp <= 69) {
     document.getElementById('degrees').style.color = 'yellow';
     document.getElementById('emojis').innerText = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
@@ -71,7 +70,7 @@ const registerHandlers = (event) => {
   const changeTempColor = document.querySelector('#degrees');
 
   const updateCityName = document.querySelector('#search-bar');
-  updateCityName.addEventListener('input', updateCity);
+  updateCityName.addEventListener('change', updateCity); // 'input'
 
   changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
 };
@@ -84,7 +83,7 @@ const updateCity = () => {
 
   let cityName = myTextInput.value;
 
-  console.log(cityName); // it works!!
+  let cityHeader = document.getElementById('city-name');
 
-  // TODO-> update "City of:"" string too
+  cityHeader.textContent = `City of: ${cityName}`;
 };
