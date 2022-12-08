@@ -17,7 +17,7 @@ const updatePage = () => {
   let newstyle = temperatureStyle(temperature);
   document.getElementById('body').style.backgroundColor = newstyle.bg_color;
   document.getElementById('landscape').textContent = newstyle.landscape;
-}
+};
 
 const temperatureStyle = (temp) => {
   if (temp > 80) {
@@ -34,9 +34,13 @@ const temperatureStyle = (temp) => {
 };
 
 const cityUpdate = (event) => {
-  console.log(event);
-}
+  document.getElementById('city').textContent = event.target.value;
+};
 
-document.getElementById('temp_increase').addEventListener('onClick', increaseTemp);
-document.getElementById('temp_decrease').addEventListener('onClick', decreaseTemp);
-document.getElementById('city_input').addEventListener('onChange', cityUpdate);
+function addListeners() {
+  console.log('onload');
+  document.getElementById('temp_increase').onclick = (event) => increaseTemp();
+  document.getElementById('temp_decrease').onclick = (event) => decreaseTemp();
+  document.getElementById('city_input').oninput = (event) => cityUpdate(event);
+  console.log('onload executed');
+}
