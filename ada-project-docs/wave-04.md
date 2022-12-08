@@ -16,7 +16,7 @@ For Weather Report, we provide a [weather report proxy server](https://github.co
 
 As such, the *Weather Report web app* we are building should make `axios` calls to our *Weather Report proxy server*, which manages our `LocationIQ` and `OpenWeather` API keys and forwards our requests along to the appropriate 3rd party API. 
 
-For details on how to run the Weather Report proxy server, see the [Weather Report Proxy Server README](https://github.com/adaGold/weather-report-proxy-server). No changes need to be made to the source code of the proxy server. The only work that needs to be done is adding a `.env` file with your API keys.
+For details on how to run the Weather Report proxy server, see the [Weather Report Proxy Server README](https://githubar.com/adaGold/weather-report-proxy-server). No changes need to be made to the source code of the proxy server. The only work that needs to be done is adding a `.env` file with your API keys.
 
 While the `GET` requests to `LocationIQ` and `OpenWeather` are already implemented in the proxy server, we should still read the [`LocationIQ`](https://locationiq.com/docs) and [`OpenWeather`](https://openweathermap.org/api/one-call-api) docs to learn how to build the request and parse the response.
 
