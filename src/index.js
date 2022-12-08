@@ -47,9 +47,9 @@ const temperatureChange = (temperature) => {
     });
 });
 
-// wave 3
+
 const updateCityName = () => {
-    const cityElement = document.getElementById('chosen-city');
+    const cityElement = document.getElementById('#chosen-city');
     const cityName = document.querySelector('#input-city').value;
     cityElement.innerText = cityName;
 
