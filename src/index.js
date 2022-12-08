@@ -1,10 +1,23 @@
 'use strict';
 
+console.log('Online')
+
 function increaseTemp() {
   console.log('ok');
-  const tempNumber = document.getElementById('temp-number');
+  const tempDiv = document.getElementById('temp-number');
+  let tempNumber = parseInt(tempDiv.textContent);
   console.log(tempNumber);
-  state.tempNumber.innerHTML += 1;
+  tempNumber += 1;
+  tempDiv.innerHTML = tempNumber
+}
+
+function decreaseTemp() {
+  console.log('ok');
+  const tempDiv = document.getElementById('temp-number');
+  let tempNumber = parseInt(tempDiv.textContent);
+  console.log(tempNumber);
+  tempNumber -= 1;
+  tempDiv.innerHTML = tempNumber
 }
 
 function updateCityName() {
