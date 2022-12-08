@@ -1,22 +1,24 @@
 console.log('hello world');
-const findLocation = () => {
-  console.log('check function work');
+
+const findLocation = (query) => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: 'seattle',
+        q: query,
         format: 'json',
       },
     })
     .then((response) => {
-      console.log('success');
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in findLatitudeAndLongitude!', latitude, longitude);
     })
     .catch((error) => {
-      console.log('error!');
+      console.log('error in findLatitudeAndLongitude!');
     });
 };
 if (document.readyState !== 'loading') {
-  findLocation();
+  findLocation('Seattle');
 } else {
   document.addEventListener('DOMContentLoaded', findLocation);
 }
