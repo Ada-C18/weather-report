@@ -38,6 +38,12 @@ const changeTempColor = () => {
   landscapeContainer.replaceChild(newLandscape, oldLandscape);
 };
 
+const getRealTimeTemp = () => {
+  // input: cityName -> locationQ -> lat, lon
+  // -> open weatherApp -> realTemp for the city (in lat, lon)
+  // change the element of html page: currentTemp
+};
+
 const registerEventHandlers = () => {
   const up = document.querySelector('#up');
   const down = document.querySelector('#down');
@@ -47,7 +53,7 @@ const registerEventHandlers = () => {
   down.addEventListener('click', changeTempColor);
   const input = document.querySelector('#cityName');
   input.addEventListener('keyup', updateValue);
-  
+  realTime.addEventListener('click', getRealTimeTemp);
 };
 
 function updateValue(e) {
