@@ -1,27 +1,21 @@
 'use strict';
 
-let searchform = document.querySelector('#search-form');
-searchform.addEventListener('submit', search);
-
-const changeCity = () => {
-  document.querySelector('#city').innerHTML = response.data.name;
-};
-
-function search(event) {
-  let city = document.querySelector('#city-input').value;
-  changeCity();
-}
-
-searchform.addEventListener('submit', search);
-
-const incrementCount = document.getElementById('increaseTemp');
-const decrementCount = document.getElementById('decreaseTemp');
-
-const totalCount = document.getElementById('temperatureValue');
-
 const state = {
+  city: 'Toms River',
   temp: 58,
 };
+
+const updateCity = () => {
+  const inputName = document.getElementById('cityInput').value;
+  const headerCityName = document.getElementById('city');
+  state.city = inputName;
+  headerCityName.textContent = state.city;
+};
+
+// const incrementCount = document.getElementById('increaseTemp');
+// const decrementCount = document.getElementById('decreaseTemp');
+
+const totalCount = document.getElementById('temperatureValue');
 
 temperatureValue.textContent = `${state.temp}°f`;
 
@@ -39,8 +33,8 @@ const handleDecrement = () => {
   changeLandscape();
 };
 
-incrementCount.addEventListener('click', handleIncrement);
-decrementCount.addEventListener('click', handleDecrement);
+// incrementCount.addEventListener('click', handleIncrement);
+// decrementCount.addEventListener('click', handleDecrement);
 
 // const state = {
 //   temp: 58,
@@ -81,7 +75,15 @@ const changeLandscape = () => {
 };
 
 const registerEventHandlers = () => {
+  const incrementCount = document.getElementById('increaseTemp');
+  incrementCount.addEventListener('click', handleIncrement);
+  const decrementCount = document.getElementById('decreaseTemp');
+  decrementCount.addEventListener('click', handleDecrement);
   changeColor();
   changeLandscape();
-  changeCity();
+  updateCity();
+  const cityInput = document.getElementById('cityInput');
+  cityInput.addEventListener('input', updateCity);
 };
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
