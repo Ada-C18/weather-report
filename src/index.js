@@ -54,6 +54,15 @@ const getTemp = (latLonObj) => {
     .catch((response) => console.log(response));
 };
 
+/* Get the temperature for searchString using locationIQ for 
+lat+lon and OpenWeather for temperature.
+*/
+const getTempFromSearch = (searchString) => {
+  const latLonPromise = getLatLon(searchString);
+  const tempPromise = latLonPromise.then(getTemp);
+  return tempPromise;
+};
+
 const increaseTemperature = (event) => {
   state.temp += 1;
   const tempCount = document.querySelector('#temperatureDisplay');
