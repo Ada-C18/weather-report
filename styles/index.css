@@ -2,3 +2,82 @@
 /* make center-content a flex container, vertically align children */
 
 /* body background to be reactive to page state */
+
+body {
+    background-color:hsla(212,92%,42%,1);
+}
+
+header{
+    height: 50px;
+    width: auto;
+    margin-top:80px;
+    margin-left:20px;
+    margin-right:20px;
+    /* border: 2px solid pink; */
+}
+
+h1, .center-content h2{
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+section#main-body{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    height: 500px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 2px solid pink; */
+}
+
+#center-content h2 {
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+    text-align: center;
+}
+
+#tempCounterContainer {
+    height: 150px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    /* border: 2px solid pink; */
+}
+
+#realTempContainer{
+    height: 130px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    /* border: 2px solid pink; */
+}
+
+#realTemp {
+    margin-top: 5px;
+}
+
+#reset {
+    color:white;
+    background-color:hsla(212,92%,42%,1);
+}
+
+#skyContainer{
+    height: 130px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    /* border: 2px solid pink; */
+}
+
+.choose-sky{
+    display: block;
+    margin-bottom: 20px;
+}
