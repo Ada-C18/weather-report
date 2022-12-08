@@ -47,8 +47,20 @@ const changeSky = () => {
   const skyDisplay = document.getElementById('sky-display');
   let selectedSky = skyMenu.options[skyMenu.selectedIndex].text;
   if (selectedSky === 'Sunny') {
-    skyDisplay.style.backgroundColor = 'blue';
+    skyDisplay.style.backgroundColor = 'orange';
     skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
+  }
+  if (selectedSky === 'Cloudy') {
+    skyDisplay.style.backgroundColor = 'gray';
+    skyDisplay.style.backgroundImage = "url('./assets/cloudy.gif')";
+  }
+  if (selectedSky === 'Rainy') {
+    skyDisplay.style.backgroundColor = 'blue';
+    skyDisplay.style.backgroundImage = "url('./assets/rainy.gif')";
+  }
+  if (selectedSky === 'Snowy') {
+    skyDisplay.style.backgroundColor = 'lightblue';
+    skyDisplay.style.backgroundImage = "url('./assets/snow.gif')";
   }
 };
 
