@@ -9,6 +9,8 @@ const state = {
 const LOCATION_ENDPOINT = 'http://localhost:5000/location';
 const WEATHER_ENDPOINT = 'http://localhost:5000/weather';
 
+/* Used to convert temperature results to a scale useful
+for people on Earth, rather than Pluto.*/
 const kelvinToFahrenheit = (degreeKelvin) => {
   return ((degreeKelvin - 273.15) * 9) / 5 + 32;
 };
