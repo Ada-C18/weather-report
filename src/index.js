@@ -1,5 +1,7 @@
 // debugger;
 let temp = 75;
+const cityInput = document.getElementById('name');
+const cityName = document.getElementById('city-name');
 
 const updateTemp = (temp) => {
   console.log('update called');
@@ -50,6 +52,10 @@ const changeLandscape = (temp) => {
   landscape.textContent = ground;
 };
 
+const updateCity = () => {
+  cityName.textContent = cityInput.value;
+};
+
 const renderAndUpdate = () => {
   console.log('render called');
   const upButton = document.getElementById('up');
@@ -57,6 +63,7 @@ const renderAndUpdate = () => {
   updateTemp(temp);
   upButton.addEventListener('click', increaseTemp);
   downButton.addEventListener('click', decreaseTemp);
+  cityInput.addEventListener('input', updateCity);
 };
 
 if (document.readyState !== 'loading') {

@@ -42,5 +42,13 @@ header {
     color : green;
 }
 
+label {
+    display: block;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
 
 
