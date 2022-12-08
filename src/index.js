@@ -3,32 +3,32 @@
 // getWeather endpoint
 // create proxy server
 
-const getLocation = () =>{
-  const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
-  //need to adjust endpoint
-  //This function has a promise..
-  return axios.get(endPoint)
-    .then(response =>{
-      console.log(response)
-    })
-    .catch(error =>{
-      console.log("Location Error: " error);
-    });
+// const getLocation = () =>{
+//   const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
+//   //need to adjust endpoint
+//   //This function has a promise..
+//   return axios.get(endPoint)
+//     .then(response =>{
+//       console.log(response)
+//     })
+//     .catch(error =>{
+//       console.log("Location Error: " error);
+//     });
 
-}
+// }
 
-const getWeather = () =>{
+// const getWeather = () =>{
 
-  const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
-  //need to adjust endpoint
-  return axios.get(endPoint)
-    .then(response =>{
-      console.log(response)
-    })
-    .catch(error =>{
-      console.log("Weather Error: "error);
-    });
-};
+//   const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
+//   //need to adjust endpoint
+//   return axios.get(endPoint)
+//     .then(response =>{
+//       console.log(response)
+//     })
+//     .catch(error =>{
+//       console.log("Weather Error: "error);
+//     });
+// };
 
 //to keep track of and to be able to modify current state
 const state = {
@@ -48,11 +48,11 @@ const decreaseTemp = () => {
 
 //function to change sky
 const changeSkyDisplay = () => {
+    //getting selected sky image
   const input = document.getElementById('sky_select').value;
-  // const skyImage = document.getElementById('sky_image');
-  const skyImage = document.getElementById('sky');
+// selecting the sky_image element object
+  const currentSky = document.getElementById('sky_image');
   let skyDisplay =	'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  let sky = '';
 
   if (input === 'Sunny'){
     skyDisplay =	'☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
@@ -63,8 +63,8 @@ const changeSkyDisplay = () => {
   }else if (input === 'Snowy'){
     skyDisplay =	'🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   };
-
-  skyImage.textContent = sky;
+//   skyImage.textContent = skyDisplay;
+  currentSky.textContent = skyDisplay;
 };
 
 //function to change the landscape and temperature value color
