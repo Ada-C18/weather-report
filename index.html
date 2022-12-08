@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather Report</title>
         <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/SN Regular WFK/stylesheet.css">
         <script src="src/index.js" type="text/javascript"></script>
     </head>
     <body>
@@ -26,38 +27,38 @@
             </form>
         </header>
         <main>
-            <section>
-                <div id="weather-panel-container">
+            <section id="weather-report-section">
+                <div id="weather-report-container">
                     <!-- flex box for five day weather panels -->
-                    <div id="day-one">
+                    <div id="panel-one" class="weather-panels">
                         <h3>Monday</h3>
                             <h4>Temperature</h4>
                                 <p>temp number here</p>
                             <h4>Humidity</h4>
                                 <p>humidity percentage here</p>
                     </div>
-                    <div id="day-two">
+                    <div id="panel-two" class="weather-panels">
                         <h3>Tuesday</h3>
                             <h4>Temperature</h4>
                                 <p>temp number here</p>
                             <h4>Humidity</h4>
                                 <p>humidity percentage here</p>
                     </div>
-                    <div id="day-three">
+                    <div id="panel-three" class="weather-panels">
                         <h3>Wednesday</h3>
                             <h4>Temperature</h4>
                                 <p>temp number here</p>
                             <h4>Humidity</h4>
                                 <p>humidity percentage here</p>
                     </div>
-                    <div id="day-four">
+                    <div id="panel-four" class="weather-panels">
                         <h3>Thursday</h3>
                             <h4>Temperature</h4>
                                 <p>temp number here</p>
                             <h4>Humidity</h4>
                                 <p>humidity percentage here</p>
                     </div>
-                    <div id="day-five">
+                    <div id="panel-five" class="weather-panels">
                         <h3>Friday</h3>
                             <h4>Temperature</h4>
                                 <p>temp number here</p>
@@ -66,17 +67,17 @@
                     </div>
                 </div>
             </section>
-            <section>
+            <section id="dream-weather-section">
                 <h2>What do you wish they were?</h2>
                 <div id="dream-weather-container">
                     <!-- flex box of dream temp, sky, humidity -->
-                    <div id="dream-temp">
+                    <div id="dream-temp" class="dream-panels">
                         <h3>Dream Temperature</h3>
                             <p>temp number here</p>
                             <button id="increase-temp"></button>
                             <button id="decrease-temp"></button>
                     </div>
-                    <div id="dream-sky">
+                    <div id="dream-sky" class="dream-panels">
                         <h3>Dream Sky</h3>
                             <select name="skies" id="sky-select">
                                 <option value="sunshine">
@@ -93,7 +94,7 @@
                                 </option>
                             </select>      
                     </div>
-                    <div id="dream-humidity">
+                    <div id="dream-humidity" class="dream-panels">
                         <h3>Dream Humidity</h3>
                             <p>humidity percent here</p>
                             <button id="increase-humidity"></button>

@@ -1,0 +1,76 @@
+body {
+    border: 2px solid black;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 2fr 4fr 1fr;
+    grid-template-columns: 1fr 10fr 1fr;
+    font-family: 'SN Reg', serif;
+}
+
+header {
+    border: 2px solid black;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3.5rem;  
+}
+
+main {
+    border: 2px solid black;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#weather-report-section {
+    border: 2px solid black;
+    grid-row: 1 / 2;
+}
+
+#weather-report-container {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.weather-panels {
+    border: 2px solid black;
+    text-align: center;
+}
+
+#dream-weather-section {
+    border: 2px solid black;
+    grid-row: 2 / 3;
+}
+
+#dream-weather-container {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dream-panels {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer {
+    border: 2px solid black;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
