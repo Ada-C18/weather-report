@@ -1,4 +1,5 @@
-const axios = require('axios');
+// const axios = require('axios');
+// import axios from 'axios';
 
 const state = {
   Temperature: 0,
@@ -50,24 +51,24 @@ const updateTemperature = (event) => {
   axios
     .get(`localhost:5000/location?q=${cityName.textContent}`)
     .then((response) => {
-      const latitude = response[0]["lat"];
-      const longitude = response[0]["lon"];
-  })
-    .catch((error) => {
-      console.log("Error")
+      const latitude = response[0]['lat'];
+      const longitude = response[0]['lon'];
     })
+    .catch((error) => {
+      console.log('Error');
+    });
   //make GET request to OpenWeatherAPI to get current temperature
   axios
     .get(`localhost:5000/weather?lat=${latitude}&lon=${longitude}`)
     .then((response) => {
-      const temperatureKelvin = response["main"]["temp"];
-      const temperatureFahrenheit = (((temperatureKelvin - 273.15) * 9) / 5) + 32;
+      const temperatureKelvin = response['main']['temp'];
+      const temperatureFahrenheit = ((temperatureKelvin - 273.15) * 9) / 5 + 32;
       tempContainer.textContent = temperatureFahrenheit;
-  })
-    .catch((error) => {
-      console.log("Error")
     })
-}
+    .catch((error) => {
+      console.log('Error');
+    });
+};
 
 const registerEventHandlers = (event) => {
   const increaseTempButton = document.querySelector('#increaseTempButton');
