@@ -1,6 +1,4 @@
 import { landscapeEmoji } from './constants.js';
-import * as dotenv from 'dotenv';
-import express from 'express';
 
 // temperature controls
 const state = {
