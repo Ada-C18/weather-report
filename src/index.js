@@ -1,6 +1,13 @@
 'use strict';
 
-/* Temperature Buttons */
+function delay(fn, ms) {
+  let timer = 0;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(fn.bind(this, ...args), ms || 0);
+  };
+}
+
 const state = {
   increaseTemp: null,
   decreaseTemp: null,
@@ -20,33 +27,37 @@ const loadsControls = () => {
   state.cityInput = document.getElementById('city-input');
 };
 
-const refreshUI = () => {
+const refreshTemp = () => {
   state.currentTemp.textContent = state.currentTempCount;
-  state.cityDisplay.textContent = state.cityInput.value;
+  // state.cityDisplay.textContent = state.cityInput.value;
 };
 
 const handleIncreaseTempButtonClicked = (event) => {
   ++state.currentTempCount;
-  refreshUI();
+  refreshTemp();
   tempTextColorChange();
   landscapeChange();
 };
 
 const handleDecreaseTempButtonClicked = (event) => {
   --state.currentTempCount;
-  refreshUI();
+  refreshTemp();
   tempTextColorChange();
   landscapeChange();
 };
 
 const handleCityInputChanged = (event) => {
-  refreshUI();
+  // refreshUI();
+  state.cityDisplay.textContent = state.cityInput.value;
 };
 
 const registerEvents = () => {
   state.increaseTemp.addEventListener('click', handleIncreaseTempButtonClicked);
   state.decreaseTemp.addEventListener('click', handleDecreaseTempButtonClicked);
-  state.cityInput.addEventListener('input', handleCityInputChanged);
+  state.cityInput.addEventListener(
+    'input',
+    delay(handleCityInputChanged, 3000)
+  );
 };
 
 const tempTextColorChange = () => {
