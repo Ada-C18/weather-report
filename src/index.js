@@ -55,5 +55,18 @@ const changeLandscape = () => {
   else iconGround.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
 };
 
+const updateCityName = (event) => {
+  const cityName = document.querySelector("#city");
+  cityName.textContent = event.target.value;
+  console.log(cityName)
+};
+// updateCityName()
+
+const updateCityNameInput = () =>{
+  const inputCity = document.querySelector("#city-name-input");
+  inputCity.addEventListener("input", updateCityName)
+} 
+
 document.addEventListener('DOMContentLoaded', increaseTempOnClick);
 document.addEventListener('DOMContentLoaded', decreaseTempOnClick);
+document.addEventListener('DOMContentLoaded', updateCityNameInput);
