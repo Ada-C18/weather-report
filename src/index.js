@@ -2,8 +2,6 @@
 // Leave this commented out:
 // const { default: axios } = require("axios");
 
-axios;
-
 const state = {
   temperature: 75,
   landscape: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
@@ -13,7 +11,59 @@ const state = {
   cityReset: null,
 };
 
-// Wave 02: Temperature Ranges Change Text Color and Landscape
+const callProxyAPIs = () => {
+  findLatitudeAndLongitude(state.cityBox);
+}
+
+const findLatitudeAndLongitude = (city) => {
+  let latitude, longitude;
+  axios.get('http://127.0.0.1:5000/location',
+  {
+    params: {
+      q: city,
+    }
+  })
+  .then( (response) => {
+    latitude = response.data[0].lat;
+    longitude = response.data[0].lon;
+    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+    
+    getWeather(latitude, longitude);
+  })
+  .catch( (error) => {
+    console.log('error in finding Latitude and Longitude!', error);
+  });
+}
+
+const getWeather = (latitudeW, longitudeW) => {
+  axios.get('http://127.0.0.1:5000/weather',
+  {
+    params: {
+      lat: latitudeW,
+      lon: longitudeW
+    }
+  })
+  .then( (response) => {
+    console.log('success in getWeather!', response.data);
+    const data = response.data;
+    updateTempAndWebpage(data);
+  })
+  .catch( (error) => {
+    console.log('error in getWeather!');
+  });
+}
+const updateTempAndWebpage = (APIdata) => {
+  const tempKelvin = APIdata.main.temp;
+  // converts temp to Farenheits and saves it to the state
+  state.temperature = Math.floor((tempKelvin - 273.15) * 9/5 + 32);
+  // changes the temp on the website display
+  temp.textContent = `${state.temperature}°F`;
+  // changes the font color and landscape to match the temp
+  changeColorAndLandscape();
+  console.log("temp should be updated to the current city now!")
+
+}
+
 const increaseTemp = () => {
   state.temperature += 1;
   const temp = document.getElementById('temp');
@@ -78,6 +128,7 @@ const changeCityName = () => {
   // assigns the HTML header element with id="current_city" to
   // the text that the user types
   city.textContent = cityBoxVal;
+  state.cityBox = cityBoxVal;
 };
 
 const resetCity = () => {
@@ -101,6 +152,9 @@ const registerEventHandlers = () => {
 
   const cityReset = document.getElementById('cityReset');
   cityReset.addEventListener('click', resetCity);
+
+  const realtimeButton = document.getElementById('realtimeButton');
+  realtimeButton.addEventListener('click', callProxyAPIs);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

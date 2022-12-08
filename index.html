@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <title>Semhar & Kat's Weather Report</title>
     <link rel="stylesheet" href="/styles/index.css" type="text/css">
     
 </head>
 <body>
     <header>
         <h1 id="header-name">Weather Report</h1>
-        <p id="current_city">Seattle</p>
+        <p id="current_city">New York</p>
     </header>
     <main>
         <section id="garden_container">
@@ -40,7 +40,7 @@
                 </section>
             </div>
             <div class="one_column">
-                <secion id="sky_box">
+                <section id="sky_box">
                     <h3 >Sky</h3>
                     <label for="sky"></label>
                     <select name="sky" id="sky_selector">
@@ -49,19 +49,16 @@
                         <option value="rainy">Rainy</option>
                         <option value="snowy">Snowy</option>
                     </select> 
-                    <section id="temp_content" ></section>
-                </secion>
+                </section>
             </div>
             <div class="one_column">
                 <section id="city_box">
                 <h3>City Name</h3> 
-                <input type="text" authocomplete="off" id="search-box" value="Seattle"
+                <input type="text" authocomplete="off" id="search-box" value="New York"
                     placeholder="search for a city..."/>
                 <button id="cityReset">Reset</button>                   
                 </section>                
             </div>
-        
-
     </main>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
