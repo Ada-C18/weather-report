@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/style.css" rel="stylesheet" />
 </head>
+
 <body>
-    
+    <header class="header_header">
+        <h1> Weather Report </h1>
+        <span id="headerCityName" class="header_city-name">
+            For the beautiful city of
+            <span id="headerCityName" class="header_city-name">
+                ::before
+                <!-- this will be a variable to enter name of city here -->
+                Seattle
+                ::after
+            </span>
+        </span>
+    </header>
+    <section class="temperature_section">
+        <h2>temperature_section</h2>
+        <div class="temperature_content">
+            <div class="temperature_controls">
+                <!-- useState and event handling here? to update state -->
+                <!-- up arrow button for event, between inc.. and span tag -->
+                <!-- down arrow button for event, between dec.. and span tag -->
+                <!-- tempValue holds current state, will see value between teal and span tag -->
+                <span id="increaseTempControl"></span>
+                <span id="tempValue" class="teal"></span>
+                <span id="decreaseTempControl"></span>
+            </div>
+            <!-- onClick button here, too. button tied to event -->
+            <button id="currentTempButton">
+                Get Real Time Temperature</button>
+        </div>
+    </section>
+    <section class="sky_section">
+        <h2>Sky</h2>
+        <!-- event handler here, menu -->
+        <select id="skySelect">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
+    </section>
+    <section class="city-name_section">
+        <h2>City Name</h2>
+        <!-- event handler here, accepts text from user -->
+        <!-- value should be variable -->
+        <!-- onClick button to change state -->
+        <input id="cityNameInput" type="text" value="Seattle">
+        <button id="cityNameReset" class="city-name_reset-btn">Reset</button>
+    </section>
+    <section class="garden_section">
+        <h2>Weather Garden</h2>
+        <!-- this id uses flex box -->
+        <div id="gardenContent" class="garden_content snowy">
+            <div id="sky">emojis here</div>
+            <div id="landscape">emojis here></div>
+        </div>
+    </section>
+    <script src="index.js"></script>
 </body>
+
+</html>
+
+
+
+
+</body>
+
 </html>
