@@ -1,5 +1,3 @@
-// const axios = require('axios');
-
 const state = {
   currentTemp: 80,
   city: 'Seattle',
