@@ -140,7 +140,7 @@ const registerEventHandlers = (event) => {
   const getCurrentTempButton = document.querySelector('#current-temp');
   getCurrentTempButton.addEventListener('click', getTemp);
 
-  const skyMenu = document.querySelector('#sky-type').value;
+  const skyMenu = document.querySelector('#sky-type');
   skyMenu.addEventListener('change', changeSky);
 };
 
