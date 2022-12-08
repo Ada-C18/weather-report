@@ -4,7 +4,6 @@ const state = {
   cityName: "Ada",
 };
 
-
 const updateLandscapeColor = () => {
   const tempDisplay = document.querySelector("#temperature");
   const landscape = document.querySelector("#landscape");
@@ -26,19 +25,12 @@ const updateLandscapeColor = () => {
   }
 }
 
-const increaseTemp = (event) => {
+const updateTemp = (changeFactor) => {
   const tempDisplay = document.querySelector("#temperature");
-  state.tempCount = state.tempCount + 1;
+  state.tempCount = state.tempCount + changeFactor
   tempDisplay.textContent = `${state.tempCount}`
   updateLandscapeColor()
 
-};
-
-
-const decreaseTemp = (event) => {
-  const tempDisplay = document.querySelector("#temperature");
-  tempDisplay.textContent = `${state.tempCount--}`
-  updateLandscapeColor()
 };
 
 
@@ -48,14 +40,42 @@ const changeCity = (event, cityName) => {
   cityNameDisplay.textContent = `Weather Report for the wonderful city ${state.cityName}`
 }; 
 
+const getWeatherCity = async (event) =>{
+  
+  // find lat and long of submitted city
+  const city = document.querySelector("#cityName").value;
+  const locationPath = "http://127.0.0.1:5000//location"
+  const weatherPath = "http://127.0.0.1:5000//weather"
+  const location = await axios
+  .get(locationPath,{params:{   
+    "q": city,
+    }});
+  const lat = location.data[0]["lat"]
+  const lon = location.data[0]["lon"]
+  
+  // find weather in F at lat and long
+  const weather = await axios
+  .get(weatherPath,{params:{   
+    "lat": lat,
+    "lon": lon,
+    }});
+  const farenheit = Math.round((weather.data["main"]["temp"] - 273.15) * 9/5 + 32)
+  
+  // update temp
+  updateTemp(farenheit-state.tempCount)
+  }
+
+  
 const registerEventHandlers = (event) => {
+  updateLandscapeColor()
   const increaseButton = document.querySelector("#increaseTemp");
-  increaseButton.addEventListener("click",increaseTemp)
+  increaseButton.addEventListener("click",(event)=>updateTemp(1))
   const decreaseButton = document.querySelector("#decreaseTemp");
-  decreaseButton.addEventListener("click",decreaseTemp)
+  decreaseButton.addEventListener("click",(event)=>updateTemp(-1))
   const changeCityInput = document.querySelector("#cityName");
-  console.log(changeCityInput.value);
-  changeCityInput.addEventListener("change",(event) => changeCity(event, changeCityInput.value))
+  changeCityInput.addEventListener("input",(event) => changeCity(event, changeCityInput.value))
+  const getWeatherButton = document.querySelector("#getWeather");
+  getWeatherButton.addEventListener("click", getWeatherCity)
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
