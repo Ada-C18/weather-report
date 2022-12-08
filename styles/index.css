@@ -65,6 +65,30 @@ footer {
     grid-column: auto / span 2;
 }
 
+.red {
+    color: red;
+    }
+    
+.orange {
+    color: orange;
+    }
+    
+.yellow {
+    color: gold;
+    }
+    
+.yellow-green {
+    color: yellowgreen;
+    }
+    
+.green {
+    color: green;
+    }
+    
+.teal {
+    color: teal;
+    }
+
 /* .white {
     background-color: white;
     color: black

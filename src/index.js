@@ -1,31 +1,51 @@
 'use strict';
+console.log('testing');
 
-// Build an event handler
-// Register the event handler on some HTML element(s)
+const state = {
+  city: 'Seattle',
+  temp: 80,
+};
 
-// An element that increases the temperature by one degree on click
 const increaseTemperature = () => {
-  const temperature = document.getElementbyId('increaseTemp');
-  temperature.textContent = parseInt(temperature.textContent) + 1;
-  // add in something later about when we change temp we change text color & layout- may add in elsewhere
+  state.temp += 1;
+  changeColor();
+  // const temperature = document.getElementById('temp');
+  // temperature.textContent = state.temp;
 };
 
-// An element that decreases the temperature by one degree on click
 const decreaseTemperature = () => {
-  const temperature = document.getElementbyId('decreaseTemp');
-  temperature.textContent = parseInt(temperature.textContent) - 1;
-  // add in something later about when we change temp we change text color & layout
+  state.temp -= 1;
+  changeColor();
+  // const temperature = document.getElementById('temp');
+  // temperature.textContent = state.temp;
 };
 
-// register event handlers
+const changeColor = () => {
+  let temp = state.temp;
+  let color = 'red';
+  if (temp >= 80) {
+    color = 'red';
+  } else if (temp >= 70) {
+    color = 'orange';
+  } else if (temp >= 60) {
+    color = 'yellow';
+  } else if (temp >= 50) {
+    color = 'green';
+  } else {
+    color = 'teal';
+  }
+
+  const temperature = document.getElementById('temp');
+  temperature.className = color;
+  temperature.textContent = String(state.temp);
+};
+
 const registerEventHandlers = () => {
-  const increaseTemperature = document.querySelector('increaseTemp');
-  Temp.addEventListener('click', increaseTemperature);
-  // separate these two out?
-  const decreaseTemperature = document.querySelector('decreaseTemp');
-  Temp.addEventListener('click', decreaseTemperature);
+  const increaseTemp = document.getElementById('increaseTemp');
+  increaseTemp.addEventListener('click', increaseTemperature);
+
+  const decreaseTemp = document.getElementById('decreaseTemp');
+  decreaseTemp.addEventListener('click', decreaseTemperature);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-// missing state and maybe that's why it's not working?
