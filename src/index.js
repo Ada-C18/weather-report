@@ -1,7 +1,55 @@
 'use strict';
 
+// const axios = require('axios');
+
 const state = {
   temp: 70,
+};
+
+const LOCATION_ENDPOINT = 'http://localhost:5000/location';
+const WEATHER_ENDPOINT = 'http://localhost:5000/weather';
+
+const kelvinToFahrenheit = (degreeKelvin) => {
+  return ((degreeKelvin - 273.15) * 9) / 5 + 32;
+};
+
+const handlerLatLon = (response) => {
+  const lat = response.data[0].lat;
+  const lon = response.data[0].lon;
+  console.log('lat: ' + lat);
+  console.log('lon: ' + lon);
+  return { lat: lat, lon: lon };
+};
+
+const handlerTemp = (response) => {
+  const fahrenheit = kelvinToFahrenheit(response.data.main.temp);
+  console.log('Temp: ' + fahrenheit);
+  return fahrenheit;
+};
+
+/* Queries the location api for the latitude and longitude 
+matching search string. Returns an object with the lat and lon.
+*/
+const getLatLon = (searchString) => {
+  return axios
+    .get(LOCATION_ENDPOINT, { params: { q: searchString } })
+    .then(handlerLatLon)
+    .catch((response) => console.log(response));
+};
+
+/* Queries the weather api for the temperature for lat/lon (passed as an
+  object.) Returns temperature. 
+*/
+const getTemp = (latLonObj) => {
+  // latLonObj['units'] = 'imperial'; // specify fahrenheit
+  // units field isn't passed to the weather api.
+  console.log(latLonObj);
+  return axios
+    .get(WEATHER_ENDPOINT, {
+      params: latLonObj,
+    })
+    .then(handlerTemp)
+    .catch((response) => console.log(response));
 };
 
 const increaseTemperature = (event) => {
