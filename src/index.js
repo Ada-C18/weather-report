@@ -48,19 +48,23 @@ const decreaseTemp = () => {
 
 //function to change sky
 const changeSkyDisplay = () => {
-  let option = rainy
+  const input = document.getElementById('sky_select').value;
+  // const skyImage = document.getElementById('sky_image');
+  const skyImage = document.getElementById('sky');
   let skyDisplay =	'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  let sky = '';
 
-  if (option = sunny){
+  if (input === 'Sunny'){
     skyDisplay =	'☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  }else if (option = cloudy){
+  }else if (input === 'Cloudy'){
     skyDisplay =	'☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  }else if (option = rainy){
+  }else if (input === 'Rainy'){
     skyDisplay =	'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  }else if (option = snowy){
+  }else if (input === 'Snowy'){
     skyDisplay =	'🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   };
 
+  skyImage.textContent = sky;
 };
 
 //function to change the landscape and temperature value color
@@ -128,7 +132,7 @@ const registerEventHandlers = () => {
     changeCityNamebtn.addEventListener('click', resetCityName);
 
     const selectSkyDisplay = document.getElementById('sky_select');
-    selectSkyDisplay.addEventListener('select', changeSkyDisplay);
+    selectSkyDisplay.addEventListener('change', changeSkyDisplay);
 }
 
 
