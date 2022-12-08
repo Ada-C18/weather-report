@@ -8,22 +8,19 @@ const currentTemp = {
 };
 
 const upTemp = () => {
-  console.log('up');
   currentTemp.currTemp++;
   setTempNColor();
 };
 
 const downTemp = () => {
-  console.log('down');
   currentTemp.currTemp--;
   setTempNColor();
 };
 
 const setTempNColor = () => {
-  console.log(currentTemp.currTemp);
   const tempContainer = document.querySelector('#temp-current');
   tempContainer.textContent = `${currentTemp.currTemp}`;
-  tempColor(currentTemp.currTemp);
+  tempColor();
   landTitle();
 };
 
@@ -96,13 +93,15 @@ const changeCityText = (e) => {
   // console.log(e);
   findLatitudeAndLongitude(e.target.value)
     .then((response) => (currentTemp.currTemp = response))
-    .then(setTempNColor());
+    .then((response) => setTempNColor());
+
+  const inputField = document.getElementById('city-input');
+  inputField.value = '';
 };
 
 // WAVE 4
 const findLatitudeAndLongitude = (city_name_str) => {
   let latitude, longitude;
-  console.log(city_name_str);
   return axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -190,6 +189,7 @@ const registerEventHandlers = () => {
   resetCityButton.addEventListener('click', resetCity);
 
   resetCity();
+  setTempNColor();
   changeSky();
 };
 
