@@ -63,7 +63,7 @@ const tempColorAndLandscape = () => {
 
 // sky selector - drop-down for sky art
 const updateSky = () => {
-  const selectedSky = document.getElementById('sky-selector').innerText;
+  const selectedSky = document.getElementById('sky-selector').value;
   const weatherEmojiContainer = document.getElementById('weather-emojis');
 
   if (selectedSky === 'sunny') {
