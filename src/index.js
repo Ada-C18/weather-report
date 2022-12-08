@@ -1,39 +1,47 @@
 "use strict";
-// download axios
-// getWeather endpoint
-// create proxy server
-
-// const getLocation = () =>{
-//   const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
-//   //need to adjust endpoint
-//   //This function has a promise..
-//   return axios.get(endPoint)
-//     .then(response =>{
-//       console.log(response)
-//     })
-//     .catch(error =>{
-//       console.log("Location Error: " error);
-//     });
-
-// }
-
-// const getWeather = () =>{
-
-//   const endPoint = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}"
-//   //need to adjust endpoint
-//   return axios.get(endPoint)
-//     .then(response =>{
-//       console.log(response)
-//     })
-//     .catch(error =>{
-//       console.log("Weather Error: "error);
-//     });
-// };
 
 //to keep track of and to be able to modify current state
 const state = {
     city: 'SanFrancisco',
     temp: 60
+}
+
+// function to get input city's lat and long
+// still need to register event and verify PATH is correct with TA
+const getLocation = (city) => {
+    // location = state.city, we will input this when we call this function
+    // from axios documentation, the get request has a PATH and then otional params, more info: https://github.com/axios/axios
+    axios.get('http://localhost:5000/location', {
+        params: {q: city}
+    }) //ASK TA!!!
+    .then(response => {
+    // see test replit I invited you to to check out what the response data looks like
+    // per axios documentation:`data` is the response that was provided by the server \\data: {},
+    const latitude = response.data[0].lat;
+    const longitude = response.data[0].lon;
+    return {latitude, longitude}
+    })
+    .catch(error =>{
+        console.log("Location error: ", error.response.data)
+    });
+
+}
+
+// function to get input city's weather based on its lat and long
+// still need to register event, verify PATH is correct with TA, and complete .then clause
+const getWeather = (latitude, longitude) => {
+    // latitude, longitude = promise from getLocation
+    axios.get('http://localhost:5000/weather', {
+        params: {lat: latitude, lon: longitude}
+    }) //ASK TA!!!
+    .then(response => {
+    const weather = response.data // UNKNOWN
+    return weather
+    })
+    .catch(error =>{
+        console.log("Weather error: ", error.response.data)
+    });
+
 }
 
 //functions to increase and decrease the temp
@@ -112,7 +120,7 @@ const updateCityName = ()=>{
 //function to bring back default placeholder
 const resetCityName = ()=>{
   const defaultNameInput = document.getElementById('city_name_input');
-  defaultNameInput.value='Name a City';
+  defaultNameInput.value = 'San Francisco';
   updateCityName(); //callback function...able to use state from this function
 };
 
