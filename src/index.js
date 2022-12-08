@@ -1,7 +1,7 @@
 
 const state = {
   tempCount: 64,
-  //cityName: null,
+  cityName: "Ada",
 };
 
 
@@ -28,7 +28,8 @@ const updateLandscapeColor = () => {
 
 const increaseTemp = (event) => {
   const tempDisplay = document.querySelector("#temperature");
-  tempDisplay.textContent = `${state.tempCount++}`
+  state.tempCount = state.tempCount + 1;
+  tempDisplay.textContent = `${state.tempCount}`
   updateLandscapeColor()
 
 };
@@ -41,9 +42,10 @@ const decreaseTemp = (event) => {
 };
 
 
-const selectCity = (event) => {
-  const cityName = document.getElementById("#city"); 
+const changeCity = (event, cityName) => {
+  const cityNameDisplay = document.getElementById("city");
   state.cityName = cityName;
+  cityNameDisplay.textContent = `Weather Report for the wonderful city ${state.cityName}`
 }; 
 
 const registerEventHandlers = (event) => {
@@ -51,7 +53,10 @@ const registerEventHandlers = (event) => {
   increaseButton.addEventListener("click",increaseTemp)
   const decreaseButton = document.querySelector("#decreaseTemp");
   decreaseButton.addEventListener("click",decreaseTemp)
-}
+  const changeCityInput = document.querySelector("#cityName");
+  console.log(changeCityInput.value);
+  changeCityInput.addEventListener("change",(event) => changeCity(event, changeCityInput.value))
+};
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
