@@ -70,7 +70,7 @@ const registerHandlers = (event) => {
   const changeTempColor = document.querySelector('#degrees');
 
   const updateCityName = document.querySelector('#search-bar');
-  updateCityName.addEventListener('change', updateCity); // 'input'
+  updateCityName.addEventListener('input', updateCity); // 'input'
 
   changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
 };
@@ -86,4 +86,66 @@ const updateCity = () => {
   let cityHeader = document.getElementById('city-name');
 
   cityHeader.textContent = `City of: ${cityName}`;
+};
+
+// ------------- Wave 4 --------------------
+// LocationIQ and OpenWeather
+
+// In order to get the weather of the city, we will need to get the latitude and longitude of the city using the LocationIQ API.
+// We can then use the latitude and longitude with the OpenWeather API to get current weather data.
+
+// TODO: need to connect weather proxy server
+
+// 1. FIND LATITUDE AND LONGITUDE
+// LOCATION_API_URL = "https://us1.locationiq.com/v1/search.php"
+
+// const axios = require('axios');
+
+// const LOCATIONIQ_KEY = process.env['LOCATION_KEY'];
+
+const findLatitudeAndLongitude = (query) => {
+  let latitude, longitude;
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        // key: LOCATION_KEY,
+        q: query,
+        format: 'json',
+      },
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+    })
+    .catch((error) => {
+      console.log('error in findLatitudeAndLongitude!');
+    });
+
+  return {
+    cityLat: latitude,
+    cityLon: longitude,
+  };
+};
+findLatitudeAndLongitude('Seattle');
+// 2. GET WEATHER WITH LAT AND LONG
+// WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
+
+const getWeather = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        // find info in doc
+        lat,
+        lon: (latitude, longitude),
+        // appid: WEATHER_KEY, // open weather API key
+      },
+    })
+    .then((response) => {
+      console.log('success in getWeather!', response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log('error in getWeather!');
+    });
 };
