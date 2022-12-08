@@ -14,24 +14,28 @@ const decreaseTemp = () => {
   tempContainer.textContent = `${state.currentTemp}`;
 };
 const changeTempColor = () => {
-  const newLandscape = document.createElement('span');
   const landscapeContainer = document.querySelector('#landscapeSection');
+  const oldLandscape = document.getElementById('view');
+  const newLandscape = document.createElement('span');
+  newLandscape.setAttribute('id', 'view');
   const box = document.getElementById('currentTemp');
   if (state.currentTemp >= 80) {
-      box.style.color = 'red';
-      newLandscape.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
-      landscapeContainer.replaceChild(newLandscape)
-      // appendChild(newLandscape)
-
-  }else if ( state.currentTemp >= 70 && state.currentTemp <=79){
+    box.style.color = 'red';
+    newLandscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (state.currentTemp >= 70 && state.currentTemp <= 79) {
     box.style.color = 'orange';
-  }else if ( state.currentTemp >= 60 && state.currentTemp <=69){
+    newLandscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (state.currentTemp >= 60 && state.currentTemp <= 69) {
     box.style.color = 'yellow';
-  }else if ( state.currentTemp >= 50 && state.currentTemp <=59){
+    newLandscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (state.currentTemp >= 50 && state.currentTemp <= 59) {
     box.style.color = 'green';
-  }else {
+    newLandscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else {
     box.style.color = 'teal';
+    newLandscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
+  landscapeContainer.replaceChild(newLandscape, oldLandscape);
 };
 
 const registerEventHandlers = () => {
@@ -40,7 +44,7 @@ const registerEventHandlers = () => {
   up.addEventListener('click', increaseTemp);
   down.addEventListener('click', decreaseTemp);
   up.addEventListener('click', changeTempColor);
-  down.addEventListener('click',  changeTempColor);
+  down.addEventListener('click', changeTempColor);
 };
 
 // reset the city temperature
