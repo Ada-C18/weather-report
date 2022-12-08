@@ -4,12 +4,13 @@ body {
 
 
 
-#temp{
-  color: red,
-  color: orange
-  color: yellow
-  color: green
-  color: teal
+#temp {
+  background-color: rgb(205, 202, 104) ;
+  color: red;
+  color: orange;
+  color: yellow;
+  color: green;
+  color: teal;
 }
 
 
