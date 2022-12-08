@@ -16,11 +16,28 @@ const decreaseTemp = () => {
     changeTempColorAndLandscape()
   }
 
+//function to change sky
+const changeSkyDisplay = () => {
+  let option = rainy
+  let skyDisplay =	'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+
+  if (option = sunny){
+    skyDisplay =	'☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  }else if (option = cloudy){
+    skyDisplay =	'☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  }else if (option = rainy){
+    skyDisplay =	'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  }else if (option = snowy){
+    skyDisplay =	'🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  };
+
+};
+
 //function to change the landscape and temperature value color
 const changeTempColorAndLandscape = () => {
     let temperature_value = state.temp;
     let temperature_color = 'yellow';
-    let landscape =	"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
+    let landscape =	"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
 
     if (temperature_value > 80) {
         landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
@@ -50,7 +67,7 @@ const changeTempColorAndLandscape = () => {
     tempValue.className = temperature_color;
     tempValue.textContent = String(state.temp);
 }
-
+//function to update City Name
 const updateCityName = ()=>{
   const chosenCityInputName = document.getElementById('city_name_input').value;
   const titleCityName = document.getElementById('city');
@@ -58,6 +75,7 @@ const updateCityName = ()=>{
   titleCityName.textContent = state.city;
 };
 
+//function to bring back default placeholder
 const resetCityName = ()=>{
   const defaultNameInput = document.getElementById('city_name_input');
   defaultNameInput.value='Name a City';
@@ -78,6 +96,9 @@ const registerEventHandlers = () => {
 
     const changeCityNamebtn = document.getElementById('city_name_reset');
     changeCityNamebtn.addEventListener('click', resetCityName);
+
+    const selectSkyDisplay = document.getElementById('sky_select');
+    selectSkyDisplay.addEventListener('select', changeSkyDisplay);
 }
 
 
