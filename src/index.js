@@ -52,11 +52,23 @@ const decreaseTemp = () => {
   colorEnvChange();
 };
 
+
+const updateCity = () => {
+    const textName = document.getElementById('search-box');
+    const cityOutPut = document.getElementById('cityOutput');
+    cityOutPut.innerHTML = textName.value;
+}
+
+
+
 // register event handlers
 const registerEventHandlers = () => {
   // Increase Decrease Arrows
   colorEnvChange();
-
+  updateCity();
+  const addCity = document.getElementById('addCityButton');
+  addCity.addEventListener('click', updateCity);
+  
   const arrowUp = document.getElementById('arrow-up');
   arrowUp.addEventListener('click', increaseTemp);
 
