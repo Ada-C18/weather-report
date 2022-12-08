@@ -1,8 +1,8 @@
-// const axios = require('axios');
-// import axios from 'axios';
-
 const state = {
   Temperature: 0,
+  city: 'Seattle',
+  latitude: 0,
+  longitude: 0,
 };
 
 const increaseTemp = (event) => {
@@ -41,27 +41,28 @@ const tempRange = (event) => {
 const chooseCityName = (event) => {
   const cityName = document.querySelector('#cityName');
   const inputContainer = document.querySelector('#inputCityName');
-  cityName.textContent = inputContainer.value;
+  state.city = inputContainer.value;
+  cityName.textContent = state.city;
 };
 
 const updateTemperature = (event) => {
-  const cityName = document.querySelector('#cityName');
-  const tempContainer = document.querySelector('#tempContainer');
-  //using cityname, make GET request to LocationIQ to get coordinates
+  const tempContainer = document.querySelector('#Temperature');
   axios
-    .get(`localhost:5000/location?q=${cityName.textContent}`)
+    .get(`http://localhost:5000/location?q=${state.city}`)
     .then((response) => {
-      const latitude = response[0]['lat'];
-      const longitude = response[0]['lon'];
+      state.latitude = response.data[0].lat;
+      state.longitude = response.data[0].lon;
     })
     .catch((error) => {
       console.log('Error');
+      tempContainer.textContent = `${error}`;
     });
-  //make GET request to OpenWeatherAPI to get current temperature
   axios
-    .get(`localhost:5000/weather?lat=${latitude}&lon=${longitude}`)
+    .get(
+      `http://localhost:5000/weather?lat=${state.latitude}&lon=${state.longitude}`
+    )
     .then((response) => {
-      const temperatureKelvin = response['main']['temp'];
+      const temperatureKelvin = response.data.main.temp;
       const temperatureFahrenheit = ((temperatureKelvin - 273.15) * 9) / 5 + 32;
       tempContainer.textContent = temperatureFahrenheit;
     })
