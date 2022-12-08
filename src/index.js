@@ -22,7 +22,7 @@ const handlerLatLon = (response) => {
 };
 
 const handlerTemp = (response) => {
-  const fahrenheit = kelvinToFahrenheit(response.data.main.temp);
+  const fahrenheit = Math.round(kelvinToFahrenheit(response.data.main.temp));
   console.log('Temp: ' + fahrenheit);
   return fahrenheit;
 };
