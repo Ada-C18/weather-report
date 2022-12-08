@@ -1,0 +1,55 @@
+body {
+    background: rgb(5, 108, 187);
+}
+
+#weather-greet {
+    grid-column: span 3;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#header-city-name {
+    color:whitesmoke
+}
+
+h1 {
+    display: block;
+    margin-right: 2rem;
+    color:whitesmoke;
+}
+
+.headerFont {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+.innerSection {
+    background-color: whitesmoke;
+    margin-right: 1em;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+#tempSection {
+    
+    grid-column: 1;
+}
+
+#skySection {
+    grid-column: 2;
+}
+
+.citySection {
+    grid-column: 3;
+}
+.GardenChange{
+
+
+}
