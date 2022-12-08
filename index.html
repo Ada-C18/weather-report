@@ -8,40 +8,45 @@
     <title>Weather Report</title>
 </head>
 <body>
-    <header>
-        <h1>Weather Report by Dainiz Isabella Irene</h1>
-    </header>
-    <section class="temperature-box">
-        <h2>Temperature</h2>
-        <span id="increaseTempButton">⬆️</span>
-        <h3 id="tempValue" class="red">80</h3>
-        <span id="decreaseTempButton">⬇️</span>
-        <button id="realTemperature">Get live temperature</button>
-        <!-- An element that displays the temperature
-A clickable element to increase temperature
-A clickable element to decrease temperature
-A clickable element to get the current temperature of the displayed city name -->
+    <div class="parent">
+        <header>
+            <h1>Weather Report by Dainiz Isabella Irene</h1>
+        </header>
+        <section id="temperature-box" class="container-style">
+            <h2>Temperature</h2>
+            <span id="increaseTempButton">⬆️</span>
+            <h3 id="tempValue" class="red">80</h3>
+            <span id="decreaseTempButton">⬇️</span>
+            <button id="realTemperature">Get live temperature</button>
+            <!-- An element that displays the temperature
+    A clickable element to increase temperature
+    A clickable element to decrease temperature
+    A clickable element to get the current temperature of the displayed city name -->
 
-    </section>
-    <section id="city-box">
-        <h2>City</h2>
-        <h3 id="city-name">Seattle</h3>
-        <label >Input a City Name:</label>
-        <input type="text" id="input-city" value="Seattle">
-        
-        <!-- An element that displays the city name
-An element that contains an <input type="text"> element, used to rename the city
-A clickable element to reset the city name -->
+        </section>
+        <section id="city-box"  class="container-style">
+            <h2>City</h2>
+            <h3 id="city-name">Seattle</h3>
+            <label >Input a City Name:</label>
+            <input type="text" id="input-city" value="Seattle">
+            
+            <!-- An element that displays the city name
+    An element that contains an <input type="text"> element, used to rename the city
+    A clickable element to reset the city name -->
 
-    </section>
-    <section id="landscape-box">
-        <h2>Landscape</h2>
-        <span id="landscapePicture">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</span>
-        <!-- An element that displays a landscape
-A <select> dropdown element to set the sky type
-An element that displays a sky -->
+        </section>
+        <section id="landscape-box" class="container-style">
+            <h2>Landscape</h2>
+            <section class="landscape-color">
+                <span id="skyPicture">* * * *</span> <br>
+                <span id="landscapePicture">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</span>
+            </section>
+            <!-- An element that displays a landscape
+    A <select> dropdown element to set the sky type
+    An element that displays a sky -->
 
-    </section>
+        </section>
+    </div>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>    
 </body>

@@ -1,7 +1,10 @@
+// const axios = require('axios');
+
 const state = {
   currentTemp: 80,
   city: 'Seattle',
 };
+
 const increaseTemp = () => {
   state.currentTemp += 1;
 
@@ -56,5 +59,22 @@ const registerEventHandlers = () => {
   const inputCityBox = document.getElementById('input-city');
   inputCityBox.addEventListener('input', updateCity);
 };
+
+// const getLatAndLon = (city) => {
+//   return axios
+//     .get('http://127.0.0.1:5000/location', {
+//       params: {
+//         q: city,
+//       },
+//     })
+//     .then((response) => {
+//       const latitude = response[0].lat;
+//       const longitude = response[0].lon;
+//       return { latitude, longitude };
+//     })
+//     .catch((error) => {
+//       console.log('Error!');
+//     });
+// };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
