@@ -115,7 +115,7 @@ const registerEventHandlers = () => {
     incrementTemperature('subtract');
   });
 
-  const cityInput = document.getElementById('input-city');
+  let cityInput = document.getElementById('input-city');
   cityInput.addEventListener('input', () => {
     changeCityName(cityInput.value);
   });
@@ -128,6 +128,12 @@ const registerEventHandlers = () => {
   const skySelector = document.getElementById('sky-selector');
   skySelector.addEventListener('change', () => {
     changeSky();
+  });
+
+  const resetCityNameButton = document.getElementById('reset-city-btn');
+  resetCityNameButton.addEventListener('click', () => {
+    changeCityName('Seattle');
+    cityInput.value = '';
   });
 };
 
