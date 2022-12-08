@@ -33,6 +33,7 @@ const temperatureChange = (temperature) => {
     temperatureArrowColor(temperature);
     document.getElementById('garden_icons').innerText =
     seasonTheme(temperature);
+    // add the new  const (if statementes)
 };
     document.addEventListener('DOMContentLoaded', () => {
     let temperature = 70;
@@ -63,3 +64,35 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCityName();
     });
 });
+
+
+// wave 4
+const findCity = (city) => {
+axios
+    .get('http://127.0.0.1:5000/location', {
+    params: {
+        q: city,
+        format: 'json'
+    },
+    })
+    .then((response) => {
+        const searchResult = response.data[0];
+        console.log(`lat ${searchResult.lat} lon ${searchResult.lat}`);
+        return { lat: searchResult.lat, lon: searchResult.lon};
+    })
+    .then((coords) => {
+        return axios.get('http://127.0.0.1:5000/weather', {
+        params: {
+            lat: coords.lat,
+            lon: coords.lon,
+        }
+    });
+    })
+    .then((response) => {
+        console.log('weather reponse', response.data)
+    });
+    // .catch((error) => {
+    //     console.log('error in find information!');
+    //     console.log(error);
+    // });
+}
