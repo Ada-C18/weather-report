@@ -22,15 +22,20 @@ const decreaseTemp = () => {
 
 const temperatureColorCheck = (temp) => {
   const tempValue = document.getElementById("tempValue")
+  const landscapePicture = document.getElementById("landscapePicture")
 
   if (temp >= 80) {
     tempValue.className = "red"
+    landscapePicture.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
   } else if (temp >= 70) {
     tempValue.className = "orange"
+    landscapePicture.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
   } else if (temp >= 60) {
     tempValue.className = "yellow"
+    landscapePicture.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
   } else if (temp >= 50) {
     tempValue.className = "green"
+    landscapePicture.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   } else {
     tempValue.className = "teal"
   }
