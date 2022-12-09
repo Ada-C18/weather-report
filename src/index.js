@@ -62,12 +62,11 @@ function myFunction() {
     document.getElementById("intro").innerHTML = cityName.value;
 }
 
-document.getElementById("intro").innerHTML = "☁️"
+document.getElementById("intro").innerHTML = "☁️";
 
-document.querySelector('.burning').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
+// document.querySelector('.burning').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
 
-;
-
+// const axios = require("axios");
 
 const locationAPI = "http://127.0.0.1:5000/location"
 
@@ -77,50 +76,36 @@ const findLatandLon = (query) => {
     axios.get(locationAPI, 
     {
         params: {
-            q: Seattle, //replace with cityName or cityName.value
+            q: cityName,
             format : 'json'
+
         }
 
     })
     .then((response) => {
         latitude = response.data[0].lat;
         longitude = response.data[0].lon;
-        console.log('sucess', latitude, longitude);
+        console.log('success', latitude, longitude);
     })
     .catch( (error) => {
         console.log('error in findLatitudeAndLongitude!');
-      });
-      return {
-          seattleLat: latitude,
-          seattleLon: longitude
-      }
-    }
-
-const findTemperature = (query) => {
-    let temperature;
-    axios.get('https://us1.locationiq.com/v1/search.php',
-    {
-      params: {
-        key: LOCATIONIQ_KEY,
-        lat: latitude,
-        lon: longitude,
-        format : 'json'
-      }
-    })
-    .then( (response) => {
-        temperature = response.main.temp;
-        console.log('success in findTemperature!', temperature);
-    })
-    .catch( (error) => {
-      console.log('error in findTemperature!');
     });
-  
     return {
-        temperature: temperature
-    }
-  }
-  
-console.log(findTemperature(latitude, longitude))
+        seattleLat: latitude,
+        seattleLon: longitude
+      }
+    };
+
+findLatandLon("Seattle")
+
+
+
+
+
+//make weather nested inside location
+
+
+
 // const weatherAPI = "http://127.0.0.1:5000/weather"
 // // const locationAPI = "http://127.0.0.1:5000/location"
 
@@ -130,4 +115,3 @@ console.log(findTemperature(latitude, longitude))
 
 // });
 // const response_location = axios.get(locationAPI);
-
