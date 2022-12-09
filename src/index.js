@@ -188,5 +188,5 @@ document.addEventListener('DOMContentLoaded', registerHandlers);
 //     - Git commit and ping Milena in slack about all commits.
 
 // - [ ]  Submit project
-//     - Create pull request - assigned to: ?, when: ?
+//     - Create pull request - assigned to: Puja, when: Sunday
 //     - Submit on learn - separately
