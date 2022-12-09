@@ -1,14 +1,7 @@
-// const axios = require('axios');
-
-// Temperature Variables
-let counterDisplayElem = document.getElementById('temp-count');
-let counterMinusElem = document.querySelector('.counter-minus');
-let counterPlusElem = document.querySelector('.counter-plus');
-
+// Temperature Helper Function
 let landscapeElem = document.getElementById('landscape');
 
-// Temperature Helper Function
-const changeColor = (obj1, obj2) => {
+const changeTempDisplay = (obj1, obj2) => {
   if (obj1.innerHTML < 50) {
     obj1.className = 'teal';
     obj2.innerHTML = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
@@ -27,49 +20,76 @@ const changeColor = (obj1, obj2) => {
   }
 };
 
+//Helper for Temperature
+let counterDisplayElem = document.getElementById('temp-count');
+
+const handleCounterPlus = () => {
+  counterDisplayElem.innerHTML++;
+  changeTempDisplay(counterDisplayElem, landscapeElem);
+};
+
+const handleCounterMinus = () => {
+  counterDisplayElem.innerHTML--;
+  changeTempDisplay(counterDisplayElem, landscapeElem);
+};
 // Helper for City Submit Bar
 const handleSubmitButton = () => {
   let submitValue = document.getElementById('submit-city').value;
   document.getElementById('header-city-name').textContent = submitValue;
-  console.log('helper function');
+  //getInfo(submitValue);
+  //findLocation()
+  console.log(getInfo(submitValue));
 };
 
 const registerEventHandlers = () => {
-  // Create "handle" helper functions to put into the registereventhandler
   //Temperature
-  counterPlusElem.addEventListener('click', () => {
-    counterDisplayElem.innerHTML++;
-    changeColor(counterDisplayElem, landscapeElem);
-  });
+  let counterPlusElem = document.querySelector('.counter-plus');
+  counterPlusElem.addEventListener('click', handleCounterPlus);
 
-  counterMinusElem.addEventListener('click', () => {
-    counterDisplayElem.innerHTML--;
-    changeColor(counterDisplayElem, landscapeElem);
-  });
+  let counterMinusElem = document.querySelector('.counter-minus');
+  counterMinusElem.addEventListener('click', handleCounterMinus);
 
   // City Submit Bar
   let submitButton = document.getElementById('submit-button');
   submitButton.addEventListener('click', handleSubmitButton);
-  console.log('event handler');
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // Axios calls to proxy server
-// const API = 'http://127.0.0.1:5000/location';
+const API = 'http://127.0.0.1:5000/location';
 
-// const getInfo = (location) => {
-//   axios
-//     .get(API, { params: { q: location, format: 'json' } })
-//     .then((result) => {
-//       const lat = result.data[0].lat;
-//       const lon = result.data[0].lon;
-//       console.log(`${location} lat: ${lat} lon: ${lon}`);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-//};
+const getInfo = (location) => {
+  axios
+    .get(API, { params: { q: location, format: 'json' } })
+    .then((result) => {
+      const lat = result.data[0].lat;
+      const lon = result.data[0].lon;
+      console.log(`${location} lat: ${lat} lon: ${lon}`);
+      return lat, lon;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const findLocation = (latitude, longitude) => {
+  axios
+    .get(API, {
+      params: {
+        format: 'json',
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      console.log('success in findLocation!', response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log('error in findLocation!');
+    });
+};
 
 // handle get real time temp
 //event listener
