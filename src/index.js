@@ -7,13 +7,21 @@ const API_WEATHER = 'http://127.0.0.1:5000/weather';
 let temperature = 72;
 let city = 'Seattle';
 
-// Increase temperature
-const increaseTemp = () => {
+const getAndDisplayTemp = () => {
   const spanTempNumber = document.getElementById('temperature-value');
-  temperature += 1;
   changeLandscape();
   changeTempNumberColor();
   spanTempNumber.textContent = `${temperature}`;
+};
+// Increase temperature
+const increaseTemp = () => {
+  // const spanTempNumber = document.getElementById('temperature-value');
+  temperature += 1;
+  getAndDisplayTemp();
+
+  // changeLandscape();
+  // changeTempNumberColor();
+  // spanTempNumber.textContent = `${temperature}`;
   // console.log('inside of increase', spanTempNumber.textContent);
 };
 
@@ -24,11 +32,13 @@ const increaseTempOnClick = () => {
 
 // Decrease temperature
 const decreaseTemp = () => {
-  const spanTempNumber = document.getElementById('temperature-value');
+  // const spanTempNumber = document.getElementById('temperature-value');
   temperature -= 1;
-  changeLandscape();
-  changeTempNumberColor();
-  spanTempNumber.textContent = `${temperature}`;
+  getAndDisplayTemp();
+
+  // changeLandscape();
+  // changeTempNumberColor();
+  // spanTempNumber.textContent = `${temperature}`;
   // console.log('inside of decrease', spanTempNumber.textContent);
 };
 
@@ -95,14 +105,15 @@ const getTempF = () => {
           const tempF = convertTempKtoF(temp);
           // return tempF;
           temperature = tempF;
+          getAndDisplayTemp();
           // console.log(temperature)
 
-          const tempButton = document.querySelector('#temperature-button');
-          tempButton.addEventListener('click', () => {
-            const spanTempNumber = document.querySelector('#temperature-value');
-            spanTempNumber.textContent = temperature;
-            console.log(spanTempNumber.textContent);
-          });
+          // const tempButton = document.querySelector('#temperature-button');
+          // tempButton.addEventListener('click', () => {
+          //   const spanTempNumber = document.querySelector('#temperature-value');
+          //   spanTempNumber.textContent = temperature;
+          //   console.log(spanTempNumber.textContent);
+          // });
         })
         .catch((error) => {
           console.log(error);
@@ -112,13 +123,13 @@ const getTempF = () => {
       console.log(error);
     });
 };
-// const getRealTemp = () => {
-//   const tempButton = document.querySelector('#temperature-button');
-//   tempButton.addEventListener('click', getTempF);
-//   const spanTempNumber = document.querySelector('#temperature-value');
-//   spanTempNumber.textContent = temperature;
-//   console.log(spanTempNumber.textContent);
-// };
+const getRealTemp = () => {
+  const tempButton = document.querySelector('#temperature-button');
+  tempButton.addEventListener('click', getTempF);
+  // const spanTempNumber = document.querySelector('#temperature-value');
+  // spanTempNumber.textContent = temperature;
+  // console.log(spanTempNumber.textContent);
+};
 
 const convertTempKtoF = (temp) => {
   const tempF = Math.round(1.8 * (Number(temp) - 273) + 32);
@@ -134,7 +145,7 @@ const EventHandlers = () => {
   increaseTempOnClick();
   decreaseTempOnClick();
   updateCityNameInput();
-  getTempF(city);
+  getRealTemp();
   // updateTempOnClick();
 };
 if (document.readyState !== 'loading') {
