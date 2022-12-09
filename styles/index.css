@@ -5,13 +5,15 @@ project ex: https://enlight.nyc/projects/weather
 another ex: https://www.codingnepalweb.com/build-weather-app-html-javascript/
  */
 
-/* BASIC LAYOUT  */
+/*///////////// BASIC LAYOUT  ///////////////*/
 body {
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+    background-image: url(/images/orange_flowers.jpg);
 }
 * {
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
 }
 body h2 {
     margin-left: 42px;
@@ -20,6 +22,7 @@ body h2 {
     /* border-radius: 10px; round the corners */
     margin: auto;
     width: 1300px;
+    height: 700px;
     /* display: flex-grid; */
     /* height: 725px; */
     padding: 20px; 
@@ -28,13 +31,38 @@ body h2 {
 }
 
 #city-container {
+    display: flex;
+
     background-color: blue; /* temp color */
     width: 700px;
     /* height: 100px; */
+    justify-content: space-between;
     margin: 20px;
-    text-align: center;
+    /* text-align: center; */
     /* position: absolute bottom; */
 }
+
+#temp-container {
+    width: 400px;
+    background-color: green;
+    margin: 20px;
+}
+#sky-container {
+    width: 400px;
+    background-color: coral;
+}
+#land-container {
+    margin-top: 100px;
+    width: 1200px;
+    height: 200px;
+    background-color: yellow;
+}
+#mid-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+/*/////// ITEMS IN CITY CONTAINER ///////////*/
 #city-name {
     /* changes to city name style */
     text-transform: capitalize;
@@ -45,18 +73,35 @@ body h2 {
     /* ideally  have first letter of city be larger than the rest*/
     font-size: 60px;
 }
-#temp-container {
-    width: 400px;
-    background-color: green;
+/*///////////////// ITEMS IN TEMP CONTAINER /////////////*/
+#tempValue {
+    color: yellow;
+    font-size: 60px;
 }
-#sky-container {
-    width: 400px;
-    background-color: coral;
+#temp-symbol {
+    /* color: white; */
+    text-align: right;
+    margin-top: 31px;
 }
-#land-container {
-    width: 1200px;
-    height: 200px;
-    background-color: yellow;
+#temp-buttons {
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    width: fit-content;
+}
+#temp-content {
+    display: flex;
+    padding: 30px;
+    /* justify-content: space-around; */
+    gap: 30px;
 }
 
-/* ITEMS WITHIN SKY, TEMP, LANDSCAPE CONTAINERS */
+/* //////////ITEMS WITHIN LANDSCAPE CONTAINER /////////////*/
+#land-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+#landscape {
+    font-size: 4rem;
+}

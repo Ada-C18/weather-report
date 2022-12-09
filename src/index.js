@@ -5,25 +5,37 @@
 // const axios = require('axios');
 // axios.get()
 const tempValue = document.getElementById("tempValue");
-// console.log(tempValue);
+const landType = document.getElementById("landscape");
+
+const images {
+    sun: "url('/images/hot_sun.jpg')"
+};
 
 const tempRange = num => {
-    // num = tempValue
-    // console.log(num);
-    if (num < 49) {
+    if (num < 50) {
+
+        landType.innerHTML = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
         return 'teal';
-    } else if (num < 59) {
+    } else if (num < 60) {
+        
+        landType.innerHTML = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
         return 'green';
-    } else if (num < 69) {
-        // console.log('yellow');
+    } else if (num < 70) {
+        
+        landType.innerHTML = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
         return 'yellow';
-    } else if (num < 79) {
+    } else if (num < 80) {
+        landType.innerHTML = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
         return 'orange';
     } else {
+        landType.innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
         return 'red';
     }
 }
-// console.log(tempRange);
+
+const changeLand = num => {
+
+}
 
 const upButton = document.getElementById('increaseTemp');
 upButton.addEventListener('click', e => {
