@@ -9,6 +9,7 @@ const landscape = document.getElementById('landscape');
 const cityNameInput = document.getElementById('cityNameInput');
 const headerCityName = document.getElementById('headerCityName');
 const cityNameReset = document.getElementById('cityNameReset');
+const SkyDropDown = document.getElementById('SkyChoice');
 
 const changingTempColorAndLandscape = () => {
   let currentTemp = parseInt(currentTempTag.textContent);
@@ -27,6 +28,18 @@ const changingTempColorAndLandscape = () => {
   } else {
     currentTempTag.className = 'teal';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  }
+};
+
+const changingSky = () => {
+  if (SkyDropDown.value === 'sunny') {
+    sky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (SkyDropDown.value === 'cloudy') {
+    sky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (SkyDropDown.value === 'rainy') {
+    sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else {
+    sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
@@ -49,6 +62,9 @@ cityNameInput.addEventListener('input', (inputEvent) => {
 cityNameReset.addEventListener('click', () => {
   cityNameInput.value = DEFAULT_CITY;
   headerCityName.textContent = DEFAULT_CITY;
+});
+SkyDropDown.addEventListener('change', () => {
+  changingSky();
 });
 
 const init = () => {
