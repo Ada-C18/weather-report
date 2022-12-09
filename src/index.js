@@ -53,7 +53,7 @@ const retrieveWeather = () => {
 
 const changeTempColorAndGardenLandscape = () => {
   let temp = state.temp;
-  let color = "yellow";
+  let color = "";
   let landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
   if (temp > 80) {
     color = "red";
@@ -78,6 +78,17 @@ const changeTempColorAndGardenLandscape = () => {
   const currentLandscape = document.querySelector("#landscape");
   currentLandscape.textContent = landscape;
 };
+
+
+
+const changeSkyImage = () => {
+  let skyGraphic = "";
+  let skyoption = "";
+
+
+}
+
+
 
 
 const increaseTemp = () => {
