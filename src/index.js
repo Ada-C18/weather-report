@@ -1,9 +1,55 @@
 'use strict';
 
+// const axios = require('axios')
+// import axios from 'axios'
+
 const state = {
   temp: 65,
-  city: "Seattle"
+  city: "Seattle",
+  lat: 47.6038321,
+  long: -122.330062
 };
+
+const tempUnitConvert = (temp) => {
+  return (temp - 273.15) * (9 / 5) + 32; 
+}
+
+const findLocLatAndLon = () => {
+  axios.get("http://127.0.0.1:5000/location", {
+    params: {
+      q: state.city
+    }
+  })
+  .then((response) => {
+    state.lat = response.data[0].lat;
+    state.long = response.data[0].lon;
+    retrieveWeather();
+  })
+  .catch((error) => {
+    console.log("Error: Cannot retrieve latitude and longitude");
+    console.log(error);
+  });
+};
+
+const retrieveWeather = () => {
+  axios.get("http://127.0.0.1:5000/weather", {
+    params: {
+      lat: state.lat,
+      lon: state.long
+    }
+  })
+  .then((response) => {
+    const currentWeather = response.data;
+    console.log(currentWeather);
+    state.temp = Math.floor(tempUnitConvert(currentWeather.main.temp));
+    changeTempColorAndGardenLandscape();
+  })
+  .catch((error) => {
+    console.log("Error: Cannot retrieve weather");
+    console.log(error);
+  })
+};
+
 
 const changeTempColorAndGardenLandscape = () => {
   let temp = state.temp;
@@ -73,6 +119,9 @@ const registerEventHandlers = (event) => {
 
   const resetCityNameBackToSeattle = document.getElementById('reset_button');
   resetCityNameBackToSeattle.addEventListener('click', resetCityInput);
+
+  const getRealTimeTemp = document.getElementById('realtime_temp');
+  getRealTimeTemp.addEventListener('click', findLocLatAndLon);
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
