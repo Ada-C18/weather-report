@@ -80,8 +80,8 @@ const getTempF = (city) => {
     .then((result) => {
       const latitude = result.data[0].lat;
       const lontitude = result.data[0].lon;
-      console.log(city)
-      console.log(latitude , lontitude)
+      console.log(city);
+      console.log(latitude, lontitude);
 
       axios
         .get(API_WEATHER, {
@@ -92,17 +92,15 @@ const getTempF = (city) => {
           console.log(convertTempKtoF(temp));
           const tempF = convertTempKtoF(temp);
           // return tempF;
-          temperature = tempF
+          temperature = tempF;
           // console.log(temperature)
-          
-          const tempButton = document.querySelector("#temperature-button")
-          tempButton.addEventListener("click", ()=> {
-            const spanTempNumber = document.querySelector("#temperature-value")
-          spanTempNumber.textContent = temperature
-          console.log(spanTempNumber.textContent)
 
-          })
-
+          const tempButton = document.querySelector('#temperature-button');
+          tempButton.addEventListener('click', () => {
+            const spanTempNumber = document.querySelector('#temperature-value');
+            spanTempNumber.textContent = temperature;
+            console.log(spanTempNumber.textContent);
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -111,9 +109,14 @@ const getTempF = (city) => {
     .catch((error) => {
       console.log(error);
     });
-  
-    
 };
+// const getRealTemp = () => {
+//   const tempButton = document.querySelector('#temperature-button');
+//   tempButton.addEventListener('click', getTempF);
+//   const spanTempNumber = document.querySelector('#temperature-value');
+//   spanTempNumber.textContent = temperature;
+//   console.log(spanTempNumber.textContent);
+// };
 
 const convertTempKtoF = (temp) => {
   const tempF = Math.round(1.8 * (Number(temp) - 273) + 32);
@@ -125,14 +128,12 @@ const convertTempKtoF = (temp) => {
 //   console.log(updateTempOnClick)
 // }
 
-
 const EventHandlers = () => {
   increaseTempOnClick();
   decreaseTempOnClick();
   updateCityNameInput();
   getTempF(city);
   // updateTempOnClick();
-
 };
 if (document.readyState !== 'loading') {
   EventHandlers();
