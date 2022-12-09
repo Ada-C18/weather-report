@@ -31,9 +31,14 @@ const changingTempColorAndLandscape = () => {
 const updateCity = () => {
   // console.dir(headerCityContainer);
   // console.dir(getCityName);
-
-  headerCityContainer.textContent = getCityName;
+  headerCityContainer.value = getCityName;
   // console.dir(headerCityContainer);
+};
+
+const resetCity = () => {
+  const cityContainer = document.getElementById("cityNameInput");
+  cityContainer.textContent = "Seattle";
+  updateCity();
 };
 
 // Register that function as an 'event listener'
