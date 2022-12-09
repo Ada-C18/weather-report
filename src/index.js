@@ -5,14 +5,8 @@ const increaseTempElement = document.getElementById('increaseTempBtn');
 const decreaseTempElement = document.getElementById('decreaseTempBtn');
 const currentTempTag = document.getElementById('currentTemp');
 const landscape = document.getElementById('landscape');
-
-// Make a function to run when it occurs
-// const increaseTemperature = (event) => {
-//   currentTemp.textContent = parseInt(currentTemp.textContent) + 1;
-// };
-// const decreaseTemperature = () => {
-//   currentTemp.textContent = parseInt(currentTemp.textContent) - 1;
-// };
+const getCityName = document.getElementById('cityNameInput').value;
+const headerCityContainer = document.getElementById('headerCityName');
 
 const changingTempColorAndLandscape = () => {
   let currentTemp = parseInt(currentTempTag.textContent);
@@ -34,6 +28,14 @@ const changingTempColorAndLandscape = () => {
   }
 };
 
+const updateCity = () => {
+  // console.dir(headerCityContainer);
+  // console.dir(getCityName);
+
+  headerCityContainer.textContent = getCityName;
+  // console.dir(headerCityContainer);
+};
+
 // Register that function as an 'event listener'
 // increaseTempElement.addEventListener('click', increaseTemperature);
 increaseTempElement.addEventListener('click', () => {
@@ -45,3 +47,15 @@ decreaseTempElement.addEventListener('click', () => {
   currentTemp.textContent = parseInt(currentTemp.textContent) - 1;
   changingTempColorAndLandscape();
 });
+
+cityNameInput.addEventListener('change', () => {
+  updateCity();
+});
+
+// Make a function to run when it occurs
+// const increaseTemperature = (event) => {
+//   currentTemp.textContent = parseInt(currentTemp.textContent) + 1;
+// };
+// const decreaseTemperature = () => {
+//   currentTemp.textContent = parseInt(currentTemp.textContent) - 1;
+// };
