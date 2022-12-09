@@ -20,7 +20,7 @@ let skyBox = null;
 let skyType = null;
 
 const loadControls = () => {
-  state.city = document.getElementById('city');
+  state.city = document.getElementById('view-city').textContent;
   state.skyType = document.getElementById('skyType');
   plusButton = document.getElementById('plus');
   displayTemp = document.getElementById('temp');
@@ -72,40 +72,39 @@ const updateCity = () => {
   viewCity.textContent = state.city;
 };
 
+const getLatLon = async () => {
+  const response = await axios.get('http://127.0.0.1:5000/location', {
+    params: { q: state.city },
+  });
+  const latitude = response.data[0].lat;
+  const longitude = response.data[0].lon;
+  return { lat: latitude, lon: longitude };
+};
+
+const getWeather = async () => {
+  const latLon = await getLatLon();
+  const response = await axios.get('http://127.0.0.1:5000/weather', {
+    params: latLon,
+  });
+  return response.data;
+};
+
+const updateTemp = async () => {
+  const weather = await getWeather();
+  const tempK = weather.main.temp;
+  const country = weather.sys.country;
+  state.temp = Math.floor((tempK - 273) * (9 / 5) + 32);
+  displayTemp.textContent = `${state.temp}`;
+  state.city += `, ${country}`;
+  viewCity.textContent = state.city;
+  tempColor();
+};
+
 const resetCity = () => {
   state.city = 'Dallol';
   viewCity.textContent = state.city;
   textBox.value = state.city;
   updateTemp();
-};
-const updateTemp = () => {
-  // const lat = null;
-  // const lon = null;
-  axios
-    .get('http://127.0.0.1:5000/location', { params: { q: state.city } })
-    .then((response) => {
-      const lat = response.data[0].lat;
-      const lon = response.data[0].lon;
-      axios
-        .get('http://127.0.0.1:5000/weather', {
-          params: { lat: lat, lon: lon },
-        })
-        .then((response) => {
-          const tempK = response.data.main.temp;
-          const country = response.data.sys.country;
-          state.temp = Math.floor((tempK - 273) * (9 / 5) + 32);
-          displayTemp.textContent = `${state.temp}`;
-          state.city += `, ${country}`;
-          viewCity.textContent = state.city;
-          tempColor();
-        })
-        .except((error) => {
-          console.log('Error: Could not get Weather');
-        });
-    })
-    .except((error) => {
-      console.log('Error: Could not get Lat Lon');
-    });
 };
 
 const updateSkyType = () => {
@@ -122,6 +121,7 @@ const updateSkyType = () => {
 
 const registerEventHandlers = () => {
   loadControls();
+  updateTemp();
   plusButton.addEventListener('click', increaseTemp);
   minusButton.addEventListener('click', decreaseTemp);
   textBox.addEventListener('input', updateCity);
