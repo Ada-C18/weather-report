@@ -7,18 +7,33 @@ const state = {
 const formatTempAndLandscape = () => {
   let temp = state.temp;
   let color = 'red';
+  let footer = '/images/desert_landscape.jpeg';
+  let altText = 'A landscape of harsh sunlight, cacti, and cracked land.';
   if (temp > 80) {
     color = 'red';
+    footer = '/images/desert_landscape.jpeg';
+    altText = 'A landscape of harsh sunlight, cacti, and cracked land.';
   } else if (temp > 70) {
     color = 'orange';
+    footer = '/images/sunset_landscape.jpeg';
+    altText = 'A colorful, partly-cloudy sunset over a grassy plain.';
   } else if (temp > 60) {
     color = 'yellow';
+    footer = '/images/forest_landscape.jpeg';
+    altText = 'A view over a still lake with green trees in the background.';
   } else if (temp > 50) {
     color = 'green';
+    footer = '/images/fall_landscape.webp';
+    altText = 'A river running through trees with leaves changing colors.';
   } else {
     color = 'teal';
+    footer = '/images/frozen_forest.jpeg';
+    altText = 'Snow-covered landscape with evergreen forest';
   }
 
+  const landscape = document.getElementById('landscape');
+  landscape.src = footer;
+  landscape.alt = altText;
   const temperature = document.getElementById('tempDisplay');
   temperature.className = color;
   temperature.textContent = String(state.temp);
