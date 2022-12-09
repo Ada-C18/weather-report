@@ -2,6 +2,7 @@
 
 const state = {
   temp: 30,
+  city: '',
 };
 
 const formatTempAndLandscape = () => {
@@ -51,6 +52,13 @@ const minusTemp = () => {
   formatTempAndLandscape();
 };
 
+const changeCity = () => {
+  const inputCity = document.getElementById('cityNameInput').value;
+  const cityNameDisplay = document.getElementById('cityNameDisplay');
+  state.city = inputCity;
+  cityNameDisplay.textContent = `${state.city}`;
+};
+
 const registerEventHandlers = () => {
   formatTempAndLandscape();
 
@@ -60,6 +68,9 @@ const registerEventHandlers = () => {
 
   const tempMinus = document.getElementById('tempMinus');
   tempMinus.addEventListener('click', minusTemp);
+
+  const updateCity = document.getElementById('cityNameInput');
+  updateCity.addEventListener('input', changeCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
