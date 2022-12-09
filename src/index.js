@@ -9,57 +9,56 @@ const state = {
   decButton: null,
   skyDropdown: null,
   resetButton: null,
-  realtimeButton: null
+  realtimeButton: null,
 };
 
 const makeRealtimeTempUpdates = () => {
   // calls proxy API to get lat and lon
   getLatLon(state.cityName)
-    .then(({latitude, longitude}) => {
+    .then(({ latitude, longitude }) => {
       // calls proxy API to get temp
       getWeather(latitude, longitude)
-        .then(({tempK}) => {
+        .then(({ tempK }) => {
           // update temp state
           updateTempState(tempK);
           updateTempOnWebpage();
           changeColorAndLandscape();
         })
-        .catch( (error) => {
+        .catch((error) => {
           console.log('error in getWeather!');
         });
     })
-    .catch( (error) => {
+    .catch((error) => {
       console.log('error in getLatLon!');
-  });
-}
+    });
+};
 
 const getLatLon = async (city) => {
-  const latLonresponse = await axios.get('http://127.0.0.1:5000/location', {
-    params: { 
-      q: city 
-    }
+  const latLonResponse = await axios.get('http://127.0.0.1:5000/location', {
+    params: {
+      q: city,
+    },
   });
-    const latitude = latLonresponse.data[0].lat;
-    const longitude = latLonresponse.data[0].lon;
-    return {latitude, longitude};
-}
+  const latitude = latLonResponse.data[0].lat;
+  const longitude = latLonResponse.data[0].lon;
+  return { latitude, longitude };
+};
 
 const getWeather = async (apiLatitude, apiLongitude) => {
-  const weatherResponse = await axios.get('http://127.0.0.1:5000/weather',
-  {
+  const weatherResponse = await axios.get('http://127.0.0.1:5000/weather', {
     params: {
       lat: apiLatitude,
-      lon: apiLongitude
-    }
+      lon: apiLongitude,
+    },
   });
-    const tempK = weatherResponse.data.main.temp;
-    return {tempK};
-}
+  const tempK = weatherResponse.data.main.temp;
+  return { tempK };
+};
 
 const updateTempState = (tempInKelvin) => {
   // converts temp to Farenheit and saves it to the state
-  state.temperature = Math.floor((tempInKelvin - 273.15) * 9/5 + 32);
-}
+  state.temperature = Math.floor(((tempInKelvin - 273.15) * 9) / 5 + 32);
+};
 
 const increaseTemp = () => {
   state.temperature += 1;
@@ -76,7 +75,7 @@ const decreaseTemp = () => {
 const updateTempOnWebpage = () => {
   const websiteTemp = document.getElementById('temp');
   websiteTemp.textContent = `${state.temperature}°F`;
-}
+};
 
 const changeColorAndLandscape = () => {
   const websiteTemp = document.getElementById('temp');
@@ -130,7 +129,7 @@ const resetCity = () => {
   boxText.value = '';
   // resets header to NYC
   const cityHeader = document.getElementById('cityHeader');
-  state.cityName = 'New York City'
+  state.cityName = 'New York City';
   cityHeader.textContent = state.cityName;
   // set current weather of NYC
   makeRealtimeTempUpdates();
@@ -146,7 +145,7 @@ const loadControls = () => {
   state.skyDropdown = document.querySelector('#sky_selector');
   // set current weather of NYC
   makeRealtimeTempUpdates();
-}
+};
 
 const registerEventHandlers = () => {
   // button click functions
