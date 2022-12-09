@@ -38,6 +38,19 @@ const changeColorAndLandscape = () => {
   }
 };
 
+const changeSky = () => {
+  let skyValue = document.querySelector('#sky-emojis').value;
+  if (skyValue === 'Cloudy') {
+    document.querySelector('#sky').textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyValue === 'Sunny') {
+    document.querySelector('#sky').textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyValue === 'Rainy') {
+    document.querySelector('#sky').textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyValue === 'Snowy') {
+    document.querySelector('#sky').textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
+
 const registerEventHandlers = () => {
   const increaseTemp = document.querySelector('#temp-up');
   increaseTemp.addEventListener('click', tempUp);
@@ -46,6 +59,9 @@ const registerEventHandlers = () => {
   const decreaseTemp = document.querySelector('#temp-down');
   decreaseTemp.addEventListener('click', tempDown);
   decreaseTemp.addEventListener('click', changeColorAndLandscape);
+
+  const selectSky = document.querySelector('#sky-emojis');
+  selectSky.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
