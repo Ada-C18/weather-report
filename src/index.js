@@ -101,6 +101,21 @@ const updateCity = () => {
     // cityOutPut.innerHTML = textName.value;
 }
 
+const updateSky = (event) =>{
+
+    // const sunny = document.getElementById('sunny').value;
+    // const sunny = document.getElementById('cloudy').value;
+    // const sunny = document.getElementById('rainy').value;
+    // const sunny = document.getElementById('snowy').value;
+    // let sky = '☀️';
+    const skySelect = document.querySelector('.skyEmoji')
+    skySelect.textContent = `${event.target.value}`;
+    
+    //suny☀️ snowy❄️ rainy 🌧️ cloudy ☁️
+
+}
+
+
 const convertTemp = (temperature) => {
     const temp = (temperature - 273.15) * (9/5)+ 32;
     return temp
@@ -113,6 +128,9 @@ const registerEventHandlers = () => {
   colorEnvChange();
 //   getLatAndLon();
   getWeather();
+
+  const selectSky = document.getElementById('select-choices');
+  selectSky.addEventListener('change', updateSky);
 
   const getTempButton = document.getElementById('getTemp');
   getTempButton.addEventListener('click', getLatAndLon);
