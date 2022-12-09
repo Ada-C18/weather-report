@@ -1,7 +1,6 @@
 'use strict';
 
 // const axios = require('axios')
-// import axios from 'axios'
 
 const state = {
   temp: 65,
@@ -54,7 +53,7 @@ const retrieveWeather = () => {
 const changeTempColorAndGardenLandscape = () => {
   let temp = state.temp;
   let color = "";
-  let landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+  let landscape = "";
   if (temp > 80) {
     color = "red";
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
@@ -82,10 +81,21 @@ const changeTempColorAndGardenLandscape = () => {
 
 
 const changeSkyImage = () => {
-  let skyGraphic = "";
-  let skyoption = "";
+  let skyDisplay = "";
+  const selectedSky = document.getElementById('select_sky').value 
+  const currentSkyImage = document.getElementById('skyimage')
+  if (selectedSky === 'sunny') {
+    skyDisplay = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+  } else if (selectedSky === 'cloudy') {
+    skyDisplay = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"; 
+  } else if (selectedSky === 'rainy') {
+    skyDisplay = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+  } else if (selectedSky === 'snowy') {
+    skyDisplay = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+  }
+  
 
-
+  currentSkyImage.textContent = skyDisplay;
 }
 
 
@@ -133,6 +143,9 @@ const registerEventHandlers = (event) => {
 
   const getRealTimeTemp = document.getElementById('realtime_temp');
   getRealTimeTemp.addEventListener('click', findLocLatAndLon);
+
+  const changeSkyDisplay = document.getElementById('select_sky');
+  changeSkyDisplay.addEventListener('change',changeSkyImage)
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
