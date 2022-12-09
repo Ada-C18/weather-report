@@ -36,15 +36,18 @@ const getWeather = () => {
     })
     .then((response) => {
         const weather =response.data.main.temp;
+        // const weather =response.data;
         console.log(weather)
         state.temperature= weather
         state.temperature = Math.round(convertTemp(weather));
         temperature.textContent = `${state.temperature}°`;
+        colorEnvChange();
         
     })
     .catch((error) => {
       console.log('Error:', error);
     });
+   
 };
 
 // temperature color changes based on temp
@@ -66,13 +69,15 @@ const colorEnvChange = () => {
     environment = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
     color = 'teal';
+    environment = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
   const temp = document.getElementById('temperature');
   temp.className = color;
 
   const enviro = document.getElementById('landscape');
   enviro.textContent = environment;
-  // temp.textContent = String(state.temperature);
+  temp.textContent = String(state.temperature);
+  
 };
 
 // create functions
@@ -99,7 +104,6 @@ const updateCity = () => {
 const convertTemp = (temperature) => {
     const temp = (temperature - 273.15) * (9/5)+ 32;
     return temp
-
 };
 
 
@@ -107,7 +111,7 @@ const convertTemp = (temperature) => {
 const registerEventHandlers = () => {
   // Increase Decrease Arrows
   colorEnvChange();
-  getLatAndLon();
+//   getLatAndLon();
   getWeather();
 
   const getTempButton = document.getElementById('getTemp');
