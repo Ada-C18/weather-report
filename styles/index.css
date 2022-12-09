@@ -47,6 +47,15 @@ h1{
     height: 30px;
     padding: 25px 50px 50px 70px;
 }
+
 #weather-display{
     padding: 25px 50px 75px 70px;
+}
+#landscape-display{
+    font-size: 40px;
+}
+#sky-display{
+    background-size: contain;
+    width: 300px;
+    height: 300px;
 }

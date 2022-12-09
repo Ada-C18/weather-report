@@ -51,11 +51,11 @@ const changeSky = () => {
     skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
   }
   if (selectedSky === 'Cloudy') {
-    skyDisplay.style.backgroundColor = 'gray';
+    skyDisplay.style.backgroundColor = 'lightgray';
     skyDisplay.style.backgroundImage = "url('./assets/cloudy.gif')";
   }
   if (selectedSky === 'Rainy') {
-    skyDisplay.style.backgroundColor = 'blue';
+    skyDisplay.style.backgroundColor = 'lightgray';
     skyDisplay.style.backgroundImage = "url('./assets/rainy.gif')";
   }
   if (selectedSky === 'Snowy') {
