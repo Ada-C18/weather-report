@@ -42,20 +42,20 @@ document.getElementById('Subtract').addEventListener('click', Subtract);
 document.getElementById('city').addEventListener('input', changeCityName);
 
 
-window.addEventListener("load", loadpage);
-function cargaPagina() {
-    var btn = document.getElementById("button1").addEventListener("click", changevalues);
-}
+// window.addEventListener("load", loadpage);
+// function cargaPagina() {
+//     var btn = document.getElementById("button1").addEventListener("click", changevalues);
+// }
 
-function changevalues() {
-    var inputName = document.getElementById("name");
-    inputName.value = "Search City";
-}
+// function changevalues() {
+//     var inputName = document.getElementById("name");
+//     inputName.value = "Search City";
+// }
 
-var x = document.getElementById("myText");
+// var x = document.getElementById("myText");
 
 
-const findCityLatLon = () => {
+function findCityLatLon () {
   let city = changeCityName();
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -76,7 +76,7 @@ const findCityLatLon = () => {
     });
 }
 
-const getTempWithLocation = (lat, lon) => {
+function getTempWithLocation (lat, lon) {
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {lat: lat, lon: lon
@@ -104,13 +104,13 @@ function changeSky () {
   let skyDisplay = document.getElementById('sky').value;
   console.log(skyDisplay);
   if (skyDisplay === 'sunny') {
-    document.getElementById('skyHere').innerHTML = '😎🌞🌞😎🌞🌞😎';
+    document.body.style.backgroundImage = "url('assets/sunny.jpg')";
   } else if (skyDisplay === 'cloudy') {
-    document.getElementById('skyHere').innerHTML = '🌤🌤🌤🌤🌤🌤🌤🌤';
+    document.body.style.backgroundImage = "url('assets/cloudy.jpg')";
   } else if (skyDisplay === 'rainy') {
-    document.getElementById('skyHere').innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    document.body.style.backgroundImage = "url('assets/rainy.jpg')";
   } else if (skyDisplay === 'snowy') {
-    document.getElementById('skyHere').innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    document.body.style.backgroundImage = "url('assets/snowy.jpg')";
   }
 }
 document.getElementById('getDisplayCityTemp').addEventListener('click', findCityLatLon);
