@@ -4,9 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Weather Report App</title>
 </head>
 <body>
-    
+    <h1 id="page-heading">WEATHER APP</h1>
+    <figure id="app">
+        <div class="phone-detail"></div>
+        <section class="loc-search">
+            <img src="assets/search-icon.png" alt="search magnifying glass icon" class="search-icon">
+            <input class="location" type="text" placeholder="location">
+            <button id="submit"></button>
+        </section>
+        <section id="temp-console">
+            <div id="console-header">
+                <p id="weather-type">Partly Cloudy</p>
+                <p id="city-name"></p>
+            </div>
+            <div id="temp-mng">
+                <button id="decrement" class="main-btn change-temp">-</button>
+                <div id="temp-info">
+                    <p id="temp-num" class="temp"></p><span id="degree">&#176;</span><p id="temp-type" class="temp">F</p>
+                </div>
+                <button id="info" class="main-btn">i</button>
+                <!-- <p id="info-desc">Tap to change between Fahrenheight and Celsius</p> -->
+                <button id="increment" class="main-btn change-temp">+</button>
+            </div>
+            <button id="reset-btn" class="main-btn">RESET</button>
+        </section>
+        <section id="landscape">
+            <!-- <img id="landscape-img" src="assets/summer-landscape.png" alt="seasonal landscape"> -->
+            <img id="landscape-img" src="assets/fall-landscape.png">
+        </section>
+        <section id="sky">
+            <p id="desc-line-1" class="sky-desc">Don't like what you see?</p>
+            <p id="desc-line-2" class="sky-desc">Manifest a different weather report here.</p>
+            <div class="sky-btns">
+                <button class="sky-btn"><img src="" alt=""></button>
+                <button class="sky-btn"><img src="" alt=""></button>
+                <button class="sky-btn"><img src="" alt=""></button>
+                <button class="sky-btn"><img src="" alt=""></button>
+                <button class="sky-btn"><img src="" alt=""></button>
+                <button class="sky-btn"><img src="" alt=""></button>
+            </div>
+        </section>
+    </figure>
+
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

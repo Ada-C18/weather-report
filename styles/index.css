@@ -1,0 +1,233 @@
+body {
+    background-color: #22D7FF;
+    background-image: url('/assets/bg-60p-shorter.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 5rem;
+    font-weight: 100;
+    color: #DFF4FF;
+    text-align: center;
+    /* margin-bottom: 4rem; */
+    margin: 0.7rem 0 2.5rem;
+}
+
+#app {
+    background-color: #2e383e;
+    background-image: url('/assets/rain-op-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 8px solid #000;
+    border-radius: 35px;
+    width: 25%;
+    margin: auto;
+    box-shadow: 0px 0px 15px 10px #5ADCE4;
+    /* box-shadow: 0px 0px 15px 10px #eadd24; */
+}
+
+.phone-detail {
+    height: 11px;
+    width: 35%;
+    margin: auto;
+    background-color: #000;
+    border-radius: 0 0 30px 30px;
+}
+
+.loc-search {
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    margin: 1rem auto;
+}
+
+.search-icon {
+    max-height: 75%;
+}
+
+.location {
+    background-color: #F5F5F5;
+    color: rgb(55, 55, 55);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    width: 65%;
+    border: none;
+    outline: none;
+}
+
+#submit {
+    background-image: url('/assets/submit-button.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    height: 17px;
+    width: 17px;
+    /* max-height: 100%; */
+}
+
+#temp-console {
+    background: rgba(217, 217, 217, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 0.8px solid transparent;
+    width: 80%;
+    margin: 5rem auto 0rem;
+    border-radius: 5px;
+    /* box-shadow: inset 0 0 25px 3px pink; */
+}
+
+/* Box-shadow colors */
+.red {
+    box-shadow: inset 0 0 25px 3px red;
+}
+.orange {
+    box-shadow: inset 0 0 25px 3px orange;
+}
+.yellow {
+    box-shadow: inset 0 0 25px 3px yellow;
+}
+.green {
+    box-shadow: inset 0 0 25px 3px green;
+}
+.teal {
+    box-shadow: inset 0 0 25px 3px teal;
+}
+
+#console-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.8px solid #DFF4FF;
+    padding: 0 8px;
+}
+
+#weather-type {
+    color: #DFF4FF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    /* display: inline-block; */
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}
+
+#city-name {
+    color: #DFF4FF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#temp-mng {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2rem 1rem 0;
+    /* height: 100px; */
+}
+
+#temp-info {
+    display: flex;
+    margin: 0;
+}
+
+.temp {
+    display: inline-block;
+    color: #F5F5F5;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+#degree {
+    color: #F5F5F5;
+    font-weight: 100;
+    font-size: 3.5rem;
+}
+
+.main-btn {
+    border: 0.8px solid #DFF4FF;
+    background-color: transparent;
+    color: #F5F5F5;
+}
+
+.change-temp {
+    border-radius: 50%;
+    /* height: 16px; */
+    height: 35px;
+    width: 35px;
+}
+
+#info {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    padding: 0;
+    align-self: flex-start;
+}
+
+#reset-btn {
+    border-radius: 3px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0 auto 2rem;
+    padding-left: 6.5px;
+}
+
+#landscape {
+    /* bottom: -15px; */
+    position: relative;
+    height: 150px;
+}
+
+#landscape-img {
+    position: absolute;
+    /* z-index: 2; */
+    /* top: 4px; */
+    width: 100%;
+    max-height: 100%;
+    bottom: 0;
+}
+
+#sky {
+    background-color: #F5F5F5;
+    /* border-radius: 20px 20px 29px 29px; */
+    border-radius: 0px 0px 29px 29px;
+    padding-top: 0.6rem;
+    padding-bottom: 1.5rem;
+}
+
+.sky-desc {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    text-align: center;
+    margin: 0;
+}
+
+#desc-line-2 {
+    margin-bottom: 1rem;
+}
+
+.sky-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sky-btn {
+    border: 0.8px solid #a9a8a8;
+    height: 40px;
+    width: 40px;
+    border-radius: 6px;
+}
