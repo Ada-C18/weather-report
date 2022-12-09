@@ -1,5 +1,4 @@
 'use strict';
-import axios from 'axios';
 
 const state = {
   temp: 65,
@@ -8,15 +7,43 @@ const state = {
   lon: 0,
 };
 
-const getLatAndLong = (query) => {
-  axios.get('http://127.0.0.1:5000/', {
-    params: {
-      q: query,
-    },  
-  })
-  .then((response) => {
-    
-  })
+const getCoordinates = (city) => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.city,
+      },
+    })
+    .then((response) => {
+      state.lat = response.data[0].lat;
+      state.lon = response.data[0].lon;
+      getRealtimeTemp();
+    })
+    .catch((error) => {
+      console.log('Error getting coordinates.');
+      console.log(error);
+    });
+};
+
+const getRealtimeTemp = () => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: state.lat,
+        lon: state.lon,
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+      const tempKelvin = response.data.main.temp;
+      state.temp = toFahrenheit(tempKelvin);
+      updateTheme();
+    })
+    .catch((error) => {
+      console.log('Error getting weather data');
+      console.log(error);
+    });
+};
 
 const tempColor = () => {
   const currentTemp = document.getElementById('temp-display');
@@ -94,6 +121,9 @@ const registerEventHandlers = () => {
 
   const resetCityButton = document.getElementById('resetButton');
   resetCityButton.addEventListener('click', resetCity);
+
+  const realtimeTemp = document.getElementById('realtime-temp');
+  realtimeTemp.addEventListener('click', getCoordinates);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
