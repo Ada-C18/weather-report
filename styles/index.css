@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #e1cfc6;
+}
+header {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+aside {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+.aside {
+    border: 2px solid salmon;
+    width: 30%;
+    height: 175px;
+    padding: 20px;
+    margin: 20px;
+}
+.temperature {
+    display: flex;
+    align-items: center;
+}
+.temperature > #temp-up, .temperature > #temp-down{
+    
+}
