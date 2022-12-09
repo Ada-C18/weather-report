@@ -3,6 +3,7 @@ body {
   padding: 0;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -17,4 +18,16 @@ main {
 #report-box {
   display: flex;
   flex-direction: column;
+}
+
+#sky {
+  background-color: skyblue;
+  height: 100%;
+  width: 100%;
+}
+
+#landscape {
+  background-color: green;
+  height: 100%;
+  width: 100%;
 }
