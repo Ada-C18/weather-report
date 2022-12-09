@@ -1,4 +1,15 @@
-# Pair Plan of Action
+# To-Do
+- [ ]  Wave 2
+    - [ ]  Show default temp
+    - [ ]  Add emojis up and down arrows-
+- [ ]  Finish wave 4
+    - [x]  button (Register and addEventListener to Get Realtime Temperature button) - Milena
+    - [ ]  get API functions working and button get temp - together office hours
+- [ ]  Wave 5 - Milena
+- [ ]  Wave 6 - Puja
+
+
+## Pair Plan of Action
 
 ### Access needs
 - We both agree we will be in class to work together during classtime and we will communicate about our absense or working remotely in advanced. 
