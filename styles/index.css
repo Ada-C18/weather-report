@@ -3,31 +3,49 @@
 }
 body {
     background-color: #e1cfc6;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-flexbox;
 }
 header {
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 3rem;
     color: white;
 }
 aside {
     display: flex;
+    float: left;
     flex-direction: column;
     margin: 50px;
 }
 .aside {
     border: 2px solid salmon;
-    width: 30%;
-    height: 175px;
+    width: 20rem;
+    height: 10rem;
     padding: 20px;
     margin: 20px;
 }
 .temperature {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 .temperature > #temp-up, .temperature > #temp-down{
     border: none;
     background: none;
+    margin: none;
+    padding: none;
+}
+
+main {
+    display: block;
+    float: right;
+    width: 30rem;
+    height: 100%;
+    text-align: center;
+    align-self: center;
+    margin-left: auto;
+    margin-right: 3rem;
+    margin-top: 12rem;
 }
