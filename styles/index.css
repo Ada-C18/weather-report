@@ -28,5 +28,6 @@ aside {
     align-items: center;
 }
 .temperature > #temp-up, .temperature > #temp-down{
-    
+    border: none;
+    background: none;
 }
