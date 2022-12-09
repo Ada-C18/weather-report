@@ -53,17 +53,21 @@ main {
 }
 
 .landscape-cold {
-  background-color: snow;
+  background-image: url("../assets/landscape-cold.jpeg");
+  background-position-y: center;
 }
 
 .landscape-cool {
-  background-color: orange;
+  background-image: url("../assets/landscape-cool.jpeg");
+  background-position-y: center;
 }
 
 .landscape-warm {
-  background-color: limegreen;
+  background-image: url("../assets/landscape-warm.jpeg");
+  background-position-y: center;
 }
 
 .landscape-hot {
-  background-color: forestgreen;
+  background-image: url("../assets/landscape-hot.jpeg");
+  background-position-y: center;
 }
