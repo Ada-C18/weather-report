@@ -1,0 +1,58 @@
+body {
+    background-color: #d0d4d4;
+}
+
+main {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;  
+    background-color: inherit;
+}
+
+.box {
+    background-color: #2a52be ;
+    padding: 2vh ;
+}
+
+.left {
+    max-width: 20vw;
+    margin: 2vh;
+    height: 25vh;
+    align-items: center;
+}
+
+.right {
+    width: 60vw;
+    margin: 2vh 5vh;
+    align-items: center;
+}
+
+.divider {
+    height: 100vh;
+    width: 10vw;
+}
+
+h1 {
+    text-align: center;
+}
+
+#arrow-div {
+    width: 15vw;
+    padding: 5px;
+    display: inline-flex;
+}
+
+#temp-div {
+    width: 15vw;
+    padding: 5px;
+    background-color: #e3e5e5;
+}
+
+.arrow {
+    display: block;
+}
+
+.button-div {
+    margin: 5px;
+}
