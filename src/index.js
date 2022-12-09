@@ -1,6 +1,7 @@
 const state = {
   Temperature: 0,
   city: 'Seattle',
+  sky: 'sunny',
   latitude: 0,
   longitude: 0,
 };
@@ -44,13 +45,14 @@ const tempRange = () => {
 const updateSky = (event) => {
   const skyContainer = document.querySelector('#skySelect');
   const skyBannerContainer = document.querySelector('#skyBanner');
-  if ((skyContainer.value = 'sunny')) {
+  state.sky = skyContainer.value;
+  if (state.sky === 'sunny') {
     skyBannerContainer.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if ((skyContainer.value = 'cloudy')) {
+  } else if (state.sky === 'cloudy') {
     skyBannerContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if ((skyContainer.value = 'rainy')) {
+  } else if (state.sky === 'rainy') {
     skyBannerContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if ((skyContainer.value = 'snowy')) {
+  } else if (state.sky === 'snowy') {
     skyBannerContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
