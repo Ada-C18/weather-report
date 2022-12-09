@@ -4,43 +4,43 @@
 
 const getLocation = (cityInput) => {
   let lat, lon;
-  axios.get('http://127.0.0.1:5000/location', {
-  params: {
-    q: cityInput,
-    format: 'json',
-    }
-  })
-  .then((response) => {
-    lat = response.data[0].lat;
-    lon = response.data[0].lon;
-    console.log("lat: ", lat, "lon: ", lon);
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: cityInput,
+        format: 'json',
+      },
+    })
+    .then((response) => {
+      lat = response.data[0].lat;
+      lon = response.data[0].lon;
+      console.log('lat: ', lat, 'lon: ', lon);
 
-    getWeather(lat, lon);
-  })
-  .catch((error) => {
-    console.log(error.data);
-  });
+      getWeather(lat, lon);
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
 };
 
-const getWeather = (lat, lon) => {
-  axios.get('https://api.openweathermap.org/data/2.5/weather', {
-    params: {
-      lat: lat,
-      lon: lon,
-    }
-  })
-  .then((response) => {
-    console.log(response.data)
-  })
-  .catch((error) => {
-    console.log('error in getting weather!');
-  });
-}
-
+const getWeather = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      console.log(response.data.main.temp);
+    })
+    .catch((error) => {
+      console.log('error in getting weather!');
+    });
+};
 
 // const latAndLon = getLocation('Seattle');
 getWeather(47.6038321, -122.330062);
-
 
 //increases temperature from click
 let currentTemp = 70;
@@ -90,8 +90,7 @@ const inputHandler = function (e) {
 //get temperature button id"temp-button"
 const updateTemperature = () => {
   const tempButton = document.getElementById('temp-button');
-  
-}
+};
 
 //changes sky from drop down menu options
 const changeSky = () => {
@@ -110,7 +109,7 @@ const changeSky = () => {
 
 //resets button to blank. We can make Seattle default if that is something we want.
 const clearInput = () => {
-  document.getElementById("city-input").value = '';
+  document.getElementById('city-input').value = '';
 };
 
 //register event handlers
@@ -126,10 +125,8 @@ const registerEventHandlers = () => {
 
   document.getElementById('dropdown').addEventListener('change', changeSky);
 
-  const resetCity = document.querySelector("#reset-button")
-  resetCity.addEventListener('click',clearInput);
-
-  
+  const resetCity = document.querySelector('#reset-button');
+  resetCity.addEventListener('click', clearInput);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
