@@ -1,16 +1,9 @@
 'use strict';
 
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 let temperature = 0;
-
-const increaseTemp = () => {
-  temperature++;
-  updatePage();
-};
-
-const decreaseTemp = () => {
-  temperature--;
-  updatePage();
-};
+let holup = Array();
 
 const updatePage = () => {
   document.getElementById('temp').textContent = temperature;
@@ -33,14 +26,52 @@ const temperatureStyle = (temp) => {
   }
 };
 
-const cityUpdate = (event) => {
+const cityUpdate = async (event) => {
   document.getElementById('city').textContent = event.target.value;
+  holup.push(() => updateWeather());
+  await wait(500);
+  let action = holup.pop();
+  if (holup.length == 0) {
+    console.log('wait stack down, executing action');
+    action();
+  } else {
+    console.log('wait stack remains', holup.length, 'no execution');
+  }
+};
+
+const updateWeather = async () => {
+  const placeName = document.getElementById('city').textContent;
+  console.log('updateWeather', placeName);
+  const latlon = await getLocation(placeName);
+  const weather = await getWeather(...latlon);
+  console.log(weather);
+  temperature = weather.temp;
+  updatePage();
+};
+
+const getLocation = async (placeName) => {
+  const response = await axios.get('http://localhost:5000/location', {
+    params: {
+      q: placeName,
+    },
+  });
+  console.log('getLocation', response);
+  const lat = response.data[0].lat;
+  const lon = response.data[0].lon;
+  return [lat, lon];
+};
+
+const getWeather = async (lat, lon) => {
+  console.log('getWeather', { lat, lon });
+  const response = await axios.get('http://localhost:5000/weather', {
+    params: { lat, lon },
+  });
+  console.log('getWeather response', response);
+  return response.data.main;
 };
 
 function addListeners() {
   console.log('onload');
-  document.getElementById('temp_increase').onclick = (event) => increaseTemp();
-  document.getElementById('temp_decrease').onclick = (event) => decreaseTemp();
   document.getElementById('city_input').oninput = (event) => cityUpdate(event);
   console.log('onload executed');
 }
