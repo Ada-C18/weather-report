@@ -61,6 +61,20 @@ const getTempFromSearch = (searchString) => {
   return tempPromise;
 };
 
+/* Get the temperature for value in cityName then
+update temperature state and html display. */
+const loadCityTemp = (event) => {
+  const city = document.querySelector('#cityName');
+  const searchString = city.value;
+  const tempPromise = getTempFromSearch(searchString);
+  const tempCount = document.querySelector('#temperatureDisplay');
+  tempPromise.then((temp) => {
+    state.temp = temp;
+    tempCount.textContent = ` ${state.temp} ℉`;
+    changeTempColor();
+  });
+};
+
 const increaseTemperature = (event) => {
   state.temp += 1;
   const tempCount = document.querySelector('#temperatureDisplay');
@@ -146,7 +160,8 @@ const registerEventHandlers = (event) => {
   const defaultCity = document.querySelector('#cityReset');
   defaultCity.addEventListener('click', resetCity);
 
-  // const defaultTempColor = document.querySelector("#loadTemperature");
+  const loadTemperature = document.querySelector('#loadTemperature');
+  loadTemperature.addEventListener('click', loadCityTemp);
   // defaultTempColor.addEventListener("click", changeTempColor);
 
   const newLandscapeOnincrease = document.querySelector('#increaseTemperature');
