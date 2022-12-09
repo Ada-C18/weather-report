@@ -1,10 +1,3 @@
-// const axios = require('axios');
-// import axios from 'axios';
-const axios = require('axios/dist/node/axios.cjs'); 
-require('dotenv').config();
-
-const locationApi = process.env.LOCATION_API_KEY; 
-const weatherApi = process.env.WEATHER_API_KEY;
 
 const state = {
     city: 'Seattle',
@@ -18,18 +11,18 @@ const convertKtoF = (temp) => {
 };
 
 const findLatandLong = () => {
-    axios.get('https://us1.locationiq.com/v1/search.php', 
+    axios.get('http://127.0.0.1:5000/location', 
     {
         params: {
-            key: locationApi,
             q: state.city,
-            format: 'json'
     }
 })
     .then ( (response) => {
         state.lat = response.data[0].lat;
         state.long = response.data[0].lon;
         getWeather();
+        return (state.lat, state.long)
+    
 })
     .catch ( (error) => {
         console.log('Error getting long and lat', error.response);
@@ -37,21 +30,29 @@ const findLatandLong = () => {
 };
 
 const getWeather = () => {
-    axios.get('https://api.openweathermap.org/data/3.0/onecall?',
+    axios.get('http://127.0.0.1:5000/weather',
     {
         params: {
-            appid: weatherApi,
             lat: state.lat,
             lon: state.long,
-            format: 'json' 
     }
 })
     .then( (response) => {
-        const weather = response.data.current.temp;
+        const temperature = response.data.main.temp;
+        state.temp = Math.round(convertKtoF(temperature.current.temp));
+        return (state.temp)
     })
     .catch( (error) => {
         console.log('Error getting weather', error.response);
     });
+}
+
+
+const updateTemp = () => {
+    const newTemp = getWeather(state.city)
+    const tempValue = document.getElementById(tempValue)
+    state.temp = newTemp
+    tempValue.textContent = state.temp
 };
 
 
@@ -62,9 +63,7 @@ const updateCityName = () => {
     headerCity.textContent = state.city;
 };
 
-updateCityName();
-const cityNameInput = document.getElementById('cityNameInput');
-cityNameInput.addEventListener('input', updateCityName);
+
 
 let i = 0;
 let currentTemp = document.getElementById("tempValue");
@@ -85,10 +84,12 @@ const registerEventHandlers = () => {
     addTemp.addEventListener("click", increaseTemp);
     const lowerTemp = document.getElementById("decreaseTemp");
     lowerTemp.addEventListener("click", decreaseTemp);
-    updateCityName();
     const cityNameInput = document.getElementById('cityNameInput');
     cityNameInput.addEventListener('input', updateCityName);
+    const newCityTemp = document.getElementById('currentTempButton');
+    newCityTemp.addEventListener('click', updateTemp);
 };
+
 
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
