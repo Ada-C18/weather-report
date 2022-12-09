@@ -7,18 +7,18 @@
     <title>Weather Report</title>
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <link href="/styles/index.css" rel="stylesheet">  
-    <link href="./node_modules/axios/dist/axios.min.js">
+    
 </head>
 <body>
     <div>
-        <header>
+        <header id = "top">
             <h1>Weather Report</h1>
             <h2>For the lovely city of <span id="city-name"></span></h2> 
         </header>
     </div>
     <section class = "boxes">
         <div class="flex_boxes_container">
-            <section id = "tempurature_box">
+            <section id = "tempurature_box" class = "flex_boxes">
                 <h2>Tempurature</h2>
                 <div>
                     <span id = "up" >⬆️</span>
@@ -28,23 +28,33 @@
                     <h2 id = "tempValue"></h2>
                 </div>
             </section>
-            <section id = "sky">
+            <section id = "skyColor" class = "flex_boxes">
                 <h2>Sky</h2>
+                <select id="skyOptions">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
             </section>
-            <section id = "cityName">
+            <section id = "cityName" class = "flex_boxes">
                 <h2 for="name">City Name</h2>
                 <input type="text" id="name" name="name">
+                <button class="updateTemp">Update Temp</button> 
             </section>
         </div>
         <div class = "weather_garden_box">
                 <h1>Weather Garden</h1>
-                <section>
-                    <footer id = "landscape">
+                <section class = "weather_visuals">
+                    <header id= "skyEmojis">'☀️☀️☀️☀️☀️☀️'
+                    </header>
+                    <footer id = "landscape">'🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'
                     </footer>
                 </section>
                 
         </div>
     </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
 </body>
 </html>

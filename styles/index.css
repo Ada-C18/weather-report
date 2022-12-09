@@ -1,7 +1,10 @@
-header {
-    text-align: center;
+#top {
+    text-align : center;
 }
-
+body {
+    background-color: bisque;
+    font:fanstasy ;
+}
 
 .boxes {
     display: grid;
@@ -9,17 +12,42 @@ header {
     grid-template-rows: repeat(4,25%);
 }
 
-.boxes > .flex_boxes_container {
-    grid-column : 1 /span 2;
-    grid-row: 1/ span 3;
+.flex_boxes_container {
+    grid-column : 1 /span 1;
+    grid-row: 1/ -1;
     display: flex;
     flex-direction: column;
+    border: 1px solid #000;
+    
 }
 
-.boxes > .weather_garden_box {
-    grid-column : 2 /span 3;
-    grid-row: 1/ span 3;
+.flex_boxes {
+    border: 1px black solid;
+}
 
+.weather_garden_box {
+    grid-column : 3 /span 1;
+    grid-row: 1/ span 3;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.weather_visuals {
+    background-color: rgb(131, 255, 127);
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(4,25%);
+    
+}
+
+#skyEmojis {
+    grid-row: 1/ span 1;
+    grid-column: 1/ -1;
+}
+
+#landscape {
+    grid-row: 3/-1;
+    grid-column: 1/-1;
 }
 
 .cold {
