@@ -16,6 +16,7 @@ const windowLoad = () => {
     let inputCity = document.getElementById('input-city');
     
     cityName.innerHTML = defaultCity;
+    temperature.innerHTML = getRealtimeTemp(cityName, temperature)
 
     tempUp.addEventListener('click', () => {
         let tempHTML = Number(temperature.innerHTML);
