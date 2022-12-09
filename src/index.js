@@ -25,7 +25,7 @@ const decreaseTemp = () => {
 };
 
 const updateBackground = () => {
-  const backgroundImage = document.getElementById('bg').style.backgroundImage;
+  let backgroundImage = document.getElementById('bg').style.backgroundImage;
 
   if (state.tempValue >= 100){
     backgroundImage = 'url(../../assets/sun-surface.jpg)'
@@ -90,6 +90,18 @@ const updateSky = () => {
     sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
+
+const updateCityName = () => {
+  let cityNameInput = document.getElementById('cityNameInput').value;
+  let headerCityName = document.getElementById('headerCityName');
+  headerCityName.textContent = cityNameInput;
+  };
+
+const resetCityName = () => {
+    let cityNameInput = document.getElementById('cityNameInput');
+    cityNameInput.value = 'Seattle';
+    updateCityName();
+  }
 
 const registerEventHandlers = () => {
 
