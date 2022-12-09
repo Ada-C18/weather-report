@@ -150,6 +150,7 @@ const registerEventHandlers = () => {
 
     const resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", resetCityName);
+    resetButton.addEventListener("click", findLatAndLong);
 
     const currentTemp = document.getElementById("realtimeTemp");
     currentTemp.addEventListener('click', findLatAndLong);
