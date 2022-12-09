@@ -27,7 +27,22 @@ main {
 }
 
 #landscape {
-  background-color: green;
   height: 100%;
   width: 100%;
+}
+
+.landscape-cold {
+  background-color: snow;
+}
+
+.landscape-cool {
+  background-color: orange;
+}
+
+.landscape-warm {
+  background-color: limegreen;
+}
+
+.landscape-hot {
+  background-color: forestgreen;
 }
