@@ -13,24 +13,40 @@
         <h2>For the lovely city of </h2>
         <p>✨<span id = "city-name"></span> ✨</p>
     </header>
-    <main>
-        <section class = "temperature">
-            <h1>Temperature</h1>     
-            <button id ="tempUp">⬆️</button>
-            <span id = "tempValue">80</span>
-            <button id = "tempDown">⬇️</button>
+    <main class = "main-container">
+        <section class = "general-container temperature-container">
+            <h2 >Temperature</h2> 
+            <div>
+                <button id ="tempUp">⬆️</button>
+                <span id = "tempValue">80</span>
+                <button id = "tempDown">⬇️</button>
+            </div> 
+            <div>
+                <button type = "button" id = "get-current-temp">Get Realtime Temperature</button>
+            </div>   
         </section>
         <section class = "sky"></section>
-        <section class = "city">
-            <label for="city-name-input">City Name</label><br>
-            <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City Name">
+        <section class="general-container city-container">
+            <h2>City Name</h2>
+            <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City Name"><br>
+            <br>
             <button type="button" id = "city-name-btn">Reset</button>
         </section>
-        <aside class = "weather-garden">
-            <h1>weather Garden</h1>
-            <div id = "landscape"></div>
-            <div id = "weather-garden-containing-landscape"></div>
-        </aside>
+        <section class = "general-container landscape-container">
+            <h2>Weather Garden</h2>
+            <div class="garden">
+                <h3>Select Sky:</h3>
+                <select name="sky-type" id="skys" value="snowy">
+                    <option value="cloudy">Cloudy</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+                <!-- <div id="sky-garden"></div><br> -->
+                <div id="sky-garden">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div><br>
+                <div id = "weather-garden-containing-landscape"></div>
+            </div>
+        </section>
     </main>
     
     <script src ="src/index.js"></script>

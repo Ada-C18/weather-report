@@ -1,23 +1,12 @@
 'use strict';
+
 const state = {
   temp: 80,
   tempColor: 'red',
   city: 'seattle',
+  sky: 'snowy',
 };
-// const tempValue = document.getElementById(‘tempValue’);
-// tempValue.textContent = state.temp;
-// const increaseTemp = () => {
-//   state.temp++;
-//   console.log(state);
-//   const increaseValue = document.getElementById(‘tempValue’);
-//   increaseValue.textContent = `${state.temp}`;
-// };
-// const decreaseTemp = () => {
-//   state.temp--;
-//   console.log(state);
-//   const decreaseValue = document.getElementById(‘tempValue’);
-//   decreaseValue.textContent = `${state.temp}`;
-// };
+
 ///refactor the code above
 const showTemperature = () => {
   const tempValue = document.getElementById('tempValue');
@@ -27,12 +16,8 @@ const showTemperature = () => {
 };
 
 const updateCity = () => {
-  // const cityName = document.getElementById('city-name');
-  // cityName.textContent = '✨ ' + `${state.city}` + '✨ ';
   const updateCity = document.getElementById('city-name-input').value;
-  const cityName = document.getElementById('city-name');
-  state.city = updateCity;
-  cityName.textContent = state.city;
+  document.getElementById('city-name').innerHTML = updateCity;
 };
 
 const resetCity = () => {
@@ -41,12 +26,7 @@ const resetCity = () => {
   state.city = '';
   cityName.textContent = state.city;
   updateCity.value = state.city;
-
-  // const searchfieldInput = document.getElementById('city-name-input');
-  // state.city = searchfieldInput.Value;
-  // updateCity();
 };
-// resetCity();
 
 const tempColorAndLandscape = () => {
   const tempColorElement = document.getElementById('tempValue');
@@ -85,13 +65,70 @@ const changeTemp = (e) => {
   }
 };
 
+const changeSky = () => {
+  let currentSky = document.getElementById('skys').value;
+  let skyContainer = document.getElementById('sky-garden');
+
+  state.sky = currentSky;
+  if (state.sky === 'cloudy') {
+    skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (state.sky === 'sunny') {
+    skyContainer.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (state.sky === 'rainy') {
+    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (state.sky === 'snowy') {
+    skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
+
+// const getWeather = async () => {
+//   let latitude, longitude;
+
+//   await axios
+//     .get('http://127.0.0.1:5000/location', {
+//       params: {
+//         q: state.city,
+//       },
+//     })
+//     .then((response) => {
+//       latitude = response.data[0].lat;
+//       longitude = response.data[0].lon;
+//     })
+//     .catch((error) => {
+//       console.log('error in finding location!');
+//     });
+
+//   axios
+//     .get('http://127.0.0.1:5000/weather', {
+//       params: {
+//         lat: latitude,
+//         lon: longitude,
+//       },
+//     })
+//     .then((response) => {
+//       // console.log(response.data);
+//       const kelvinTemperature = response.data.main.temp;
+//       // console.log(kelvinTemperature);
+//       const fahrenheitTemperature = Math.round(
+//         (kelvinTemperature - 273.15) * 1.8 + 32
+//       );
+//       state.temp = fahrenheitTemperature;
+//       tempValue.innerText = `${state.temp + '\u00B0F'}`;
+//       tempColorAndLandscape();
+//     })
+//     .catch((error) => {
+//       console.log('error in finding temperature!', error);
+//     });
+// };
+
 const allEventHandlers = () => {
+  const getRealTempBtn = document.getElementById('get-current-temp');
+  getRealTempBtn.addEventListener('click', getWeather);
+
   const resetButton = document.getElementById('city-name-btn');
   resetButton.addEventListener('click', resetCity);
   const cityName = document.getElementById('city-name-input');
   cityName.addEventListener('input', updateCity);
-  // cityInput.addEventListener('input', updateCity);
-  // resetCity.addEventListener('click', resetCity);
 
   const increaseArrow = document.getElementById('tempUp');
   increaseArrow.addEventListener('click', changeTemp);
@@ -100,5 +137,9 @@ const allEventHandlers = () => {
   const decreaseArrow = document.getElementById('tempDown');
   decreaseArrow.addEventListener('click', changeTemp);
   decreaseArrow.addEventListener('click', tempColorAndLandscape);
+
+  const changeCurrentSky = document.getElementById('skys');
+  changeCurrentSky.addEventListener('change', changeSky);
 };
+
 document.addEventListener('DOMContentLoaded', allEventHandlers);
