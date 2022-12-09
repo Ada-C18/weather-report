@@ -17,7 +17,7 @@ const updateCity = () => {
   cityName.textContent = state.city;
 };
 
-const getWeather = () => {
+const getTemp = () => {
   const totalCount = document.getElementById('temperatureValue');
   axios
     .get(`http://localhost:5000/location?q=${state.city}`)
@@ -101,7 +101,7 @@ const changeLandscape = () => {
 const registerEventHandlers = () => {
   const submitButton = document.getElementById('submit');
   // submitButton.addEventListener('click', getLatAndLong);
-  submitButton.addEventListener('click', getWeather);
+  submitButton.addEventListener('click', getTemp);
   const incrementCount = document.getElementById('increaseTemp');
   incrementCount.addEventListener('click', handleIncrement);
   const decrementCount = document.getElementById('decreaseTemp');
