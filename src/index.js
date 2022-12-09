@@ -66,75 +66,36 @@ const displayText = () => {
   cityName.textContent = textField.value;
 };
 
-// get the lat and lon of the city in the input text box
-const getLatAndLon = () => {
-  // const cityName = document.getElementById('city-name').innerText;
+const updateTemperature = () => {
+  const cityName = document.getElementById('city-name').innerText;
+
   axios
     .get('http://127.0.0.1:5000/location', { params: { q: cityName } })
     .then((response) => {
-      console.log(`getting a response from ${cityName}`);
-      console.log(response.data);
       const lat = response.data[0].lat;
       const lon = response.data[0].lon;
-      // console.log(`lat is ${lat} and lon is ${lon}`);
-      return { lat: lat, lon: lon };
-    })
-    .catch((error) => {
-      console.log(error);
+
+      return axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: { lat: lat, lon: lon },
+        })
+        .then((response) => {
+          const kelvinDegree = response.data.main.temp;
+          const fahrenheitDegree = Math.floor(
+            ((kelvinDegree - 273.15) * 9) / 5 + 32
+          );
+          state.temp = fahrenheitDegree;
+          document.getElementById('temperature').innerText = state.temp;
+          tempColorAndLandscape();
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
 };
-
-// get city temperature using getLatAndLon
-const getTemperature = () => {
-  // const cityLocation = getLatAndLon();
-  // console.log(`Inside getTemperature, The city location is ${cityLocation}`);
-  // console.log(`Inside the getTemperature, lat is ${cityLocation.lat} and lon is ${cityLocation.lon}`);
-  let cityLocation;
-
-  const currentPromise = getPromise();
-  currentPromise
-    .then((value) => {
-      cityLocation = getLatAndLon();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  return axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: { lat: cityLocation.lat, lon: cityLocation.lon },
-    })
-    .then((response) => {
-      console.log(`The response data is ${response.data}`);
-      console.log(
-        `The main part of the response data is ${response.data.main}`
-      );
-      const kelvinDegree = response.data.main.temp;
-
-      const fahrenheitDegree = ((kelvinDegree - 273.15) * 9) / 5 + 32;
-      console.log(fahrenheitDegree);
-      return fahrenheitDegree;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const getPromise = () => {
-  const timeoutTime = 1000;
-  const myPromise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("It's go time!"), timeoutTime);
-  });
-  return myPromise;
-};
-
-/**
- * 1. get the city from the documnet
- * 2. pass in the city name and make an API call to LOCATIONIQ, get the lat and lon
- * 3. pass in the lat and lon, make an API call to OpenWeather, get the temperature
- * 4. convert temperature to fahrenheit
- * 5. display the temperature on click
- */
 
 const registerEventHandlers = () => {
   //increase temp
@@ -148,7 +109,7 @@ const registerEventHandlers = () => {
   inputBox.addEventListener('keyup', displayText);
   //real time temperature
   const realTimeTempButton = document.getElementById('real-time-temp');
-  realTimeTempButton.addEventListener('click', getTemperature);
+  realTimeTempButton.addEventListener('click', updateTemperature);
   // select sky
   const skySelector = document.getElementById('sky-selector');
   skySelector.addEventListener('change', updateSky);
