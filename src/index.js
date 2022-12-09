@@ -92,7 +92,7 @@ const getWeather = (lat, lon) => {
     });
 };
 
-const handleGetTempButtonClicked = (event) => {
+const getLocationAndWeather = () => {
   let promise = Promise.resolve();
   promise = promise
     .then(() => {
@@ -107,6 +107,10 @@ const handleGetTempButtonClicked = (event) => {
         tempTextColorChange();
         landscapeChange()
     })
+};
+
+const handleGetTempButtonClicked = (event) => {
+  getLocationAndWeather();
 };
 
 const handleSkyDropDownChanged = (event) => {
@@ -185,6 +189,7 @@ const onLoaded = () => {
   tempTextColorChange();
   landscapeChange();
   skyDisplayChange();
+  getLocationAndWeather();
 };
 
 onLoaded();
