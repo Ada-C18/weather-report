@@ -6,7 +6,7 @@ let state = {
 // let state = 60;
 
 // increase temoerature 
-const updateTemmperature = state => {
+const updateTemperature = state => {
 // const increaseTemperature = () => {
   const temperatureContainer = document.getElementById("startingTemp");
   temperatureContainer.textContent = state.startingTemp;
@@ -14,14 +14,14 @@ const updateTemmperature = state => {
 
 const increaseTemperature = () => {
   state.startingTemp += 1;
-  updateTemmperature(state);
+  updateTemperature(state);
   updateColor();
   updateLandscape();
 };
 
 const decreaseTemperature = () => {
   state.startingTemp -= 1;
-  updateTemmperature(state);
+  updateTemperature(state);
   updateColor();
   updateLandscape();
 };
@@ -69,6 +69,12 @@ const updateSky = () => {
     } 
 };
 
+const updateCity = () => {
+    const inputCityName = document.getElementById("inputCity");
+    const cityNameInHeader = document.getElementById("cityNameHeader");
+    cityNameInHeader.textContent = inputCityName.value;
+
+};
 
 const registerEventHandlers = () => {
   const increaseTemperatureButton = document.getElementById('increaseButton');
@@ -79,6 +85,9 @@ const registerEventHandlers = () => {
 
   const selectElement = document.getElementById('skyChoice');
   selectElement.addEventListener('change',updateSky);
+
+  const userInputCity = document.getElementById('inputCity');
+  userInputCity.addEventListener('input', updateCity);
 
 
 };
