@@ -56,34 +56,6 @@ const updateColorsAndEmojis = () => {
   }
 };
 
-// registers all handles once DOM loaded
-const registerHandlers = (event) => {
-  //  TODO: set state temp default value
-  // setup #degree when page is first loaded
-
-  const downArrow = document.querySelector('#down-arrow');
-  downArrow.addEventListener('click', subtractDegree);
-
-  const upArrow = document.querySelector('#up-arrow');
-  upArrow.addEventListener('click', addDegree);
-
-  const changeTempColor = document.querySelector('#degrees');
-
-  const updateCityName = document.querySelector('#search-bar');
-  updateCityName.addEventListener('input', updateCity); // 'change'
-
-  changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
-
-  // Wave 4 (MS) change
-  // register Get Realtime Temperature button
-  const tempButton = document.querySelector('#get-temp');
-
-  // call getWeather when get-temp button is clicked
-  tempButton.addEventListener('click', findLatitudeAndLongitude);
-};
-
-document.addEventListener('DOMContentLoaded', registerHandlers);
-
 // ------------- Wave 3 ----------------------
 const updateCity = () => {
   let myTextInput = document.getElementById('search-bar');
@@ -112,7 +84,7 @@ const updateCity = () => {
 // const LOCATIONIQ_KEY = process.env['LOCATION_KEY'];
 // const axios = require('axios/dist/browser/axios.cjs');
 const findLatitudeAndLongitude = () => {
-  let latitude, longitude;
+  // let latitude, longitude;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -148,6 +120,35 @@ const findLatitudeAndLongitude = () => {
     cityLon: longitude,
   };
 };
+
+// registers all handles once DOM loaded
+const registerHandlers = (event) => {
+  //  TODO: set state temp default value
+  // setup #degree when page is first loaded
+
+  const downArrow = document.querySelector('#down-arrow');
+  downArrow.addEventListener('click', subtractDegree);
+
+  const upArrow = document.querySelector('#up-arrow');
+  upArrow.addEventListener('click', addDegree);
+
+  const changeTempColor = document.querySelector('#degrees');
+
+  const updateCityName = document.querySelector('#search-bar');
+  updateCityName.addEventListener('input', updateCity); // 'change'
+
+  changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
+
+  // Wave 4 (MS) change
+  // register Get Realtime Temperature button
+  const tempButton = document.querySelector('#get-temp');
+
+  // call getWeather when get-temp button is clicked
+  tempButton.addEventListener('click', findLatitudeAndLongitude);
+};
+
+document.addEventListener('DOMContentLoaded', registerHandlers);
+
 // findLatitudeAndLongitude('Seattle');
 // 2. GET WEATHER WITH LAT AND LONG
 // WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
@@ -173,7 +174,7 @@ const findLatitudeAndLongitude = () => {
 //     - [ ]  Show default temp
 //     - [ ]  Add emojis up and down arrows-
 // - [ ]  Finish wave 4
-//     - [ ]  button - Milena
+//     - [x]  button - Milena
 //     - [ ]  get API functions working - together office hours
 // - [ ]  Wave 5 - Milena
 // - [ ]  Wave 6 - Puja
