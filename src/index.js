@@ -75,12 +75,12 @@ const getLatLong = () => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: cityName,
+        q: cityInput.value,
         format: JSON,
       },
     })
     .then((locationData) => {
-      console.log(locationData);
+      console.log(locationData.data[0].display_name);
       const lat = locationData.data[0].lat;
       const lon = locationData.data[0].lon;
       console.log(lat, lon);
