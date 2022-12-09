@@ -25,15 +25,25 @@
             <button id="currentTempButton">Real Time Temperature</button>
         </section>
         <section id="skyContainer">
-            <h2>sky</h2>
+            <h2>Sky</h2>
+            <select name="sky" id="skySelect" onchange="updateSky(this)">
+                <option class="sunny" value="sunny">Sunny</option>
+                <option class="cloudy" value="cloudy">Cloudy</option>
+                <option class="rainy" value="rainy">Rainy</option>
+                <option class="snowy" value="snowy">Snowy</option>
+            </select>
         </section>
         <section id="citycontainer">
             <h2>City Name</h2>
             <input id="cityNameInput" type="text" id="name" required minlength="2" maxlength="16" size="10" value="Seattle">
         </section>
     </section>
-    <section id="gardenContainer">
+    <section id="gardenContainer" >
         <h2>image box goes here</h2>
+        <div id="weatherGardenContent" class="garden-content">
+            <div id="sky"></div> 
+        </div>
+        
     </section>
         <script src="src/index.js" type="text/javascript"></script>
         <script src="./node_modules/axios/dist/axios.min.js"></script>

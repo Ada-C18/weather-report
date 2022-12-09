@@ -75,5 +75,27 @@ body {
     padding: 10%;
 }
 
-#gardenContainer { background-color: green; 
+#gardenContainer {
+    border: 1px solid;
+    text-align: center;
+}
+
+#sky {
+    font-size: 3em;
+}
+
+.sunny {
+    background-color: rgb(155, 215, 255);
+}
+
+.cloudy {
+    background-color: rgb(238, 239, 239);
+}
+
+.rainy {
+    background-color: rgb(195, 202, 206);
+}
+
+.snowy {
+    background-color: rgb(221, 228, 232);
 }
