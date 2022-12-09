@@ -79,7 +79,8 @@ const findLatAndLong = (query) => {
       longitude = response.data[0].lon;
       console.log(`successfully found lat and lonL ${latitude}, ${longitude}`);
       console.log({ lat: latitude, lon: longitude });
-      return { lat: latitude, lon: longitude };
+      const latAndLon = { lat: latitude, lon: longitude };
+      // findTemp(latAndLon);
     })
     .catch((error) => {
       if (error.response) {
@@ -89,23 +90,30 @@ const findLatAndLong = (query) => {
 };
 
 // const findTemp = (query) => {
-//   axios.get(weatherAPI), {
-//     params: {
-//       appid: WEATHER_KEY,
-//       lat: query.lat,
-//       lon: query.lon
+//   axios.get(weatherAPI),
+//     {
+//       params: {
+//         lat: query.lat,
+//         lon: query.lon,
+//       },
 //     }
-//   }
-//     .then((response) => {
-//       // temperature change function
-//       response.data.main.temp;
-//     })
+//       .then((response) => {
+//         // temperature change function
+//         const tempKelvin = response.data.main.temp;
+//         const tempFahrenheit = 1.8(tempKelvin - 273) + 32;
+//         console.log(tempKelvin);
+//         console.log(tempFahrenheit);
+//       })
+//       .catch((error) => {
+//         if (error.response) {
+//           console.log('error getting temp', error.response.data);
+//         }
+//       });
 // };
 
 const getTemp = (event) => {
   // const getTempButton = document.querySelector('#current-temp');
   const input = document.querySelector('#city-search').value;
-
   findLatAndLong(input);
 };
 
