@@ -73,28 +73,49 @@ function updateCity(e) {
   city.textContent = `Weather report for the lovely city of ${state.city}`;
 }
 
-const axios = require('axios');
-//function to call location API
-const findLatandLong = (city) => {
-  let latitude, longitude;
-  //get
-  axios
-    .get('http://127.0.0.1:5000/location')
 
-    //then
-    .then((response) => {
-      latitude = response.data[0].lat;
-      longitude = response.data[0].lon;
-    })
-    // //catch
-    .catch((error) => {
-      console.log('error missing fksdkf');
-    });
-  return {
-    cityLat: latitude,
-    cityLong: longitude,
+function updateSky(e) {
+    const skySelection = document.getElementById("skyDropdown").value;
+    state.sky = e.target.value;
+    skyDisplayer(skySelection);
   };
-};
+  
+  const skyDisplayer = (sky) => {
+    const skyPics = document.getElementById("sky-pics");
+    if (sky === "Sunny") {
+      skyPics.textContent = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+    } else if (sky === "Cloudy") {
+      skyPics.textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+    } else if (sky === "Rainy") {
+      skyPics.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+    } else if (sky === "Snowy") {
+      skyPics.textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+    };
+  };
+
+
+
+// const axios = require('axios');
+// //function to call location API
+// const findLatandLong = (city) => {
+//   let latitude, longitude;
+//   //get
+//   axios
+//     .get('http://127.0.0.1:5000/location')
+
+//     //then
+//     .then((response) => {
+//       latitude = response.data[0].lat;
+//       longitude = response.data[0].lon;
+//     })
+//     // //catch
+//     .catch((error) => {
+//       console.log('error missing fksdkf');
+//     });
+//   return {
+//     cityLat: latitude,
+//     cityLong: longitude,
+//   };
 //function to call weather API
 //axios
 //  .get
@@ -108,9 +129,12 @@ const registerEventHandlers = () => {
   decreaseButton.addEventListener('click', decreaseTemp);
   const input = document.getElementById('city-lookup');
   input.addEventListener('input', updateCity);
+  const skyDropdown = document.getElementById("skyDropdown");
+  skyDropdown.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 document.addEventListener('DOMContentLoaded', tempColor(state.temp));
 document.addEventListener('DOMContentLoaded', gardenDisplayer(state.temp));
 document.addEventListener('DOMContentLoaded', displayCity);
+document.addEventListener("DOMContentLoaded", skyDisplayer(state.sky));
