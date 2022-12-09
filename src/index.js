@@ -12,51 +12,53 @@ const state = {
   realtimeButton: null
 };
 
-const handleRealtimeTemp = () => {
-  // calls proxy API and updates temp and webpage
-  findLatitudeAndLongitude(state.cityName);
-}
-
-const findLatitudeAndLongitude = (city) => {
-  axios.get('http://127.0.0.1:5000/location',
-  {
-    params: { q: city }
-  })
-  .then( (response) => {
-    const latitude = response.data[0].lat;
-    const longitude = response.data[0].lon;
-    // finds weather for the lat and lon response
-    getWeather(latitude, longitude);
-  })
-  .catch( (error) => {
-    console.log('error in finding Latitude and Longitude!');
+const makeRealtimeTempUpdates = () => {
+  // calls proxy API to get lat and lon
+  getLatLon(state.cityName)
+    .then(({latitude, longitude}) => {
+      // calls proxy API to get temp
+      getWeather(latitude, longitude)
+        .then(({tempK}) => {
+          // update temp state
+          updateTempState(tempK);
+          updateTempOnWebpage();
+          changeColorAndLandscape();
+        })
+        .catch( (error) => {
+          console.log('error in getWeather!');
+        });
+    })
+    .catch( (error) => {
+      console.log('error in getLatLon!');
   });
 }
 
-const getWeather = (latitudeW, longitudeW) => {
-  axios.get('http://127.0.0.1:5000/weather',
+const getLatLon = async (city) => {
+  const latLonresponse = await axios.get('http://127.0.0.1:5000/location', {
+    params: { 
+      q: city 
+    }
+  });
+    const latitude = latLonresponse.data[0].lat;
+    const longitude = latLonresponse.data[0].lon;
+    return {latitude, longitude};
+}
+
+const getWeather = async (apiLatitude, apiLongitude) => {
+  const weatherResponse = await axios.get('http://127.0.0.1:5000/weather',
   {
     params: {
-      lat: latitudeW,
-      lon: longitudeW
+      lat: apiLatitude,
+      lon: apiLongitude
     }
-  })
-  .then( (response) => {
-    const tempK = response.data.main.temp;
-    // updates the temp state and webpage
-    updateTempAndWebpage(tempK);
-  })
-  .catch( (error) => {
-    console.log('error in getWeather!');
   });
+    const tempK = weatherResponse.data.main.temp;
+    return {tempK};
 }
-const updateTempAndWebpage = (tempInKelvin) => {
+
+const updateTempState = (tempInKelvin) => {
   // converts temp to Farenheit and saves it to the state
   state.temperature = Math.floor((tempInKelvin - 273.15) * 9/5 + 32);
-  // changes the temp on the website display
-  updateTempOnWebpage();
-  // changes the font color and landscape to match the temp
-  changeColorAndLandscape();
 }
 
 const increaseTemp = () => {
@@ -103,7 +105,6 @@ const changeColorAndLandscape = () => {
 const changeSkyType = () => {
   // Grabs the value that the user selected
   const selectedSky = state.skyDropdown.value;
-  // selects HTML element with id="aboveEarth"
   const websiteSky = document.getElementById('aboveEarth');
   if (selectedSky === 'cloudy') {
     websiteSky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
@@ -117,37 +118,34 @@ const changeSkyType = () => {
 };
 
 const changeCityName = () => {
-  // Grabs the value of text that the user types in the input box
-  const boxText = document.getElementById('search-box').value;
-  // selects HTML header element with id="current_city"
-  const city = document.getElementById('current_city');
-  // assigns the HTML header element with id="current_city" to
-  // the text that the user types
-  city.textContent = boxText;
-  state.cityName = boxText;
+  const userInput = document.getElementById('search-box').value;
+  const cityTitle = document.getElementById('cityHeader');
+  // assign header to user input
+  cityTitle.textContent = userInput;
+  state.cityName = userInput;
 };
 
 const resetCity = () => {
   const boxText = document.getElementById('search-box');
   boxText.value = '';
   // resets header to NYC
-  const cityHeader = document.getElementById('current_city');
+  const cityHeader = document.getElementById('cityHeader');
   state.cityName = 'New York City'
   cityHeader.textContent = state.cityName;
-  // current weather in NYC
-  handleRealtimeTemp();
+  // set current weather of NYC
+  makeRealtimeTempUpdates();
 };
 
 const loadControls = () => {
-  // buttons
+  // button state
   state.incButton = document.querySelector('#increaseButton');
   state.decButton = document.querySelector('#decreaseButton');
-  state.resetButton = document.getElementById('cityResetButton');
-  state.realtimeButton = document.getElementById('realtimeButton');
-  // dropdown
+  state.resetButton = document.querySelector('#cityResetButton');
+  state.realtimeButton = document.querySelector('#realtimeButton');
+  // dropdown state
   state.skyDropdown = document.querySelector('#sky_selector');
-  // current weather in NYC
-  handleRealtimeTemp();
+  // set current weather of NYC
+  makeRealtimeTempUpdates();
 }
 
 const registerEventHandlers = () => {
@@ -155,7 +153,7 @@ const registerEventHandlers = () => {
   state.incButton.addEventListener('click', increaseTemp);
   state.decButton.addEventListener('click', decreaseTemp);
   state.resetButton.addEventListener('click', resetCity);
-  state.realtimeButton.addEventListener('click', handleRealtimeTemp);
+  state.realtimeButton.addEventListener('click', makeRealtimeTempUpdates);
   //dropdown box change function
   state.skyDropdown.addEventListener('change', changeSkyType);
   // text box input function
