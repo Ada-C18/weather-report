@@ -63,6 +63,29 @@ const updateCityName = () => {
     headerCity.textContent = state.city;
 };
 
+const updateSky = () => {
+    const inputSky = document.getElementById('skySelect').value;
+    const skyContainer = document.getElementById('sky');
+    let sky = '';
+    let skyColor = '';
+    if (inputSky === 'sunny') {
+        sky = '☁️ ☁️ 🌞 ⛅️ ⛅️ ';
+        skyColor = 'sunny';
+    } else if (inputSky === 'cloudy') {
+        sky = '☁️ ☁️ ☁️ ☁️ 🌥 ☁️';
+        skyColor = 'cloudy';
+    } else if (inputSky === 'rainy') {
+        sky = '🌧 🌧 🌧 🌧 🌈 🌧';
+        skyColor = 'rainy';
+    } else if (inputSky === 'snowy') {
+        sky = '🌨 🌨 ❄️ 🌨 ❄️ 🌨';
+        skyColor = 'snowy';
+    }
+    skyContainer.textContent = sky;
+    const gardenContainer = document.getElementById('gardenContainer');
+    gardenContainer.classList = `garden-content ${skyColor}`;
+}
+
 
 
 let i = 0;
@@ -82,12 +105,18 @@ const decreaseTemp = () => {
 const registerEventHandlers = () => {
     const addTemp = document.getElementById("increaseTemp");
     addTemp.addEventListener("click", increaseTemp);
+
     const lowerTemp = document.getElementById("decreaseTemp");
     lowerTemp.addEventListener("click", decreaseTemp);
+
     const cityNameInput = document.getElementById('cityNameInput');
     cityNameInput.addEventListener('input', updateCityName);
+
     const newCityTemp = document.getElementById('currentTempButton');
     newCityTemp.addEventListener('click', updateTemp);
+    
+    const skySelect = document.getElementById('skySelect');
+    skySelect.addEventListener('change', updateSky)
 };
 
 
