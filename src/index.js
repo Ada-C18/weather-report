@@ -24,13 +24,11 @@ const setTempNColor = () => {
   landTitle();
 };
 
-/*
-  | 80+             | Red    |
-  | 70-79           | Orange |
-  | 60-69           | Yellow |
-  | 50-59           | Green  |
-  | 49 or below     | Teal   |
-*/
+// | 80+             | Red    |
+// | 70-79           | Orange |
+// | 60-69           | Yellow |
+// | 50-59           | Green  |
+// | 49 or below     | Teal   |
 
 const tempColor = () => {
   const tempCurrent = document.getElementById('temp-current');
@@ -81,11 +79,9 @@ const landTitle = () => {
 };
 
 // WAVE 3
-const originalCity = "Seattle";
-let currentCity = 'Seattle';
+const originalCity = 'Seattle';
 
 const changeCityText = (e) => {
-  // const newCityName = document.getElementById('city-input').value;
   const currentCityName = document.getElementById('current-city');
   currentCityName.innerHTML = `This is the weather for ${e.target.value}!`;
   currentCity = e.target.value;
@@ -141,13 +137,14 @@ const getWeather = (query) => {
     });
 };
 
-//WAVE 5
 /*
 | Sunny  | `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"`         |
 | Cloudy | `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"` |
 | Rainy  | `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"`          |
 | Snowy  | `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"`       |
 */
+
+//WAVE 5
 const changeSky = () => {
   const currentSky = document.getElementById('sky-selector');
   const skyValue = currentSky.value;
@@ -173,7 +170,7 @@ const changeSky = () => {
 
 // WAVE 6
 const resetCity = () => {
-  changeCityText({target:{value:originalCity}});
+  changeCityText({ target: { value: originalCity } });
 };
 
 // EVENT HANDLERS
