@@ -1,5 +1,5 @@
 // debugger;
-let temp = 75;
+let globalTemp;
 const cityInput = document.getElementById('name');
 const cityName = document.getElementById('city-name');
 const skyOptions = document.getElementById('skyOptions');
@@ -9,19 +9,20 @@ const updateTemp = (temp) => {
   console.log('update called');
   const tempValueContainer = document.getElementById('tempValue');
   tempValueContainer.textContent = temp;
+  globalTemp = temp;
   updateTempColor(temp);
   changeLandscape(temp);
 };
 
 const increaseTemp = () => {
   console.log('increase');
-  temp += 1;
-  updateTemp(temp);
+  globalTemp += 1;
+  updateTemp(globalTemp);
 };
 
 const decreaseTemp = () => {
-  temp -= 1;
-  updateTemp(temp);
+  globalTemp -= 1;
+  updateTemp(globalTemp);
 };
 
 const updateTempColor = (temp) => {
@@ -106,16 +107,34 @@ const getWeather = (lat, lon) => {
     });
 };
 
+const resetCity = () => {
+  cityInput.value = 'Seattle';
+  updateCity();
+  getLatLong();
+};
+
+const defaultValue = () => {
+  console.log('default');
+  cityInput.value = 'Seattle';
+  default_temp = getLatLong();
+  return default_temp;
+};
+
+window.onload = defaultValue();
+
 const renderAndUpdate = () => {
   console.log('render called');
   const upButton = document.getElementById('up');
   const downButton = document.getElementById('down');
   const updateTempWithCity = document.getElementById('updateTemp');
+  const resetButton = document.getElementById('resetCity');
   upButton.addEventListener('click', increaseTemp);
   downButton.addEventListener('click', decreaseTemp);
   cityInput.addEventListener('input', updateCity);
   skyOptions.addEventListener('change', updateSky);
   updateTempWithCity.addEventListener('click', getLatLong);
+  updateTempWithCity.addEventListener('click', getLatLong);
+  resetButton.addEventListener('click', resetCity);
 };
 
 if (document.readyState !== 'loading') {
