@@ -39,3 +39,7 @@
 .b {
     background-color: var(--primaryColor);
 }
+
+.interactive{
+    background-color: var(--lightColor);
+}
