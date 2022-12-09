@@ -67,7 +67,7 @@ document.getElementById("intro").innerHTML = "☁️"
 document.querySelector('.burning').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
 
 ;
-const axios = require("axios")
+
 
 const locationAPI = "http://127.0.0.1:5000/location"
 
@@ -79,7 +79,6 @@ const findLatandLon = (query) => {
         params: {
             q: Seattle, //replace with cityName or cityName.value
             format : 'json'
-
         }
 
     })
@@ -97,8 +96,31 @@ const findLatandLon = (query) => {
       }
     }
 
-
-
+const findTemperature = (query) => {
+    let temperature;
+    axios.get('https://us1.locationiq.com/v1/search.php',
+    {
+      params: {
+        key: LOCATIONIQ_KEY,
+        lat: latitude,
+        lon: longitude,
+        format : 'json'
+      }
+    })
+    .then( (response) => {
+        temperature = response.main.temp;
+        console.log('success in findTemperature!', temperature);
+    })
+    .catch( (error) => {
+      console.log('error in findTemperature!');
+    });
+  
+    return {
+        temperature: temperature
+    }
+  }
+  
+console.log(findTemperature(latitude, longitude))
 // const weatherAPI = "http://127.0.0.1:5000/weather"
 // // const locationAPI = "http://127.0.0.1:5000/location"
 

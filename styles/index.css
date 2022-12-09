@@ -55,8 +55,12 @@ h2{
     margin: 0px 2em;
     display: block;
 }
-.landscape{
+.sky{
     margin:20px;
+    padding: 20px;
+    font-size: 25px
+}
+.landscape{
     padding: 20px;
     font-size: 25px
 }
@@ -64,8 +68,8 @@ h2{
     background-color: #FAAB78;
     border: none;
     color: white;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -83,6 +87,10 @@ h2{
     grid-column: 1/2;
     margin: 0px 2em;
     display: block;
+}
+.skySelect{
+    padding: 30px;
+    margin:20px;
 }
 .weatherGarden{
     grid-row: 2/5;
