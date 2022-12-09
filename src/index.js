@@ -52,11 +52,21 @@ function landscapeIcons(temp) {
   }
 }
 
-// const input = document.querySelector('city-input');
-// const log = document.getElementById('City-Name-Top');
+function cityNameInput(e) {
+  const log = document.getElementById('City-Name-Top');
+  log.textContent = document.querySelector('#city-input').value;
+  console.log(e.data);
+}
 
-// input.addEventListener('city-input', cityNameInput);
+const registerEventHandlers = () => {
+  const cityInput = document.querySelector('#city-input');
+  cityInput.addEventListener('input', cityNameInput);
 
-// function cityNameInput(e) {
-//   log.textContent = e.target.value;
-// }
+  const incButton = document.querySelector('#inc');
+  incButton.addEventListener('click', incrementButton);
+
+  const decButton = document.querySelector('#dec');
+  decButton.addEventListener('click', decreaseButton);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
