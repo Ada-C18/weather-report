@@ -8,17 +8,11 @@
     <title>Weather Report</title>
 </head>
 <body>
-    <form class="city" id="search-form">
-        <input
-        type="text"
-        placeholder="Enter city"
-        autofocus="on"
-        id="cityInput"
-        />
-        <input type="submit" />
-        <!-- <button id="submit">Get Weather</button> -->
-    </form>
-    <h2 id="city">Tom's River, N.J.</N></h2>
+    <div id="getWeather">
+        <input type="text" id="inputCity" placeholder="City Name"/>
+        <button id="submit">Get Weather</button>
+        <h2 id="city">Toms River</h2>
+    </div>
     <div id="temperatureInfo">
         <span id="increaseTemp">⬆️</span>
         <span id="temperatureValue" class="blue"> 58°f </span>
@@ -30,7 +24,18 @@
         <span id="ground" class="ground-contents">🌲🌲🍁🌲🌲</span>
     </div>
     <script src="src/index.js"></script>
-    <script src="./node_modules/axios/dist/axios.min.js"></script> 
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
+
+<!-- <form class="city" id="search-form">
+    <input
+    type="text"
+    placeholder="Enter city"
+    autofocus="on"
+    id="cityInput"
+    />
+    <input id="submit"type="submit" />
+    <button id="submit">Get Weather</button>
+</form> -->

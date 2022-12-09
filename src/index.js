@@ -1,23 +1,25 @@
-import axios from 'axios';
+// import axios from 'axios';
+// const axios = require('axios');
 
 ('use strict');
 
 const state = {
   city: 'Toms River',
+  lat: 39.9537359,
+  lon: -74.1979576,
   temp: 58,
 };
 
 const updateCity = () => {
-  const inputName = document.getElementById('cityInput').value;
-  const headerCityName = document.getElementById('city');
-  state.city = inputName;
-  headerCityName.textContent = state.city;
+  const inputName = document.getElementById('inputCity');
+  const cityName = document.getElementById('city');
+  state.city = inputName.value;
+  cityName.textContent = state.city;
 };
 
-const axios = require('axios');
 const getLatAndLong = () => {
   axios
-    .get('https://weather-report-proxy-server.herokuapp.com/location', {
+    .get('http://localhost:5000/location?', {
       params: {
         q: state.city,
       },
@@ -31,10 +33,11 @@ const getLatAndLong = () => {
       console.log('error, could not find location 😞', error.response);
     });
 };
-
+// http://localhost:5000/location?q=${state.city}`)
+// http://localhost:5000/weather?lat=${state.lat}&lon=${state.lon}
 const getWeather = () => {
   axios
-    .get('https://weather-report-proxy-server.herokuapp.com/weather', {
+    .get('http://localhost:5000/weather?', {
       params: {
         lat: state.lat,
         lon: state.lon,
@@ -43,14 +46,12 @@ const getWeather = () => {
     .then((response) => {
       const weather = response.data;
       state.temp = weather.current.temp;
+      totalCount.textContent = state.temp;
     })
     .catch((error) => {
       console.log('error, could not get weather for that city 😞', error);
     });
 };
-
-const incrementCount = document.getElementById('increaseTemp');
-const decrementCount = document.getElementById('decreaseTemp');
 
 const totalCount = document.getElementById('temperatureValue');
 
@@ -121,7 +122,7 @@ const registerEventHandlers = () => {
   changeColor();
   changeLandscape();
   updateCity();
-  const cityInput = document.getElementById('cityInput');
+  const cityInput = document.getElementById('inputCity');
   cityInput.addEventListener('input', updateCity);
 };
 
