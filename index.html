@@ -29,8 +29,17 @@
             <button id="current-temp-button">Current Temp</button>
         </section>
         <section id="wave-five">
-            <select id="sky-type">Sky Type</select>
-            <div id="display-sky">Display Sky</div>
+            <div id="sky-display"></div>
+            <label for="sky-select">Choose a sky:</label>
+
+            <select name="weather" id="sky-select">
+                <option value="">--Please choose a sky--</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+            
         </section>
         <section id="wave-six">
             <div id="rename-city-wave6">Rename City Wave 6</div>

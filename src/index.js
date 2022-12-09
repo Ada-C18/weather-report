@@ -41,6 +41,22 @@ const setLandscape = (temp) => {
   }
 };
 
+const setSky = () => {
+  const skyDisplay = document.querySelector('#sky-display');
+  const skySelect = document.getElementById('sky-select').value;
+  if (skySelect === 'sunny') {
+    skyDisplay.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skySelect === 'cloudy') {
+    skyDisplay.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skySelect === 'rainy') {
+    skyDisplay.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skySelect === 'snowy') {
+    skyDisplay.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+  console.log('hello there');
+  console.log(skySelect);
+};
+
 const increaseTemp = () => {
   const temp = document.querySelector('#current-temp');
   temp.textContent = parseInt(temp.textContent) + 1;
@@ -122,6 +138,9 @@ const registerEventHandlers = () => {
 
   const currentTempButton = document.querySelector('#current-temp-button');
   currentTempButton.addEventListener('click', currentTemp);
+
+  const setSkyDropDown = document.querySelector('#sky-select');
+  setSkyDropDown.addEventListener('change', setSky);
 };
 
 const onLoaded = () => {
