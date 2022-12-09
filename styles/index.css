@@ -8,18 +8,13 @@ body {
     justify-content: space-between;
 }
 
-/* #container {
-    display: grid;
-    grid-template: 150px 150px 150px/ 100%;
-} */
-
 #container {
     display: flex;
     justify-content: space-around;
 }
 
 #temperatureSection {
-    background-color: rgb(240, 35, 35);
+    background-color:white;
 }
 
 #skySection {
@@ -52,4 +47,24 @@ span {
 
 #footer {
     background-color: #10d45e;
+}
+
+.red {
+    color:red;
+}
+
+.orange {
+    color:orange;
+}
+
+.yellow {
+    color:yellow;
+}
+
+.green {
+    color:green;
+}
+
+.teal {
+    color:teal
 }
