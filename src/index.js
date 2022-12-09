@@ -6,12 +6,12 @@
 
 // ------------- Wave 2 ----------------------
 // 1. increase
-let state = {
+const state = {
   temp: 60,
+  city: 'Seattle',
 };
 
 const addDegree = (event) => {
-  // Crab Count Behavior
   state.temp += 1;
   console.log('state temp', state.temp);
 
@@ -79,7 +79,7 @@ const registerHandlers = (event) => {
   const tempButton = document.querySelector('#get-temp');
 
   // call getWeather when get-temp button is clicked
-  tempButton.addEventListener('click', getWeather);
+  tempButton.addEventListener('click', findLatitudeAndLongitude);
 };
 
 document.addEventListener('DOMContentLoaded', registerHandlers);
@@ -93,6 +93,7 @@ const updateCity = () => {
   let cityHeader = document.getElementById('city-name');
 
   cityHeader.textContent = `City of: ${cityName}`;
+  state.city = cityName;
 };
 
 // ------------- Wave 4 --------------------
@@ -110,24 +111,36 @@ const updateCity = () => {
 
 // const LOCATIONIQ_KEY = process.env['LOCATION_KEY'];
 // const axios = require('axios/dist/browser/axios.cjs');
-let axios;
-const findLatitudeAndLongitude = (query) => {
+const findLatitudeAndLongitude = () => {
   let latitude, longitude;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
         // key: LOCATION_KEY,
-        q: query,
+        q: state.city,
         format: 'json',
       },
     })
     .then((response) => {
+      console.log(response.data);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
       console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: { lat: latitude, lon: longitude },
+          // appid: WEATHER_KEY, // open weather API key
+        })
+        .then((response) => {
+          console.log('success in getWeather!', response.data);
+          return response.data;
+        })
+        .catch((error) => {
+          console.log('error in getWeather!');
+        });
     })
     .catch((error) => {
-      console.log('error in findLatitudeAndLongitude!');
+      console.log('error in findLatitudeAndLongitude!', error);
     });
 
   return {
@@ -139,20 +152,20 @@ const findLatitudeAndLongitude = (query) => {
 // 2. GET WEATHER WITH LAT AND LONG
 // WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
 
-const getWeather = (latitude, longitude) => {
-  axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: { lat: latitude, lon: longitude },
-      // appid: WEATHER_KEY, // open weather API key
-    })
-    .then((response) => {
-      console.log('success in getWeather!', response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.log('error in getWeather!');
-    });
-};
+// const getWeather = (latitude, longitude) => {
+//   axios
+//     .get('http://127.0.0.1:5000/weather', {
+//       params: { lat: latitude, lon: longitude },
+//       // appid: WEATHER_KEY, // open weather API key
+//     })
+//     .then((response) => {
+//       console.log('success in getWeather!', response.data);
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       console.log('error in getWeather!');
+//     });
+// };
 
 // **********To-Do**********
 
