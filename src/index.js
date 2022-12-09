@@ -1,4 +1,18 @@
 console.log('hello world');
+const cityNameLabel = document.getElementById('cityname');
+const cityNameInput = document.getElementById('cityname-input');
+const resetBtn = document.getElementById('reset-btn');
+
+cityNameInput.addEventListener('change', (event) => {
+  const value = event.target.value;
+  console.log('change:', value);
+  cityNameLabel.innerText = value;
+});
+
+resetBtn.addEventListener('click', () => {
+  cityNameInput.value = '';
+  cityNameLabel.innerText = 'City Name';
+});
 
 const findLocation = (query) => {
   axios
@@ -18,7 +32,7 @@ const findLocation = (query) => {
     });
 };
 if (document.readyState !== 'loading') {
-  findLocation('Seattle');
+  findLocation('BeiJing');
 } else {
   document.addEventListener('DOMContentLoaded', findLocation);
 }

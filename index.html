@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="firstheader">
-        <h1>Weather Report</h1><br><br>
-        <p class="headerp">for the lovely city of <span>&#10024;</span> Seattle <span>&#10024;</span></p>
+      <h1>Weather Report</h1>
+      <br /><br />
+      <p class="headerp">
+        for the lovely city of <span>&#10024;</span> Seattle
+        <span>&#10024;</span>
+      </p>
     </section>
     <section class="secondpart">
-        <div id="temperatureBox">
-            <div id="temperaturecontral">
-                <h3 class="topic">Temperature</h3>
-                <button id="up"><span>&#9195;</span></button>
-                temperature
-                <button id="down"><span>&#9196;</span></button>
-            </div>
-            <button id="gettemperature">Get Realtime Temperature</button>
+      <div id="temperatureBox">
+        <div id="temperaturecontral">
+          <h3 class="topic">Temperature</h3>
+          <button id="up"><span>&#9195;</span></button>
+          temperature
+          <button id="down"><span>&#9196;</span></button>
         </div>
-        <div class="skyBox">
-            <h3 class="topic">Sky</h3>
-            <nav>
-                <label for="touch"><span>weather</span></label>               
-                <ul class="slide">
-                    <li><a href="#">Cloudy</a></li> 
-                    <li><a href="#">Sunny</a></li> 
-                    <li><a href="#">Snowy</a></li>
-                    <li><a href="#">Rainy</a></li>
-                </ul>
-            </nav> 
-        </div>
-        <div class="cityname">
-            <h3 class="topic">City Name</h3>
-            <input type="text" id="cityname" placeholder="City Name" style="height:20%; width:50%;">
-            <button style="height:20%; width:30%">Reset</button>
-        </div>
+        <button id="gettemperature">Get Realtime Temperature</button>
+      </div>
+      <div class="skyBox">
+        <h3 class="topic">Sky</h3>
+        <nav>
+          <label for="touch"><span>weather</span></label>
+          <ul class="slide">
+            <li><a href="#">Cloudy</a></li>
+            <li><a href="#">Sunny</a></li>
+            <li><a href="#">Snowy</a></li>
+            <li><a href="#">Rainy</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="cityname">
+        <h3 id="cityname" class="topic">City Name</h3>
+        <input
+          type="text"
+          id="cityname-input"
+          placeholder="City Name"
+          style="height: 20%; width: 50%"
+        />
+        <button id="reset-btn" style="height: 20%; width: 30%">Reset</button>
+      </div>
     </section>
     <section>
-        <h2>Weather Garden</h2>
-        <div><img>put picture here</div>
+      <h2>Weather Garden</h2>
+      <div><img />put picture here</div>
     </section>
 
-    <script src="src/index.js"></script>
-    <script src=“./node_modules/axios/dist/axios.min.js”></script>
-</body>
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
