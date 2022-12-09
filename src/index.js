@@ -142,12 +142,8 @@ const findLatitudeAndLongitude = (query) => {
 const getWeather = (latitude, longitude) => {
   axios
     .get('http://127.0.0.1:5000/weather', {
-      params: {
-        // find info in doc
-        lat,
-        lon: (latitude, longitude),
-        // appid: WEATHER_KEY, // open weather API key
-      },
+      params: { lat: latitude, lon: longitude },
+      // appid: WEATHER_KEY, // open weather API key
     })
     .then((response) => {
       console.log('success in getWeather!', response.data);

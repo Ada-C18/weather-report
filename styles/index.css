@@ -1,10 +1,10 @@
 * {
-    border-color: red;
+    border-color: black;
 }
 
 body {
     font-family: sans-serif;
-    background-color: lightblue;
+    background-color: dodgerblue;
 }
 
 #white-boxes {
@@ -14,3 +14,7 @@ body {
 #weather-garden {
     background-color: lightgray;
 }
+.grid-container {
+    display: grid;
+    grid: 150px / auto auto auto;
+  }
