@@ -5,7 +5,7 @@ let state = {
 
 // let state = 60;
 
-// increase temoerature 
+// increase temperature 
 const updateTemperature = state => {
 // const increaseTemperature = () => {
   const temperatureContainer = document.getElementById("startingTemp");
