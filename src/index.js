@@ -5,6 +5,7 @@ const API_CITY = 'http://127.0.0.1:5000/location';
 const API_WEATHER = 'http://127.0.0.1:5000/weather';
 
 let temperature = 72;
+let city = 'Seattle';
 
 // Increase temperature
 const increaseTemp = () => {
@@ -64,6 +65,7 @@ const updateCityName = (event) => {
   const cityName = document.querySelector('#city');
   cityName.textContent = event.target.value;
   console.log(cityName);
+  city = cityName;
   return cityName;
 };
 
@@ -72,9 +74,9 @@ const updateCityNameInput = () => {
   inputCity.addEventListener('input', updateCityName);
 };
 
-const city = document.querySelector('#city').textContent;
-
-const getTempF = (city) => {
+const getTempF = () => {
+  // const city = document.querySelector('#city').textContent;
+  console.log('city inside', city);
   axios
     .get(API_CITY, { params: { q: city, format: 'json' } })
     .then((result) => {
