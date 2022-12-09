@@ -1,24 +1,36 @@
-const DEFAULT_TEMP = 72;
-const tempState = {
-  displayedTemp: null,
-  increaseTemp: null,
-  decreaseTemp: null,
+import axios from "axios";
+
+const state = {
+  temperature: 72,
 }
-
-
-addEventListener()
 
 const loadControls = () => {
-  tempState.displayedTemp = document.getElementById("displayedTemp");
-  tempState.increaseTemp = document.getElementById("increaseTemp");
-  tempState.decreaseTemp = document.getElementById("decreaseTemp");
-}
+  tempChange();
 
+  const increasedTempButton = document.getElementById("increaseTemp");
+  increasedTempButton.addEventListener("click", increasedTemp);
+
+  const decreasedTempButton = document.getElementById("decreaseTemp");
+  decreasedTempButton.addEventListener("click", decreasedTemp);
+
+  console.log("loaded successfully");
+}
 
 const tempChange() => {
-  tempState.decreaseTemp.addEventListener("click", (event) => {
-    const newTemp = tempState.displayedTemp += 1;
-    tempState.displayedTemp = newTemp;
-  });
+  const temp = document.getElementById("displayedTemp");
+  temp.textContent = String(state.temp)
+  
   console.log("clicked");
 }
+
+const increasedTemp = () => {
+  state.temperature += 1;
+  tempChange();
+}
+
+const decreasedTemp = () => {
+  state.temperature -= 1;
+  tempChange();
+}
+
+document.addEventListener("DOMContentLoaded", loadControls);

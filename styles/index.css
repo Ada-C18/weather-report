@@ -9,7 +9,17 @@
 
 
 /* id selectors */
+#displayedTemp {
+    background-color: var(--primaryColor);
+}
 
+#increaseTemp {
+    background-color: lightcoral;
+}
+
+#decreaseTemp {
+    background-color: lightblue;
+}
 
 
 /* class selectors */
