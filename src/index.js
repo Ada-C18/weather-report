@@ -12,6 +12,13 @@ const skyDictionary = {
   Snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
 };
 
+const landscapeDictionary = {
+  Summer: '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂',
+  Spring: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
+  Fall: '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃',
+  Winter: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'
+}
+
 const increaseTemp = () => {
   state.currentTemp += 1;
 
@@ -36,18 +43,20 @@ const temperatureColorCheck = (temp) => {
 
   if (temp >= 80) {
     tempValue.className = 'red';
-    landscapePicture.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    landscapePicture.textContent = landscapeDictionary['Summer'];
   } else if (temp >= 70) {
     tempValue.className = 'orange';
-    landscapePicture.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    landscapePicture.textContent = landscapeDictionary['Spring'];
   } else if (temp >= 60) {
     tempValue.className = 'yellow';
-    landscapePicture.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    landscapePicture.textContent = landscapeDictionary['Fall'];
   } else if (temp >= 50) {
     tempValue.className = 'green';
-    landscapePicture.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    landscapePicture.textContent = landscapeDictionary['Winter'];
   } else {
     tempValue.className = 'teal';
+    landscapePicture.textContent = landscapeDictionary['Winter'];
+    // we have the snowy weather pic twice because other getLiveTemp won't update the pic
   }
 };
 const updateSky = () => {
@@ -61,6 +70,14 @@ const updateCity = () => {
   state.city = inputCity;
   cityName.textContent = state.city;
 };
+
+const resetCityName = () => {
+  const cityName = document.getElementById('city-name')
+  const inputCity = document.getElementById('input-city')
+  state.city = 'Seattle'
+  cityName.textContent = state.city
+  inputCity.value = state.city
+}
 
 const getLiveTemp = () => {
   const tempValue = document.getElementById('tempValue');
@@ -104,7 +121,7 @@ const getWeather = (lat, lon) => {
     .then((response) => {
       temp = response.data.main.temp;
       convertedTemp = ((temp - 273.15) * 9) / 5 + 32;
-      return convertedTemp;
+      return Math.round(convertedTemp);
     });
 };
 
@@ -125,6 +142,9 @@ const registerEventHandlers = () => {
 
   const skySelected = document.getElementById('sky');
   skySelected.addEventListener('change', updateSky);
+
+  const resetCityNameButton = document.getElementById('reset-city-name');
+  resetCityNameButton.addEventListener('click', resetCityName)
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
