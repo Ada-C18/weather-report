@@ -42,7 +42,7 @@
         <!-- City Name Box-->
         <section class="box">
             <header class="boxHeader"><h4>City Name:</h4></header>
-            <input type="text" id="cityName" value="" oninput="changeCityName()">
+            <input type="text" id="cityName" >
             <button type="button" class="actionButton" id="realtimeButton">Get Realtime Temp</button>
             <button type="button" class="actionButton" id="resetButton" onclick="resetPage()">Reset</button>
         </section>
@@ -55,7 +55,8 @@
 
 
     <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script defer src="src/index.js"></script>
+    <script src="src/index.js"></script>
+    <!-- <script defer src="src/index.js"></script> -->
     <link rel="stylesheet" href="styles/index.css">
 </body>
 </html>
