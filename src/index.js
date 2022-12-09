@@ -49,21 +49,34 @@ const temperatureChange = (temperature) => {
 });
 
 // wave 3
-const updateCityName = () => {
-    const cityElement = document.getElementById('chosen-city');
-    const cityName = document.querySelector('#input-city').value;
-    cityElement.innerText = cityName;
 
-    setCity(cityName);
-};
+const seattleAlways = () => {
+    document.getElementById("input-city").value = "Seattle";
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const enterCityButton = document.getElementById('#enter-city-button');
 
-    enterCityButton.addEventListener('click', () => {
-    updateCityName();
-    });
-});
+const newCity = document.getElementById("enterCityButton");
+newCity.addEventListener("click", myFunction);
+
+// const cityName = document.querySelector('input-city').value;
+
+function myFunction(){
+    document.getElementById("lovelyName").innerHTML = "hello";
+} 
+
+    
+    // cityElement.innerText = cityName;
+
+    // setCity(cityName);
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const enterCityButton = document.getElementById('#enter-city-button');
+
+//     enterCityButton.addEventListener('click', () => {
+//     updateCityName();
+//     });
+// });
 
 
 // wave 4
