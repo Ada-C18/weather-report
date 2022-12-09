@@ -14,21 +14,33 @@ const plusClickCount = () => {
   const plusContainer = document.getElementById('Temperature');
   state.clickCount += 1;
   plusContainer.textContent = state.clickCount;
+  changeColor();
 };
 
 const minusClickCount = () => {
   const minusContainer = document.getElementById('Temperature');
   state.clickCount -= 1;
   minusContainer.textContent = state.clickCount;
+  changeColor();
 };
 
 //making range different
+const changeColor = () => {
+  const tempColor = document.querySelector('#Temperature');
+  if (state.clickCount < 49) {
+    tempColor.classList.add('teal');
+  } else if (state.clickCount >= 50 && state.clickCount < 59) {
+    tempColor.classList.add('green');
+  } else if (state.clickCount >= 60 && state.clickCount < 69) {
+    tempColor.classList.add('yellow');
+  } else if (state.clickCount >= 70 && state.clickCount < 79) {
+    tempColor.classList.add('orange');
+  } else if (state.clickCount >= 80) {
+    tempColor.classList.add('red');
+  }
+};
 
 //   const parrot = document.querySelector('#parrot');
-//   if (state.clickCount >= 10) {
-//     parrot.classList.add('large');
-//   }
-// };
 
 const registerEventHandlers = () => {
   const hotterButton = document.getElementById('plusButton');
