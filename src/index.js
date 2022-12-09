@@ -1,5 +1,5 @@
 "use strict";
-import {axios} from 'axios'
+// import {axios} from 'axios'
 
 const state = {
   tempValue: 80,
@@ -26,31 +26,31 @@ const updateBackground = () => {
   const backgroundImage = document.getElementById('bg').style.backgroundImage;
 
   if (state.tempValue >= 100){
-    backgroundImage = 'url(../../assets/sun-surface.jpg)'
+    backgroundImage = 'url(././assets/sun-surface.jpg)'
   }
   else if (state.tempValue >= 90){
-    backgroundImage = 'url(../../assets/desert.jpg)'
+    backgroundImage = 'url(././assets/desert.jpg)'
   }
   else if (state.tempValue >= 80){
-    backgroundImage = 'url(../../assets/summer2.jpg)'
+    backgroundImage = 'url(././assets/summer2.jpg)'
   }
   else if (state.tempValue >= 70){
-    backgroundImage = 'url(../../assets/summer.jpg)'
+    backgroundImage = 'url(././assets/summer.jpg)'
   }
   else if (state.tempValue >= 60){
-    backgroundImage = 'url(../../assets/spring2.webp)'
+    backgroundImage = 'url(././assets/spring2.webp)'
   }
   else if (state.tempValue >= 50){
-    backgroundImage = 'url(../../assets/spring.jpg)'
+    backgroundImage = 'url(././assets/spring.jpg)'
   }
   else if (state.tempValue >= 40){
-    backgroundImage = 'url(../../assets/autumn.jpg)'
+    backgroundImage = 'url(././assets/autumn.jpg)'
   }
   else if (state.tempValue >= 20){
-    backgroundImage = 'url(../../assets/winter-lanscape.webp)'
+    backgroundImage = 'url(././assets/winter-lanscape.webp)'
   }
   else {
-    backgroundImage = 'url(../../assets/deepfreeze.jpg)'
+    backgroundImage = 'url(././assets/deepfreeze.jpg)'
   }
 };
 
@@ -72,18 +72,18 @@ const updateSky = () => {
   }
 };
 
-const getLatLon = () => {
-  axios.get('https://localhost:5000/location', parameters = {'q': state.city})
-      .then((response) => {
-        state.lat = response.data[0].lat;
-        state.lon = response.data[0].lon;
-      })
-      .catch((error) => {
-        console.log('error getting lat and lon');
-      });
-};
+// const getLatLon = () => {
+//   axios.get('https://localhost:5000/location', parameters = {'q': state.city})
+//       .then((response) => {
+//         state.lat = response.data[0].lat;
+//         state.lon = response.data[0].lon;
+//       })
+//       .catch((error) => {
+//         console.log('error getting lat and lon');
+//       });
+// };
 
-getLatLon();
+// getLatLon();
 
 const registerEventHandlers = () => {
 
