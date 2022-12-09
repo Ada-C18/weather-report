@@ -11,7 +11,6 @@ const updateCityTemp = async (city) => {
   });
   const lat = cityLatLon.data[0].lat;
   const lon = cityLatLon.data[0].lon;
-  console.log({ lat, lon });
 
   const cityWeather = await axios.get('http://127.0.0.1:5000/weather', {
     params: {
@@ -21,16 +20,15 @@ const updateCityTemp = async (city) => {
   });
 
   const tempInKelvin = await cityWeather.data.main.temp;
-  console.log(tempInKelvin);
 
   const kelvinToFahrenheit = (tempInKelvin) => {
     let tempInFahrenheit = (tempInKelvin - 273.15) * (9 / 5) + 32;
     return Math.round(tempInFahrenheit);
   };
   const result = kelvinToFahrenheit(tempInKelvin);
-  console.log(result);
+
   state.temp = result;
-  return result;
+  formatTempAndLandscape();
 };
 
 const formatTempAndLandscape = () => {
@@ -89,7 +87,6 @@ const changeCity = () => {
 
 const getCurrentTempButton = () => {
   const newCityTemp = updateCityTemp(state.city);
-  formatTempAndLandscape();
 };
 
 const registerEventHandlers = () => {
