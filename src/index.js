@@ -10,23 +10,23 @@ const loadControls = () => {
   state.currentTemp = document.getElementById('current-temp');
 };
 
-const setTempColor = () => {
-  const Fahrenheit = parseInt(state.currentTemp.textContent);
-  if (Fahrenheit >= 80) {
+const setTempColor = (temp) => {
+  // const Fahrenheit = parseInt(state.currentTemp.textContent);
+  if (temp >= 80) {
     state.currentTemp.className = 'eightyandabove';
-  } else if (Fahrenheit >= 70 && Fahrenheit < 80) {
+  } else if (temp >= 70 && temp < 80) {
     state.currentTemp.className = 'seventies';
-  } else if (Fahrenheit >= 60 && Fahrenheit < 70) {
+  } else if (temp >= 60 && temp < 70) {
     state.currentTemp.className = 'sixties';
-  } else if (Fahrenheit >= 50 && Fahrenheit < 60) {
+  } else if (temp >= 50 && temp < 60) {
     state.currentTemp.className = 'fifties';
   } else {
     state.currentTemp.className = 'fourtiesandbelow';
   }
 };
 
-const setLandscape = () => {
-  const temp = parseInt(state.currentTemp.textContent);
+const setLandscape = (temp) => {
+  //const temp = parseInt(state.currentTemp.textContent);
   const weatherGardenDisplay = document.querySelector(
     '#display-weather-garden'
   );
@@ -61,13 +61,14 @@ const renameCity = () => {
   const cityName = document.querySelector('#city-name');
   cityName.textContent = newCity;
   state.cityName = newCity;
-  getLatLon(state.cityName);
-  setTempColor();
-  setLandscape();
+  getLatLon(state.cityName).then((temperature) => {
+    setTempColor(temperature);
+    setLandscape(temperature);
+  });
 };
 
 const getLatLon = (placeName) => {
-  axios
+  return axios
     .get('http://127.0.0.1:5000/location', {
       params: {
         q: placeName,
@@ -76,7 +77,7 @@ const getLatLon = (placeName) => {
     .then((response) => {
       const lat = response.data[0].lat;
       const lon = response.data[0].lon;
-      getWeather(lat, lon);
+      return getWeather(lat, lon);
     })
     .catch((error) => {
       console.log("Error! Can't find longitute and latitude");
@@ -95,6 +96,7 @@ const getWeather = (lat, lon) => {
       const tempKelvin = response.data.main.temp;
       const tempFahr = Math.floor(1.8 * (tempKelvin - 273) + 32);
       state.currentTemp.textContent = tempFahr;
+      return tempFahr;
     })
     .catch((error) => {
       console.log("Error! Can't find temperature");
@@ -125,8 +127,8 @@ const registerEventHandlers = () => {
 const onLoaded = () => {
   loadControls();
   getLatLon(state.cityName);
-  setTempColor();
-  setLandscape();
+  setTempColor(parseInt(state.currentTemp.textContent));
+  setLandscape(parseInt(state.currentTemp.textContent));
 };
 
 onLoaded();
