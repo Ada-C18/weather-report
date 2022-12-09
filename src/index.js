@@ -104,9 +104,22 @@ const tempGroundColorChange = () => {
   displayTemp.textContent = String(state.temp);
 };
 
+const resetName = () => {
+  let cityReset = document.getElementById("city-name-input");
+  cityReset.value = "Seattle";
+  changeName();
+
+  // state.city = 'Seattle';
+  // let name = document.getElementById('city-name-display');
+  // name.textContent = state.city;
+  // let newName = document.getElementById('city-name-input');
+  // newName.value = state.city;
+};
+
 const changeName = () => {
   let name = document.getElementById('city-name-display');
-  let newName = document.getElementById('city-name-input');
+  let newName = document.getElementById('city-name-input'); //newName = inputName
+  
   state.city = newName.value;
   name.textContent = state.city;
 };
@@ -153,6 +166,9 @@ const registerEvents = () => {
   changeName();
   const input = document.getElementById('city-name-input');
   input.addEventListener('input', changeName);
+
+  const reset = document.getElementById('reset');
+  reset.addEventListener('click', resetName);
 
   const skyElement = document.getElementById('sky-choice');
   skyElement.addEventListener('change', changeSky);
