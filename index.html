@@ -9,9 +9,10 @@
 </head>
 <body>
     <header>
-        <div id="sky">Sky</div>
+        <!-- <div id="sky">Sky</div> -->
+        <a id = "sky">☀️☀️☀️☀️☀️☀️☁️☀️☀️☀️</a>
     <section>
-        <select>
+        <select id = "skyChoice">
             <option id="sunny"> Sunny</option>
             <option id="cloudy"> Cloudy</option>
             <option id="rainy"> Rainy</option>
@@ -20,24 +21,26 @@
     </section>
     </header>
     <main>
-        <span id="cityNameDisplay">Albuquerque</span>
+        <span id="cityNameDisplay">City</span>
         <h2 id="weatherReportHeading">Weather Report</h2>
         <section>
             <div>
                 <button id="tempPlus">+</button>
-                <span class="" id="tempDisplay">0</span>
+                <span class="" id="tempDisplay"></span>
                 <button id="tempMinus">-</button>
             </div>
         </section>
         <section>
             <button id="currentTempButton">current temp</button>
-            <input type="text" id="cityNameInput" value="Albuquerque">
+            <input type="text" id="cityNameInput" value="City">
         </section>
+        <!-- <button id="reset-temp">current temp</button>
+        <input value="rename"> -->
         <button id="resetCityButton">reset</button>
     </main>
     <footer>
         <section>
-            <img class="" alt="snow-covered landscape with evergreen forest" id="landscape"
+            <img alt="snow-covered landscape with evergreen forest" id="landscape"
             src="/images/frozen_forest.jpeg"/>
         </section>
     </footer>

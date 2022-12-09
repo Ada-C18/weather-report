@@ -66,6 +66,22 @@ const formatTempAndLandscape = () => {
   temperature.textContent = String(state.temp);
 };
 
+const formatSky = () => {
+  const skySelection = document.getElementById('skyChoice').value;
+  const skyView = document.getElementById('sky');
+  let sky = '☀️☀️☀️☀️☀️☀️☁️☀️☀️☀️';
+  if (skySelection === 'Sunny') {
+    sky = '☀️☀️☀️☀️☀️☀️☁️☀️☀️☀️';
+  } else if (skySelection === 'Cloudy') {
+    sky = '☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️';
+  } else if (skySelection === 'Rainy') {
+    sky = '🌧🌧🌧🌧🌧🌧🌧🌧🌧🌧';
+  } else if (skySelection === 'Snowy') {
+    sky = '❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️';
+  }
+  skyView.textContent = sky;
+};
+
 const addTemp = () => {
   state.temp += 1;
   formatTempAndLandscape();
@@ -104,6 +120,10 @@ const registerEventHandlers = () => {
 
   const getCurrentTemp = document.getElementById('currentTempButton');
   getCurrentTemp.addEventListener('click', getCurrentTempButton);
+
+  // formatSky();
+  const updateSky = document.getElementById('skyChoice');
+  updateSky.addEventListener('change', formatSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
