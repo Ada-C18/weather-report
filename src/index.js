@@ -16,7 +16,7 @@ const loadControls = () => {
   console.log("loaded successfully");
 }
 
-const tempChange() => {
+const tempChange = () => {
   const temp = document.getElementById("displayedTemp");
   temp.textContent = String(state.temp)
   
