@@ -4,10 +4,8 @@
 const state = {
     temperature: 72,
     cityName: 'Baltimore',
-    lat: 0,
-    lon: 0,
-    // lat: 39.299236,
-    // lon: -76.609383,
+    lat: 39.299236,
+    lon: -76.609383,
 };
 
 
@@ -36,9 +34,12 @@ const getWeather = () =>{
         },
     })
     .then((response) => {
-        const weather =response.data;
-        state.temperature= weather.temperature
-        // state.temperature = Math.round(convertTemp(weather.current.temperature));
+        const weather =response.data.main.temp;
+        console.log(weather)
+        state.temperature= weather
+        state.temperature = Math.round(convertTemp(weather));
+        temperature.textContent = `${state.temperature}°`;
+        
     })
     .catch((error) => {
         console.log('Erorr:', error);
@@ -95,7 +96,7 @@ const updateCity = () => {
 }
 
 const convertTemp = (temperature) => {
-    temp = (temperature - 273.15) * (9/5)+ 32;
+    const temp = (temperature - 273.15) * (9/5)+ 32;
     return temp
 };
 
