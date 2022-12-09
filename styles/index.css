@@ -1,0 +1,157 @@
+body {
+    display: block;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    position: relative;
+    font-size: 30px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+main {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    font-size: 18px;
+    padding: 20px;
+    /* border: 5px solid black; */
+}
+
+#current-city{
+    font-size: 16px;
+    font-style: italic;
+}
+
+section {
+    display: flex;
+    padding: 20px 20px;
+    border: 1.5px solid black;
+    /* border-bottom: 0.5px solid black; */
+}
+
+.content-title {
+    margin: 0;
+    vertical-align: top;
+    font-size: 24px;
+}
+
+.content {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#temp-box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    columns: 2;
+}
+
+#temp-div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#temp-up, #temp-down{
+    color: black;
+    width: 50%;
+}
+#temp-current{
+    font-size: 4em;
+    font-weight: 800;
+    padding: 0 10px;
+    -webkit-text-stroke: 2px black;
+}
+#temp-get-button{
+    grid-column: 2;
+}
+
+
+#sky-box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+#sky-selector{
+    font-size:1 rem;
+    vertical-align: middle;
+    height: 1 rem;
+    width: 100%;
+}
+
+
+#city-box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.city-div {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#city-input{
+    width: auto;
+}
+
+#city-reset{
+    width: auto;
+}
+
+
+#garden-box{
+    grid-column: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 2em;
+}
+#sky{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2rem;
+}
+#landscape{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2rem;
+}
+
+
+/* Classes for temp */
+.red{
+    color: red
+}
+
+.orange{
+    color:orange
+}
+
+.yellow{
+    color:yellow
+}
+
+.green{
+    color:green
+}
+
+.teal{
+    color:teal
+}
