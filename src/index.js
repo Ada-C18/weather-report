@@ -3,15 +3,17 @@ const urlWeather = 'http://127.0.0.1:5000/weather'
 
 
 const windowLoad = () => {
+    const tempUp = document.getElementById('temp-up');
+    const tempDown = document.getElementById('temp-down');
+    const getRealTemp = document.getElementById('realtime');
+    const resetButton = document.getElementById('reset-button')
+
     let temperature = document.getElementById('display-temp');
     let cityName = document.getElementById('city-name');
     let defaultCity = 'Seattle'
-    const tempUp = document.getElementById('temp-up');
-    const tempDown = document.getElementById('temp-down');
     let selectSky = document.getElementById('sky');
     let sky = document.getElementById('sky-emoji');
     let inputCity = document.getElementById('input-city');
-    const getRealTemp = document.getElementById('realtime');
     
     cityName.innerHTML = defaultCity;
 
@@ -49,7 +51,6 @@ const windowLoad = () => {
         }
     };
       
-    const resetButton = document.getElementById('reset-button')
     resetButton.addEventListener('click', () => {
         cityName.innerHTML = defaultCity;
     });
