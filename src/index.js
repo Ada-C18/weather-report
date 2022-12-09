@@ -51,6 +51,16 @@ function changeLandscape() {
 }
 
 function changeCityName() {
-  var x = document.getElementById('cityName').value;
-  document.getElementById('currentCity').innerHTML = x;
+  document.getElementById('currentCity').innerHTML =
+    document.getElementById('cityName').value; //current city name = cityname being typed in.
+}
+
+function changeSky() {
+  document.getElementById('skyImage').innerHTML =
+    document.getElementById('skyMenu').value;
+}
+
+function resetPage() {
+  document.getElementById('currentCity').innerHTML = 'Narnia';
+  document.getElementById('cityName').value = '';
 }

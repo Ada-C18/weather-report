@@ -25,11 +25,11 @@
                 </section>
                 <section class="sky_section">
                     <header class="boxHeader"><h4>Sky</h4></header>
-                    <select id="sky_menu">
-                        <option value="sunny">Snowy</option>
-                        <option value="cloudy">Cloudy</option>
-                        <option value="rainy">Rainy</option>
-                        <option value="snowy">Sunny</option>
+                    <select id="skyMenu" onchange="changeSky()">
+                        <option value="🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨">Snowy</option>
+                        <option value="☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️">Cloudy</option>
+                        <option value="🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧">Rainy</option>
+                        <option value="☁️ ☁️ ☁️ ☀️ ☁️ ☁️">Sunny</option>
                     </select>
                 </section>
             </section>
@@ -44,7 +44,7 @@
             <header class="boxHeader"><h4>City Name:</h4></header>
             <input type="text" id="cityName" value="" oninput="changeCityName()">
             <button type="button" class="actionButton" id="realtimeButton">Get Realtime Temp</button>
-            <button type="button" class="actionButton" id="resetButton">Reset</button>
+            <button type="button" class="actionButton" id="resetButton" onclick="resetPage()">Reset</button>
         </section>
         <!--Landscape Image Box-->
         <section class="box landscapeBox" id="landscapeBox">
