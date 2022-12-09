@@ -11,16 +11,17 @@ body {
 }
 
 .header_header {
-  text-align: center;
   background-color: rgb(255, 140, 0);
-
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
-
   font-size: 2em;
   font-weight: bold;
+  text-align: center;
+  align-self: center;
+  padding-bottom: 26px;
+  border-radius: 14px;
 }
 
 .temperature_section {
@@ -63,18 +64,66 @@ body {
   grid-row-end: 4;
 }
 
+#cityNameReset {
+  background-color: rgb(255, 183, 0);
+  color: rgb(146, 61, 0);
+  margin-top: 15px;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 14px;
+}
+
+.garden_section {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  border-radius: 26px;
+  padding: 2rem;
+  background-color: rgb(148, 240, 188);
+  color: seagreen;
+  text-align: center;
+  align-self: center;
+}
+
 .red {
   color: red;
 }
+
 .orange {
   color: orange;
 }
+
 .yellow {
-  color: yellow;
+  color: gold;
 }
+
+.yellow-green {
+  color: yellowgreen;
+}
+
 .green {
   color: green;
 }
+
 .teal {
   color: teal;
+}
+
+.cloudy {
+  background-color: lightgrey;
+}
+
+.sunny {
+  background-color: rgb(221, 255, 255);
+}
+
+.rainy {
+  background-color: lightblue;
+}
+
+.snowy {
+  background-color: lightsteelblue;
 }
