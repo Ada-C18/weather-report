@@ -34,19 +34,18 @@ const setTempNColor = () => {
 
 const tempColor = () => {
   const tempCurrent = document.getElementById('temp-current');
-  const numericTemp = parseInt(tempCurrent.innerHTML);
   let color;
   switch (true) {
-    case numericTemp >= 80:
+    case currentTemp.currTemp >= 80:
       color = 'red';
       break;
-    case numericTemp >= 70:
+    case currentTemp.currTemp >= 70:
       color = 'orange';
       break;
-    case numericTemp >= 60:
+    case currentTemp.currTemp >= 60:
       color = 'yellow';
       break;
-    case numericTemp >= 50:
+    case currentTemp.currTemp >= 50:
       color = 'green';
       break;
     default:
@@ -63,17 +62,15 @@ const tempColor = () => {
 
 const landTitle = () => {
   const landStr = document.getElementById('landscape');
-  const tempCurrent = document.getElementById('temp-current');
-  const numericTemp = parseInt(tempCurrent.innerHTML);
   let text;
   switch (true) {
-    case numericTemp >= 80:
+    case currentTemp.currTemp >= 80:
       text = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
       break;
-    case numericTemp >= 70:
+    case currentTemp.currTemp >= 70:
       text = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
       break;
-    case numericTemp >= 60:
+    case currentTemp.currTemp >= 60:
       text = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
       break;
     default:
@@ -84,8 +81,7 @@ const landTitle = () => {
 };
 
 // WAVE 3
-const originalCity = { target: { value: 'Seattle' } };
-
+const originalCity = "Seattle";
 let currentCity = 'Seattle';
 
 const changeCityText = (e) => {
@@ -96,7 +92,6 @@ const changeCityText = (e) => {
 };
 
 const changeTemptoCurrCity = () => {
-  // console.log(e);
   findLatitudeAndLongitude(currentCity)
     .then((response) => (currentTemp.currTemp = response))
     .then((response) => setTempNColor())
@@ -178,7 +173,7 @@ const changeSky = () => {
 
 // WAVE 6
 const resetCity = () => {
-  changeCityText(originalCity);
+  changeCityText({target:{value:originalCity}});
 };
 
 // EVENT HANDLERS
@@ -203,8 +198,7 @@ const registerEventHandlers = () => {
   resetCityButton.addEventListener('click', resetCity);
 
   resetCity();
-  // setTempNColor();
-  changeTemptoCurrCity(originalCity.target.value);
+  changeTemptoCurrCity(originalCity);
   changeSky();
 };
 
