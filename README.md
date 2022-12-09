@@ -9,6 +9,8 @@
     - [x]  set up dropdown [select](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element in HTML file
     - [ ]  connect dropdown values to update sky emojis
 - [ ]  Wave 6 - Puja
+-[] add CSS including grid and delete extra comments-Puja
+-[] Fix anything that is not working and also fix wave 4 calling API functions-Puja
 
 
 ## Pair Plan of Action
