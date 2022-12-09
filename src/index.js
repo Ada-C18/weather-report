@@ -99,7 +99,8 @@ const getWeather = (lat, lon) => {
     })
     .then((locationData) => {
       console.log(locationData);
-      let newTemp = locationData.data.main.temp;
+      let kelvinTemp = locationData.data.main.temp;
+      let newTemp = Math.round((kelvinTemp - 273.15) * 1.8 + 32);
       updateTemp(newTemp);
       console.log(newTemp);
     });
