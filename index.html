@@ -9,10 +9,10 @@
 </head>
 <body>
     <header id="weather-greet">
-        <h1 class="headerFont">Weather Report</h1>
+        <h1 class="header-font">Weather Report</h1>
         <span>
             The place for your
-                <span id="header-city-name" class="headerFont"> Los Angeles </span>
+            <span id="header-city-name" class="header-font"> Los Angeles </span>
             Weather!
         </span>
     
@@ -20,46 +20,41 @@
 
     <main>
         <section class="container">
-            <div>
-                <div id="temperature">
-                <section class="innerSection" id="temp-section">
-                <h3 class="headerFont">Temperature</h3>
-                <div class="tempContent">
-                    <button class="button1">ᐱ</button>
-                    <br>
-                    <button class="button2">ᐯ</button>
-                    <br>
-                </div>
-            </section>
+                <section class="inner-section" id="temp-section">
+                    <h3 class="header-font">Temperature</h3>
+                <span><button class="button" id="real-time">Real Time Temp</button></span>
+            <div class="temp-content">
+                <span><button class="button1" id='inc-temp'>ᐱ</button></span>
+                <span id="temp-number"> 76 f</span>
+                <span><button class="button2" id='dec-temp'>ᐯ</button></span>
             </div>
-            <section class="innerSection" id="sky-section">
-                <h3 class="headerFont">Sky</h3>
-                <div class="tempContent">
-
-                </div>
             </section>
-            <section class="innerSection" id="city-section">
-                <h3 class="headerFont">City</h3>
-                <div class="tempContent">
-
-                </div>
-            </section>
-        </div>
-
+                <section class="inner-section" id="sky-section">
+                    <h3 class="header-font">Sky</h3>
+                    <div class="sky-content">
+                    </div>
+                </section>
+                <section class="inner-section" id="city-section">
+                    <h3 class="header-font">City</h3>
+                    <div class="city-section">
+                    </div>
+                </section>
         </section>
     </main>
     <footer>
         <section>
             <section class="title-garden" id=titleGarden>
-                <h1 class="headerFont">Weather Garden</h1>
+                <h1 class="header-font">Weather Garden</h1>
             </section>
             <section class="garden-change"id="cute-garden">
-                <p>"wjwwjwj</p>
+                <div id=gardenia>"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
+                </div>
+
             </section>
         </section>
     </footer>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="/src/index.js"></script>
 </body>
 
 </html>

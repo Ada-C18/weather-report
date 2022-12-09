@@ -1,5 +1,5 @@
 body {
-    background: rgb(5, 108, 187);
+    background: rgb(247, 249, 250);
 }
 
 #weather-greet {
@@ -97,7 +97,7 @@ footer
     
 }
 
-span{
+/*span{
     color: rgb(6, 6, 6);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
