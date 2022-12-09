@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 let total_element = document.getElementById('Total');
 
 function Add () {
@@ -14,22 +16,6 @@ function Subtract () {
   changeLandscape(total_value);
 }
 
-document.getElementById('Add').addEventListener('click', Add);
-
-document.getElementById('Subtract').addEventListener('click', Subtract);
-
-window.addEventListener("load", loadpage);
-function cargaPagina() {
-    var btn = document.getElementById("button1").addEventListener("click", changevalues);
-}
-
-function changevalues() {
-    var inputName = document.getElementById("name");
-    inputName.value = "Search City";
-}
-
-var x = document.getElementById("myText");
-
 function changeLandscape (temp) {
   if (temp <= 59) {
     document.getElementById('landscape').innerHTML = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
@@ -42,6 +28,32 @@ function changeLandscape (temp) {
   }
 }
 
+function changeCityName () {
+  // let cityInput = document.getElementById('city').value;
+  document.getElementById('displaycity').innerHTML = document.getElementById('city').value;
+}
+
+document.getElementById('city').addEventListener('input', changeCityName);
+
+document.getElementById('Add').addEventListener('click', Add);
+
+document.getElementById('Subtract').addEventListener('click', Subtract);
+
+// window.addEventListener("load", loadpage);
+// function cargaPagina() {
+//     var btn = document.getElementById("button1").addEventListener("click", changevalues);
+// }
+
+// function changevalues() {
+//     var inputName = document.getElementById("name");
+//     inputName.value = "Search City";
+// }
+
+// var x = document.getElementById("myText");
 
 
+
+// const axios = require('axios');
+// axios
+//   .get("https://us1.locationiq.com/v1/location")
 

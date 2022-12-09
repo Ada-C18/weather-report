@@ -8,52 +8,17 @@
     <title>Weather Report</title>
 </head>
 <body>
-    <!-- Wave 2  --> 
-    City <input type="text" id="city" name="city" value=""><br>
-        <input type="button" id="button1" name="button1" value="Change Name">
-        <input type="button" value="Click Me" id="button" />
-        <br><br>
-    <button id="Add">Add</button>
-    <button id="Subtract">Subtract</button>
-    <div id="Total">0</div>
-    <div>F°</div>
-    <script src="./node_modules/axios/dist/axios.min.js"></script> 
-    <script src="./src/index.js"></script> 
-</body>
-</html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Report</title>
-    <link rel="stylesheet" href="styles/index.css" />
-  </head>
-  <body>
     <div class="container">
-      <div class="row">
-        <div class="col-3 search-label">
-          <form>
-            <label for="search">Search</label>
-            <input
-              class="search-bar"
-              type="text"
-              placeholder="Enter city"
-              autofocus
-            />
-          </form>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-3">
-          <i class="fa-solid fa-sun"></i>
-        </div>
-        <div class="col-3 current-temp">
-          <div class="current-city">Sioux City, IA</div>
-          <div class="current-city-temp">65°F</div>
-        </div>
+      City  <input type="text" id="city" name="city" value=""><br>
+          <input type="button" id="button1" name="button1" value="Change Name">
+          <input type="button" value="Click Me" id="button" />
+          <br><br>
+      <button id="Add">Add</button>
+      <button id="Subtract">Subtract</button>
+      <div id="Total">0</div>
+      <div>F°</div>
+        <div id="displaycity">CityName</div>
         <div id="landscape">Landscape</div>
-      </div>
       <div class="row">
         <div class="col-1 forecast">
           <div>Sunday</div>
@@ -147,6 +112,7 @@
         </div>
       </div>
     </div>
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script> 
+    <script src="./src/index.js"></script> 
   </body>
 </html>
