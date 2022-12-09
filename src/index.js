@@ -37,7 +37,7 @@ const findWeather = () => {
   };
 
 
-function resetText {
+function resetText() {
   let City = document.getElementById('city');
   // Get the button
   let resetButton = document.getElementById('reset');
@@ -46,9 +46,9 @@ function resetText {
   resetButton.addEventListener('click', function() {
       // Reset the text box
       City.reset();
-});
+}
+);
 
-};
 
  // const increaseTemp = () => {
   //   state.temp += 1;
