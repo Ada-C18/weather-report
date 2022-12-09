@@ -1,7 +1,7 @@
 # Weather Report
 
-## Skills Assessed
-
+## Visuals
+_ Screenshots of our wire frames 
 - Following directions and reading comprehension
 - Structuring content in HTML
 - Applying styles with CSS

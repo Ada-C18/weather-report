@@ -1,4 +1,10 @@
+/* Web page Color scheme */
 
+:root {
+    --primaryColor: #0066FF;
+    --lightColor: #abaed3; 
+
+}
 
 
 
@@ -7,3 +13,13 @@
 
 
 /* class selectors */
+
+.container{
+    display: grid;
+    
+    grid-template-areas: 
+    "a b c" 
+    "a b c"
+    "a b c"; 
+
+}
