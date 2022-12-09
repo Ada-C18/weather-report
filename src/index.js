@@ -60,19 +60,43 @@ const findCityLatLon = () => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: city,
-      },
+        q: city
+      }
     })
     .then((response) => {
       console.log(response.data);
       let lat = response.data[0].lat;
       let lon = response.data[0].lon;
-      console.log(lat)
-      console.log(lon)
+      console.log(lat);
+      console.log(lon);
+      getTempWithLocation(lat, lon);
     })
     .catch((error) => {
       console.log('Error given back by the API response:', error);
     });
+}
+
+const getTempWithLocation = (lat, lon) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {lat: lat, lon: lon
+    }
+    })
+    .then((response) => {
+      console.log(response.data);
+      let kelvin = response.data['main']['temp'];
+      console.log(kelvin);
+      convertToFahrenheit(kelvin);
+    })
+    .catch((error) => {
+      console.log('Error given back by the API response:', error);
+    });
+}
+
+function convertToFahrenheit (kelvin) {
+  let fahrenheit = Math.round((kelvin * (9/5)) - 459.67);
+  console.log(fahrenheit);
+  document.getElementById('Total').innerHTML = fahrenheit;
 }
 
 document.getElementById('getDisplayCityTemp').addEventListener('click', findCityLatLon);
