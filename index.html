@@ -10,15 +10,15 @@
 </head>
 <body>
     <header>
-        <h1 id="header-name">Weather Report</h1>
-        <p id="current_city">New York</p>
+        <h1>Weather Report</h1>
+        <p id="current_city">New York City</p>
     </header>
     <main>
-        <section id="garden_container">
-            <h2 id="garden-title">Weather Garden</h2>
+        <section>
+            <h2>Weather Garden</h2>
             <section id="garden">
                 <div id="aboveEarth">
-                    ☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️
+                    ☁️ ☁️ ☁️ ☀️ ☁️ ☁️
                 </div>
                 <div id="landscape">
                     🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷
@@ -27,11 +27,11 @@
         </section>
         <section class="columns">
             <div class="one_column">
-                <section id="temp_box">
-                    <h3 id="temp_header">Temprature</h3>
-                    <section id = "adjustTemp">
+                <section>
+                    <h3>Temprature</h3>
+                    <section>
                         <button id="increaseButton" class="tempButtons">⬆️</button><br>
-                        <h4 id="temp" class="default75">75°F</h4>
+                        <h4 id="temp" class="default75"></h4>
                         <button id="decreaseButton" class="tempButtons">⬇️</button>  
                     </section>
                     <section id="adjustRealtime">
@@ -41,8 +41,8 @@
             </div>
             <div class="one_column">
                 <section id="sky_box">
-                    <h3 >Sky</h3>
-                    <label for="sky"></label>
+                    <h3>Garden Sky</h3>
+                    <label for="sky">Select a sky:</label>
                     <select name="sky" id="sky_selector">
                         <option value="sunny">Sunny</option>
                         <option value="cloudy">Cloudy</option>
@@ -54,9 +54,9 @@
             <div class="one_column">
                 <section id="city_box">
                 <h3>City Name</h3> 
-                <input type="text" authocomplete="off" id="search-box" value="New York"
-                    placeholder="search for a city..."/>
-                <button id="cityReset">Reset</button>                   
+                <input type="text" authocomplete="off" id="search-box" value="New York City"
+                    placeholder="Search for a city..."/>
+                <button id="cityResetButton">Reset</button>                   
                 </section>                
             </div>
     </main>

@@ -3,35 +3,33 @@
 // const { default: axios } = require("axios");
 
 const state = {
-  temperature: 75,
-  landscape: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
-  aboveEarth: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+  temperature: '',
+  cityName: 'New York City',
+  incButton: null,
+  decButton: null,
   skyDropdown: null,
-  cityBox: null,
-  cityReset: null,
+  resetButton: null,
+  realtimeButton: null
 };
 
-const callProxyAPIs = () => {
-  findLatitudeAndLongitude(state.cityBox);
+const handleRealtimeTemp = () => {
+  // calls proxy API and updates temp and webpage
+  findLatitudeAndLongitude(state.cityName);
 }
 
 const findLatitudeAndLongitude = (city) => {
-  let latitude, longitude;
   axios.get('http://127.0.0.1:5000/location',
   {
-    params: {
-      q: city,
-    }
+    params: { q: city }
   })
   .then( (response) => {
-    latitude = response.data[0].lat;
-    longitude = response.data[0].lon;
-    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
-    
+    const latitude = response.data[0].lat;
+    const longitude = response.data[0].lon;
+    // finds weather for the lat and lon response
     getWeather(latitude, longitude);
   })
   .catch( (error) => {
-    console.log('error in finding Latitude and Longitude!', error);
+    console.log('error in finding Latitude and Longitude!');
   });
 }
 
@@ -44,117 +42,126 @@ const getWeather = (latitudeW, longitudeW) => {
     }
   })
   .then( (response) => {
-    console.log('success in getWeather!', response.data);
-    const data = response.data;
-    updateTempAndWebpage(data);
+    const tempK = response.data.main.temp;
+    // updates the temp state and webpage
+    updateTempAndWebpage(tempK);
   })
   .catch( (error) => {
     console.log('error in getWeather!');
   });
 }
-const updateTempAndWebpage = (APIdata) => {
-  const tempKelvin = APIdata.main.temp;
-  // converts temp to Farenheits and saves it to the state
-  state.temperature = Math.floor((tempKelvin - 273.15) * 9/5 + 32);
+const updateTempAndWebpage = (tempInKelvin) => {
+  // converts temp to Farenheit and saves it to the state
+  state.temperature = Math.floor((tempInKelvin - 273.15) * 9/5 + 32);
   // changes the temp on the website display
-  temp.textContent = `${state.temperature}°F`;
+  updateTempOnWebpage();
   // changes the font color and landscape to match the temp
   changeColorAndLandscape();
-  console.log("temp should be updated to the current city now!")
-
 }
 
 const increaseTemp = () => {
   state.temperature += 1;
-  const temp = document.getElementById('temp');
-  temp.textContent = `${state.temperature}°F`;
+  updateTempOnWebpage();
   changeColorAndLandscape();
 };
 
 const decreaseTemp = () => {
   state.temperature -= 1;
-  const temp = document.getElementById('temp');
-  temp.textContent = `${state.temperature}°F`;
+  updateTempOnWebpage();
   changeColorAndLandscape();
 };
 
+const updateTempOnWebpage = () => {
+  const websiteTemp = document.getElementById('temp');
+  websiteTemp.textContent = `${state.temperature}°F`;
+}
+
 const changeColorAndLandscape = () => {
-  // selects HTML element with id="temp"
-  const tempColor = document.getElementById('temp');
-  // selects HTML element with id="landscape"
-  const landscapeUpdate = document.getElementById('landscape');
+  const websiteTemp = document.getElementById('temp');
+  const websiteLandscape = document.getElementById('landscape');
   if (state.temperature >= 80) {
-    tempColor.className = 'temp_red';
-    landscapeUpdate.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    websiteTemp.className = 'temp_red';
+    websiteLandscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (70 <= state.temperature && state.temperature < 80) {
-    tempColor.className = 'temp_orange';
-    landscapeUpdate.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    websiteTemp.className = 'temp_orange';
+    websiteLandscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (60 <= state.temperature && state.temperature < 70) {
-    tempColor.className = 'temp_yellow';
-    landscapeUpdate.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    websiteTemp.className = 'temp_yellow';
+    websiteLandscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (50 <= state.temperature && state.temperature < 60) {
-    tempColor.className = 'temp_green';
+    websiteTemp.className = 'temp_green';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (40 <= state.temperature && state.temperature < 50) {
-    tempColor.className = 'temp_teal';
-    landscapeUpdate.textContent = '🌲☃️⛄️🌲⛄️❄️🌲❄️🌲☃️⛄️❄️🌲';
+    websiteTemp.className = 'temp_teal';
+    websiteLandscape.textContent = '🌲☃️⛄️🌲⛄️❄️🌲❄️🌲☃️⛄️❄️🌲';
   } else if (state.temperature < 40) {
-    tempColor.className = 'temp_aqua';
-    landscapeUpdate.textContent = '🧊🧊⛄️🌬️⛄️❄️☃️❄️🌬️🧊⛄️❄️☃️';
+    websiteTemp.className = 'temp_aqua';
+    websiteLandscape.textContent = '🧊🧊⛄️🌬️⛄️❄️☃️❄️🌬️🧊⛄️❄️☃️';
   }
 };
 
 const changeSkyType = () => {
   // Grabs the value that the user selected
-  const selectorVal = document.getElementById('sky_selector').value;
+  const selectedSky = state.skyDropdown.value;
   // selects HTML element with id="aboveEarth"
-  const sky = document.getElementById('aboveEarth');
-  if (selectorVal === 'cloudy') {
-    sky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (selectorVal === 'sunny') {
-    sky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (selectorVal === 'rainy') {
-    sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (selectorVal === 'snowy') {
-    sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  const websiteSky = document.getElementById('aboveEarth');
+  if (selectedSky === 'cloudy') {
+    websiteSky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (selectedSky === 'sunny') {
+    websiteSky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (selectedSky === 'rainy') {
+    websiteSky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (selectedSky === 'snowy') {
+    websiteSky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
 const changeCityName = () => {
   // Grabs the value of text that the user types in the input box
-  const cityBoxVal = document.getElementById('search-box').value;
+  const boxText = document.getElementById('search-box').value;
   // selects HTML header element with id="current_city"
   const city = document.getElementById('current_city');
   // assigns the HTML header element with id="current_city" to
   // the text that the user types
-  city.textContent = cityBoxVal;
-  state.cityBox = cityBoxVal;
+  city.textContent = boxText;
+  state.cityName = boxText;
 };
 
 const resetCity = () => {
-  const searchedCityName = document.getElementById('search-box');
-  searchedCityName.value = 'New York';
-  changeCityName();
+  const boxText = document.getElementById('search-box');
+  boxText.value = '';
+  // resets header to NYC
+  const cityHeader = document.getElementById('current_city');
+  state.cityName = 'New York City'
+  cityHeader.textContent = state.cityName;
+  // current weather in NYC
+  handleRealtimeTemp();
 };
+
+const loadControls = () => {
+  // buttons
+  state.incButton = document.querySelector('#increaseButton');
+  state.decButton = document.querySelector('#decreaseButton');
+  state.resetButton = document.getElementById('cityResetButton');
+  state.realtimeButton = document.getElementById('realtimeButton');
+  // dropdown
+  state.skyDropdown = document.querySelector('#sky_selector');
+  // current weather in NYC
+  handleRealtimeTemp();
+}
 
 const registerEventHandlers = () => {
-  const incButton = document.querySelector('#increaseButton');
-  incButton.addEventListener('click', increaseTemp);
-
-  const decButton = document.querySelector('#decreaseButton');
-  decButton.addEventListener('click', decreaseTemp);
-
-  const skyDropdown = document.querySelector('#sky_selector');
-  skyDropdown.addEventListener('change', changeSkyType);
-
-  const cityBox = document.querySelector('#search-box');
-  cityBox.addEventListener('input', changeCityName);
-
-  const cityReset = document.getElementById('cityReset');
-  cityReset.addEventListener('click', resetCity);
-
-  const realtimeButton = document.getElementById('realtimeButton');
-  realtimeButton.addEventListener('click', callProxyAPIs);
+  // button click functions
+  state.incButton.addEventListener('click', increaseTemp);
+  state.decButton.addEventListener('click', decreaseTemp);
+  state.resetButton.addEventListener('click', resetCity);
+  state.realtimeButton.addEventListener('click', handleRealtimeTemp);
+  //dropdown box change function
+  state.skyDropdown.addEventListener('change', changeSkyType);
+  // text box input function
+  const newCity = document.querySelector('#search-box');
+  newCity.addEventListener('input', changeCityName);
 };
 
+document.addEventListener('DOMContentLoaded', loadControls);
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
