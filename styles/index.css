@@ -66,3 +66,11 @@ header {
     margin-top: 10px;
 }
 
+#get-temp-button {
+    margin-top: 2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-size-adjust: 50%;
+    border-radius: 8px;
+
+}
