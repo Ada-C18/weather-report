@@ -38,11 +38,16 @@ const findWeather = () => {
 
 
 function resetText {
-  let resetText = document.getElementById('reset')
+  let City = document.getElementById('city');
+  // Get the button
+  let resetButton = document.getElementById('reset');
+
+  // Add a click event listener to the button
   resetButton.addEventListener('click', function() {
       // Reset the text box
-      textBox.reset();
-  }
+      City.reset();
+});
+
 };
 
  // const increaseTemp = () => {
