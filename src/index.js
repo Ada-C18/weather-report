@@ -1,10 +1,8 @@
-
 // console.log('Hello world');
 ('use strict');
 // const axios = require('axios');
 const API_CITY = 'http://127.0.0.1:5000/location';
 const API_WEATHER = 'http://127.0.0.1:5000/weather';
-
 
 let temperature = 50;
 
@@ -76,38 +74,48 @@ const updateCityNameInput = () => {
 
 const city = document.querySelector('#city').textContent;
 
-const getInfo = (city) => {
+const getTempK = (city) => {
   axios
     .get(API_CITY, { params: { q: city, format: 'json' } })
     .then((result) => {
-      const lat = result.data[0].lat;
-      const lon = result.data[0].lon;
-      console.log(`${city} lat: ${lat} lon: ${lon}`);
-      console.log(lat, lon);
-      return lat, lon;
+      const latitude = result.data[0].lat;
+      const lontitude = result.data[0].lon;
+      // console.log(`${city} lat: ${lat} lon: ${lon}`);
+      // console.log(typeof lat, lon);
+      // console.log(typeof parseFloat(lat));
+      // const coordinates = { lat: parseFloat(lat), lon: parseFloat(lon) };
+
+      axios
+        .get(API_WEATHER, {
+          params: { lat: latitude, lon: lontitude },
+        })
+        .then((result) => {
+          const temp = result.data.main.temp;
+          console.log(convertTempKtoF(temp));
+          const tempF = convertTempKtoF(temp);
+          return tempF;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-const getweather = (lat,lon) => {
-  axios.get(API_WEATHER, {params: {"lat": lat , "lon": lon}})
-  .then((result) => {
-    const temp = result.data.main.temp;
-    console.log(temp)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+const convertTempKtoF = (temp) => {
+  const tempF = 1.8 * (Number(temp) - 273) + 32;
+  // console.log(tempF);
+  return tempF;
 };
 
 const EventHandlers = () => {
   increaseTempOnClick();
   decreaseTempOnClick();
   updateCityNameInput();
-  getInfo(city);
-  getweather(47.6038, -122.3301)
+  getTempK(city);
+  // convertTempKtoF('278');
 };
 if (document.readyState !== 'loading') {
   EventHandlers();
