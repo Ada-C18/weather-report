@@ -64,6 +64,14 @@ const chooseCityName = (event) => {
   cityName.textContent = state.city;
 };
 
+const resetCityName = (event) => {
+  const cityName = document.querySelector('#cityName');
+  const inputContainer = document.querySelector('#inputCityName');
+  state.city = 'Seattle';
+  inputContainer.value = '';
+  cityName.textContent = state.city;
+};
+
 const updateTemperature = (event) => {
   const tempContainer = document.querySelector('#Temperature');
   axios
@@ -101,6 +109,8 @@ const registerEventHandlers = (event) => {
   // decreaseTempButton.addEventListener('click', tempRange);
   const inputCityName = document.querySelector('#inputCityName');
   inputCityName.addEventListener('input', chooseCityName);
+  const resetCityNameButton = document.querySelector('#resetCityName');
+  resetCityNameButton.addEventListener('click', resetCityName);
   const updateTempButton = document.querySelector('#updateTempButton');
   updateTempButton.addEventListener('click', updateTemperature);
   const skySelect = document.querySelector('#skySelect');
