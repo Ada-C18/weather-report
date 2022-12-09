@@ -19,4 +19,12 @@ const updateWeather = function() {
 
 updateWeather();
 
-buttonIncrease.addEventListener('click', (_) => { });
+buttonIncrease.addEventListener('click', (_) => {
+	State.temperature += 1;
+	updateWeather();
+});
+
+buttonDecrease.addEventListener('click', (_) => {
+	State.temperature -= 1;
+	updateWeather();
+});
