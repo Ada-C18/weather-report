@@ -54,30 +54,30 @@ const tempUnitConvert = (temp) => {
 
 const changeTempColorAndGardenLandscape = () => {
   let temp = state.temp;
-  let color = "";
+  let tempColor = "";
   let landscape = "";
   if (temp > 80) {
-    color = "red-text";
+    tempColor = "red-text";
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp > 70) {
-    color = "orange-text";
+    tempColor = "orange-text";
     landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temp > 60) {
-    color = "yellow-text";
+    tempColor = "yellow-text";
     landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
   } else if (temp > 50) {
-    color = "green-text";
+    tempColor = "green-text";
     landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   } else {
-    color = "teal-text";
+    tempColor = "teal-text";
     landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   }
 
 
   const currentTemp = document.querySelector("#temp_value");
   currentTemp.textContent = state.temp
-  currentTemp.className = color;
-  
+  currentTemp.className = tempColor;
+
   const currentLandscape = document.querySelector("#landscape");
   currentLandscape.textContent = landscape;
 };
