@@ -61,62 +61,60 @@ const handleCityInputChanged = (event) => {
   state.cityDisplay.textContent = state.cityInput.value;
 };
 
-// const getLatLon = (cityName) => {
-//   return axios
-//     .get('http://127.0.0.1:5000/location', {
-//       params: {
-//         q: cityName,
-//       },
-//     })
-//     .then((response) => {
-//       const lat = response.data[0].lat;
-//       const lon = response.data[0].lon;
+const getLatLon = (cityName) => {
+  return axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: cityName,
+      },
+    })
+    .then((response) => {
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
 
-//       return { lat, lon };
-//     });
-// };
+      return { lat, lon };
+    });
+};
 
-// const getWeather = (lat, lon) => {
-//   return axios
-//     .get('http://127.0.0.1:5000/weather', {
-//       params: {
-//         lat: lat,
-//         lon: lon,
-//       },
-//     })
-//     .then((response) => {
-//       const tempKelvin = response.data.main.temp;
-//       tempFahrenheit = 1.8(tempKelvin - 273) + 32;
+const getWeather = (lat, lon) => {
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((response) => {
+      const tempKelvin = response.data.main.temp;
+      const tempFahrenheit = 1.8 * (tempKelvin - 273) + 32;
 
-//       return tempFahrenheit;
-//     });
-// };
+      return tempFahrenheit;
+    });
+};
 
-// const handleGetTempButtonClicked = (event) => {
-//   const result = {};
-
-//   let promise = Promise.resolve();
-//   promise = promise
-//     .then(() => {
-//       return getLatLon(state.cityInput.value);
-//     })
-//     .then((loc) => {
-//       result[city] = loc;
-//     });
-
-//   let temp = null;
-//   temp = getWeather(result[city]);
-//   state.currentTempCount = temp;
-
-//   refreshTemp();
-// };
+const handleGetTempButtonClicked = (event) => {
+  let promise = Promise.resolve();
+  promise = promise
+    .then(() => {
+      return getLatLon(state.cityDisplay.textContent);
+    })
+    .then((response) => {
+      return getWeather(response.lat, response.lon);
+    })
+    .then((response) => {
+        state.currentTempCount = Math.floor(response);
+        refreshTemp();
+        tempTextColorChange();
+        landscapeChange()
+    })
+};
 
 const handleSkyDropDownChanged = (event) => {
   skyDisplayChange();
 };
 
 const handleResetButtonClicked = (event) => {
-  state.cityDisplay.textContent = 'Hawaii';
+  state.cityDisplay.textContent = 'Honolulu';
   state.cityInput.value = '';
 };
 
@@ -127,7 +125,7 @@ const registerEvents = () => {
     'input',
     delay(handleCityInputChanged, 1000)
   );
-  //   state.getTempButton.addEventListener('click', handleGetTempButtonClicked);
+  state.getTempButton.addEventListener('click', handleGetTempButtonClicked);
   state.skyDropDown.addEventListener('change', handleSkyDropDownChanged);
   state.resetButton.addEventListener('click', handleResetButtonClicked);
 };
