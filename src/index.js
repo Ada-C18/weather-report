@@ -11,7 +11,7 @@ const loadControls = () => {
 };
 
 const setTempColor = (temp) => {
-  // const Fahrenheit = parseInt(state.currentTemp.textContent);
+  // const temp = parseInt(state.currentTemp.textContent);
   if (temp >= 80) {
     state.currentTemp.className = 'eightyandabove';
   } else if (temp >= 70 && temp < 80) {
@@ -26,7 +26,7 @@ const setTempColor = (temp) => {
 };
 
 const setLandscape = (temp) => {
-  //const temp = parseInt(state.currentTemp.textContent);
+  // const temp = parseInt(state.currentTemp.textContent);
   const weatherGardenDisplay = document.querySelector(
     '#display-weather-garden'
   );
@@ -44,15 +44,15 @@ const setLandscape = (temp) => {
 const increaseTemp = () => {
   const temp = document.querySelector('#current-temp');
   temp.textContent = parseInt(temp.textContent) + 1;
-  setTempColor();
-  setLandscape();
+  setTempColor(parseInt(temp.textContent));
+  setLandscape(parseInt(temp.textContent));
 };
 
 const decreaseTemp = () => {
   const temp = document.querySelector('#current-temp');
   temp.textContent = parseInt(temp.textContent) - 1;
-  setTempColor();
-  setLandscape();
+  setTempColor(parseInt(temp.textContent));
+  setLandscape(parseInt(temp.textContent));
 };
 
 const renameCity = () => {
@@ -62,8 +62,8 @@ const renameCity = () => {
   cityName.textContent = newCity;
   state.cityName = newCity;
   getLatLon(state.cityName).then((temperature) => {
-    setTempColor(temperature);
-    setLandscape(temperature);
+    setTempColor(parseInt(temperature));
+    setLandscape(parseInt(temperature));
   });
 };
 
@@ -85,7 +85,7 @@ const getLatLon = (placeName) => {
 };
 
 const getWeather = (lat, lon) => {
-  axios
+  return axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
         lat: lat,
@@ -126,9 +126,10 @@ const registerEventHandlers = () => {
 
 const onLoaded = () => {
   loadControls();
-  getLatLon(state.cityName);
-  setTempColor(parseInt(state.currentTemp.textContent));
-  setLandscape(parseInt(state.currentTemp.textContent));
+  getLatLon(state.cityName).then((temperature) => {
+    setTempColor(parseInt(temperature));
+    setLandscape(parseInt(temperature));
+  });
 };
 
 onLoaded();
