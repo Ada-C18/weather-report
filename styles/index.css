@@ -44,3 +44,19 @@ body{
     border: transparent;
     padding: 0;
 }
+
+.sunny {
+    background-color: orange;
+}
+
+.cloudy {
+    background-color: rgb(186, 178, 178);
+}
+
+.rainy {
+    background-color: aqua;
+}
+
+.snowny {
+    background-color: rgb(172, 202, 227);
+}

@@ -70,19 +70,11 @@ const updateCityName = (event) => {
 const getCurrentTemp = (event) => {
   //call the API to return the current temp
   //take the current temp and update the state.temp
-  getLatAndLon(state.city)
-  
+  getLatAndLon(state.city)  
   console.log("inside get current temp");
 
-
 }
-/////sample
-// const minusTemp = (event) => {
-//   state.temp -= 1;
-//   const tempControl = document.querySelector('#currentTemp');
-//   tempControl.textContent = state.temp;
-//   changeTempNumColor();
-// };
+
 
 
 //API call for LocationIQ
@@ -112,6 +104,7 @@ const getLatAndLon = (location) => {
       //modify the current temp number
       const currentTempReal = document.querySelector('#currentTemp');
       currentTempReal .textContent = Math.round(state.temp);
+      changeTempNumColor();
 
 
     }).catch((error)=>{
@@ -125,18 +118,23 @@ const getLatAndLon = (location) => {
   
 };
 
-// const getRealTemp = (lat,lon) => {
-//   axios.get(weatherURL, {
-//     params:{
-//     lat:,
-//     lon:,
+//create an event to take user's selection
+//take user selection and give if/else statement
+const skySelect = () => {
+  let selection = document.getElementById("selectSky")
+  // console.log(selection.value)
+  // const userChange = () => {
+  //   let userChoice = selection.value;
+  // }
+  let userChoice = selection.value
+  if (userChoice = "Rainy") {
+    const gardenBackground = document.getElementById("#garden_section")
+    gardenBackground.classList.add("rainy")
 
-//     }
+  }
 
-
-//   })
-// }
-
+};
+//add event listener
 
 
 
@@ -154,6 +152,10 @@ const registerEventHandlers = (event) => {
 
   const updateCurrentTempButton = document.querySelector('#getCurrentTemp');
   updateCurrentTempButton.addEventListener('click', getCurrentTemp)
+
+  const updateSky = document.querySelector('#selectSky');
+  updateSky.addEventListener('change', skySelect)
 };
+
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
