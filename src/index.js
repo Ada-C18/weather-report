@@ -11,7 +11,6 @@ const loadControls = () => {
 };
 
 const setTempColor = (temp) => {
-  // const temp = parseInt(state.currentTemp.textContent);
   if (temp >= 80) {
     state.currentTemp.className = 'eightyandabove';
   } else if (temp >= 70 && temp < 80) {
@@ -26,7 +25,6 @@ const setTempColor = (temp) => {
 };
 
 const setLandscape = (temp) => {
-  // const temp = parseInt(state.currentTemp.textContent);
   const weatherGardenDisplay = document.querySelector(
     '#display-weather-garden'
   );
@@ -75,6 +73,16 @@ const renameCity = () => {
   const cityName = document.querySelector('#city-name');
   cityName.textContent = newCity;
   state.cityName = newCity;
+  getLatLon(state.cityName).then((temperature) => {
+    setTempColor(parseInt(temperature));
+    setLandscape(parseInt(temperature));
+  });
+};
+
+const resetCity = () => {
+  const cityName = document.querySelector('#city-name');
+  cityName.textContent = 'Seattle';
+  state.cityName = 'Seattle';
   getLatLon(state.cityName).then((temperature) => {
     setTempColor(parseInt(temperature));
     setLandscape(parseInt(temperature));
@@ -134,11 +142,14 @@ const registerEventHandlers = () => {
     renameCity();
   });
 
-  const currentTempButton = document.querySelector('#current-temp-button');
+  const currentTempButton = document.querySelector('#get-temp-button');
   currentTempButton.addEventListener('click', currentTemp);
 
   const setSkyDropDown = document.querySelector('#sky-select');
   setSkyDropDown.addEventListener('change', setSky);
+
+  const resetCityNameButton = document.querySelector('#rename-city-button');
+  resetCityNameButton.addEventListener('click', resetCity);
 };
 
 const onLoaded = () => {
