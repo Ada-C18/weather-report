@@ -1,6 +1,7 @@
 const state = {
   temp: 50,
   city: 'Seattle',
+  sky: "Sunny",
 };
 
 const displayTemp = document.getElementById('display-temp');
@@ -93,6 +94,13 @@ function updateSky(e) {
     };
   };
 
+  const resetCityName = () => {
+    const city = document.getElementById('city');
+    state.city = ""
+    city.textContent = `Weather report for the lovely city of ${state.city}`
+      const cityInput = document.getElementById('city-input');
+    cityInput.value = ""
+  }
 
 
 // const axios = require('axios');
@@ -131,6 +139,8 @@ const registerEventHandlers = () => {
   input.addEventListener('input', updateCity);
   const skyDropdown = document.getElementById("skyDropdown");
   skyDropdown.addEventListener('change', updateSky);
+  const resetCityButton = document.getElementById("resetCityButton");
+  resetCityButton.addEventListener('click', resetCityName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
