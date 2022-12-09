@@ -13,7 +13,9 @@ const state = {
 const updateCity = () => {
   const inputName = document.getElementById('inputCity');
   const cityName = document.getElementById('city');
-  state.city = inputName.value;
+  if (inputName.value) {
+    state.city = inputName.value;
+  }
   cityName.textContent = state.city;
 };
 
@@ -98,6 +100,21 @@ const changeLandscape = () => {
   ground.textContent = groundChange;
 };
 
+const changeSkies = () => {
+  const sky = document.getElementById('skies').value;
+  let skyChange = '';
+  if (sky === 'cloudy') {
+    skyChange = '☁️☁️☁️☁️☁️☁️☁️☁️';
+  } else if (sky === 'rainy') {
+    skyChange = '🌧🌧🌧🌧🌧🌧';
+  } else if (sky === 'sunny') {
+    skyChange = '☀️☀️☀️☀️☀️☀️☀️☀️☀️';
+  } else {
+    skyChange = '🌨❄️🌨❄️🌨❄️🌨❄️🌨';
+  }
+  sky.textContent = skyChange;
+};
+
 const registerEventHandlers = () => {
   const submitButton = document.getElementById('submit');
   // submitButton.addEventListener('click', getLatAndLong);
@@ -109,8 +126,11 @@ const registerEventHandlers = () => {
   changeColor();
   changeLandscape();
   updateCity();
+  changeSkies();
   const cityInput = document.getElementById('inputCity');
-  cityInput.addEventListener('input', updateCity);
+  cityInput.addEventListener('change', updateCity);
+  const updateSky = document.getElementById('sky');
+  updateSky.addEventListener('change', changeSkies);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
