@@ -84,19 +84,33 @@ const getLatAndLon = () => {
     });
 };
 
+// get city temperature using getLatAndLon
 const getTemperature = () => {
   // const cityLocation = getLatAndLon();
   // console.log(`Inside getTemperature, The city location is ${cityLocation}`);
   // console.log(`Inside the getTemperature, lat is ${cityLocation.lat} and lon is ${cityLocation.lon}`);
+  let cityLocation;
+
+  const currentPromise = getPromise();
+  currentPromise
+    .then((value) => {
+      cityLocation = getLatAndLon();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   return axios
     .get('http://127.0.0.1:5000/weather', {
       params: { lat: cityLocation.lat, lon: cityLocation.lon },
     })
     .then((response) => {
       console.log(`The response data is ${response.data}`);
-      console.log(`The main part of the response data is ${response.data.main}`);
+      console.log(
+        `The main part of the response data is ${response.data.main}`
+      );
       const kelvinDegree = response.data.main.temp;
-      
+
       const fahrenheitDegree = ((kelvinDegree - 273.15) * 9) / 5 + 32;
       console.log(fahrenheitDegree);
       return fahrenheitDegree;
@@ -106,7 +120,13 @@ const getTemperature = () => {
     });
 };
 
-
+const getPromise = () => {
+  const timeoutTime = 1000;
+  const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("It's go time!"), timeoutTime);
+  });
+  return myPromise;
+};
 
 /**
  * 1. get the city from the documnet
