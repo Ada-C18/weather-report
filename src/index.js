@@ -53,8 +53,6 @@ const setSky = () => {
   } else if (skySelect === 'snowy') {
     skyDisplay.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
-  console.log('hello there');
-  console.log(skySelect);
 };
 
 const increaseTemp = () => {
@@ -120,10 +118,7 @@ const getWeather = (lat, lon) => {
 };
 
 const currentTemp = () => {
-  getLatLon(state.cityName).then((temperature) => {
-    setTempColor(parseInt(temperature));
-    setLandscape(parseInt(temperature));
-  });
+  state.currentTemp = getLatLon(state.cityName);
 };
 
 const registerEventHandlers = () => {
@@ -139,7 +134,7 @@ const registerEventHandlers = () => {
     renameCity();
   });
 
-  const currentTempButton = document.querySelector('#get-temp-button');
+  const currentTempButton = document.querySelector('#current-temp-button');
   currentTempButton.addEventListener('click', currentTemp);
 
   const setSkyDropDown = document.querySelector('#sky-select');
