@@ -15,7 +15,7 @@ header {
     grid-row: 1 / 2;
     grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
 }
 
 h1 {
@@ -26,17 +26,32 @@ h1 {
     align-items: flex-start;
     flex-wrap: wrap;
     font-size: 4rem;
-    margin: .5rem; 
+    margin: .5rem;
+    letter-spacing: .15rem;
 }
 
-form {
+#city-title {
+    font-family: 'SN Fine Italics Reg', serif;
+}
+
+#search-form {
     /* border: 2px solid black; */
     grid-column: 2 / 3;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    align-content: space-evenly;
+    align-content: center;
     margin: .5rem;
+}
+
+::placeholder {
+    font-family: 'SN Reg', serif;
+    padding: .15rem;
+    text-transform: lowercase;
+}
+
+button {
+    font-family: 'SN Reg', serif;
 }
 
 main {

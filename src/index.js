@@ -2,7 +2,8 @@
 
 const state = {
   temp: 75, // starting temp
-  clicked: false // whether the temp increase button is in clicked state
+  clicked: false, // whether the temp increase button is in clicked state
+  city: "Chattanooga" // default city
 };
 
 const increaseDreamTemp = () => {
@@ -39,6 +40,13 @@ const updateDreamTempColor = () => {
   }
 };
 
+const changeCityNameWithInput = () => {
+  const cityTitle = document.getElementById("city-title");
+  const cityInput = document.getElementById("search-bar").value;
+
+  cityTitle.textContent = " " + cityInput;
+};
+
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById("temp-increase-button");
   tempIncreaseButton.addEventListener("click", increaseDreamTemp);
@@ -48,15 +56,9 @@ const registerEventHandlers = () => {
   tempDecreaseButton.addEventListener("click", decreaseDreamTemp);
   tempDecreaseButton.addEventListener("click", updateDreamTempColor);
 
+  const searchBar = document.getElementById("search-bar");
+  searchBar.addEventListener("input", changeCityNameWithInput);
 };
-
-
 
 // DOM listener
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
-
-// document.getElementById("temp-increase-button").addEventListener('click', increaseTemp);
-// const increaseTemp = function increaseTemp () {
-  // when increase temp button is clicked, temp += 1
-  // parameter is current temp
-// }
