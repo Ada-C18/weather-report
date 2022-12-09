@@ -108,6 +108,7 @@ const getRealtimeTemp = (cityName, temperature) => {
     .then(response => {
         currentTemp = Number(response.data.main.temp)
         temperature.innerHTML = Math.floor((currentTemp - 273.15)*1.8)+32
+        changeColorAndEmojis(temperature);
     })
     .catch(err => {
         console.log(err)
