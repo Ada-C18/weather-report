@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <title>Semhar & Kat's Weather Report</title>
+    <link rel="stylesheet" href="/styles/index.css" type="text/css">
+    
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report</h1>
+        <p id="cityHeader">New York City</p>
+    </header>
+    <main>
+        <section>
+            <h2>Weather Garden</h2>
+            <section id="garden">
+                <div id="aboveEarth">
+                    ☁️ ☁️ ☁️ ☀️ ☁️ ☁️
+                </div>
+                <div id="landscape">
+                    🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷
+                </div>
+            </section>
+        </section>
+        <section class="columns">
+            <div class="one_column">
+                <section>
+                    <h3>Temprature</h3>
+                    <section>
+                        <button id="increaseButton" class="tempButtons">⬆️</button><br>
+                        <h4 id="temp" class="default75"></h4>
+                        <button id="decreaseButton" class="tempButtons">⬇️</button>  
+                    </section>
+                    <section id="adjustRealtime">
+                        <button id="realtimeButton">Get Realtime Temperature</button>
+                    </section>
+                </section>
+            </div>
+            <div class="one_column">
+                <section id="sky_box">
+                    <h3>Garden Sky</h3>
+                    <label for="sky">Select a sky:</label>
+                    <select name="sky" id="sky_selector">
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select> 
+                </section>
+            </div>
+            <div class="one_column">
+                <section id="city_box">
+                    <h3>City Name</h3> 
+                    <input type="text" authocomplete="off" id="search-box" value="New York City"
+                        placeholder="Search for a city..."/>
+                    <button id="cityResetButton">Reset</button>                   
+                </section>                
+            </div>
+    </main>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>
