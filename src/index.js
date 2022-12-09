@@ -51,7 +51,7 @@ const changeSky = () => {
     skyDisplay.style.backgroundImage = "url('./assets/sunny.gif')";
   }
   if (selectedSky === 'Cloudy') {
-    skyDisplay.style.backgroundColor = 'lightgray';
+    skyDisplay.style.backgroundColor = 'gray';
     skyDisplay.style.backgroundImage = "url('./assets/cloudy.gif')";
   }
   if (selectedSky === 'Rainy') {
@@ -102,6 +102,7 @@ const getWeather = () => {
 const initializeContent = () => {
   updateTemperature();
   changeCityName('Seattle');
+  changeSky();
 };
 
 const registerEventHandlers = () => {
