@@ -70,9 +70,16 @@ const registerHandlers = (event) => {
   const changeTempColor = document.querySelector('#degrees');
 
   const updateCityName = document.querySelector('#search-bar');
-  updateCityName.addEventListener('input', updateCity); // 'input'
+  updateCityName.addEventListener('input', updateCity); // 'change'
 
   changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
+
+  // Wave 4 (MS) change
+  // register Get Realtime Temperature button
+  const tempButton = document.querySelector('#get-temp');
+
+  // call getWeather when get-temp button is clicked
+  tempButton.addEventListener('click', getWeather);
 };
 
 document.addEventListener('DOMContentLoaded', registerHandlers);
@@ -150,8 +157,6 @@ const getWeather = (latitude, longitude) => {
       console.log('error in getWeather!');
     });
 };
-
-// call getWeather when get-temp button is clicked
 
 // **********To-Do**********
 
