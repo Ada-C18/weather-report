@@ -4,9 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles/index.css">
+    
+    <script src="https://kit.fontawesome.com/670affd052.js" crossorigin="anonymous"></script>
+    <script src="./src/index.js"></script> 
+    <script src="./node_modules/axios/dist/axios.min.js"></script> 
+
     <title>Weather Report</title>
 </head>
+
 <body>
+    <section class="sky">
+        <input id="searchbox" type="text" placeholder="Type city name...">
+        <button onclick="changeCity()" class="main-button">Search</button>
+        <h1>Brooklyn</h1>
+    </section>
     
+    <section class="middle">
+        <div class="temp-controls">
+            <h1 id="main-temp">65</h1>
+            
+            <div class="slider-container">
+                <button class="btn" onclick="changeTemp(-1)"><i class="fa-solid fa-snowflake fa-xl"></i></button>
+                <input id="temp-slider" type="range" min="-130" max="135" value="API CURRENT TEMP" class="slider" onchange="changeTemp(this.value)">
+                <button class="btn" onclick="changeTemp(1)"><i class="fa-solid fa-fire fa-xl"></i></button>
+            </div>
+
+            <div class="slider-container">
+                <button class="btn"><i class="fa-solid fa-cloud-rain fa-xl"></i></button>
+                <input type="range" min="1" max="3" value="2" class="slider" step="1">
+                <button class="btn"><i class="fa-solid fa-sun fa-xl"></i></button>
+        </div>
+
+        <div class="disasters">
+            <div class="disaster-container">
+                <button class="disaster-btn"><i class="fa-solid fa-tornado fa-2xl"></i></button>
+                <span class="hidden-discription">Tornado</span>
+            </div>
+            
+            <div class="disaster-container">
+                <button class="disaster-btn"><i class="fa-solid fa-house-crack fa-2xl"></i></button>
+                <span class="hidden-discription">Earthquake</span>
+            </div>
+            
+            <div class="disaster-container">
+                <button class="disaster-btn"><i class="fa-solid fa-house-tsunami fa-2xl"></i></button>
+                <span class="hidden-discription">Tsunami</span>
+            </div>
+            
+            <div class="disaster-container">
+                <button class="disaster-btn"><i class="fa-solid fa-volcano fa-2xl"></i></button>
+                <span class="hidden-discription">Volcano</span>
+            </div>
+            
+            <div class="disaster-container">
+                <button class="disaster-btn"><i class="fa-solid fa-cloud-bolt fa-2xl"></i></button>
+                <span class="hidden-discription">Thunder</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="land">
+        <button class="main-button">Reset to Current</button>
+    </section>
 </body>
 </html>
