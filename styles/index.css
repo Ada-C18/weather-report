@@ -12,29 +12,36 @@ body {
 
 
 
-
+/* 
 .block {
     width: 50%;
     float: left;
     height: 0;
     padding-bottom: 50%;
-}
+} */
 
 .temp-section {
     background: yellow;
+    float: left;
     width: 50%;
-    padding-bottom: 50%;
+    /* padding-bottom: 50%; */
 }
 
 .sky-section{
     background: lightblue;
+    float: right;
+    width: 50%;
 }
 
 .city_section{
     background: orange;
+    float: right;
+    width: 50%;
 }
 
 .emojis {
     background: rgb(0, 255, 204);
+    float: left;
+    width: 50%;
 }
 
