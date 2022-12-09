@@ -25,3 +25,7 @@
     gap: 5px;
     grid-template-columns: repeat(3,1fr);
 }
+
+.b {
+    background-color: var(--primaryColor);
+}
