@@ -40,7 +40,7 @@ const getTemp = async (city) => {
         appid: 'WEATHER_KEY',
         lat: lat,
         lon: lon,
-        units: 'imperial', 
+        units: 'imperial',
       },
     })
     .then((response) => {
@@ -69,23 +69,14 @@ const decreaseTemp = () => {
   tempValue.textContent = state.temperature;
 };
 
-const updateCityName = () => {
-  const newCityName = document.getElementById('cityNameInput').value;
-  document.getElementById('headerCityName').textContent = newCityName;
-};
-
 const registerEventHandlers = () => {
   const increaseTempBtn = document.querySelector('#increaseTempControl');
   increaseTempBtn.addEventListener('click', increaseTemp);
 
   const decreaseTempBtn = document.querySelector('#decreaseTempControl');
   decreaseTempBtn.addEventListener('click', decreaseTemp);
-
-  const cityNameInput = document.querySelector('#cityNameInput');
-  cityNameInput.addEventListener('input', updateCityName);
 };
 
-// Registers all events. Once webpage is loaded, it ensures all events 
+// Registers all events. Once webpage is loaded, it ensures all events
 // are registered & occurs when triggered (clicked, inputted)
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
