@@ -1,10 +1,15 @@
 'use strict';
+import axios from 'axios';
 
 const state = {
   temp: 65,
   city: 'Seattle',
   lat: 0,
   lon: 0,
+};
+
+const getLatAndLong = () => {
+  axios.get('https://us1.locationiq.com/v1/search.php');
 };
 
 const tempColor = () => {
