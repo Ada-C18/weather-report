@@ -1,18 +1,19 @@
 const state = {
   temp: 30,
-  city: '',
+  city: 'Albuquerque',
 };
 
 const updateCityTemp = async (city) => {
-  const cityLatLon = await axios.get('localhost:5000/location', {
+  const cityLatLon = await axios.get('http://127.0.0.1:5000/location', {
     params: {
       q: city,
     },
   });
-  const lat = response.data[0].lat;
-  const lon = response.data[0].lon;
+  const lat = cityLatLon.data[0].lat;
+  const lon = cityLatLon.data[0].lon;
+  console.log({ lat, lon });
 
-  const cityWeather = await axios.get('localhost:5000/weather', {
+  const cityWeather = await axios.get('http://127.0.0.1:5000/weather', {
     params: {
       lat: lat,
       lon: lon,
@@ -20,17 +21,17 @@ const updateCityTemp = async (city) => {
   });
 
   const tempInKelvin = await cityWeather.data.main.temp;
+  console.log(tempInKelvin);
 
   const kelvinToFahrenheit = (tempInKelvin) => {
     let tempInFahrenheit = (tempInKelvin - 273.15) * (9 / 5) + 32;
-    return tempInFahrenheit;
+    return Math.round(tempInFahrenheit);
   };
   const result = kelvinToFahrenheit(tempInKelvin);
+  console.log(result);
   state.temp = result;
   return result;
 };
-
-// state.temp = newCityTemp;
 
 const formatTempAndLandscape = () => {
   let temp = state.temp;
@@ -84,6 +85,9 @@ const changeCity = () => {
   const cityNameDisplay = document.getElementById('cityNameDisplay');
   state.city = inputCity;
   cityNameDisplay.textContent = `${state.city}`;
+};
+
+const getCurrentTempButton = () => {
   const newCityTemp = updateCityTemp(state.city);
   formatTempAndLandscape();
 };
@@ -100,6 +104,9 @@ const registerEventHandlers = () => {
 
   const updateCity = document.getElementById('cityNameInput');
   updateCity.addEventListener('input', changeCity);
+
+  const getCurrentTemp = document.getElementById('currentTempButton');
+  getCurrentTemp.addEventListener('click', getCurrentTempButton);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
