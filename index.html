@@ -11,12 +11,18 @@
     <main>
         <header>
             <h1 id="siteTitle">The Weather Station</h1>
-            <span class="banner" id="sky banner">...</span>
+            <span class="banner" id="skyBanner">...</span>
         </header>
         <section class="container">
             <p id="cityName">Seattle</p>
             <input type="text" id="inputCityName" placeholder="Berlin"/>            
             <div>Sky Condition</div>
+            <select name="skyCondition" id="skySelect">
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
             <div>Date & Time</div>
             <div>
                 <button id="increaseTempButton">Increase Temp</button>

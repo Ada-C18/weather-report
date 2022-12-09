@@ -8,14 +8,14 @@ const state = {
 const increaseTemp = (event) => {
   const tempContainer = document.querySelector('#Temperature');
   console.log('increaseTemp clicked');
-  state.Temperature += 1;
+  state.Temperature = Math.round(state.Temperature + 1);
   tempContainer.textContent = `${state.Temperature}`;
   tempRange();
 };
 
 const decreaseTemp = (event) => {
   const tempContainer = document.querySelector('#Temperature');
-  state.Temperature -= 1;
+  state.Temperature = Math.round(state.Temperature - 1);
   tempContainer.textContent = `${state.Temperature}`;
   tempRange();
 };
@@ -38,6 +38,20 @@ const tempRange = () => {
   } else if (state.Temperature <= 49) {
     tempContainer.style.color = 'teal';
     landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  }
+};
+
+const updateSky = (event) => {
+  const skyContainer = document.querySelector('#skySelect');
+  const skyBannerContainer = document.querySelector('#skyBanner');
+  if ((skyContainer.value = 'sunny')) {
+    skyBannerContainer.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if ((skyContainer.value = 'cloudy')) {
+    skyBannerContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if ((skyContainer.value = 'rainy')) {
+    skyBannerContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if ((skyContainer.value = 'snowy')) {
+    skyBannerContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
@@ -87,6 +101,8 @@ const registerEventHandlers = (event) => {
   inputCityName.addEventListener('input', chooseCityName);
   const updateTempButton = document.querySelector('#updateTempButton');
   updateTempButton.addEventListener('click', updateTemperature);
+  const skySelect = document.querySelector('#skySelect');
+  skySelect.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
