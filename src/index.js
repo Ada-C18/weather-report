@@ -1,44 +1,14 @@
 "use strict";
-//import axios from 'axios';
+import {axios} from 'axios'
 
 const state = {
   tempValue: 80,
+  city: 'Seattle',
+  lat: 0,
+  lon: 0
 };
 
 const temperature = document.getElementById('tempValue');
-
-
-const updateBackground = () => {
-  const background = document.getElementById('bg');
-
-  if (state.tempValue >= 100){
-    background.style.backgroundImage = 'url(../../assets/sun-surface.jpg)'
-  }
-  else if (state.tempValue >= 90){
-    background.style.backgroundImage = 'url(../../assets/desert.jpg)'
-  }
-  else if (state.tempValue >= 80){
-    background.style.backgroundImage = 'url(../../assets/summer2.jpg)'
-  }
-  else if (state.tempValue >= 70){
-    background.style.backgroundImage = 'url(../../assets/summer.jpg)'
-  }
-  else if (state.tempValue >= 60){
-    background.style.backgroundImage = 'url(../../assets/spring2.webp)'
-  }
-  else if (state.tempValue >= 50){
-    background.style.backgroundImage = 'url(../../assets/spring.jpg)'
-  }
-  else if (state.tempValue >= 40){
-    background.style.backgroundImage = 'url(../../assets/autumn.jpg)'
-  }
-  else if (state.tempValue >= 20){
-    background.style.backgroundImage = 'url(../../assets/winter-lanscape.webp)'
-  }
-  else {
-    background.style.backgroundImage = 'url(../../assets/deepfreeze.jpg)'
-  }
-};
 
 const increaseTemp = () => {
   state.tempValue += 1;
@@ -50,6 +20,38 @@ const decreaseTemp = () => {
   state.tempValue -= 1;
   temperature.textContent = String(state.tempValue +'°F');
   updateBackground();
+};
+
+const updateBackground = () => {
+  const backgroundImage = document.getElementById('bg').style.backgroundImage;
+
+  if (state.tempValue >= 100){
+    backgroundImage = 'url(../../assets/sun-surface.jpg)'
+  }
+  else if (state.tempValue >= 90){
+    backgroundImage = 'url(../../assets/desert.jpg)'
+  }
+  else if (state.tempValue >= 80){
+    backgroundImage = 'url(../../assets/summer2.jpg)'
+  }
+  else if (state.tempValue >= 70){
+    backgroundImage = 'url(../../assets/summer.jpg)'
+  }
+  else if (state.tempValue >= 60){
+    backgroundImage = 'url(../../assets/spring2.webp)'
+  }
+  else if (state.tempValue >= 50){
+    backgroundImage = 'url(../../assets/spring.jpg)'
+  }
+  else if (state.tempValue >= 40){
+    backgroundImage = 'url(../../assets/autumn.jpg)'
+  }
+  else if (state.tempValue >= 20){
+    backgroundImage = 'url(../../assets/winter-lanscape.webp)'
+  }
+  else {
+    backgroundImage = 'url(../../assets/deepfreeze.jpg)'
+  }
 };
 
 const updateSky = () => {
@@ -69,6 +71,19 @@ const updateSky = () => {
     sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
+
+const getLatLon = () => {
+  axios.get('https://localhost:5000/location', parameters = {'q': state.city})
+      .then((response) => {
+        state.lat = response.data[0].lat;
+        state.lon = response.data[0].lon;
+      })
+      .catch((error) => {
+        console.log('error getting lat and lon');
+      });
+};
+
+getLatLon();
 
 const registerEventHandlers = () => {
 
