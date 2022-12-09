@@ -13,7 +13,6 @@ body {
     padding: 10px;
 }
 
-
 #weather-report {
     grid-area: 1 / 1 / 2 / 2;
     background-color: bisque;
@@ -25,6 +24,7 @@ body {
     justify-content: center;
     align-content: center;
     text-align: left;
+    padding: 10px;
 }
 
 #temperature {
