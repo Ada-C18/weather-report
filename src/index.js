@@ -8,9 +8,15 @@ const state = {
   lon: 0,
 };
 
-const getLatAndLong = () => {
-  axios.get('https://us1.locationiq.com/v1/search.php');
-};
+const getLatAndLong = (query) => {
+  axios.get('http://127.0.0.1:5000/', {
+    params: {
+      q: query,
+    },  
+  })
+  .then((response) => {
+    
+  })
 
 const tempColor = () => {
   const currentTemp = document.getElementById('temp-display');
