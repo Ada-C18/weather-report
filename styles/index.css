@@ -209,13 +209,13 @@ footer{
     color: red;
 }
 .orange {
-    color: orange;
+    color: rgba(246, 94, 7, 0.95);
 }
 .yellow {
-    color: goldenrod
+    color: rgb(255, 248, 34);
 }
 .green {
-    color: green;
+    color: rgb(15, 102, 15);
 }
 .blue {
     color: blue;
