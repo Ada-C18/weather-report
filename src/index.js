@@ -14,15 +14,13 @@ const convertKtoF = (temp) => {
   };
 
 // function to get input city's lat and long
-// still need to verify PATH is correct with TA
 const getLocation = () => {
     // location = state.city
     // from axios documentation, the get request has a PATH and then otional params, more info: https://github.com/axios/axios
     axios.get('http://localhost:5000/location', {
         params: {q: state.city}
-    }) //ASK TA!!!
+    }) 
     .then(response => {
-    // see test replit I invited you to to check out what the response data looks like
     // per axios documentation:`data` is the response that was provided by the server \\data: {}
     //store current lon and lat in state
     state.latitude = response.data[0].lat;
@@ -36,16 +34,14 @@ const getLocation = () => {
 }
 
 // function to get input city's weather based on its lat and long - called from getLocation
-// still need to verify PATH is correct with TA, and complete .then clause
 const getWeather = () => {
     // latitude, longitude = current state
     axios.get('http://localhost:5000/weather', {
         params: {lat: state.latitude, lon: state.longitude}
-    }) //ASK TA!!!
+    }) 
     .then(response => {
     // check out how a response looks: https://openweathermap.org/current#geo or the replit I shared
     const weather = response.data.main.temp
-    console.log(weather)
     // couldn't get adding a unit (fahrenheit) param to work for temperature, there is an option in the docs
     state.temp = Math.round(convertKtoF(weather));
     changeTempColorAndLandscape();
@@ -154,7 +150,6 @@ const registerEventHandlers = () => {
     const selectSkyDisplay = document.getElementById('sky_select');
     selectSkyDisplay.addEventListener('change', changeSkyDisplay);
 
-    // new registration for getting the temp
     const tempRightNow = document.getElementById('temperature_btn');
     tempRightNow.addEventListener('click', getLocation);
 }
