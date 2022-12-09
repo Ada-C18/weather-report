@@ -1,14 +1,10 @@
-import axios from 'axios';
-
-// const axios = require('axios');
-
 const state = {
   temp: 30,
   city: '',
 };
 
 const updateCityTemp = async (city) => {
-  const cityLatLon = await axios.get('localhost:5000/location?', {
+  const cityLatLon = await axios.get('localhost:5000/location', {
     params: {
       q: city,
     },
@@ -16,17 +12,17 @@ const updateCityTemp = async (city) => {
   const lat = response.data[0].lat;
   const lon = response.data[0].lon;
 
-  const cityWeather = await axios.get('localhost:5000/weather?', {
+  const cityWeather = await axios.get('localhost:5000/weather', {
     params: {
       lat: lat,
       lon: lon,
     },
   });
 
-  const tempInKelvin = await response.data.temp;
+  const tempInKelvin = await cityWeather.data.main.temp;
 
   const kelvinToFahrenheit = (tempInKelvin) => {
-    let tempInFahrenheit = ((tempInKelvin - 273.15) * 9) / 5 + 32;
+    let tempInFahrenheit = (tempInKelvin - 273.15) * (9 / 5) + 32;
     return tempInFahrenheit;
   };
   const result = kelvinToFahrenheit(tempInKelvin);
