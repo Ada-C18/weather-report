@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet"/>
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <section id="weather-report-container">
+        <section id="weather-header-section">
+            <header>
+                <h1>Weather Report</h1>
+            </header>
+            <p id="city-text">For the lovely city of </p>
+            <p id="city-display">✨Honolulu✨</p>
+        </section>
+        <main id="module-section">
+            <section id="weather-modules-section">
+                <section class="module", id="temperature-module">
+                    <p class="module-text">Temperature</p>
+                    <section id="temperature-display">
+                        <section id="temperature-buttons">
+                            <button id="increaseTemp">⬆</button>
+                            <p id="currentTemp">60</p>
+                            <button id="decreaseTemp">⬇</button>
+                        </section>
+                        <button id="getTempButton">Get Realtime Temperature</button>
+                    </section>
+                </section>
+                <section class="module", id="sky-module">
+                    <p class="module-text">Sky</p>
+                    <select id="sky-dropdown">
+                        <option value="snowy">Snowy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="sunny">Sunny</option>
+                    </select>
+                </section>
+                <section class="module", id="city-module">
+                    <label for="city-input" class="module-text">City</label>
+                    <input type="text" id="city-input" required>
+                    <button id="reset-button">Reset</button>
+                </section>
+            </section>
+            <section id="weather-garden-section">
+                <p class="module-text" id="weather-garden-header">Weather Garden</p>
+                <section id="skyDisplay"></section>
+                <section id="landscape"> </section>
+            </section>
+        </main>
+    </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>

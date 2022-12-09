@@ -1,0 +1,71 @@
+body {
+    background-color: darkblue;
+    font-style: Baskerville;
+    font-size: 25px;
+    color: gold;
+}
+
+#weather-report-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#weather-header-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 25px;
+}
+
+#module-section {
+    display: flex;
+    flex-direction: row;
+    column-gap: 33%;
+}
+
+#temperature-module {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 25px;
+}
+
+.module-text {
+    display: flex;
+    flex-basis: 100%;
+}
+
+#temperature-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#getTempButton{
+    border: 2px solid white;
+    border-radius: 25px;
+    background-color: goldenrod;
+    text-align: center;
+    font-size: 20px;
+    width: 150px;
+}
+
+#weather-modules-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#sky-module {
+    background-color: black;
+    border-radius: 25px;
+}
+
+#city-module {
+    background-color: black;
+    border-radius: 25px;
+}
+
+#weather-garden-section {
+    height: 200px;
+}
