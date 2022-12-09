@@ -17,39 +17,25 @@ const updateCity = () => {
   cityName.textContent = state.city;
 };
 
-const getLatAndLong = () => {
+const getWeather = () => {
+  const totalCount = document.getElementById('temperatureValue');
   axios
-    .get('http://localhost:5000/location?', {
-      params: {
-        q: state.city,
-      },
-    })
+    .get(`http://localhost:5000/location?q=${state.city}`)
     .then((response) => {
+      console.log(response.data);
       state.lat = response.data[0].lat;
       state.lon = response.data[0].lon;
-      getWeather();
-    })
-    .catch((error) => {
-      console.log('error, could not find location 😞', error.response);
-    });
-};
-// http://localhost:5000/location?q=${state.city}`)
-// http://localhost:5000/weather?lat=${state.lat}&lon=${state.lon}
-const getWeather = () => {
-  axios
-    .get('http://localhost:5000/weather?', {
-      params: {
-        lat: state.lat,
-        lon: state.lon,
-      },
-    })
-    .then((response) => {
-      const weather = response.data;
-      state.temp = weather.current.temp;
-      totalCount.textContent = state.temp;
-    })
-    .catch((error) => {
-      console.log('error, could not get weather for that city 😞', error);
+      axios
+        .get(`http://localhost:5000/weather?lat=${state.lat}&lon=${state.lon}`)
+        .then((response) => {
+          const tempKelvin = response.data.main.temp;
+          const tempFarenheit = ((tempKelvin - 273.15) * 9) / 5 + 32;
+          totalCount.textContent = `${Math.round(tempFarenheit)}°f`;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log('error, could not get weather for that city 😞', error);
+        });
     });
 };
 
@@ -114,7 +100,8 @@ const changeLandscape = () => {
 
 const registerEventHandlers = () => {
   const submitButton = document.getElementById('submit');
-  submitButton.addEventListener('click', getLatAndLong);
+  // submitButton.addEventListener('click', getLatAndLong);
+  submitButton.addEventListener('click', getWeather);
   const incrementCount = document.getElementById('increaseTemp');
   incrementCount.addEventListener('click', handleIncrement);
   const decrementCount = document.getElementById('decreaseTemp');
