@@ -35,3 +35,7 @@
     gap: 5px;
     grid-template-columns: repeat(3,1fr);
 }
+
+.interactive{
+    background-color: var(--lightColor);
+}
