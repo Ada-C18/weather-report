@@ -4,7 +4,7 @@
 const API_CITY = 'http://127.0.0.1:5000/location';
 const API_WEATHER = 'http://127.0.0.1:5000/weather';
 
-let temperature = 50;
+let temperature = 72;
 
 // Increase temperature
 const increaseTemp = () => {
@@ -74,16 +74,14 @@ const updateCityNameInput = () => {
 
 const city = document.querySelector('#city').textContent;
 
-const getTempK = (city) => {
+const getTempF = (city) => {
   axios
     .get(API_CITY, { params: { q: city, format: 'json' } })
     .then((result) => {
       const latitude = result.data[0].lat;
       const lontitude = result.data[0].lon;
-      // console.log(`${city} lat: ${lat} lon: ${lon}`);
-      // console.log(typeof lat, lon);
-      // console.log(typeof parseFloat(lat));
-      // const coordinates = { lat: parseFloat(lat), lon: parseFloat(lon) };
+      console.log(city)
+      console.log(latitude , lontitude)
 
       axios
         .get(API_WEATHER, {
@@ -93,7 +91,18 @@ const getTempK = (city) => {
           const temp = result.data.main.temp;
           console.log(convertTempKtoF(temp));
           const tempF = convertTempKtoF(temp);
-          return tempF;
+          // return tempF;
+          temperature = tempF
+          // console.log(temperature)
+          
+          const tempButton = document.querySelector("#temperature-button")
+          tempButton.addEventListener("click", ()=> {
+            const spanTempNumber = document.querySelector("#temperature-value")
+          spanTempNumber.textContent = temperature
+          console.log(spanTempNumber.textContent)
+
+          })
+
         })
         .catch((error) => {
           console.log(error);
@@ -102,20 +111,28 @@ const getTempK = (city) => {
     .catch((error) => {
       console.log(error);
     });
+  
+    
 };
 
 const convertTempKtoF = (temp) => {
-  const tempF = 1.8 * (Number(temp) - 273) + 32;
-  // console.log(tempF);
+  const tempF = Math.round(1.8 * (Number(temp) - 273) + 32);
   return tempF;
 };
+
+// const updateTempOnClick =() => {
+//   temperature = getTempF(city)
+//   console.log(updateTempOnClick)
+// }
+
 
 const EventHandlers = () => {
   increaseTempOnClick();
   decreaseTempOnClick();
   updateCityNameInput();
-  getTempK(city);
-  // convertTempKtoF('278');
+  getTempF(city);
+  // updateTempOnClick();
+
 };
 if (document.readyState !== 'loading') {
   EventHandlers();
