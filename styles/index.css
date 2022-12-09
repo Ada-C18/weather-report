@@ -5,12 +5,15 @@
 } */
 
 body{
-    background-color: hsla(170, 45%, 65%, 1);
+    background-color: rgb(134, 201, 223);
     /* text-align: center; */
 }
 
 h1{
     text-align: center;
+    background-color: rgb(73, 137, 255);
+    padding: 15px;
+    color: white;
 }
 
 #content{
@@ -18,12 +21,18 @@ h1{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, min-content);
     margin: 0px 200px;
+    background-color:lightblue;
+    padding: 0px 20px 40px;
 }
 
 #city-name{
     grid-column-start: span 2;
-    text-align: center;
     font-size: 24px;
+}
+
+#city-name, #footer{
+    text-align: center;
+    color: navy;
 }
 
 #temp-selector{
