@@ -82,4 +82,43 @@ footer {
     grid-column: auto / span 2;
 }
 
+.red {
+    color: red;
+    }
+    
+.orange {
+    color: orange;
+    }
+    
+.yellow {
+    color: gold;
+    }
+    
+.yellow-green {
+    color: yellowgreen;
+    }
+    
+.green {
+    color: green;
+    }
+    
+.teal {
+    color: teal;
+    }
+
+
+/* weather-Garden-Container {
+    width: 600px;
+    height: 50px;
+    position:absolute;
+    text-align: center;
+
+}  */
+
+
+
+/* .white {
+    background-color: white;
+    color: black
+} */
 
