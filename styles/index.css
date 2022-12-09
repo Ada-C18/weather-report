@@ -24,6 +24,7 @@ body {
     background: yellow;
     float: left;
     width: 50%;
+    height: 400px;
     /* padding-bottom: 50%; */
 }
 
@@ -31,6 +32,7 @@ body {
     background: lightblue;
     float: right;
     width: 50%;
+    height: 400px;
 }
 
 .city_section{
@@ -43,5 +45,6 @@ body {
     background: rgb(0, 255, 204);
     float: left;
     width: 50%;
+    height: 400px;
 }
 
