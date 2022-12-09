@@ -37,23 +37,9 @@ const getWeather = (lat, lon) => {
   });
 }
 
+
 // const latAndLon = getLocation('Seattle');
 getWeather(47.6038321, -122.330062);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //increases temperature from click
