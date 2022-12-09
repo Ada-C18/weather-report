@@ -1,5 +1,4 @@
-// import axios from "axios";
-const axios = require("axios");
+
 let temperature = document.getElementById('display-temp');
 let cityName = document.getElementById('city-name');
 let defaultCity = 'Seattle'

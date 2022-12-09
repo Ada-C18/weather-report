@@ -15,7 +15,7 @@
         <h4>for the lovely city of ✨<span id="city-name"></span>✨</h4>
     </header>
     <aside>
-        <section>
+        <section class="aside temperature">
             <section>
                 <h4>Temperature</h4>
                 <button id="temp-up">⬆️</button>
@@ -26,7 +26,7 @@
                 <button id="realtime">Get RealTime Temperature</button>
             </section>
         </section>
-        <section>
+        <section class="aside">
             <h4>Sky</h4>
             <select name="Sky" id="sky">
                 <option value="snowy">Snowy</option>
@@ -35,7 +35,7 @@
                 <option value="cloudy">Cloudy</option>
             </select>
         </section>
-        <section>
+        <section class="aside">
             <h4>City Name</h4>
             <input id="input-city" type="text" value="">
             <button id="reset-button">Reset</button>
@@ -51,5 +51,6 @@
         </section>
     </main>
     <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
