@@ -10,6 +10,16 @@ const landscape = document.querySelector('#landscape');
 const buttonIncrease = document.querySelector('#button-increase');
 const buttonDecrease = document.querySelector('#button-decrease');
 
+buttonIncrease.addEventListener('click', (_) => {
+	State.temperature += 1;
+	updateWeather();
+});
+
+buttonDecrease.addEventListener('click', (_) => {
+	State.temperature -= 1;
+	updateWeather();
+});
+
 const State = {
 	temperature: 70,
 	unit: 'F',
@@ -35,13 +45,3 @@ const updateWeather = function() {
 };
 
 updateWeather();
-
-buttonIncrease.addEventListener('click', (_) => {
-	State.temperature += 1;
-	updateWeather();
-});
-
-buttonDecrease.addEventListener('click', (_) => {
-	State.temperature -= 1;
-	updateWeather();
-});
