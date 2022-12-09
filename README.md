@@ -6,6 +6,8 @@
     - [x]  button (Register and addEventListener to Get Realtime Temperature button) - Milena
     - [ ]  get API functions working and button get temp - together office hours
 - [ ]  Wave 5 - Milena
+    - [x]  set up dropdown [select](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element in HTML file
+    - [ ]  connect dropdown values to update sky emojis
 - [ ]  Wave 6 - Puja
 
 
