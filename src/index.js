@@ -120,7 +120,10 @@ const getWeather = (lat, lon) => {
 };
 
 const currentTemp = () => {
-  state.currentTemp = getLatLon(state.cityName);
+  getLatLon(state.cityName).then((temperature) => {
+    setTempColor(parseInt(temperature));
+    setLandscape(parseInt(temperature));
+  });
 };
 
 const registerEventHandlers = () => {
@@ -136,7 +139,7 @@ const registerEventHandlers = () => {
     renameCity();
   });
 
-  const currentTempButton = document.querySelector('#current-temp-button');
+  const currentTempButton = document.querySelector('#get-temp-button');
   currentTempButton.addEventListener('click', currentTemp);
 
   const setSkyDropDown = document.querySelector('#sky-select');
