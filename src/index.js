@@ -1,42 +1,44 @@
 "use strict";
-//import axios from 'axios';
+import {axios} from 'axios'
 
 const state = {
   tempValue: 80,
+  city: 'Seattle',
+  lat: 0,
+  lon: 0
 };
 
 const temperature = document.getElementById('tempValue');
 
-
 const updateBackground = () => {
-  const background = document.getElementById('bg');
+  const backgroundImage = document.getElementById('bg').style.backgroundImage;
 
   if (state.tempValue >= 100){
-    background.style.backgroundImage = 'url(../../assets/sun-surface.jpg)'
+    backgroundImage = 'url(../../assets/sun-surface.jpg)'
   }
   else if (state.tempValue >= 90){
-    background.style.backgroundImage = 'url(../../assets/desert.jpg)'
+    backgroundImage = 'url(../../assets/desert.jpg)'
   }
   else if (state.tempValue >= 80){
-    background.style.backgroundImage = 'url(../../assets/summer2.jpg)'
+    backgroundImage = 'url(../../assets/summer2.jpg)'
   }
   else if (state.tempValue >= 70){
-    background.style.backgroundImage = 'url(../../assets/summer.jpg)'
+    backgroundImage = 'url(../../assets/summer.jpg)'
   }
   else if (state.tempValue >= 60){
-    background.style.backgroundImage = 'url(../../assets/spring2.webp)'
+    backgroundImage = 'url(../../assets/spring2.webp)'
   }
   else if (state.tempValue >= 50){
-    background.style.backgroundImage = 'url(../../assets/spring.jpg)'
+    backgroundImage = 'url(../../assets/spring.jpg)'
   }
   else if (state.tempValue >= 40){
-    background.style.backgroundImage = 'url(../../assets/autumn.jpg)'
+    backgroundImage = 'url(../../assets/autumn.jpg)'
   }
   else if (state.tempValue >= 20){
-    background.style.backgroundImage = 'url(../../assets/winter-lanscape.webp)'
+    backgroundImage = 'url(../../assets/winter-lanscape.webp)'
   }
   else {
-    background.style.backgroundImage = 'url(../../assets/deepfreeze.jpg)'
+    backgroundImage = 'url(../../assets/deepfreeze.jpg)'
   }
 };
 
@@ -94,6 +96,25 @@ const updateSky = () => {
   }
 };
 
+const getLatLon = () => {
+  axios.get('https://localhost:5000/location', parameters = {'q': state.city})
+      .then((response) => {
+        state.lat = response.data[0].lat;
+        state.lon = response.data[0].lon;
+      })
+      .catch((error) => {
+        console.log('error getting lat and lon');
+      });
+};
+
+getLatLon();
+
+const resetCityName = () => {
+  let cityNameInput = document.getElementById('cityNameInput');
+  cityNameInput.value = 'Seattle';
+  updateCityName();
+}
+
 const registerEventHandlers = () => {
 
   const increaseTempBtn = document.getElementById('increaseTempBtn');
@@ -105,7 +126,11 @@ const registerEventHandlers = () => {
   const skySelection = document.getElementById('skySelection');
   skySelection.addEventListener('change', updateSky);
 
+  const cityNameInput = document.getElementById('cityNameInput');
   cityNameInput.addEventListener('input', updateCityName);
+
+  const resetCityBtn = document.getElementById('cityResetBtn');
+  resetCityBtn.addEventListener('click', resetCityName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
