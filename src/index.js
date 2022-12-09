@@ -37,20 +37,13 @@ const findWeather = () => {
   };
 
 
-// Increase/Decrease temperature
-const increaseTemp = () => {
-  let count = 0;
-  count++;
-  
-  const upButton = document.getElementById('up');
-  const downButton = document.getElementById('down');
-
-
-  increment.addEventListener('click',() => {
-    count +=1
-    display.textContent = count;
-}
-
+function resetText {
+  let resetText = document.getElementById('reset')
+  resetButton.addEventListener('click', function() {
+      // Reset the text box
+      textBox.reset();
+  }
+};
 
  // const increaseTemp = () => {
   //   state.temp += 1;
@@ -80,7 +73,7 @@ const increaseTemp = () => {
 
 
 
-const updateSky = () => {
+function updateSky() {
   const inputSky = document.getElementById('skyOptions').value;
   const skyContainer = document.getElementById('sky-weather');
   let sky = '';
