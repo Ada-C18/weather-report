@@ -13,12 +13,11 @@ body {
     /* background-color: lightblue; */
 
     display: grid;
-    grid-template: 10% auto 5% /30% 70%;
+    grid-template: 15% auto 5% /30% 70%;
 }
     /* grid-template-columns: 100px 100px; */
 
 .header {
-   
     grid-column: auto / span 2;
     color: white;
     font-size: 50px;
@@ -82,7 +81,7 @@ footer {
     grid-column: auto / span 2;
 }
 
-.red {
+/* .red {
     color: red;
     }
     
@@ -104,7 +103,7 @@ footer {
     
 .teal {
     color: teal;
-    }
+    } */
 
 
 /* weather-Garden-Container {
