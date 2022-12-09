@@ -26,6 +26,27 @@ main {
   width: 100%;
 }
 
+#temp-box {
+  border-radius: 3px;
+  text-align: center;
+}
+
+.temp-box-cold {
+  background-color: cyan;
+}
+
+.temp-box-cool {
+  background-color: lightgrey;
+}
+
+.temp-box-warm {
+  background-color: yellow;
+}
+
+.temp-box-hot {
+  background-color: red;
+}
+
 #landscape {
   height: 100%;
   width: 100%;

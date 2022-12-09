@@ -1,6 +1,7 @@
 'use strict';
 
 const cityName = document.querySelector('#city-name');
+const tempBox = document.querySelector('#temp-box');
 const temperature = document.querySelector('#temp');
 const tempUnit = document.querySelector('#temp-unit');
 const weather = document.querySelector('#weather');
@@ -20,12 +21,16 @@ const updateWeather = function() {
 
 	if (State.temperature < 32) {
 		landscape.className = 'landscape-cold';
+		tempBox.className = 'temp-box-cold';
 	} else if (State.temperature < 60) {
 		landscape.className = 'landscape-cool';
+		tempBox.className = 'temp-box-cool';
 	} else if (State.temperature < 90) {
 		landscape.className = 'landscape-warm';
+		tempBox.className = 'temp-box-warm';
 	} else {
 		landscape.className = 'landscape-hot';
+		tempBox.className = 'temp-box-hot';
 	}
 };
 
