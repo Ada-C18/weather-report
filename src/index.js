@@ -1,11 +1,13 @@
 'use strict';
 console.log('testing');
 
-// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://localhost:5000';
 
 const state = {
   city: 'Seattle',
   temp: 70,
+  lat: 47.6062,
+  lon: -122.3321,
 };
 
 const increaseTemperature = (event) => {
@@ -91,6 +93,26 @@ const resetCityName = (event) => {
   const cityInput = document.getElementById('cityNameInput');
   cityNameInput.value = 'Seattle';
   modifyCityName();
+};
+
+const getLatAndLon = () => {
+  // const lat =
+  // const lon =
+
+  const axios = require('axios');
+
+  axios
+    .get('http://localhost:5000/location', {
+      params: { q: state.city },
+    })
+
+    .then((response) => {
+      // state.lat = response
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log('Error in get Lat & Lon');
+    });
 };
 
 const registerEventHandlers = (event) => {
