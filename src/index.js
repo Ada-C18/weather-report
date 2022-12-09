@@ -10,15 +10,17 @@ const increaseTemp = (event) => {
   console.log('increaseTemp clicked');
   state.Temperature += 1;
   tempContainer.textContent = `${state.Temperature}`;
+  tempRange();
 };
 
 const decreaseTemp = (event) => {
   const tempContainer = document.querySelector('#Temperature');
   state.Temperature -= 1;
   tempContainer.textContent = `${state.Temperature}`;
+  tempRange();
 };
 
-const tempRange = (event) => {
+const tempRange = () => {
   const tempContainer = document.querySelector('#Temperature');
   const landscapeContainer = document.querySelector('#landscape');
   if (state.Temperature >= 80) {
@@ -35,6 +37,7 @@ const tempRange = (event) => {
     landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (state.Temperature <= 49) {
     tempContainer.style.color = 'teal';
+    landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
@@ -59,9 +62,9 @@ const updateTemperature = (event) => {
         )
         .then((response) => {
           const temperatureKelvin = response.data.main.temp;
-          const temperatureFahrenheit =
-            ((temperatureKelvin - 273.15) * 9) / 5 + 32;
-          tempContainer.textContent = `${Math.round(temperatureFahrenheit)}`;
+          state.Temperature = ((temperatureKelvin - 273.15) * 9) / 5 + 32;
+          tempContainer.textContent = `${Math.round(state.Temperature)}`;
+          tempRange();
           console.log(response.data);
         })
         .catch((error) => {
@@ -76,10 +79,10 @@ const updateTemperature = (event) => {
 const registerEventHandlers = (event) => {
   const increaseTempButton = document.querySelector('#increaseTempButton');
   increaseTempButton.addEventListener('click', increaseTemp);
-  increaseTempButton.addEventListener('click', tempRange);
+  // increaseTempButton.addEventListener('click', tempRange);
   const decreaseTempButton = document.querySelector('#decreaseTempButton');
   decreaseTempButton.addEventListener('click', decreaseTemp);
-  decreaseTempButton.addEventListener('click', tempRange);
+  // decreaseTempButton.addEventListener('click', tempRange);
   const inputCityName = document.querySelector('#inputCityName');
   inputCityName.addEventListener('input', chooseCityName);
   const updateTempButton = document.querySelector('#updateTempButton');
