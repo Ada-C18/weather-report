@@ -58,7 +58,7 @@ const handleDecreaseTempButtonClicked = (event) => {
 };
 
 const handleCityInputChanged = (event) => {
-  state.cityDisplay.textContent = state.cityInput.value;
+  state.cityDisplay.textContent = `✨${state.cityInput.value}✨`;
 };
 
 const getLatLon = (cityName) => {
@@ -102,11 +102,11 @@ const getLocationAndWeather = () => {
       return getWeather(response.lat, response.lon);
     })
     .then((response) => {
-        state.currentTempCount = Math.floor(response);
-        refreshTemp();
-        tempTextColorChange();
-        landscapeChange()
-    })
+      state.currentTempCount = Math.floor(response);
+      refreshTemp();
+      tempTextColorChange();
+      landscapeChange();
+    });
 };
 
 const handleGetTempButtonClicked = (event) => {
@@ -118,7 +118,7 @@ const handleSkyDropDownChanged = (event) => {
 };
 
 const handleResetButtonClicked = (event) => {
-  state.cityDisplay.textContent = 'Honolulu';
+  state.cityDisplay.textContent = '✨Honolulu✨';
   state.cityInput.value = '';
 };
 
@@ -166,20 +166,16 @@ const skyDisplayChange = () => {
   let sky = state.skyDropDown.value;
   if (sky === 'snowy') {
     state.skyDisplay.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-    state.weatherGardenSection.style.backgroundColor =
-      'grey';
+    state.weatherGardenSection.style.backgroundColor = 'grey';
   } else if (sky === 'rainy') {
     state.skyDisplay.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-    state.weatherGardenSection.style.backgroundColor =
-      'darkgrey';
+    state.weatherGardenSection.style.backgroundColor = 'darkgrey';
   } else if (sky === 'cloudy') {
     state.skyDisplay.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-    state.weatherGardenSection.style.backgroundColor =
-      'lightgrey';
+    state.weatherGardenSection.style.backgroundColor = 'lightgrey';
   } else if (sky === 'sunny') {
     state.skyDisplay.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-    state.weatherGardenSection.style.backgroundColor =
-      'lightblue';
+    state.weatherGardenSection.style.backgroundColor = 'lightblue';
   }
 };
 

@@ -1,6 +1,8 @@
 body {
-    background-color: royalblue;
+    background-color: darkblue;
     font-style: Baskerville;
+    font-size: 25px;
+    color: gold;
 }
 
 #weather-report-container {
@@ -25,6 +27,8 @@ body {
 #temperature-module {
     display: flex;
     flex-direction: column;
+    background-color: black;
+    border-radius: 25px;
 }
 
 .module-text {
@@ -35,6 +39,16 @@ body {
 #temperature-display {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+#getTempButton{
+    border: 2px solid white;
+    border-radius: 25px;
+    background-color: goldenrod;
+    text-align: center;
+    font-size: 20px;
+    width: 150px;
 }
 
 #weather-modules-section {
@@ -42,6 +56,16 @@ body {
     flex-direction: column;
 }
 
+#sky-module {
+    background-color: black;
+    border-radius: 25px;
+}
+
+#city-module {
+    background-color: black;
+    border-radius: 25px;
+}
+
 #weather-garden-section {
-    background-color: royalblue;
+    height: 200px;
 }

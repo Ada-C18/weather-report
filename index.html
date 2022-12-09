@@ -14,7 +14,7 @@
                 <h1>Weather Report</h1>
             </header>
             <p id="city-text">For the lovely city of </p>
-            <p id="city-display">Honolulu</p>
+            <p id="city-display">✨Honolulu✨</p>
         </section>
         <main id="module-section">
             <section id="weather-modules-section">
@@ -29,7 +29,7 @@
                         <button id="getTempButton">Get Realtime Temperature</button>
                     </section>
                 </section>
-                <section class="module">
+                <section class="module", id="sky-module">
                     <p class="module-text">Sky</p>
                     <select id="sky-dropdown">
                         <option value="snowy">Snowy</option>
@@ -38,14 +38,14 @@
                         <option value="sunny">Sunny</option>
                     </select>
                 </section>
-                <section class="module">
+                <section class="module", id="city-module">
                     <label for="city-input" class="module-text">City</label>
                     <input type="text" id="city-input" required>
                     <button id="reset-button">Reset</button>
                 </section>
             </section>
             <section id="weather-garden-section">
-                <p class="module-text">Weather Garden</p>
+                <p class="module-text" id="weather-garden-header">Weather Garden</p>
                 <section id="skyDisplay"></section>
                 <section id="landscape"> </section>
             </section>
