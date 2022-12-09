@@ -97,7 +97,22 @@ function convertToFahrenheit (kelvin) {
   let fahrenheit = Math.round((kelvin * (9/5)) - 459.67);
   console.log(fahrenheit);
   document.getElementById('Total').innerHTML = fahrenheit;
+  changeLandscape(fahrenheit);
 }
 
+function changeSky () {
+  let skyDisplay = document.getElementById('sky').value;
+  console.log(skyDisplay);
+  if (skyDisplay === 'sunny') {
+    document.getElementById('skyHere').innerHTML = '😎🌞🌞😎🌞🌞😎';
+  } else if (skyDisplay === 'cloudy') {
+    document.getElementById('skyHere').innerHTML = '🌤🌤🌤🌤🌤🌤🌤🌤';
+  } else if (skyDisplay === 'rainy') {
+    document.getElementById('skyHere').innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyDisplay === 'snowy') {
+    document.getElementById('skyHere').innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+}
 document.getElementById('getDisplayCityTemp').addEventListener('click', findCityLatLon);
 
+document.getElementById('sky').addEventListener('change', changeSky);
