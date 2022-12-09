@@ -3,7 +3,8 @@ https://simons-weather-report.surge.sh/
 figma: https://www.figma.com/file/8zHh7xLLNxqUhrTPw6hr5F/Untitled?node-id=0%3A3&t=rSgbliCuqj0Xl7un-0
 project ex: https://enlight.nyc/projects/weather
 another ex: https://www.codingnepalweb.com/build-weather-app-html-javascript/
- */
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-examples
+*/
 
 /*///////////// BASIC LAYOUT  ///////////////*/
 body {
@@ -96,7 +97,7 @@ body h2 {
     gap: 30px;
 }
 
-/* //////////ITEMS WITHIN LANDSCAPE CONTAINER /////////////*/
+/* //////////ITEMS WITHIN LANDSCAPE CONTAINER ///////////*/
 #land-container {
     display: flex;
     align-items: flex-end;
