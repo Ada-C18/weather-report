@@ -7,13 +7,14 @@
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet" />
     <!-- emojis -->
-    <meta charset="UTF-8"> 
+    <!-- duplicate code below, milena commented it out -->
+    <!-- <meta charset="UTF-8" /> -->
   </head>
   <body>
     <header id="">
       <h1>Weather Report</h1>
       <p id="city-name">City of:</p>
-      </header>
+    </header>
 
     <main>
       <section id="white-boxes">
@@ -29,7 +30,14 @@
 
         <section id="sky">
           <h2>Sky</h2>
-          <button id="dropdown"></button>
+          <select id="dropdown">
+            <!--  need name= param? -->
+            <option value="">--Please choose a Sky option--</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+          </select>
         </section>
 
         <section id="city-name">
