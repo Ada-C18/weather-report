@@ -145,6 +145,10 @@ h1 {
     margin: 0;
 }
 
+#temp-num {
+    padding-left: 13px;
+}
+
 #degree {
     color: #F5F5F5;
     font-weight: 100;

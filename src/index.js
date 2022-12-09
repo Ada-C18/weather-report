@@ -1,8 +1,7 @@
 // import axios from 'axios';
 
-// const toCelsius = (temp) => {
+// const { default: axios } = require('axios');
 
-// }
 const state = {
   temp: 0,
 };
@@ -61,6 +60,89 @@ const updateCity = () => {
   city.innerText = locationInput;
 };
 
+// const getLatLon = () => {
+//   const city = document.querySelector('#city-name');
+//   axios
+//     .get('http://127.0.0.1:5000/location', {
+//       params: {
+//         q: city,
+//       },
+//     })
+//     .then((response) => {
+//       const latitude = response.data[0]['lat'];
+//       const longitude = response.data[0]['lon'];
+//       return [latitude, longitude];
+//     })
+//     .catch((error) => {
+//       console.log(`Error: ${error.response.status}`);
+//     });
+// }
+
+// const getWeather = () => {
+//   const [latitude, longitude] = getLatLon();
+//   axios
+//     .get('http://127.0.0.1:5000/weather', {
+//       params: {
+//         lat: latitude,
+//         lon: longitude
+//       }
+//     })
+//     .then((response) => {
+
+//     })
+// }
+
+const getLatLon = async () => {
+  const cityInput = document.querySelector('.location');
+  const city = cityInput.value;
+  let response = await axios
+    .get('http://127.0.0.1:5000/location', { params: { q: city } })
+    .catch((error) => {
+      cityInput.placeholder = 'Please enter a valid city';
+      cityInput.placeholder.style.color = 'red';
+      console.log(`Error: ${error.response.status}`);
+    });
+  const latitude = response.data[0]['lat'];
+  const longitude = response.data[0]['lon'];
+  return [latitude, longitude];
+};
+
+const getWeather = async (latitude, longitude) => {
+  // const [latitude, longitude] = await getLatLon();
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .catch((error) => {
+      console.log(`Error: ${error.response.status}`);
+    });
+};
+
+const updateWeather = async () => {
+  const [latitude, longitude] = await getLatLon();
+  const response = await getWeather(latitude, longitude);
+  // const weather = response.data.weather[0].description;
+  const weatherAPIType = response.data['weather'][0]['main'];
+  const weatherType = document.querySelector('#weather-type');
+  weatherType.innerText = weatherAPIType;
+
+  // const weatherAPITemp = response.data.main.temp;
+  const apiTemp = response.data['main']['temp'];
+  state.temp = Math.round(apiTemp);
+  const temp = document.querySelector('#temp-num');
+  temp.innerText = state.temp;
+
+  const apiCity = response.data['name'];
+  const cityInput = document.querySelector('.location');
+  cityInput.value = apiCity;
+
+  tempChangeUpdateUI();
+  updateCity();
+};
+
 const currentTemp = document.querySelector('#temp-num');
 currentTemp.innerText = state.temp;
 
@@ -76,6 +158,9 @@ const registerEventHandlers = () => {
 
   const cityInput = document.querySelector('.location');
   cityInput.addEventListener('input', updateCity);
+
+  const submitBtn = document.querySelector('#submit');
+  submitBtn.addEventListener('click', updateWeather);
 };
 
 window.addEventListener('load', tempChangeUpdateUI);
