@@ -1,6 +1,7 @@
 'use strict';
 
 const cityName = document.querySelector('#city-name');
+const citySelector = document.querySelector('#city-selector');
 const tempBox = document.querySelector('#temp-box');
 const temperature = document.querySelector('#temp');
 const tempUnit = document.querySelector('#temp-unit');
@@ -18,6 +19,10 @@ buttonIncrease.addEventListener('click', (_) => {
 buttonDecrease.addEventListener('click', (_) => {
 	State.temperature -= 1;
 	updateWeather();
+});
+
+citySelector.addEventListener('input', (_) => {
+	cityName.textContent = citySelector.value;
 });
 
 const State = {
