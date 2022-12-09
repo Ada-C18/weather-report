@@ -2,7 +2,7 @@ const state = {
   currentTemp: 80,
   city: 'Seattle',
   lat: 47.6038321,
-  lon: -122.330062
+  lon: -122.330062,
 };
 
 const increaseTemp = () => {
@@ -43,6 +43,11 @@ const temperatureColorCheck = (temp) => {
     tempValue.className = 'teal';
   }
 };
+const updateSky = () => {
+  const skyPicture = document.getElementById('skyPicture');
+  const selectedSky = document.getElementById('sky').value;
+  console.log(selectedSky);
+};
 const updateCity = () => {
   const inputCity = document.getElementById('input-city').value;
   const cityName = document.getElementById('city-name');
@@ -53,20 +58,20 @@ const updateCity = () => {
 const getLiveTemp = () => {
   const tempValue = document.getElementById('tempValue');
 
-  getLatAndLon(state.city).then((result) => {
-    console.log("in location");
-  })
-  .then((result) => {
-    getWeather(state.lat, state.lon)
+  getLatAndLon(state.city)
     .then((result) => {
-      console.log("in weather");
-      state.currentTemp = result;
-      tempValue.textContent = state.currentTemp;
-      temperatureColorCheck(state.currentTemp);
+      console.log('in location');
     })
-  })
-  console.log("end of function");
-}
+    .then((result) => {
+      getWeather(state.lat, state.lon).then((result) => {
+        console.log('in weather');
+        state.currentTemp = result;
+        tempValue.textContent = state.currentTemp;
+        temperatureColorCheck(state.currentTemp);
+      });
+    });
+  console.log('end of function');
+};
 
 const getLatAndLon = (city) => {
   return axios
@@ -90,16 +95,15 @@ const getWeather = (lat, lon) => {
     .get('http://127.0.0.1:5000/weather', {
       params: {
         lat: lat,
-        lon: lon
-      }
+        lon: lon,
+      },
     })
     .then((response) => {
-      temp = response.data.main.temp
-      convertedTemp = (temp - 273.15) * 9/5 + 32 
-      return convertedTemp
-    })
-}
-
+      temp = response.data.main.temp;
+      convertedTemp = ((temp - 273.15) * 9) / 5 + 32;
+      return convertedTemp;
+    });
+};
 
 const registerEventHandlers = () => {
   const increaseTempButton = document.getElementById('increaseTempButton');
@@ -111,8 +115,13 @@ const registerEventHandlers = () => {
   const inputCityBox = document.getElementById('input-city');
   inputCityBox.addEventListener('input', updateCity);
 
-  const liveTemperatureButton = document.getElementById('liveTemperatureButton');
-  liveTemperatureButton.addEventListener('click', getLiveTemp)
+  const liveTemperatureButton = document.getElementById(
+    'liveTemperatureButton'
+  );
+  liveTemperatureButton.addEventListener('click', getLiveTemp);
+
+  const skySelected = document.getElementById('sky');
+  skySelected.addEventListener('onchange', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
