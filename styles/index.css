@@ -25,6 +25,7 @@ body {
     float: left;
     width: 50%;
     height: 400px;
+    text-align: center;
     /* padding-bottom: 50%; */
 }
 
@@ -33,12 +34,14 @@ body {
     float: right;
     width: 50%;
     height: 400px;
+    text-align: center;
 }
 
 .city_section{
     background: orange;
     float: right;
     width: 50%;
+    text-align: center;
 }
 
 .emojis {
@@ -46,5 +49,6 @@ body {
     float: left;
     width: 50%;
     height: 400px;
+    text-align: center;
 }
 

@@ -36,10 +36,26 @@ const findWeather = () => {
     })
   };
 
-  const increaseTemp = () => {
-    state.temp += 1;
-    formatTempAndGarden();
-  };
+
+// Increase/Decrease temperature
+const increaseTemp = () => {
+  let count = 0;
+  count++;
+  
+  const upButton = document.getElementById('up');
+  const downButton = document.getElementById('down');
+
+
+  increment.addEventListener('click',() => {
+    count +=1
+    display.textContent = count;
+}
+
+
+ // const increaseTemp = () => {
+  //   state.temp += 1;
+  //   formatTempAndGarden();
+  // };
 
 // Increase/Decrease temperature
 // const increaseTemp = () => {
@@ -59,6 +75,9 @@ const findWeather = () => {
 //   });
 //   // increaseTemp.addEventListener("click", incrementCount);
 // };
+
+
+
 
 
 const updateSky = () => {
