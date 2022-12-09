@@ -1,16 +1,20 @@
 body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-	border: 1px solid black;
-	padding: 1rem 2rem;
-	display: flex;
-	gap: 1rem;
+  border: 1px solid black;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+}
 
+#report-box {
+  display: flex;
+  flex-direction: column;
 }
