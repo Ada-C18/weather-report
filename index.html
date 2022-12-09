@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,45 +8,46 @@
     <link href="styles/index.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
+
 <body>
     <div id="html-elements">
-        <section id="wave-two">
-            <p id ="current-temp">40</p>
-            <button id="increase-temp">Increase Temp</button>
-            <button id="decrease-temp">Decrease Temp</button>
-            <div id="landscape">Landscape</div>
+        <section id="header">
+            <h1> Weather Report</h1>
+            <h2 id="city-name">Seattle</h2>
         </section>
-        <section id ="weather-garden">
-            <div id ="display-weather-garden"> </div>
+        <section id="container">
+            <section id="selectsky">
+                <label for="sky-select">Choose a sky:</label>
+                <select name="weather" id="sky-select">
+                    <option value="">--Please choose a sky--</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+            </section>
+                <section id="temperature">
+                    <h2 id="current-temp">40</h2>
+                    <button id="increase-temp">Increase Temp</button>
+                    <button id="decrease-temp">Decrease Temp</button>
+                    <button id="get-temp-button">Current Temp</button>
+                </section>
+                <section id="city-rename">
+                    <form id="rename-city" name="rename-city">
+                        <input type="text" id="city-input" name="city-name">
+                        <input type="submit" id="city-submit">
+                        <button id="rename-city-button">Rename City</button>
+                    </form>
+                </section>
+            </section>
         </section>
-        <section id="wave-three">
-            <p id="city-name">Seattle</p>
-            <form id="rename-city" name="rename-city">
-                <input type="text" id="city-input" name="city-name">
-                <input type="submit" id="city-submit">
-            </form>
-        </section>
-        <section id="wave-four">
-            <button id="get-temp-button">Current Temp</button>
-        </section>
-        <section id="wave-five">
+        <section id="weather-garden">
             <div id="sky-display"></div>
-            <label for="sky-select">Choose a sky:</label>
-
-            <select name="weather" id="sky-select">
-                <option value="">--Please choose a sky--</option>
-                <option value="sunny">Sunny</option>
-                <option value="cloudy">Cloudy</option>
-                <option value="rainy">Rainy</option>
-                <option value="snowy">Snowy</option>
-            </select>
-            
+            <div id="display-weather-garden"> </div>
         </section>
-        <section id="wave-six">
-            <button id="rename-city-button">Rename City Wave 6</button>
-        </section>
-    </div>  
-    <script src="./node_modules/axios/dist/axios.min.js"></script>  
+    </div>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js" type="text/javascript"></script>
 </body>
+
 </html>
