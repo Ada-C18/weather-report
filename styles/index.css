@@ -11,13 +11,70 @@ body {
 }
 
 .header_header {
-  display: grid;
   text-align: center;
+  background-color: rgb(255, 140, 0);
+
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
-  background-color: red;
+
   font-size: 2em;
   font-weight: bold;
+}
+
+.temperature_section {
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: lightsalmon;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#currentTempButton {
+  background-color: coral;
+  color: rgb(146, 61, 0);
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 14px;
+}
+
+.sky_section,
+.city-name_section {
+  border-radius: 26px;
+  padding: 2rem;
+  background-color: rgb(255, 223, 63);
+  color: darkorange;
+}
+.sky_section {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.city-name_section {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
+.yellow {
+  color: yellow;
+}
+.green {
+  color: green;
+}
+.teal {
+  color: teal;
 }
