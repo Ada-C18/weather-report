@@ -6,7 +6,6 @@
 
 body{
     background-color: rgb(134, 201, 223);
-    /* text-align: center; */
 }
 
 h1{
@@ -14,6 +13,8 @@ h1{
     background-color: rgb(73, 137, 255);
     padding: 15px;
     color: white;
+    font-family: 'Unbounded', serif;
+    margin: 30px 0 0;
 }
 
 #content{
@@ -23,11 +24,18 @@ h1{
     margin: 0px 200px;
     background-color:lightblue;
     padding: 0px 20px 40px;
+    font-family: 'Quicksand', serif;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #city-name{
     grid-column-start: span 2;
     font-size: 24px;
+    background-color: rgb(199, 232, 243);
+    padding: 5px;
+    border-radius: 10px;
 }
 
 #city-name, #footer{
@@ -38,15 +46,14 @@ h1{
 #temp-selector{
     grid-row-start: 2;
     justify-self: center;
-    background-color: hsla(170, 5%, 85%, 1);
+    background-color: rgb(199, 232, 243);
     padding-top: 10px;
     margin-top: 50px;
     border-block-end-style: groove;
     border-radius: 40px;
-    border-bottom: 6px solid black;
+    border-bottom: 6px solid rgba(0, 0, 128);
     width: 150px;
     height: 200px;
-    /* margin-left: 100px; */
     text-justify: auto;
     text-align: center;
 }
@@ -54,13 +61,14 @@ h1{
 #temp-up-btn, #temp-down-btn{
     padding: 10px 20px;
     border-radius: 5px;
-    border: 2px solid #4CAF50;
+    border: 2px solid rgb(73, 137, 255);
+    background-color: rgb(239, 248, 250);
     transition-duration: 0.4s;
     font-size: 24px;
     cursor: pointer;
     text-align: center;
     display: inline-block;
-    box-shadow: 0 5px #999;
+    box-shadow: 0 5px rgba(42, 83, 159, 0.25);
     justify-content: center;
 }
 
@@ -76,13 +84,11 @@ h1{
     width:500px;
     height: 30px;
     margin-top: 20px;
-    /* padding: 25px 50px 50px 70px; */
 }
 
 #weather-display{
     grid-row: 2 / span 2;
     justify-self: center;
-    /* padding: 25px 50px 75px 70px; */
 }
 
 #sky-display{
@@ -91,6 +97,7 @@ h1{
     height: 350px;
     display: flex;
     justify-content: center;
+    border-radius: 10px;
 }
 
 #landscape-display{
