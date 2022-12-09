@@ -3,7 +3,7 @@ console.log('testing');
 
 const state = {
   city: 'Seattle',
-  temp: 80,
+  temp: 70,
 };
 
 const increaseTemperature = () => {
@@ -36,8 +36,10 @@ const changeColor = () => {
   }
 
   const temperature = document.getElementById('temp');
-  temperature.className = color;
-  temperature.textContent = String(state.temp);
+  // temperature.className = color;
+  temperature.style.color = color;
+  // temperature.textContent = String(state.temp);
+  temperature.textContent = state.temp;
 };
 
 const registerEventHandlers = () => {
