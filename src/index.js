@@ -59,11 +59,13 @@ const temperatureColorCheck = (temp) => {
     // we have the snowy weather pic twice because other getLiveTemp won't update the pic
   }
 };
+
 const updateSky = () => {
   const skyPicture = document.getElementById('skyPicture');
   const selectedSky = document.getElementById('sky').value;
   skyPicture.textContent = skyDictionary[selectedSky];
 };
+
 const updateCity = () => {
   const inputCity = document.getElementById('input-city').value;
   const cityName = document.getElementById('city-name');
@@ -72,58 +74,45 @@ const updateCity = () => {
 };
 
 const resetCityName = () => {
-  const cityName = document.getElementById('city-name')
-  const inputCity = document.getElementById('input-city')
-  state.city = 'Seattle'
-  cityName.textContent = state.city
-  inputCity.value = state.city
+  document.getElementById('input-city').value = 'Seattle'
+  updateCity()
 }
 
-const getLiveTemp = () => {
+const getLiveTemp = async () => {
   const tempValue = document.getElementById('tempValue');
 
-  getLatAndLon(state.city)
-    .then((result) => {})
-    .then((result) => {
-      getWeather(state.lat, state.lon).then((result) => {
-        state.currentTemp = result;
-        tempValue.textContent = state.currentTemp;
-        temperatureColorCheck(state.currentTemp);
-      });
-    });
+  await updateLatAndLon(state.city)
+
+  state.currentTemp = await getWeather(state.lat, state.lon)
+  tempValue.textContent = state.currentTemp
+  temperatureColorCheck(state.currentTemp)
 };
 
-const getLatAndLon = (city) => {
-  return axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: city,
-      },
-    })
-    .then((response) => {
-      state.lat = response.data[0].lat;
-      state.lon = response.data[0].lon;
-      // return { lat, lon };
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+const updateLatAndLon = async (city) => {
+  const response = await axios
+  .get('http://127.0.0.1:5000/location', {
+    params: {
+      q: city,
+    },
+  })
 
-const getWeather = (lat, lon) => {
-  return axios
+  state.lat = response.data[0].lat;
+  state.lon = response.data[0].lon;
+
+}
+
+const getWeather = async (lat, lon) => {
+  const response = await axios
     .get('http://127.0.0.1:5000/weather', {
-      params: {
-        lat: lat,
-        lon: lon,
-      },
-    })
-    .then((response) => {
-      temp = response.data.main.temp;
-      convertedTemp = ((temp - 273.15) * 9) / 5 + 32;
-      return Math.round(convertedTemp);
-    });
-};
+        params: {
+          lat: lat,
+          lon: lon,
+        },
+      })
+    temp = response.data.main.temp;
+    convertedTemp = ((temp - 273.15) * 9) / 5 + 32;
+    return Math.round(convertedTemp);
+}
 
 const registerEventHandlers = () => {
   const increaseTempButton = document.getElementById('increaseTempButton');
@@ -135,9 +124,7 @@ const registerEventHandlers = () => {
   const inputCityBox = document.getElementById('input-city');
   inputCityBox.addEventListener('input', updateCity);
 
-  const liveTemperatureButton = document.getElementById(
-    'liveTemperatureButton'
-  );
+  const liveTemperatureButton = document.getElementById('liveTemperatureButton');
   liveTemperatureButton.addEventListener('click', getLiveTemp);
 
   const skySelected = document.getElementById('sky');
