@@ -9,9 +9,6 @@ const state = {
   long: -122.330062
 };
 
-const tempUnitConvert = (temp) => {
-  return (temp - 273.15) * (9 / 5) + 32; 
-}
 
 const findLocLatAndLon = () => {
   axios.get("http://127.0.0.1:5000/location", {
@@ -29,6 +26,7 @@ const findLocLatAndLon = () => {
     console.log(error);
   });
 };
+
 
 const retrieveWeather = () => {
   axios.get("http://127.0.0.1:5000/weather", {
@@ -49,41 +47,46 @@ const retrieveWeather = () => {
   })
 };
 
+const tempUnitConvert = (temp) => {
+  return (temp - 273.15) * (9 / 5) + 32; 
+}
+
 
 const changeTempColorAndGardenLandscape = () => {
   let temp = state.temp;
   let color = "";
   let landscape = "";
   if (temp > 80) {
-    color = "red";
+    color = "red-text";
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp > 70) {
-    color = "orange";
+    color = "orange-text";
     landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temp > 60) {
-    color = "yellow";
+    color = "yellow-text";
     landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
   } else if (temp > 50) {
-    color = "green";
+    color = "green-text";
     landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   } else {
-    color = "teal";
+    color = "teal-text";
     landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   }
+
 
   const currentTemp = document.querySelector("#temp_value");
   currentTemp.textContent = state.temp
   currentTemp.className = color;
+  
   const currentLandscape = document.querySelector("#landscape");
   currentLandscape.textContent = landscape;
 };
 
 
-
 const changeSkyImage = () => {
   let skyDisplay = "";
-  const selectedSky = document.getElementById('select_sky').value 
-  const currentSkyImage = document.getElementById('skyimage')
+  const selectedSky = document.getElementById('select_sky').value;
+  const currentSkyImage = document.getElementById('sky_image');
   if (selectedSky === 'sunny') {
     skyDisplay = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
   } else if (selectedSky === 'cloudy') {
@@ -93,12 +96,9 @@ const changeSkyImage = () => {
   } else if (selectedSky === 'snowy') {
     skyDisplay = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
   }
-  
 
   currentSkyImage.textContent = skyDisplay;
 }
-
-
 
 
 const increaseTemp = () => {
@@ -106,17 +106,20 @@ const increaseTemp = () => {
   changeTempColorAndGardenLandscape();
 };
 
+
 const decreaseTemp = () => {
   state.temp--;
   changeTempColorAndGardenLandscape();
 }
 
+
 const changeTopCityName = () => {
   const inputCityName = document.getElementById("name").value;
-  const topCityName = document.getElementById("cityname");
+  const topCityName = document.getElementById("city_name");
   state.city = inputCityName;
   topCityName.textContent = state.city;
 };
+
 
 const resetCityInput = () => {
   const cityNameInput = document.getElementById("name");
@@ -145,7 +148,7 @@ const registerEventHandlers = (event) => {
   getRealTimeTemp.addEventListener('click', findLocLatAndLon);
 
   const changeSkyDisplay = document.getElementById('select_sky');
-  changeSkyDisplay.addEventListener('change',changeSkyImage)
+  changeSkyDisplay.addEventListener('change', changeSkyImage)
 }
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
