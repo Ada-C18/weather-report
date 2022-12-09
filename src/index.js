@@ -72,46 +72,49 @@ const updateSky = () => {
 };
 
 const getLatLong = () => {
-  const locationData = axios.get('http://127.0.0.1:5000/location', {
-    params: {
-      q: cityName,
-      format: JSON,
-    },
-  });
-
-  const lat = locationData.data[0].lat;
-  const lon = locationData.data[0].lon;
-  console.log('lat/lon');
-  getWeather(lat, lon);
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: cityName,
+        format: JSON,
+      },
+    })
+    .then((locationData) => {
+      console.log(locationData);
+      const lat = locationData.data[0].lat;
+      const lon = locationData.data[0].lon;
+      console.log(lat, lon);
+      getWeather(lat, lon);
+    });
 };
 
 const getWeather = (lat, lon) => {
   console.log('in get Weather');
-  const locationData = axios.get(`http://127.0.0.1:5000/weather`, {
-    params: {
-      lat: lat,
-      lon: lon,
-    },
-  });
-  let temp = locationData.main.temp;
-  console.log(temp);
-  updateTemp(temp);
+  axios
+    .get(`http://127.0.0.1:5000/weather`, {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((locationData) => {
+      console.log(locationData);
+      let newTemp = locationData.data.main.temp;
+      updateTemp(newTemp);
+      console.log(newTemp);
+    });
 };
-
-// getWeather();
 
 const renderAndUpdate = () => {
   console.log('render called');
   const upButton = document.getElementById('up');
   const downButton = document.getElementById('down');
-  updateTemp(temp);
+  const updateTempWithCity = document.getElementById('updateTemp');
   upButton.addEventListener('click', increaseTemp);
   downButton.addEventListener('click', decreaseTemp);
   cityInput.addEventListener('input', updateCity);
   skyOptions.addEventListener('change', updateSky);
-  const updateTempWithCity = document.getElementById('updateTemp');
   updateTempWithCity.addEventListener('click', getLatLong);
-  // updateTempWithCity.addEventListener('click', getWeather);
 };
 
 if (document.readyState !== 'loading') {
