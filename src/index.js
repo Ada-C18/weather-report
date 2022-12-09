@@ -54,6 +54,21 @@ const updateLandscape = () => {
     } 
 };
 
+const updateSky = () => {
+
+    const selectSky = document.getElementById('skyChoice')
+
+    if (selectSky.value === 'rainy') {
+        document.getElementById('skyIcons').textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧';
+    } else if (selectSky.value === 'sunny') {
+        document.getElementById('skyIcons').textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    }  else if (selectSky.value === 'cloudy') {
+        document.getElementById('skyIcons').textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    }  else if (selectSky.value === 'snowy') {
+        document.getElementById('skyIcons').textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    } 
+};
+
 
 const registerEventHandlers = () => {
   const increaseTemperatureButton = document.getElementById('increaseButton');
@@ -61,6 +76,9 @@ const registerEventHandlers = () => {
 
   const decreaseTemperatureButton = document.getElementById('decreaseButton');
   decreaseTemperatureButton.addEventListener("click", decreaseTemperature);
+
+  const selectElement = document.getElementById('skyChoice');
+  selectElement.addEventListener('change',updateSky);
 
 
 };
