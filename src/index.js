@@ -101,13 +101,14 @@ const changeLandscape = () => {
 };
 
 const changeSkies = () => {
-  const sky = document.getElementById('skies').value;
+  const skyColor = document.getElementById('skies').value;
+  const sky = document.getElementById('sky');
   let skyChange = '';
-  if (sky === 'cloudy') {
+  if (skyColor === 'cloudy') {
     skyChange = '☁️☁️☁️☁️☁️☁️☁️☁️';
-  } else if (sky === 'rainy') {
+  } else if (skyColor === 'rainy') {
     skyChange = '🌧🌧🌧🌧🌧🌧';
-  } else if (sky === 'sunny') {
+  } else if (skyColor === 'sunny') {
     skyChange = '☀️☀️☀️☀️☀️☀️☀️☀️☀️';
   } else {
     skyChange = '🌨❄️🌨❄️🌨❄️🌨❄️🌨';
@@ -129,7 +130,7 @@ const registerEventHandlers = () => {
   changeSkies();
   const cityInput = document.getElementById('inputCity');
   cityInput.addEventListener('change', updateCity);
-  const updateSky = document.getElementById('sky');
+  const updateSky = document.getElementById('skies');
   updateSky.addEventListener('change', changeSkies);
 };
 
