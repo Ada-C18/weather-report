@@ -5,6 +5,13 @@ const state = {
   lon: -122.330062,
 };
 
+const skyDictionary = {
+  Sunny: '☁️ ☁️ ☁️ ☀️ ☁️ ☁️',
+  Cloudy: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+  Rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
+  Snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
+};
+
 const increaseTemp = () => {
   state.currentTemp += 1;
 
@@ -46,7 +53,7 @@ const temperatureColorCheck = (temp) => {
 const updateSky = () => {
   const skyPicture = document.getElementById('skyPicture');
   const selectedSky = document.getElementById('sky').value;
-  console.log(selectedSky);
+  skyPicture.textContent = skyDictionary[selectedSky];
 };
 const updateCity = () => {
   const inputCity = document.getElementById('input-city').value;
@@ -59,18 +66,14 @@ const getLiveTemp = () => {
   const tempValue = document.getElementById('tempValue');
 
   getLatAndLon(state.city)
-    .then((result) => {
-      console.log('in location');
-    })
+    .then((result) => {})
     .then((result) => {
       getWeather(state.lat, state.lon).then((result) => {
-        console.log('in weather');
         state.currentTemp = result;
         tempValue.textContent = state.currentTemp;
         temperatureColorCheck(state.currentTemp);
       });
     });
-  console.log('end of function');
 };
 
 const getLatAndLon = (city) => {
@@ -121,7 +124,7 @@ const registerEventHandlers = () => {
   liveTemperatureButton.addEventListener('click', getLiveTemp);
 
   const skySelected = document.getElementById('sky');
-  skySelected.addEventListener('onchange', updateSky);
+  skySelected.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
