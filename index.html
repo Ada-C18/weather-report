@@ -5,8 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <script src="https://kit.fontawesome.com/b2e6994dfb.js" crossorigin="anonymous"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report</h1>
+        <span class="city_wrapper">
+            &#127775
+            <span id="headerCityName" class="header_city_name">Atlanta</span>
+            &#127775
+        </span>
+    </header>
+    <main>
+        <section class="city_container">
+            <form>
+                <input type="text" id="city-name" placeholder="Search for a city" autofocus>
+                <span id="search">Search</span>
+                <button type="reset" id="reset">Reset</button>
+            </form>
+        </section>
+        <section class="temperature_container">
+            <div class="temp_wrapper">
+                <h2>Temperature</h2>
+                <div class="temp_controls">
+                    <span id="increaseTemp"><i class="fa-solid fa-circle-up"></i></span>
+                    <span id="tempValue" class="yellow">68</span>
+                    <span id="decreaseTemp"><i class="fa-solid fa-circle-down"></i></span>
+                </div>
+                <button id="realtimeTemp" type="button">Get Realtime Temperature</button>
+            </div>
+        </section>
+        <section class="sky_container">
+            <div class="sky_wrapper">
+                <h2>Sky</h2>
+                <select id="skySelect">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </div>
+        </section>
+        <section class="garden_container">
+            <div class="garden_wrapper">
+                <h2>Weather Garden</h2>
+                <div class="my_garden" id="garden">
+                    <div id="sky">☀️🌤☀️🌤☀️🌤☀️🌤☀️</div>
+                    <div id="landscape">🍁🌾🍁🌾🍁🌾🍁🌾🍁</div>
+                </div>
+            </div>
+        </section>
+    </main>
+<script src="/src/index.js" type="text/javascript"></script>    
 </body>
 </html>
