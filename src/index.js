@@ -133,15 +133,15 @@ const registerEvents = () => {
 const tempTextColorChange = () => {
   let temp = state.currentTempCount;
   if (temp <= 49) {
-    document.getElementById('currentTemp').style.color = 'teal';
+    state.currentTemp.style.color = 'teal';
   } else if (temp >= 50 && temp <= 59) {
-    document.getElementById('currentTemp').style.color = 'green';
+    state.currentTemp.style.color = 'green';
   } else if (temp >= 60 && temp <= 69) {
-    document.getElementById('currentTemp').style.color = 'yellow';
+    state.currentTemp.style.color = 'yellow';
   } else if (temp >= 70 && temp <= 79) {
-    document.getElementById('currentTemp').style.color = 'orange';
+    state.currentTemp.style.color = 'orange';
   } else {
-    document.getElementById('currentTemp').style.color = 'red';
+    state.currentTemp.style.color = 'red';
   }
 };
 
@@ -162,19 +162,19 @@ const skyDisplayChange = () => {
   let sky = state.skyDropDown.value;
   if (sky === 'snowy') {
     state.skyDisplay.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-    document.getElementById('weather-garden-section').style.backgroundColor =
+    state.weatherGardenSection.style.backgroundColor =
       'grey';
   } else if (sky === 'rainy') {
     state.skyDisplay.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-    document.getElementById('weather-garden-section').style.backgroundColor =
+    state.weatherGardenSection.style.backgroundColor =
       'darkgrey';
   } else if (sky === 'cloudy') {
     state.skyDisplay.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-    document.getElementById('weather-garden-section').style.backgroundColor =
+    state.weatherGardenSection.style.backgroundColor =
       'lightgrey';
   } else if (sky === 'sunny') {
     state.skyDisplay.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-    document.getElementById('weather-garden-section').style.backgroundColor =
+    state.weatherGardenSection.style.backgroundColor =
       'lightblue';
   }
 };
