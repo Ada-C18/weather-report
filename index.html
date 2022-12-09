@@ -9,19 +9,22 @@
     
 </head>
 <body>
+ <h1>WEATHER CHANNEL</h1>
+ <h1 id="change-city" class="diff-city">🌳 Weather for the City of Seattle 🍃</h1>
 </script src="./node_modules/axios/dist/axios.min.js"></script> 
     <section class="temp-section">
     <div id="temperature"> 
-        <h1>Temperature</h1> 
+        <h3>Temperature</h3> 
         <span id="up"><button>🔼</button></span>
         <span id="tempNum">0</span>
         <span id="down"><button>🔽</button></span>
         <button id="currentWeather">Get real time weather</button>
     </div>
+</div>
 </section>
 <section class="sky-section">
 <div id="skyOptions">
-    <h2>Sky</h2>
+    <h3>Sky</h3>
     <select name="sky-weather" id="climate">
         <option>sunshine</option>
         <option>rain</option>
@@ -35,7 +38,7 @@
 
 <section class="city_section">
 <div id="city-name"> 
-    <h2>City</h2>
+    <h3>City</h3>
     <input type="city">
     <button id="reset" class="reset-button">Reset</button>
 </div>
@@ -49,5 +52,5 @@
 </section>
 
 </body>
-<script> src="./src/index.js"</script>
+<script src="weather-report/src/index.js"></script>
 </html>

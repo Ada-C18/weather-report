@@ -1,41 +1,40 @@
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-  background-color: #cad0bd
+    /* margin: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #cad0bd;
 }
 
 
 
-#temp {
-  background-color: rgb(205, 202, 104) ;
-  color: red;
-  color: orange;
-  color: yellow;
-  color: green;
-  color: teal;
+
+.block {
+    width: 50%;
+    float: left;
+    height: 0;
+    padding-bottom: 50%;
 }
 
+.temp-section {
+    background: yellow;
+    width: 50%;
+    padding-bottom: 50%;
+}
 
+.sky-section{
+    background: lightblue;
+}
 
-/* - the temperature number changes color
-- the background of the temperature changes color */
+.city_section{
+    background: orange;
+}
 
-/* 
-Depending on what temperature it is, a different landscape should appear on the page.
+.emojis {
+    background: rgb(0, 255, 204);
+}
 
-These landscapes can be anything, as long as they are visual and noticeable to any instructors. For example, the landscapes can be:
-
-- A single image that appears
-- ASCII art
-- Text
-
-Changing landscapes should _replace_ the existing landscape. There should only be one visible landscape at a time.
-
-There must be at least four landscapes.
-
-Our solution uses the following ranges, which you may use if desired:
-
-| Temperature (F) | Landscape                         |
-| --------------- | --------------------------------- |
-| 80+             | `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`       |
-| 70-79           | `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`      |
-| 60-69           | `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`        |
-| 59 or below     | `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"` | */
