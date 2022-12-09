@@ -102,7 +102,8 @@ const updateCity = () => {
 // const axios = require('axios');
 
 // const LOCATIONIQ_KEY = process.env['LOCATION_KEY'];
-
+// const axios = require('axios/dist/browser/axios.cjs');
+let axios;
 const findLatitudeAndLongitude = (query) => {
   let latitude, longitude;
   axios
@@ -127,7 +128,7 @@ const findLatitudeAndLongitude = (query) => {
     cityLon: longitude,
   };
 };
-findLatitudeAndLongitude('Seattle');
+// findLatitudeAndLongitude('Seattle');
 // 2. GET WEATHER WITH LAT AND LONG
 // WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
 
@@ -149,3 +150,16 @@ const getWeather = (latitude, longitude) => {
       console.log('error in getWeather!');
     });
 };
+
+// call getWeather when get-temp button is clicked
+
+// **********To-Do**********
+
+// - [ ]  Wave 2
+//     - [ ]  Show default temp
+//     - [ ]  Add emojis up and down arrows-
+// - [ ]  Finish wave 4
+//     - [ ]  button - Milena
+//     - [ ]  get API functions working - together office hours
+// - [ ]  Wave 5 - Milena
+// - [ ]  Wave 6 - Puja
