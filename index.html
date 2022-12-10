@@ -15,10 +15,11 @@
         <span>
             For the beautiful city of
             <span id="headerCityName" class="header_city-name">
-                ::before
+                <!-- before and after refer are for any special effects around the city name -->
+                <!-- ::before -->
                 <!-- this will be a variable to enter name of city here -->
                 Seattle
-                ::after
+                <!-- ::after -->
             </span>
         </span>
     </header>
@@ -30,9 +31,9 @@
                 <!-- up arrow button for event, between inc.. and span tag -->
                 <!-- down arrow button for event, between dec.. and span tag -->
                 <!-- tempValue holds current state, will see value between teal and span tag -->
-                <span id="increaseTempControl"></span>
+                <span id="increaseTempControl">⬆️</span>
                 <span id="tempValue" class="teal"></span>
-                <span id="decreaseTempControl"></span>
+                <span id="decreaseTempControl">⬇️</span>
             </div>
             <!-- onClick button here, too. button tied to event -->
             <button id="currentTempButton">
@@ -62,7 +63,7 @@
         <!-- this id uses flex box -->
         <div id="gardenContent" class="garden_content snowy">
             <div id="sky">emojis here</div>
-            <div id="landscape">emojis here></div>
+            <div id="landscape">emojis here</div>
         </div>
     </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
