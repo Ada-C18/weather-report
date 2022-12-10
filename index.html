@@ -13,8 +13,11 @@
     <div>
         <main>
             <h1 id="welcome">Weather Report</h1>
-            <p id="lovely">For the lovely city of ✨<span id="chosen-city">New Name</span>✨</p>
-            <p id="lovelyName"></p>
+            <p id="new_city_name"></p>
+            <p>For the lovely city of ✨<span id="chosen-city">Seattle</span>✨</p>
+            
+            <!-- <p>✨<span id="chosen-city">Seattle</span>✨</p> -->
+            <!-- <p id="lovelyName"></p> -->
 
             <section id="temperature">
                 <h2>Temperature:</h2>
@@ -23,28 +26,31 @@
                 <a id="temp_go_down"> ⬇️ </a>
             </section>
                 
-            <section id="sky">
+            <section id="sky"> 
                 <h2>Sky:</h2>
-                <select name="skys" id="sky-select">
+                <select name="skys" id="sky_selection">
                 <option value="Sunny" selected>Sunny</option>
                 <option value="Cloudy">Cloudy</option>
                 <option value="Rainy">Rainy</option>
                 <option value="Snowy">Snowy</option>
-                </select>
+                </select> 
             </section>
-            <section id="sky_plus_earth">
             
-
-                <section id="sky-garden"> 
-                    <h2>Sky garden:</h2>
-                    <section id="garden_icons"> </section>
+            <section id="images_all">
+                <h2>Sky images:</h2>
+                <section id="sky_icons"> </section>
+            
+                <section id="garden_images"> 
+                <h2>Sky garden:</h2>
+                <section id="garden_icons"> </section>
                 </section>
-            </section> 
+            </section>
+
             
             <section id="city">
                     <h2>City Name:</h2>
                     <input type="text" id="input-city" name="city-name" value="Seattle">
-                    <button id="enterCityButton">Enter</button>
+                    <button id="enterCityButton" onclick="newCity();">Enter</button>
         
                     <h2>Default Mode:</h2>
                     <button id="changeCity" onclick="seattleAlways()">Reset</button>
@@ -57,15 +63,3 @@
     </div>
     </body>
 </html>
-
-    <!-- <section id="city">
-        <h2>City Name:</h2>
-        <input type="text" id="input-city" name="city-name" value="Seattle">
-        <button id="enterCitybutton">Enter</button>
-    </section>
-    <section>
-        <h2>Default Mode:</h2>
-        <section id="reset" value="Seattle">
-        <input type="reset">
-        <button id="resetCitybutton">Reset</button>
-    </section> -->

@@ -1,6 +1,6 @@
 
 'use strict'
-
+// Wave 2
 const temperatureArrowColor = (temperature) => {
     if (temperature >= 80) {
         return 'red';
@@ -48,64 +48,69 @@ const temperatureChange = (temperature) => {
     });
 });
 
-// wave 3
 
-const seattleAlways = () => {
-    document.getElementById("input-city").value = "Seattle";
+// wave 3
+//function same city on top: 
+const newCity = () =>{
+    let newTop = document.getElementById("input-city").value;
+    document.getElementById('chosen-city').innerText = newTop
 }
 
-
-const newCity = document.getElementById("enterCityButton");
-newCity.addEventListener("click", myFunction);
-
-// const cityName = document.querySelector('input-city').value;
-
-function myFunction(){
-    document.getElementById("lovelyName").innerHTML = "hello";
-} 
-
-    
-    // cityElement.innerText = cityName;
-
-    // setCity(cityName);
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const enterCityButton = document.getElementById('#enter-city-button');
-
-//     enterCityButton.addEventListener('click', () => {
-//     updateCityName();
-//     });
-// });
-
-
 // wave 4
-const findCity = (city) => {
+const findCity = () => {
 axios
     .get('http://127.0.0.1:5000/location', {
     params: {
-        q: city,
-        format: 'json'
-    },
+        q: `${city}`,
+        }
     })
     .then((response) => {
         const searchResult = response.data[0];
         console.log(`lat ${searchResult.lat} lon ${searchResult.lat}`);
-        return { lat: searchResult.lat, lon: searchResult.lon};
+        // return { lat: searchResult.lat, lon: searchResult.lon};
+        axios
+        .get('http://127.0.0.1:5000/weather', {
+        params: {lat: lat,lon: lon},
     })
-    .then((coords) => {
-        return axios.get('http://127.0.0.1:5000/weather', {
-        params: {
-            lat: coords.lat,
-            lon: coords.lon,
-        }
+        .then((response) => {
+            const temp = Math.round(1.8 * (response.data.current.temp - 273) + 32);
+            setTemperature(temp);
+        })
+            .catch((error) => {
+                console.log('error getting temp');
+                console.log(error)
+            });
+        })
+    .catch((error) => {
+        console.log('error in find information!');
+        console.log(error);
     });
-    })
-    .then((response) => {
-        console.log('weather reponse', response.data)
+};
+
+// Wave 5
+const skyCloud = (sky) => {
+    if (sky == 'Sunny'){
+        return `☁️ ☁️ ☁️ ☀️ ☁️ ☁️`;
+    } else if(sky == 'Cloudy'){
+        return `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
+    } else if(sky == 'Rainy'){
+        return `🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧`;
+    } else {
+        return `🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨`
+    }
+};
+document.addEventListener('DOMContentLoaded', () => {
+    let sky = 'Sunny';
+    document.getElementById('sky_icons').innerHTML = skyCloud(sky);
+
+    document.getElementById('sky_selection').addEventListener('change', () => {
+    const skyElement = document.getElementById('sky_selection').value;
+    document.getElementById('sky_icons').innerHTML = skyCloud(skyElement);
     });
-    // .catch((error) => {
-    //     console.log('error in find information!');
-    //     console.log(error);
-    // });
+});
+
+// wave 6
+//function reset button:
+const seattleAlways = () => {
+    document.getElementById("input-city").value = "Seattle";
 }
