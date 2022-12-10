@@ -78,21 +78,25 @@ const getRealtimeTemperature = (e) => {
       axios
         .get('http://127.0.0.1:5000/weather', {
           params: {
-            lat: response.data.lat,
-            lon: response.data.lon,
+            lat: response.data[0].lat,
+            lon: response.data[0].lon,
+            units: 'imperial',
           },
         })
         .then((response) => {
-          console.log(response);
+          let location_temp = response.data.main.temp;
+          let temperature_box = document.getElementById('counter');
+          temperature_box.textContent = location_temp;
+          console.log('Updated temperature' + temperature_box);
+          landscapeIcons(location_temp);
+        })
+        .catch(function (error) {
+          console.log('error!' + error);
         });
-      // .catch(() => {
-      //   console.log('error!');
-      // });
+    })
+    .catch(() => {
+      console.log('error!');
     });
-  // });
-  // .catch(() => {
-  //   console.log('error!');
-  // });
 };
 
 const registerEventHandlers = () => {
