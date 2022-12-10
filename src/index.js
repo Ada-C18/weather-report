@@ -1,12 +1,11 @@
-// debugger;
 let globalTemp;
 const cityInput = document.getElementById('name');
 const cityName = document.getElementById('city-name');
 const skyOptions = document.getElementById('skyOptions');
 const sky = document.getElementById('skyEmojis');
 
+//Wave 1
 const updateTemp = (temp) => {
-  console.log('update called');
   const tempValueContainer = document.getElementById('tempValue');
   tempValueContainer.textContent = temp;
   globalTemp = temp;
@@ -15,7 +14,6 @@ const updateTemp = (temp) => {
 };
 
 const increaseTemp = () => {
-  console.log('increase');
   globalTemp += 1;
   updateTemp(globalTemp);
 };
@@ -23,6 +21,20 @@ const increaseTemp = () => {
 const decreaseTemp = () => {
   globalTemp -= 1;
   updateTemp(globalTemp);
+};
+
+const changeLandscape = (temp) => {
+  const landscape = document.getElementById('landscape');
+  let ground = '🥶__🧤_🏂_🧊__🧊_';
+  if (temp >= 80) {
+  } else if (temp >= 70) {
+    ground = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+  } else if (temp >= 60) {
+    ground = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+  } else if (temp >= 50) {
+    ground = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+  }
+  landscape.textContent = ground;
 };
 
 const updateTempColor = (temp) => {
@@ -40,26 +52,44 @@ const updateTempColor = (temp) => {
   tempValueColor.className = color;
 };
 
-const changeLandscape = (temp) => {
-  const landscape = document.getElementById('landscape');
-  let ground = '🥶__🧤_🏂_🧊__🧊_';
-  if (temp >= 80) {
-  } else if (temp >= 70) {
-    ground = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
-  } else if (temp >= 60) {
-    ground = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
-  } else if (temp >= 50) {
-    ground = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
-  }
-  landscape.textContent = ground;
-};
-
+//Wave 3
 const updateCity = () => {
   cityName.textContent = cityInput.value;
 };
 
+//Wave 4
+const getLatLong = () => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: cityInput.value,
+        format: JSON,
+      },
+    })
+    .then((locationData) => {
+      const lat = locationData.data[0].lat;
+      const lon = locationData.data[0].lon;
+      getWeather(lat, lon);
+    });
+};
+
+const getWeather = (lat, lon) => {
+  axios
+    .get(`http://127.0.0.1:5000/weather`, {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((locationData) => {
+      let kelvinTemp = locationData.data.main.temp;
+      let newTemp = Math.round((kelvinTemp - 273.15) * 1.8 + 32);
+      updateTemp(newTemp);
+    });
+};
+
+//Wave 5
 const updateSky = () => {
-  console.log('sky change');
   if (skyOptions.value === 'Sunny') {
     skySet = '☀️☀️☀️☀️☀️☀️';
   } else if (skyOptions.value === 'Cloudy') {
@@ -72,41 +102,7 @@ const updateSky = () => {
   sky.textContent = skySet;
 };
 
-const getLatLong = () => {
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: cityInput.value,
-        format: JSON,
-      },
-    })
-    .then((locationData) => {
-      console.log(locationData.data[0].display_name);
-      const lat = locationData.data[0].lat;
-      const lon = locationData.data[0].lon;
-      console.log(lat, lon);
-      getWeather(lat, lon);
-    });
-};
-
-const getWeather = (lat, lon) => {
-  console.log('in get Weather');
-  axios
-    .get(`http://127.0.0.1:5000/weather`, {
-      params: {
-        lat: lat,
-        lon: lon,
-      },
-    })
-    .then((locationData) => {
-      console.log(locationData);
-      let kelvinTemp = locationData.data.main.temp;
-      let newTemp = Math.round((kelvinTemp - 273.15) * 1.8 + 32);
-      updateTemp(newTemp);
-      console.log(newTemp);
-    });
-};
-
+//Wave 6
 const resetCity = () => {
   cityInput.value = 'Seattle';
   updateCity();
@@ -114,16 +110,13 @@ const resetCity = () => {
 };
 
 const defaultValue = () => {
-  console.log('default');
   cityInput.value = 'Seattle';
   default_temp = getLatLong();
   return default_temp;
 };
 
-window.onload = defaultValue();
-
 const renderAndUpdate = () => {
-  console.log('render called');
+  window.onload = defaultValue();
   const upButton = document.getElementById('up');
   const downButton = document.getElementById('down');
   const updateTempWithCity = document.getElementById('updateTemp');
