@@ -9,6 +9,7 @@
 const state = {
   temp: 60,
   city: 'Seattle',
+  sky: '☁️',
 };
 
 const addDegree = (event) => {
@@ -122,20 +123,23 @@ const findLatitudeAndLongitude = () => {
 };
 
 // -------------- Wave 5 --------------------
-const updateSky = () => {
-  const skyDropdown = document.getElementById('dropdown');
-  // let skyDropdown = document.getElementById('option');
+const getSkyChoice = () => {
+  const skyDropdown = document.querySelector('select');
 
-  const skyChoice = skyDropdown.value; // skyDropdown.target.value;
+  const skyChoice = skyDropdown.value;
+  console.log('sky choice:', skyChoice);
 
-  if (skyChoice == 'Sunny') {
+  state.sky = skyChoice;
+  // };
+
+  if (state.sky === 'sunny') {
     document.getElementById('sky-emojis').innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (skyChoice == 'Cloudy') {
+  } else if (state.sky === 'cloudy') {
     document.getElementById('sky-emojis').innerText =
       '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (skyChoice == 'Rainy') {
+  } else if (state.sky === 'rainy') {
     document.getElementById('sky-emojis').innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (skyChoice == 'Snowy') {
+  } else if (state.sky === 'snowy') {
     document.getElementById('sky-emojis').innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
@@ -165,8 +169,8 @@ const registerHandlers = (event) => {
   tempButton.addEventListener('click', findLatitudeAndLongitude);
 
   // Wave 5
-  const updateSkyEmojies = document.querySelector('#dropdown');
-  updateSkyEmojies.addEventListener('change', updateSky);
+  const updateSky = document.querySelector('select');
+  updateSky.addEventListener('change', getSkyChoice);
 };
 
 document.addEventListener('DOMContentLoaded', registerHandlers);
@@ -200,7 +204,7 @@ document.addEventListener('DOMContentLoaded', registerHandlers);
 //     - [ ]  get API functions working - together office hours
 // - [ ]  Wave 5 - Milena
 //    - [x] set up dropdown select element in HTML file
-//    - [] connect dropdown values to update sky emojis
+//    - [x] connect dropdown values to update sky emojis
 // - [ ]  Wave 6 - Puja
 
 // - [x]  Commit changes made during office hours
