@@ -4,36 +4,52 @@ const { default: axios } = require("axios");
 
 // State, city, temp, sky
 
+// "https://us1.locationiq.com/v1/search.php"
+// "https://api.openweathermap.org/data/2.5/weather"
+
 const state = {
   city: 'Seattle',
   lat: 47.6038321,
   long: -122.3300624,
-  temp: 50
+  temp: 48
 };
 
 
-function findLatAndLong() {
+// increase temp
+const increaseTemp = () => {
+  state.temp ++;
+};
+
+const decreaseTemp = () => {
+  state.temp --;
+}
+
+const findLatAndLong = () => {
 axios
-  .get("https://us1.locationiq.com/v1/search.php",
+  .get("http://127.0.0.1:5000/weather",
   params= {
-    "q": loc_query, 
-    "key": location_key, 
-    "format": "json"
+    "q": state.city, 
   })
   .then((response) => {
     console.log(response.data);
     state.lat = response.data[0].lat;
     state.long = response.data[0].lon;
-  }
-)};
+    getWeather();
+  })
+};
 
 function findWeather(lat, long) {
   axios
-    .get('https://api.openweathermap.org/data/2.5/weather',{ 
+    .get("http://127.0.0.1:5000/location",{ 
     params: {
       lat: state.lat,
       lon: state.long
-    })
+    },
+  })
+  .then((response) => {
+    const weather = response.data;
+    state.temp = Math.round((weather.current.temp));
+  })
   };
 
 
@@ -47,15 +63,15 @@ function resetText() {
       // Reset the text box
       City.reset();
 }};
-;
 
-function tempColorChange() {
+
+const tempColorChange = () => {
   const tempContainer = document.getElementById('temperature');
   
   if (tempContainer <= 32) {
     document.body.style.backgroundColor = 'blue';
     document.body.style.color = 'white';
-    document.write("❄️__❄️__❄️__❄️")
+    document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨')
 } else if (tempContainer > 32 && temperature <= 50) {
     document.body.style.backgroundColor = 'green';
     document.body.style.color = 'white';
@@ -74,7 +90,7 @@ function tempColorChange() {
 
 
 
-function updateSky() {
+const updateSky = () => {
   const inputSky = document.getElementById('skyOptions').value;
   const skyContainer = document.getElementById('sky-weather');
   let sky = '';
@@ -98,11 +114,6 @@ function updateSky() {
 }
 
 
-
- // const increaseTemp = () => {
-  //   state.temp += 1;
-  //   formatTempAndGarden();
-  // };
 
 // Increase/Decrease temperature
 // const increaseTemp = () => {
