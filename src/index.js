@@ -42,7 +42,6 @@ const getWeather = (lat,long) => {
         const temperature = response.data.main.temp;
         console.log(temperature)
         const newTemperature = Math.round(convertKtoF(temperature));
-        updateTempLandscape();
         return newTemperature; 
 
     })
@@ -56,6 +55,8 @@ const updateTemp = () => {
     const tempValue = document.getElementById('tempValue')
     findLatandLong().then((newTemperature) => {
         tempValue.textContent = newTemperature
+        state.temp = newTemperature
+        updateTempLandscape();
     })
 };
 
@@ -114,7 +115,7 @@ const updateTempLandscape = () => {
     newLandscape.textContent = landscape;
     const temperature = document.getElementById('tempValue');
     temperature.className = color;
-    temperature.textContent = String(state.temp)
+    temperature.textContent = state.temp
 };
 
 
@@ -125,16 +126,20 @@ currentTemp.innerHTML = i;
 const increaseTemp = () => {
     i++;
     currentTemp.innerHTML = i;
+    updateTempLandscape(); 
 };
 
 const decreaseTemp = () => {
     i--;
     currentTemp.innerHTML = i;
+    updateTempLandscape();
 };
 
 const registerEventHandlers = () => {
-    updateTemp();
     updateTempLandscape();
+
+    const newCityTemp = document.getElementById('currentTempButton');
+    newCityTemp.addEventListener('click', updateTemp);
 
     const addTemp = document.getElementById("increaseTemp");
     addTemp.addEventListener("click", increaseTemp);
@@ -145,8 +150,7 @@ const registerEventHandlers = () => {
     const cityNameInput = document.getElementById('cityNameInput');
     cityNameInput.addEventListener('input', updateCityName);
 
-    const newCityTemp = document.getElementById('currentTempButton');
-    newCityTemp.addEventListener('click', updateTemp);
+    
     
     const skySelect = document.getElementById('skySelect');
     skySelect.addEventListener('change', updateSky);
