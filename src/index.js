@@ -6,6 +6,7 @@ const API_WEATHER = 'http://127.0.0.1:5000/weather';
 
 let temperature = 72;
 let city = 'Seattle';
+// const cityDefault = 'Seattle';
 
 const getAndDisplayTemp = () => {
   const spanTempNumber = document.getElementById('temperature-value');
@@ -63,6 +64,7 @@ const updateCityName = (event) => {
   const cityName = document.querySelector('#city');
   cityName.textContent = event.target.value;
   city = cityName.textContent;
+  // cityName.textContent = city;
 };
 
 const updateCityNameInput = () => {
@@ -71,7 +73,7 @@ const updateCityNameInput = () => {
 };
 
 const getTempF = () => {
-  console.log('city inside', city);
+  // console.log('city inside', city);
   axios
     .get(API_CITY, { params: { q: city, format: 'json' } })
     .then((result) => {
@@ -111,34 +113,38 @@ const convertTempKtoF = (temp) => {
   return tempF;
 };
 
-const updateSky = () =>{
-  const spanSkyIcon = document.querySelector('#sky-icons')
-  let skyIcon = ""
-  console.log("inside of update sky" , skyIcon)
+const updateSky = () => {
+  const spanSkyIcon = document.querySelector('#sky-icons');
+  const skyOption = document.querySelector('#sky-button').value;
 
-  const skyOption = document.querySelector('#sky-button').value
-  console.log(skyOption)
-  
-  if (skyOption === "sunny"){
-    skyIcon = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+  if (skyOption === 'sunny') {
+    skyIcon = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyOption === 'cloudy') {
+    skyIcon = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyOption === 'rainy') {
+    skyIcon = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else {
+    skyIcon = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
+  spanSkyIcon.textContent = skyIcon;
+};
 
-  else if (skyOption === "cloudy"){
-    skyIcon = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
-  }
-  else if (skyOption === "rainy"){
-    skyIcon = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
-  }
-  else {
-    skyIcon = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
-  }
-  spanSkyIcon.textContent = skyIcon
-  console.log(skyIcon)
-}
+const resetCityName = () => {
+  const cityName = document.querySelector('#city');
+  const defaultCityName = 'Seattle';
+  cityName.textContent = defaultCityName;
+  const inputCity = document.querySelector('#city-name-input');
+  inputCity.value = defaultCityName;
+};
+// resetCityName();
+const resetCityNameOnClick = () => {
+  resetButton = document.querySelector('#reset-button');
+  resetButton.addEventListener('click', resetCityName);
+};
 
-const updateWeaterGardenOnInput= () => {
+const updateWeaterGardenOnInput = () => {
   let skySelect = document.querySelector('#sky-button');
-  console.log(skySelect)
+
   skySelect.addEventListener('change', updateSky);
 };
 
@@ -148,6 +154,7 @@ const EventHandlers = () => {
   updateCityNameInput();
   getRealTemp();
   updateWeaterGardenOnInput();
+  resetCityNameOnClick();
 };
 if (document.readyState !== 'loading') {
   EventHandlers();
