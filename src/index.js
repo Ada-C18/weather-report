@@ -126,16 +126,17 @@ const updateSky = () => {
   const skyDropdown = document.getElementById('dropdown');
   // let skyDropdown = document.getElementById('option');
 
-  const skyChoice = skyDropdown.value;
+  const skyChoice = skyDropdown.value; // skyDropdown.target.value;
 
   if (skyChoice == 'Sunny') {
-    document.getElementById('').innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    document.getElementById('sky-emojis').innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
   } else if (skyChoice == 'Cloudy') {
-    document.getElementById('').innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    document.getElementById('sky-emojis').innerText =
+      '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (skyChoice == 'Rainy') {
-    document.getElementById('').innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    document.getElementById('sky-emojis').innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (skyChoice == 'Snowy') {
-    document.getElementById('').innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    document.getElementById('sky-emojis').innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
@@ -157,12 +158,15 @@ const registerHandlers = (event) => {
 
   changeTempColor.addEventListener('click', updateColorsAndEmojis); // is 'click' the rigth event?
 
-  // Wave 4 (MS) change
+  // Wave 4
   // register Get Realtime Temperature button
   const tempButton = document.querySelector('#get-temp');
-
   // call getWeather when get-temp button is clicked
   tempButton.addEventListener('click', findLatitudeAndLongitude);
+
+  // Wave 5
+  const updateSkyEmojies = document.querySelector('#dropdown');
+  updateSkyEmojies.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerHandlers);
