@@ -6,11 +6,15 @@
 
 }
 
-
+header {
+    text-align: center;
+    line-height: 1.8;
+}
 
 /* id selectors */
 #displayedTemp {
-    background-color: var(--primaryColor);
+    color: var(--primaryColor);
+    font-weight: bold;
 }
 
 #increaseTemp {
@@ -42,4 +46,8 @@
 
 .interactive{
     background-color: var(--lightColor);
+}
+
+.credits {
+    font-size: .8em;
 }
