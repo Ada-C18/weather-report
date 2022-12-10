@@ -1,22 +1,26 @@
-
+body {
+    background-color: lightskyblue;
+}
 #container{
     display:flex;
     justify-content: space-between;
+    
 }
 
 #temp {
-    background-color: lightblue;
+    background-color: white;
+    
 }
 
 #city-name {
-    background-color: orange;
-    color: white;
+    background-color: white;
 }
 
 #sky {
-    background-color: yellowgreen;
+    background-color: white;
 }
 
 #weather-garden {
+    display: flex;
     background-color: plum;
 }
