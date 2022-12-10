@@ -2,7 +2,7 @@
 
 const state = {
   tempCount: 49,
-  city: 'Seattle',
+  city: '✨✨✨',
   sky: 'Sunny',
 };
 
@@ -64,11 +64,18 @@ const updateCity = () => {
 };
 
 const resetCity = () => {
-  state.city = 'Seattle';
+  state.city = '✨✨✨';
   document.querySelector('#city').value = '';
   const cityDisplay = document.querySelector('#cityDisplay');
   cityDisplay.textContent = `for the lovely city of ${state.city}`;
 };
+
+// const resetTemp = () => {
+//   state.temp = '';
+//   document.querySelector('#city').value = '';
+//   const cityDisplay = document.querySelector('#cityDisplay');
+//   cityDisplay.textContent = `for the lovely city of ${state.city}`;
+// };
 
 const changeSky = () => {
   let skyChange = document.getElementById('sky');
