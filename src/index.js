@@ -55,36 +55,56 @@ minus.addEventListener('click',() => {
    }});
 
 
-let cityNameReset = document.getElementById("reset")
-cityNameReset.addEventListener("click", getCityName)
+// let cityNameReset = document.getElementById("reset")
+// cityNameReset.addEventListener("click", ) //this is for the reset button used for wave 6
 
 let intro = document.getElementById("intro")
 intro.nnerHTML  = cityName.value;
 
-function getCityName() {
-    let cityName = document.getElementById("cityName"); 
-    document.getElementById("intro").innerHTML = cityName.value;
-    return cityName.value
+let cityNameInsert = document.getElementById("cityNameInput")
+function getCityName(event){
+    console.log("hello")
+    let cityName = event.target.value; 
+    document.getElementById("intro").innerHTML = cityName;
+    console.log(cityName)
+    
+    return cityName
 }
 
 
-document.getElementById("intro").innerHTML = "☁️";
+// cityNameInsert.addEventListener("change",getCityName)
+cityNameInsert.addEventListener("change",event => {
+    console.log("hello")
+    let cityName = event.target.value; 
+    document.getElementById("intro").innerHTML = cityName;
+    console.log(cityName)
+})
+
+console.log("hello")
+// addEventListener('change', (event) => {});
+
+// onchange = (getCityName) => { };
+
+// function getCityName(event){
+//     console.log("hello")
+//     let cityName = event.target.value; 
+//     document.getElementById("intro").innerHTML = cityName;
+//     console.log(cityName)
+//     return cityName
+// }
+
+// const resetCityName() =>{
+//     document.getElementById("reset").addEventListener('click',() => {});
+
+// }
+// function getIntroCityName(){
+
+// }
+// let intro = document.getElementById("intro").innerHTML
+// intro.addEventListener("change", getCityName);
 
 
-// const axios = require("axios");
 
-// *************
-// async function getNextPokemon(originalPokemon) {
-//     let response = await axios.get(API + originalPokemon);
-//     const originalId = response.data.id;
-//     const nextId = originalId + 1;
-    
-//     response = await axios.get(API + nextId);
-//     const newPokemon = response.data.name;
-    
-//     console.log(newPokemon);
-//   }
-//   *****************
 
 const API = "http://127.0.0.1:5000/"
 
@@ -117,57 +137,3 @@ function getRealTime() {
     getTemperature(getCity);
 
 }
-
-// const findLatandLon = (query) => {
-//     let latitude, longitude;
-//     axios.get(locationAPI, 
-//     {
-//         params: {
-//             q: cityName,
-//             format : 'json'
-
-//         }
-
-//     })
-//     .then((response) => {
-//         latitude = response.data[0].lat;
-//         longitude = response.data[0].lon;
-//         console.log('success', latitude, longitude);
-//     })
-//     .catch( (error) => {
-//         console.log('error in findLatitudeAndLongitude!');
-//       });
-//       return {
-//           seattleLat: latitude,
-//           seattleLon: longitude
-//       }
-//     }
-
-// findLatandLon("Seattle")
-
-
-
-
-
-//make weather nested inside location
-
-
-
-
-// const findTemperature = (latitude,longitude) =>{
-//     let Fahrenheit = 1.8*(k-273) + 32
-// }
-
-
-//make weather nested inside location
-
-
-
-// const weatherAPI = "http://127.0.0.1:5000/weather"
-// // const locationAPI = "http://127.0.0.1:5000/location"
-
-
-
-// const response_weather = axios.get(weatherAPI).then(response => {
-
-// });
