@@ -88,6 +88,7 @@ function getWeather(latitude, longitude) {
     document.getElementById('tempNumber').innerHTML = Math.floor(1.8*(temp-273)+32)+"°F";
   })
   .catch( (error) => {
+    
     console.log('error in getWeather');
     console.log(error)
   });
