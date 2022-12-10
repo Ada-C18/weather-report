@@ -24,6 +24,7 @@ const decreaseTemp = () => {
 
 const tempcolor = () => {
   const currentTemperature = document.getElementById('curr-temp');
+  // Double check that how we can access background-image in grid-container class
   const gridContainer = document.querySelector('.grid-container');
 
   if (currentTemperature.innerHTML >= 80) {
