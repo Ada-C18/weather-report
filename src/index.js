@@ -1,12 +1,11 @@
 // WAVE 2
-
 const increaseTemp = () => {
   const increaseButton = document.getElementById('increase-temp');
 
   increaseButton.addEventListener('click', () => {
     const currentTemperature = document.getElementById('curr-temp');
     currentTemperature.innerHTML = parseInt(currentTemperature.innerHTML) + 1;
-    tempcolor();
+    changeTempColorAndLandscape();
   });
 };
 
@@ -27,27 +26,27 @@ const changeTempColorAndLandscape = () => {
   if (currentTemperature.innerHTML >= 80) {
     currentTemperature.className = 'temp-red';
     gridContainer.style.backgroundImage =
-      'url(../assets/desert-nicole-herrero.jpg)';
+      'url(../ada-project-docs/assets/desert-nicole-herrero.jpg)';
   } else if (currentTemperature.innerHTML >= 70) {
     currentTemperature.className = 'temp-orange';
     gridContainer.style.backgroundImage =
-      'url(../assets/tropical-alexis-antonio.jpg)';
+      'url(../ada-project-docs/assets/tropical-alexis-antonio.jpg)';
   } else if (currentTemperature.innerHTML >= 55) {
     currentTemperature.className = 'temp-yellow';
     gridContainer.style.backgroundImage =
-      'url(../assets/green-field-anisur-rahman.jpg)';
+      'url(../ada-project-docs/assets/green-field-anisur-rahman.jpg)';
   } else if (currentTemperature.innerHTML >= 40) {
     currentTemperature.className = 'temp-green';
     gridContainer.style.backgroundImage =
-      'url(../assets/fall-federica-galli.jpg)';
+      'url(../ada-project-docs/assets/fall-federica-galli.jpg)';
   } else if (currentTemperature.innerHTML <= 39) {
     currentTemperature.className = 'temp-teal';
     gridContainer.style.backgroundImage =
-      'url(../assets/winter-christiaan-huynen.jpg)';
+      'url(../ada-project-docs/assets/winter-christiaan-huynen.jpg)';
   }
 };
 
-// wave 3
+// WAVE 3
 const changeCity = () => {
   const inputCityName = document.getElementById('city-name');
   inputCityName.addEventListener('input', () => {
@@ -56,8 +55,7 @@ const changeCity = () => {
   });
 };
 
-//wave 4
-
+// WAVE 4
 const getLatLon = (location) => {
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -106,7 +104,7 @@ const addRealtimeTempListener = () => {
   });
 };
 
-//Wave 5
+// WAVE 5
 const selectSkyEventListener = () => {
   const selectElement = document.querySelector('.sky-dropdown');
   selectElement.addEventListener('change', (event) => {
@@ -126,6 +124,18 @@ const selectSkyEventListener = () => {
   });
 };
 
+// WAVE 6
+const resetCityEventListener = () => {
+  const resetCityBtn = document.getElementById('reset-city-btn');
+  resetCityBtn.addEventListener('click', () => {
+    let seattle = 'Seattle';
+    const headerCityName = document.getElementById('header-city');
+    headerCityName.textContent = seattle;
+    const cityNameInput = document.getElementById('city-name');
+    cityNameInput.value = '';
+  });
+};
+
 const setUp = () => {
   increaseTemp();
   decreaseTemp();
@@ -133,15 +143,7 @@ const setUp = () => {
   changeTempColorAndLandscape();
   addRealtimeTempListener();
   selectSkyEventListener();
+  resetCityEventListener();
 };
 
-if (document.readyState !== 'loading') {
-  increaseTemp();
-  decreaseTemp();
-  changeCity();
-  changeTempColorAndLandscape();
-  addRealtimeTempListener();
-  selectSkyEventListener();
-} else {
-  document.addEventListener('DOMContentLoaded', setUp);
-}
+document.addEventListener('DOMContentLoaded', setUp);
