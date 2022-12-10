@@ -18,11 +18,11 @@ const decreaseTemp = () => {
   decreaseButton.addEventListener('click', () => {
     const currentTemperature = document.getElementById('curr-temp');
     currentTemperature.innerHTML = parseInt(currentTemperature.innerHTML) - 1;
-    tempcolor();
+    changeTempColorAndLandscape();
   });
 };
 
-const tempcolor = () => {
+const changeTempColorAndLandscape = () => {
   const currentTemperature = document.getElementById('curr-temp');
   // Double check that how we can access background-image in grid-container class
   const gridContainer = document.querySelector('.grid-container');
@@ -53,10 +53,7 @@ const tempcolor = () => {
 // wave 3
 const changeCity = () => {
   const inputCityName = document.getElementById('city-name');
-  // const headerCityName = document.getElementById('header-city');
-  // headerCityName.innerHTML = inputCityName;
   inputCityName.addEventListener('input', () => {
-    // const inputCityName = document.getElementById('city-name');
     const headerCityName = document.getElementById('header-city');
     headerCityName.textContent = inputCityName.value;
   });
@@ -70,65 +67,69 @@ const getLatLon = (location) => {
       params: { q: location, format: 'json' },
     })
     .then((result) => {
-      const lat = result.data[0].lat;
-      const lon = result.data[0].lon;
-      console.log(`${location} lat: ${lat} lon: ${lon}`);
-      // return getWeather(lat,lon);
+      const latitude = result.data[0]['lat'];
+      const longitude = result.data[0]['lon'];
+      // console.log(`${location} lat: ${latitude} lon: ${longitude}`);
+      getWeather(latitude, longitude);
     })
     .catch((error) => {
-      console.log(`Error in the getLatLon api ${error.data}`);
+      console.log(`Error in the getLatLon api ${error}`);
     });
 };
 
-const getWeather = (lat, lon) => {
+const getWeather = (latitude, longitude) => {
   axios
     .get('http://127.0.0.1:5000/weather', {
-      params: { lat: lat, lon: lon, format: 'json' },
+      params: { lat: latitude, lon: longitude, format: 'json' },
     })
     .then((result) => {
-      return result.data.main.temp;
+      // console.log("we're in the getWeather", result);
+      const temp = result.data.main.temp;
+      const tempF = convertKtoF(temp);
+      // console.log(temp);
+      // console.log(tempF);
+      const currentTemperature = document.getElementById('curr-temp');
+      currentTemperature.innerHTML = tempF;
+      changeTempColorAndLandscape();
     })
     .catch((error) => {
-      console.log(`Error in the getWeather api ${error.data}`);
+      console.log(`Error in the getWeather api ${error}`);
     });
 };
 
-const resetTemperature = () => {
-  const resetTempButton = document.getElementById('reset-temp-btn');
-  resetTempButton.addEventListener('click', () => {
-    const city = document.getElementById('header-city');
-    const realtimeTemp = getWeather(getLatLon(city));
-    const currentTemperature = document.getElementById('curr-temp');
-    currentTemperature.innerHTML = realtimeTemp;
-  });
+const convertKtoF = (temp) => {
+  const tempF = Math.floor((temp - 273.15) * 1.8 + 32);
+  return tempF;
 };
 
-// axios.get('https://api.ipify.org/?format=json',
-//     {
-//         proxy: {
-//             protocol: 'http',
-//             host: '149.129.239.170',
-//             port: 8080
-//         }
-//     }
-// )
-//     .then(res => {
-//         console.log(res.data)
-//     }).catch(err => console.error(err))
+const addRealtimeTempListener = () => {
+  const realtimeTempButton = document.getElementById('realtime-temp-btn');
+  realtimeTempButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const city = document.getElementById('header-city').innerText;
+    
+    // console.log("we are inside realtime temperature");
+    console.log("this is the city", city);
+    
+    getLatLon(city);
+
+  });
+};
 
 const setUp = () => {
   increaseTemp();
   decreaseTemp();
-  tempcolor();
   changeCity();
-  // getLatLon('Seattle');
+  changeTempColorAndLandscape();
+  addRealtimeTempListener();
 };
 
 if (document.readyState !== 'loading') {
   increaseTemp();
   decreaseTemp();
-  tempcolor();
   changeCity();
+  changeTempColorAndLandscape();
+  addRealtimeTempListener();
 } else {
   document.addEventListener('DOMContentLoaded', setUp);
 }
