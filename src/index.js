@@ -64,7 +64,7 @@ const changeColorAndEmojis = (temperature) => {
   const landscape = document.getElementById('ground-emoji');
   if (temperature.innerText >= 80) {
     temperature.style.color = 'red';
-    temperature.style.backgroundColor = 'white';
+    temperature.style.backgroundColor = 'nude';
     landscape.innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temperature.innerText >= 70 && temperature.innerText <= 79) {
     temperature.style.color = 'orange';
@@ -79,8 +79,8 @@ const changeColorAndEmojis = (temperature) => {
     temperature.style.backgroundColor = 'white';
     landscape.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
-    temperature.style.color = 'teal';
-    temperature.style.backgroundColor = 'white';
+    temperature.style.color = 'black';
+    temperature.style.backgroundColor = 'nude';
     landscape.innerText = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };

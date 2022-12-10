@@ -3,7 +3,9 @@
 }
 body {
     background-color: #e1cfc6;
+    color: #F3F6FB;
     font-family: 'Ubuntu', sans-serif;
+    font-size: 1.3rem;
     display: inline-flexbox;
 }
 header {
@@ -14,6 +16,12 @@ header {
     margin-left: 3rem;
     color: white;
 }
+h4 {
+    margin-left: 1rem;
+}
+h2 {
+    color: #e6f9f1;
+}
 aside {
     display: flex;
     float: left;
@@ -21,31 +29,65 @@ aside {
     margin: 50px;
 }
 .aside {
-    border: 2px solid salmon;
-    width: 20rem;
-    height: 10rem;
+    border: 2px solid #cc778c;
+    width: 22rem;
+    height: 14rem;
     padding: 20px;
     margin: 20px;
 }
 .temperature {
-    display: inline-flex;
+    display: block;
     align-items: center;
 }
-.temperature > #temp-up, .temperature > #temp-down{
+#temp-up, #temp-down, #display-temp {
     border: none;
     background: none;
     margin: none;
     padding: none;
 }
-
+#display-temp {
+    font-size: 1.6rem;
+    display: inline-block;
+    background-color: #EDEAE0;
+    margin: none;
+    padding: none;
+}
+.temperature-display {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: center;
+    justify-content: space-around;
+}
+.temperature-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 main {
     display: block;
     float: right;
-    width: 30rem;
-    height: 100%;
+    width: 35%;
     text-align: center;
-    align-self: center;
     margin-left: auto;
-    margin-right: 3rem;
+    margin-right: 8rem;
     margin-top: 12rem;
+    background-color: #eedcdc;
+}
+
+input, select, option {
+    width: 14rem;
+    margin-left: 1rem;
+}
+
+option {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+button {
+    padding: none;
+    margin: none;
 }
