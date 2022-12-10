@@ -1,5 +1,10 @@
 'use strict';
 
+const axios = require('axios');
+const state = {
+  city: '',
+};
+
 function incrementButton() {
   const element = document.getElementById('counter');
   let value = element.innerHTML;
@@ -52,11 +57,26 @@ function landscapeIcons(temp) {
   }
 }
 
-function cityNameInput(e) {
+const cityNameInput = (e) => {
   const log = document.getElementById('City-Name-Top');
+  state.city = document.querySelector('#city-input').value;
   log.textContent = document.querySelector('#city-input').value;
   console.log(e.data);
-}
+};
+
+const getRealtimeTemperature = (e) => {
+  log.textContent = e.target.value;
+  console.log(getRealtimeTemperature);
+
+  axios
+    .get('http://127.0.0.1:5000/location')
+    .then(() => {
+      console.log('success!');
+    })
+    .catch(() => {
+      console.log('error!');
+    });
+};
 
 const registerEventHandlers = () => {
   const cityInput = document.querySelector('#city-input');
@@ -67,6 +87,10 @@ const registerEventHandlers = () => {
 
   const decButton = document.querySelector('#dec');
   decButton.addEventListener('click', decreaseButton);
+
+  const liveButton = document.querySelector('#Get-Realtime-Temperature');
+
+  liveButton.addEventListener('click', getRealtimeTemperature);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
