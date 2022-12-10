@@ -1,5 +1,7 @@
 'use strict';
 
+const axios = require('axios')
+
 const DEFAULT_CITY = 'Seattle';
 // Select the HTML Element the event will occur on
 const increaseTempElement = document.getElementById('increaseTempBtn');
@@ -42,6 +44,43 @@ const changingSky = () => {
     sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
+
+//Wave 4 API 
+
+const findLatLon = (query) => {
+  let latitude, longitude;
+  return axios
+    .get('http://127.0.0.1:5000/location', {
+      q: query,
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success!', latitude, longitude);
+      return getWeather({ lat: latitude, lon: longitude });
+    })
+    .catch((error) => {
+      console.log('error!');
+    });
+};
+
+
+const getWeather = (query) => {
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: query.lat,
+        lon: query.lon,
+      },
+    })
+    .then((response) => {
+      return Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
+    })
+    .catch((error) => {
+      console.log('error!');
+    });
+};
+
 
 // Register that function as an 'event listener'
 // increaseTempElement.addEventListener('click', increaseTemperature);
