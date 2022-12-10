@@ -15,8 +15,22 @@
         <div id="city">Seattle</div>
     </div>
     <div class="controls">
+        <label for="city_input">CITY</label>
         <input type="text" id="city_input"></input>
+        
+    </div>
+    <div class="controls">
+        <label for="sky_input">SKY</label>
+        <input type="text" name="sky" id="sky_input" list="sky_list">
+        <datalist id="sky_list">
+            <option value="sunny">
+            <option value="cloudy">
+            <option value="snowy">
+            <option value="rainy">
+        </datalist>
     </div>
     <div id="landscape">This is a landscape</div>
+    <div id="sky">This is the sky</div>
+
 </body>
 </html>

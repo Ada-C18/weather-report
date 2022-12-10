@@ -70,8 +70,30 @@ const getWeather = async (lat, lon) => {
   return response.data.main;
 };
 
+const skyStyle = (sky) => {
+  if (sky == 'sunny') {
+    return { skyType: `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"` };
+  } else if (sky == 'cloudy') {
+    return { skyType: `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"` };
+  } else if (sky == 'rainy') {
+    return { skyType: `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"` };
+  } else if (sky == 'snowy') {
+    return { skyType: `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"` };
+  }
+};
+
+const skyUpdate = (event) => {
+  document.getElementById('sky').textContent = event.target.value;
+  console.log(event.target.value);
+  let newSky = skyStyle(event.target.value);
+  console.log(newSky);
+  document.getElementById('sky').textContent = newSky.skyType;
+};
+
 function addListeners() {
   console.log('onload');
   document.getElementById('city_input').oninput = (event) => cityUpdate(event);
+  document.getElementById('sky_input').oninput = (event) => skyUpdate(event);
+
   console.log('onload executed');
 }
