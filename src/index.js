@@ -141,6 +141,14 @@ const clearInput = () => {
   cityOutput.textContent = 'Seattle';
 };
 
+const updateCityOnClick = () => {
+  cityOutput.textContent = cityInput.value;
+
+  if (!cityInput.value) {
+    cityOutput.textContent = 'Seattle';
+  }
+};
+
 axios;
 
 const getLatLon = async (cityName) => {
@@ -228,13 +236,7 @@ const registerEventHandlers = () => {
   const resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', clearInput);
 
-  document.addEventListener('click', () => {
-    cityOutput.textContent = cityInput.value;
-
-    if (!cityInput.value) {
-      cityOutput.textContent = 'Seattle';
-    }
-  });
+  document.addEventListener('click', updateCityOnClick);
 
   skySelector.addEventListener('change', changeSky);
 };
