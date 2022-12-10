@@ -64,7 +64,7 @@ const resetCityName = () => {
   const cityName = document.getElementById('city-name');
   cityName.textContent = state.city;
   const textField = document.getElementById('text-field');
-  textField.value = "";
+  textField.value = '';
 };
 
 // text field input - for city name
@@ -131,3 +131,4 @@ const registerEventHandlers = () => {
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 document.addEventListener('DOMContentLoaded', updateTemperature);
+document.addEventListener('DOMContentLoaded', tempColorAndLandscape);
