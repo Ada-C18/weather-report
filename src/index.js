@@ -125,14 +125,12 @@ currentTemp.innerHTML = i;
 
 const increaseTemp = () => {
     i++;
-    currentTemp.innerHTML = i;
-    updateTempLandscape(); 
+    currentTemp.innerHTML = i; 
 };
 
 const decreaseTemp = () => {
     i--;
     currentTemp.innerHTML = i;
-    updateTempLandscape();
 };
 
 const registerEventHandlers = () => {
