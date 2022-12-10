@@ -2,10 +2,10 @@
 
 // create state
 const state = {
-    temperature: 72,
-    cityName: 'Baltimore',
-    lat: 39.299236,
-    lon: -76.609383,
+  temperature: 72,
+  cityName: 'Baltimore',
+  lat: 39.299236,
+  lon: -76.609383,
 };
 
 const getLatAndLon = () => {
@@ -35,19 +35,17 @@ const getWeather = () => {
       },
     })
     .then((response) => {
-        const weather =response.data.main.temp;
-        // const weather =response.data;
-        console.log(weather)
-        state.temperature= weather
-        state.temperature = Math.round(convertTemp(weather));
-        temperature.textContent = `${state.temperature}°`;
-        colorEnvChange();
-        
+      const weather = response.data.main.temp;
+      // const weather =response.data;
+      console.log(weather);
+      state.temperature = weather;
+      state.temperature = Math.round(convertTemp(weather));
+      temperature.textContent = `${state.temperature}°`;
+      colorEnvChange();
     })
     .catch((error) => {
       console.log('Error:', error);
     });
-   
 };
 
 // temperature color changes based on temp
@@ -76,8 +74,6 @@ const colorEnvChange = () => {
 
   const enviro = document.getElementById('landscape');
   enviro.textContent = environment;
-  temp.textContent = String(state.temperature);
-  
 };
 
 // create functions
@@ -94,40 +90,52 @@ const decreaseTemp = () => {
 };
 
 const updateCity = () => {
-    const textName = document.getElementById('search-box').value;
-    const cityOutPut = document.getElementById('cityOutput');
-    state.cityName = textName;
-    cityOutPut.innerHTML = state.cityName;
-    // cityOutPut.innerHTML = textName.value;
-}
-
-const updateSky = (event) =>{
-
-    // const sunny = document.getElementById('sunny').value;
-    // const sunny = document.getElementById('cloudy').value;
-    // const sunny = document.getElementById('rainy').value;
-    // const sunny = document.getElementById('snowy').value;
-    // let sky = '☀️';
-    const skySelect = document.querySelector('.skyEmoji')
-    skySelect.textContent = `${event.target.value}`;
-    
-    //suny☀️ snowy❄️ rainy 🌧️ cloudy ☁️
-
-}
-
-
-const convertTemp = (temperature) => {
-    const temp = (temperature - 273.15) * (9/5)+ 32;
-    return temp
+  const textName = document.getElementById('search-box').value;
+  const cityOutPut = document.getElementById('cityOutput');
+  state.cityName = textName;
+  cityOutPut.innerHTML = state.cityName;
+  // cityOutPut.innerHTML = textName.value;
 };
 
+const updateSky = (event) => {
+  // const sunny = document.getElementById('sunny').value;
+  // const sunny = document.getElementById('cloudy').value;
+  // const sunny = document.getElementById('rainy').value;
+  // const sunny = document.getElementById('snowy').value;
+  // let sky = '☀️';
+  const skySelect = document.querySelector('.skyEmoji');
+  skySelect.textContent = `${event.target.value}`;
+
+  //suny☀️ snowy❄️ rainy 🌧️ cloudy ☁️
+};
+
+const resetCity = () => {
+  // const resetButton = (document.getElementById('cityOutput').value =
+  //   'Baltimore');
+
+  const cityOutPut = document.getElementById('search-box');
+  cityOutPut.value = 'Baltimore';
+  updateCity();
+
+  // button placeholder
+  // const changePlaceholder = document.getElementById('search-box').placeholder;
+  // changePlaceholder = 'City Name';
+};
+
+const convertTemp = (temperature) => {
+  const temp = (temperature - 273.15) * (9 / 5) + 32;
+  return temp;
+};
 
 // register event handlers
 const registerEventHandlers = () => {
   // Increase Decrease Arrows
-  colorEnvChange();
-//   getLatAndLon();
-  getWeather();
+  // colorEnvChange();
+  // //   getLatAndLon();
+  // getWeather();
+
+  const resetButton = document.getElementById('search-reset-btn');
+  resetButton.addEventListener('click', resetCity);
 
   const selectSky = document.getElementById('select-choices');
   selectSky.addEventListener('change', updateSky);
