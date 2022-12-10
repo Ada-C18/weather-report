@@ -90,7 +90,7 @@ const getRealtimeTemperature = (e) => {
           console.log('Updated temperature' + temperature_box);
           landscapeIcons(location_temp);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log('error!' + error);
         });
     })
