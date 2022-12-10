@@ -15,6 +15,7 @@ header {
 #displayedTemp {
     color: var(--primaryColor);
     font-weight: bold;
+    font-size: 2em;
 }
 
 #increaseTemp {
@@ -23,6 +24,10 @@ header {
 
 #decreaseTemp {
     background-color: lightblue;
+}
+
+#currentCity {
+    font-size: 2em;
 }
 
 
