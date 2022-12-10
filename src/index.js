@@ -3,6 +3,7 @@ import { landscapeEmoji, skyEmoji } from './constants.js';
 // temperature controls
 const state = {
   temp: 39,
+  city: 'Seattle',
 };
 
 const increaseTemp = () => {
@@ -58,6 +59,12 @@ const updateSky = () => {
   }
 };
 
+// reset button
+const resetCityName = () => {
+  const cityName = document.getElementById('city-name');
+  cityName.textContent = state.city;
+};
+
 // text field input - for city name
 const displayText = () => {
   const cityName = document.getElementById('city-name');
@@ -66,6 +73,7 @@ const displayText = () => {
   cityName.textContent = textField.value;
 };
 
+// updates tempurature by city - uses locationIQ and OpenWeather
 const updateTemperature = () => {
   const cityName = document.getElementById('city-name').innerText;
 
@@ -113,6 +121,10 @@ const registerEventHandlers = () => {
   // select sky
   const skySelector = document.getElementById('sky-selector');
   skySelector.addEventListener('change', updateSky);
+  // reset city name button
+  const resetButton = document.getElementById('reset-button');
+  resetButton.addEventListener('click', resetCityName);
+  resetButton.addEventListener('click', updateTemperature);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
