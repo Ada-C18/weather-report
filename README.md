@@ -130,9 +130,9 @@ Working asynchronously
 - Send messages via Slack before/after pushes so other can pull
 - Talk about each wave/feature after completion
 
-Wave 1: Niloo
-Wave 2: Yael
-Wave 3: Niloo
-Wave 4: Yael
-Wave 5: Niloo
-Wave 6: Yael
+1. Niloo  
+2. Yael 
+3. Niloo 
+4. Yael 
+5. Niloo 
+6. Yael 
