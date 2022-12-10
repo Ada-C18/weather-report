@@ -11,7 +11,7 @@
     <header>
         <h1>Weather Report</h1>
         <h2>Today in <span id="header-city" class="header-city-class">Seattle</span></h2>
-        <input id="city-name" placeholder="Enter a city" />
+        <input id="city-name" placeholder="Enter a city"/>
     </header>
     <main class="grid-container">
         <div id="cloud-icon" class="grid-item">
@@ -25,8 +25,9 @@
         <div id="sky-dropdown" class="grid-item">
             <button>Select Sky</button>
         </div>
-        <div id="reset-temp-btn" class="grid-item">
-            <button>Reset Temperature</button>
+        <div class="grid-item"> 
+            <!-- removed from above div and put it below line: id="reset-temp-btn" -->
+            <button id="reset-temp-btn">Reset Temperature</button>
         </div>
     </main>
     <script src="./src/index.js"></script>
