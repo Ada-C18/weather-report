@@ -28,15 +28,14 @@ const temperatureStyle = (temp) => {
 
 const cityUpdate = async (event) => {
   document.getElementById('city').textContent = event.target.value;
-  holup.push(() => updateWeather());
-  await wait(500);
-  let action = holup.pop();
-  if (holup.length == 0) {
-    console.log('wait stack down, executing action');
-    action();
-  } else {
-    console.log('wait stack remains', holup.length, 'no execution');
-  }
+  finishTyping(event.target, 500).then(updateWeather);
+};
+
+const finishTyping = async (target, delay) => {
+  clearTimeout(holup[target.id]);
+  return new Promise(
+    (resolve) => (holup[target.id] = setTimeout(resolve, delay))
+  );
 };
 
 const updateWeather = async () => {
