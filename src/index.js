@@ -69,12 +69,20 @@ const decreaseTemp = () => {
   tempValue.textContent = state.temperature;
 };
 
+const updateCityName = () => {
+  const newCityName = document.getElementById('cityNameInput').value;
+  document.getElementById('headerCityName').textContent = newCityName;
+};
+
 const registerEventHandlers = () => {
   const increaseTempBtn = document.querySelector('#increaseTempControl');
   increaseTempBtn.addEventListener('click', increaseTemp);
 
   const decreaseTempBtn = document.querySelector('#decreaseTempControl');
   decreaseTempBtn.addEventListener('click', decreaseTemp);
+
+  const cityNameInput = document.querySelector('#cityNameInput');
+  cityNameInput.addEventListener('input', updateCityName);
 };
 
 // Registers all events. Once webpage is loaded, it ensures all events
