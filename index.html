@@ -14,8 +14,9 @@
         <h1>Interactive Weather Report</h1>
         <h2 id="credits">By Bukunmi Gesinde & Elsje Slothower</h2>
     </header>
+
+    <!-- column a-->
     <main class="container">
-        <!-- column a-->
         <section class = "a">
             <div>
                 <h2>Currently viewing the weather in:</h2>
@@ -23,13 +24,15 @@
             </div>
             <div>
                 <h2 class="interactive">To view the precise temp in {city}, click here:</h2>
-                <!-- add RealTime temp here -->
+                <button id="tempRequest">In Real Time!</button>
             </div>
             <div>
                 <h2 class="interactive">Want to see a different city? Input one here:</h2>
-                <!-- add click function to rename city here -->
+                <input type="text" />
+                <button id="changeCity">Reset</button>
             </div>
         
+        <!-- column b-->
         </section>
         
         <section id="skyAndLandscape" class ="b">
@@ -38,8 +41,8 @@
 
         </section>
         
+        <!-- column c-->
         <section class ="c">
-            <!-- column 3-->
             <div>
                 <h2>Current temperature is:</h2>
                 <span id="displayedTemp"></span>
@@ -49,11 +52,16 @@
                 <button id="increaseTemp" type="button">hotter</button>
                 <div>or</div>
                 <button id="decreaseTemp" type ="button">colder</button>
-            
             </div>
             <div>
                 <h2 class="interactive">Want to see a different sky? Select one here:</h2>
-                <!-- select sky from list of options here -->
+                <select>
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                    <option>Stormy</option>
+                </select>
             </div>
         </section>
     </main>
