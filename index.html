@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-    <link rel ="stylesheet" href = "styles/index.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
+
 <body>
     <header>
         <h1>Interactive Weather Report</h1>
@@ -15,22 +17,22 @@
     <main class="container">
         <!-- column a-->
         <section class = "a">
-            <section>
-            <h2>Currently viewing the weather in:</h2>
-            <!-- display city name here -->
-            </section>
-            <section>
-            <h2 class="interactive">To view the precise temp in {city}, click here:</h2>
-            <!-- add RealTime temp here -->
-            </section>
-            <section>
-            <h2 class="interactive">Want to see a different city? Input one here:</h2>
-            <!-- add click function to rename city here -->
-            </section>
+            <div>
+                <h2>Currently viewing the weather in:</h2>
+                <span id="currentCity"></span>
+            </div>
+            <div>
+                <h2 class="interactive">To view the precise temp in {city}, click here:</h2>
+                <!-- add RealTime temp here -->
+            </div>
+            <div>
+                <h2 class="interactive">Want to see a different city? Input one here:</h2>
+                <!-- add click function to rename city here -->
+            </div>
         
         </section>
         
-        <section class ="b">
+        <section id="skyAndLandscape" class ="b">
         <!-- Column b/middle collumn TODO: find a way to separate these sections with 
         display of sky & landscape here -->
 
@@ -38,30 +40,28 @@
         
         <section class ="c">
             <!-- column 3-->
-            <section>
+            <div>
                 <h2>Current temperature is:</h2>
-                <span id="displayedTemp">72</span>
-            </section>
-            <section>
+                <span id="displayedTemp"></span>
+            </div>
+            <div>
                 <h2 class="interactive">What if our city was...</h2>
                 <button id="increaseTemp" type="button">hotter</button>
-        
                 <div>or</div>
-                 <button id="decreaseTemp" type ="button">colder</button>
-                
-                <!-- unsure of how to include hotter or cooler section here -->
-             
-            </section>
-            <section>
+                <button id="decreaseTemp" type ="button">colder</button>
+            
+            </div>
+            <div>
                 <h2 class="interactive">Want to see a different sky? Select one here:</h2>
                 <!-- select sky from list of options here -->
-            </section>
+            </div>
         </section>
     </main>
     <footer>
         <h3> Bukunmi Gesinde & Elsje Slothower &copy; 2022</h3>
     </footer>
-    <script src="/src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="/src/index.js" type="javascript"></script>
 </body>
+
 </html>

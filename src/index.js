@@ -1,7 +1,14 @@
 import axios from "axios";
 
 const state = {
-  temperature: 72,
+  temp: 72,
+}
+
+const tempChange = () => {
+  const temp = document.getElementById("displayedTemp");
+  temp.textContent = String(state.temp)
+  
+  console.log("clicked");
 }
 
 const loadControls = () => {
@@ -16,20 +23,13 @@ const loadControls = () => {
   console.log("loaded successfully");
 }
 
-const tempChange = () => {
-  const temp = document.getElementById("displayedTemp");
-  temp.textContent = String(state.temp)
-  
-  console.log("clicked");
-}
-
 const increasedTemp = () => {
-  state.temperature += 1;
+  state.temp += 1;
   tempChange();
 }
 
 const decreasedTemp = () => {
-  state.temperature -= 1;
+  state.temp -= 1;
   tempChange();
 }
 
