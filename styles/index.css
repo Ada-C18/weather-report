@@ -1,3 +1,5 @@
+/* refactor idea: change vh/vw items to % */
+
 body {
     background-color: #d0d4d4;
 }
@@ -43,16 +45,42 @@ h1 {
     display: inline-flex;
 }
 
-#temp-div {
-    width: 15vw;
-    padding: 5px;
-    background-color: #e3e5e5;
-}
-
 .arrow {
     display: block;
 }
 
 .button-div {
     margin: 5px;
+}
+
+#temp-degree {
+    width: 15vw;
+    padding: 5px;
+    background-color: #e3e5e5;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.start-color {
+    color: #FFA500;
+}
+
+.red {
+    color: #FF0000;
+}
+
+.orange {
+    color: #FFA500;
+}
+
+.purple {
+    color: purple;
+}
+
+.blue {
+    color: #002366;
+}
+
+.teal {
+    color: #008080;
 }

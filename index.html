@@ -15,9 +15,7 @@
                 Temperature
             </h2>
             <div>
-                <div id="temp-div">
-                    <p id="temp-degree"><span id="tempnum">70</span> F</p>
-                </div>
+                <p id="temp-degree" class="start-color"><span id="tempnum">70</span> F</p>
                 <div id="arrow-div">
                     <div>
                         <button class="arrow" id="up">⬆️</button>
@@ -34,7 +32,8 @@
                 City Name:
             </h2>
             <div>
-                <input type="text" id="name" name="name" placeholder="Seattle"required>
+                <input type="text" id="city-input" name="city"  
+                placeholder="Seattle" required>
             </div>
             <div class="button-div">
                 <button id="go">Go</button>
@@ -61,7 +60,7 @@
 
         <Section class="box right" id="header"><!-- Weather title section -->
             <h1> 
-                Weather Report for <span>Seattle</span>
+                Weather Report for <span id="city-output">Seattle</span>
             </h1>
         </Section>
 
@@ -71,7 +70,7 @@
             </h2>
             <div></div>
             <div>
-                <p>🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
+                <p id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
             </div>
         </Section>
     </main>
