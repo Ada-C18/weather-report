@@ -111,12 +111,42 @@ const convertTempKtoF = (temp) => {
   return tempF;
 };
 
+const updateSky = () =>{
+  const spanSkyIcon = document.querySelector('#sky-icons')
+  let skyIcon = spanSkyIcon.textContent
+  console.log("inside of update sky" , skyIcon)
+
+  const skyOption = document.querySelector('#sky-button').value
+  console.log(skyOption)
+  
+  if (skyOption === "sunny"){
+    skyIcon = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+  }
+
+  else if (skyOption === "cloudy"){
+    skyIcon = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+  }
+  else if (skyOption === "rainy"){
+    skyIcon = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+  }
+  else {
+    skyIcon = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+  }
+  console.log(skyIcon)
+}
+
+const updateWeaterGardenOnInput= () => {
+  let skySelect = document.querySelector('#sky-button');
+  console.log(skySelect)
+  skySelect.addEventListener('change', updateSky);
+};
+
 const EventHandlers = () => {
   increaseTempOnClick();
   decreaseTempOnClick();
   updateCityNameInput();
   getRealTemp();
-  // updateTempOnClick();
+  updateWeaterGardenOnInput();
 };
 if (document.readyState !== 'loading') {
   EventHandlers();
