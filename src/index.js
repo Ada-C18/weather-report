@@ -11,6 +11,16 @@ const tempChange = () => {
   console.log("clicked");
 }
 
+const increasedTemp = () => {
+  state.temp += 1;
+  tempChange();
+}
+
+const decreasedTemp = () => {
+  state.temp -= 1;
+  tempChange();
+}
+
 const loadControls = () => {
   tempChange();
 
@@ -21,16 +31,6 @@ const loadControls = () => {
   decreasedTempButton.addEventListener("click", decreasedTemp);
 
   console.log("loaded successfully");
-}
-
-const increasedTemp = () => {
-  state.temp += 1;
-  tempChange();
-}
-
-const decreasedTemp = () => {
-  state.temp -= 1;
-  tempChange();
 }
 
 document.addEventListener("DOMContentLoaded", loadControls);
