@@ -38,11 +38,12 @@ const changeTempColor = () => {
   landscapeContainer.replaceChild(newLandscape, oldLandscape);
 };
 
-const getRealTimeTemp = () => {
-  // input: cityName -> locationQ -> lat, lon
-  // -> open weatherApp -> realTemp for the city (in lat, lon)
-  // change the element of html page: currentTemp
-};
+// const getRealTimeTemp = () => {
+//   // input: cityName -> locationQ -> lat, lon
+//   // -> open weatherApp -> realTemp for the city (in lat, lon)
+//   // change the element of html page: currentTemp
+// };
+
 
 const registerEventHandlers = () => {
   const up = document.querySelector('#up');
@@ -53,12 +54,19 @@ const registerEventHandlers = () => {
   down.addEventListener('click', changeTempColor);
   const input = document.querySelector('#cityName');
   input.addEventListener('keyup', updateValue);
-  realTime.addEventListener('click', getRealTimeTemp);
+  const cityContainer = document.querySelector("#resetbutton");
+  cityContainer.addEventListener("click", resetCity)
+  cityContainer.addEventListener('click',updateValue) // resetting input
 };
 
 function updateValue(e) {
   const log = document.getElementById('cityNameShown');
   log.textContent = e.target.value;
 }
+
+const resetCity = () => {
+  const cityContainer = document.getElementById('cityName');
+  cityContainer.value = '';
+};
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
