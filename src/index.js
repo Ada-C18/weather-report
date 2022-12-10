@@ -65,7 +65,7 @@ const getTempFromSearch = (searchString) => {
 update temperature state and html display. */
 const loadCityTemp = (event) => {
   const city = document.querySelector('#cityName');
-  const searchString = city.value;
+  const searchString = city.value || 'Seattle';
   const tempPromise = getTempFromSearch(searchString);
   const tempCount = document.querySelector('#temperatureDisplay');
   tempPromise.then((temp) => {
