@@ -25,6 +25,21 @@ const updateLandscapeColor = () => {
   }
 }
 
+const updateSkyscape = () => {
+  const chosenSky = document.getElementById("sky").value;
+  const skyDisplay = document.querySelector("#skyscape");
+  if (chosenSky === "sunny"){
+    skyDisplay.textContent = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+  } else if (chosenSky === "cloudy"){
+    skyDisplay.textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+  } else if (chosenSky === "rainy"){
+    skyDisplay.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
+  } else if (chosenSky === "snowy"){
+    skyDisplay.textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+  }
+};
+
+
 const updateTemp = (changeFactor) => {
   const tempDisplay = document.querySelector("#temperature");
   state.tempCount = state.tempCount + changeFactor
@@ -76,6 +91,8 @@ const registerEventHandlers = (event) => {
   changeCityInput.addEventListener("input",(event) => changeCity(event, changeCityInput.value))
   const getWeatherButton = document.querySelector("#getWeather");
   getWeatherButton.addEventListener("click", getWeatherCity)
+  const changeSkyscape = document.querySelector("#sky");
+  changeSkyscape.addEventListener("change",(event) => updateSkyscape())
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
