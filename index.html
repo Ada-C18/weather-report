@@ -8,32 +8,49 @@
     <title>Weather Report</title>
 </head>
 <body>
-    <header class="header">
-        <h1>Current Weather</h1>
+    <header class="header_weather">
+        <h1>Weather Report</h1>
+        <span>
+            For the City of
+            <span id="headerCity" class="header_city">
+                
+            </span>
+        </span>
     </header>
-    <div id="getWeather">
-        <h2 id="city">Toms River</h2>
-        <input type="text" id="inputCity" placeholder="City Name">
-        <button id="submit">Get Weather</button>
-        <button id="reset">reset</button>
-    </div>
-    <div id="temperatureInfo">
+    <section class="city_section">
+        <h2>City Name</h2>
+            <h2 id="city">Toms River</h2>
+            <input type="text" id="inputCity" value="Toms River">
+            <button id="reset">Reset</button>
+    </section>
+    <section class="temperature_section">
+        <h2>Temperature</h2>
+    <div class="temperature_content">
+        <div class="temperature_buttons">
         <span id="increaseTemp">⬆️</span>
         <span id="temperatureValue" class="blue"> 58°f </span>
-        <span id ="decreaseTemp">⬇️</span> 
+        <span id ="decreaseTemp">⬇️</span>
+        </div>
+        <button id="tempButton">Get Weather</button>
     </div>
-    <div id="landscape">
+    </section>
+    <section class="garden_section">
         <h2>Weather Garden</h2>
+        <div id="gardenContent" class="garden_content">
+            <div id="sky" class="sky-contents">☁️☁️☀️☁️☁️</div>
+            <div id="ground" class="ground-contents">🌲🌲🍁🌲🌲</div>
+        </div>
+    </section>
+    <section class="sky_section">
+        <h2>Sky</h2>
         <label for="skies">Choose a sky:</label>
-        <select name="skies" id="skies">
+        <select id="skies">
             <option value="cloudy">Cloudy</option>
             <option value="rainy">Rainy</option>
             <option value="sunny">Sunny</option>
             <option value="snowy">Snowy</option>
         </select>
-        <span id="sky" class="sky-contents">☁️☁️☀️☁️☁️</span>
-        <span id="ground" class="ground-contents">🌲🌲🍁🌲🌲</span>
-    </div>
+    </section>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>

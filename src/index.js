@@ -113,8 +113,8 @@ const changeSkies = () => {
 };
 
 const registerEventHandlers = () => {
-  const submitButton = document.getElementById('submit');
-  submitButton.addEventListener('click', getTemp);
+  const tempButton = document.getElementById('tempButton');
+  tempButton.addEventListener('click', getTemp);
   const incrementCount = document.getElementById('increaseTemp');
   incrementCount.addEventListener('click', handleIncrement);
   const decrementCount = document.getElementById('decreaseTemp');

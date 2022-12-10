@@ -1,11 +1,14 @@
 
-header {
-    color:ghostwhite;
-    grid-column: span 3;
+header_weather {
     display: flex;
+    justify-content: center;
     align-items: center;
+    height: 150px;
+    color:ghostwhite;
+    grid-column: span 4;
     margin: 2rem auto 3rem 0;
-    font-size: 35px;
+    font-size: 60px;
+    text-align: center;
 }
 
 h2 {
