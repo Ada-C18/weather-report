@@ -55,7 +55,7 @@ const findLatAndLong = () => {
 };
 
 const currentWeather = document.getElementById('currentWeather');
-currentWeather.addEventListener(click, findLatAndLong);
+currentWeather.addEventListener('click', findLatAndLong);
 
 const findWeather = (lat, long) => {
   axios
