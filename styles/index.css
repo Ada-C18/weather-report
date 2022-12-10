@@ -22,6 +22,7 @@ body {
     grid-template-rows: 1fr;
     column-gap: 1in;
     justify-content:center;
+    text-align: center;
 
     
 }
