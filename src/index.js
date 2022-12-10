@@ -38,7 +38,7 @@ axios
   })
 };
 
-function findWeather(lat, long) {
+const findWeather = (lat, long) => {
   axios
     .get("http://127.0.0.1:5000/location",{ 
     params: {
