@@ -1,5 +1,3 @@
-/* refactor idea: change vh/vw items to % */
-
 body {
     background-color: #d0d4d4;
 }
@@ -20,7 +18,7 @@ main {
 .left {
     max-width: 20vw;
     margin: 2vh;
-    height: 25vh;
+    height: 22vh;
     align-items: center;
 }
 
@@ -37,25 +35,37 @@ main {
 
 h1 {
     text-align: center;
+    color: #fbfcf8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#garden-header {
+    font-family: fantasy;
+}
+
+.box h2 {
+    color: #fbfcf8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    font-style: oblique;
+    color: #fbfcf8;
 }
 
 #arrow-div {
-    width: 15vw;
-    padding: 5px;
     display: inline-flex;
+    align-items: center;
+    margin: 2px;
 }
 
 .arrow {
-    display: block;
-}
-
-.button-div {
     margin: 5px;
+    height: 5vh;
 }
 
 #temp-degree {
-    width: 15vw;
-    padding: 5px;
+    max-height: 8vh;
+    padding: 10px;
     background-color: #e3e5e5;
     font-size: large;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -83,4 +93,8 @@ h1 {
 
 .teal {
     color: #008080;
+}
+
+#city {
+    height: 15vh;
 }

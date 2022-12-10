@@ -14,16 +14,10 @@
             <h2>
                 Temperature
             </h2>
-            <div>
+            <div id="arrow-div">
+                <button class="arrow" id="up">⬆️</button>
                 <p id="temp-degree" class="start-color"><span id="tempnum">70</span> F</p>
-                <div id="arrow-div">
-                    <div>
-                        <button class="arrow" id="up">⬆️</button>
-                    </div>
-                    <div>
-                        <button class="arrow" id="down">⬇️</button>
-                    </div>
-                </div>
+                <button class="arrow" id="down">⬇️</button>
             </div>    
         </Section>
         
@@ -31,39 +25,27 @@
             <h2>
                 City Name:
             </h2>
-            <div>
-                <input type="text" id="city-input" name="city"  
+            <input type="text" id="city-input" name="city"  
                 placeholder="Seattle" required>
-            </div>
-            <div class="button-div">
-                <button id="go">Go</button>
-            </div>
-            <div class="button-div">
-                <button id="reset">Reset</button>
-            </div>
+            <button id="go">Go</button>
+            <button id="reset">Reset</button>
         </Section>
 
         <Section class="box left" id="sky"><!-- sky section --> 
             <h2>
                 Sky
             </h2>
-            <div>
-                <label for="sky-select">Choose a sky:</label>
+            <label for="sky-select">Choose a sky:</label>
 
-                <select name="sky" id="sky-select">
-                    <option value="else">--Please choose an option--</option>
-                    <option value="sunny">Sunny</option>
-                    <option value="cloudy">Cloudy</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="snowy">Snowy</option>
-                </select>
-            </div>
-            <div>
-                <p id="skyscape">🌧🕺🏾⛈🕺🏾🌧</p>
-            </div>
+            <select name="sky" id="sky-select">
+                <option value="else">--Please choose an option--</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+            <p id="skyscape">🌧🕺🏾⛈🕺🏾🌧</p>
         </Section>
-
-        <div class="divider"></div>
 
         <Section class="box right" id="header"><!-- Weather title section -->
             <h1> 
@@ -75,10 +57,7 @@
             <h2 id="garden-header">
                 Weather Garden
             </h2>
-            <div></div>
-            <div>
-                <p id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
-            </div>
+            <p id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
         </Section>
     </main>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
