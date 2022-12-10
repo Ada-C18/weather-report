@@ -56,17 +56,18 @@ minus.addEventListener('click',() => {
 
 
 let cityNameReset = document.getElementById("reset")
-cityNameReset.addEventListener("click", myFunction)
+cityNameReset.addEventListener("click", getCityName)
 
 
-function myFunction() {
+function getCityName() {
     let cityName = document.getElementById("cityName"); 
     document.getElementById("intro").innerHTML = cityName.value;
+    return cityName.value
 }
+
 
 document.getElementById("intro").innerHTML = "☁️";
 
-// document.querySelector('.burning').innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
 
 // const axios = require("axios");
 
@@ -82,30 +83,38 @@ document.getElementById("intro").innerHTML = "☁️";
 //     console.log(newPokemon);
 //   }
 //   *****************
-// const kelvinToFarenheit = function(temperature)
 
 
-
-
-  
 const API = "http://127.0.0.1:5000/"
 
 async function getTemperature(query) {
     let response = await axios.get(API + "location" + "?q=" + query);
+    console.log(response)
     const lat= response.data[0].lat;
     const lon = response.data[0].lon;
+    console.log(lat, lon)
+
+   
     
-    response = await axios.get(API + "weather" + "?q=" +  query);
-    return response
+    response = await axios.get(API + "weather" + "?lat=" + lat + "&lon=" + lon );
+    const temp = response.data.main.temp
+    const FarenheitTemp =  1.8*(temp-273) + 32
+    console.log(FarenheitTemp)
+    document.getElementById("number").innerHTML = FarenheitTemp 
+   
+
 }
+
+
+
 
 let RealTime = document.getElementById("realTime")
 RealTime.addEventListener("click", getRealTime)
 
 function getRealTime() {
-    let realTime  = document.getElementById("realTime"); 
-    document.getElementById("number").innerHTML = response;
-// getTemperature(query)
+    let getCity = getCityName();
+    getTemperature(getCity);
+
 }
 
 // const findLatandLon = (query) => {
@@ -152,4 +161,6 @@ function getRealTime() {
 
 // });
 // const response_location = axios.get(locationAPI);
+
+
 
