@@ -2,7 +2,7 @@ body {
     background-color: lightblue;
     display: grid;
     /* grid-template-columns: 1fr 4fr 2fr; */
-    grid-template-rows: 1fr 4fr 3fr;
+    grid-template-rows: 1fr 4fr 4fr;
     grid-gap: 1rem;
     row-gap: 1rem;
     font-family: Rubik,sans-serif;
@@ -28,8 +28,8 @@ body {
 }
 
 #tempContainer { 
-    border: 1px solid black;  
-
+    border: 1px solid black;
+    border-radius: 8px;  
 }
 
 #tempContainer h2 {
@@ -65,14 +65,17 @@ body {
 }
 #skyContainer { 
     border: 1px solid;
+    border-radius: 8px;
 }
 
 #citycontainer { 
     border: 1px solid;
     padding: 10%;
+    border-radius: 8px;
 }
 #skyContainer h2 { 
     padding: 10%;
+    border-radius: 8px;
 }
 
 #gardenContainer {
@@ -87,7 +90,12 @@ body {
 
 
 #sky {
-    font-size: 3em;
+    font-size: 2em;
+}
+
+#landscape {
+    font-size: 2em;
+    bottom: 10px;
 }
 
 .sunny {

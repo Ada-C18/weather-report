@@ -118,6 +118,12 @@ const updateTempLandscape = () => {
     temperature.textContent = state.temp
 };
 
+const resetCityName = () => {
+    const cityNameInput = document.getElementById('cityNameInput');
+    cityNameInput.value = 'Seattle';
+    updateCityName();
+}
+
 
 const increaseTemp = () => {
     i++;
@@ -140,14 +146,15 @@ const registerEventHandlers = () => {
 
     const lowerTemp = document.getElementById("decreaseTemp");
     lowerTemp.addEventListener("click", decreaseTemp);
-
+    
     const cityNameInput = document.getElementById('cityNameInput');
     cityNameInput.addEventListener('input', updateCityName);
 
-    
-    
     const skySelect = document.getElementById('skySelect');
     skySelect.addEventListener('change', updateSky);
+
+    const cityNameReset = document.getElementById('resetButton');
+    cityNameReset.addEventListener('click', resetCityName);
 };
 
 
