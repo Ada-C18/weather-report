@@ -1,7 +1,7 @@
 # To-Do
 - [ ]  Wave 2
     - [ ]  Show default temp
-    - [ ]  Add emojis up and down arrows-
+    - [x]  Add emojis up and down arrows-ms
 - [ ]  Finish wave 4
     - [x]  button (Register and addEventListener to Get Realtime Temperature button) - Milena
     - [ ]  get API functions working and button get temp - together office hours
