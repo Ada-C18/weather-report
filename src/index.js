@@ -119,19 +119,13 @@ const updateTempLandscape = () => {
 };
 
 
-let i = 0;
-let currentTemp = document.getElementById("tempValue");
-currentTemp.innerHTML = i;
-
 const increaseTemp = () => {
-    i++;
-    currentTemp.innerHTML = i;
-    updateTempLandscape(); 
+    state.temp += 1;
+    updateTempLandscape();
 };
 
 const decreaseTemp = () => {
-    i--;
-    currentTemp.innerHTML = i;
+    state.temp -= 1;
     updateTempLandscape();
 };
 
