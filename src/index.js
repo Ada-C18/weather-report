@@ -17,8 +17,8 @@ const state = {
 // increase temp
 const increaseTemp = () => {
   state.temp++;
-  console.log(increaseTemp);
-  console.log(state.temp);
+  // console.log(increaseTemp);
+  // console.log(state.temp);
 };
 
 const decreaseTemp = () => {
@@ -40,17 +40,15 @@ downButton.addEventListener('click', function () {
 
 const findLatAndLong = () => {
   axios
-    .get(
-      'http://127.0.0.1:5000/weather',
-      (params = {
+    .get('http://127.0.0.1:5000/location', {
+      params: {
         q: state.city,
-      })
-    )
+      },
+    })
     .then((response) => {
-      console.log(response.data);
       state.lat = response.data[0].lat;
       state.long = response.data[0].lon;
-      getWeather();
+      findWeather();
     });
 };
 
@@ -59,7 +57,7 @@ currentWeather.addEventListener('click', findLatAndLong);
 
 const findWeather = (lat, long) => {
   axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('http://127.0.0.1:5000/weather', {
       params: {
         lat: state.lat,
         lon: state.long,
@@ -67,9 +65,11 @@ const findWeather = (lat, long) => {
     })
     .then((response) => {
       const weather = response.data;
-      state.temp = Math.round(weather.current.temp);
+      console.log(weather);
+      state.temp = Math.round(weather.main.temp);
+      // console.log(weather);
     });
-  console.log(findWeather);
+  // console.log(findWeather);
 };
 
 const updateCity = () => {
