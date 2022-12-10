@@ -1,7 +1,5 @@
 'use strict';
 
-// const axios = require('axios');
-
 const state = {
   temp: 70,
 };
@@ -83,7 +81,7 @@ const getCity = (event) => {
   // that is a letter, a space or a hyphen
   if (event.key.match(re)) {
     // text of the h1 element will match the value of the input box (which is
-    // always one keystroke behind what's actually visible on screen)
+    // always one keystroke behind what's actually visible on screen while typing)
     cityOutput.textContent = `${cityInput.value}${event.key}`;
 
     // Note that all other characters entered in the input box are still stored
@@ -103,20 +101,72 @@ const getCity = (event) => {
   }
 };
 
-const getWeather = () => {
-  console.log('button press!');
-};
-
 const clearInput = () => {
   cityInput.value = null;
   cityOutput.textContent = 'Seattle';
 };
 
-// const parrot = document.querySelector("#parrot");
-//   if (state.clickCount >= 10) {
-//     parrot.classList.add("large");
-//   }
-// };
+axios;
+
+const getLatLon = async (cityName) => {
+  const response = await axios.get('http://127.0.0.1:5000/location', {
+    params: {
+      q: cityName,
+    },
+  });
+
+  if (response.data[0]) {
+    const lat = response.data[0]['lat'];
+    const lon = response.data[0]['lon'];
+    return { lat, lon };
+  } else if (response.data.error) {
+    console.log(`!!! error in getLatLon: ${response.data.error}`);
+    return { lat: 90, lon: 200 };
+  }
+};
+
+const kelvinToFahrenheit = (K) => Math.round(((K - 273.15) * 9) / 5 + 32);
+
+const getTemp = async (objLatLon) => {
+  if (objLatLon.lat === 90 && objLatLon.lon === 200) {
+    return -40;
+  }
+
+  const response = await axios.get('http://127.0.0.1:5000/weather', {
+    params: objLatLon,
+  });
+
+  if (response.data.main) {
+    let cityTemp = response.data.main.temp;
+    cityTemp = kelvinToFahrenheit(cityTemp);
+
+    return cityTemp;
+  } else if (response.data.cod != 200) {
+    console.log(
+      `!!! error in getTemp: ${response.data.cod}: ${response.data.message}`
+    );
+    return -40;
+  }
+};
+
+const cityWeather = async (cityName) => {
+  const location = await getLatLon(cityName);
+  const cityTempF = await getTemp(location);
+
+  return cityTempF;
+};
+
+const displayCityTemp = () => {
+  const cityName = cityInput.value;
+
+  cityWeather(cityName).then((F) => {
+    tempNum.textContent = F;
+    state.temp = F;
+    changeTempColor();
+    changeLandscape();
+    console.log(`updated temp to ${F}°F`);
+  });
+};
 
 const registerEventHandlers = () => {
   const upArrow = document.getElementById('up');
@@ -128,10 +178,18 @@ const registerEventHandlers = () => {
   cityInput.addEventListener('keydown', getCity);
 
   const goButton = document.getElementById('go');
-  goButton.addEventListener('click', getWeather);
+  goButton.addEventListener('click', displayCityTemp);
 
   const resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', clearInput);
+
+  document.addEventListener('click', () => {
+    cityOutput.textContent = cityInput.value;
+
+    if (!cityInput.value) {
+      cityOutput.textContent = 'Seattle';
+    }
+  });
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
