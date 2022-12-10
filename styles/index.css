@@ -74,6 +74,7 @@ h1 {
 
 #temp-console {
     background: rgba(217, 217, 217, 0.7);
+    background: rgba(190, 190, 190, 0.7);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 0.8px solid transparent;
@@ -104,11 +105,13 @@ h1 {
     display: flex;
     justify-content: space-between;
     border-bottom: 0.8px solid #DFF4FF;
+    /* border-bottom: 0.8px solid #858585; */
     padding: 0 8px;
 }
 
 #weather-type {
     color: #DFF4FF;
+    /* color: #858585; */
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 1rem;
@@ -119,6 +122,7 @@ h1 {
 
 #city-name {
     color: #DFF4FF;
+    /* color: #858585; */
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 1rem;
@@ -140,6 +144,7 @@ h1 {
 .temp {
     display: inline-block;
     color: #F5F5F5;
+    /* color: #858585; */
     font-family: 'Roboto', sans-serif;
     font-size: 3.5rem;
     margin: 0;
@@ -151,14 +156,17 @@ h1 {
 
 #degree {
     color: #F5F5F5;
+    /* color: #858585; */
     font-weight: 100;
     font-size: 3.5rem;
 }
 
 .main-btn {
     border: 0.8px solid #DFF4FF;
+    /* border: 0.8px solid #858585; */
     background-color: transparent;
     color: #F5F5F5;
+    /* color: #858585; */
 }
 
 .change-temp {
@@ -239,23 +247,13 @@ select {
     border: none;
     border-radius: 7px;
     background: #F5F5F5;
+    text-align: center;
 }
 
 .sky-op {
     background: inherit;
 }
 
-/* #sky-select {
-    display: block;
-    margin: auto;
-    font-family: 'Roboto', sans-serif;
-}
-
-.sky-op {
-    font-family: inherit;
-    color: red;
-    padding: 5px;
-} */
 
 /* .sky-btns {
     display: flex;

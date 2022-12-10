@@ -157,6 +157,16 @@ const selectSky = () => {
   }
 };
 
+const resetLocTemp = () => {
+  const city = document.querySelector('.location');
+  city.value = '';
+  const weatherType = document.querySelector('#weather-type');
+  weatherType.innerText = 'Search to get weather';
+  const tempNum = document.querySelector('#temp-num');
+  tempNum.innerText = '--';
+  updateCity();
+};
+
 const currentTemp = document.querySelector('#temp-num');
 currentTemp.innerText = state.temp;
 
@@ -178,6 +188,9 @@ const registerEventHandlers = () => {
 
   const skyOptions = document.querySelector('#sky-select');
   skyOptions.addEventListener('change', selectSky);
+
+  const resetBtn = document.querySelector('#reset-btn');
+  resetBtn.addEventListener('click', resetLocTemp);
 };
 
 window.addEventListener('load', tempChangeUpdateUI);
