@@ -1,5 +1,5 @@
 
-header_weather {
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,19 +11,55 @@ header_weather {
     text-align: center;
 }
 
+
+.header_city {
+    font-style: oblique;
+    font-size: 2rem;
+}
+
+.temperature_section,
+.sky_section,
+.city_section {
+    border-radius: 8px;
+    padding: 2rem;
+    background-color:rgb(237, 189, 196, .7);
+    filter: brightness(200%)
+}
+
+
+.city_section, .temperature_section {
+    grid-row: 2;
+}
+
+.city_section, .sky_section {
+    grid-column: 1 / span 1;
+
+}
+.garden_section, .sky_section {
+    grid-row: 3;
+}
+
+.garden_section {
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 2;
+    text-align: center;
+    align-self: center;
+} 
+
 h2 {
     margin: 0 auto 2 rem auto; 
 }
 
 body {
     display: grid;
-    grid-template-columns: 1fr, 2fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto;
     grid-gap: 1rem;
 
     font-family: 'Lucida Sans';
     font-size: 20px; 
     background-color: #64bdfd;
+    margin: 2rem;
 }
 
 
