@@ -7,6 +7,57 @@
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <!-- Page Headers-->
+    <section class="headerContainer">
+        <header><h1 class="header1">Weather Report</h1></header>
+        <header><h3 class="header2">Currently Displaying:</h3></header>
+        <header><h2 id="currentCity" class="header3">Narnia</h2></header>
+    </section>
+    <section class="boxContainer">
+        <!-- Temp/Sky Button Box -->
+        <section class="box">
+            <section class="tempSkyBox">
+                <section class="temp_section">
+                    <header class="boxHeader"><h4 class="tempHeader" id="tempHeader" >Temp</h4></header>
+                    <button type="button" class="actionButton" id="upTempButton" onClick="clicksUpTemp()" >&#8593</button>
+                    <span class="tempNumber" id="tempNumber">32</span>
+                    <button type="button" class="actionButton" id="downTempButton" onClick="clicksDownTemp()" >&#8595</button>
+                </section>
+                <section class="sky_section">
+                    <header class="boxHeader"><h4>Sky</h4></header>
+                    <select id="skyMenu" onchange="changeSky()">
+                        <option value="🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨">Snowy</option>
+                        <option value="☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️">Cloudy</option>
+                        <option value="🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧">Rainy</option>
+                        <option value="☁️ ☁️ ☁️ ☀️ ☁️ ☁️">Sunny</option>
+                    </select>
+                </section>
+            </section>
+        </section>
+        <!-- Sky Image Box-->
+        <section class="box skyBox" id="skyBox">
+            <header class="boxHeader"><h4>Sky</h4></header>
+            <span class="skyImage" id="skyImage">🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨</span>
+        </section>
+        <!-- City Name Box-->
+        <section class="box">
+            <header class="boxHeader"><h4>City Name:</h4></header>
+            <input type="text" id="cityName" oninput="changeCityName()">
+            <p class="errorMessage"></p>
+            <button type="button" class="actionButton" id="realtimeButton" onclick="findLatLon()">Get Realtime Temp</button>
+            <button type="button" class="actionButton" id="resetButton" onclick="resetPage()">Reset</button>
+        </section>
+        <!--Landscape Image Box-->
+        <section class="box landscapeBox" id="landscapeBox">
+            <header class="boxHeader"><h4>Landscape</h4></header>
+            <span class="landscapeImage" id="landscapeImage">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</span>
+        </section>
+    </section>
+
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
+    <!-- <script defer src="src/index.js"></script> -->
+    <link rel="stylesheet" href="styles/index.css">
 </body>
 </html>

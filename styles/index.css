@@ -1,0 +1,70 @@
+body {
+    background-image: linear-gradient(rgb(206, 229, 237), rgb(155, 190, 237));
+    height: 773px;
+    color: rgb(84, 28, 80);
+}
+
+.header1 {
+    font-size: 30px;
+}
+
+.headerContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxContainer {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 0px 150px;
+    max-height: 500px;
+}
+
+.tempSkyBox {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.temp_section {
+    margin-right: 50px ;
+}
+
+.box {
+    align-items: center;
+    background-color: rgb(240, 220, 229);
+    border: 3px solid rgb(179, 143, 146);
+    border-radius: 25px;
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.skyBox, .landscapeBox {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxHeader{
+    font-size: 30px;
+}
+
+.landscapeImage, .skyImage {
+    font-size: 30px;
+}
+
+.tempHeader {
+    color: teal;
+    margin-bottom: 28px;
+}
+
+.tempNumber {
+    color: teal;
+    font-size: 30px;
+    font-weight: bold;
+}
