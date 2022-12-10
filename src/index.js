@@ -95,8 +95,7 @@ const updateTemp = async () => {
   const country = weather.sys.country;
   state.temp = Math.floor((tempK - 273) * (9 / 5) + 32);
   displayTemp.textContent = `${state.temp}`;
-  state.city += `, ${country}`;
-  viewCity.textContent = state.city;
+  viewCity.textContent = `${state.city}, ${country}`;
   tempColor();
 };
 
