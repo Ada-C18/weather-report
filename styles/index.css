@@ -1,0 +1,65 @@
+body {
+    display: grid;
+    grid-template-columns: ;
+    grid-template-row: ;
+    background-color: rgb(147, 227, 247);
+}
+.banner {
+    background-color: blanchedalmond;
+}
+
+#skybanner {
+    text-align: left;
+    background-color: rgb(127, 168, 255);
+}
+
+#siteTitle {
+    font-size: larger;
+    text-align: left;
+}
+
+#cityName {
+    text-align: left;
+}
+
+#resetCityName {
+    border-radius: 3em;
+}
+
+#skySelect {
+    background-color:rgb(230, 191, 243);
+    border-radius: 3em;
+}
+
+#cityName {
+    font-size: larger;
+}
+
+#increaseTempButton {
+    background-color: bisque;
+    border-radius: 3em;
+
+}
+
+#Temperature {
+    background-color: aquamarine;
+}
+
+#decreaseTempButton {
+    background-color: bisque;
+    border-radius: 3em;
+}
+
+#updateTempButton {
+    background-color: bisque;
+    border-radius: 3em;
+}
+
+#landscape {
+    background-color: aqua;
+}
+
+#cityName {
+    font-size: larger;
+}
+

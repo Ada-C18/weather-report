@@ -13,6 +13,7 @@ const increaseTemp = (event) => {
   tempContainer.textContent = `${state.Temperature}`;
   tempRange();
 };
+// hello this is a new branch!! 
 
 const decreaseTemp = (event) => {
   const tempContainer = document.querySelector('#Temperature');
