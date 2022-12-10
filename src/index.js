@@ -99,6 +99,7 @@ const toFahrenheit = (temp) => {
 const updateCity = () => {
   const inputCity = document.getElementById('cityNameInput').value;
   const headerCity = document.getElementById('headerCityname');
+  state.city = inputCity;
   headerCity.textContent = inputCity;
 };
 
@@ -107,6 +108,7 @@ const resetCity = () => {
   cityReset.value = 'Name of City Here';
   const headerCity = document.getElementById('headerCityname');
   headerCity.textContent = 'Seattle';
+  state.city = 'Seattle';
 };
 
 const registerEventHandlers = () => {
