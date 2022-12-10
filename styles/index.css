@@ -26,17 +26,31 @@ body {
 
 .header__city-name::after,
 .header__city-name::before {
-  content: "✨";
+  content: '✨';
 }
 
 .temperature_section {
-  border-radius: 8px;
+  border-radius: 100px;
+  text-align: right;
   padding: 2rem;
-  background-color: lightsalmon;
+  background-color: black;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 3;
+  font-size: 2rem;
+}
+#increaseTempControl,
+#decreaseTempControl {
+  padding: 2rem;
+  font-size: 2rem;
+  align-self: center;
+  background-color: #f6be00;
+  border-radius: 2rem;
+}
+.temperature_content {
+  padding: 2rem;
+  font-size: 4rem;
 }
 
 #currentTempButton {

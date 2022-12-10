@@ -1,7 +1,3 @@
-import axios from 'axios';
-import 'regenerator-runtime/runtime';
-
-const axios = require('axios');
 const state = {
   city: 'Seattle',
   lat: 47.6038321,
@@ -12,26 +8,33 @@ const state = {
 const formatTempAndGarden = () => {
   let temp = state.temp;
   let color = 'red';
-  let landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  let landscapeSource = null;
+
   if (temp > 80) {
     color = 'red';
+    landscapeSource = 'images/veryhot.webp';
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp > 70) {
     color = 'orange';
-    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    landscapeSource = 'images/spring.webp';
+    landscape = '🌸🌿🌼__🌷🌻🌿_🌱_🌻🌷';
   } else if (temp > 60) {
     color = 'yellow';
+    landscapeSource = 'images/fall.webp';
     landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temp > 50) {
     color = 'green';
+    landscapeSource = 'images/winter.webp';
     landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
     color = 'teal';
+    landscapeSource = 'images/winter.webp';
     landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
-
   const newLandscape = document.getElementById('landscape');
   newLandscape.textContent = landscape;
+  const landscapeImage = document.getElementById('landscapeImg');
+  landscapeImage.src = landscapeSource;
   const temperature = document.getElementById('tempValue');
   temperature.className = color;
   temperature.textContent = String(state.temp);

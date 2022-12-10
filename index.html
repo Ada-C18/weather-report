@@ -1,80 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header_header">
-        <h1> Weather Report </h1>
-        <span>
-            For the beautiful city of
-            <span id="headerCityName" class="header_city-name">
-                <!-- before and after refer are for any special effects around the city name -->
-                <!-- ::before -->
-                <!-- this will be a variable to enter name of city here -->
-                Seattle
-                <!-- ::after -->
-            </span>
+      <h1>Weather Report</h1>
+      <span>
+        For the beautiful city of
+        <span id="headerCityName" class="header_city-name">
+          <!-- before and after refer are for any special effects around the city name -->
+          <!-- ::before -->
+          <!-- this will be a variable to enter name of city here -->
+          Seattle
+          <!-- ::after -->
         </span>
+      </span>
     </header>
     <section class="temperature_section">
-        <h2>Temperature</h2>
-        <div class="temperature_content">
-            <div class="temperature_controls">
-                <!-- useState and event handling here? to update state -->
-                <!-- up arrow button for event, between inc.. and span tag -->
-                <!-- down arrow button for event, between dec.. and span tag -->
-                <!-- tempValue holds current state, will see value between teal and span tag -->
-                <button id="increaseTempControl">⬆️</button>
-                <span id="tempValue" class="teal"></span>
-                <button id="decreaseTempControl">⬇️</button>
-            </div>
-            <!-- onClick button here, too. button tied to event -->
-            <button id="currentTempButton">
-                Get Real Time Temperature</button>
+      <h2>Temperature</h2>
+      <div class="temperature_content">
+        <div class="temperature_controls">
+          <button id="increaseTempControl">▲</button>
+          <span id="tempValue" class="teal"></span>
+          <button id="decreaseTempControl">▼</button>
         </div>
+        <!-- onClick button here, too. button tied to event -->
+        <button id="currentTempButton">Get Real Time Temperature</button>
+      </div>
     </section>
     <section class="sky_section">
-        <h2>Sky</h2>
-        <!-- event handler here, menu -->
-        <select id="skySelect">
-            <option>Sunny</option>
-            <option>Cloudy</option>
-            <option>Rainy</option>
-            <option>Snowy</option>
-        </select>
+      <h2>Sky</h2>
+      <!-- event handler here, menu -->
+      <select id="skySelect">
+        <option>Sunny</option>
+        <option>Cloudy</option>
+        <option>Rainy</option>
+        <option>Snowy</option>
+      </select>
     </section>
     <section class="city-name_section">
-        <h2>City Name</h2>
-        <!-- event handler here, accepts text from user -->
-        <!-- value should be variable -->
-        <!-- onClick button to change state -->
-        <input id="cityNameInput" type="text" value="Seattle">
-        <button id="cityNameReset" class="city-name_reset-btn">Reset</button>
+      <h2>City Name</h2>
+      <!-- event handler here, accepts text from user -->
+      <!-- value should be variable -->
+      <!-- onClick button to change state -->
+      <input id="cityNameInput" type="text" value="Seattle" />
+      <button id="cityNameReset" class="city-name_reset-btn">Reset</button>
     </section>
     <section class="garden_section">
-        <h2>Weather Garden</h2>
-        <!-- this id uses flex box -->
-        <div id="gardenContent" class="garden_content snowy">
-            <div id="sky">emojis here</div>
-            <div id="landscape">emojis here</div>
-        </div>
+      <h2>Weather Garden</h2>
+      <!-- this id uses flex box -->
+      <div id="gardenContent" class="garden_content">
+        <div id="sky">sky emojis here</div>
+        <img
+          src="images/fall.webp"
+          alt="image of weather"
+          id="landscapeImg"
+          width="300"
+          height="200"
+        />
+        <div id="landscape">landscape emojies here</div>
+      </div>
     </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
-</body>
-
-</html>
-
-
-
-
-</body>
-
+    <script src="src/index.js" type="text/javascript"></script>
+  </body>
 </html>
