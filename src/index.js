@@ -19,7 +19,7 @@ const findLocation = (query) => {
 };
 
 if (document.readyState !== 'loading') {
-  findLocation('Seattle');
+  findLocation('BeiJing');
 } else {
   document.addEventListener('DOMContentLoaded', findLocation);
 }
