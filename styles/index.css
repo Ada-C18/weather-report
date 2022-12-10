@@ -1,17 +1,62 @@
 body {
-    background: rgb(58, 118, 238);
-    font-family: "Calibre", sans-serif;;
+    background-image: linear-gradient(to right, #99d1f5 0%, #4cbaed 51%, #2eb6e8 100%);
+    
     /* color: aliceblue; */
     
     
     
 }
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+    
+
+}
+.garden{
+    display: flex;
+    justify-content: center;
+}
 h1 {
     color: aliceblue;
+    font-size: 5rem;
+    font-family: "Great Vibes", cursive;
     text-align: center;
     opacity: 0.8;
     text-shadow: 2px 2px 2px #4ca1a3;
     
+}
+h2 {
+    font-size: 2rem;
+    font-family:'Droid serif', serif;
+    font-style: italic;
+    text-align: center;
+
+}
+#title{
+    font-family: cursive;
+    font-size: 2.5rem ;
+}
+
+#umbrella, #rainbow{
+    font-size: 3rem;
+    
+    
+}
+
+#temperature-value{
+    font-size: 2.5rem;
+}
+
+#sky-button{
+    border-radius: 15px;
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+    min-width: 120px;
+    min-height: 40px;
+    font-size: 0.9rem;
+    text-align: center;
+
 }
 header,span {
     color: aliceblue;
@@ -20,34 +65,64 @@ header,span {
     padding: 2%;
 }
 #city {
-    font-size: 2rem;
+    font-size: 3rem;
+    font-family: cursive;
+    
+    
+
 }
 
 #section-temperature {
-    background: greenyellow;
-    width: 50%;
+    background: #C47AFF;
+    width: 25%;
     margin-bottom: 3rem;
     padding: 2rem;
+    border-radius: 20px;
 }
 
 #section-sky {
-    background: rgb(90, 180, 219);
-    width: 50%;
+    background: #21E1E1;
+    width: 25%;
     margin-bottom: 3rem;
     padding: 2rem;
+    text-align: center;
+    border-radius: 20px;
 }
 #section-city-name {
-    background: rgb(227, 89, 209);
-    width: 50%;
+    background: greenyellow; 
+    width: 25%;
     margin-bottom: 3rem;
     padding: 2rem;
+    text-align: center;
+    border-radius: 20px;
 }
 #section-weather-garden {
     background: rgb(227, 192, 89);
-    width: 50%;
+    width: 30%;
     margin-bottom: 3rem;
     padding: 2rem;
+    text-align: center;
+    border-radius: 20px;
+    
+    
+
 }
+#temperature-button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+    border-radius: 10px;
+    min-width: 120px;
+    min-height: 40px;
+}
+#reset-button {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+    font-size: 0.9rem;
+    border-radius: 10px;
+    min-width: 120px;
+    min-height: 40px;
+}
+
 .number-color-red {
     color: red;
 }
@@ -63,6 +138,8 @@ header,span {
 .number-color-teal {
     color: teal;
 }
+
+
 
 
 

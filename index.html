@@ -10,9 +10,10 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <span>For the wonderfull city of</span>🌈  <span id="city">Seattle</span>☔️
+        <span id = title >For the wonderfull city of</span><span id="rainbow">🌈 </span><span id="city">Seattle</span><span id="umbrella">☔️</span>
     </header>
     <main>
+        <div class = "flex">
         <section id="section-temperature">
             <h2>Temperature</h2>
             <span id="arrow-up">⬆️</span>
@@ -35,13 +36,16 @@
             <input id="city-name-input" type="text">
             <input id="reset-button" type="reset" value="Reset">
         </section>
+        </div>
+        <div class="garden">
         <section id="section-weather-garden">
-            <h2>Weather Garden</h2>
-            <span id="sky-icons">'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧'</span> 
+            <span id="sky-icons">'🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧'</span>
+            <br>
+            <h2>Weather Garden</h2>  
             <br>
             <span id="ground-icons">'🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'</span>
-
         </section>
+    </div>
     </main>
     <footer id="footer">
         <p>copyright 2022 Melissa Pena - Viktoriia Zolotova</p>  

@@ -128,6 +128,11 @@ const updateSky = () => {
   }
   spanSkyIcon.textContent = skyIcon;
 };
+const updateWeaterGardenOnInput = () => {
+  let skySelect = document.querySelector('#sky-button');
+
+  skySelect.addEventListener('change', updateSky);
+};
 
 const resetCityName = () => {
   const cityName = document.querySelector('#city');
@@ -142,11 +147,6 @@ const resetCityNameOnClick = () => {
   resetButton.addEventListener('click', resetCityName);
 };
 
-const updateWeaterGardenOnInput = () => {
-  let skySelect = document.querySelector('#sky-button');
-
-  skySelect.addEventListener('change', updateSky);
-};
 
 const EventHandlers = () => {
   increaseTempOnClick();
