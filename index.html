@@ -5,8 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="/styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1> Weather for <span id="view-city">Dallol</span></h1>
+        <div>
+            <input type="text" id="city" placeholder="Enter City">
+            <button id="set-city">Set City</button>
+            <button id="reset-city">Reset City</button>
+        </div>
+    </header>
+
+    <section class="element-box" id="weather-box">
+        <h2><span id="temp">48</span>°F</h2>
+        <div>
+            <button id="minus">⬇️</button>
+            <button id="plus">⬆️</button>
+        </div>
+        <button id="current-temp">Get Current Temperature</button>
+    </section>
+
+    <section class="element-box" id="sky-box">
+        <h2>Sky Type</h2>
+        <select id="sky-type">
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </section>
+
+    <script src="/src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
