@@ -84,7 +84,6 @@ document.getElementById("intro").innerHTML = "☁️";
 //   }
 //   *****************
 
-
 const API = "http://127.0.0.1:5000/"
 
 async function getTemperature(query) {
@@ -152,6 +151,16 @@ function getRealTime() {
 
 
 
+
+// const findTemperature = (latitude,longitude) =>{
+//     let Fahrenheit = 1.8*(k-273) + 32
+// }
+
+
+//make weather nested inside location
+
+
+
 // const weatherAPI = "http://127.0.0.1:5000/weather"
 // // const locationAPI = "http://127.0.0.1:5000/location"
 
@@ -160,7 +169,11 @@ function getRealTime() {
 // const response_weather = axios.get(weatherAPI).then(response => {
 
 // });
+<<<<<<< HEAD
 // const response_location = axios.get(locationAPI);
 
 
 
+=======
+// const response_location = axios.get(locationAPI);
+>>>>>>> 802d1d0ea688bec8ef5e86bfae1432104ef5cd8c

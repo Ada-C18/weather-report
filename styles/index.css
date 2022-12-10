@@ -55,24 +55,29 @@ h2{
     margin: 0px 2em;
     display: block;
 }
-.landscape{
+.sky{
     margin:20px;
     padding: 20px;
-    font-size: 25px
+    font-size: 25px;
+}
+.landscape{
+    padding: 100px, 20px, 10px, 20px;
+    font-size: 20px;
+    vertical-align: bottom;
 }
 .RealtimeTemperature{
     background-color: #FAAB78;
     border: none;
     color: white;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
 .number{
     font-size: 3rem;
 }
-.sky{
+.skyImage{
     grid-row: 3/4;
     grid-column: 1/2;
     margin: 0px 2em;
@@ -84,21 +89,26 @@ h2{
     margin: 0px 2em;
     display: block;
 }
+.skySelect{
+    padding: 30px;
+    margin:20px;
+}
 .weatherGarden{
     grid-row: 2/5;
     grid-column: 2/3;
     margin:20px;
-    place-content : cetner center;
+    place-content : center center;
     place-items: center center;
+    
 }
 .weatherGardenBox{
-    grid-row: 2/5;
-    grid-column: 2/3;
+    /* grid-row: 2/5;
+    grid-column: 2/3; */
     margin-top: 10px;
     height: 200px;
-    width: 200x;
+    width: 50%;
     background-color: #f7ebdb;
-    border: 50px;
+    border: 10px;
     display:inline-grid;
 }
 
