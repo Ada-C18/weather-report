@@ -10,37 +10,47 @@
 <body>
     <header class="header">
         <h1>Weather Report</h1>
-        <span>
-            For the lovely city of
-            <span id="city_name" class="city_name_in_header">
-                Seattle
+        <div class="second_header">
+            <span>
+                For the lovely city of
             </span>
-        </span>
+            <span id="city_name" class="city_name_in_header">
+            Seattle
+            </span>
+        </div>
+        
+      
     </header>
     <main>
         <section class="garden">
-            <h3>Weather Garden</h3>
-            <div>
-                <div id="sky_image">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+            <h2>Weather Garden</h2>
+            <div id="garden_pic" class="orange-background">
+                <div>
+                    <div id="sky_image" class="scence">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+                </div>
+                <div class="scence">
+                    <div id="landscape">🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</div>
+                </div>
             </div>
-            <div class="sidebar">
-                <div id="landscape">🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</div>
-            </div>
+            
         </section>
         <section class="container">
             <div id="temp" class="sidebar">
-                <h3>Temperature</h3>
-                <div class="temp_content">
-                    <span id="increase_temp">⬆️</span>
-                    <span id="temp_value" class="yellow-text">65</span>
-                    <span id="decrease_temp">⬇️</span>
+                <h2>Temperature</h2>
+                <div class="temp_row">
+                    <div class="temp_content">
+                        <span id="increase_temp">⬆️</span>
+                        <span id="temp_value" class="yellow-text">65</span>
+                        <span id="decrease_temp">⬇️</span>
+                    </div>
+                    <div>
+                        <button id="realtime_temp">Get Realtime Temperature</button>
+                    </div>
                 </div>
-                <div>
-                    <button id="realtime_temp">Get Realtime Temperature</button>
-                </div>
+                
             </div>    
             <div id="sky" class="sidebar">
-                <h3>Sky</h3>
+                <h2>Sky</h2>
                 <select id="select_sky">
                     <option value="sunny" selected>Sunny</option>
                     <option value="cloudy">Cloudy</option>
@@ -49,7 +59,7 @@
                 </select>
             </div>
             <div id="city_name" class="sidebar">
-                <h3>City Name</h3>
+                <h2>City Name</h2>
                 <input type="text" id="name" value="Seattle" size="15">
                 <button id="reset_button">Reset</button>
 

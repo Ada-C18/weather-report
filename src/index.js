@@ -74,30 +74,37 @@ const changeTempColorAndGardenLandscape = () => {
   }
 
 
-  const currentTemp = document.querySelector("#temp_value");
+  const currentTemp = document.getElementById('temp_value');
   currentTemp.textContent = state.temp
   currentTemp.className = tempColor;
 
-  const currentLandscape = document.querySelector("#landscape");
+  const currentLandscape = document.getElementById('landscape');
   currentLandscape.textContent = landscape;
 };
 
 
 const changeSkyImage = () => {
   let skyDisplay = "";
+  let backgroundColor = "orange-background";
   const selectedSky = document.getElementById('select_sky').value;
   const currentSkyImage = document.getElementById('sky_image');
+  const currentGarden = document.getElementById('garden_pic');
   if (selectedSky === 'sunny') {
     skyDisplay = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+    backgroundColor = "orange-background";
   } else if (selectedSky === 'cloudy') {
     skyDisplay = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"; 
+    backgroundColor = "gray-background";
   } else if (selectedSky === 'rainy') {
-    skyDisplay = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+    skyDisplay = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
+    backgroundColor = "green-background";
   } else if (selectedSky === 'snowy') {
-    skyDisplay = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+    skyDisplay = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
+    backgroundColor = "pink-background";
   }
 
   currentSkyImage.textContent = skyDisplay;
+  currentGarden.className = backgroundColor;
 }
 
 
