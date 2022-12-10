@@ -124,6 +124,16 @@ const registerEventHandlers = () => {
   // formatSky();
   const updateSky = document.getElementById('skyChoice');
   updateSky.addEventListener('change', formatSky);
+
+  const resetCity = document.getElementById('resetCityButton');
+  resetCity.addEventListener('click', resetCurrentCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+const onLoaded = () => {
+  registerEventHandlers();
+  updateCityTemp(state.city);
+};
+
+onLoaded();
