@@ -111,7 +111,6 @@ const getLatAndLon = (location) => {
     });
 };
 
-
 //create an event to take user's selection
 //take user selection and give if/else statement
 //12.9 changes:
@@ -120,23 +119,27 @@ const skySelect = () => {
   let selection = document.getElementById('selectSky');
 
   let userChoice = selection.value;
-  console.log("select select select")
+  console.log('select select select');
   if (userChoice == 'Rainy') {
-    const gardenSky =
-      document.getElementById("sky");
-    gardenSky.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
+    const gardenSky = document.getElementById('sky');
+    gardenSky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (userChoice == 'Sunny') {
-    const gardenSky = document.getElementById("sky");
-    gardenSky.textContent = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+    const gardenSky = document.getElementById('sky');
+    gardenSky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
   } else if (userChoice == 'Cloudy') {
-    const gardenSky = document.getElementById("sky");
-    gardenSky.textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+    const gardenSky = document.getElementById('sky');
+    gardenSky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (userChoice == 'Snowy') {
-    const gardenSky = document.getElementById("sky");
-    gardenSky.textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
+    const gardenSky = document.getElementById('sky');
+    gardenSky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
+const resetCity = () => {
+  const resetCityName = document.getElementById('#cityNameInput');
+  cityNameInput.value = 'Seattle';
+  updateCityName();
+};
 
 ////Registering Event handlers and add event listeners
 const registerEventHandlers = (event) => {
@@ -155,6 +158,10 @@ const registerEventHandlers = (event) => {
 
   const updateSky = document.querySelector('#selectSky');
   updateSky.addEventListener('change', skySelect);
+
+  const resetCityInput = document.querySelector('#resetCityName');
+  resetCityInput.addEventListener('click', resetCity);
+  console.log('click reset city');
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
