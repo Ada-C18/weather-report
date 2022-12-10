@@ -58,6 +58,8 @@ minus.addEventListener('click',() => {
 let cityNameReset = document.getElementById("reset")
 cityNameReset.addEventListener("click", getCityName)
 
+let intro = document.getElementById("intro")
+intro.nnerHTML  = cityName.value;
 
 function getCityName() {
     let cityName = document.getElementById("cityName"); 
@@ -169,11 +171,3 @@ function getRealTime() {
 // const response_weather = axios.get(weatherAPI).then(response => {
 
 // });
-<<<<<<< HEAD
-// const response_location = axios.get(locationAPI);
-
-
-
-=======
-// const response_location = axios.get(locationAPI);
->>>>>>> 802d1d0ea688bec8ef5e86bfae1432104ef5cd8c

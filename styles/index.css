@@ -89,6 +89,9 @@ h2{
     margin: 0px 2em;
     display: block;
 }
+#intro{
+    font-size: 24px;
+}
 .skySelect{
     padding: 30px;
     margin:20px;
