@@ -1,13 +1,10 @@
+"use strict";
+
 let state = {
     startingTemp : 60,
-    // landscapeIcons : 🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃,
 };
 
-// let state = 60;
-
-// increase temperature 
 const updateTemperature = state => {
-// const increaseTemperature = () => {
   const temperatureContainer = document.getElementById("startingTemp");
   temperatureContainer.textContent = state.startingTemp;
 };
@@ -77,20 +74,17 @@ const updateCity = () => {
 };
 
 
-const axios = require('axios');
-
 const getLongLat = () => {
     let latitude, longitude;
     axios.get('http://127.0.0.1:5000/location', 
     {
         params: {
-            q: document.getElementById("inputCity").value
+            q: document.getElementById("cityNameHeader").textContent
         }
         }) 
         .then((response) => {
             latitude = response.data[0].lat;
             longitude = response.data[0].lon;
-            console.log('Successful')
 
         getWeather(latitude, longitude);
         })
@@ -108,7 +102,8 @@ const getLongLat = () => {
         })
         .then( (response) => {
             const temperature = response.data.main.temp;
-            document.getElementById('startingTemp').textContent = temperature;
+            const fahrenheit = 1.8*(temperature-273) + 32
+            document.getElementById('startingTemp').textContent = Math.round(fahrenheit);
         })
         .catch ((error) => {
             console.log('error in finding weather');
@@ -131,9 +126,6 @@ const registerEventHandlers = () => {
 
   const getRealTimeTemperature = document.getElementById('getTempButton');
   getRealTimeTemperature.addEventListener('click', getLongLat);
-
-
-
 
 };
 
