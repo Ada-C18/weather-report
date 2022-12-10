@@ -74,13 +74,13 @@ const findLatAndLong = (query) => {
       },
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
       console.log(`successfully found lat and lonL ${latitude}, ${longitude}`);
       console.log({ lat: latitude, lon: longitude });
       const latAndLon = { lat: latitude, lon: longitude };
-      // findTemp(latAndLon);
+      findTemp(latAndLon);
     })
     .catch((error) => {
       if (error.response) {
@@ -89,30 +89,33 @@ const findLatAndLong = (query) => {
     });
 };
 
-// const findTemp = (query) => {
-//   axios.get(weatherAPI),
-//     {
-//       params: {
-//         lat: query.lat,
-//         lon: query.lon,
-//       },
-//     }
-//       .then((response) => {
-//         // temperature change function
-//         const tempKelvin = response.data.main.temp;
-//         const tempFahrenheit = 1.8(tempKelvin - 273) + 32;
-//         console.log(tempKelvin);
-//         console.log(tempFahrenheit);
-//       })
-//       .catch((error) => {
-//         if (error.response) {
-//           console.log('error getting temp', error.response.data);
-//         }
-//       });
-// };
+const findTemp = (query) => {
+  axios
+    .get(weatherAPI, {
+      params: {
+        lat: query.lat,
+        lon: query.lon,
+      },
+    })
+    .then((response) => {
+      console.log('findTemp successfully called');
+      const tempKelvin = response.data.main.temp;
+      console.log(tempKelvin);
+
+      const tempFahrenheit = Math.round(1.8 * (tempKelvin - 273) + 32);
+      console.log(tempFahrenheit);
+      state.temperature = tempFahrenheit;
+      const tempDisplay = document.querySelector('#temperature');
+      tempDisplay.textContent = `${state.temperature}`;
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log('error getting temp', error.response.data);
+      }
+    });
+};
 
 const getTemp = (event) => {
-  // const getTempButton = document.querySelector('#current-temp');
   const input = document.querySelector('#city-search').value;
   findLatAndLong(input);
 };
