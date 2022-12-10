@@ -57,16 +57,18 @@ function landscapeIcons(temp) {
   }
 }
 
-function skySelector() {
-  let dropdown = document.getElementById('dropdown');
-  if (sunny) {
-    dropdown.innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (cloudy) {
-    dropdown.innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (rainy) {
-    dropdown.innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (snowy) {
-    dropdown.innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+function skySelector(dropDownEvent) {
+  let dropdownEmojis = document.getElementById('dropdown-emojis');
+  let dropdownValue = dropDownEvent.currentTarget.value;
+  let skyEmojiValue = dropDownEvent.target.selectedOptions[0].value;
+  if (skyEmojiValue === 'sunny') {
+    dropdownEmojis.innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyEmojiValue === 'cloudy') {
+    dropdownEmojis.innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyEmojiValue === 'rainy') {
+    dropdownEmojis.innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyEmojiValue === 'snowy') {
+    dropdownEmojis.innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 }
 
@@ -126,7 +128,7 @@ const registerEventHandlers = () => {
   liveButton.addEventListener('click', getRealtimeTemperature);
 
   const skyDropdown = document.querySelector('#dropdown');
-  skyDropdown.addEventListener('onchange', skySelector);
+  skyDropdown.addEventListener('change', skySelector);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
