@@ -104,6 +104,8 @@ const getLongLat = () => {
             const temperature = response.data.main.temp;
             const fahrenheit = 1.8*(temperature-273) + 32
             document.getElementById('startingTemp').textContent = Math.round(fahrenheit);
+            state.startingTemp = Math.round(fahrenheit);
+            updateColor();
         })
         .catch ((error) => {
             console.log('error in finding weather');
