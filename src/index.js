@@ -29,7 +29,7 @@ axios
 
 function findWeather(lat, long) {
   axios
-    .get('https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={WEATHER_API_KEY}',{ 
+    .get('https://api.openweathermap.org/data/2.5/weather',{ 
     params: {
       lat: state.lat,
       lon: state.long
