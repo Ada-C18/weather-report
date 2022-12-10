@@ -22,7 +22,6 @@ const decreaseTemp = () => {
 
 const tempcolor = () => {
   const currentTemperature = document.getElementById('curr-temp');
-  // Double check that how we can access background-image in grid-container class
   const gridContainer = document.querySelector('.grid-container');
 
   if (currentTemperature.innerHTML >= 80) {
@@ -41,12 +40,6 @@ const tempcolor = () => {
     currentTemperature.className = 'temp-teal';
     gridContainer.style.backgroundImage = 'url(../assets/winter-christiaan-huynen.jpg)';
   }
-  // create event handler that watches the curr-temp and changes the color accordingly
-  // 80+ is red (desert landscape)
-  // 70-79 is orange (tropical landscape)
-  // 55-69 is yellow (green field landscape)
-  // 40-54 is green (fall landscape)
-  // 39 and below is teal (winter landscape)
 };
 
 const setUp = () => {
