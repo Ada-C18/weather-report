@@ -8,6 +8,7 @@ const tempNum = document.getElementById('tempnum');
 const cityInput = document.getElementById('city-input');
 const cityOutput = document.getElementById('city-output');
 const skySelector = document.getElementById('sky-select');
+const skyscape = document.getElementById('skyscape');
 
 const tempColor = {
   80: 'red',
@@ -30,6 +31,16 @@ const skies = {
   rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
   snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
   else: '🌧🕺🏾⛈🕺🏾🌧',
+};
+
+const skyCodes = {
+  200: 'rainy',
+  // 300: rainy,
+  // 500: rainy,
+  600: 'snowy',
+  700: 'else',
+  800: 'sunny',
+  801: 'cloudy',
 };
 
 const incrementTemp = () => {
@@ -75,26 +86,25 @@ const changeLandscape = () => {
 };
 
 const changeSky = (s = null) => {
-  console.log(skySelector.value);
-  console.log(skies[skySelector.value]);
-  const skyscape = document.getElementById('skyscape');
-  skyscape.textContent = skies[skySelector.value]; // comment this out for auto sky change
+  console.log(`selector value: ${skySelector.value}`);
 
-  // if (s) {
-  //   if (s >= 801) {
-  //     skyscape.textContent = skies[skyCodes['801']];
-  //   } else if (s === 800) {
-  //     skyscape.textContent = skies[skyCodes['800']];
-  //   } else if (s >= 700) {
-  //     skyscape.textContent = skies[skyCodes['700']];
-  //   } else if (s >= 600) {
-  //     skyscape.textContent = skies[skyCodes['600']];
-  //   } else if (s >= 200) {
-  //     skyscape.textContent = skies[skyCodes['200']];
-  //   }
-  // } else {
-  //   skyscape.textContent = skies[skySelector.value];
-  // }
+  if (!isNaN(s)) {
+    // that is, if we received an id from the Open Weather API
+    if (s >= 801) {
+      skyscape.textContent = skies[skyCodes['801']];
+    } else if (s === 800) {
+      skyscape.textContent = skies[skyCodes['800']];
+    } else if (s >= 700) {
+      skyscape.textContent = skies[skyCodes['700']];
+    } else if (s >= 600) {
+      skyscape.textContent = skies[skyCodes['600']];
+    } else if (s >= 200) {
+      skyscape.textContent = skies[skyCodes['200']];
+    }
+  } else {
+    // if we received a selector event
+    skyscape.textContent = skies[skySelector.value];
+  }
 };
 
 const getCity = (event) => {
@@ -165,12 +175,16 @@ const getTemp = async (objLatLon) => {
     let cityTemp = response.data.main.temp;
     cityTemp = kelvinToFahrenheit(cityTemp);
 
-    return cityTemp;
+    let cityWeather = response.data.weather[0].id;
+    console.log(cityWeather);
+
+    return [cityTemp, cityWeather];
   } else if (response.data.cod != 200) {
+    // else if uses loose inequality because cod is a string
     console.log(
       `!!! error in getTemp: ${response.data.cod}: ${response.data.message}`
     );
-    return -40;
+    return [-40, 'else'];
   }
 };
 
@@ -181,15 +195,21 @@ const cityWeather = async (cityName) => {
   return cityTempF;
 };
 
-const displayCityTemp = () => {
+const displayTempSky = () => {
   const cityName = cityInput.value;
 
-  cityWeather(cityName).then((F) => {
+  cityWeather(cityName).then((weatherArr) => {
+    const [F, sky] = weatherArr;
+    console.log(`weather: ${F}, ${sky}`);
+
     tempNum.textContent = F;
     state.temp = F;
     changeTempColor();
     changeLandscape();
     console.log(`updated temp to ${F}°F`);
+
+    skySelector.value = 'else';
+    changeSky(sky);
   });
 };
 
@@ -203,7 +223,7 @@ const registerEventHandlers = () => {
   cityInput.addEventListener('keydown', getCity);
 
   const goButton = document.getElementById('go');
-  goButton.addEventListener('click', displayCityTemp);
+  goButton.addEventListener('click', displayTempSky);
 
   const resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', clearInput);
