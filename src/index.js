@@ -121,6 +121,24 @@ const findLatitudeAndLongitude = () => {
   };
 };
 
+// -------------- Wave 5 --------------------
+const updateSky = () => {
+  const skyDropdown = document.getElementById('dropdown');
+  // let skyDropdown = document.getElementById('option');
+
+  const skyChoice = skyDropdown.value;
+
+  if (skyChoice == 'Sunny') {
+    document.getElementById('').innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyChoice == 'Cloudy') {
+    document.getElementById('').innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyChoice == 'Rainy') {
+    document.getElementById('').innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyChoice == 'Snowy') {
+    document.getElementById('').innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
+
 // registers all handles once DOM loaded
 const registerHandlers = (event) => {
   //  TODO: set state temp default value
