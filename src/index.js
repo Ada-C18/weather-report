@@ -57,6 +57,19 @@ function landscapeIcons(temp) {
   }
 }
 
+function skySelector() {
+  let dropdown = document.getElementById('dropdown');
+  if (sunny) {
+    dropdown.innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (cloudy) {
+    dropdown.innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (rainy) {
+    dropdown.innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (snowy) {
+    dropdown.innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+}
+
 const cityNameInput = (e) => {
   const log = document.getElementById('City-Name-Top');
   state.city = document.querySelector('#city-input').value;
@@ -110,8 +123,10 @@ const registerEventHandlers = () => {
   decButton.addEventListener('click', decreaseButton);
 
   const liveButton = document.querySelector('#Get-Realtime-Temperature');
-
   liveButton.addEventListener('click', getRealtimeTemperature);
+
+  const skyDropdown = document.querySelector('#dropdown');
+  skyDropdown.addEventListener('onchange', skySelector);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
