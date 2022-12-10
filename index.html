@@ -9,6 +9,34 @@
     <title>Weather Report</title>
 </head>
 <body class="coolTheme">
+    <header>
+        <h1>Weather Report</h1>
+    </header>
+    <section id="temp">
+        <h2>Temperature</h2>
+        <p class="realtime">Get Realtime Temperature</p>
+        <button class="plus-temp"><span>&#43;</span></button>
+        <button class="minus-temp"><span>&#8722;</span></button>
+    </section>
+    <section>
+        <h3>City Name</h3>
+        <div class="topnav">
+            <input type="text" placeholder="Search..">
+        </div>
+        <p>Reset</p>
+    </section>
+    <section id="sky">
+        <h4>Sky</h4>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            </div>
+        </div>
+    </section>
+    <section>
+        <h5>Weather Garden</h5>
+    </section>
     <script src="src/index.js"></script>
 </body>
 </html>
