@@ -40,6 +40,17 @@ body{
 
 }
 
+.temp_section {
+    background-color: rgb(174, 252, 255) ;
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: .9;
+    
+    align-items: center;
+}
+
 #increaseTemp, #decreaseTemp {
     border: transparent;
     padding: 0;

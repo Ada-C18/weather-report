@@ -71,16 +71,16 @@ const resetCity = () => {
 //Get Current temperature button event
 const getCurrentTemp = (event) => {
   //call the API to return the current temp
-  //take the current temp and update the state.temp
   getLatAndLon(state.city);
-  console.log('inside get current temp');
 };
 
 //API call for LocationIQ
 locationURL = 'http://127.0.0.1:5000/location';
 weatherURL = 'http://127.0.0.1:5000/weather';
 
-// const location = updateCityName();
+//API calls has 2 responsibilities: 
+//1) get lat&lon from locationURL(sorce is LocationIQ)
+//2) then use lat&lon to get temp from weather API
 const getLatAndLon = () => {
   console.log('inside getLatAndLon', state.city);
   axios
@@ -121,8 +121,6 @@ const getLatAndLon = () => {
 
 //create an event to take user's selection
 //take user selection and give if/else statement
-//12.9 changes:
-//1) updating the sky to new emojis
 const skySelect = () => {
   let selection = document.getElementById('selectSky');
 
@@ -142,7 +140,6 @@ const skySelect = () => {
     gardenSky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
-
 
 
 ////Registering Event handlers and add event listeners
@@ -165,7 +162,6 @@ const registerEventHandlers = (event) => {
 
   const resetCityInput = document.querySelector('#resetCityName');
   resetCityInput.addEventListener('click', resetCity);
-  console.log('click reset city');
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
