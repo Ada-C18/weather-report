@@ -1,6 +1,3 @@
-// import axios from 'axios';
-// const axios = require('axios');
-
 ('use strict');
 
 const state = {
@@ -17,6 +14,12 @@ const updateCity = () => {
     state.city = inputName.value;
   }
   cityName.textContent = state.city;
+};
+
+const resetCity = () => {
+  const inputCity = document.getElementById('inputCity');
+  inputCity.value = 'Toms River';
+  updateCity();
 };
 
 const getTemp = () => {
@@ -58,13 +61,6 @@ const handleDecrement = () => {
   changeColor();
   changeLandscape();
 };
-
-// incrementCount.addEventListener('click', handleIncrement);
-// decrementCount.addEventListener('click', handleDecrement);
-
-// const state = {
-//   temp: 58,
-// };
 
 const changeColor = () => {
   let temp = state.temp;
@@ -118,7 +114,6 @@ const changeSkies = () => {
 
 const registerEventHandlers = () => {
   const submitButton = document.getElementById('submit');
-  // submitButton.addEventListener('click', getLatAndLong);
   submitButton.addEventListener('click', getTemp);
   const incrementCount = document.getElementById('increaseTemp');
   incrementCount.addEventListener('click', handleIncrement);
@@ -128,10 +123,20 @@ const registerEventHandlers = () => {
   changeLandscape();
   updateCity();
   changeSkies();
+  // resetCity();
   const cityInput = document.getElementById('inputCity');
   cityInput.addEventListener('change', updateCity);
   const updateSky = document.getElementById('skies');
   updateSky.addEventListener('change', changeSkies);
+  const resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', resetCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+updateCityName();
+const cityNameInput = document.getElementById('cityNameInput');
+cityNameInput.addEventListener('input', updateCityName);
+
+const cityNameResetBtn = document.getElementById('cityNameReset');
+cityNameResetBtn.addEventListener('click', resetCityName);
