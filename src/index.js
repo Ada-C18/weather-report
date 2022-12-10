@@ -1,7 +1,5 @@
 // WAVE 2
 
-// const { default: axios } = require('axios');
-
 const increaseTemp = () => {
   const increaseButton = document.getElementById('increase-temp');
 
@@ -24,7 +22,6 @@ const decreaseTemp = () => {
 
 const changeTempColorAndLandscape = () => {
   const currentTemperature = document.getElementById('curr-temp');
-  // Double check that how we can access background-image in grid-container class
   const gridContainer = document.querySelector('.grid-container');
 
   if (currentTemperature.innerHTML >= 80) {
@@ -69,7 +66,6 @@ const getLatLon = (location) => {
     .then((result) => {
       const latitude = result.data[0]['lat'];
       const longitude = result.data[0]['lon'];
-      // console.log(`${location} lat: ${latitude} lon: ${longitude}`);
       getWeather(latitude, longitude);
     })
     .catch((error) => {
@@ -83,11 +79,8 @@ const getWeather = (latitude, longitude) => {
       params: { lat: latitude, lon: longitude, format: 'json' },
     })
     .then((result) => {
-      // console.log("we're in the getWeather", result);
       const temp = result.data.main.temp;
       const tempF = convertKtoF(temp);
-      // console.log(temp);
-      // console.log(tempF);
       const currentTemperature = document.getElementById('curr-temp');
       currentTemperature.innerHTML = tempF;
       changeTempColorAndLandscape();
@@ -107,12 +100,29 @@ const addRealtimeTempListener = () => {
   realtimeTempButton.addEventListener('click', (event) => {
     event.preventDefault();
     const city = document.getElementById('header-city').innerText;
-    
-    // console.log("we are inside realtime temperature");
-    console.log("this is the city", city);
-    
-    getLatLon(city);
+    console.log('this is the city', city);
 
+    getLatLon(city);
+  });
+};
+
+//Wave 5
+const selectSkyEventListener = () => {
+  const selectElement = document.querySelector('.sky-dropdown');
+  selectElement.addEventListener('change', (event) => {
+    const cloudIcon = document.querySelector('#image-change');
+    if (selectElement.value === 'Cloudy') {
+      cloudIcon.src = '../ada-project-docs/assets/Cloudy.jpeg';
+    } else if (selectElement.value === 'Rainy') {
+      cloudIcon.src = '../ada-project-docs/assets/Rainy.png';
+      cloudIcon.img.alt = 'rainy icon';
+    } else if (selectElement.value === 'Snowy') {
+      cloudIcon.src = '../ada-project-docs/assets/Snowy.png';
+      cloudIcon.img.alt = 'snowy icon';
+    } else if (selectElement.value === 'Sunny') {
+      cloudIcon.src = '../ada-project-docs/assets/Sunny.png';
+      cloudIcon.img.alt = 'sunny icon';
+    }
   });
 };
 
@@ -122,6 +132,7 @@ const setUp = () => {
   changeCity();
   changeTempColorAndLandscape();
   addRealtimeTempListener();
+  selectSkyEventListener();
 };
 
 if (document.readyState !== 'loading') {
@@ -130,6 +141,7 @@ if (document.readyState !== 'loading') {
   changeCity();
   changeTempColorAndLandscape();
   addRealtimeTempListener();
+  selectSkyEventListener();
 } else {
   document.addEventListener('DOMContentLoaded', setUp);
 }
