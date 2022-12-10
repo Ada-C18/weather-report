@@ -58,23 +58,24 @@ minus.addEventListener('click',() => {
 // let cityNameReset = document.getElementById("reset")
 // cityNameReset.addEventListener("click", ) //this is for the reset button used for wave 6
 
-let intro = document.getElementById("intro")
-intro.nnerHTML  = cityName.value;
+// let intro = document.getElementById("intro")
+// intro.innerHTML  = cityName.value;
 
-let cityNameInsert = document.getElementById("cityNameInput")
-function getCityName(event){
-    console.log("hello")
-    let cityName = event.target.value; 
-    document.getElementById("intro").innerHTML = cityName;
-    console.log(cityName)
+let cityNameInsert = document.getElementById("cityNameInput");
+// function getCityName(event){
+//     console.log("hello")
+//     let cityName = event.target.value; 
+//     document.getElementById("intro").innerHTML = cityName;
+//     console.log(cityName)
     
-    return cityName
-}
+//     return cityName
+// }
 
 
 // cityNameInsert.addEventListener("change",getCityName)
-cityNameInsert.addEventListener("change",event => {
-    console.log("hello")
+cityNameInsert.addEventListener("input",(event) => {
+    event.preventDefault();
+    console.log("hello");
     let cityName = event.target.value; 
     document.getElementById("intro").innerHTML = cityName;
     console.log(cityName)
