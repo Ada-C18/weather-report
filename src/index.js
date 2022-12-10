@@ -3,7 +3,7 @@ const state = {
     city: 'Seattle',
     lat: 47.6038321,
     long: -122.330062,
-    temp: 0
+    temp: 45
 }
 
 const convertKtoF = (temp) => {
@@ -11,48 +11,51 @@ const convertKtoF = (temp) => {
 };
 
 const findLatandLong = () => {
-    axios.get('http://127.0.0.1:5000/location', 
+    return axios.get('http://127.0.0.1:5000/location', 
     {
         params: {
             q: state.city,
     }
 })
     .then ( (response) => {
-        state.lat = response.data[0].lat;
-        state.long = response.data[0].lon;
-        getWeather();
-        return (state.lat, state.long)
+        const lat = response.data[0].lat;
+        const long = response.data[0].lon;
+        console.log(lat, long);
+        return getWeather(lat, long);
     
 })
     .catch ( (error) => {
-        console.log('Error getting long and lat', error.response);
+        // console.log('Error getting long and lat', error.response);
+        console.log(error);
     });
 };
 
-const getWeather = () => {
-    axios.get('http://127.0.0.1:5000/weather',
+const getWeather = (lat,long) => { 
+    return axios.get('http://127.0.0.1:5000/weather',
     {
         params: {
-            lat: state.lat,
-            lon: state.long,
+            lat: lat,
+            lon: long,
     }
 })
     .then( (response) => {
         const temperature = response.data.main.temp;
-        state.temp = Math.round(convertKtoF(temperature.current.temp));
-        return (state.temp)
+        console.log(temperature)
+        const newTemperature = Math.round(convertKtoF(temperature));
+        return newTemperature; 
+
     })
     .catch( (error) => {
-        console.log('Error getting weather', error.response);
+        console.log('Error getting weather', error);
     });
 }
 
 
 const updateTemp = () => {
-    const newTemp = getWeather(state.city)
-    const tempValue = document.getElementById(tempValue)
-    state.temp = newTemp
-    tempValue.textContent = state.temp
+    const tempValue = document.getElementById('tempValue')
+    findLatandLong().then((newTemperature) => {
+        tempValue.textContent = newTemperature
+    })
 };
 
 
@@ -86,6 +89,32 @@ const updateSky = () => {
     gardenContainer.classList = `garden-content ${skyColor}`;
 }
 
+const updateTempLandscape = () => {
+    let temp = state.temp;
+    let color = 'red';
+    let landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    if (temp > 80) {
+        color = 'red';
+        landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂'
+    }  else if (temp > 70) {
+    color = 'orange';
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    } else if (temp > 60) {
+    color = 'yellow';
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    } else if (temp > 50) {
+    color = 'green';
+    landscape = '🌿🌱🏔__🌲🌿🌱__🏔🌲🌿__🌱🏔🌲';
+    } else {
+    color = 'teal';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    }
+    const newLandscape = document.getElementById('landscape');
+    newLandscape.textContent = landscape;
+    const temperature = document.getElementById('tempValue');
+    temperature.className = color;
+    temperature.textContent = String(state.temp)
+};
 
 
 let i = 0;
@@ -103,6 +132,9 @@ const decreaseTemp = () => {
 };
 
 const registerEventHandlers = () => {
+    updateTempLandscape();
+    updateTemp();
+
     const addTemp = document.getElementById("increaseTemp");
     addTemp.addEventListener("click", increaseTemp);
 
@@ -116,9 +148,9 @@ const registerEventHandlers = () => {
     newCityTemp.addEventListener('click', updateTemp);
     
     const skySelect = document.getElementById('skySelect');
-    skySelect.addEventListener('change', updateSky)
+    skySelect.addEventListener('change', updateSky);
 };
 
 
 
-document.addEventListener("DOMContentLoaded", registerEventHandlers);
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
