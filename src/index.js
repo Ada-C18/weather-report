@@ -71,7 +71,7 @@ function findLatLon() {
     getWeather(latitude,longitude)
   })
   .catch( (error) => {
-    console.log('error in getWeather');
+    console.log('error in findLatLon');
   });
 }
 
