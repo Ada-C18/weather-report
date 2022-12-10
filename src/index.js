@@ -45,6 +45,22 @@ const getRealtimeTemp = () => {
     });
 };
 
+const updateSky = () => {
+  const skyOption = document.getElementById('sky-options').value;
+  const skyContainer = document.getElementById('sky');
+  let sky = '';
+  if (skyOption === 'Sunny') {
+    sky = '☁️ ☀️ ☁️ ☀️ ☁️ ☀️';
+  } else if (skyOption === 'Cloudy') {
+    sky = '☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️';
+  } else if (skyOption === 'Rainy') {
+    sky = '🌧🌧🌦🌧🌧🌧🌧🌧🌧🌧🌧';
+  } else if (skyOption === 'Snowy') {
+    sky = '🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨';
+  }
+  skyContainer.textContent = sky;
+};
+
 const tempColor = () => {
   const currentTemp = document.getElementById('temp-display');
   if (state.temp >= 80) {
@@ -72,7 +88,8 @@ const landscapeImage = () => {
   } else {
     pic = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'; //**** add picture ***
   }
-  landscape.innerText = pic;
+  // landscape.innerText = pic;
+  landscape.textContent = pic;
 };
 
 const updateTheme = () => {
@@ -126,6 +143,9 @@ const registerEventHandlers = () => {
 
   const realtimeTemp = document.getElementById('realtime-temp');
   realtimeTemp.addEventListener('click', getCoordinates);
+
+  const skyOption = document.getElementById('sky-options');
+  skyOption.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
