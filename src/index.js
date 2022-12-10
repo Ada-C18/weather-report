@@ -42,15 +42,15 @@ const changeTemperatureColor = (temp, tempDisplay) => {
 
 const changeLandScape = (temp, landscape) => {
   if (temp >= 80) {
-    landscape.textContent = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
+    landscape.textContent = `🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂`;
   } else if (temp >= 70) {
-    landscape.textContent = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+    landscape.textContent = `🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷`;
   } else if (temp >= 60) {
-    landscape.textContent = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+    landscape.textContent = `🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃`;
   } else if (temp > 50) {
-    landscape.textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+    landscape.textContent = `🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲`;
   } else if (temp <= 49) {
-    landscape.textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+    landscape.textContent = `🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲`;
   }
 };
 
