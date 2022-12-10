@@ -1,5 +1,23 @@
 # Weather Report
 
+## Pair Project Plan
+Access needs
+- If we can't meet in person, then we meet over Zoom
+- Message each other on Slack as needed
+
+Your learning style
+- T: Learn by doing.
+- S: Learn by doing and have time to thoroughly read requirements / docs. 
+
+How you prefer to receive feedback
+- T: Very open. Anything works.
+- S: Also very open. Talk verbally preferred. 
+
+One team communication skill you want to improve with this experience
+- T: When writing code or navigating, work on speaking through concepts and reasoning. Wants to recieve feedback.
+- S: Balance between sharing my ideas and explaining why I think we should a specific direction vs. hearing out someone else's ideas and going forward with those. Would love feedback as well.
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension

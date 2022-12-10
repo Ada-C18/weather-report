@@ -5,8 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="../styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report</h1>
+        <h2>Today in <span id="header-city" class="header-city-class">Seattle</span></h2>
+        <input id="city-name" placeholder="Enter a city"/><br><br>
+        <button id="reset-city-btn">Reset city to Seattle</button>
+    </header>
+    <main class="grid-container">
+        <div id="cloud-icon" class="grid-item cloud-icon-class">
+            <img id="image-change" src="../ada-project-docs/assets/sunny.png" alt="cloud icon">
+        </div>
+        <div id="temp" class="grid-item">
+            <span id="increase-temp">⬆️</span>
+            <span id="curr-temp">80</span>
+            <span id="decrease-temp">⬇️</span>
+        </div>
+        <div id="sky-dropdown" class="grid-item">
+            <h3>Sky</h3>
+            <select class="sky-dropdown" name="sky-dropdown">
+                <option value="">Select One …</option>
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+              </select>
+        </div>
+        <div class="grid-item"> 
+            <!-- removed from above div and put it below line: id="reset-temp-btn" -->
+            <button id="realtime-temp-btn">Get Realtime Temperature</button>
+        </div>
+    </main>
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
+<footer>
+    <p>Created by Sarah Sanborn and Tapasya Khatri.</p>
+</footer>
 </html>

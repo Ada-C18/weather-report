@@ -1,0 +1,69 @@
+/* * {
+    border: 1px solid red;
+} */
+
+header {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.grid-container {
+    display:grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: center;
+    background-image: url("../ada-project-docs/assets/desert-nicole-herrero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+}
+
+.grid-item {
+    background-color: aliceblue;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+#cloud-icon {
+    grid-column-start: 1;
+}
+#temp {
+    grid-column-start: 2;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#increase-temp {
+    font-size: 1.5em;
+}
+#curr-temp {
+    font-size: 3rem;
+}
+.temp-red {
+    color:red;
+}
+.temp-orange {
+    color: orange;
+}
+.temp-yellow {
+    color: rgb(215, 215, 17);
+}
+.temp-green {
+    color: green;
+}
+.temp-teal {
+    color: teal;
+}
+#decrease-temp {
+    font-size: 1.5em;
+}
+#sky-dropdown {
+    grid-column-start: 1;
+}
+#reset-temp-btn {
+    grid-column-start: 2;
+}
+
+footer p {
+    text-align: center;
+}
