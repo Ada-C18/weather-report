@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', registerHandlers);
 
 // - [ ]  Wave 2
 //     - [ ]  Show default temp
-//     - [ ]  Add emojis up and down arrows-
+//     - [x]  Add emojis up and down arrows-ms
 // - [ ]  Finish wave 4
 //     - [x]  button - Milena
 //     - [ ]  get API functions working - together office hours
