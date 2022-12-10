@@ -8,11 +8,18 @@ const instance = axios.create({
 });
 // set baseURL for an instance of axios to pass relative URLs to methods of that instance
 
+// Convert Kelvin to Fahrenheit
+// °F = (K − 273.15) × 9/5 + 32
+const convertToFahrenheit = (tempInKelvin) => {
+  const fahrenheit = Math.round((tempInKelvin - 273.15) * (9 / 5) + 32);
+  return fahrenheit;
+};
+
 const defaultCity = document.getElementById('cityNameInput').value;
 const tempValue = document.getElementById('tempValue');
 
 const state = {
-  temperature: tempValue,
+  temperature: convertToFahrenheit(tempValue),
 };
 
 // Get temp based on city
@@ -40,7 +47,7 @@ const getTemp = async (city) => {
         appid: 'WEATHER_KEY',
         lat: lat,
         lon: lon,
-        units: 'imperial',
+        units: 'imperial', // does not work
       },
     })
     .then((response) => {
@@ -52,7 +59,7 @@ const getTemp = async (city) => {
     });
   const currentTemp = weather.main.temp;
   console.log(currentTemp);
-  state.temperature = currentTemp;
+  state.temperature = convertToFahrenheit(currentTemp);
   tempValue.textContent = state.temperature;
 };
 
