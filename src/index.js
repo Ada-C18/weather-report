@@ -55,11 +55,17 @@ const changeTempNumColor = () => {
 ////Creating an event to update headerCityName
 const updateCityName = (cityNameInput) => {
   const updatedCityName = document.getElementById('headerCityName');
-  state.city = cityNameInput.value;
-  console.log(cityNameInput.value);
-  updatedCityName.textContent = `🌍🌟${cityNameInput.value}🌟🌍`;
+  state.city = cityNameInput.target.value;
+  console.log("cityNameInput",cityNameInput.target.value);
+  updatedCityName.textContent = `🌍🌟${cityNameInput.target.value}🌟🌍`;
   console.log('New city name', state.city);
   return state.city;
+};
+
+const resetCity = () => {
+  const resetCityName = document.getElementById('cityNameInput');
+  resetCityName.value = 'Seattle';
+  updateCityName({target:{value:'Seattle'}});
 };
 
 //Get Current temperature button event
@@ -137,11 +143,7 @@ const skySelect = () => {
   }
 };
 
-const resetCity = () => {
-  const resetCityName = document.getElementById('#cityNameInput');
-  cityNameInput.value = 'Seattle';
-  updateCityName('Seattle');
-};
+
 
 ////Registering Event handlers and add event listeners
 const registerEventHandlers = (event) => {
