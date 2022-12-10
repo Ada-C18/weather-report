@@ -1,66 +1,67 @@
 const state = {
-  currentTemp: 70,
+  temperature: 70,
 };
 
 const tempUp = () => {
-  const currentTemp = document.querySelector('#temp-value');
-  state.currentTemp += 1;
-  currentTemp.textContent = state.currentTemp;
+  const currentTempContainer = document.getElementById('temp-value');
+  state.temperature += 1;
+  currentTempContainer.textContent = state.temperature;
 };
 
 const tempDown = () => {
-  const currentTemp = document.querySelector('#temp-value');
-  state.currentTemp -= 1;
-  currentTemp.textContent = state.currentTemp;
+  const currentTempContainer = document.getElementById('temp-value');
+  state.temperature -= 1;
+  currentTempContainer.textContent = state.temperature;
 };
 
 const changeColorAndLandscape = () => {
-  if (state.currentTemp > 79) {
-    document.querySelector('#temp-value').style.color = 'red';
-    document.querySelector('#landscape').textContent =
-      '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (state.currentTemp > 69 && state.currentTemp < 80) {
-    document.querySelector('#temp-value').style.color = 'orange';
-    document.querySelector('#landscape').textContent =
-      '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (state.currentTemp > 59 && state.currentTemp < 70) {
-    document.querySelector('#temp-value').style.color = 'yellow';
-    document.querySelector('#landscape').textContent =
-      '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (state.currentTemp > 49 && state.currentTemp < 60) {
-    document.querySelector('#temp-value').style.color = 'green';
-    document.querySelector('#landscape').textContent =
-      '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else if (state.currentTemp < 50) {
-    document.querySelector('#temp-value').style.color = 'lightblue';
-    document.querySelector('#landscape').textContent =
-      '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  const tempColor = document.getElementById('temp-value');
+  const landscapeContainer = document.getElementById('landscape');
+  const temp = state.temperature;
+
+  if (temp >= 80) {
+    tempColor.style.color = 'red';
+    landscapeContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temp >= 70) {
+    tempColor.style.color = 'orange';
+    landscapeContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temp >= 60) {
+    tempColor.style.color = 'yellow';
+    landscapeContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (temp >= 50) {
+    tempColor.style.color = 'green';
+    landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else {
+    tempColor.style.color = 'lightblue';
+    landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
 const changeSky = () => {
-  let skyValue = document.querySelector('#sky-emojis').value;
+  const skyValue = document.getElementById('sky-emojis').value;
+  const skyContainer = document.getElementById('sky');
+
   if (skyValue === 'Cloudy') {
-    document.querySelector('#sky').textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (skyValue === 'Sunny') {
-    document.querySelector('#sky').textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    skyContainer.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
   } else if (skyValue === 'Rainy') {
-    document.querySelector('#sky').textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (skyValue === 'Snowy') {
-    document.querySelector('#sky').textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
 const registerEventHandlers = () => {
-  const increaseTemp = document.querySelector('#temp-up');
+  const increaseTemp = document.getElementById('temp-up');
   increaseTemp.addEventListener('click', tempUp);
   increaseTemp.addEventListener('click', changeColorAndLandscape);
 
-  const decreaseTemp = document.querySelector('#temp-down');
+  const decreaseTemp = document.getElementById('temp-down');
   decreaseTemp.addEventListener('click', tempDown);
   decreaseTemp.addEventListener('click', changeColorAndLandscape);
 
-  const selectSky = document.querySelector('#sky-emojis');
+  const selectSky = document.getElementById('sky-emojis');
   selectSky.addEventListener('change', changeSky);
 };
 
