@@ -1,5 +1,20 @@
 # Weather Report
 
+## Plan of Action
+
+- Access needs:
+  - June - prefer not to work past 7 - best way to contact is phone (949)306-5808
+  - Yangweiyi - prefer not to work past 5
+- Your learning style
+  - June - visual learner, prefer to have solutions broken down, prefer to work as pair
+  - Yangweiyi - time-boxing learning pace, 30-45 min and then take breaks
+- How you prefer to receive feedback
+  - June - straight-forward and informative
+  - Yangweiyi - straight-forward
+- One team communication skill you want to improve with this experience
+  - June - wants to improve her listening skills / solution comprehension
+  - Yangweiyi - explaining the reasoning for her ideas / solutions
+
 ## Skills Assessed
 
 - Following directions and reading comprehension

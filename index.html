@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Report</title>
+  <link href="styles/index.css" rel="stylesheet">
+  <script src="src/index.js" type="module"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
 </head>
-<body>
-    
+<body class="main-body">
+  <header id="header">
+    <div id="header-contents">
+      <h2 class="header-text">Weather Report</h2>
+      <h1 id="city-name" class="city-text">Seattle</h1>
+    </div>
+  </header>
+  <nav id="navigation">
+    <div id="local-temperature" class="nav-box">
+      <div class="nav-contents">
+        <h4>Local Temperature</h4>
+        <button id="inc-temp">+</button>
+        <p id="temperature">39</p>
+        <button id="dec-temp">-</button>
+        <div id="landscape"></div>
+        <button id="real-time-temp">Real Time Temperature</button>
+      </div>
+    </div>
+    <div id="sky-drop-down" class="nav-box">
+      <div class="nav-contents">
+        <h4>Sky</h4>
+        <form action="/action_page.php">
+          <label>Change the weather:</label>
+          <select name="skies" id="sky-selector">
+            <option value="blank">---</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+          </select>
+        </form>
+      </div>
+    </div>
+    <div id="city-selector" class="nav-box">
+      <div class="nav-contents">
+        <h4>City Name</h4>
+        <input type="text" id="text-field">
+        <button id="reset-button">reset</button>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div id="weather-garden">
+      <div id="weather-garden-contents">
+        <h4>Weather Garden</h4>
+        <div id="weather-emojis"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    by: Yangweiyi Li and June Valentino
+  </footer>
 </body>
 </html>
