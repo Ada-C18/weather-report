@@ -1,6 +1,6 @@
 
+
 const state = { temp: 42, city: cityInput, lat : 0, lon : 0};
-const thingToConnectToAPI = { temp: 46 };
 
 const increaseTemp = () => {
   const tempDisplay = document.getElementById('temp');
@@ -18,8 +18,8 @@ const decreaseTemp = () => {
 
 const currentTemp = () => {
   const tempDisplay = document.getElementById('temp');
-  tempDisplay.textContent = thingToConnectToAPI.temp;
-  changeTempColor(thingToConnectToAPI.temp);
+  tempDisplay.textContent = state.temp;
+  changeTempColor(state.temp);
 };
 
 const changeTempColor = (temp) => {
@@ -65,7 +65,6 @@ const changeCity = () => {
   state.city = cityInput;
   currentCity.textContent = state.city;
   getLonAndLat(state.city)
-  console.log(state.lon, state.lat)
 };
 
 const upButton = document.getElementById('up');
@@ -94,15 +93,40 @@ const getLonAndLat = (query) => {
   })
   .then( (response) => {
     lattitude = response.data[0].lat;
-    longitude = response.data[0].lon;
+    longitude = response.data[0].lon;  
+    state.lat = lattitude;
+    state.lon = longitude;
+  })
+  .then( () => {
     console.log(lattitude, longitude)
+    getTemp();
   })
   .catch( (error) => {
-    console.log(error)
+    console.log(error);
   })
 
-  state.lat = lattitude,
-  state.lon = longitude
+
+}
+
+const getTemp = () => {
+  let tempKelvin
+  axios.get('http://127.0.0.1:5000/weather',{
+    params : {
+      lat : state.lat,
+      lon : state.lon}
+    })
+    .then( (response) => {
+      console.log(response);
+      tempKelvin = response.data.main.temp;
+      state.temp = Math.floor(1.8*(tempKelvin-273) + 32)
+    })
+    .catch( (error) => {
+      console.log(error);
+    })
+  }
+
+
+
 
 
 
