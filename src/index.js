@@ -133,10 +133,3 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-updateCityName();
-const cityNameInput = document.getElementById('cityNameInput');
-cityNameInput.addEventListener('input', updateCityName);
-
-const cityNameResetBtn = document.getElementById('cityNameReset');
-cityNameResetBtn.addEventListener('click', resetCityName);
