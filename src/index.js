@@ -12,22 +12,22 @@ const state = {
 };
 
 
-const findLatAndLong = () => {
+function findLatAndLong() {
 axios
-  .get('',
-    params: {
-    key: process.env['LOCATION_API_KEY'],
-    q: state.lat,
-    format: 'json',
+  .get("https://us1.locationiq.com/v1/search.php",
+  params= {
+    "q": loc_query, 
+    "key": location_key, 
+    "format": "json"
   })
   .then((response) => {
     console.log(response.data);
     state.lat = response.data[0].lat;
     state.long = response.data[0].lon;
   }
-};
+)};
 
-const findWeather = () => {
+function findWeather(lat, long) {
   axios
     .get('https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={WEATHER_API_KEY}',{ 
     params: {
@@ -43,11 +43,60 @@ function resetText() {
   let resetButton = document.getElementById('reset');
 
   // Add a click event listener to the button
-  resetButton.addEventListener('click', function() {
+  resetButton.addEventListener('click', function()); {
       // Reset the text box
       City.reset();
+}};
+;
+
+function tempColorChange() {
+  const tempContainer = document.getElementById('temperature');
+  
+  if (tempContainer <= 32) {
+    document.body.style.backgroundColor = 'blue';
+    document.body.style.color = 'white';
+    document.write("❄️__❄️__❄️__❄️")
+} else if (tempContainer > 32 && temperature <= 50) {
+    document.body.style.backgroundColor = 'green';
+    document.body.style.color = 'white';
+} else if (tempContainer > 50 && temperature <= 68) {
+    document.body.style.backgroundColor = 'yellow';
+    document.body.style.color = 'black';
+} else if (tempContainer > 68 && temperature <= 86) {
+    document.body.style.backgroundColor = 'orange';
+    document.body.style.color = 'black';
+} else {
+    document.body.style.backgroundColor = 'red';
+    document.body.style.color = 'white';
+  }
 }
-);
+
+
+
+
+function updateSky() {
+  const inputSky = document.getElementById('skyOptions').value;
+  const skyContainer = document.getElementById('sky-weather');
+  let sky = '';
+  let skyColor = '';
+  if (inputSky === 'Clouds') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    skyColor = 'cloud';
+  } else if (inputSky === 'Sunshine') {
+    sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
+    skyColor = 'sunn';
+  } else if (inputSky === 'Rain') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skyColor = 'rain';
+  } else if (inputSky === 'Snow') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skyColor = 'snow';
+  } else if (inputSky === 'Wind') {
+    sky = '';
+    skyColor = 'wind';
+  }
+}
+
 
 
  // const increaseTemp = () => {
@@ -76,30 +125,6 @@ function resetText() {
 
 
 
-
-
-function updateSky() {
-  const inputSky = document.getElementById('skyOptions').value;
-  const skyContainer = document.getElementById('sky-weather');
-  let sky = '';
-  let skyColor = '';
-  if (inputSky === 'Clouds') {
-    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-    skyColor = 'cloud';
-  } else if (inputSky === 'Sunshine') {
-    sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
-    skyColor = 'sunn';
-  } else if (inputSky === 'Rain') {
-    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-    skyColor = 'rain';
-  } else if (inputSky === 'Snow') {
-    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-    skyColor = 'snow';
-  } else if (inputSky === 'Wind') {
-    sky = '';
-    skyColor = 'wind';
-  }
-}
 
 
 
