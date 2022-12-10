@@ -74,21 +74,21 @@ const findWeather = (lat, long) => {
 
 const updateCity = () => {
   const newCity = document.getElementById('newCity');
-  newCity.addEventListener('input', updateCity);
+  state.city = newCity.value;
 };
 
+const newCity = document.getElementById('newCity');
+newCity.addEventListener('input', updateCity);
 const resetText = () => {
   // let City = document.getElementById('city');
   const newCity = document.getElementById('newCity');
   newCity.value = 'Seattle';
   updateCity();
-  console.log(resetText);
-  console.log(state.city);
 };
 // Get the button
-// let resetButton = document.getElementById('reset');
+let resetButton = document.getElementById('reset');
 // Add a click event listener to the button
-// resetButton.addEventListener('click', function resetText() {
+resetButton.addEventListener('click', resetText);
 // Reset the text box
 // City.reset();
 
