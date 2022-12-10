@@ -55,3 +55,42 @@ function changeCityName() {
   var x = document.getElementById('cityName').value;
   document.getElementById('currentCity').innerHTML = x;
 }
+
+function findLatLon() {
+  let latitude, longitude;
+  let query= document.getElementById('cityName').value;
+  axios.get('http://127.0.0.1:5000/location', {
+    params: {
+      q: query
+    }
+  })
+  .then( (response) => {
+    const latitude =response.data[0].lat;
+    const longitude =response.data[0].lon;
+
+    getWeather(latitude,longitude)
+  })
+  .catch( (error) => {
+    console.log('error in getWeather');
+  });
+}
+
+function getWeather(latitude, longitude) {
+  axios.get('http://127.0.0.1:5000/weather', {
+    params: {
+      lat: latitude,
+      lon: longitude,
+    }
+  })
+  .then( (response) => {
+    const temp= response.data.main.temp
+
+    document.getElementById('tempNumber').innerHTML = Math.floor(1.8*(temp-273)+32)+"°F";
+  })
+  .catch( (error) => {
+    console.log('error in getWeather');
+    console.log(error)
+  });
+}
+
+
