@@ -2,6 +2,7 @@ const state = {
   temp: 50,
   city: 'Seattle',
   sky: "Sunny",
+  city_input: ''
 };
 
 const displayTemp = document.getElementById('display-temp');
@@ -55,6 +56,7 @@ const tempColor = (temp) => {
   // }
 };
 
+
 const gardenDisplayer = (temp) => {
   const gardenPics = document.getElementById('garden-pics');
   if (temp >= 80) {
@@ -98,37 +100,49 @@ function updateSky(e) {
     const city = document.getElementById('city');
     state.city = ""
     city.textContent = `Weather report for the lovely city of ${state.city}`
-      const cityInput = document.getElementById('city-input');
+    const cityInput = document.getElementById('city-input');
     cityInput.value = ""
-  }
+  };
+
+const citySearch = () => {
+    const city = document.getElementById('city-input').value;
+    state.city_input = city
+    findLatandLong(city)
+}
 
 
-// const axios = require('axios');
-// //function to call location API
-// const findLatandLong = (city) => {
-//   let latitude, longitude;
-//   //get
-//   axios
-//     .get('http://127.0.0.1:5000/location')
 
-//     //then
-//     .then((response) => {
-//       latitude = response.data[0].lat;
-//       longitude = response.data[0].lon;
-//     })
-//     // //catch
-//     .catch((error) => {
-//       console.log('error missing fksdkf');
-//     });
-//   return {
-//     cityLat: latitude,
-//     cityLong: longitude,
-//   };
-//function to call weather API
-//axios
-//  .get
-// .then
-// . catch
+const findLatandLong = (city) => {
+    let latitude, longitude;
+    let APItemp;
+
+    axios
+        .get('http://127.0.0.1:5000/location', (config = { params: { q: city} }))
+        .then ((response) => {
+            latitude = response.data[0].lat;
+            longitude = response.data[0].lon;
+            findWeather(latitude,longitude);
+        })
+        .catch((error) => {
+            console.log("There's been an error!")
+        });
+};
+
+
+const findWeather = (latitude, longitude) => {
+    let temperature;
+    const displayTemp = document.getElementById('display-temp');
+    axios
+        .get('http://127.0.0.1:5000/weather', (config = { params: { lat: latitude, lon: longitude } }))
+        .then((response) => {
+            temperature = response.data["main"]["temp"];
+            temperature = Math.round(1.8*(temperature-273) + 32)
+            displayTemp.textContent = `${temperature}°  F`
+        })
+        .catch((error) => {
+            console.log("There's been an error!")
+        })
+};
 
 const registerEventHandlers = () => {
   const increaseButton = document.getElementById('increaseButton');
@@ -141,6 +155,8 @@ const registerEventHandlers = () => {
   skyDropdown.addEventListener('change', updateSky);
   const resetCityButton = document.getElementById("resetCityButton");
   resetCityButton.addEventListener('click', resetCityName);
+  const RTweatherButton = document.getElementById("real-time-weather");
+  RTweatherButton.addEventListener('click', citySearch)
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

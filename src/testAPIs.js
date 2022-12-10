@@ -10,7 +10,7 @@ const findLatandLong = (city) => {
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      console.log('response data', response.data[0]);
+      findWeather(latitude, longitude)
     })
     // //catch
     .catch((error) => {
@@ -18,14 +18,38 @@ const findLatandLong = (city) => {
     })
 
     .finally(() => {
-      let result = {
-        cityLat: latitude,
-        cityLong: longitude,
-      };
-      console.log(result);
-      return result;
+      let result = [latitude, longitude]
+      return result
     });
 };
 
-findLatandLong('Hanoi');
-findLatandLong('Paris');
+
+// findLatandLong('Paris');
+
+
+  //function to call GoodWeather API
+  const findWeather = (latitude, longitude) => {
+
+    let temperature;
+    //get
+    axios
+      .get('http://127.0.0.1:5000/weather', (config = { params: { lat: latitude, lon: longitude } }))
+  
+      //then
+      .then((response) => {
+        temperature = response.data["main"]["temp"]
+        temperature = Math.round(1.8*(temperature-273) + 32)
+      })
+      // //catch
+      .catch((error) => {
+        console.log('error in input');
+      })
+  
+      .finally(() => {
+        let temperatureAPI = temperature;
+        console.log(temperatureAPI);
+        return temperatureAPI;
+      });
+  };
+
+
