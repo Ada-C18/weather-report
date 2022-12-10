@@ -77,7 +77,7 @@ const changeLandscape = () => {
 const getCity = (event) => {
   // use regex to limit the display to uppercase and lowercase letters and spaces
   // event.key displays all keyboard keys in the associated layout, not just alphanumeric inputs
-  const re = /^A-z\s\-{1}$/;
+  const re = /^[A-Za-z\s\-]{1}$/;
 
   // if statement checks whether event.key returns a single character (only)
   // that is a letter, a space or a hyphen
