@@ -1,4 +1,7 @@
 'use strict';
+
+const { default: axios } = require('axios');
+
 console.log('testing');
 
 const BASE_URL = 'http://localhost:5000';
@@ -96,10 +99,7 @@ const resetCityName = (event) => {
 };
 
 const getLatAndLon = () => {
-  // const lat =
-  // const lon =
-
-  const axios = require('axios');
+  // const axios = require('axios');
 
   axios
     .get('http://localhost:5000/location', {
@@ -108,10 +108,35 @@ const getLatAndLon = () => {
 
     .then((response) => {
       // state.lat = response
-      console.log(response);
+      // console.log(response);
+      state.lat = response.data[0].lat;
+      state.lon = response.data[0].lon;
+      console.log(state);
     })
+
     .catch((error) => {
       console.log('Error in get Lat & Lon');
+    });
+};
+// add in lat and lon in the parameters below?
+
+const getWeather = () => {
+
+  axios
+    .get('http://localhost:5000/weather', {
+      params: {
+      lat: state.lat,
+      lon: state.lon,
+      },
+    })
+
+    .then((response) => {
+      const temperature = Math.round((9 / 5)) + 32);
+      // currentLocation.temp = temp.textContent;
+    })
+
+    .catch((error) => {
+      console.log('Error in Weather');
     });
 };
 
@@ -119,6 +144,8 @@ const registerEventHandlers = (event) => {
   console.log('in registerEventHandlers:', event);
 
   changeColorAndGarden();
+  getLatAndLon();
+  getWeather();
 
   const increaseTemp = document.getElementById('increaseTemp');
   increaseTemp.addEventListener('click', increaseTemperature);
@@ -136,6 +163,10 @@ const registerEventHandlers = (event) => {
   modifySky();
   const selectNewSky = document.getElementById('selectSky');
   selectNewSky.addEventListener('change', modifySky);
+
+  getWeather();
+  const getTemp = document.getElementById('getTemp');
+  getTemp.addEventListener('click', getWeather);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
