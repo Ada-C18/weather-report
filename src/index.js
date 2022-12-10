@@ -53,7 +53,7 @@ function changeLandscape() {
 
 function changeCityName() {
   document.getElementById('currentCity').innerHTML =
-    document.getElementById('cityName').value; //current city name = cityname being typed in.
+    document.getElementById('cityName').value;
 }
 
 function changeSky() {
