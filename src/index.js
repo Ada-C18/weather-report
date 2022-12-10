@@ -20,6 +20,7 @@ const findLatAndLong = () => {
       console.log(response.data);
       state.lat = response.data[0].lat;
       state.long = response.data[0].lon;
+      clearError();
       getWeather();
     })
     .catch((error) => {
@@ -131,9 +132,6 @@ const registerEventHandlers = () => {
   updateCityName();
   const cityNameInput = document.getElementById('cityNameInput');
   cityNameInput.addEventListener('input', updateCityName);
-
-  const currentTemp = document.getElementById('currentTempButton');
-  currentTemp.addEventListener('click', findLatAndLong);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
