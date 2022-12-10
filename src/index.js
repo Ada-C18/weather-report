@@ -53,10 +53,11 @@ const changeTempNumColor = () => {
 };
 
 ////Creating an event to update headerCityName
-const updateCityName = (event) => {
+const updateCityName = (cityNameInput) => {
   const updatedCityName = document.getElementById('headerCityName');
-  state.city = event.target.value;
-  updatedCityName.textContent = `🌍🌟${event.target.value}🌟🌍`;
+  state.city = cityNameInput.value;
+  console.log(cityNameInput.value);
+  updatedCityName.textContent = `🌍🌟${cityNameInput.value}🌟🌍`;
   console.log('New city name', state.city);
   return state.city;
 };
@@ -74,7 +75,8 @@ locationURL = 'http://127.0.0.1:5000/location';
 weatherURL = 'http://127.0.0.1:5000/weather';
 
 // const location = updateCityName();
-const getLatAndLon = (location) => {
+const getLatAndLon = () => {
+  console.log('inside getLatAndLon', state.city);
   axios
     .get(locationURL, {
       params: {
@@ -85,7 +87,7 @@ const getLatAndLon = (location) => {
     .then((result) => {
       const lat = result.data[0].lat;
       const lon = result.data[0].lon;
-      console.log(`${location} lat: ${lat} lon: ${lon}`);
+      console.log(`${state.city} lat: ${lat} lon: ${lon}`);
 
       axios
         .get(weatherURL, {
@@ -138,7 +140,7 @@ const skySelect = () => {
 const resetCity = () => {
   const resetCityName = document.getElementById('#cityNameInput');
   cityNameInput.value = 'Seattle';
-  updateCityName();
+  updateCityName('Seattle');
 };
 
 ////Registering Event handlers and add event listeners
