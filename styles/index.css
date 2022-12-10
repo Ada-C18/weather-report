@@ -18,15 +18,15 @@ i {
   padding: 20px;
 }
 .search-label {
-  margin-left: 225px;
+  margin-left: 250px;
   font-size: 18px;
 }
 
 .current-temp {
-  margin-left: 20px;
+  margin-left: 50px;
 }
 .current-city {
-  font-size: 35px;
+  font-size: x;
   text-align: center;
 }
 .current-city-temp {
