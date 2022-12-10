@@ -7,6 +7,7 @@ const state = {
 const tempNum = document.getElementById('tempnum');
 const cityInput = document.getElementById('city-input');
 const cityOutput = document.getElementById('city-output');
+const skySelector = document.getElementById('sky-select');
 
 const tempColor = {
   80: 'red',
@@ -28,6 +29,7 @@ const skies = {
   cloudy: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
   rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
   snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
+  else: '🌧🕺🏾⛈🕺🏾🌧',
 };
 
 const incrementTemp = () => {
@@ -70,6 +72,29 @@ const changeLandscape = () => {
   } else {
     landscape.textContent = landscapes['else'];
   }
+};
+
+const changeSky = (s = null) => {
+  console.log(skySelector.value);
+  console.log(skies[skySelector.value]);
+  const skyscape = document.getElementById('skyscape');
+  skyscape.textContent = skies[skySelector.value]; // comment this out for auto sky change
+
+  // if (s) {
+  //   if (s >= 801) {
+  //     skyscape.textContent = skies[skyCodes['801']];
+  //   } else if (s === 800) {
+  //     skyscape.textContent = skies[skyCodes['800']];
+  //   } else if (s >= 700) {
+  //     skyscape.textContent = skies[skyCodes['700']];
+  //   } else if (s >= 600) {
+  //     skyscape.textContent = skies[skyCodes['600']];
+  //   } else if (s >= 200) {
+  //     skyscape.textContent = skies[skyCodes['200']];
+  //   }
+  // } else {
+  //   skyscape.textContent = skies[skySelector.value];
+  // }
 };
 
 const getCity = (event) => {
@@ -190,6 +215,8 @@ const registerEventHandlers = () => {
       cityOutput.textContent = 'Seattle';
     }
   });
+
+  skySelector.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
