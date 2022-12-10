@@ -1,23 +1,46 @@
 'use strict';
 
+// const { default: axios } = require("axios");
+
 console.log('Online');
 
 function increaseTemp() {
-  console.log('ok');
   const tempDiv = document.getElementById('temp-number');
   let tempNumber = parseInt(tempDiv.textContent);
-  console.log(tempNumber);
+  // console.log(tempNumber);
   tempNumber += 1;
   tempDiv.innerHTML = tempNumber;
+  updateTempPic();
 }
 
 function decreaseTemp() {
-  console.log('ok');
   const tempDiv = document.getElementById('temp-number');
   let tempNumber = parseInt(tempDiv.textContent);
-  console.log(tempNumber);
+  // console.log(tempNumber);
   tempNumber -= 1;
   tempDiv.innerHTML = tempNumber;
+  updateTempPic();
+}
+
+function updateTempPic() {
+  let tempNumber = parseInt(document.getElementById('temp-number').textContent);
+  console.log(tempNumber);
+  if (tempNumber > 80) {
+    document.getElementById('temp-number').style.color = 'red';
+    document.getElementById('season-pic').src = '../assets/summer.jpeg';
+  } else if (tempNumber > 70) {
+    document.getElementById('temp-number').style.color = 'orange';
+    document.getElementById('season-pic').src = '../assets/Autumn.jpeg';
+  } else if (tempNumber > 60) {
+    document.getElementById('temp-number').style.color = 'yellow';
+    document.getElementById('season-pic').src = '../assets/Autumn.jpeg';
+  } else if (tempNumber > 50) {
+    document.getElementById('temp-number').style.color = 'green';
+    document.getElementById('season-pic').src = '../assets/Spring.jpeg';
+  } else {
+    document.getElementById('temp-number').style.color = 'teal';
+    document.getElementById('season-pic').src = '../assets/Winter.jpeg';
+  }
 }
 
 function updateCityName() {
@@ -44,14 +67,12 @@ function getLocation() {
     .then((res) => {
       latitude = res.data[0].lat;
       longitude = res.data[0].lon;
-      console.log('success in getLocation!', latitude, longitude);
+      console.log('success in getLocation!', { lat: latitude, lon: longitude });
+      getTemperature(latitude, longitude);
     })
     .catch((error) => {
       console.log('error in getLocation!');
     });
-  // console.log('lat ' + latitude + ' lon ' + longitude);
-  console.log(latitude, latitude);
-  return { lat: latitude, lon: longitude };
 }
 
 function getTemperature(latitude, longitude) {
@@ -63,31 +84,26 @@ function getTemperature(latitude, longitude) {
       },
     })
     .then((res) => {
-      console.log('success in getTemp!', res.data);
-      return res.data['current']['temp'];
+      console.log('success in getTemp!', res.data['main']['temp']);
+      const kelvin = res.data['main']['temp'];
+      const tempDiv = document.getElementById('temp-number');
+      tempDiv.innerHTML = Math.round(((kelvin - 273.15) * 9) / 5 + 32);
+      updateTempPic();
+    })
+    .catch((error) => {
+      console.log('error in getTemp!');
     });
 }
 
-function updateRealtimeTemp() {
-  const cityName = document.getElementById('city-name-input').value;
-  let latitude, longitude;
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: cityName,
-      },
-    })
-    .then((res) => {
-      latitude = res.data[0].lat;
-      longitude = res.data[0].lon;
-      console.log('success in getLocation!', latitude, longitude);
-      let temp = getTemperature(latitude, longitude);
-    })
-    .catch((error) => {
-      console.log('error in getLocation!');
-    });
-  console.log(locationData);
-  // let latitude = locationData.lat;
-  // let longitude = locationData.lon;
-  console.log('lat ' + latitude + ' lon ' + longitude);
+function updateSky() {
+  const skyInput = document.getElementById('sky-input').value;
+  if (skyInput === 'Sunny') {
+    document.getElementById('sky-pic').src = '../assets/sunny.jpeg';
+  } else if (skyInput === 'Cloudy') {
+    document.getElementById('sky-pic').src = '../assets/Cloudy.webp';
+  } else if (skyInput === 'Snowy') {
+    document.getElementById('sky-pic').src = '../assets/Snowy.jpg';
+  } else if (skyInput === 'Rainy') {
+    document.getElementById('sky-pic').src = '../assets/Rain.jpeg';
+  }
 }
