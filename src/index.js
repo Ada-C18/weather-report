@@ -137,6 +137,14 @@ const changeSky = (event) => {
   }
 };
 
+const resetCity = (event) => {
+  const cityName = document.querySelector('#city-name');
+  cityName.textContent = 'Seattle';
+  state.cityName = 'Seattle';
+  const searchBox = document.querySelector('#city-search');
+  searchBox.value = state.cityName;
+};
+
 const registerEventHandlers = (event) => {
   console.log('registerEventHandlers called');
   const increaseButton = document.querySelector('#increase-temp');
@@ -145,14 +153,17 @@ const registerEventHandlers = (event) => {
   const decreaseButton = document.querySelector('#decrease-temp');
   decreaseButton.addEventListener('click', decreaseTemp);
 
-  const citySearchButton = document.querySelector('#change-city');
-  citySearchButton.addEventListener('click', changeCityName);
+  const citySearchButton = document.querySelector('#city-search');
+  citySearchButton.addEventListener('change', changeCityName);
 
   const getCurrentTempButton = document.querySelector('#current-temp');
   getCurrentTempButton.addEventListener('click', getTemp);
 
   const skyMenu = document.querySelector('#sky-type');
   skyMenu.addEventListener('change', changeSky);
+
+  const resetCityButton = document.querySelector('#reset-city');
+  resetCityButton.addEventListener('click', resetCity);
 };
 
 if (document.readyState !== 'loading') {
