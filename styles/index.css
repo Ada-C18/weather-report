@@ -46,7 +46,6 @@ body {
 }
 #tempValue {
     font-size: 30px;
-    color: brown;
     font-weight: bolder;
 }
 
@@ -107,3 +106,22 @@ body {
     background-color: rgb(221, 228, 232);
 }
 
+.teal {
+    color: teal;
+};
+
+.green {
+    color: green;
+};
+
+.yellow {
+    color: yellow;
+};
+
+.orange {
+    color: orange;
+};
+
+.red {
+    color: red;
+};

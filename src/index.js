@@ -42,6 +42,7 @@ const getWeather = (lat,long) => {
         const temperature = response.data.main.temp;
         console.log(temperature)
         const newTemperature = Math.round(convertKtoF(temperature));
+        updateTempLandscape();
         return newTemperature; 
 
     })
@@ -132,8 +133,8 @@ const decreaseTemp = () => {
 };
 
 const registerEventHandlers = () => {
-    updateTempLandscape();
     updateTemp();
+    updateTempLandscape();
 
     const addTemp = document.getElementById("increaseTemp");
     addTemp.addEventListener("click", increaseTemp);
