@@ -1,4 +1,5 @@
-const state = { temp: 42, city: cityInput };
+
+const state = { temp: 42, city: cityInput, lat : 0, lon : 0};
 const thingToConnectToAPI = { temp: 46 };
 
 const increaseTemp = () => {
@@ -63,6 +64,8 @@ const changeCity = () => {
   let cityInput = userInput.value;
   state.city = cityInput;
   currentCity.textContent = state.city;
+  getLonAndLat(state.city)
+  console.log(state.lon, state.lat)
 };
 
 const upButton = document.getElementById('up');
@@ -78,5 +81,29 @@ const registerEventHandlers = () => {
   cityButton.addEventListener('click', changeCity);
   skySelect.addEventListener('change', changeSkyViewer);
 };
+
+
+
+
+const getLonAndLat = (query) => {
+  
+  let lattitude, longitude;
+  // get lat and lon of city
+  axios.get('http://127.0.0.1:5000/location',{
+    params : {q: query}
+  })
+  .then( (response) => {
+    lattitude = response.data[0].lat;
+    longitude = response.data[0].lon;
+    console.log(lattitude, longitude)
+  })
+  .catch( (error) => {
+    console.log(error)
+  })
+
+  state.lat = lattitude,
+  state.lon = longitude
+
+
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
