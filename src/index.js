@@ -1,6 +1,6 @@
-// console.log('Hello world');
+
 ('use strict');
-// const axios = require('axios');
+
 const API_CITY = 'http://127.0.0.1:5000/location';
 const API_WEATHER = 'http://127.0.0.1:5000/weather';
 
