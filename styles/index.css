@@ -3,6 +3,7 @@ body {
     background-image: url('/assets/bg-60p-shorter.png');
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -17,7 +18,6 @@ h1 {
 
 #app {
     background-color: #2e383e;
-    background-image: url('/assets/rain-op-2.png');
     background-size: cover;
     background-repeat: no-repeat;
     border: 8px solid #000;
@@ -214,8 +214,9 @@ h1 {
 
 .sky-desc {
     font-family: 'Roboto', sans-serif;
+    color: rgb(101, 101, 101);
     font-size: 0.8rem;
-    font-weight: 100;
+    /* font-weight: 100; */
     text-align: center;
     margin: 0;
 }
@@ -224,14 +225,48 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.sky-btns {
-    display: flex;
-    justify-content: space-around;
+select {
+    display: block;
+    margin: auto;
+    box-shadow: 0 10px 10px rgb(196, 194, 194);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 100;
+    appearance: none;
+    color: rgb(122, 122, 122);
+    color: rgb(55, 55, 55);
+    padding: 5px 25px 7px;
+    border: none;
+    border-radius: 7px;
+    background: #F5F5F5;
 }
 
-.sky-btn {
+.sky-op {
+    background: inherit;
+}
+
+/* #sky-select {
+    display: block;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sky-op {
+    font-family: inherit;
+    color: red;
+    padding: 5px;
+} */
+
+/* .sky-btns {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+} */
+
+/* .sky-btn {
     border: 0.8px solid #a9a8a8;
     height: 40px;
     width: 40px;
     border-radius: 6px;
-}
+} */

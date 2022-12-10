@@ -47,7 +47,7 @@ const convertTemp = () => {
   if (currentTempType.innerText === 'F') {
     currentTempNum = (Number(currentTempNum) - 32) * (5 / 9);
     currentTempType.innerText = 'C';
-    console.log(currentTemp.innerText);
+    // console.log(currentTemp.innerText);
   } else if (currentTempType.innerText === 'C') {
     currentTempNum = Number(currentTempNum) * (9 / 5) + 32;
     currentTempType.innerText = 'F';
@@ -143,6 +143,20 @@ const updateWeather = async () => {
   updateCity();
 };
 
+const selectSky = () => {
+  const skyOptions = document.querySelector('#sky-select');
+  const skyBg = document.querySelector('#app');
+  if (skyOptions.value === 'rainy') {
+    skyBg.style.backgroundImage = 'url("/assets/rain-op-2.png")';
+  } else if (skyOptions.value === 'sunny') {
+    skyBg.style.backgroundImage = 'url("/assets/sunny.png")';
+  } else if (skyOptions.value === 'snowy') {
+    skyBg.style.backgroundImage = 'url("/assets/snow-op-2.png")';
+  } else if (skyOptions.value === 'cloudy') {
+    skyBg.style.backgroundImage = 'url("/assets/cloudy.png")';
+  }
+};
+
 const currentTemp = document.querySelector('#temp-num');
 currentTemp.innerText = state.temp;
 
@@ -161,6 +175,9 @@ const registerEventHandlers = () => {
 
   const submitBtn = document.querySelector('#submit');
   submitBtn.addEventListener('click', updateWeather);
+
+  const skyOptions = document.querySelector('#sky-select');
+  skyOptions.addEventListener('change', selectSky);
 };
 
 window.addEventListener('load', tempChangeUpdateUI);
