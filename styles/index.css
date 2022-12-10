@@ -2,7 +2,8 @@ body { color: wheat;
     background-color: blue;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 
-div { border: 2px solid red;}
+    /* layout debug */
+    /* div { border: 2px solid red;} */
 
 span#cityNameDisplay { color: red; }
 
@@ -22,14 +23,6 @@ div.card {background-color: white;
         padding: 1em;
         margin: 1em;}
 
-div#skydisplay {background-color: white;
-    color: black;
-    padding: 1em;
-    margin: 1em;
-
-
-}
-
 div#temperatureContainer {
     display: flex;
     flex-direction: row;
@@ -44,3 +37,18 @@ div#temperatureDisplay {
     font-size: 3em;
 }
 
+div#weatherGardenOuter {
+    text-align: center;
+}
+
+div#weatherGardenInner {
+    color: black;
+    background-color: aliceblue;
+}
+
+div#skyDisplay, div#weatherGarden {
+    color: black;
+    padding: 1em;
+    margin: 1em;
+    font-size: 1.5em;
+}
