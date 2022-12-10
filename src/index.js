@@ -1,7 +1,5 @@
 'use strict';
 
-// const axios = require('axios')
-
 const state = {
   temp: 65,
   city: "Seattle",
