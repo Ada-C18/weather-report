@@ -1,5 +1,6 @@
 'use strict';
 
+
 const state = {
   temp: 70,
 };
@@ -59,21 +60,6 @@ const getTempFromSearch = (searchString) => {
   const latLonPromise = getLatLon(searchString);
   const tempPromise = latLonPromise.then(getTemp);
   return tempPromise;
-};
-
-/* Get the temperature for value in cityName then
-update temperature state and html display. */
-const loadCityTemp = (event) => {
-  const city = document.querySelector('#cityName');
-  const searchString = city.value || 'Seattle';
-  const tempPromise = getTempFromSearch(searchString);
-  const tempCount = document.querySelector('#temperatureDisplay');
-  tempPromise.then((temp) => {
-    state.temp = temp;
-    tempCount.textContent = ` ${state.temp} ℉`;
-    changeTempColor();
-    changeLandscape();
-  });
 };
 
 const increaseTemperature = (event) => {
@@ -145,6 +131,18 @@ const changeSky = (event) => {
   }
 };
 
+const loadCityTemp = (event) => {
+  const city = document.querySelector('#cityName');
+  const searchString = city.value;
+  const tempPromise = getTempFromSearch(searchString);
+  const tempCount = document.querySelector('#temperatureDisplay');
+  tempPromise.then((temp) => {
+    state.temp = temp;
+    tempCount.textContent = ` ${state.temp} ℉`;
+    changeTempColor();
+  });
+};
+
 const registerEventHandlers = (event) => {
   const increaseTemp = document.querySelector('#increaseTemperature');
   increaseTemp.addEventListener('click', increaseTemperature);
@@ -161,12 +159,6 @@ const registerEventHandlers = (event) => {
   const defaultCity = document.querySelector('#cityReset');
   defaultCity.addEventListener('click', resetCity);
 
-  const loadTemperature = document.querySelector('#loadTemperature');
-  loadTemperature.addEventListener('click', loadCityTemp);
-  // defaultTempColor.addEventListener("click", changeTempColor);
-
-  const newLandscapeOnincrease = document.querySelector('#increaseTemperature');
-  newLandscapeOnincrease.addEventListener('click', changeLandscape);
 
   const newLandscapeOnDecreacse = document.querySelector('#reduceTemperature');
   newLandscapeOnDecreacse.addEventListener('click', changeLandscape);
@@ -174,9 +166,17 @@ const registerEventHandlers = (event) => {
   const newCity = document.querySelector('#cityName');
   newCity.addEventListener('input', inputCity);
 
-  const newSky = document.querySelector('#skySelector');
-  newSky.addEventListener('change', changeSky);
+
+  const newSky = document.querySelector("#skySelector")
+  newSky.addEventListener("change", changeSky)
+
+  const loadTemperature = document.querySelector('#loadTemperature');
+  loadTemperature.addEventListener('click', loadCityTemp);
 };
+
+document.addEventListener("DOMContentLoaded", registerEventHandlers);
+
+
 
 /* Load sky and landscape after loading. */
 const postLoadFormatting = (event) => {
