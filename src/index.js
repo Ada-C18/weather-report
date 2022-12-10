@@ -54,6 +54,9 @@ const findLatAndLong = () => {
     });
 };
 
+const currentWeather = document.getElementById('currentWeather');
+currentWeather.addEventListener(click, findLatAndLong);
+
 const findWeather = (lat, long) => {
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -66,19 +69,28 @@ const findWeather = (lat, long) => {
       const weather = response.data;
       state.temp = Math.round(weather.current.temp);
     });
+  console.log(findWeather);
 };
 
-function resetText() {
-  let City = document.getElementById('city');
-  // Get the button
-  let resetButton = document.getElementById('reset');
+const updateCity = () => {
+  const newCity = document.getElementById('newCity');
+  newCity.addEventListener('input', updateCity);
+};
 
-  // Add a click event listener to the button
-  resetButton.addEventListener('click', function resetText() {
-    // Reset the text box
-    City.reset();
-  });
-}
+const resetText = () => {
+  // let City = document.getElementById('city');
+  const newCity = document.getElementById('newCity');
+  newCity.value = 'Seattle';
+  updateCity();
+  console.log(resetText);
+  console.log(state.city);
+};
+// Get the button
+// let resetButton = document.getElementById('reset');
+// Add a click event listener to the button
+// resetButton.addEventListener('click', function resetText() {
+// Reset the text box
+// City.reset();
 
 const tempColorChange = () => {
   const tempContainer = document.getElementById('temperature');
