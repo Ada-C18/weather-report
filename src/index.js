@@ -9,7 +9,28 @@ const tempNumber = document.getElementById('temp-number');
 tempNumber.textContent = `${state.temperature} f`;
 const gardColor=document.getElementById('gardenia');
 
-//gardColor.textContent=`${state.temperature}`;
+//cit-name
+//header-city-name
+
+//const newCity=document.getElementById('cit-name')
+const headerCity=document.getElementById('header-city-name');
+
+const changeCity=()=>{
+    const newCity=document.getElementById('cit-name').value;
+    //const headerCity=document.getElementById('header-city-name');
+    state.city=newCity;
+    headerCity.textContent=`${state.city}`;
+};
+
+
+//const newnew=document.getElementById('reset-butt')
+const resetCity = () => {
+    const newnew=document.getElementById('cit-name')
+    newnew.value = 'Los Angeles';
+    changeCity();
+};
+
+
 
 const gardColorz=()=>{
     const tempz=state.temperature;
@@ -69,8 +90,19 @@ const registerEventHandlers = (event) => {
     decTheTemp.addEventListener('click', decTempNumber);
     const tempColor=document.getElementById('temp-number');
     tempColor.addEventListener('click',tempColor);
+    const changeCt=document.getElementById('cit-name');
+    changeCt.addEventListener('input',changeCity);
+    const citcit=document.getElementById('reset-butt');
+    citcit.addEventListener('click',resetCity);
+    
+    
+
+
+
+
 
 };
+
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 

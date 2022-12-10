@@ -1,5 +1,5 @@
 body {
-    background: rgb(247, 249, 250);
+    background: rgb(243, 243, 246);
 }
 
 #weather-greet {
@@ -11,17 +11,18 @@ body {
 }
 
 #header-city-name {
-    color:whitesmoke
+    color:rgb(118, 187, 255)
 }
 
 h1 {
     display: block;
     margin-right: 2rem;
-    color:whitesmoke;
+    color:rgb(0, 0, 0);
 }
 
 .headerFont {
     font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
 }
 
 .container {
@@ -49,7 +50,7 @@ h1 {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 36px;
+    font-size: 22px;
     margin: 4px 2px;
     cursor: pointer;
 
@@ -63,7 +64,7 @@ h1 {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 36px;
+    font-size: 22px;
     margin: 4px 2px;
     cursor: pointer;
     
@@ -82,11 +83,12 @@ footer
     margin-top: 125px;
 }
 .garden-change {
-    background-color: rgb(126, 172, 217);
+    background-color: rgb(10, 10, 10);
     text-align: center;
     align-self: center;
-    margin-top: 20px;
-    height: 215px;
+    margin-top: 10px;
+    margin-bottom:20px;
+    height: 180px;
 }
 .title-garden
 {
@@ -96,7 +98,20 @@ footer
     text-align: center;
     
 }
-
+#cute-garden
+{
+    font-size:x-large ;
+    
+}
+#temp-number
+{
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+#span{
+    font-size: large;
+}
 /*span{
     color: rgb(6, 6, 6);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
