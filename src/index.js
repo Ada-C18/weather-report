@@ -98,8 +98,9 @@ const findLatandLon = (query) => {
 
 findLatandLon("Seattle")
 
-
-
+// const findTemperature = (latitude,longitude) =>{
+//     let Fahrenheit = 1.8*(k-273) + 32
+// }
 
 
 //make weather nested inside location
