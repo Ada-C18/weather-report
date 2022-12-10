@@ -13,8 +13,8 @@
       <header><i class='bx bx-left-arrow-alt'></i>Today's Weather Report</header>
       <section class="input-part">
         <p class="info-txt"></p>
-        <div class="content">
-          <input type="text" spellcheck="false" placeholder="Enter city name" required>
+        <div>
+          <input id="city-content" type="text" spellcheck="false" placeholder="Enter city name" required>
           <button>Enter</button>
         </div>
       </section>
@@ -22,26 +22,23 @@
         <img src="icons/clear.svg" alt="Weather Icon">
         <div class="temp">
             <div class="temperature_controls">
-                <span id="increaseTempControl">🔼</span>
-                <span id="decreaseTempControl">🔽</span>
+                <span id="increase-temp-control">🔼</span>
+                <span id="decrease-temp-control">🔽</span>
             </div>
           <span id="tempValue"></span>
-          <span id="tempdeg" class="orange"></span>
-        </div>
+            </div>
         <div class="weather">Cloudy</div>
         <div class="location">
           <i class='bx bx-map'></i>
-          <span id="location_input">Atlanta, GA</span>
+          <span id="location-city"></span>
         </div>
         <div class="bottom-details">
           <div class="column feels">
-            <i class='bx bxs-thermometer'></i>
+            <i id="weather-garden"></i>
             <div class="details">
               <div class="temp">
-                <span class="numb-2">45</span>
-                <span class="deg">°</span>F
               </div>
-              <p>Feels like</p>
+              <p>Weather Garden</p>
             </div>
           </div>
           <div class="column humidity">
