@@ -7,13 +7,13 @@ const increaseTemp = () => {
   state.currentTemp += 1;
   const tempContainer = document.querySelector('#currentTemp');
   tempContainer.textContent = `${state.currentTemp}`;
-  skyChanger()
+  skyChanger();
 };
 const decreaseTemp = () => {
   state.currentTemp -= 1;
   const tempContainer = document.querySelector('#currentTemp');
   tempContainer.textContent = `${state.currentTemp}`;
-  skyChanger()
+  skyChanger();
 };
 const changeTempColor = () => {
   const landscapeContainer = document.querySelector('#landscapeSection');
@@ -41,35 +41,51 @@ const changeTempColor = () => {
 };
 
 const skyChanger = () => {
-  const skyContainer = document.getElementById("skyLandscape");
-  
+  const skyContainer = document.getElementById('skyLandscape');
+
   if (document.getElementById('skyOption').value === 'sun') {
-      document.querySelector('.mainSky')
-      skyContainer.textContent = "🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤";
+    document.querySelector('.mainSky');
+    skyContainer.textContent = '🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤';
   }
   if (document.getElementById('skyOption').value === 'overcast') {
-      document.querySelector('.mainSky')
-      skyContainer.textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+    document.querySelector('.mainSky');
+    skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   }
   if (document.getElementById('skyOption').value === 'rain') {
-      document.querySelector('.mainSky')
-      skyContainer.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+    document.querySelector('.mainSky');
+    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   }
   if (document.getElementById('skyOption').value === 'snow') {
-      document.querySelector('.mainSky')
-      skyContainer.textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+    document.querySelector('.mainSky');
+    skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
-}
+};
 
+const getRealTimeTemp = () => {
+  //   // input: cityName -> locationQ -> lat, lon
+  //   // -> open weatherApp -> realTemp for the city (in lat, lon)
+  //   // change the element of html page: currentTemp
+  // const axios = require('axios');
 
-// const getRealTimeTemp = () => {
-//   // input: cityName -> locationQ -> lat, lon
-//   // -> open weatherApp -> realTemp for the city (in lat, lon)
-//   // change the element of html page: currentTemp
-// };
-
+  axios
+    .get('https://us1.locationiq.com/v1/search.php', {
+      params: {
+        key: process.env['LOCATION_KEY'], // discussed below
+        q: 'Seattle',
+        format: 'json',
+      },
+    })
+    .then((response) => {
+      console.log('success!', response.data);
+    })
+    .catch((error) => {
+      console.log('error!', error.response.data);
+    });
+};
 
 const registerEventHandlers = () => {
+  const realTimeTemp = document.querySelector('#realTimeTemp');
+  realTimeTemp.addEventListener('click', getRealTimeTemp);
   const up = document.querySelector('#up');
   const down = document.querySelector('#down');
   up.addEventListener('click', increaseTemp);
@@ -78,12 +94,11 @@ const registerEventHandlers = () => {
   down.addEventListener('click', changeTempColor);
   const input = document.querySelector('#cityName');
   input.addEventListener('keyup', updateValue);
-  const cityContainer = document.querySelector("#resetbutton");
-  cityContainer.addEventListener("click", resetCity);
-  cityContainer.addEventListener('click',updateValue); // resetting input
+  const cityContainer = document.querySelector('#resetbutton');
+  cityContainer.addEventListener('click', resetCity);
+  cityContainer.addEventListener('click', updateValue); // resetting input
   const skyHelper = document.getElementById('skyOption');
   skyHelper.addEventListener('change', skyChanger);
-  
 };
 
 function updateValue(e) {
@@ -95,6 +110,5 @@ const resetCity = () => {
   const cityContainer = document.getElementById('cityName');
   cityContainer.value = '';
 };
-
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
