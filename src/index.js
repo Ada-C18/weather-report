@@ -1,6 +1,6 @@
 'use strict';
 
-const { default: axios } = require('axios');
+// const { default: axios } = require('axios');
 
 console.log('testing');
 
@@ -120,23 +120,29 @@ const getLatAndLon = () => {
 };
 // add in lat and lon in the parameters below?
 
-const getWeather = () => {
-
+const getWeather = (latitude, longitude) => {
   axios
-    .get('http://localhost:5000/weather', {
+    .get('http://127.0.0.1:5000/weather', {
+      // .get('http://localhost:5000/weather', {
       params: {
-      lat: state.lat,
-      lon: state.lon,
+        lat: latitude,
+        lon: longitude,
+        units: 'imperial',
       },
     })
 
     .then((response) => {
-      const temperature = Math.round((9 / 5)) + 32);
-      // currentLocation.temp = temp.textContent;
+      const temp = response.data.main.temp;
+      console.log(response.data.main.temp);
+      document.getElementById('getTemp').innerhtml = temp;
+      // state.temp = Math.round(weather.current.temp - 273.15);
+      // temp is in kelvin- convert to celsius
+      // Math.round((9 / 5)) + 32); convert celsius to farenheit
+      // changeColorAndGarden();
     })
 
     .catch((error) => {
-      console.log('Error in Weather');
+      console.log('Error calling OpenWeather');
     });
 };
 
