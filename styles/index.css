@@ -97,7 +97,6 @@ button {
     text-align: center;
 
     margin-bottom: 10%;
-    /* background-color: rgb(211, 49, 179); */
 }
 
 label {
@@ -109,12 +108,8 @@ select {
     align-self: flex-start;
     margin-left: 16%;
 }
-#landscapePicture {
-    /* background-color: rgb(216, 98, 24); */
-}
 
 .container-style {
-    /* border: 3px solid purple; */
     padding: 0 20px;
     margin-bottom: 50px;
     border-top-right-radius: 100%;
