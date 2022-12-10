@@ -2,10 +2,52 @@ body {
     background-color: #00BFFF;
 }
 
+#Weather-Report {
+    text-decoration: unset;
+    text-align: left;
+    color: rgb(242, 239, 245);
+    /* font-size: x-large; */
+}
+
+#For-the-lovely-city-of {
+    text-decoration: unset;
+    text-align: left;
+    color: rgb(242, 239, 245);
+    /* font-size: x-large; */
+}
+
+#City-Name-Top {
+    text-decoration: unset;
+    text-align: left;
+    color: rgb(242, 239, 245);
+    /* font-size: x-large; */
+}
+
 #Weather-Garden {
     border-radius: 37px;
     background: #D2E0DB;
     box-shadow:  35px 35px 0px #939D99,
+             /* -35px -35px 0px #FFFFFF; */
+}
+
+#Temperature {
+    border-radius: 37px;
+    background: #ffffff;
+    box-shadow:  35px 35px 0px #ffffff,
+             /* -35px -35px 0px #FFFFFF; */
+}
+
+#Sky {
+    border-radius: 37px;
+    background: #ffffff;
+    box-shadow:  35px 35px 0px #ffffff,
+             /* -35px -35px 0px #FFFFFF; */
+}
+
+#City-Name {
+    border-radius: 37px;
+    background: #ffffff;
+    box-shadow:  35px 35px 0px #ffffff,
              /* -35px -35px 0px #FFFFFF; */
 }
 
