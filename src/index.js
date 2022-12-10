@@ -72,13 +72,13 @@ const tempColorChange = () => {
     document.body.style.backgroundColor = 'blue';
     document.body.style.color = 'white';
     document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨')
-} else if (tempContainer > 32 && temperature <= 50) {
+} else if (tempContainer > 32 && tempContainer <= 50) {
     document.body.style.backgroundColor = 'green';
     document.body.style.color = 'white';
-} else if (tempContainer > 50 && temperature <= 68) {
+} else if (tempContainer > 50 && tempContainer  <= 68) {
     document.body.style.backgroundColor = 'yellow';
     document.body.style.color = 'black';
-} else if (tempContainer > 68 && temperature <= 86) {
+} else if (tempContainer > 68 && tempContainer  <= 86) {
     document.body.style.backgroundColor = 'orange';
     document.body.style.color = 'black';
 } else {
