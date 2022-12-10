@@ -1,6 +1,6 @@
 
 
-const state = { temp: 42, city: cityInput, lat : 0, lon : 0};
+const state = { temp: 0, city: cityInput, lat : 0, lon : 0};
 
 const increaseTemp = () => {
   const tempDisplay = document.getElementById('temp');
@@ -64,20 +64,30 @@ const changeCity = () => {
   let cityInput = userInput.value;
   state.city = cityInput;
   currentCity.textContent = state.city;
-  getLonAndLat(state.city)
+  getLonAndLat(state.city);
+  document.getElementById('cityInput').value = ' ';
 };
+
+const resetCity = () => {
+  state.city = "Seattle"
+  getLonAndLat(state.city);
+  const currentCity = document.getElementById('city');
+  currentCity.textContent = state.city;
+}
 
 const upButton = document.getElementById('up');
 const downButton = document.getElementById('down');
 const centerButton = document.getElementById('current');
 const cityButton = document.getElementById('change_city');
 const skySelect = document.getElementById('sky_select');
+const resetButton = document.getElementById('resetCity')
 
 const registerEventHandlers = () => {
   upButton.addEventListener('click', increaseTemp);
   downButton.addEventListener('click', decreaseTemp);
   centerButton.addEventListener('click', currentTemp);
   cityButton.addEventListener('click', changeCity);
+  resetButton.addEventListener('click', resetCity);
   skySelect.addEventListener('change', changeSkyViewer);
 };
 
@@ -98,7 +108,6 @@ const getLonAndLat = (query) => {
     state.lon = longitude;
   })
   .then( () => {
-    console.log(lattitude, longitude)
     getTemp();
   })
   .catch( (error) => {

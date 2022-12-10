@@ -11,12 +11,15 @@
     <div class = "container">
         <header>
             <h1 id = "city">
-                City name here
+                Seattle
             </h1>
             <div id = "city_bar">
-                <input id = "cityInput" type = "text" placeholder="citycitycity">
+                <input id = "cityInput" type = "text" placeholder=" ">
                 <button id = "change_city">
-                    button press here 
+                    Change City
+                </button>
+                <button onClick="document.getElementById('cityInput').value = ' '" id = "resetCity">
+                    Reset city
                 </button>
             </div>
         </header>
@@ -38,7 +41,10 @@
     <div class = "menu">
         <section class = "white" id = "temp_display">
             <div id = "temp">
-                - -° F            
+                - -            
+            </div>
+            <div id = "unit">
+                ° F 
             </div>
         </section>
 
