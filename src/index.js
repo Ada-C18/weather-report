@@ -1,6 +1,6 @@
 'use strict';
 
-const { default: axios } = require("axios");
+// const { default: axios } = 'axios';
 
 // State, city, temp, sky
 
@@ -11,47 +11,62 @@ const state = {
   city: 'Seattle',
   lat: 47.6038321,
   long: -122.3300624,
-  temp: 48
+  temp: 48,
 };
-
 
 // increase temp
 const increaseTemp = () => {
-  state.temp ++;
+  state.temp++;
+  console.log(increaseTemp);
+  console.log(state.temp);
 };
 
 const decreaseTemp = () => {
-  state.temp --;
-}
+  state.temp--;
+};
+
+const upButton = document.getElementById('up');
+const downButton = document.getElementById('down');
+let display = document.getElementById('tempNum');
+
+upButton.addEventListener('click', function increaseTemp() {
+  state.temp++;
+  display.textContent = state.temp;
+});
+downButton.addEventListener('click', function () {
+  state.temp--;
+  display.textContent = state.temp;
+});
 
 const findLatAndLong = () => {
-axios
-  .get("http://127.0.0.1:5000/weather",
-  params= {
-    "q": state.city, 
-  })
-  .then((response) => {
-    console.log(response.data);
-    state.lat = response.data[0].lat;
-    state.long = response.data[0].lon;
-    getWeather();
-  })
+  axios
+    .get(
+      'http://127.0.0.1:5000/weather',
+      (params = {
+        q: state.city,
+      })
+    )
+    .then((response) => {
+      console.log(response.data);
+      state.lat = response.data[0].lat;
+      state.long = response.data[0].lon;
+      getWeather();
+    });
 };
 
 const findWeather = (lat, long) => {
   axios
-    .get("http://127.0.0.1:5000/location",{ 
-    params: {
-      lat: state.lat,
-      lon: state.long
-    },
-  })
-  .then((response) => {
-    const weather = response.data;
-    state.temp = Math.round((weather.current.temp));
-  })
-  };
-
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        lat: state.lat,
+        lon: state.long,
+      },
+    })
+    .then((response) => {
+      const weather = response.data;
+      state.temp = Math.round(weather.current.temp);
+    });
+};
 
 function resetText() {
   let City = document.getElementById('city');
@@ -59,36 +74,33 @@ function resetText() {
   let resetButton = document.getElementById('reset');
 
   // Add a click event listener to the button
-  resetButton.addEventListener('click', function()); {
-      // Reset the text box
-      City.reset();
-}};
-
+  resetButton.addEventListener('click', function resetText() {
+    // Reset the text box
+    City.reset();
+  });
+}
 
 const tempColorChange = () => {
   const tempContainer = document.getElementById('temperature');
-  
+
   if (tempContainer <= 32) {
     document.body.style.backgroundColor = 'blue';
     document.body.style.color = 'white';
-    document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨')
-} else if (tempContainer > 32 && tempContainer <= 50) {
+    document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨');
+  } else if (tempContainer > 32 && tempContainer <= 50) {
     document.body.style.backgroundColor = 'green';
     document.body.style.color = 'white';
-} else if (tempContainer > 50 && tempContainer  <= 68) {
+  } else if (tempContainer > 50 && tempContainer <= 68) {
     document.body.style.backgroundColor = 'yellow';
     document.body.style.color = 'black';
-} else if (tempContainer > 68 && tempContainer  <= 86) {
+  } else if (tempContainer > 68 && tempContainer <= 86) {
     document.body.style.backgroundColor = 'orange';
     document.body.style.color = 'black';
-} else {
+  } else {
     document.body.style.backgroundColor = 'red';
     document.body.style.color = 'white';
   }
-}
-
-
-
+};
 
 const updateSky = () => {
   const inputSky = document.getElementById('skyOptions').value;
@@ -111,9 +123,7 @@ const updateSky = () => {
     sky = '';
     skyColor = 'wind';
   }
-}
-
-
+};
 
 // Increase/Decrease temperature
 // const increaseTemp = () => {
@@ -123,21 +133,15 @@ const updateSky = () => {
 //   const downButton = document.getElementById('down');
 //   let display = document.getElementById('tempNum');
 
-//   upButton.addEventListener('click', function () {
-//     count++;
-//     display.textContent = count;
-//   });
-//   downButton.addEventListener('click', function () {
-//     count--;
-//     display.textContent = count;
-//   });
-//   // increaseTemp.addEventListener("click", incrementCount);
-// };
-
-
-
-
-
+// upButton.addEventListener('click', increaseTemp () {
+//   state.temp++;
+//   display.textContent = state.temp;
+// });
+// downButton.addEventListener('click', function () {
+//   state.temp--;
+//   display.textContent = state.temp;
+// });
+// increaseTemp.addEventListener("click", incrementCount);
 
 // const decreaseTemp = () => {
 //   i--;
