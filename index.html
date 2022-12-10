@@ -1,57 +1,62 @@
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles/index.css">
-<title>Weather Report</title>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Weather Report</title>
 </head>
 <body>
-<header><h1>Weather Report</h1>
-    <h2>For the lively city of <span id="cityNameDisplay">Seattle</span></h2>
-
-</header>
-
-<main id="mainBody">
-    <div id="leftColumn">
-        <div class="card" >
-            <h3>Temperature</h3>
-            <div id="temperatureContainer">
-                <div id="temperatureControlContainer">
-                    <button id="increaseTemperature">⬆️</button>
-                    <button id="loadTemperature">🔃</button>
-                    <button id="reduceTemperature">⬇️</button>
-                </div>
-                <div id="temperatureDisplay">
-                    70 ℉
+    <header><h1>Weather Report</h1>
+        <h2>For the lively city of <span id="cityNameDisplay">Seattle</span></h2>
+        
+    </header>
+    
+    <main id="mainBody">
+        <div id="leftColumn">
+            <div class="card" >
+                <h3>Temperature</h3>
+                <div id="temperatureContainer">
+                    <div id="temperatureControlContainer">
+                        <button id="increaseTemperature">⬆️</button>
+                        <button id="loadTemperature">🔃</button>
+                        <button id="reduceTemperature">⬇️</button>
+                    </div>
+                    <div id="temperatureDisplay">
+                        70 ℉
+                    </div>
                 </div>
             </div>
+            <div class="card" id="skyContainer">
+                <h3>Sky</h3>
+                <select id="skySelector" name="sky">
+                    <option value="cloudy">Cloudy</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="raining">Raining</option>
+                    <option value="snowing">Snowing</option>
+                </select>
+            </div>
+            <div class="card" id="cityContainer">
+                <h3>City</h3>
+                <input type="text" id="cityName" placeholder="Seattle" value="Seattle">
+                <button id="cityReset">reset</button>
+            </div>
+            
         </div>
-        <div class="card" id="skyContainer">
-            <h3>Sky</h3>
-            <select id="skySelector" name="sky">
-                <option value="cloudy">Cloudy</option>
-                <option value="sunny">Sunny</option>
-                <option value="raining">Raining</option>
-                <option value="snowing">Snowing</option>
-            </select>
+        <div id="rightColumn">
+            <div id="weatherGardenOuter">
+                <h2>Weather Garden</h2>
+                <div id="weatherGardenInner">
+                    <div id ="skyDisplay">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+                    <div id="weatherGarden">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+                </div>
+            </div>
+            
         </div>
-        <div class="card" id="cityContainer">
-            <h3>City</h3>
-            <input type="text" id="cityName">
-            <button id="cityReset">reset</button>
-        </div>
-
-    </div>
-    <div id="rightColumn">
-        <div id="weatherGardenOuter">
-            <h2>Weather Garden</h2>
-            <div id ="skyDisplay"></div>
-            <div id="weatherGarden" class="card"></div>
-        </div>
-
-    </div>
-</main>
-<script src="src/index.js"></script>
-<script src="./node_modules/axios/dist/axios.min.js"></script>
+    </main>
+    
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>

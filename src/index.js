@@ -1,4 +1,5 @@
-"use strict";
+'use strict';
+
 
 const state = {
   temp: 70,
@@ -61,75 +62,73 @@ const getTempFromSearch = (searchString) => {
   return tempPromise;
 };
 
-
-
 const increaseTemperature = (event) => {
   state.temp += 1;
-  const tempCount = document.querySelector("#temperatureDisplay")
+  const tempCount = document.querySelector('#temperatureDisplay');
   tempCount.textContent = ` ${state.temp} ℉`;
-
 };
 
 const decreaseTemperature = (event) => {
-  state.temp -= 1
-  
-  const tempCount = document.querySelector("#temperatureDisplay")
+  state.temp -= 1;
+
+  const tempCount = document.querySelector('#temperatureDisplay');
   tempCount.textContent = ` ${state.temp} ℉`;
-
-
 };
 const changeTempColor = () => {
-  
   if (state.temp <= 49) {
-    document.querySelector("#temperatureDisplay").style.color = "blue";
-  } else if ( state.temp > 49 && state.temp <= 59){
-    document.querySelector("#temperatureDisplay").style.color = "green"
-  }else if ( state.temp > 59 && state.temp <= 69){
-    document.querySelector("#temperatureDisplay").style.color = "gold"
-  }else if ( state.temp > 69 && state.temp <= 79){
-    document.querySelector("#temperatureDisplay").style.color = "orange"
-  } else if ( state.temp > 79){
-    document.querySelector("#temperatureDisplay").style.color = "red"
+    document.querySelector('#temperatureDisplay').style.color = 'blue';
+  } else if (state.temp > 49 && state.temp <= 59) {
+    document.querySelector('#temperatureDisplay').style.color = 'green';
+  } else if (state.temp > 59 && state.temp <= 69) {
+    document.querySelector('#temperatureDisplay').style.color = 'gold';
+  } else if (state.temp > 69 && state.temp <= 79) {
+    document.querySelector('#temperatureDisplay').style.color = 'orange';
+  } else if (state.temp > 79) {
+    document.querySelector('#temperatureDisplay').style.color = 'red';
   }
-}
+};
 
 const resetCity = (event) => {
-  const resetTheCity = document.querySelector("#cityNameDisplay");
+  const resetTheCity = document.querySelector('#cityNameDisplay');
   resetTheCity.textContent = 'Seattle';
-  const city = document.querySelector("#cityName");
-  city.value = "";
+  const city = document.querySelector('#cityName');
+  city.value = '';
 };
 
 const changeLandscape = (event) => {
   if (state.temp <= 59) {
-    document.querySelector("#weatherGarden").textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
-  } else if ( state.temp > 59 && state.temp <= 69){
-    document.querySelector("#weatherGarden").textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
-  }else if ( state.temp > 69 && state.temp <= 79){
-    document.querySelector("#weatherGarden").textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
-  }else if ( state.temp > 79){
-    document.querySelector("#weatherGarden").textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
-  };
-}
+    document.querySelector('#weatherGarden').textContent =
+      '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (state.temp > 59 && state.temp <= 69) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (state.temp > 69 && state.temp <= 79) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (state.temp > 79) {
+    document.querySelector('#weatherGarden').textContent =
+      '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  }
+};
 const inputCity = (event) => {
-  const city = document.querySelector("#cityName");
-  const displayName = document.querySelector("#cityNameDisplay");
+  const city = document.querySelector('#cityName');
+  const displayName = document.querySelector('#cityNameDisplay');
   displayName.textContent = city.value;
 };
 
 const changeSky = (event) => {
-  const skySelector = document.querySelector("#skySelector")
-  const sky = document.querySelector("#skyDisplay")
-  if (skySelector.value === "cloudy"){
-    document.querySelector("#skyDisplay").textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-  } else if (skySelector.value === "raining"){
-    document.querySelector("#skyDisplay").textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
-  } else if (skySelector.value === "snowing"){
-    document.querySelector("#skyDisplay").textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
-  } else if (skySelector.value === "sunny"){
-      document.querySelector("#skyDisplay").textContent = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
-    }
-  
+  const skySelector = document.querySelector('#skySelector');
+  const sky = document.querySelector('#skyDisplay');
+  if (skySelector.value === 'cloudy') {
+    document.querySelector('#skyDisplay').textContent =
+      '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skySelector.value === 'raining') {
+    document.querySelector('#skyDisplay').textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skySelector.value === 'snowing') {
+    document.querySelector('#skyDisplay').textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  } else if (skySelector.value === 'sunny') {
+    document.querySelector('#skyDisplay').textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  }
 };
 
 const loadCityTemp = (event) => {
@@ -145,29 +144,28 @@ const loadCityTemp = (event) => {
 };
 
 const registerEventHandlers = (event) => {
-  const increaseTemp = document.querySelector("#increaseTemperature");
-  increaseTemp.addEventListener("click", increaseTemperature);
+  const increaseTemp = document.querySelector('#increaseTemperature');
+  increaseTemp.addEventListener('click', increaseTemperature);
 
-  const decreaseTemp = document.querySelector("#reduceTemperature");
-  decreaseTemp.addEventListener("click", decreaseTemperature);
+  const decreaseTemp = document.querySelector('#reduceTemperature');
+  decreaseTemp.addEventListener('click', decreaseTemperature);
 
-  const changeColorOnHotter = document.querySelector("#increaseTemperature");
-  changeColorOnHotter.addEventListener("click", changeTempColor);
+  const changeColorOnHotter = document.querySelector('#increaseTemperature');
+  changeColorOnHotter.addEventListener('click', changeTempColor);
 
-  const changeColorOnColder = document.querySelector("#reduceTemperature");
-  changeColorOnColder.addEventListener("click", changeTempColor);
+  const changeColorOnColder = document.querySelector('#reduceTemperature');
+  changeColorOnColder.addEventListener('click', changeTempColor);
 
-  const defaultCity = document.querySelector("#cityReset");
-  defaultCity.addEventListener("click", resetCity);
+  const defaultCity = document.querySelector('#cityReset');
+  defaultCity.addEventListener('click', resetCity);
 
-  const newLandscapeOnincrease = document.querySelector("#increaseTemperature");
-  newLandscapeOnincrease.addEventListener("click", changeLandscape)
 
-  const newLandscapeOnDecreacse = document.querySelector("#reduceTemperature");
-  newLandscapeOnDecreacse.addEventListener("click", changeLandscape)
+  const newLandscapeOnDecreacse = document.querySelector('#reduceTemperature');
+  newLandscapeOnDecreacse.addEventListener('click', changeLandscape);
 
-  const newCity = document.querySelector("#cityName");
-  newCity.addEventListener("input", inputCity )
+  const newCity = document.querySelector('#cityName');
+  newCity.addEventListener('input', inputCity);
+
 
   const newSky = document.querySelector("#skySelector")
   newSky.addEventListener("change", changeSky)
@@ -180,15 +178,12 @@ document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
 
 
-const params = {
-  q:"Seattle"
+/* Load sky and landscape after loading. */
+const postLoadFormatting = (event) => {
+  changeSky(event);
+  changeLandscape(event);
+  changeTempColor();
+};
 
-}
-axios
-    .get('https://us1.locationiq.com/v1/search',params)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.log(error)
-    });
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
+document.addEventListener('DOMContentLoaded', postLoadFormatting);
