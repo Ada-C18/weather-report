@@ -1,8 +1,4 @@
-import axios from 'axios';
-import 'regenerator-runtime/runtime';
-
-const axios = require('axios');
-export const state = {
+const state = {
   city: 'Seattle',
   lat: 47.6038321,
   long: -122.3300624,
@@ -22,7 +18,7 @@ const resetCityName = () => {
   updateCityName();
 };
 
-export const formatTempAndGarden = () => {
+const formatTempAndGarden = () => {
   let temp = state.temp;
   let color = 'red';
   let landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
@@ -50,17 +46,17 @@ export const formatTempAndGarden = () => {
   temperature.textContent = String(state.temp);
 };
 
-export const increaseTemp = () => {
+const increaseTemp = () => {
   state.temp += 1;
   formatTempAndGarden();
 };
 
-export const decreaseTemp = () => {
+const decreaseTemp = () => {
   state.temp -= 1;
   formatTempAndGarden();
 };
 
-export const registerEventHandlers = () => {
+const registerEventHandlers = () => {
   formatTempAndGarden();
 
   const increaseTempControl = document.getElementById('increaseTempControl');
