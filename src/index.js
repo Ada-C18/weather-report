@@ -82,7 +82,7 @@ document.getElementById("intro").innerHTML = "☁️";
 //     console.log(newPokemon);
 //   }
 //   *****************
-const kelvinToFarenhei(temperature) => 1.8*(temperature-273) + 32;
+const kelvinToFarenhei = (temperature) => {1.8*(temperature-273) + 32};
 
 const API = "http://127.0.0.1:5000/"
 
