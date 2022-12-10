@@ -1,3 +1,31 @@
+
+header {
+    color:ghostwhite;
+    grid-column: span 3;
+    display: flex;
+    align-items: center;
+    margin: 2rem auto 3rem 0;
+    font-size: 35px;
+}
+
+h2 {
+    margin: 0 auto 2 rem auto; 
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr, 2fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+
+    font-family: 'Lucida Sans';
+    font-size: 20px; 
+    background-color: #64bdfd;
+}
+
+
+
+
 .green {
     color:green;
 }
