@@ -34,9 +34,14 @@ h2 {
     text-align: center;
 
 }
+footer {
+    text-align: center;
+    font-size: 1.2rem;
+    
+}
 #title{
     font-family: cursive;
-    font-size: 2.5rem ;
+    font-size: 3rem ;
 }
 
 #umbrella, #rainbow{
@@ -137,6 +142,9 @@ header,span {
 }
 .number-color-teal {
     color: teal;
+}
+.fa-solid {
+    padding-right: 10px;
 }
 
 
