@@ -72,6 +72,7 @@ const loadCityTemp = (event) => {
     state.temp = temp;
     tempCount.textContent = ` ${state.temp} ℉`;
     changeTempColor();
+    changeLandscape();
   });
 };
 
@@ -177,54 +178,12 @@ const registerEventHandlers = (event) => {
   newSky.addEventListener('change', changeSky);
 };
 
+/* Load sky and landscape after loading. */
+const postLoadFormatting = (event) => {
+  changeSky(event);
+  changeLandscape(event);
+  changeTempColor();
+};
+
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-// "use strict";
-
-// const state = {
-//   temp: 0,
-// };
-
-// const increaseTemperature = (event) => {
-//   state.temp += 1;
-//   const tempCount = document.querySelector("#tempCount")
-//   tempCount.textContent = ` ${state.temp} Degrees`;
-
-// };
-
-// const decreaseTemperature = (event) => {
-//   state.temp -= 1
-
-//   const tempCount = document.querySelector("#tempCount")
-//   tempCount.textContent = ` ${state.temp} Degrees`;
-
-// };
-// const changeTempColor = () => {
-
-//   if (state.temp <= 49) {
-//     document.querySelector("#tempCount").style.color = "purple";
-//   } else if ( state.temp > 49 && state.temp <= 59){
-//     document.querySelector("#tempCount").style.color = "green"
-//   }else if ( state.temp > 59 && state.temp <= 69){
-//     document.querySelector("#tempCount").style.color = "yellow"
-//   }else if ( state.temp > 69 && state.temp <= 79){
-//     document.querySelector("#tempCount").style.color = "orange"
-//   } else if ( state.temp > 79){
-//     document.querySelector("#tempCount").style.color = "red"
-//   }
-// }
-// const registerEventHandlers = (event) => {
-//   const increaseTemp = document.querySelector("#hotter");
-//   increaseTemp.addEventListener("click", increaseTemperature);
-
-//   const decreaseTemp = document.querySelector("#colder");
-//   decreaseTemp.addEventListener("click", decreaseTemperature);
-
-//   const changeColorOnHotter = document.querySelector("#hotter");
-//   changeColorOnHotter.addEventListener("click", changeTempColor);
-
-//   const changeColorOnColder = document.querySelector("#colder");
-//   changeColorOnColder.addEventListener("click", changeTempColor);
-// };
-
-// document.addEventListener("DOMContentLoaded", registerEventHandlers);
+document.addEventListener('DOMContentLoaded', postLoadFormatting);
