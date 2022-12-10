@@ -75,10 +75,24 @@ const getRealtimeTemperature = (e) => {
     })
     .then((response) => {
       console.log(response);
-    })
-    .catch(() => {
-      console.log('error!');
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: {
+            lat: response.data.lat,
+            lon: response.data.lon,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        });
+      // .catch(() => {
+      //   console.log('error!');
+      // });
     });
+  // });
+  // .catch(() => {
+  //   console.log('error!');
+  // });
 };
 
 const registerEventHandlers = () => {
