@@ -10,76 +10,30 @@ const state = {
 };
 
 
-const findLocLatAndLon = () => {
-  axios.get("http://127.0.0.1:5000/location", {
-    params: {
-      q: state.city
-    }
-  })
-  .then((response) => {
-    state.lat = response.data[0].lat;
-    state.long = response.data[0].lon;
-    retrieveWeather();
-  })
-  .catch((error) => {
-    console.log("Error: Cannot retrieve latitude and longitude");
-    console.log(error);
-  });
+const increaseTemp = () => {
+  state.temp++;
+  changeTempColorAndGardenLandscape();
 };
 
 
-const retrieveWeather = () => {
-  axios.get("http://127.0.0.1:5000/weather", {
-    params: {
-      lat: state.lat,
-      lon: state.long
-    }
-  })
-  .then((response) => {
-    const currentWeather = response.data;
-    console.log(currentWeather);
-    state.temp = Math.floor(tempUnitConvert(currentWeather.main.temp));
-    changeTempColorAndGardenLandscape();
-  })
-  .catch((error) => {
-    console.log("Error: Cannot retrieve weather");
-    console.log(error);
-  })
-};
-
-const tempUnitConvert = (temp) => {
-  return (temp - 273.15) * (9 / 5) + 32; 
+const decreaseTemp = () => {
+  state.temp--;
+  changeTempColorAndGardenLandscape();
 }
 
 
-const changeTempColorAndGardenLandscape = () => {
-  let temp = state.temp;
-  let tempColor = "";
-  let landscape = "";
-  if (temp > 80) {
-    tempColor = "red-text";
-    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (temp > 70) {
-    tempColor = "orange-text";
-    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (temp > 60) {
-    tempColor = "yellow-text";
-    landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
-  } else if (temp > 50) {
-    tempColor = "green-text";
-    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
-  } else {
-    tempColor = "teal-text";
-    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
-  }
+const changeTopCityName = () => {
+  const inputCityName = document.getElementById("name").value;
+  const topCityName = document.getElementById("city_name");
+  state.city = inputCityName;
+  topCityName.textContent = state.city;
+};
 
 
-  const currentTemp = document.getElementById('temp_value');
-  currentTemp.textContent = state.temp
-  currentTemp.className = tempColor;
-
-  const currentLandscape = document.getElementById('landscape');
-  currentLandscape.textContent = landscape;
+const resetCityInput = () => {
+  const cityNameInput = document.getElementById("name");
+  cityNameInput.value = "Seattle";
+  changeTopCityName();
 };
 
 
@@ -108,31 +62,46 @@ const changeSkyImage = () => {
 }
 
 
-const increaseTemp = () => {
-  state.temp++;
-  changeTempColorAndGardenLandscape();
+const findLocLatAndLon = () => {
+  axios.get("http://127.0.0.1:5000/location", {
+    params: {
+      q: state.city
+    }
+  })
+  .then((response) => {
+    state.lat = response.data[0].lat;
+    state.long = response.data[0].lon;
+    retrieveWeather();
+  })
+  .catch((error) => {
+    console.log("Error: Cannot retrieve latitude and longitude");
+    console.log(error);
+  });
 };
 
+const retrieveWeather = () => {
+  axios.get("http://127.0.0.1:5000/weather", {
+    params: {
+      lat: state.lat,
+      lon: state.long
+    }
+  })
+  .then((response) => {
+    const currentWeather = response.data;
+    console.log(currentWeather);
+    state.temp = Math.floor(tempUnitConvert(currentWeather.main.temp));
+    changeTempColorAndGardenLandscape();
+  })
+  .catch((error) => {
+    console.log("Error: Cannot retrieve weather");
+    console.log(error);
+  })
+};
 
-const decreaseTemp = () => {
-  state.temp--;
-  changeTempColorAndGardenLandscape();
+const tempUnitConvert = (temp) => {
+  return (temp - 273.15) * (9 / 5) + 32; 
 }
 
-
-const changeTopCityName = () => {
-  const inputCityName = document.getElementById("name").value;
-  const topCityName = document.getElementById("city_name");
-  state.city = inputCityName;
-  topCityName.textContent = state.city;
-};
-
-
-const resetCityInput = () => {
-  const cityNameInput = document.getElementById("name");
-  cityNameInput.value = "Seattle";
-  changeTopCityName();
-};
 
 
 const registerEventHandlers = (event) => {
@@ -157,5 +126,35 @@ const registerEventHandlers = (event) => {
   const changeSkyDisplay = document.getElementById('select_sky');
   changeSkyDisplay.addEventListener('change', changeSkyImage)
 }
+
+
+const changeTempColorAndGardenLandscape = () => {
+  let temp = state.temp;
+  let tempColor = "";
+  let landscape = "";
+  if (temp > 80) {
+    tempColor = "red-text";
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temp > 70) {
+    tempColor = "orange-text";
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temp > 60) {
+    tempColor = "yellow-text";
+    landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+  } else if (temp > 50) {
+    tempColor = "green-text";
+    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  } else {
+    tempColor = "teal-text";
+    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  }
+
+  const currentTemp = document.getElementById('temp_value');
+  currentTemp.textContent = state.temp
+  currentTemp.className = tempColor;
+
+  const currentLandscape = document.getElementById('landscape');
+  currentLandscape.textContent = landscape;
+};
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
