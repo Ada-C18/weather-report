@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Unbounded|Quicksand">
+
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <h1>Weather Report</h1>
+    <section id="content">
+        <h2 id="city-name">City Name</h2>
+        <div id="temp-selector">
+            <button type="button" id="temp-up-btn">↑</button>
+            <p id="temp-display">70°F</p>
+            <button type="button" id="temp-down-btn">↓</button>
+        </div>
+        <div id="city-selector">
+            <input type="text" placeholder='Enter a city name' id="input-city">
+            <button type="button" id="get-temp-btn">Get Temperature</button>
+            <button type="button" id="reset-city-btn">Reset City Name</button>
+        </div>
+        <div id="weather-display">
+            <select name="sky-selector" id="sky-selector">
+                <option value="sunny" selected>Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+            <div id="sky-display">
+                <!-- <p id="sky-display">Sky goes here</p> -->
+                <p id="landscape-display">Landscape goes here</p>
+            </div>
+        </div>
+    </section>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
+<footer>
+    <p id="footer">&copy;Kimia and Max</p>
+</footer>
 </html>
