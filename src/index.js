@@ -1,6 +1,6 @@
 'use strict';
 
-const axios = require('axios');
+// const axios = require('axios');
 
 const state = {
   temp: 70,
@@ -74,11 +74,32 @@ const changeLandscape = () => {
   }
 };
 
-// HOW DO WE LIMIT TO THE ASCII KEYS :'(
 const getCity = (event) => {
-  const re = /^[A-z-\s]{1}$/;
+  // use regex to limit the display to uppercase and lowercase letters and spaces
+  // event.key displays all keyboard keys in the associated layout, not just alphanumeric inputs
+  const re = /^A-z\s\-{1}$/;
+
+  // if statement checks whether event.key returns a single character (only)
+  // that is a letter, a space or a hyphen
   if (event.key.match(re)) {
+    // text of the h1 element will match the value of the input box (which is
+    // always one keystroke behind what's actually visible on screen)
     cityOutput.textContent = `${cityInput.value}${event.key}`;
+
+    // Note that all other characters entered in the input box are still stored
+    // in the input element's value property but won't be displayed in the header
+    // until a valid character is typed.
+  } else if (event.key === 'Backspace') {
+    // checks if the backspace button is pressed
+
+    if (!cityInput.value || cityInput.value.length === 1) {
+      // if there's nothing in the input box, invoke clearInput
+      clearInput();
+    } else {
+      // otherwise, show everything in the value property, except the newly deleted character
+      let updatedInput = cityInput.value.slice(0, cityInput.value.length - 1);
+      cityOutput.textContent = `${updatedInput}`;
+    }
   }
 };
 
