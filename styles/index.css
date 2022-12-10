@@ -1,0 +1,12 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:lightblue ;
+}
+h1 {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+.weather-caption {
+    align-items: center;
+}

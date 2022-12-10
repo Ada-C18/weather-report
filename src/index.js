@@ -7,11 +7,13 @@ const increaseTemp = () => {
   state.currentTemp += 1;
   const tempContainer = document.querySelector('#currentTemp');
   tempContainer.textContent = `${state.currentTemp}`;
+  skyChanger()
 };
 const decreaseTemp = () => {
   state.currentTemp -= 1;
   const tempContainer = document.querySelector('#currentTemp');
   tempContainer.textContent = `${state.currentTemp}`;
+  skyChanger()
 };
 const changeTempColor = () => {
   const landscapeContainer = document.querySelector('#landscapeSection');
@@ -38,6 +40,28 @@ const changeTempColor = () => {
   landscapeContainer.replaceChild(newLandscape, oldLandscape);
 };
 
+const skyChanger = () => {
+  const skyContainer = document.getElementById("skyLandscape");
+  
+  if (document.getElementById('skyOption').value === 'sun') {
+      document.querySelector('.mainSky')
+      skyContainer.textContent = "🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤";
+  }
+  if (document.getElementById('skyOption').value === 'overcast') {
+      document.querySelector('.mainSky')
+      skyContainer.textContent = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+  }
+  if (document.getElementById('skyOption').value === 'rain') {
+      document.querySelector('.mainSky')
+      skyContainer.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+  }
+  if (document.getElementById('skyOption').value === 'snow') {
+      document.querySelector('.mainSky')
+      skyContainer.textContent = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+  }
+}
+
+
 // const getRealTimeTemp = () => {
 //   // input: cityName -> locationQ -> lat, lon
 //   // -> open weatherApp -> realTemp for the city (in lat, lon)
@@ -55,8 +79,11 @@ const registerEventHandlers = () => {
   const input = document.querySelector('#cityName');
   input.addEventListener('keyup', updateValue);
   const cityContainer = document.querySelector("#resetbutton");
-  cityContainer.addEventListener("click", resetCity)
-  cityContainer.addEventListener('click',updateValue) // resetting input
+  cityContainer.addEventListener("click", resetCity);
+  cityContainer.addEventListener('click',updateValue); // resetting input
+  const skyHelper = document.getElementById('skyOption');
+  skyHelper.addEventListener('change', skyChanger);
+  
 };
 
 function updateValue(e) {
@@ -68,5 +95,6 @@ const resetCity = () => {
   const cityContainer = document.getElementById('cityName');
   cityContainer.value = '';
 };
+
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
