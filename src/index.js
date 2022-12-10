@@ -1,11 +1,14 @@
 'use strict';
 
+const axios = require('axios');
+
 const state = {
   temp: 70,
 };
 
 const tempNum = document.getElementById('tempnum');
 const cityInput = document.getElementById('city-input');
+const cityOutput = document.getElementById('city-output');
 
 const tempColor = {
   80: 'red',
@@ -20,6 +23,13 @@ const landscapes = {
   70: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
   60: '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃',
   else: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
+};
+
+const skies = {
+  sunny: '☁️ ☁️ ☁️ ☀️ ☁️ ☁️',
+  cloudy: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+  rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
+  snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
 };
 
 const incrementTemp = () => {
@@ -64,13 +74,21 @@ const changeLandscape = () => {
   }
 };
 
+// HOW DO WE LIMIT TO THE ASCII KEYS :'(
 const getCity = (event) => {
-  // console.log('yo!');
-  const cityOutput = document.getElementById('city-output');
-  // if (event.isComposing || event.keyCode === 229) {
-  console.log('composing!');
-  cityOutput.textContent = cityInput.value;
-  // }
+  const re = /^[A-z-\s]{1}$/;
+  if (event.key.match(re)) {
+    cityOutput.textContent = `${cityInput.value}${event.key}`;
+  }
+};
+
+const getWeather = () => {
+  console.log('button press!');
+};
+
+const clearInput = () => {
+  cityInput.value = null;
+  cityOutput.textContent = 'Seattle';
 };
 
 // const parrot = document.querySelector("#parrot");
@@ -87,6 +105,12 @@ const registerEventHandlers = () => {
   downArrow.addEventListener('click', decrementTemp);
 
   cityInput.addEventListener('keydown', getCity);
+
+  const goButton = document.getElementById('go');
+  goButton.addEventListener('click', getWeather);
+
+  const resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', clearInput);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
