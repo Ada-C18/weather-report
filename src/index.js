@@ -76,6 +76,46 @@ const updateCity = () => {
 
 };
 
+
+const axios = require('axios');
+
+const getLongLat = () => {
+    let latitude, longitude;
+    axios.get('http://127.0.0.1:5000/location', 
+    {
+        params: {
+            q: document.getElementById("inputCity").value
+        }
+        }) 
+        .then((response) => {
+            latitude = response.data[0].lat;
+            longitude = response.data[0].lon;
+            console.log('Successful')
+
+        getWeather(latitude, longitude);
+        })
+        .catch( (error) => {
+            console.log("error in finding latitude and longitude");
+        });
+    }
+    const getWeather = (latitude, longitude) => {
+        axios.get('http://127.0.0.1:5000/weather',
+        {
+            params: {
+                lat: latitude,
+                lon : longitude,
+            }
+        })
+        .then( (response) => {
+            const temperature = response.data.main.temp;
+            document.getElementById('startingTemp').textContent = temperature;
+        })
+        .catch ((error) => {
+            console.log('error in finding weather');
+        });
+        
+    }
+
 const registerEventHandlers = () => {
   const increaseTemperatureButton = document.getElementById('increaseButton');
   increaseTemperatureButton.addEventListener("click", increaseTemperature);
@@ -88,6 +128,11 @@ const registerEventHandlers = () => {
 
   const userInputCity = document.getElementById('inputCity');
   userInputCity.addEventListener('input', updateCity);
+
+  const getRealTimeTemperature = document.getElementById('getTempButton');
+  getRealTimeTemperature.addEventListener('click', getLongLat);
+
+
 
 
 };
