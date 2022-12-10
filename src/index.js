@@ -1,6 +1,6 @@
 'use strict';
 
-const axios = require('axios');
+// const axios = require('axios');
 const state = {
   city: '',
 };
@@ -60,18 +60,21 @@ function landscapeIcons(temp) {
 const cityNameInput = (e) => {
   const log = document.getElementById('City-Name-Top');
   state.city = document.querySelector('#city-input').value;
-  log.textContent = document.querySelector('#city-input').value;
+  log.textContent = state.city;
   console.log(e.data);
 };
 
 const getRealtimeTemperature = (e) => {
-  log.textContent = e.target.value;
   console.log(getRealtimeTemperature);
 
   axios
-    .get('http://127.0.0.1:5000/location')
-    .then(() => {
-      console.log('success!');
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.city,
+      },
+    })
+    .then((response) => {
+      console.log(response);
     })
     .catch(() => {
       console.log('error!');
