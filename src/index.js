@@ -1,6 +1,8 @@
 "use strict";
 
 
+
+
 let number = parseInt(document.querySelector('.number').innerHTML);
 const plus = document.querySelector('.plus_minus'),
   minus = document.querySelector('.minus_plus');
@@ -68,35 +70,75 @@ document.getElementById("intro").innerHTML = "☁️";
 
 // const axios = require("axios");
 
-const locationAPI = "http://127.0.0.1:5000/location"
+// *************
+// async function getNextPokemon(originalPokemon) {
+//     let response = await axios.get(API + originalPokemon);
+//     const originalId = response.data.id;
+//     const nextId = originalId + 1;
+    
+//     response = await axios.get(API + nextId);
+//     const newPokemon = response.data.name;
+    
+//     console.log(newPokemon);
+//   }
+//   *****************
+const kelvinToFarenhei(temperature) => 1.8*(temperature-273) + 32;
+
+const API = "http://127.0.0.1:5000/"
+
+async function getTemperature(query) {
+    let response = await axios.get(API + "location" + "?q=" + query);
+    const lat= response.data[0].lat;
+    const lon = response.data[0].lon;
+    
+    response = await axios.get(API + "weather" + "?q=" +  query);
+    return response
+}
+
+let RealTime = document.getElementById("realTime")
+RealTime.addEventListener("click", getRealTime)
+
+function getRealTime() {
+    let realTime  = document.getElementById("realTime"); 
+    document.getElementById("number").innerHTML = response;
+// getTemperature(query)
+}
+
+// const findLatandLon = (query) => {
+//     let latitude, longitude;
+//     axios.get(locationAPI, 
+//     {
+//         params: {
+//             q: cityName,
+//             format : 'json'
+
+//         }
+
+//     })
+//     .then((response) => {
+//         latitude = response.data[0].lat;
+//         longitude = response.data[0].lon;
+//         console.log('success', latitude, longitude);
+//     })
+//     .catch( (error) => {
+//         console.log('error in findLatitudeAndLongitude!');
+//       });
+//       return {
+//           seattleLat: latitude,
+//           seattleLon: longitude
+//       }
+//     }
+
+// findLatandLon("Seattle")
 
 
-const findLatandLon = (query) => {
-    let latitude, longitude;
-    axios.get(locationAPI, 
-    {
-        params: {
-            q: cityName,
-            format : 'json'
 
-        }
 
-    })
-    .then((response) => {
-        latitude = response.data[0].lat;
-        longitude = response.data[0].lon;
-        console.log('success', latitude, longitude);
-    })
-    .catch( (error) => {
-        console.log('error in findLatitudeAndLongitude!');
-    });
-    return {
-        seattleLat: latitude,
-        seattleLon: longitude
-      }
-    };
 
-findLatandLon("Seattle")
+//make weather nested inside location
+
+
+
 
 // const findTemperature = (latitude,longitude) =>{
 //     let Fahrenheit = 1.8*(k-273) + 32
