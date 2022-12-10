@@ -1,19 +1,21 @@
 body {
-    background-color: aqua;
+    background-color: #e3cdf5;
     font-family: Arial, Helvetica, sans-serif;
+    color: #4c4452;
 }
 
 h1 {
     text-align: center;
     font-size: 3em;
     margin-top: 100px;
+    color: #a25de6;
 }
 header {
     grid-area: 1 / 1 / 2 / 3;
 }
 
 #temperature-box {
-    background-color: chartreuse;
+    background-color: #fffade;
     grid-area: 2 / 1 / 4 / 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -45,7 +47,7 @@ header {
 #liveTemperatureButton { grid-area: 2 / 2 / 5 / 4; }
 
 button {
-    background-color: #1b69f9;
+    background-color: #ad7ae0;
     border: none;
     color: #fff;
     padding: 15px 32px;
@@ -56,8 +58,12 @@ button {
     border-radius: 10px;
 }
 
+button:hover{
+    background-color: #e3cdf5;
+}
+
 #city-box {
-    background-color: crimson;
+    background-color: #b1ddff;
     grid-area:  2 / 2 / 4 / 3;
     display: flex;
     flex-direction: column;
@@ -85,7 +91,7 @@ button {
 
 #landscape-box {
     grid-area: 4 / 1 / 6 / 3;
-    background-color: rgb(207, 236, 40);
+    background-color: #c3fcf1;
     display: flex;
     flex-direction: column;
     align-content: space-evenly; 
@@ -95,7 +101,6 @@ button {
 .landscape-color {
     font-size: 300%;
     text-align: center;
-
     margin-bottom: 10%;
 }
 
@@ -143,7 +148,7 @@ select {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
-    border-top-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    background-color: aquamarine;
+    border-top-right-radius: 40%;
+    border-bottom-left-radius: 40%;
+    background-color: #fdf7ff;
 }
