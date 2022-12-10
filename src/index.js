@@ -113,7 +113,7 @@ const convertTempKtoF = (temp) => {
 
 const updateSky = () =>{
   const spanSkyIcon = document.querySelector('#sky-icons')
-  let skyIcon = spanSkyIcon.textContent
+  let skyIcon = ""
   console.log("inside of update sky" , skyIcon)
 
   const skyOption = document.querySelector('#sky-button').value
@@ -132,6 +132,7 @@ const updateSky = () =>{
   else {
     skyIcon = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
   }
+  spanSkyIcon.textContent = skyIcon
   console.log(skyIcon)
 }
 
