@@ -1,16 +1,15 @@
 /* General Styles */
 :root { 
-    --ff-primary:'Roboto Mono', monospace;
-    --ff-secondary: 'Roboto', sans-serif;
+    --ff-primary:'Roboto', sans-serif;
+    --ff-secondary: 'Londrina Outline', cursive;
     
-    --fw-light: 100;
     --fw-reg: 400;
     --fw-bold: 700;
 
-    --clr-light: rgb(255, 255, 255);
+    --clr-light: rgb(225, 223, 223);
     --clr-dark: rgb(97, 75, 78);
 
-    --fs-h1: 1.6rem;
+    --fs-h1: 1.8rem;
     --fs-h2: 1.3rem;
     --fs-h3: 1.2rem;
     --fs-body: 1.15rem;
@@ -26,6 +25,7 @@ body {
 }
 
 header {
+    text-align: center;
     padding: 2em;
     font-size: 1.6rem;
 }
@@ -43,7 +43,7 @@ h2,
 h3 {
     line-height: 1.25;
     margin: 0;
-    font-family: var(--ff-secondary);
+    font-family: var(--ff-primary);
 }
 
 h1 {
@@ -71,47 +71,108 @@ h2, h3 {
 /* Header */
 header h1 {
     text-align: center;
-    color: var(--clr-light);
+    /* color: var(--clr-light); */
     font-weight: var(--fw-bold);
 }
 
-/* Weather section */
-#weatherinfo {
+#headerCityName {
+    /* font-family: var(--ff-secondary); */
+    /* color: var(--clr-light); */
+    font-size: var(--fs-h1);
+
+}
+
+/* temperature section */
+#temperatureSection {
     display: flex;
     flex-direction: column;
     width: 40%;
     justify-content: space-evenly;
-    background-color: rgb(178, 226, 226);
+    /* background-color: rgb(178, 226, 226); */
 }
 
-#weatherinfo-temperature, 
-#sky-menu {
+#temperatureDisplay {
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+#requestCityInfoSection, 
+#selectSkySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 200px;
-    background-color: rgb(243, 185, 216);
+    background-color: rgba(59, 79, 147, 0.5);  
     border-radius: 5px;
     
 }
 
-#temperature-display {
+#temperatureDisplay {
     padding-top: 1em;
 }
 
 /* Weather Garden Section */
-#weathergarden {
+#gardenSection {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 60%;
-    background-color: darkseagreen;
+    /* background-color: darkseagreen; */
 }
 
-#weathergarden-wrapper {
+#gardenWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 200px;
-    background-color: rgb(242, 144, 144);
+    border-radius: 5px;
+    background-color: rgba(158, 151, 191, .5);
 }
 
+#gardenContent {
+    text-align: center;
+}
+
+.cloudy {
+    background-color: rgba(211, 211, 211, .5);
+  }
+  
+.sunny {
+background-color: rgba(240, 221, 7, 0.5);
+}
+
+.rainy {
+background-color: rgba(102, 127, 135, 0.5);
+}
+
+.snowy {
+background-color: rgba(73, 100, 135, 0.5);
+}
+  
+.red {
+    color: red;
+  }
+  
+.orange {
+color: orange;
+}
+
+.yellow {
+color: gold;
+}
+
+.yellow-green {
+color: yellowgreen;
+}
+
+.green {
+color: green;
+}
+
+.teal {
+color: teal;
+}
+  
