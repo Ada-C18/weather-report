@@ -1,40 +1,60 @@
 body {
-  background-color: #e0ec8c;
-  margin-top: 60px;
-}
-i {
-  font-size: 150px;
-  margin-left: 60px;
+  /* background-color: #e0ec8c; */
+  background-image: url('https://images.pexels.com/photos/10920428/pexels-photo-10920428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
 }
 
 .container {
-  background: linear-gradient(-45deg, #eaf6f6 0%, #66bfbf 100%);
+  background-color: #ffffff10;
+  backdrop-filter: blur(10px);
   border: 3px solid #edc548;
-  border-radius: 175px;
+  border-radius: 75px;
+  display: block;
   max-width: fit-content;
   max-height: fit-content;
   margin: 0 auto;
-  margin-top: 30px;
-  padding: 20px;
+  padding: 50px;
+}
+
+#displayCity {
+  font-size: 30px;
+  text-align: center;
+
+}
+
+#dropDownMenu {
+  text-align: right;
+}
+
+#getDisplayCityTemp {
+  background-color: #edc548;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  color: gray;
+  font-size: 15px;
+  font-weight: bolder;
+  margin: 10px;
+  padding: 10px 15px;
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
 }
 .search-label {
-  margin-left: 250px;
+  margin-left: 225px;
   font-size: 18px;
 }
 
 .current-temp {
-  margin-left: 50px;
+  margin-left: 20px;
 }
 .current-city {
-  font-size: x;
+  font-size: 35px;
   text-align: center;
-}
-.current-city-temp {
-  font-size: 50px;
 }
 
-.forecast {
+#Total {
+  font-size: 100px;
+  font-weight: bold;
   text-align: center;
-  margin: 10px 20px 10px 70px;
-  padding: 10px 10px;
 }
