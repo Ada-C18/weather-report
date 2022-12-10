@@ -1,8 +1,50 @@
+import axios from 'axios';
+
 const state = {
   city: 'Seattle',
   lat: 47.6038321,
   long: -122.3300624,
   temp: 73,
+};
+const convertKtoF = (temp) => {
+  return (temp - 273.15) * (9 / 5) + 32;
+};
+
+const findLatAndLong = () => {
+  //let lat, long;
+  axios
+    .get('https://weather-report-proxy-server.herokuapp.com/location', {
+      params: {
+        q: state.city,
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+      state.lat = response.data[0].lat;
+      state.long = response.data[0].lon;
+      getWeather();
+    })
+    .catch((error) => {
+      console.log('Error finding the latitude and longitude:', error.response);
+    });
+};
+
+const getWeather = () => {
+  axios
+    .get('https://weather-report-proxy-server.herokuapp.com/weather', {
+      params: {
+        lat: state.lat,
+        lon: state.long,
+      },
+    })
+    .then((response) => {
+      const weather = response.data;
+      state.temp = Math.round(convertKtoF(weather.current.temp));
+      formatTempAndGarden();
+    })
+    .catch((error) => {
+      console.log('Error getting the weather:', error);
+    });
 };
 
 const updateCityName = () => {
@@ -71,6 +113,9 @@ const registerEventHandlers = () => {
   updateCityName();
   const cityNameInput = document.getElementById('cityNameInput');
   cityNameInput.addEventListener('input', updateCityName);
+
+  const currentTemp = document.getElementById('currentTempButton');
+  currentTemp.addEventListener('click', findLatAndLong);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
