@@ -111,6 +111,7 @@ const resetCity = () => {
 
 const defaultValue = () => {
   cityInput.value = 'Seattle';
+  updateCity();
   default_temp = getLatLong();
   return default_temp;
 };
