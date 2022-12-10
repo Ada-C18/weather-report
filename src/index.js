@@ -76,6 +76,7 @@ const updateCity = () => {
 
 };
 
+
 const registerEventHandlers = () => {
   const increaseTemperatureButton = document.getElementById('increaseButton');
   increaseTemperatureButton.addEventListener("click", increaseTemperature);

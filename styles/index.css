@@ -1,3 +1,47 @@
 #startingTemp {
-    color : black
+    color : yellow
+}
+
+body{
+    background-color: blueviolet;
+}
+
+#weatherContainer {
+    background-color: white;
+    width: 300px;
+    border: 15px solid black;
+    padding: 50px;
+    margin: 20px;
+}
+
+#cityBox {
+    background-color: white;
+    width: 300px;
+    border: 15px solid black;
+    padding: 50px;
+    margin: 20px; 
+}
+
+#temperatureContainer {
+    background-color: white;
+    width: 300px;
+    border: 15px solid black;
+    padding: 50px;
+    margin: 20px;
+}
+
+#skyContainer {
+    background-color: white;
+    width: 300px;
+    border: 15px solid black;
+    padding: 50px;
+    margin: 20px;
+}
+
+container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: rgb(127, 255, 170);
 }
