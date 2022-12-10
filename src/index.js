@@ -47,7 +47,6 @@ const getTemp = async (city) => {
         appid: 'WEATHER_KEY',
         lat: lat,
         lon: lon,
-        units: 'imperial', // does not work
       },
     })
     .then((response) => {
@@ -65,7 +64,7 @@ const getTemp = async (city) => {
 
 getTemp(defaultCity);
 
-// Event handler for increase temp button
+// Event handler
 const increaseTemp = () => {
   state.temperature += 1;
   tempValue.textContent = state.temperature;
@@ -81,6 +80,11 @@ const updateCityName = () => {
   document.getElementById('headerCityName').textContent = newCityName;
 };
 
+const resetToDefaultCity = () => {
+  document.getElementById('headerCityName').textContent = 'Atlanta';
+  cityNameInput.value = 'Atlanta';
+};
+
 const registerEventHandlers = () => {
   const increaseTempBtn = document.querySelector('#increaseTempControl');
   increaseTempBtn.addEventListener('click', increaseTemp);
@@ -90,6 +94,9 @@ const registerEventHandlers = () => {
 
   const cityNameInput = document.querySelector('#cityNameInput');
   cityNameInput.addEventListener('input', updateCityName);
+
+  const cityNameResetBtn = document.querySelector('#cityNameReset');
+  cityNameResetBtn.addEventListener('click', resetToDefaultCity);
 };
 
 // Registers all events. Once webpage is loaded, it ensures all events
