@@ -78,7 +78,13 @@ body {
 #gardenContainer {
     border: 1px solid;
     text-align: center;
+    margin: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
 }
+
 
 #sky {
     font-size: 3em;
@@ -99,3 +105,4 @@ body {
 .snowy {
     background-color: rgb(221, 228, 232);
 }
+
