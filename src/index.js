@@ -40,27 +40,27 @@ const decreaseTemp = () => {
 const temperatureColorCheck = (temp) => {
   const tempValue = document.getElementById('tempValue');
   const landscapePicture = document.getElementById('landscapePicture');
-  // const theme = document.getElementById('theme');
+  const theme = document.getElementById('theme');
 
   if (temp >= 80) {
     tempValue.className = 'red';
-    // theme.href = '<red theme link>';
+    theme.href = 'styles/red.css';
     landscapePicture.textContent = landscapeDictionary['Summer'];
   } else if (temp >= 70) {
     tempValue.className = 'orange';
-    // body.className = 'orange-theme';
+    theme.href = 'styles/orange.css';
     landscapePicture.textContent = landscapeDictionary['Spring'];
   } else if (temp >= 60) {
     tempValue.className = 'yellow';
-    // body.className = 'yellow-theme';
+    theme.href = 'styles/yellow.css';
     landscapePicture.textContent = landscapeDictionary['Fall'];
   } else if (temp >= 50) {
     tempValue.className = 'green';
-    // body.className = 'green-theme';
+    theme.href = 'styles/green.css';
     landscapePicture.textContent = landscapeDictionary['Winter'];
   } else {
     tempValue.className = 'teal';
-    // body.className = 'teal-theme';
+    theme.href = 'styles/teal.css';
     landscapePicture.textContent = landscapeDictionary['Winter'];
     // we have the snowy weather pic twice because other getLiveTemp won't update the pic
   }
