@@ -33,6 +33,7 @@ const skies = {
   else: '🌧🕺🏾⛈🕺🏾🌧',
 };
 
+// https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
 const skyCodes = {
   200: 'rainy',
   // 300: rainy,
