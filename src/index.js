@@ -5,6 +5,8 @@ let holup = Array();
 let state = {
   temp: 0, // kelvin
   city: 'Seattle',
+  condition: 'sleepless',
+  sky: 'the color of a television tuned to a dead channel',
 };
 
 const tempF = () => Math.round(1.8 * (state.temp - 273) + 32);
@@ -27,8 +29,10 @@ const renderPage = () => {
 
   document.getElementById('temp').textContent = tempF(); // TODO add pref
   const newStyle = temperatureStyle(tempF());
+  let newSky = skyStyle();
   document.getElementById('body').style.backgroundColor = newStyle.bgColor;
   document.getElementById('landscape').textContent = newStyle.landscape;
+  document.getElementById('sky').textContent = newSky.skyType;
 };
 
 const finishTyping = (target, delay) => {
@@ -40,10 +44,11 @@ const finishTyping = (target, delay) => {
   );
 };
 
-const updateWeather = async () => {
+const updateLocation = async () => {
   const latlon = await getLocation(state.city);
   const weather = await getWeather(...latlon);
-  state.temp = weather.temp; // kelvin
+  state.temp = weather.main.temp; // kelvin
+  state.condition = weather.weather[0].description;
   renderPage();
 };
 
@@ -62,20 +67,47 @@ const getWeather = async (lat, lon) => {
   const response = await axios.get('http://localhost:5000/weather', {
     params: { lat, lon },
   });
-  return response.data.main;
+  return response.data;
 };
 
+const skyStyle = () => {
+  const conditionIs = word => state.condition.indexOf(word) != -1
+  if(conditionIs("rain") || conditionIs("mist")) {
+    state.sky = "rainy";
+  }
+  else if(conditionIs("clouds")) {
+    state.sky = "cloudy";
+  }
+  else if(conditionIs("snow")) {
+    state.sky = "snowy";
+  }
+  else {
+    state.sky = "sunny";
+  }
 
-const skyUpdate = (event) => {
-  document.getElementById('sky').textContent = event.target.value;
-  console.log(event.target.value);
-  let newSky = skyStyle(event.target.value);
-  console.log(newSky);
+  let sky = state.sky;
+
+  if (sky == 'sunny') {
+    return { skyType: "☁️ ☁️ ☁️ ☀️ ☁️ ☁️" };
+  } else if (sky == 'cloudy') {
+    return { skyType: "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️" };
+  } else if (sky == 'rainy') {
+    return { skyType: "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧" };
+  } else if (sky == 'snowy') {
+    return { skyType: "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨" };
+  }
+};
+
+const skyUpdate = () => {
+  let newSky = skyStyle();
   document.getElementById('sky').textContent = newSky.skyType;
 };
 
 function addListeners() {
   document.getElementById('city_input').oninput = (event) =>
-    finishTyping(event.target, 500).then(updateWeather);
-  document.getElementById('sky_input').oninput = (event) => skyUpdate(event);
+    finishTyping(event.target, 500).then(updateLocation);
+  document.getElementById('sky_input').oninput = (event) => {
+    state.sky = event.target.value;
+    skyUpdate();
+  };
 }
