@@ -3,7 +3,10 @@ const state = {
     decreaseTempControl: null,
     tempValue: 45,
     tempDisplay: null,
-    landscape: null
+    landscape: null,
+    cityResetButton: null,
+    cityName: null,
+    headerCityName: null,
 };
 
 const loadControls = () => {
@@ -11,6 +14,9 @@ const loadControls = () => {
     state.decreaseTempControl = document.getElementById('decreaseTempControl');
     state.tempDisplay = document.getElementById('tempValue');
     state.landscape = document.getElementById('landscape');
+    state.cityResetButton = document.getElementById('cityNameReset');
+    state.cityName = document.getElementById('cityNameInput');
+    state.headerCityName = document.getElementById('headerCityName');
 };
 
 const handleIncreaseTempClicked = (event) => {
@@ -70,9 +76,15 @@ const handleChangeLandscape = (event) => {
     state.landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
 }
 
+const handleResetCityClicked = (event) => {
+    state.cityName.value = '';
+    state.headerCityName.textContent = 'Seattle';
+}
+
 const registerEvents = () => {
     state.increaseTempControl.addEventListener('click', handleIncreaseTempClicked);
     state.decreaseTempControl.addEventListener('click', handleDecreaseTempClicked);
+    state.cityResetButton.addEventListener('click', handleResetCityClicked);
 };
 
 const onLoaded = () => {
