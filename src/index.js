@@ -22,12 +22,30 @@ buttonDecrease.addEventListener('click', (_) => {
 });
 
 citySelector.addEventListener('input', (_) => {
-	cityName.textContent = citySelector.value;
+	// cityName.textContent = citySelector.value;
+	axios
+		.get('http://127.0.0.1:5000/location', {
+			params: {
+				q: citySelector.value,
+				format: 'json',
+			},
+		})
+		.then((response) => {
+			console.log(response.data[0]);
+			State.latitude = response.data[0]['lat'];
+			State.longitude = response.data[0]['lon'];
+			cityName.textContent = response.data[0]['display_name'];
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 });
 
 const State = {
 	temperature: 70,
 	unit: 'F',
+	latitude: 0,
+	longitude: 0,
 };
 
 const updateWeather = function() {
