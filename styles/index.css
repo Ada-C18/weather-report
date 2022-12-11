@@ -73,7 +73,7 @@ main {
 }
 
 .sky-thunderstorm {
-  background-image: url("../assets/sky-thunderstorm.jpeg");
+  background-image: url("../assets/sky-thunderstorm.webp");
 }
 
 .sky-drizzle {
@@ -93,9 +93,9 @@ main {
 }
 
 .sky-clouds {
-  background-image: url("../assets/sky-clouds.jpeg");
+  background-image: url("../assets/sky-clouds.webp");
 }
 
 .sky-atmosphere {
-  background-image: url("../assets/sky-atmosphere.jpeg");
+  background-image: url("../assets/sky-atmosphere.webp");
 }
