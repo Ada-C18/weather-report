@@ -90,7 +90,7 @@ h2{
     
 }
 
-#getCurrentTemp:hover{
+#getCurrentTemp:hover, #resetCityName:hover{
     background-color:rgb(125, 229, 237);
     color: rgb(28, 19, 65);         
 }
