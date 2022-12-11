@@ -34,6 +34,7 @@ const State = {
     latitude: 0,
     longitude: 0,
     weather: 'sunny',
+    weatherCategory: 'clear',
 };
 
 const updateLocation = async function(input) {
@@ -68,6 +69,7 @@ const updateWeather = async function() {
         .then((response) => {
             // console.log(response.data);
             State.weather = response.data['weather'][0]['description'];
+            State.weatherCategory = response.data['weather'][0]['main'];
             State.temperature = response.data['main']['temp'];
             return updatePage();
         })
@@ -107,13 +109,8 @@ const convertTemp = function(unit, K) {
     return 'invalid unit';
 };
 
-citySelector.addEventListener(
-    'change',
-    (_) => updateLocation(citySelector.value)
-    // .then(setTimeout(() => updateWeather(), 500))
-    // .then(updatePage())
+citySelector.addEventListener('change', (_) =>
+    updateLocation(citySelector.value)
 );
 
 updateLocation('Atlanta');
-// .then(setTimeout(() => updateWeather(), 500))
-// .then(updatePage());
