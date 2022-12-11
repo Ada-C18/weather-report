@@ -10,6 +10,7 @@ const sky = document.querySelector('#sky');
 const landscape = document.querySelector('#landscape');
 const buttonIncrease = document.querySelector('#button-increase');
 const buttonDecrease = document.querySelector('#button-decrease');
+const unitSelector = document.querySelector('#unit-selector');
 
 buttonIncrease.addEventListener('click', (_) => {
     State.temperature += 1;
@@ -18,6 +19,11 @@ buttonIncrease.addEventListener('click', (_) => {
 
 buttonDecrease.addEventListener('click', (_) => {
     State.temperature -= 1;
+    updatePage();
+});
+
+unitSelector.addEventListener('click', (_) => {
+    State.unit = State.unit === 'F' ? 'C' : 'F';
     updatePage();
 });
 
