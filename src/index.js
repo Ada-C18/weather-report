@@ -1,8 +1,12 @@
 'use strict';
+//Save our variables at top-- will be accessed
+const cityName = document.getElementById('city-name');
+const cityInput = document.getElementById('city-input');
+let currentTemp = 70;
 
 //making a promise wave 4:
-
 const getLocation = (cityInput) => {
+  console.log(cityInput);
   let lat, lon;
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -12,6 +16,7 @@ const getLocation = (cityInput) => {
       },
     })
     .then((response) => {
+      console.log(response)
       lat = response.data[0].lat;
       lon = response.data[0].lon;
       console.log('lat: ', lat, 'lon: ', lon);
@@ -19,7 +24,7 @@ const getLocation = (cityInput) => {
       getWeather(lat, lon);
     })
     .catch((error) => {
-      console.log(error.data);
+      console.log(error);
     });
 };
 
@@ -32,6 +37,7 @@ const getWeather = (latitude, longitude) => {
       },
     })
     .then((response) => {
+      tempChange(response.data.main.temp);
       console.log(response.data.main.temp);
     })
     .catch((error) => {
@@ -39,11 +45,24 @@ const getWeather = (latitude, longitude) => {
     });
 };
 
+//helper function to get location real time:
+const getRealTimeTemp = () => {
+  getLocation(cityInput.value);
+};
+
+
+
+
+// do the js code for converting the temperature -> create another function: to convert convert it 
+
+
 // const latAndLon = getLocation('Seattle');
-getWeather(47.6038321, -122.330062);
+// getLocation('Seattle');  // call this function in the event handler 
+
+// getWeather(47.6038321, -122.330062);
 
 //increases temperature from click
-let currentTemp = 70;
+
 const tempUp = () => {
   const tempValue = document.querySelector('#temp-value');
   currentTemp += 1;
@@ -57,6 +76,17 @@ const tempDown = () => {
   tempValue.innerHTML = currentTemp;
   changeTemperatureColor();
 };
+
+// temp change function: 
+const tempChange = (temp) => { // temp is a number
+  const tempValue = document.querySelector('#temp-value');
+  currentTemp = temp;
+  tempValue.innerHTML = currentTemp;
+  changeTemperatureColor();
+};
+
+
+//add event listener: make the axios call
 
 //changes colors according to temperature
 const changeTemperatureColor = () => {
@@ -81,8 +111,6 @@ const changeTemperatureColor = () => {
 };
 
 //city input text updates city name
-const cityName = document.getElementById('city-name');
-const cityInput = document.getElementById('city-input');
 const inputHandler = function (e) {
   cityName.innerHTML = e.target.value;
 };
@@ -126,6 +154,10 @@ const registerEventHandlers = () => {
 
   const resetCity = document.querySelector('#reset-button');
   resetCity.addEventListener('click', clearInput);
+
+  const tempButtonUpdates = document.querySelector('#temp-button');
+  tempButtonUpdates.addEventListener('click', getRealTimeTemp);
+
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
