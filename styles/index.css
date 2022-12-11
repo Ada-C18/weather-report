@@ -9,11 +9,12 @@ https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-examples
 /*///////////// BASIC LAYOUT  ///////////////*/
 body {
     /* background-color: blueviolet; */
-    background-image: url(/images/orange_flowers.jpg);
+    /* background-image: url(/images/orange_flowers.jpg); */
 }
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: sans-serif;
 }
 body h2 {
@@ -32,15 +33,12 @@ body h2 {
 }
 
 #city-container {
-    display: flex;
-
+    /* display: flex; */
     background-color: blue; /* temp color */
-    width: 700px;
-    /* height: 100px; */
-    justify-content: space-between;
+    width: 75%;
+    /* justify-content: space-between; */
+    /* align-items: baseline; */
     margin: 20px;
-    /* text-align: center; */
-    /* position: absolute bottom; */
 }
 
 #temp-container {
@@ -73,6 +71,14 @@ body h2 {
 #city-name::first-letter {
     /* ideally  have first letter of city be larger than the rest*/
     font-size: 60px;
+}
+form #reset input {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#pencil {
+    margin-bottom: 0;
 }
 /*///////////////// ITEMS IN TEMP CONTAINER /////////////*/
 #tempValue {

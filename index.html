@@ -11,8 +11,16 @@
     <h2 id="weather-report">Weather Report</h2>
     <section class="inner-body">
         <div id="city-container">
-            <h1 id="city-name" contenteditable="true">Choose your city</h1>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24"><path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z"/></svg>
+            <form action="" id="update-city">
+                <h1 id="city-name" onsubmit="myScript" id="original">San Francisco</h1>
+                <label for="city-input">Enter city:</label>
+                <input type="text" id="city-input">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" id="pencil"><path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z"/></svg> -->
+                <div id="city">
+                    <input type="submit" value="ENTER" id="enter">
+                    <input type="reset" value="RESET" id="reset">
+                </div>
+            </form>
         </div>
         <div id="mid-row">
             <div id="temp-container">
@@ -28,15 +36,13 @@
             </div>
             <div id="sky-container">
                 <h2 id="sky-title">Choose the sky type</h2>
-                <select name="sky" id="">sky</select>
-                <!-- <div class="dropdown-fn"> -->
-                    <!-- <button class="button" id="dropdown-button">Sky Type &downarrow;</button>
-                        <div class="dropdown-content" id="dropdown"> -->
-                            <!-- <a href="#" id="sunny">Sunny</a>
-                            <a href="#" id="cloudy">Cloudy</a>
-                            <a href="#" id="rainy">Rainy</a>
-                            <a href="#" id="snowy">Snowy</a>
-                        </div> -->
+                <label for="sky">What does the sky look like?</label>
+                <select name="sky" id="sky">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
             </div>
         </div>
         <div id="land-container">
@@ -44,8 +50,7 @@
             <span id="landscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</span>
         </div>
     </section>
-    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js" type="text/javascript"></script>
-    <script src="src/weather.js" type="text/javascript"></script>
 </body>
 </html>
