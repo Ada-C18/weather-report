@@ -1,11 +1,10 @@
 "use strict";
 
-// const { default: axios } = require("axios");
-
 const state = {
-  temp: 75, // starting temp
+  temp: 0, // starting temp
+  humidity: 0, // starting humidity
+  city: "Chattanooga", // default city
   clicked: false, // whether the temp increase button is in clicked state
-  city: "Chattanooga" // default city
 };
 
 // EVENT HANDLERS
@@ -58,15 +57,18 @@ const changeCityNameWithInput = () => {
 // AXIOS REQUESTS
 // REQUEST LOCATION AND WEATHER FOR CITY FROM WEATHER PROXY SERVER
 const getCurrentWeather = () => {
-  // console.log("I'm inside getCurrentWeather!");
-  const cityInput = document.getElementById("search-bar").value;
-  
+  let cityInput = state.city;
+
+  if (document.getElementById("search-bar").value) {
+    cityInput = document.getElementById("search-bar").value;
+  };
+
   return axios.get('http://127.0.0.1:5000/location', {params: {q: cityInput}
   })
   .then(location => {
-    // console.log("location:", location);
-    // console.log("lat", location.data[0].lat);
-    // console.log("lon", location.data[0].lon)
+    console.log("location:", location);
+    console.log("lat", location.data[0].lat);
+    console.log("lon", location.data[0].lon)
     return {
       lat: location.data[0].lat,
       lon: location.data[0].lon
@@ -76,19 +78,44 @@ const getCurrentWeather = () => {
     // console.log("coordinates.lat:", coordinates.lat);
     // console.log("coordinates.lon:", coordinates.lon)
     return axios.get('http://127.0.0.1:5000/weather', {
-                                                        params: 
-                                                        {lat: coordinates.lat,
-                                                        lon: coordinates.lon}
-                                                      })
+                      params: 
+                      {lat: coordinates.lat,
+                      lon: coordinates.lon}
+                    })
   })
   .then(weather => {
-    console.log("weather:", weather)
-    return weather;
+    // console.log("weather.data.main:", weather.data.main)
+    return weather.data.main;
   })
 };
 
 // UPDATE DEFAULT CITY TEMP TO CURRENT TEMP FROM WEATHER RESULT
-const updateDefaultTemp = () => {}
+const updateDefaultTemp = () => {
+  const defaultTemp = document.getElementById("dream-temp-number");
+
+  getCurrentWeather()
+  .then(currentWeather => {
+    state.temp = kelvinToFahrenheit(currentWeather.temp) + "°";
+    defaultTemp.textContent = state.temp;
+    updateDreamTempColor();
+  });
+};
+
+// UPDATE DEFAULT CITY HUMIDITY TO CURRENT HUMIDITY FROM WEATHER RESULT
+const updateDefaultHumidity = () => {
+  const defaultHumidity = document.getElementById("dream-humidity-percent");
+  
+  getCurrentWeather()
+  .then(currentWeather => {
+    state.humidity = currentWeather.humidity + "%"
+    defaultHumidity.textContent = state.humidity;
+  });
+};
+
+// CONVERT KELVIN TEMP TO FAHRENHEIT
+const kelvinToFahrenheit = (temp) => {
+  return Math.floor(((temp-273.15)*1.8)+32);
+};
 
 
 // REGISTER EVENT HANDLERS
@@ -107,6 +134,8 @@ const registerEventHandlers = () => {
   const searchButton = document.getElementById("search-button");
   searchButton.addEventListener("click", getCurrentWeather);
 
+  window.addEventListener("load", updateDefaultTemp);
+  window.addEventListener("load", updateDefaultHumidity);
 };
 
 // DOM listener
