@@ -2,7 +2,7 @@ body {
     background-color: lightblue;
     display: grid;
     /* grid-template-columns: 1fr 4fr 2fr; */
-    grid-template-rows: 1fr 4fr 3fr;
+    grid-template-rows: 1fr 4fr 4fr;
     grid-gap: 1rem;
     row-gap: 1rem;
     font-family: Rubik,sans-serif;
@@ -31,6 +31,7 @@ body {
     column-gap: 1in;
     justify-content:center;
     height: fit-content;
+    text-align: center;
 
     
 }
@@ -88,6 +89,7 @@ body {
 #tempskycitycontainer {
     border-radius: 8px;
     padding: 2rem;
+    border-radius: 8px;
 }
 
 #citycontainer { 
@@ -96,9 +98,11 @@ body {
     padding: 10%;
     border-color: orangered;
     border-radius: 20px;
+    border-radius: 8px;
 }
 #skyContainer h2 { 
     padding: 10%;
+    border-radius: 8px;
 }
 
 #gardenContainer {
@@ -113,7 +117,12 @@ body {
 
 
 #sky {
-    font-size: 3em;
+    font-size: 2em;
+}
+
+#landscape {
+    font-size: 2em;
+    bottom: 10px;
 }
 
 .sunny {
