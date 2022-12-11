@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Work%20Sans');
 
 body{
-    background-color: rgb(247, 237, 219);
+    background-color:rgb(174, 229, 232);
     font-family: 'Work Sans';
     font-size: large;
 }
 
+h2{
+    margin-top: 5px;
+    margin-bottom: 10px;;
+}
 .teal {
     color: rgb(12, 164, 177)
 
@@ -41,20 +45,56 @@ body{
 }
 
 .temp_section {
-    background-color: rgb(174, 252, 255) ;
+    background-color: rgb(255,255,255) ;
     width: 300px;
-    height: 150px;
+    height: 180px;
     padding: 10px;
     border-radius: 8px;
-    opacity: .9;    
-    align-items: center;
+    opacity: .8;    
+    align-items: center;   
+    margin-top: 20px;
+    margin-left: 20px; 
 }
-
+.sky_section,.city_section {
+    background-color: rgb(255,255,255) ;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: .8;    
+    align-items: center;   
+    margin-top: 20px;
+    margin-left: 20px; 
+}
+#currentTemp {
+    font-size: 30px;
+    /* padding-left:120px */
+}
 #increaseTemp, #decreaseTemp {
     border: transparent;
     padding: 0;
-    background-color: rgb(174, 252, 255);
+    background-color: rgb(255,255,255);
+    display: flex;
+    padding-left:10px;
+    /* padding-left: 130px; */    
 }
+
+#getCurrentTemp {
+    align-items: flex-start;
+    display: block;
+    margin-top: 10px;
+    background-color: rgb(88, 55, 208);
+    height: 30px;
+    border-radius: 9px;
+    color: rgb(251, 253, 255);
+    
+}
+
+#getCurrentTemp:hover{
+    background-color:rgb(125, 229, 237);
+    color: rgb(28, 19, 65);         
+}
+
 
 .sunny {
     background-color: orange;
