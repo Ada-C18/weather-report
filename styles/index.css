@@ -4,3 +4,24 @@ h1 {
     font-weight: bold;
     padding: 75px;
 }
+
+.red {
+    color: red;
+}
+
+/* .orange {
+    color:orange;
+} */
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+
+}
