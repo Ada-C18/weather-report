@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
 </head>
+
 <body>
-    
+    <section class="container-fluid my-5 mx-auto">
+
+        <header class="header__header">
+            <h1 class="text-muted text-center my-4">Weather Tell </h1>
+        </header>
+
+        <form class="change-location my-4 text-center text-muted">
+            <label for="city">Enter a location for weather information</label>
+            <input type="text" name="city" ,id="cityinput" class="form-control p-4">
+            <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
+        </form>
+
+        <section class="display card shadow-lg rounded">
+            <img src="https://via.placeholder.com/400x300" class="time card-img-top">
+            <div id="iconOfSky" class="bg-light mx-auto text-center">
+                <img src="">
+            </div>
+            <div class="my-3">Weather condition </div>
+            <section class="skyselection">
+                <div>Sky<select id="wrapper2">
+                        <option>Sunny</option>
+                        <option>Cloudy</option>
+                        <option>Rainy</option>
+                        <option>Snowy</option>
+                    </select></div>
+            </section>
+            <div id="iconLandscape" class="bg-light mx-auto text-center"><img src=""></div>
+
+            <div class="text-muted text-uppercase text-center details">
+                <h3 class="my-3" id="cityoutput">City name</h3>
+                <div class="display-4 my-4">
+                    <p><span id="tempInc">⬆️</span>
+                        <span id="tempValue">temp</span>
+                        <span>&deg;C</span>
+                        <span id="tempDec">⬇️</span>
+                    </p>
+                    <div><button id="currentTempButton">Get Current Temperature</button></div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <footer class="page-footer">
+        <div class="container">
+            <small>Created by <a href="www.adiegirllearn.com" target="_blank">Sika Sarpong</a>
+            </small>
+            <a href="linkedin.com/in/sika-sarpong" target="_blank" class="footer-item">linkedin</a>
+        </div>
+    </footer>
+
+
+    <script src="src/index.js"></script>
+    <script src=./node_modules/axios/dist/axios.min.js></script>
 </body>
+
 </html>
