@@ -2,6 +2,7 @@
 
 const state = {
   temp: 72,
+  city: "Seattle",
 }
 
 const tempChange = () => {
@@ -57,15 +58,36 @@ const decreasedTemp = () => {
   landscapeChange();
 }
 
+const cityNameChange = () => {
+  let currentCity = document.getElementById("currentCity");
+  let newCity = document.getElementById("newCity").value;
+  state.city = newCity;
+  currentCity.textContent = state.city;
+  console.log("inputted city");
+}
+
+const resetCity = () => {
+  let newCityInput = document.getElementById("newCity");
+  newCityInput.value = "Seattle";
+  cityNameChange();
+}
+
 const registerEventHandlers = () => {
   tempChange();
   landscapeChange();
+  cityNameChange();
 
   const increasedTempButton = document.getElementById("increaseTemp");
   increasedTempButton.addEventListener("click", increasedTemp);
 
   const decreasedTempButton = document.getElementById("decreaseTemp");
   decreasedTempButton.addEventListener("click", decreasedTemp);
+
+  const cityNameChangeInput = document.getElementById("newCity");
+  cityNameChangeInput.addEventListener("input", cityNameChange);
+
+  const resetCityButton = document.getElementById("changeCity");
+  resetCityButton.addEventListener("click", resetCity);
 
   console.log("loaded successfully");
 }
