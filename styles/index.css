@@ -1,6 +1,17 @@
-/* body {
-    background-color: red;
-} */
+ body {
+    background-color: whitesmoke;
+} 
+
+#sky {
+    border: 1px;
+    border-style: solid;
+    text-align: center;
+}
+#images_all {
+    border: 1px;
+    border-style: solid;
+    text-align: center;
+}
 
 /* div {
     margin: auto;

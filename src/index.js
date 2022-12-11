@@ -33,7 +33,6 @@ const temperatureChange = (temperature) => {
     temperatureArrowColor(temperature);
     document.getElementById('garden_icons').innerText =
     seasonTheme(temperature);
-    // add the new  const (if statementes)
 };
     document.addEventListener('DOMContentLoaded', () => {
     let temperature = 70;
@@ -51,41 +50,45 @@ const temperatureChange = (temperature) => {
 
 // wave 3
 //function same city on top: 
-const newCity = () =>{
+const updateBox = () =>{
     let newTop = document.getElementById("input-city").value;
     document.getElementById('chosen-city').innerText = newTop
 }
 
 // wave 4
 const findCity = () => {
+    console.log(document.getElementById("input-city").value);
 axios
     .get('http://127.0.0.1:5000/location', {
     params: {
-        q: `${city}`,
+        q: document.getElementById("input-city").value,
         }
     })
     .then((response) => {
         const searchResult = response.data[0];
-        console.log(`lat ${searchResult.lat} lon ${searchResult.lat}`);
-        // return { lat: searchResult.lat, lon: searchResult.lon};
+        const latStr = searchResult.lat;
+        const lonStr = searchResult.lon;
         axios
         .get('http://127.0.0.1:5000/weather', {
-        params: {lat: lat,lon: lon},
+        params: {lat: latStr,lon: lonStr},
     })
         .then((response) => {
-            const temp = Math.round(1.8 * (response.data.current.temp - 273) + 32);
-            setTemperature(temp);
+            console.log (response);
+            console.log (response.data.main.temp);
+            const temp = Math.round(1.8 * (response.data.main.temp - 273) + 32);
+            document.getElementById('temperature_numbers').innerText = temp;
         })
             .catch((error) => {
                 console.log('error getting temp');
                 console.log(error)
             });
+
         })
     .catch((error) => {
         console.log('error in find information!');
         console.log(error);
     });
-};
+}
 
 // Wave 5
 const skyCloud = (sky) => {
