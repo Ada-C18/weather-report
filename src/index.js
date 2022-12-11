@@ -79,32 +79,24 @@ const resetCityName = () => {
 const formatTempAndGarden = () => {
   let temp = state.temp;
   let color = 'red';
-  let landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   let landscapeImg = null;
   if (temp > 80) {
     color = 'red';
-    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
     landscapeImg = 'images/veryhot.webp';
   } else if (temp > 70) {
     color = 'orange';
-    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
     landscapeImg = 'images/spring.webp';
   } else if (temp > 60) {
     color = 'yellow';
-    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     landscapeImg = 'images/fall.webp';
   } else if (temp > 50) {
     color = 'green';
-    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
     landscapeImg = 'images/winter.webp';
   } else {
     color = 'teal';
-    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
     landscapeImg = 'images/winter.webp';
   }
 
-  const newLandscape = document.getElementById('landscape');
-  newLandscape.textContent = landscape;
   const newLandscapeImg = document.getElementById('landscapeImg');
   newLandscapeImg.src = landscapeImg;
   const temperature = document.getElementById('tempValue');
@@ -122,6 +114,29 @@ const decreaseTemp = () => {
   state.temp -= 1;
   formatTempAndGarden();
   clearError();
+};
+
+const changeSky = () => {
+  const inputSky = document.getElementById('skySelect').value;
+  const skyDisplay = document.getElementById('sky');
+  let sky = '';
+  let skyColor = '';
+  if (inputSky === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    skyColor = 'cloudy';
+  } else if (inputSky === 'Sunny') {
+    sky = '☁️  ☀️ ☀️ ☀️  ☁️ ☀️ ☀️ ☁️ ☀️';
+    skyColor = 'sunny';
+  } else if (inputSky === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skyColor = 'rainy';
+  } else if (inputSky === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skyColor = 'snowy';
+  }
+  skyDisplay.textContent = sky;
+  //const gardenContent = document.getElementById('gardenContent');
+  //gardenContent.classList = `garden__content ${skyColor}`;
 };
 
 const registerEventHandlers = () => {
@@ -142,6 +157,10 @@ const registerEventHandlers = () => {
 
   const currentTempButton = document.getElementById('currentTempButton');
   currentTempButton.addEventListener('click', findLatAndLong);
+
+  changeSky();
+  const skySelector = document.getElementById('skySelect');
+  skySelector.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
