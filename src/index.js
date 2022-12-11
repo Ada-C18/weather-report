@@ -3,6 +3,7 @@ const state = {
     decreaseTempControl: null,
     tempValue: 45,
     tempDisplay: null,
+    sky: null,
     landscape: null,
     cityResetButton: null,
     cityName: null,
@@ -13,6 +14,7 @@ const loadControls = () => {
     state.increaseTempControl = document.getElementById('increaseTempControl');
     state.decreaseTempControl = document.getElementById('decreaseTempControl');
     state.tempDisplay = document.getElementById('tempValue');
+    state.sky = document.getElementById('sky');
     state.landscape = document.getElementById('landscape');
     state.cityResetButton = document.getElementById('cityNameReset');
     state.cityName = document.getElementById('cityNameInput');
@@ -105,8 +107,7 @@ input.oninput = function () {
 ///////////////Wave 5\\\\\\\\\\\\\\\\
 
 const iinput = document.getElementById('skySelect');
-const p = document.getElementById('gardenContent');
 
 iinput.onchange = function () {
-  p.innerHTML = iinput.value;
+  state.sky.innerHTML = iinput.value;
 };
