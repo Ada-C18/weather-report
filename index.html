@@ -20,42 +20,45 @@
             </span>
         </span>
     </header>
-    <section class="temp_section">
-        <h2>Temperature</h2>
-        <div class ="temp_content">
-            <div class ="temerature_controls">
-                <button id="increaseTemp"><i class="fa-sharp fa-solid fa-up-long fa-xxl"></i></button>
-                
-                <span id="currentTemp" class="teal">45</span>
-                <button id="decreaseTemp"><i class="fa-sharp fa-solid fa-down-long fa-xxl"></i></button>
+    <div class="container">
+        <section class="temp_section">
+            <h2>Temperature</h2>
+            <div class ="temp_content">
+                <div class ="temerature_controls">
+                    <button id="increaseTemp"><i class="fa-sharp fa-solid fa-up-long fa-xxl"></i></button>
+                    
+                    <span id="currentTemp" class="teal">45</span>
+                    <button id="decreaseTemp"><i class="fa-sharp fa-solid fa-down-long fa-xxl"></i></button>
+                </div>
+                <button id="getCurrentTemp">Get Current Temperature</button>
             </div>
-            <button id="getCurrentTemp">Get Current Temperature</button>
-        </div>
-    </section>
-    <section class="sky_section">
-        <h2>Sky</h2>
-        <select id="selectSky">
-            <option value="Snowy">Snowy☃️</option>
-            <option value="Sunny">Sunny☀️</option>
-            <option value="Cloudy">Cloudy☁️</option>
-            <option value="Rainy" >Rainy☔️</option>            
-        </select>
-    </section>
-    <section class="city_section">
-        <h2>City Name</h2>
-        <input type="text" id="cityNameInput" value="Seattle">
-        <button id="resetCityName" class="cityNameResetButton">Reset</button>
-    </section>
-    <section id ="garden_section">
-        <h2>Weather Illustration</h2>
-        <div class = "gardenContent" >            
-            <div id="sky" >🌨❄️🌨❄️🌨❄️🌨🌧</div>
-            <div id="gardenlandscape" >☃️🧤🎄🏔☃️🧤🎄🥶🏔☃️🧤🎄🏔</div>
-            
-        </div>
-    </section>
-    
+        </section>
+        <section class="sky_section">
+            <h2>Sky</h2>
+            <select id="selectSky">
+                <option value="Snowy">Snowy☃️</option>
+                <option value="Sunny">Sunny☀️</option>
+                <option value="Cloudy">Cloudy☁️</option>
+                <option value="Rainy" >Rainy☔️</option>            
+            </select>
+        </section>
+        <section class="city_section">
+            <h2>City Name</h2>
+            <input type="text" id="cityNameInput" value="Seattle">
+            <button id="resetCityName" class="cityNameResetButton">Reset</button>
+        </section>
+        <section id ="garden_section">
+            <h2>Weather Illustration</h2>
+            <div class = "gardenContent" >            
+                <div id="sky" >🌨❄️🌨❄️🌨❄️🌨🌧</div>
+                <div id="gardenlandscape" >☃️🧤🎄🏔☃️🧤🎄🥶🏔☃️🧤🎄🏔</div>                
+            </div>
+        </section>
+        
+    </div>
+    <div id="footer">
     <footer id="copyright"> © 2022 Built by Minh Seikel and Dominique Daba</footer>
+    </div>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
 </body>
