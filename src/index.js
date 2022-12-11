@@ -18,19 +18,6 @@ const convertKtoF = (temp) => {
   return (temp - 273.15) * (9 / 5) + 32;
 };
 
-// increase temp
-const increaseTemp = () => {
-  state.temp++;
-  displayEmojis();
-  // console.log(increaseTemp);
-  // console.log(state.temp);
-};
-
-const decreaseTemp = () => {
-  state.temp--;
-  displayEmojis();
-};
-
 const upButton = document.getElementById('up');
 const downButton = document.getElementById('down');
 let display = document.getElementById('tempNum');
@@ -38,10 +25,12 @@ let display = document.getElementById('tempNum');
 upButton.addEventListener('click', function increaseTemp() {
   state.temp++;
   display.textContent = state.temp;
+  displayEmojis();
 });
 downButton.addEventListener('click', function decreaseTemp() {
   state.temp--;
   display.textContent = state.temp;
+  displayEmojis();
 });
 
 const findLatAndLong = () => {
@@ -82,9 +71,10 @@ const findWeather = (lat, long) => {
 
 currentWeather.addEventListener('click', findWeather);
 
-const updateCity = () => {
-  const newCity = document.getElementById('newCity');
-  state.city = newCity.value;
+const updateCity = (event) => {
+  const newCity = event.target.value;
+  state.city = newCity;
+  displayCity();
 };
 
 const newCity = document.getElementById('newCity');
@@ -98,6 +88,10 @@ const resetText = () => {
 let resetButton = document.getElementById('reset');
 // Add a click event listener to the button
 resetButton.addEventListener('click', resetText);
+
+const displayCity = () => {
+  document.getElementById('cityInput').textContent = state.city;
+};
 
 const displayEmojis = () => {
   let numColor = 'red';
@@ -124,20 +118,6 @@ const displayEmojis = () => {
   temperature.className = numColor;
   temperature.textContent = String(state.temp);
 };
-
-// const tempColorChange = () => {
-//   const tempContainer = document.getElementById('temperature');
-//   tempColorChange.addEventListener('click', findWeather);
-//   if (tempContainer <= 32) {
-//     document.body.style.backgroundColor = 'blue';
-
-//     document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨');
-//   } else if (tempContainer > 32 && tempContainer <= 50) {
-//   } else if (tempContainer > 50 && tempContainer <= 68) {
-//   } else if (tempContainer > 68 && tempContainer <= 86) {
-//   } else {
-//   }
-// };
 
 const updateSky = () => {
   let sky = '';
@@ -169,44 +149,3 @@ const updateSky = () => {
 };
 
 console.log(updateSky);
-
-// Increase/Decrease temperature
-// const increaseTemp = () => {
-//   let count = 0;
-//   count++;
-//   const upButton = document.getElementById('up');
-//   const downButton = document.getElementById('down');
-//   let display = document.getElementById('tempNum');
-
-// upButton.addEventListener('click', increaseTemp () {
-//   state.temp++;
-//   display.textContent = state.temp;
-// });
-// downButton.addEventListener('click', function () {
-//   state.temp--;
-//   display.textContent = state.temp;
-// });
-// increaseTemp.addEventListener("click", incrementCount);
-
-// const decreaseTemp = () => {
-//   i--;
-//   document.getElementById('down').value = i;
-// }
-// Temperature number and background changes depending on number
-
-// const tempColorChange = () => {
-
-// }
-
-// // Depending on what temperature it is, a different landscape should appear on the page.
-
-// const
-
-// // Changing landscapes should replace the existing landscape. There should only be one visible landscape at a time.
-
-// // There must be at least four landscapes.
-
-// // Reset city button
-// const resetCity = () => {
-//   formElement.reset()
-// }
