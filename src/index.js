@@ -105,7 +105,7 @@ async function getTemperature(query) {
     stateChange(number);
 }
 
-
+getTemperature(defaultCity)
 
 
 let RealTime = document.getElementById("realTime")
