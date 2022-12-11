@@ -61,12 +61,12 @@ body{
 .topic{
     padding-left: 10%;
 }
-.slide{
+#slide{
     padding: 10px;
     margin: auto;
-    height: 20%;
+    height: 30%;
     width: 50%;
-    border: 1px rebeccapurple solid;
+    /* border: 1px rebeccapurple solid; */
 }
 .cityname{
     background-color: aliceblue;

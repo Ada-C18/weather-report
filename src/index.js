@@ -104,21 +104,25 @@ const findcity = (latitude, longitude) => {
 };
 
 // --------------------------------------wave5 Calling APIs-------------------
-const optionSky = document.getElementById('slide');
-const selectionSky = optionSky.value;
+const selectElement = document.getElementById('slide');
 const skyPicture = document.getElementById('skyPicture');
 
-const changeselectionSky = (selectionSky) => {
-  if (selectionSky === 'Sunny') {
+const changeselectionSky = (value) => {
+  if (value === 'Sunny') {
     skyPicture.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (selectionSky === 'Cloudy') {
+  } else if (value === 'Cloudy') {
     skyPicture.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (selectionSky === 'Rainy') {
+  } else if (value === 'Rainy') {
     skyPicture.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (selectionSky === 'Snowy	') {
+  } else if (value === 'Snowy') {
     skyPicture.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
+selectElement.addEventListener('change', (event) => {
+  const value = event.target.value;
+  console.log(value);
+  changeselectionSky(value);
+});
 
 // JS brower connect
 if (document.readyState !== 'loading') {
