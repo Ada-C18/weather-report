@@ -12,6 +12,7 @@ const { default: axios } = require("axios");
 //   changeTemp(tempDisplay)
 // }
 
+// API Calls
 const weatherforecast = (city_name) => {
   const getLocation = () => {
     axios
