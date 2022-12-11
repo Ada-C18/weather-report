@@ -1,6 +1,5 @@
-
 'use strict'
-
+// Wave 2
 const temperatureArrowColor = (temperature) => {
     if (temperature >= 80) {
         return 'red';
@@ -49,79 +48,50 @@ const temperatureChange = (temperature) => {
 });
 
 
-
-const updateCityName = () => {
-    const cityElement = document.getElementById('#chosen-city');
-    const cityName = document.querySelector('#input-city').value;
-    cityElement.innerText = cityName;
-
 // wave 3
-
-
-// const seattleAlways = () => {
-//     document.getElementById("input-city").value = "Seattle";
-// }
-
-
-// const newCity = document.getElementById("enterCityButton");
-// newCity.addEventListener("click", myFunction);
-
-// // const cityName = document.querySelector('input-city').value;
-
-// function myFunction(){
-//     document.getElementById("lovelyName").innerHTML = "hello";
-// } 
-
-    
-    // cityElement.innerText = cityName;
-
-    // setCity(cityName);
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const enterCityButton = document.getElementById('#enter-city-button');
-
-//     enterCityButton.addEventListener('click', () => {
-//     updateCityName();
-//     });
-// });
-
+//function same city on top: 
+const updateBox = () =>{
+    let newTop = document.getElementById("input-city").value;
+    document.getElementById('chosen-city').innerText = newTop
+}
 
 // wave 4
-const findCity = (city) => {
+const findCity = () => {
+    console.log(document.getElementById("input-city").value);
 axios
     .get('http://127.0.0.1:5000/location', {
     params: {
-        q: city,
-        format: 'json'},
+        q: document.getElementById("input-city").value,
+        }
     })
     .then((response) => {
         const searchResult = response.data[0];
-        console.log(`lat ${searchResult.lat} lon ${searchResult.lon}`);
-        return { lat: searchResult.lat, lon: searchResult.lon};
+        const latStr = searchResult.lat;
+        const lonStr = searchResult.lon;
+        // return { lat: searchResult.lat, lon: searchResult.lon};
+        axios
+        .get('http://127.0.0.1:5000/weather', {
+        params: {lat: latStr,lon: lonStr},
     })
-    .then((reponse) => {
-        axios.get('http://127.0.0.1:5000/weather', {
-        params: {
-            lat:lat,
-            lon:lon}
-    })
-            const tempKelvin = response.data.main.temp;
-            StaticRange.temperature = Math.round(1.8 * (tempKelvin - 273) + 32;
-            setTemperature(temp);
-    })
-        .catch((error) => {
-            console.log('error getting temp');
-            console.log(error)
-        });
-    })
+        .then((response) => {
+            console.log (response);
+            console.log (response.data.main.temp);
+            const temp = Math.round(1.8 * (response.data.main.temp - 273) + 32);
+            document.getElementById('temperature_numbers').innerText = temp;
+        })
+            .catch((error) => {
+                console.log('error getting temp');
+                console.log(error)
+            });
+
+        })
     .catch((error) => {
         console.log('error in find information!');
         console.log(error);
     });
-};
+}
 
-
+// Wave 5
 const skyCloud = (sky) => {
     if (sky == 'Sunny'){
         return `☁️ ☁️ ☁️ ☀️ ☁️ ☁️`;
@@ -135,22 +105,16 @@ const skyCloud = (sky) => {
 };
 document.addEventListener('DOMContentLoaded', () => {
     let sky = 'Sunny';
-    document.getElementById('sky-garden').innerHTML = skyCloud(sky);
+    document.getElementById('sky_icons').innerHTML = skyCloud(sky);
 
-    document.getElementById('sky-select').addEventListener('change', () => {
-    const skyElement = document.getElementById('sky-select').value;
-    document.getElementById('sky-garden').innerHTML = skyCloud(skyElement);
+    document.getElementById('sky_selection').addEventListener('change', () => {
+    const skyElement = document.getElementById('sky_selection').value;
+    document.getElementById('sky_icons').innerHTML = skyCloud(skyElement);
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const resetCityButton = document.getElementById('resetCitybutton');
-    setCity('Seattle');
-
-    resetCityButton.addEventListener('click', () => {
-    const defaultCity = 'Seattle';
-    document.querySelector('#input-city').value = defaultCity;
-    document.getElementById('chosen-city').innerText = defaultCity;
-    setCity(defaultCity);
-    });
-});
+// wave 6
+//function reset button:
+const seattleAlways = () => {
+    document.getElementById("input-city").value = "Seattle";
+}
