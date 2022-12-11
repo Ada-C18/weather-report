@@ -67,10 +67,6 @@ axios
         const searchResult = response.data[0];
         const latStr = searchResult.lat;
         const lonStr = searchResult.lon;
-<<<<<<< HEAD
-        // return { lat: searchResult.lat, lon: searchResult.lon};
-=======
->>>>>>> 1e6ce82c4defc7fcc770313b3623cfd1d36ee6a4
         axios
         .get('http://127.0.0.1:5000/weather', {
         params: {lat: latStr,lon: lonStr},
