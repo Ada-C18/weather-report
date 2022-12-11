@@ -97,10 +97,9 @@ onLoaded();
 ////////////////wave 3\\\\\\\\\\\\\\\\\\\
 
 const input = document.querySelector('input');
-const log = document.getElementById('headerCityName');
 
 input.oninput = function () {
-  log.innerHTML = input.value;
+  state.headerCityName.innerHTML = input.value;
 };
 
 ///////////////Wave 5\\\\\\\\\\\\\\\\
