@@ -55,7 +55,7 @@ body {
 .display {
     text-align: center;
     width: 400px;
-    color: #16a864;
+    color: black;
 }
 
 .wrapper {
@@ -69,8 +69,8 @@ body {
 .wrapper h3 {
     padding: 5px 0;
     text-align: center;
-    background: #b50534;
-    color: white;
+    /* background: #b50534; */
+    color: black;
     font-family: sans-serif;
 }
 
@@ -82,12 +82,39 @@ body {
     font-size: 23px;
 }
 
-.wrapper h3 span {
+/* .wrapper h3 span {
     font-size: 26px;
     color: #9beefb;
-}
+} */
 
-.wrapper p span {
+/* .wrapper p span {
     color: #f4780d;
     font-size: 25px;
-}
+} */
+
+
+
+.red {
+    color: red;
+    }
+    
+    .orange {
+    color: orange;
+    }
+    
+    .yellow {
+    color: gold;
+    }
+    
+    .yellow-green {
+    color: yellowgreen;
+    }
+    
+    .green {
+    color: green;
+    }
+    
+    .teal {
+    color: teal;
+    }
+
