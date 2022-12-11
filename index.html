@@ -5,8 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="/styles/index.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 <body>
+    <header id="header">
+        <h1>Weather Report</h1>
+        <span>For the lovely city of </span>
+        <span id="headerCityName"></span>
+    </header>
+    <main  id="container">
+        <div>
+            <section id="temperatureSection">
+                <h2 id="temp">Temperature</h2>
+                <nav id="temperatureControls">
+                    <button type="button" id="increaseTempBtn">⬆️</button>
+                    <h2 id="currentTemp" class="orange">75</h2>
+                    <button type="button" id="decreaseTempBtn">⬇️</button>
+                </nav>
+                <button type="button" id="realTempBtn">REALTIME TEMPERATURE</button>
+            </section>
+
+            <section id="skySection">
+                <h2>Sky</h2>
+                    <select id="SkyChoice">
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select>
+            </section>
+
+            <section id="cityNameSection">
+                <h2>Enter City Name:</h2>
+                <input type="text" id="cityNameInput">
+                <button type="button" id="cityNameReset">Reset City</button>
+            </section>
+        </div>
+        <section id="gardenSection">
+            <h2>Weather Garden</h2>
+            <div id="gardenContent">
+                <div id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+                <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer">
+        <h3 id="copyrightInfo">&copy; 2022 Ada Developers Academy | Presley | Galina</h3>
+    </footer>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     
 </body>
 </html>
