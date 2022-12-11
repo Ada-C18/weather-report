@@ -13,12 +13,12 @@ const buttonDecrease = document.querySelector('#button-decrease');
 
 buttonIncrease.addEventListener('click', (_) => {
     State.temperature += 1;
-    updateWeather();
+    updatePage();
 });
 
 buttonDecrease.addEventListener('click', (_) => {
     State.temperature -= 1;
-    updateWeather();
+    updatePage();
 });
 
 citySelector.addEventListener('input', (_) => {
@@ -45,11 +45,31 @@ const State = {
     unit: 'F',
     latitude: 0,
     longitude: 0,
+    weather: 'sunny',
 };
 
 const updateWeather = function() {
+    axios
+        .get('http://127.0.0.1:5000/weather', {
+            params: {
+                lat: State.latitude,
+                lon: State.longitude,
+            },
+        })
+        .then((response) => {
+            console.log(response.data);
+            State.weather = response.data['weather'][0]['description'];
+            State.temp = response.data['main']['temp'];
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+
+const updatePage = function() {
     temperature.textContent = `${State.temperature}`;
     tempUnit.textContent = `${State.unit}`;
+    weather.textContent = `${State.weather}`;
 
     if (State.temperature < 32) {
         landscape.className = 'landscape-cold';
@@ -66,4 +86,4 @@ const updateWeather = function() {
     }
 };
 
-updateWeather();
+updatePage();
