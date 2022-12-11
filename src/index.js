@@ -47,15 +47,18 @@ const checkTemperatureRange = (countValue) => {
 // toggle celsius and fahrenheit
 
 // --------------------------------wave3 Naming the City----------------------
-console.log('hello world');
 const cityNameLabel = document.getElementById('cityname');
 const cityNameInput = document.getElementById('cityname-input');
 const resetBtn = document.getElementById('reset-btn');
+// change city name on top header
+const addCityName = document.getElementById('topCityName');
 
 cityNameInput.addEventListener('change', (event) => {
   const value = event.target.value;
   console.log('change:', value);
   cityNameLabel.innerText = value;
+  addCityName.innerText = value;
+  findLocation(value);
 });
 
 resetBtn.addEventListener('click', () => {
@@ -74,12 +77,32 @@ const findLocation = (query) => {
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
+      console.log(response);
       console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+      // make the next API call here!
+      findcity(latitude, longitude);
     })
     .catch((error) => {
       console.log('error in findLatitudeAndLongitude!');
     });
 };
+const findcity = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        format: 'json',
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      console.log('success in findLocation!', response.data);
+    })
+    .catch((error) => {
+      console.log('error in findLocation!');
+    });
+};
+
 // JS brower connect
 if (document.readyState !== 'loading') {
   findLocation('BeiJing');
