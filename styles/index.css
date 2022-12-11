@@ -53,6 +53,12 @@ body {
   font-size: 4rem;
 }
 
+#cityInfo {
+  font-size: 1rem;
+  font-style: italic;
+  color: rgb(148, 240, 188);
+}
+
 #currentTempButton {
   background-color: coral;
   color: rgb(146, 61, 0);

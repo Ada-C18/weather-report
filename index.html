@@ -17,7 +17,7 @@
           <!-- before and after refer are for any special effects around the city name -->
           <!-- ::before -->
           <!-- this will be a variable to enter name of city here -->
-          Seattle
+          Neema & Pavi Land
           <!-- ::after -->
         </span>
       </span>
@@ -25,12 +25,13 @@
     <section class="temperature_section">
       <h2>Temperature</h2>
       <div class="temperature_content">
+        <p id="cityInfo"></p>
         <div class="temperature_controls">
           <button id="increaseTempControl">▲</button>
           <span id="tempValue" class="teal"></span>
           <button id="decreaseTempControl">▼</button>
         </div>
-        <span id="tempError"></span>
+
         <!-- onClick button here, too. button tied to event -->
         <button id="currentTempButton">Get Real Time Temperature</button>
       </div>
@@ -51,7 +52,12 @@
       <!-- value should be variable -->
       <!-- onClick button to change state -->
       <!-- <label for="cityName">City Name:</label> -->
-      <input id="cityNameInput" type="text" value="Seattle" required />
+      <input
+        id="cityNameInput"
+        type="text"
+        value="Neema and Pavi Land"
+        required
+      />
       <button id="cityNameReset" class="city-name_reset-btn">Reset</button>
     </section>
     <section class="garden_section">

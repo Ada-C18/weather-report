@@ -1,11 +1,21 @@
 const state = {
-  city: 'Seattle',
+  city: 'Neema & Pavi Land',
   lat: 47.6038321,
   long: -122.3300624,
   temp: 73,
 };
 const convertKtoF = (temp) => {
   return (temp - 273.15) * (9 / 5) + 32;
+};
+
+const clearError = () => {
+  const cityInfo = document.getElementById('cityInfo');
+  cityInfo.textContent = '';
+};
+
+const displayCityInfo = (cityinfo) => {
+  const cityInfo = document.getElementById('cityInfo');
+  cityInfo.textContent = `Current Temperature for: ${cityinfo}`;
 };
 
 const findLatAndLong = () => {
@@ -20,8 +30,8 @@ const findLatAndLong = () => {
       console.log(response.data);
       state.lat = response.data[0].lat;
       state.long = response.data[0].lon;
-      clearError();
-      getWeather();
+      const cityinfo = response.data[0].display_name;
+      getWeather(cityinfo);
     })
     .catch((error) => {
       console.log('Error finding the latitude and longitude:', error.response);
@@ -30,12 +40,7 @@ const findLatAndLong = () => {
     });
 };
 
-const clearError = () => {
-  const tempError = document.getElementById('tempError');
-  tempError.textContent = '';
-};
-
-const getWeather = () => {
+const getWeather = (cityinfo) => {
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
@@ -46,8 +51,8 @@ const getWeather = () => {
     .then((response) => {
       const weather = response.data;
       state.temp = Math.round(convertKtoF(weather.main.temp));
-      clearError();
       formatTempAndGarden();
+      displayCityInfo(cityinfo);
     })
     .catch((error) => {
       console.log('Error getting the weather:', error);
@@ -110,11 +115,13 @@ const formatTempAndGarden = () => {
 const increaseTemp = () => {
   state.temp += 1;
   formatTempAndGarden();
+  clearError();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
   formatTempAndGarden();
+  clearError();
 };
 
 const registerEventHandlers = () => {
@@ -132,6 +139,9 @@ const registerEventHandlers = () => {
   updateCityName();
   const cityNameInput = document.getElementById('cityNameInput');
   cityNameInput.addEventListener('input', updateCityName);
+
+  const currentTempButton = document.getElementById('currentTempButton');
+  currentTempButton.addEventListener('click', findLatAndLong);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
