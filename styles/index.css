@@ -61,10 +61,14 @@ body {
     color: gold;
 }
 
-.yellow-green {
-    color: yellowgreen;
-}
-
 .green {
     color: green;
+}
+
+.purple {
+  color: purple
+}
+
+.grey {
+  color: grey;
 }
