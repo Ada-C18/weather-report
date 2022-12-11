@@ -1,0 +1,173 @@
+body {
+    background-color: lightblue;
+    display: grid;
+    /* grid-template-columns: 1fr 4fr 2fr; */
+    grid-template-rows: 1fr 4fr 4fr;
+    grid-gap: 1rem;
+    row-gap: 1rem;
+    font-family: Rubik,sans-serif;
+    font-size: 18px;
+    margin: 2rem;
+}
+
+
+#headerContainer {
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#headerCity {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+
+#tempskycitycontainer { 
+    /* background-color: plum;  */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 1in;
+    justify-content:center;
+    height: fit-content;
+    text-align: center;
+
+    
+}
+
+#tempContainer { 
+    border: 1px solid black;  
+    font-family: 'Courier New', Courier, monospace;
+    border: 3px groove;
+    padding: 10%;
+    border-color: orangered;
+    border-radius: 20px;
+
+}
+
+#tempContainer h2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 10%;
+
+}
+
+.tempControl { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#tempValue {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#currentTempButton {
+    background-color: rgb(9, 56, 9);
+    border: 2px solid black;
+    color: #fff;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: grid;
+    grid-template-rows: 1fr;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#skyContainer { 
+    border: 3px groove;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10%;
+    border-color: orangered;
+    border-radius: 20px;
+}
+
+#tempskycitycontainer {
+    border-radius: 8px;
+    padding: 2rem;
+
+}
+
+#citycontainer { 
+    border: 3px groove;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10%;
+    border-color: orangered;
+    border-radius: 20px;
+    
+}
+#skyContainer h2 { 
+    padding: 10%;
+    border-radius: 8px;
+}
+
+#gardenContainer {
+    border: 3px groove;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10%;
+    border-color: orangered;
+    text-align: center;
+    margin: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+
+#sky {
+    font-size: 2em;
+}
+
+#landscape {
+    font-size: 2em;
+    bottom: 5px;
+}
+
+.sunny {
+    background-color: rgb(155, 215, 255);
+}
+
+.cloudy {
+    background-color: rgb(238, 239, 239);
+}
+
+.rainy {
+    background-color: rgb(195, 202, 206);
+}
+
+.snowy {
+    background-color: rgb(221, 228, 232);
+}
+
+#landscape {
+    font-size: 3em;
+    position: relative;
+    margin-top: 10%;
+
+}
+.teal {
+    color: teal;
+}
+
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
