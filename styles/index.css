@@ -89,7 +89,7 @@ body {
 #tempskycitycontainer {
     border-radius: 8px;
     padding: 2rem;
-    border-radius: 8px;
+
 }
 
 #citycontainer { 
@@ -98,7 +98,7 @@ body {
     padding: 10%;
     border-color: orangered;
     border-radius: 20px;
-    border-radius: 8px;
+    
 }
 #skyContainer h2 { 
     padding: 10%;
