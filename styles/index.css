@@ -11,15 +11,6 @@ body {
 }
 
 
-
-/* 
-.block {
-    width: 50%;
-    float: left;
-    height: 0;
-    padding-bottom: 50%;
-} */
-
 .temp-section {
     background: yellow;
     float: left;
@@ -50,5 +41,20 @@ body {
     width: 50%;
     height: 400px;
     text-align: center;
-}
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

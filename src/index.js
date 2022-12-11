@@ -94,7 +94,7 @@ resetButton.addEventListener('click', resetText);
 
 const tempColorChange = () => {
   const tempContainer = document.getElementById('temperature');
-
+  tempContainer.addEventListener('click');
   if (tempContainer <= 32) {
     document.body.style.backgroundColor = 'blue';
     document.body.style.color = 'white';
@@ -136,44 +136,3 @@ const updateSky = () => {
     skyColor = 'wind';
   }
 };
-
-// Increase/Decrease temperature
-// const increaseTemp = () => {
-//   let count = 0;
-//   count++;
-//   const upButton = document.getElementById('up');
-//   const downButton = document.getElementById('down');
-//   let display = document.getElementById('tempNum');
-
-// upButton.addEventListener('click', increaseTemp () {
-//   state.temp++;
-//   display.textContent = state.temp;
-// });
-// downButton.addEventListener('click', function () {
-//   state.temp--;
-//   display.textContent = state.temp;
-// });
-// increaseTemp.addEventListener("click", incrementCount);
-
-// const decreaseTemp = () => {
-//   i--;
-//   document.getElementById('down').value = i;
-// }
-// Temperature number and background changes depending on number
-
-// const tempColorChange = () => {
-
-// }
-
-// // Depending on what temperature it is, a different landscape should appear on the page.
-
-// const
-
-// // Changing landscapes should replace the existing landscape. There should only be one visible landscape at a time.
-
-// // There must be at least four landscapes.
-
-// // Reset city button
-// const resetCity = () => {
-//   formElement.reset()
-// }
