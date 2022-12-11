@@ -103,7 +103,7 @@ const findcity = (latitude, longitude) => {
     });
 };
 
-// --------------------------------------wave5 Calling APIs-------------------
+// --------------------------------------wave5 Selecting the Sky-------------------
 const selectElement = document.getElementById('slide');
 const skyPicture = document.getElementById('skyPicture');
 
@@ -119,8 +119,9 @@ const changeselectionSky = (value) => {
   }
 };
 selectElement.addEventListener('change', (event) => {
+  // console.log(event.target);
   const value = event.target.value;
-  console.log(value);
+  // console.log(event.target.value);
   changeselectionSky(value);
 });
 
