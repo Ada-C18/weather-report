@@ -22,12 +22,11 @@ h1 {
     /* border: 2px solid black; */
     grid-column: 1 / 2;
     display: flex;
-    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     font-size: 4rem;
     margin: .5rem;
-    letter-spacing: .15rem;
+    /* letter-spacing: .15rem; */
 }
 
 #city-title {
