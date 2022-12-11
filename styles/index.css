@@ -1,115 +1,110 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    font-size: 18px;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 18px;
 }
 body {
-    background-color: #E8F3D6;
-    text-align: center;
-    color: #545454;
-
+  background-color: #e8f3d6;
+  text-align: center;
+  color: #545454;
 }
 button {
-    background-color: #8caf9a;
-    border: none;
-    color: white;
-    padding-left: 2em;
-    padding-right: 2em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 10px;
+  background-color: #8caf9a;
+  border: none;
+  color: white;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 10px;
 }
-h1{
-    font-size: 32px;
-    display:inline;
-    margin: 20px;
+h1 {
+  font-size: 32px;
+  display: inline;
+  margin: 20px;
 }
-h2{
-    border: 30px;
-    color: #545454;
-    display:inline;
+h2 {
+  border: 30px;
+  color: #545454;
+  display: inline;
 }
 .container {
-    display: grid;
-    text-align: center;
-    grid-template-rows: 25% 30% 20% 25% ;
-    grid-template-columns: 30% 70%;
-    margin:auto;
-    width: auto;
-    height: 800PX;
-    
-  }
-.header{
-    grid-row: 1/2;
-    grid-column: 1/3;
-    margin: 20px 2em;
-    vertical-align: middle;
+  display: grid;
+  text-align: center;
+  grid-template-rows: 25% 30% 20% 25%;
+  grid-template-columns: 30% 70%;
+  margin: auto;
+  width: auto;
+  height: 800px;
 }
-.temperature{
-    grid-row: 2/3;
-    grid-column: 1/2;
-    margin: 0px 2em;
-    display: block;
+.header {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  margin: 20px 2em;
+  vertical-align: middle;
 }
-.sky{
-    margin:20px;
-    padding: 20px;
-    font-size: 25px;
+.temperature {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  margin: 0px 2em;
+  display: block;
 }
-.landscape{
-    padding: 100px, 20px, 10px, 20px;
-    font-size: 20px;
-    vertical-align: bottom;
+.sky {
+  margin: 20px;
+  padding: 20px;
+  font-size: 25px;
 }
-.RealtimeTemperature{
-    background-color: #FAAB78;
-    border: none;
-    color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+.landscape {
+  padding: 100px, 20px, 10px, 20px;
+  font-size: 20px;
+  vertical-align: bottom;
 }
-.number{
-    font-size: 3rem;
+.RealtimeTemperature {
+  background-color: #faab78;
+  border: none;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.skyImage{
-    grid-row: 3/4;
-    grid-column: 1/2;
-    margin: 0px 2em;
-
+.number {
+  font-size: 3rem;
 }
-.cityName{
-    grid-row: 4/5;
-    grid-column: 1/2;
-    margin: 0px 2em;
-    display: block;
+.skyImage {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  margin: 0px 2em;
 }
-#intro{
-    font-size: 24px;
+.cityName {
+  grid-row: 4/5;
+  grid-column: 1/2;
+  margin: 0px 2em;
+  display: block;
 }
-.skySelect{
-    padding: 30px;
-    margin:20px;
+#intro {
+  font-size: 24px;
 }
-.weatherGarden{
-    grid-row: 2/5;
-    grid-column: 2/3;
-    margin:20px;
-    place-content : center center;
-    place-items: center center;
+.skySelect {
+  padding: 30px;
+  margin: 20px;
 }
-.weatherGardenBox{
-    /* grid-row: 2/5;
-    grid-column: 2/3; */
-    margin-top: 10px;
-    height: 200px;
-    width: 50%;
-    background-color: #f7ebdb;
-    border: 10px;
-    display:inline-grid;
+.weatherGarden {
+  grid-row: 2/5;
+  grid-column: 2/3;
+  margin: 20px;
+  place-content: center center;
+  place-items: center center;
+}
+.weatherGardenBox {
+  margin-top: 10px;
+  height: 200px;
+  width: 50%;
+  background-color: #f7ebdb;
+  border: 10px;
+  display: inline-grid;
 }
