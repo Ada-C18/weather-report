@@ -2,7 +2,7 @@
 
 
 // ******* wave 2 *******
-
+const defaultCity = "Seattle"
 let number = parseInt(document.querySelector('.number').innerHTML);
 
 const state = {number: number};
@@ -102,7 +102,7 @@ async function getTemperature(query) {
     document.getElementById("number").innerHTML = Math.round(FarenheitTemp);
     number = Math.round(FarenheitTemp);
     state.number = Math.round(FarenheitTemp);
-    stateChange(number)
+    stateChange(number);
 }
 
 
@@ -126,12 +126,21 @@ function getRealTime() {
 //         };
 
 
+// }
+function displaySky() {
+    let skyImageDisplay = document.getElementById("skySelect").value;
+    document.getElementById("skyImage").innerHTML = skyImageDisplay
+}
+
+
+
+    
 // ******* wave 6 *******
 
 document.getElementById("reset").onclick = function() {
-    document.getElementById("intro").innerHTML = "Seattle";
-    getTemperature("seattle");
-    getRealTime();
+    const defaultCity = "Seattle"
+    document.getElementById("intro").innerHTML = defaultCity;
+    getTemperature(defaultCity);
     document.getElementById("cityNameInput").value = "";
  };
  

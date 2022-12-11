@@ -33,11 +33,12 @@
         </div>
         <div class = "sky">
             <h3>Sky</h3>
-            <select id="skySelect" onchange="myFunction()">
-                <option value="Sunny">Sunny</option>
-                <option value="Cloudy">Cloudy</option>
-                <option value="Rainy">Rainy</option>
-                <option value="Snowy">Snowy</option>
+            <select id="skySelect" onchange="displaySky()">
+                <option value = "">Default</option>
+                <option value="☁️ ☁️ ☁️ ☀️ ☁️ ☁️">Sunny</option>
+                <option value="☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️">Cloudy</option>
+                <option value="🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧">Rainy</option>
+                <option value="🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨">Snowy</option>
               </select>
         </div>
         <div class="cityName">
@@ -51,7 +52,7 @@
         <div class= "weatherGarden">
             <h3>Weather Garden</h3>
             <div class="weatherGardenBox">
-                <div id="skyImage">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+                <div id="skyImage"></div>
                 <br>
                 <div class="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
             </div>
