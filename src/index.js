@@ -196,8 +196,10 @@ const getLatLon = async (cityName) => {
 const kelvinToFahrenheit = (K) => Math.round(((K - 273.15) * 9) / 5 + 32);
 
 const getTemp = async (objLatLon) => {
+  const errorReturn = [-40, 700];
+
   if (objLatLon.lat === 90 && objLatLon.lon === 200) {
-    return [-40, 700];
+    return errorReturn;
   }
 
   const response = await axios.get('http://127.0.0.1:5000/weather', {
@@ -216,7 +218,7 @@ const getTemp = async (objLatLon) => {
     console.log(
       `!!! error in getTemp: ${response.data.cod}: ${response.data.message}`
     );
-    return [-40, 700];
+    return errorReturn;
   }
 };
 
