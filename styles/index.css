@@ -1,10 +1,20 @@
 * {
-    background-color:rgb(29, 178, 242)
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:rgb(29, 178, 242);
 }
 
+section {
+    border-radius:2px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background-color:aquamarine;
+
+}
 .flex-container {
     display: flex;
-    flex-direction: inline;
+    /* flex-direction: inline; */
     justify-content: space-evenly;
     float: none;
     line-height: normal;
@@ -32,6 +42,10 @@
     display: block;
     
 }
-/* .images {
-
-} */
+img {
+    width: 500px;
+    background-origin: padding-box;
+    border-radius: 2rem;
+    background-size: cover;
+    
+}
