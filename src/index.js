@@ -80,12 +80,13 @@ const cityNameInput = (e) => {
 };
 
 const tempConverter = (temp) => {
-  const ftemp = ((temp - 273.15) * 9) / 5 + 32;
-  return ftemp;
+  const fTemp = ((temp - 273.15) * 9) / 5 + 32;
+  const finalTemp = Math.round(fTemp * 100) / 100;
+  return finalTemp;
 };
 
-const getRealtimeTemperature = (e) => {
-  console.log(getRealtimeTemperature);
+const getRealTimeTemperature = (e) => {
+  console.log(getRealTimeTemperature);
 
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -103,12 +104,12 @@ const getRealtimeTemperature = (e) => {
           },
         })
         .then((response) => {
-          let location_temp = response.data.main.temp;
-          location_temp = tempConverter(location_temp);
-          let temperature_box = document.getElementById('counter');
-          temperature_box.textContent = location_temp;
-          console.log('Updated temperature' + temperature_box);
-          landscapeIcons(location_temp);
+          let locationTemp = response.data.main.temp;
+          locationTemp = tempConverter(locationTemp);
+          let temperatureBox = document.getElementById('counter');
+          temperatureBox.textContent = locationTemp;
+          console.log('Updated temperature' + temperatureBox);
+          landscapeIcons(locationTemp);
         })
         .catch((error) => {
           console.log('error!' + error);
@@ -130,7 +131,7 @@ const registerEventHandlers = () => {
   decButton.addEventListener('click', decreaseButton);
 
   const liveButton = document.querySelector('#Get-Realtime-Temperature');
-  liveButton.addEventListener('click', getRealtimeTemperature);
+  liveButton.addEventListener('click', getRealTimeTemperature);
 
   const skyDropdown = document.querySelector('#dropdown');
   skyDropdown.addEventListener('change', skySelector);

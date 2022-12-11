@@ -3,12 +3,23 @@ body {
 }
 
 .container {
-    flex-direction: column;
-  }
+    display: grid;
+    grid-row: auto auto;
+    grid-template-columns: 400px 400px;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-evenly;
+}
+
+.grid-1 {
+    border: 5px rgb(227, 14, 14);
+    border-style: groove;
+}
 
 #Weather-Report {
     text-decoration: unset;
-    text-align: left;
+    text-align: center;
     color: rgb(242, 239, 245);
     /* font-size: x-large; */
 }
@@ -30,29 +41,30 @@ body {
 #Weather-Garden {
     border-radius: 37px;
     background: #ffffff;
-    box-shadow:  35px 35px 0px #939D99,
-             /* -35px -35px 0px #FFFFFF; */
+    height: 50vh;
+    text-align: center;
+    margin: auto;
+    
+    /* width: 60%; */
+    padding: 100px;
 }
 
 #Temperature {
     border-radius: 37px;
     background: #ffffff;
-    box-shadow:  35px 35px 0px #ffffff,
-             /* -35px -35px 0px #FFFFFF; */
+    height: 50vh;
 }
 
 #Sky {
     border-radius: 37px;
     background: #ffffff;
-    box-shadow:  35px 35px 0px #ffffff,
-             /* -35px -35px 0px #FFFFFF; */
+    height: 50vh;
 }
 
 #City-Name {
     border-radius: 37px;
     background: #ffffff;
-    box-shadow:  35px 35px 0px #ffffff,
-             /* -35px -35px 0px #FFFFFF; */
+    height: 50vh;
 }
 
 .red {
