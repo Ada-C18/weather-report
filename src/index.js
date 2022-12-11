@@ -75,9 +75,7 @@ const findWeather = (lat, long) => {
       console.log(weather);
       state.temp = Math.round(convertKtoF(weather.main.temp));
       displayEmojis();
-      // console.log(weather);
     });
-  // console.log(findWeather);
 };
 
 currentWeather.addEventListener('click', findWeather);
@@ -124,20 +122,6 @@ const displayEmojis = () => {
   temperature.className = numColor;
   temperature.textContent = String(state.temp);
 };
-
-// const tempColorChange = () => {
-//   const tempContainer = document.getElementById('temperature');
-//   tempColorChange.addEventListener('click', findWeather);
-//   if (tempContainer <= 32) {
-//     document.body.style.backgroundColor = 'blue';
-
-//     document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨');
-//   } else if (tempContainer > 32 && tempContainer <= 50) {
-//   } else if (tempContainer > 50 && tempContainer <= 68) {
-//   } else if (tempContainer > 68 && tempContainer <= 86) {
-//   } else {
-//   }
-// };
 
 const updateSky = () => {
   let sky = '';
