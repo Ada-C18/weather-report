@@ -1,12 +1,16 @@
 const BASE_URL = 'http://localhost:5000';
 
 const state = {
-  // increaseButton: null,
-  // decreaseButton: null,
-  // skySelect: null,
-  // cityInput: null,
-  // temp: null,
-  // cityName: null,
+    temp: 50,
+    cityName: 'Seattle',
+    lat: 0,
+    lon: 0,
+    increaseButton: null,
+    decreaseButton: null,
+    skySelect: null,
+    cityInput: null,
+    // temp: null,
+    cityName: null,
 };
 
 const landscapes = {
@@ -45,7 +49,8 @@ const refreshUI = function () {
 
   if (state.temp > 79) {
     tempDisplay.style.color = 'Red';
-    landscapeDisplay.textContent = landscapes['80+'];
+    // landscapeDisplay.textContent = landscapes['80+'];
+    landscapeDisplay.images = 'images/sunny.jpg';
   } else if (state.temp > 69) {
     tempDisplay.style.color = 'Orange';
     landscapeDisplay.textContent = landscapes['70-79'];
@@ -66,7 +71,7 @@ const updateCity = () => {
   refreshUI();
 };
 
-const updateCityTemp = (place) => {
+const updateCityTemp = (cityName) => {
     return axios.get(`${BASE_URL}/location?q=${state.cityName}`, {
       params: {
         q: cityInput,
@@ -76,9 +81,9 @@ const updateCityTemp = (place) => {
       const lat = response.data[0]['lat'];
       const lon = response.data[0]['lon'];
       // console.log({ lat, lon});
-      return {lat, lon};
+      // return {lat, lon};
     })
-    .catch((error) => console.log({ error }));
+    .catch((error) => console.log({error}));
   }
   const cityWeather = (lat, lon) => { 
     return axios.get(`${BASE_URL}/weather?lat=${lat}&lon=${lon}`, {
@@ -88,16 +93,17 @@ const updateCityTemp = (place) => {
       },
     })
     .then(response => {
-      const temp = response.data.current.temp;
+      const temp = response.data.main.temp;
       tempKelvin = cityWeather.data['main']['temp'];
       state.temp = Math.floor(kelvinToFahrenheit(tempKelvin));
       refreshUI();
-    });
+    })
+    .catch((error) => console.log({error}));
 }
 
 const getRealtimeInfo = async () => {
-  const place = cityName.textContent;
-  const {lat, lon} = await updateCityTemp(place);
+  const cityName = cityName.textContent;
+  const {lat, lon} = await updateCityTemp(cityName);
   state.temp = await cityWeather(lat, lon);
   refreshUI();
 }
@@ -133,7 +139,7 @@ const registerEvents = () => {
   state.resetButton.addEventListener('click', resetCity);
   state.getTempButton.addEventListener('click', updateCityTemp);
 };
-
+document.addEventListener("DOMContentLoaded", registerEvents);
 const onLoaded = () => {
   loadControls();
   registerEvents();

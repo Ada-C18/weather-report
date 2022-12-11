@@ -1,46 +1,47 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color:rgb(29, 178, 242);
-}
-
-section {
-    border-radius:2px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    background-color:aquamarine;
-
-}
-.flex-container {
+body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+    border: 1px solid black;
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    background-color: #0cd2f5;
+    margin: 2rem;
+    }
+header {
     display: flex;
-    /* flex-direction: inline; */
-    justify-content: space-evenly;
-    float: none;
-    line-height: normal;
-    text-align: center;
-
-}
-
-.report-section {
-    font-size: 30px;
-}
-
-.header-container {
-    grid-column: span 3;
-    display: flex;
+    color: white;
+    width: 100%;
+    flex-direction: row;
     align-items: center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
+    justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
-
+h1 {
+    margin: 1em;
+    font-size: 4em;
+}
+h2 {
+    margin: 1rem;
+    color: #040a0a
+}
+span {
+    font-size: 2em;
+}
 .flex-el {
-    border-radius: 7px;
-    padding: 2px;
+    /* border-radius: 7px; */
+    /* border-width: 8px; */
+    /* padding: 2px; */
     background-color: white;
     box-sizing: content-box;
     display: block;
-    
+    border-radius: 50px;
+    padding: 5px;
+    background-color: rgb(169, 254, 234);
+    text-align: center;
+    align-self: center;   
 }
 img {
     width: 500px;
@@ -48,4 +49,43 @@ img {
     border-radius: 2rem;
     background-size: cover;
     
+}
+
+#cityInput {
+    font-size: large;
+    border-radius: 5px;
+}
+
+#skySelect {
+    font-size: large;
+}
+
+h4 {
+    font-size: large;
+}
+
+.getTempButton {
+    font-size: larger;
+}
+
+button {
+    font-size: large;
+}
+
+.landscapeDisplay {
+grid-column-start: 1;
+grid-row-start: 2;
+grid-row-end: 5;
+}
+.cityNameDisplay {
+grid-column-start: 2;
+grid-row-start: 2;
+}
+.tempDisplayContainer {
+grid-column-start: 2;
+grid-row-start: 3;
+}
+.skyDisplay {
+grid-column-start: 2;
+grid-row-start: 4;
 }

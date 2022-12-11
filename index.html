@@ -13,45 +13,46 @@
         <h3> ~  Love Mother Nature  ~ </h3>
         <h2 id="cityNameDisplay">Seattle</h2>
     </header>
-    <section id = "controls-section">
-        <section  class = "flex-container">
-            <section class = "flex-el">
-                <h4>Enter a City</h4>
-                <input id="cityInput" type="text" value="Seattle">
-                <button id="resetButton">Reset</button>
-            </section>
-            <section class = "flex-el">
-                <h4>Pick the Sky</h4>
-                <select name="skies" id="skySelect">
-                    <option value="sunny">Sunny</option>
-                    <option value="cloudy">Cloudy</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="snowy">Snowy</option>
-                </select>
-            </section>
-            <section class = "flex-el"> 
-                <h4>Toggle or Get Weather</h4>
-                <button id="increaseButton">⬆️</button>
-                <button id="decreaseButton">⬇️ </button>
-                <button id="getTempButton">Get Realtime Temperature</button>
-            </section>
+    <section class = "flex-el">
+
+        <section id = "cityName-section">
+            <h4>Enter a City</h4>
+            <input id="cityInput" type="text" value="Seattle">
+            <button id="resetButton">Reset</button>
         </section>
+
+        <section class = "flex-el">
+            <h4>Pick the Sky</h4>
+            <select name="skies" id="skySelect">
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+        </section>
+
+        <section class = "flex-el"> 
+            <h4>Toggle or Get Weather</h4>
+            <button id="increaseButton">⬆️</button>
+            <button id="decreaseButton">⬇️ </button>
+            <button id="getTempButton">Get Realtime Temperature</button>
+        </section>
+        
     </section>
+    
     <section class = "report-section">
         <h3>Today's Forecast</h3>
         <section>
             <section>
-                <!-- <span id="skyDisplay"><img src="/images/winter.jpg" alt="winter"></img></span> -->
             <span id="skyDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
             </section>
             <section id="tempDisplayContainer">
-                <span id = "tempDisplay" class="tempColor">0</span>
+                <span id = "tempDisplay" class="tempColor">50</span>
                 <span>°F</span>
             </section>
             <section>
             <span id="landscapeDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
-        </section>
-
+            </section>
         </section>
     </section>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
