@@ -73,41 +73,29 @@ const updateCity = () => {
 
 const updateCityTemp = (cityName) => {
   return axios
-    .get(`${BASE_URL}/location?q=${state.cityName}`, {
-      params: {
-        q: cityInput,
-      },
-    })
+    .get(`${BASE_URL}/location?q=${state.cityName}`)
     .then((response) => {
       console.log(response);
       const lat = response.data[0]['lat'];
       const lon = response.data[0]['lon'];
       console.log({ lat, lon});
+      refreshUI();
       return { lat, lon };
-      // refreshUI();
     })
     .catch((error) => console.log({ error }));
 };
 const cityWeather = (lat, lon) => {
   return axios
-    .get(`${BASE_URL}/weather?lat=${lat}&lon=${lon}`, {
-      params: {
-        lat: lat,
-        lon: lon,
-      },
-    })
+    .get(`${BASE_URL}/weather?lat=${lat}&lon=${lon}`)
     .then((response) => {
       console.log(response)
       const temp = response.data.main.temp;
-      // tempKelvin = cityWeather.data['main']['temp'];
-      state.temp = Math.floor(kelvinToFahrenheit(temp));
+      state.temp = kelvinToFahrenheit(temp);
       return state.temp;
     })
     .catch((error) => console.log({ error }));
 };
-
 const getRealtimeInfo = async () => {
-  // state.cityName = cityName.textContent;
   const { lat, lon } = await updateCityTemp(state.cityName);
   state.temp = await cityWeather(lat, lon);
   refreshUI();
@@ -118,11 +106,11 @@ const updateSky = () => {
 };
 
 const kelvinToFahrenheit = (temp) => {
-  return 1.8 * (temp - 273) + 32;
+  return Math.floor(1.8 * (temp - 273.15) + 32);
 };
 
 const resetCity = () => {
-  state.cityName = 'Seattle';
+state.cityName = 'Seattle';
   refreshUI();
 };
 

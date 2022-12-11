@@ -13,11 +13,10 @@
         <h3> ~  Love Mother Nature  ~ </h3>
         <h2 id="cityNameDisplay">Seattle</h2>
     </header>
-    <section id="cityNameSection" class = "flex-el">
-        <!-- <section id = "cityName-section"> -->
+        <section id="cityNameSection" class = "flex-el">
             <h4>Enter a City</h4>
             <input id="cityInput" type="text" value="Seattle">
-            <button id="resetButton">Reset</button>
+            <button id="resetButton" onclick="document.getElementById('cityInput').value = ''">Reset</button>
         </section>
 
         <section class = "flex-el">
@@ -40,17 +39,15 @@
         
     </section>
     
-    <section class = "tempDisplayContainer">
+    <section class="flex-el">
         <h3>Today's Forecast</h3>
-        <section>
-            <section>
+            <section class = "tempDisplayContainer">
             <span class="skyDisplay" id="skyDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
             </section>
             <section id="tempDisplayContainer">
                 <span id = "tempDisplay" class="tempColor">50</span>
                 <span>°F</span>
             </section>
-            <section>
             <span id="landscapeDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
             </section>
         </section>
