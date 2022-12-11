@@ -102,7 +102,7 @@ async function getTemperature(query) {
     document.getElementById("number").innerHTML = Math.round(FarenheitTemp);
     number = Math.round(FarenheitTemp);
     state.number = Math.round(FarenheitTemp);
-
+    stateChange(number)
 }
 
 
@@ -129,9 +129,9 @@ function getRealTime() {
 // ******* wave 6 *******
 
 document.getElementById("reset").onclick = function() {
+    document.getElementById("intro").innerHTML = "Seattle";
+    getTemperature("seattle");
+    getRealTime();
     document.getElementById("cityNameInput").value = "";
-    document.getElementById("reset").innerHTML = "seattle";
-    getTemperature(seattle);
-    stateChange(state.number);
  };
  
