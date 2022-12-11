@@ -61,12 +61,41 @@ const changeSky = () => {
 };
 
 const changeCityName = () => {
-    const newName = document.getElementById("cityname").value;
-    document.getElementById("greeting").innerHTML = `For the lovely city of ${newName}!`;
+  const newName = document.getElementById('cityname').value;
+  document.getElementById(
+    'greeting'
+  ).innerHTML = `For the lovely city of ${newName}!`;
 };
 
 const resetCityName = () => {
-    document.getElementById("greeting").innerHTML = "Input a city below for a custom experience!"
+  document.getElementById('greeting').innerHTML =
+    'Input a city below for a custom experience!';
+};
+
+const getCity = () => {
+  const city = document.getElementById('cityname').value;
+  getLatLon(city);
+};
+
+const getLatLon = async (city) => {
+  const response = await axios.get(`http://127.0.0.1:5000/location?q=${city}`);
+  const lat = response.data[0].lat;
+  const lon = response.data[0].lon;
+  getWeather(lat, lon);
+};
+
+const getWeather = async (lat, lon) => {
+  const response = await axios.get('http://127.0.0.1:5000/weather', {
+    params: {
+      lat: lat,
+      lon: lon,
+      format: 'json',
+    },
+  });
+  const tempInKelvin = response.data.main.temp;
+  const tempInF = ((tempInKelvin - 273.15) * 9) / 5 + 32;
+  state.temperature = Math.floor(tempInF);
+  changeTempAndLandscape();
 };
 
 const registerEventHandlers = () => {
@@ -79,11 +108,14 @@ const registerEventHandlers = () => {
   const selectSky = document.getElementById('sky-emojis');
   selectSky.addEventListener('change', changeSky);
 
-  const selectCityName = document.getElementById('cityname')
-  selectCityName.addEventListener('input',changeCityName)
+  const selectCityName = document.getElementById('cityname');
+  selectCityName.addEventListener('input', changeCityName);
 
-  const resetCity = document.getElementById('resetBtn')
-  resetCity.addEventListener('click', resetCityName)
+  const resetCity = document.getElementById('resetBtn');
+  resetCity.addEventListener('click', resetCityName);
+
+  const getRealtimeTemp = document.getElementById('realtime-temp');
+  getRealtimeTemp.addEventListener('click', getCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
