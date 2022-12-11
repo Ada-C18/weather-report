@@ -14,15 +14,21 @@ const state = {
   temp: 48,
 };
 
+const convertKtoF = (temp) => {
+  return (temp - 273.15) * (9 / 5) + 32;
+};
+
 // increase temp
 const increaseTemp = () => {
   state.temp++;
+  displayEmojis();
   // console.log(increaseTemp);
   // console.log(state.temp);
 };
 
 const decreaseTemp = () => {
   state.temp--;
+  displayEmojis();
 };
 
 const upButton = document.getElementById('up');
@@ -33,7 +39,7 @@ upButton.addEventListener('click', function increaseTemp() {
   state.temp++;
   display.textContent = state.temp;
 });
-downButton.addEventListener('click', function () {
+downButton.addEventListener('click', function decreaseTemp() {
   state.temp--;
   display.textContent = state.temp;
 });
@@ -61,16 +67,20 @@ const findWeather = (lat, long) => {
       params: {
         lat: state.lat,
         lon: state.long,
+        // units: imperial,
       },
     })
     .then((response) => {
       const weather = response.data;
       console.log(weather);
-      state.temp = Math.round(weather.main.temp);
+      state.temp = Math.round(convertKtoF(weather.main.temp));
+      displayEmojis();
       // console.log(weather);
     });
   // console.log(findWeather);
 };
+
+currentWeather.addEventListener('click', findWeather);
 
 const updateCity = () => {
   const newCity = document.getElementById('newCity');
@@ -80,7 +90,6 @@ const updateCity = () => {
 const newCity = document.getElementById('newCity');
 newCity.addEventListener('input', updateCity);
 const resetText = () => {
-  // let City = document.getElementById('city');
   const newCity = document.getElementById('newCity');
   newCity.value = 'Seattle';
   updateCity();
@@ -89,50 +98,115 @@ const resetText = () => {
 let resetButton = document.getElementById('reset');
 // Add a click event listener to the button
 resetButton.addEventListener('click', resetText);
-// Reset the text box
-// City.reset();
 
-const tempColorChange = () => {
-  const tempContainer = document.getElementById('temperature');
-  tempContainer.addEventListener('click');
-  if (tempContainer <= 32) {
-    document.body.style.backgroundColor = 'blue';
-    document.body.style.color = 'white';
-    document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨');
-  } else if (tempContainer > 32 && tempContainer <= 50) {
-    document.body.style.backgroundColor = 'green';
-    document.body.style.color = 'white';
-  } else if (tempContainer > 50 && tempContainer <= 68) {
-    document.body.style.backgroundColor = 'yellow';
-    document.body.style.color = 'black';
-  } else if (tempContainer > 68 && tempContainer <= 86) {
-    document.body.style.backgroundColor = 'orange';
-    document.body.style.color = 'black';
+const displayEmojis = () => {
+  let numColor = 'red';
+  let emojisBelow = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  if (state.temp > 80) {
+    emojisBelow = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    numColor = 'red';
+  } else if (state.temp > 70) {
+    emojisBelow = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    numColor = 'orange';
+  } else if (state.temp > 60) {
+    emojisBelow = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    numColor = 'green';
+  } else if (state.temp > 50) {
+    emojisBelow = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    numColor = 'purple';
   } else {
-    document.body.style.backgroundColor = 'red';
-    document.body.style.color = 'white';
+    emojisBelow = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    numColor = 'grey';
   }
+  const newEmojis = document.getElementById('emojis-below');
+  newEmojis.textContent = emojisBelow;
+  const temperature = document.getElementById('tempNum');
+  temperature.className = numColor;
+  temperature.textContent = String(state.temp);
 };
+
+// const tempColorChange = () => {
+//   const tempContainer = document.getElementById('temperature');
+//   tempColorChange.addEventListener('click', findWeather);
+//   if (tempContainer <= 32) {
+//     document.body.style.backgroundColor = 'blue';
+
+//     document.write('🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨');
+//   } else if (tempContainer > 32 && tempContainer <= 50) {
+//   } else if (tempContainer > 50 && tempContainer <= 68) {
+//   } else if (tempContainer > 68 && tempContainer <= 86) {
+//   } else {
+//   }
+// };
 
 const updateSky = () => {
-  const inputSky = document.getElementById('skyOptions').value;
-  const skyContainer = document.getElementById('sky-weather');
   let sky = '';
   let skyColor = '';
-  if (inputSky === 'Clouds') {
+  if (inputSky === 'clouds') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
     skyColor = 'cloud';
-  } else if (inputSky === 'Sunshine') {
+  } else if (inputSky === 'sunshine') {
     sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
-    skyColor = 'sunn';
-  } else if (inputSky === 'Rain') {
+    skyColor = 'sunny';
+  } else if (inputSky === 'rain') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
     skyColor = 'rain';
-  } else if (inputSky === 'Snow') {
+  } else if (inputSky === 'snow') {
     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
     skyColor = 'snow';
-  } else if (inputSky === 'Wind') {
-    sky = '';
+  } else if (inputSky === 'wind') {
+    sky = '🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️';
     skyColor = 'wind';
   }
+
+  const inputSky = document.getElementById('skyOptions').value;
+  inputSky.textContent = inputSky;
+  const skyContainer = document.getElementById('sky-weather');
+  skyContainer.className = skySection;
+  skyContainer.textContent = String(state.temp);
+  // skyContainer.textContent = sky;
+  // skyOptions.addEventListener('change', updateSky);
 };
+
+console.log(updateSky);
+
+// Increase/Decrease temperature
+// const increaseTemp = () => {
+//   let count = 0;
+//   count++;
+//   const upButton = document.getElementById('up');
+//   const downButton = document.getElementById('down');
+//   let display = document.getElementById('tempNum');
+
+// upButton.addEventListener('click', increaseTemp () {
+//   state.temp++;
+//   display.textContent = state.temp;
+// });
+// downButton.addEventListener('click', function () {
+//   state.temp--;
+//   display.textContent = state.temp;
+// });
+// increaseTemp.addEventListener("click", incrementCount);
+
+// const decreaseTemp = () => {
+//   i--;
+//   document.getElementById('down').value = i;
+// }
+// Temperature number and background changes depending on number
+
+// const tempColorChange = () => {
+
+// }
+
+// // Depending on what temperature it is, a different landscape should appear on the page.
+
+// const
+
+// // Changing landscapes should replace the existing landscape. There should only be one visible landscape at a time.
+
+// // There must be at least four landscapes.
+
+// // Reset city button
+// const resetCity = () => {
+//   formElement.reset()
+// }
