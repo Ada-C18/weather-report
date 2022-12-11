@@ -2,18 +2,17 @@ const apiKey = "e3610f266bfdfc8f526ab1e60d424c98";
 
 const body = document.querySelector('body');
 const searchBtn = document.getElementById('weather');
-const search = document.getElementById('search');
 const farenheit = document.getElementById('farenheit');
 const city = document.getElementById('city');
 const increaseBtn = document.getElementById('increase');
 const decreaseBtn = document.getElementById('decrease');
+const emojis = document.getElementById('emojis');
+
 
 const getLocation = function () {
     let locationArr = search.value.split(',');
-    //console.log(locationArr);
     return locationArr;
 };
-
 
 const getWeatherData = async function () {
     let location = await getLocation();
@@ -23,28 +22,52 @@ const getWeatherData = async function () {
 
 const displayData = async function () {
     let data = await getWeatherData();
+    console.log(data);
 
     //display temperature
-    const temp = data["data"]["main"]["temp"];
-    const tempToFarenheit = (Math.round((temp - 273.15) * 9 / 5 + 32 * 100) / 100).toFixed(0);
+    const temperature = data["data"]["main"]["temp"];
+    const tempToFarenheit = Math.round((temperature - 273.15) * 9 / 5 + 32);
     farenheit.innerHTML = tempToFarenheit;
 
     //display city and country name
     city.innerHTML = `${data["data"]["name"]}, ${data["data"]["sys"]["country"]}`;
+
 };
 
+const changeColor = function () {
+    const temp = farenheit.innerText;
+    if (temp >= 80) {
+        farenheit.style.color = '#BF360C';
+        emojis.innerHTML = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
+    } else if (temp >= 70) {
+        farenheit.style.color = '#3949AB';
+        emojis.innerHTML = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+    } else if (temp >= 60) {
+        farenheit.style.color = '#F06292';
+        emojis.innerHTML = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+    } else if (temp >= 50) {
+        farenheit.style.color = '#93C572';
+        emojis.innerHTML = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+    } else {
+        farenheit.style.color = "#7fffd4";
+        emojis.innerHTML = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+    }
+}
 
 searchBtn.addEventListener("click", function (evt) {
     evt.preventDefault();
     displayData();
+    changeColor();
 });
 
 increaseBtn.addEventListener("click", function (evt) {
     farenheit.innerHTML++;
+    changeColor();
 });
 
 decreaseBtn.addEventListener("click", function (evt) {
     farenheit.innerHTML--;
+    changeColor();
 })
 
 
