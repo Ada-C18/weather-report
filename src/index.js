@@ -123,7 +123,9 @@ function getRealTime() {
 // const skyImageDisplay = document.querySelector('#skySelect')
 //         btn.onclick = (event) => {
 //             document.getElementById(skyImage)
-//         }
+//         };
+
+
 // ******* wave 6 *******
 
 document.getElementById("reset").onclick = function() {
@@ -132,3 +134,4 @@ document.getElementById("reset").onclick = function() {
     getRealTime();
     document.getElementById("cityNameInput").value = "";
  };
+ 
