@@ -5,10 +5,10 @@ let holup = Array();
 let state = {
   temp: 0, // kelvin
   city: 'Seattle',
-  tempF: () => 1.8 * (temp - 273) + 32,
-  tempC: () => temp - 273,
-  tempPref: tempF,
 };
+
+const tempF = () => Math.round(1.8 * (state.temp - 273) + 32);
+const tempC = () => Math.round(state.temp - 273);
 
 const renderPage = () => {
   const temperatureStyle = (F) => {
@@ -25,8 +25,8 @@ const renderPage = () => {
     }
   };
 
-  document.getElementById('temp').textContent = state.tempPref();
-  const newStyle = temperatureStyle(state.tempF());
+  document.getElementById('temp').textContent = tempF(); // TODO add pref
+  const newStyle = temperatureStyle(tempF());
   document.getElementById('body').style.backgroundColor = newStyle.bgColor;
   document.getElementById('landscape').textContent = newStyle.landscape;
 };
@@ -65,17 +65,6 @@ const getWeather = async (lat, lon) => {
   return response.data.main;
 };
 
-const skyStyle = (sky) => {
-  if (sky == 'sunny') {
-    return { skyType: `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"` };
-  } else if (sky == 'cloudy') {
-    return { skyType: `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"` };
-  } else if (sky == 'rainy') {
-    return { skyType: `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"` };
-  } else if (sky == 'snowy') {
-    return { skyType: `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"` };
-  }
-};
 
 const skyUpdate = (event) => {
   document.getElementById('sky').textContent = event.target.value;
