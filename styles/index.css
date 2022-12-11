@@ -1,17 +1,46 @@
-h1 {
+* {
+    font-family: 'Rokkitt', serif;
+    color: black;
+}
+
+/* #flex-box-container {
+    background-image: linear-gradient(#008d80, white);
+    width: 90%;
+    max-height: 450px;
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+} */
+
+header {
     text-align: center;
-    font-size: 32pt;
-    font-weight: bold;
-    padding: 75px;
+    padding-top: 75px;
+    padding-bottom: 25px;
+}
+
+h1 {
+    font-size: 50pt;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+#curTemp, #tempTag {
+    font-size: 40pt;
 }
 
 .red {
     color: red;
 }
 
-/* .orange {
+.orange {
     color:orange;
-} */
+}
 
 .yellow {
     color: yellow;
@@ -24,4 +53,10 @@ h1 {
 .teal {
     color: teal;
 
+}
+
+footer {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 50px;
 }

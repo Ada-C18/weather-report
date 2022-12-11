@@ -6,45 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/index.css">
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body class="coolTheme">
     <header>
-        <h1>Weather Report </h1>
+        <label for="sky">Choose your sky:
+            <select id="sky" name="sky">
+                <option value="sunny" class="background">Sunny</option>
+                <option value="cloudy" class="background">Cloudy</option>
+                <option value="rainy" class="background">Rainy</option>
+                <option value="snowy" class="background">Snowy</option>
+            </select>
+        </label>
+        <h1>Weather Report</h1>
+        <h2>Now displaying the temperature for</h2>
     </header>
-    <section id="temp">
-        <h2>Temperature</h2>
-        <p class="realtime">Get Realtime Temperature</p>
-        <button id="increaseBtn"><span>&#43;</span></button>
-        <span id="curTemp">0</span>
-        <button id="decreaseBtn"><span>&#8722;</span></button>
-    </section>
+
     <section>
-        <h3>City Name</h3>
-        <div id="topnav">
-            <input id="cityInput" type="text" placeholder="Search.." onkeyup="myFunction()">
-            <p>Welcome to <span id="demo"></span></p>
-            <button id="submit" type="submit">Submit</button>
-            <button id="reset" type="reset">Reset</button>
+        <h2>Find A Temperature By City</h2>
+        <div id="flex-box-container">
+            <section>
+                <h3>City Name</h3>
+                <div id="topnav">
+                    <input id="cityInput" type="text" placeholder="Search.." onkeyup="myFunction()">
+                    <p>Welcome to <span id="demo"></span></p>
+                    <button id="submit" type="submit">Submit</button>
+                    <button id="reset" type="reset">Reset</button>
+                </div>
+            </section>
+            
+            <section id="temp">
+                <h3>Temperature</h3>
+                <p class="realtime">Get Realtime Temperature</p>
+                <button id="increaseBtn"><span>&#43;</span></button>
+                <span id="curTemp">0</span>
+                <span id="tempTag">° F</span>
+                <button id="decreaseBtn"><span>&#8722;</span></button>
+            </section>
         </div>
     </section>
-    <section id="sky">
-        <h4>Sky</h4>
-        <div class="dropdown">
-            <div class="select-btn">
-                <span class="selected">Select your option</span>
-                <div class="caret"></div>
-            </div>
-        </div>
-    </section>
+    
     <section>
         <h5>Weather Garden</h5>
     </section>
+
+    <footer>
+        <h3>© 2022 | Alaere & Anika | C18 Snow Leopards</h3>
+    </footer>
     <script src="src/index.js"></script>
-    <script>
-    function myFunction() {
-        const x = document.getElementById("cityInput").value;
-        document.getElementById("demo").innerHTML = x;
-    }</script>
 </body>
 </html>
