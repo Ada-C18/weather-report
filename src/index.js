@@ -11,19 +11,46 @@ const loadControls = () => {
     state.tempDisplay = document.getElementById("tempValue");
 };
 
-const handleIncreaseTempClicked = () => {
+const handleIncreaseTempClicked = (event) => {
     ++state.tempValue;
     state.tempDisplay.textContent = state.tempValue;
+    handleChangeColor(state.tempValue);
 }
 
-const handleDecreaseTempClicked = () => {
+const handleDecreaseTempClicked = (event) => {
     --state.tempValue;
     state.tempDisplay.textContent = state.tempValue;
+    handleChangeColor(state.tempValue);
+}
+
+const handleChangeColor = (event) => {
+    if (state.tempValue >= 80) {
+        state.tempDisplay.className = 'red';
+        return;
+    }
+    
+    if (state.tempValue >= 70) {
+        state.tempDisplay.className = 'orange';
+        return;
+    }
+
+    if (state.tempValue >= 60) {
+        state.tempDisplay.className = 'yellow';
+        return;
+    }
+
+    if (state.tempValue >= 50) {
+        state.tempDisplay.className = 'green';
+        return;
+    }
+
+    state.tempDisplay.className = 'teal';
 }
 
 const registerEvents = () => {
     state.increaseTempControl.addEventListener("click", handleIncreaseTempClicked);
     state.decreaseTempControl.addEventListener("click", handleDecreaseTempClicked);
+    // state.tempValue.addEventListener("change", handleChangeColor)
 };
 
 const onLoaded = () => {
