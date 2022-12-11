@@ -14,10 +14,6 @@ body {
 #weather-garden {
     background-color: lightgray;
 }
-.grid-container {
-    display: grid;
-    grid: 150px / auto auto auto;
-  }
 
 #up-arrow, #down-arrow {
     border: none;
