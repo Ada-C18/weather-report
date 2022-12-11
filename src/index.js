@@ -77,3 +77,7 @@ const changeCityName = () => {
     const newName = document.getElementById("cityname").value;
     document.getElementById("greeting").innerHTML = `For the lovely city of ${newName}!`;
 };
+
+const resetCityName = () => {
+    document.getElementById("greeting").innerHTML = "Input a city below for a custom experience!"
+}
