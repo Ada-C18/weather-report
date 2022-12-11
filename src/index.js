@@ -32,15 +32,15 @@ const changeTempNumColor = () => {
   if (temp >= 80) {
     document.getElementById('currentTemp').className = 'red';
     skyElement.textContent = '🔥🥵🌞🔥🥵🌞🔥🥵🌞';
-    landScapeElement.textContent = '👙🩳⛱🏝🌊👙🩳⛱🏝🌊👙🩳⛱🏝🌊';
+    landScapeElement.textContent = '👙🩳⛱🏝🌊⛱🏝🌊👙🩳⛱🏝';
   } else if (temp >= 70 && temp <= 79) {
     document.getElementById('currentTemp').className = 'orange';
     skyElement.textContent = '🌤☁️🌤☁️🌤☁️🌤☁️🌤☁️';
-    landScapeElement.textContent = '🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹🍉';
+    landScapeElement.textContent = '🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹';
   } else if (temp >= 60 && temp <= 69) {
     document.getElementById('currentTemp').className = 'yellow';
     skyElement.textContent = '☁️🌥☁️🌥☁️🌥☁️🌥☁️🌥';
-    landScapeElement.textContent = '🌧☔️🌈🌧☔️🌈🌧☔️🌈🌧☔️🌈';
+    landScapeElement.textContent = '🌱🌸💐🌺🌿🌷🌸🌿💐🌺🌷🌱';
   } else if (temp >= 50 && temp <= 59) {
     document.getElementById('currentTemp').className = 'green';
     skyElement.textContent = '☁️☁️☁️☁️🌥☁️☁️☁️☁️';
@@ -48,7 +48,7 @@ const changeTempNumColor = () => {
   } else {
     document.getElementById('currentTemp').className = 'teal';
     skyElement.textContent = '☁️🌧❄️☁️🌧❄️☁️🌧❄️☁️🌧❄️';
-    landScapeElement.textContent = '☃️🧤🥶🏔☃️🧤🎄🥶🏔☃️🧤🥶🏔';
+    landScapeElement.textContent = '☃️🧤🎄🏔☃️🧤🎄🥶🏔☃️🧤🎄🏔';
   }
 };
 
@@ -128,16 +128,16 @@ const skySelect = () => {
   console.log('select select select');
   if (userChoice == 'Rainy') {
     const gardenSky = document.getElementById('sky');
-    gardenSky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    gardenSky.textContent = '🌧⛈💧⛈🌦🌧💧🌧🌈';
   } else if (userChoice == 'Sunny') {
     const gardenSky = document.getElementById('sky');
-    gardenSky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    gardenSky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️☁️ ☁️';
   } else if (userChoice == 'Cloudy') {
     const gardenSky = document.getElementById('sky');
-    gardenSky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    gardenSky.textContent = '☁️☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (userChoice == 'Snowy') {
     const gardenSky = document.getElementById('sky');
-    gardenSky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    gardenSky.textContent = '🌨❄️🌨❄️🌨❄️🌨❄️🌨';
   }
 };
 
