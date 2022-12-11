@@ -1,4 +1,50 @@
-
+const state = {
+    city: 'Brooklyn',
+    lat: 40.6526006,
+    long: -73.9497211,
+    temp: 25,
+  };
+  
+  const convertKtoF = (temp) => {
+    return (temp - 273.15) * (9 / 5) + 32;
+  };
+  
+  const findLatAndLong = () => {
+    //let lat, long;
+    axios
+      .get('http://127.0.0.1:5000/location', {
+        params: {
+          q: state.city,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        state.lat = response.data[0].lat;
+        state.long = response.data[0].lon;
+        getWeather();
+      })
+      .catch((error) => {
+        console.log('Error finding the latitude and longitude:', error.response);
+      });
+  };
+  
+  const getWeather = () => {
+    axios
+      .get('http://127.0.0.1:5000/weather', {
+        params: {
+          lat: state.lat,
+          lon: state.long,
+        },
+      })
+      .then((response) => {
+        const weather = response.data;
+        state.temp = Math.round(convertKtoF(weather.main.temp));
+        formatTempAndGarden();
+      })
+      .catch((error) => {
+        console.log('Error getting the weather:', error);
+      });
+  };
   
   const updateSky = () => {
     const inputSky = document.getElementById('skySelect').value;
