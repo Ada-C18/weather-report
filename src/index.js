@@ -19,12 +19,12 @@ cityReset.addEventListener('click', (_) => {
 });
 
 buttonIncrease.addEventListener('click', (_) => {
-    State.temperature += 1;
+    State.temperature += State.unit === 'F' ? 5 / 9 : 1;
     updatePage();
 });
 
 buttonDecrease.addEventListener('click', (_) => {
-    State.temperature -= 1;
+        State.temperature -= State.unit === 'F' ? 5 / 9 : 1;
     updatePage();
 });
 
