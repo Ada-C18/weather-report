@@ -1,5 +1,7 @@
 'use strict';
 
+// const { default: axios } = require("axios");
+
 const DEFAULT_CITY = 'Seattle';
 // Select the HTML Element the event will occur on
 const increaseTempElement = document.getElementById('increaseTempBtn');
@@ -69,6 +71,7 @@ const findLatLon = () => {
 };
 
 const getWeather = (query) => {
+  // console.log(query.lat)
   return axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
@@ -77,17 +80,22 @@ const getWeather = (query) => {
       },
     })
     .then((response) => {
-      temp = Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
+      console.log(response.data.main.temp);
+      const temp = Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
       return temp;
     })
     .catch((error) => {
       console.log('getWeather error!');
+      console.log(error);
     });
 };
-
+const connectFunctions = () => {
+  return findLatLon()
+  .then((latlon) => getWeather(latlon))
+}
 realtimeTemp.addEventListener('click', () => {
-  findLatLon();
-  currentTemp.textContent = temp;
+  const temp = connectFunctions()
+  .then((temp) => {currentTemp.textContent = temp});
 });
 
 // Register that function as an 'event listener'
