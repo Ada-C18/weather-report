@@ -243,7 +243,7 @@ const displayTempSky = () => {
     console.log(`updated temp to ${F}°F`);
 
     apiCallChangesSky(sky);
-    if (!(skySelector.value === 'else')) {
+    if (skySelector.value !== 'else') {
       console.log(`updated sky to ${skySelector.value}`);
     } else {
       console.log(`updated sky: it's raining men!`);
