@@ -48,17 +48,24 @@ const getRealtimeTemp = () => {
 const updateSky = () => {
   const skyOption = document.getElementById('sky-options').value;
   const skyContainer = document.getElementById('sky');
+  const gardenSectionColor = document.getElementById('garden-section');
   let sky = '';
+  let skyColor = '';
   if (skyOption === 'Sunny') {
-    sky = '☁️ ☀️ ☁️ ☀️ ☁️ ☀️';
+    sky = '☀️ ☁️ ☀️ ☁️ ☀️ ☁️ ☀️';
+    skyColor = '#FAE8B8';
   } else if (skyOption === 'Cloudy') {
     sky = '☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️';
+    skyColor = '#b5c0d1';
   } else if (skyOption === 'Rainy') {
     sky = '🌧🌧🌦🌧🌧🌧🌧🌧🌧🌧🌧';
+    skyColor = '#9dd9d2';
   } else if (skyOption === 'Snowy') {
     sky = '🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨';
+    skyColor = '#fff8f0';
   }
   skyContainer.textContent = sky;
+  gardenSectionColor.style.backgroundColor = skyColor;
 };
 
 const tempColor = () => {
@@ -77,19 +84,24 @@ const tempColor = () => {
 };
 
 const landscapeImage = () => {
-  const landscape = document.getElementById('landscape');
+  // const landscape = document.getElementById('landscape');
+  const landscape = document.getElementById('landscape-img');
   let pic;
   if (state.temp >= 80) {
-    pic = '__😍🐍_🦂_🌵🌵🌵__🐍_🏜_🦂'; //**** add picture ***
+    // pic = '__😍🐍_🦂_🌵🌵🌵__🐍_🏜_🦂'; //**** add picture ***
+    landscape.src = './assets/desert_landscape.jpg';
   } else if (state.temp >= 70) {
-    pic = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'; //**** add picture ***
+    // pic = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'; //**** add picture ***
+    landscape.src = './assets/sunflower_landscape.jpg';
   } else if (state.temp >= 60) {
-    pic = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃'; //**** add picture ***
+    // pic = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃'; //**** add picture ***
+    landscape.src = './assets/forest_landscape.jpg';
   } else {
-    pic = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'; //**** add picture ***
+    // pic = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'; //**** add picture ***
+    landscape.src = './assets/winter_landscape.jpg';
   }
   // landscape.innerText = pic;
-  landscape.textContent = pic;
+  // landscape.textContent = pic;
 };
 
 const updateTheme = () => {

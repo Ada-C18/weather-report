@@ -3,7 +3,8 @@ body {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto auto auto;
     grid-gap: 1rem;
-    border: 1px solid black;
+    max-height: 100vh;
+    min-height: 0;
     
     font-family: "Rubik", sans-serif;
     font-size: 18px;
@@ -70,4 +71,26 @@ grid-row-start: 3;
 .sky_section {
 grid-column-start: 2;
 grid-row-start: 4;
+}
+
+#submitButton, #resetButton, #realtime-temp, #sky-options, button {
+    border-radius: 10px;
+    color: white;
+    background: #75b4e3;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+#submitButton:hover, #resetButton:hover, #realtime-temp:hover, #sky-options:hover, button:hover {
+background: #67ABE0;
+text-decoration: none;
+}
+
+img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#temp-display, #sky {
+    font-size: 3rem;
 }
