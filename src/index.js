@@ -105,6 +105,12 @@ const getCurrentTempButton = () => {
   const newCityTemp = updateCityTemp(state.city);
 };
 
+const resetCurrentCity = () => {
+  const cityNameInput = document.getElementById('cityNameInput');
+  cityNameInput.value = 'Albuquerque';
+  changeCity();
+};
+
 const registerEventHandlers = () => {
   formatTempAndLandscape();
 
@@ -121,7 +127,6 @@ const registerEventHandlers = () => {
   const getCurrentTemp = document.getElementById('currentTempButton');
   getCurrentTemp.addEventListener('click', getCurrentTempButton);
 
-  // formatSky();
   const updateSky = document.getElementById('skyChoice');
   updateSky.addEventListener('change', formatSky);
 
