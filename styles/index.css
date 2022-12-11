@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Work%20Sans');
 
 body{
-    background-color:rgb(174, 229, 232);
-    font-family: 'Work Sans';
+    background-color:rgb(218, 242, 243);
+    font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     font-size: large;
 }
 
@@ -32,7 +32,7 @@ h2{
 }
 
 .gardenContent {
-    background-color: pink;
+    background-color:rgb(125, 229, 237) ;
     min-height: 200px;
     max-width: fit-content;
     padding: 10px;
@@ -87,12 +87,20 @@ h2{
     height: 30px;
     border-radius: 9px;
     color: rgb(251, 253, 255);
-    
+    border-color: rgb(88, 55, 208);
 }
 
+#resetCityName{
+    background-color: rgb(88, 55, 208);
+    height: 25px;
+    border-radius: 9px;
+    color: rgb(251, 253, 255);
+    border-color: rgb(88, 55, 208);
+}
 #getCurrentTemp:hover, #resetCityName:hover{
     background-color:rgb(125, 229, 237);
-    color: rgb(28, 19, 65);         
+    color: rgb(28, 19, 65);  
+    border-color:rgb(42, 189, 200) ;       
 }
 
 
