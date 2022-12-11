@@ -82,7 +82,7 @@ h2{
     color: rgb(73, 128, 168);
     /* padding-left: 130px;     */
 }
-#increaseTemp:hover{
+#increaseTemp:hover, #decreaseTemp:hover{
     color:rgb(0, 255, 246)
 }
 
