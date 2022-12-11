@@ -91,19 +91,18 @@ const resetToDefaultCity = () => {
 const changeSky = () => {
   const inputSky = document.getElementById('skySelect').value;
   const skyBox = document.getElementById('sky');
-  let sky = '';
-  if (inputSky === 'Sunny') {
+  let sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  if (inputSky === 'sunny') {
     sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (inputSky === 'Cloudy') {
+  } else if (inputSky === 'cloudy') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (inputSky === 'Rainy') {
+  } else if (inputSky === 'rainy') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (inputSky === 'Snowy') {
+  } else if (inputSky === 'snowy') {
     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
   skyBox.textContent = sky;
   const gardenContent = document.getElementById('gardenContent');
-  console.log('changeSky');
 };
 
 // change temp color and garden display // not working yet
@@ -112,27 +111,25 @@ const changeTempAndGarden = () => {
   let color = 'white';
   let landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   if (temp >= 80) {
-    color === 'red';
+    color = 'red';
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp <= 79 && temp >= 70) {
-    color === 'orange';
+    color = 'orange';
     landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temp <= 69 && temp >= 60) {
-    color === 'yellow';
+    color = 'yellow-green';
     landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temp <= 59 && temp >= 50) {
-    color === 'green';
+    color = 'green';
     landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (temp <= 49) {
-    color === 'teal';
+    color = 'teal';
     landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
   const newLandscape = document.querySelector('#landscape');
   newLandscape.textContent = landscape;
   const newtemp = document.querySelector('#tempValue');
   newtemp.className = color;
-  newtemp.textContent = String(state.temperature);
-  console.log('changeTempAndGarden');
 };
 
 const registerEventHandlers = () => {
