@@ -104,7 +104,7 @@ const updateSky = (sky = null) => {
 };
 
 const apiCallChangesSky = (s = null) => {
-  if (s) {
+  if (200 <= s) {
     if (s >= 801) {
       updateSky(skyCodes['801']);
     } else if (s === 800) {
@@ -116,9 +116,11 @@ const apiCallChangesSky = (s = null) => {
     } else if (s >= 200) {
       updateSky(skyCodes['200']);
     }
-  } else {
+  } else if (!s) {
     console.log('no sky value received; resetting sky');
     updateSky('else');
+  } else {
+    console.log('the received sky value is invalid; sky remains unchanged');
   }
 };
 
