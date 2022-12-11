@@ -41,7 +41,9 @@ const updateCity = inputForm.addEventListener('submit', function(e){
     e.preventDefault();
     const inputValue = inputForm.querySelector('input[type="text"]').value;
     cityText.innerText = inputValue;
+    console.log(cityText.innerHTML);
 });
+
 
 const resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', () => {
@@ -76,45 +78,57 @@ resetButton.addEventListener('click', () => {
 // });
 
 
-// let latitude;
-// let longitude;
-const getWeatherFromLocation = async function(location) {
-    axios.get('http://127.0.0.1:5000/location', {
+
+
+
+
+
+
+
+
+const getLatLon = function(location) {
+    let latitude, longitude;
+    axios.get('http://127.0.0.1:5000/location',
+    {
         params: {
             q: location
         }
     })
-    .then(function (response) {
-        let latitude = response.data[0].lat;
-        let longitude = response.data[0].lon;
-        console.log(latitude, longitude);
-        
-        // console.log(temp);
-    })
-    .then((data) => {
-        console.log(data);
-        // console.log(getWeatherData(latitude,longitude));
-    })
-};
+    .then( (response) => {
+        latitude = response.data[0].lat;
+        longitude = response.data[0].lon;
+        // console.log('success in getLatLon', latitude, longitude);
 
-getWeatherFromLocation('San Francisco')
+        getWeatherData(latitude, longitude);
+    })
+    .catch( (error) => {
+        console.log('error on getLatLon!');
+    });
+
+};
+// getWeatherFromLocation('San Francisco')
+// getWeatherFromLocation(cityText.innerHTML)
 
 const getWeatherData = (latitude, longitude) => {
     axios.get('http://127.0.0.1:5000/weather', {
         params: {
             lat: latitude,
             lon: longitude,
-            units: 'imperial'
+            // units: 'imperial'
             // units: fahrenheit
             
         }
     })
-    .then(function (response) {
-        // let tempK = response.data.main.temp
-        console.log(response.data.main.temp);
-        // let tempF = (tempK - 273.15) * 9 / 5 + 32;
-        // console.log(tempF);
-        // return response.data.main.temp;
+    .then( (response) => {
+        let tempF = (response.data.main.temp - 273.15) * 9 / 5 + 32;
+        console.log(Math.floor(tempF));
+        return Math.floor(tempF);
+
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+        console.log('error in getWeatherData');
+    });
 };
+
+const temperature = getLatLon('Newark, CA, USA');
+// console.log(temperature);
