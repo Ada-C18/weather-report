@@ -2,7 +2,6 @@ body {
     background-color: #27364b;
     font-family: monospace;
 }
-
 .group-container {
     position: fixed;
     top: 10px;
@@ -14,9 +13,7 @@ body {
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 1em;
     grid-row-gap: 1em;
-
 }
-
 .weather-report {
     grid-area: 1 / 1 / 5 / 2;
     text-align: center;
@@ -54,6 +51,10 @@ body {
     text-align: center;
 }  
 
+#temp-value {
+    background-color: #27364b;
+
+}
 /* text colors */
 .red {
     color:red;

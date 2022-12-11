@@ -37,8 +37,10 @@ const getWeather = (latitude, longitude) => {
       },
     })
     .then((response) => {
-      tempChange(response.data.main.temp);
-      console.log(response.data.main.temp);
+      let temp = convertingTemp(response.data.main.temp)
+      tempChange(temp);
+      
+      console.log(temp);
     })
     .catch((error) => {
       console.log('error in getting weather!');
@@ -51,24 +53,18 @@ const getRealTimeTemp = () => {
 };
 
 
-
-
-// do the js code for converting the temperature -> create another function: to convert convert it 
-
-
-// const latAndLon = getLocation('Seattle');
-// getLocation('Seattle');  // call this function in the event handler 
-
-// getWeather(47.6038321, -122.330062);
+const convertingTemp = (kelvin) => {
+  return Math.round(1.8*(kelvin-273) + 32)
+}
 
 //increases temperature from click
-
 const tempUp = () => {
   const tempValue = document.querySelector('#temp-value');
   currentTemp += 1;
   tempValue.innerHTML = currentTemp;
   changeTemperatureColor();
 };
+
 //decreases temperature from click
 const tempDown = () => {
   const tempValue = document.querySelector('#temp-value');
@@ -85,8 +81,6 @@ const tempChange = (temp) => { // temp is a number
   changeTemperatureColor();
 };
 
-
-//add event listener: make the axios call
 
 //changes colors according to temperature
 const changeTemperatureColor = () => {
@@ -135,7 +129,7 @@ const changeSky = () => {
   }
 };
 
-//resets button to blank. We can make Seattle default if that is something we want.
+//resets button to Seattle.
 const clearInput = () => {
   document.getElementById('city-input').value = 'Seattle';
 };
@@ -161,8 +155,3 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-//80+ 🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂
-//70-79 🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷
-//60-69 🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃
-//59 or below 🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲
