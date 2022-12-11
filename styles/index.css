@@ -7,16 +7,9 @@ body {
     
 }
 
-#temp {
-    background-color: white;
-    
-}
-
-#city-name {
-    background-color: white;
-}
-
-#sky {
+#temp, #city-name, #sky {
+    border-radius: 15px; 
+    padding: 3rem;
     background-color: white;
 }
 
