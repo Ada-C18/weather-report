@@ -30,10 +30,11 @@ citySelector.addEventListener('input', (_) => {
             },
         })
         .then((response) => {
-            console.log(response.data[0]);
+            // console.log(response.data[0]);
+            State.city = response.data[0]['display_name'];
             State.latitude = response.data[0]['lat'];
             State.longitude = response.data[0]['lon'];
-            cityName.textContent = response.data[0]['display_name'];
+            updatePage();
         })
         .catch((error) => {
             console.log(error);
@@ -41,6 +42,7 @@ citySelector.addEventListener('input', (_) => {
 });
 
 const State = {
+    city: 'Atlanta',
     temperature: 70,
     unit: 'F',
     latitude: 0,
@@ -67,6 +69,7 @@ const updateWeather = function() {
 };
 
 const updatePage = function() {
+    cityName.textContent = State.city;
     temperature.textContent = `${State.temperature}`;
     tempUnit.textContent = `${State.unit}`;
     weather.textContent = `${State.weather}`;
