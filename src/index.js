@@ -3,63 +3,69 @@ const state = {
 };
 
 const tempUp = () => {
-  const currentTempContainer = document.getElementById('temp-value');
   state.temperature += 1;
-  currentTempContainer.textContent = state.temperature;
+  changeTempAndLandscape();
 };
 
 const tempDown = () => {
-  const currentTempContainer = document.getElementById('temp-value');
   state.temperature -= 1;
-  currentTempContainer.textContent = state.temperature;
+  changeTempAndLandscape();
 };
 
-const changeColorAndLandscape = () => {
-  const tempColor = document.getElementById('temp-value');
-  const landscapeContainer = document.getElementById('landscape');
+const changeTempAndLandscape = () => {
   const temp = state.temperature;
 
+  let color;
+  let landscape;
   if (temp >= 80) {
-    tempColor.style.color = 'red';
-    landscapeContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    color = 'red';
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp >= 70) {
-    tempColor.style.color = 'orange';
-    landscapeContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    color = 'orange';
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temp >= 60) {
-    tempColor.style.color = 'yellow';
-    landscapeContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    color = 'yellow';
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temp >= 50) {
-    tempColor.style.color = 'green';
-    landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    color = 'green';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
-    tempColor.style.color = 'lightblue';
-    landscapeContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    color = 'lightblue';
+    landscape = '🌲🌲⛄️🌲⛄️🥶🌲🌲🌲🌲⛄️🥶🌲';
   }
+
+  const tempContainer = document.getElementById('temp-value');
+  tempContainer.textContent = temp;
+  tempContainer.style.color = color;
+
+  const landscapeContainer = document.getElementById('landscape');
+  landscapeContainer.textContent = landscape;
 };
 
 const changeSky = () => {
   const skyValue = document.getElementById('sky-emojis').value;
-  const skyContainer = document.getElementById('sky');
 
+  let skyEmojis;
   if (skyValue === 'Cloudy') {
-    skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    skyEmojis = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (skyValue === 'Sunny') {
-    skyContainer.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    skyEmojis = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
   } else if (skyValue === 'Rainy') {
-    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skyEmojis = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (skyValue === 'Snowy') {
-    skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skyEmojis = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
+
+  const skyContainer = document.getElementById('sky');
+  skyContainer.textContent = skyEmojis;
 };
 
 const registerEventHandlers = () => {
   const increaseTemp = document.getElementById('temp-up');
   increaseTemp.addEventListener('click', tempUp);
-  increaseTemp.addEventListener('click', changeColorAndLandscape);
 
   const decreaseTemp = document.getElementById('temp-down');
   decreaseTemp.addEventListener('click', tempDown);
-  decreaseTemp.addEventListener('click', changeColorAndLandscape);
 
   const selectSky = document.getElementById('sky-emojis');
   selectSky.addEventListener('change', changeSky);
