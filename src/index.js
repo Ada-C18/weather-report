@@ -75,23 +75,33 @@ const updateWeather = function() {
 
 const updatePage = async function() {
     cityName.textContent = State.city;
-    temperature.textContent = `${State.temperature}`;
+    let normalizedTemp = Math.round(convertTemp(State.unit, State.temperature));
+    temperature.textContent = `${normalizedTemp}`;
     tempUnit.textContent = `${State.unit}`;
     weather.textContent = `${State.weather}`;
 
-    if (State.temperature < 32) {
+    if (normalizedTemp < 32) {
         landscape.className = 'landscape-cold';
         tempBox.className = 'temp-box-cold';
-    } else if (State.temperature < 60) {
+    } else if (normalizedTemp < 60) {
         landscape.className = 'landscape-cool';
         tempBox.className = 'temp-box-cool';
-    } else if (State.temperature < 90) {
+    } else if (normalizedTemp < 90) {
         landscape.className = 'landscape-warm';
         tempBox.className = 'temp-box-warm';
     } else {
         landscape.className = 'landscape-hot';
         tempBox.className = 'temp-box-hot';
     }
+};
+
+const convertTemp = function(unit, K) {
+    if (unit === 'C') {
+        return K - 273.15;
+    } else if (unit === 'F') {
+        return (K - 273.15) * (9 / 5) + 32;
+    }
+    return 'invalid unit';
 };
 
 updateLocation('Atlanta').then(updateWeather());
