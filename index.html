@@ -9,19 +9,16 @@
   </head>
 
   <body>
-    <header class="header_header">
+    <header class="header">
       <h1>Weather Report</h1>
       <span>
         For the beautiful city of
         <span id="headerCityName" class="header_city-name">
-          <!-- before and after refer are for any special effects around the city name -->
-          <!-- ::before -->
-          <!-- this will be a variable to enter name of city here -->
           Neema & Pavi Land
-          <!-- ::after -->
         </span>
       </span>
     </header>
+
     <section class="temperature_section">
       <h2>Temperature</h2>
       <div class="temperature_content">
@@ -31,14 +28,12 @@
           <span id="tempValue" class="teal"></span>
           <button id="decreaseTempControl">▼</button>
         </div>
-
-        <!-- onClick button here, too. button tied to event -->
         <button id="currentTempButton">Get Real Time Temperature</button>
       </div>
     </section>
+
     <section class="sky_section">
       <h2>Sky</h2>
-      <!-- event handler here, menu -->
       <select id="skySelect">
         <option>Sunny</option>
         <option>Cloudy</option>
@@ -46,12 +41,9 @@
         <option>Snowy</option>
       </select>
     </section>
+
     <section class="city-name_section">
       <h2>City Name</h2>
-      <!-- event handler here, accepts text from user -->
-      <!-- value should be variable -->
-      <!-- onClick button to change state -->
-      <!-- <label for="cityName">City Name:</label> -->
       <input
         id="cityNameInput"
         type="text"
@@ -60,9 +52,9 @@
       />
       <button id="cityNameReset" class="city-name_reset-btn">Reset</button>
     </section>
+
     <section class="garden_section">
       <h2>Weather Garden</h2>
-      <!-- this id uses flex box -->
       <div id="gardenContent" class="garden_content">
         <div id="sky">sky emojis here</div>
         <img
@@ -74,8 +66,8 @@
         />
       </div>
     </section>
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
 
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js" type="text/javascript"></script>
   </body>
 </html>

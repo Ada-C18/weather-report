@@ -4,18 +4,24 @@ const state = {
   long: -122.3300624,
   temp: 73,
 };
+
 const convertKtoF = (temp) => {
   return (temp - 273.15) * (9 / 5) + 32;
-};
-
-const clearError = () => {
-  const cityInfo = document.getElementById('cityInfo');
-  cityInfo.textContent = '';
 };
 
 const displayCityInfo = (cityinfo) => {
   const cityInfo = document.getElementById('cityInfo');
   cityInfo.textContent = `Current Temperature for: ${cityinfo}`;
+};
+
+const displayCityError = () => {
+  const cityInfo = document.getElementById('cityInfo');
+  cityInfo.textContent = "Couldn't find temperature for this city!";
+};
+
+const clearCityInfo = () => {
+  const cityInfo = document.getElementById('cityInfo');
+  cityInfo.textContent = '';
 };
 
 const findLatAndLong = () => {
@@ -35,8 +41,7 @@ const findLatAndLong = () => {
     })
     .catch((error) => {
       console.log('Error finding the latitude and longitude:', error.response);
-      const tempError = document.getElementById('tempError');
-      tempError.textContent = "Couldn't find temperature for this city!";
+      displayCityError();
     });
 };
 
@@ -56,8 +61,7 @@ const getWeather = (cityinfo) => {
     })
     .catch((error) => {
       console.log('Error getting the weather:', error);
-      const tempError = document.getElementById('tempError');
-      tempError.textContent = "Couldn't find temperature for this city!";
+      displayCityError();
     });
 };
 
@@ -66,13 +70,13 @@ const updateCityName = () => {
   const headerCityName = document.getElementById('headerCityName');
   state.city = inputName;
   headerCityName.textContent = state.city;
-  clearError();
+  clearCityInfo();
 };
 
 const resetCityName = () => {
   const cityNameInput = document.getElementById('cityNameInput');
   cityNameInput.value = 'Seattle';
-  clearError();
+  clearCityInfo();
   updateCityName();
 };
 
@@ -96,7 +100,6 @@ const formatTempAndGarden = () => {
     color = 'teal';
     landscapeImg = 'images/winter.webp';
   }
-
   const newLandscapeImg = document.getElementById('landscapeImg');
   newLandscapeImg.src = landscapeImg;
   const temperature = document.getElementById('tempValue');
@@ -107,36 +110,29 @@ const formatTempAndGarden = () => {
 const increaseTemp = () => {
   state.temp += 1;
   formatTempAndGarden();
-  clearError();
+  clearCityInfo();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
   formatTempAndGarden();
-  clearError();
+  clearCityInfo();
 };
 
 const changeSky = () => {
   const inputSky = document.getElementById('skySelect').value;
   const skyDisplay = document.getElementById('sky');
   let sky = '';
-  let skyColor = '';
   if (inputSky === 'Cloudy') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-    skyColor = 'cloudy';
   } else if (inputSky === 'Sunny') {
     sky = '☁️  ☀️ ☀️ ☀️  ☁️ ☀️ ☀️ ☁️ ☀️';
-    skyColor = 'sunny';
   } else if (inputSky === 'Rainy') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-    skyColor = 'rainy';
   } else if (inputSky === 'Snowy') {
     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-    skyColor = 'snowy';
   }
   skyDisplay.textContent = sky;
-  //const gardenContent = document.getElementById('gardenContent');
-  //gardenContent.classList = `garden__content ${skyColor}`;
 };
 
 const registerEventHandlers = () => {
