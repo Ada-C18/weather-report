@@ -127,7 +127,7 @@ const updateSky = () => {
     skyColor = 'cloud';
   } else if (inputSky === 'sunshine') {
     sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
-    skyColor = 'sunny';
+    skyColor = 'sunshine';
   } else if (inputSky === 'rain') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
     skyColor = 'rain';
