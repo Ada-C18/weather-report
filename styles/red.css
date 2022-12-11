@@ -58,6 +58,10 @@ button {
     border-radius: 10px;
 }
 
+button:hover{
+    background-color: #ff8c8a;
+}
+
 #city-box {
     background-color: #FCD2D1;
     grid-area:  2 / 2 / 4 / 3;
@@ -145,7 +149,7 @@ select {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
-    border-top-right-radius: 50%;
+    border-top-right-radius: 40%;
     border-bottom-left-radius: 50%;
     background-color: #FE8F8F;
 }

@@ -1,6 +1,7 @@
 body {
     background-color: #fff275;
     font-family: Arial, Helvetica, sans-serif;
+    color: #f57c73;
 }
 
 h1 {
@@ -57,6 +58,10 @@ button {
     border-radius: 10px;
 }
 
+button:hover{
+    background-color: #f8a49e;
+}
+
 #city-box {
     background-color: #fedb72;
     grid-area:  2 / 2 / 4 / 3;
@@ -64,6 +69,7 @@ button {
     flex-direction: column;
     align-content: space-evenly; 
     justify-content: space-evenly;
+    color: #e34e43;
 }
 
 #city-box h2 {
@@ -91,6 +97,7 @@ button {
     flex-direction: column;
     align-content: space-evenly; 
     justify-content: space-evenly;
+    color: #e34e43;
 }
 
 .landscape-color {
@@ -126,8 +133,7 @@ select {
 }
 
 .yellow {
-    color: #FFE246;
-    background-color: black;
+    color: #ffd300;
 }
 
 .green {
@@ -144,7 +150,7 @@ select {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
-    border-top-right-radius: 50%;
+    border-top-right-radius: 40%;
     border-bottom-left-radius: 50%;
     background-color: #ffffb7;
 }
