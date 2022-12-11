@@ -66,7 +66,7 @@ const getRealTimeTemp = () => {
   //   // -> open weatherApp -> realTemp for the city (in lat, lon)
   //   // change the element of html page: currentTemp
   // const axios = require('axios');
-  console.log('weather');
+  let latitude, longitude;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -74,12 +74,32 @@ const getRealTimeTemp = () => {
       },
     })
     .then((response) => {
-      console.log('success!', response.data);
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in getRealTimeTemp!', latitude, longitude);
+      const temperature = getTempByCity(latitude, longitude);
+      return temperature;
     })
     .catch((error) => {
-      console.log('error!', error.response.data);
+      console.log('error in getRealTimeTemp!');
     });
-  console.log('weather2');
+};
+
+const getTempByCity = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      console.log('success in findWeather!', response.data.main.temp);
+      return response.data.main.temp;
+    })
+    .catch((error) => {
+      console.log('error in findWeather!');
+    });
 };
 
 const registerEventHandlers = () => {
