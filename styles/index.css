@@ -71,3 +71,31 @@ main {
   background-image: url("../assets/landscape-hot.jpeg");
   background-position-y: center;
 }
+
+.sky-thunderstorm {
+  background-image: url("../assets/sky-thunderstorm.jpeg");
+}
+
+.sky-drizzle {
+  background-image: url("../assets/sky-drizzle.jpeg");
+}
+
+.sky-rain {
+  background-image: url("../assets/sky-rain.jpeg");
+}
+
+.sky-snow {
+  background-image: url("../assets/sky-snow.jpeg");
+}
+
+.sky-clear {
+  background-image: url("../assets/sky-clear.jpeg");
+}
+
+.sky-clouds {
+  background-image: url("../assets/sky-clouds.jpeg");
+}
+
+.sky-atmosphere {
+  background-image: url("../assets/sky-atmosphere.jpeg");
+}

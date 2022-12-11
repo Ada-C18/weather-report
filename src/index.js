@@ -98,6 +98,30 @@ const updatePage = async function() {
         landscape.className = 'landscape-hot';
         tempBox.className = 'temp-box-hot';
     }
+
+    switch (State.weatherCategory) {
+        case 'Thunderstorm':
+            sky.className = 'sky-thunderstorm';
+            break;
+        case 'Drizzle':
+            sky.className = 'sky-drizzle';
+            break;
+        case 'Rain':
+            sky.className = 'sky-rain';
+            break;
+        case 'Snow':
+            sky.className = 'sky-snow';
+            break;
+        case 'Clear':
+            sky.className = 'sky-clear';
+            break;
+        case 'Clouds':
+            sky.className = 'sky-clouds';
+            break;
+        default:
+            sky.className = 'sky-atmosphere';
+            break;
+    }
 };
 
 const convertTemp = function(unit, K) {
