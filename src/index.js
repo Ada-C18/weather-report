@@ -151,6 +151,10 @@ const updateSky = () => {
     sky = '🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️';
     skyColor = 'wind';
   }
+  skyContainer.textContent = sky;
+  const changeSky = document.getElementById('weatherEmojis');
+  weatherEmojis.classList = `${skyColor}`;
+  // skyOptions.addEventListener('change', updateSky);
 };
 
 console.log(updateSky);
