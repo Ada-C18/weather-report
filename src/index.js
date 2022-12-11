@@ -8,10 +8,10 @@ const updateLandscapeColor = () => {
   const landscape = document.querySelector('#landscape');
   if (state.tempCount <= 49) {
     tempDisplay.style.color = 'teal';
-    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️';
   } else if (state.tempCount >= 50 && state.tempCount <= 59) {
     tempDisplay.style.color = 'green';
-    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️';
   } else if (state.tempCount >= 60 && state.tempCount <= 69) {
     landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     tempDisplay.style.color = 'yellow';
@@ -53,7 +53,7 @@ const updateTemp = (changeFactor) => {
   updateLandscapeColor();
 };
 
-const changeCity = (event, cityName) => {
+const changeCity = (cityName) => {
   const cityNameDisplay = document.getElementById('city');
   state.cityName = cityName;
   cityNameDisplay.textContent = `Weather Report for the wonderful city ${state.cityName}`;
@@ -87,36 +87,34 @@ const getWeatherCity = async (event) => {
   updateTemp(farenheit - state.tempCount);
 };
 
+const resetCityDefault = () => {
+  const city = document.querySelector('#cityName');
+  city.value = 'Ada';
+  console.log(city.value)
+  changeCity('Ada');
+  getWeatherCity();
+
+}
+
 const registerEventHandlers = (event) => {
   updateLandscapeColor();
+  getWeatherCity()
   const increaseButton = document.querySelector('#increaseTemp');
   increaseButton.addEventListener('click', (event) => updateTemp(1));
   const decreaseButton = document.querySelector('#decreaseTemp');
   decreaseButton.addEventListener('click', (event) => updateTemp(-1));
   const changeCityInput = document.querySelector('#cityName');
-  changeCityInput.addEventListener('input', (event) =>
-    changeCity(event, changeCityInput.value)
+  changeCityInput.addEventListener('input', () =>
+    changeCity(changeCityInput.value)
   );
   const getWeatherButton = document.querySelector('#getWeather');
   getWeatherButton.addEventListener('click', getWeatherCity);
   const changeSkyscape = document.querySelector('#sky');
   changeSkyscape.addEventListener('change', (event) => updateSkyscape());
+  const resetCityButton = document.querySelector('#resetCity');
+  resetCityButton.addEventListener('click', resetCityDefault);
+
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-// //
-// const updateTemp = (event) => {
-//   console.log(event.target.textContent)
-//   const tempDisplay = document.querySelector("#temperature");
-//   if (event.target.textContent === "Increase"){
-//     console.log("hi Im increasing")
-//     state.tempCount++;
-//     tempDisplay.textContent = `${state.tempCount}`
-//   } else if (event.target.textContent === "Decrease"){
-//     console.log("hi Im decreasing")
-//     state.tempCount--;
-//     tempDisplay.textContent = `${state.tempCount}`
-//   updateLandscapeColor()
-//   }
-// };

@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 270px;
+  }
+
+#skyscape{
+
+
+}
+
+#landscape{
+
+
+}
+
+#weatherControl{
+
+}
+
+#cityControl{
+    border-style: double;
+    border-color: #5EB1BF;
+
+}
+
+#skyControl{
+    border-style: double;
+    border-color: #5EB1BF;
+
+}
+
+#city{
+    color: #042A2B
+}
+
+button {
+    background-color: #5EB1BF; /* blue */
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+  }
