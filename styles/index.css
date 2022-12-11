@@ -11,15 +11,6 @@ body {
 }
 
 
-
-/* 
-.block {
-    width: 50%;
-    float: left;
-    height: 0;
-    padding-bottom: 50%;
-} */
-
 .temp-section {
     background: yellow;
     float: left;
@@ -50,37 +41,30 @@ body {
     width: 50%;
     height: 400px;
     text-align: center;
-}
-
-/* #tempNum {
-  color: ;
-} */
+} 
 
 
 #tempNum {
-  font-size: 3rem;
-  
+    font-size: 3rem;
+
 }
 
-
-
-
 .red {
-  color: red;
-  }
+    color: red;
+}
   
 .orange {
-  color: orange;
-  }
-  
+    color: orange;
+}
+
 .yellow {
-  color: gold;
-  }
-  
+    color: gold;
+}
+
 .yellow-green {
-  color: yellowgreen;
-  }
-  
+    color: yellowgreen;
+}
+
 .green {
-  color: green;
-  }
+    color: green;
+}
