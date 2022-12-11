@@ -16,6 +16,13 @@ const increaseDreamTemp = () => {
   dreamTemp.textContent = state.temp;
 };
 
+// INCREASE HUMIDITY BY 1 PERCENT
+const increaseDreamHumidity = () => {
+  const dreamHumidity = document.getElementById("dream-humidity-percent");
+  state.humidity += 1;
+  dreamHumidity.textContent = state.humidity;
+};
+
 // DECREASE TEMP BY 1 DEGREE
 const decreaseDreamTemp = () => {
   const dreamTemp = document.getElementById("dream-temp-number");
@@ -23,7 +30,14 @@ const decreaseDreamTemp = () => {
   dreamTemp.textContent = state.temp;
 };
 
-// UPDATE TEMP TEXT COLOR DEPENDING ON TEMP RANGE
+// DECREASE HUMIDITY BY 1 DEGREE
+const decreaseDreamHumidity = () => {
+  const dreamHumidity = document.getElementById("dream-humidity-percent");
+  state.humidity -= 1;
+  dreamHumidity.textContent = state.humidity;
+};
+
+// UPDATE TEMP TEXT AND CIRCLE COLOR DEPENDING ON TEMP RANGE
 const updateDreamTempColor = () => {
   const dreamTemp = document.querySelector("#dream-temp-number");
   const tempCircle = document.querySelector("#circle");
@@ -89,25 +103,25 @@ const getCurrentWeather = () => {
   })
 };
 
-// UPDATE DEFAULT CITY TEMP TO CURRENT TEMP FROM WEATHER RESULT
-const updateDefaultTemp = () => {
+// UPDATE TEMP TO CURRENT TEMP FROM WEATHER RESULT
+const updateTemp = () => {
   const defaultTemp = document.getElementById("dream-temp-number");
 
   getCurrentWeather()
   .then(currentWeather => {
-    state.temp = kelvinToFahrenheit(currentWeather.temp) + "°";
+    state.temp = kelvinToFahrenheit(currentWeather.temp);
     defaultTemp.textContent = state.temp;
     updateDreamTempColor();
   });
 };
 
-// UPDATE DEFAULT CITY HUMIDITY TO CURRENT HUMIDITY FROM WEATHER RESULT
-const updateDefaultHumidity = () => {
+// UPDATE HUMIDITY TO CURRENT HUMIDITY FROM WEATHER RESULT
+const updateHumidity = () => {
   const defaultHumidity = document.getElementById("dream-humidity-percent");
   
   getCurrentWeather()
   .then(currentWeather => {
-    state.humidity = currentWeather.humidity + "%"
+    state.humidity = currentWeather.humidity
     defaultHumidity.textContent = state.humidity;
   });
 };
@@ -117,25 +131,32 @@ const kelvinToFahrenheit = (temp) => {
   return Math.floor(((temp-273.15)*1.8)+32);
 };
 
-
 // REGISTER EVENT HANDLERS
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById("temp-increase-button");
   tempIncreaseButton.addEventListener("click", increaseDreamTemp);
   tempIncreaseButton.addEventListener("click", updateDreamTempColor);
 
+  const humidityIncreaseButton = document.getElementById("humidity-increase-button");
+  humidityIncreaseButton.addEventListener("click", increaseDreamHumidity);
+
   const tempDecreaseButton = document.getElementById("temp-decrease-button");
   tempDecreaseButton.addEventListener("click", decreaseDreamTemp);
   tempDecreaseButton.addEventListener("click", updateDreamTempColor);
 
+  const humidityDecreaseButton = document.getElementById("humidity-decrease-button");
+  humidityDecreaseButton.addEventListener("click", decreaseDreamHumidity);
+  
   const searchBar = document.getElementById("search-bar");
   searchBar.addEventListener("input", changeCityNameWithInput);
   
   const searchButton = document.getElementById("search-button");
   searchButton.addEventListener("click", getCurrentWeather);
+  searchButton.addEventListener("click", updateTemp)
+  searchButton.addEventListener("click", updateHumidity)
 
-  window.addEventListener("load", updateDefaultTemp);
-  window.addEventListener("load", updateDefaultHumidity);
+  window.addEventListener("load", updateTemp);
+  window.addEventListener("load", updateHumidity);
 };
 
 // DOM listener
