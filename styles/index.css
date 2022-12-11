@@ -74,7 +74,7 @@ h2{
 }
 #increaseTemp, #decreaseTemp {
     border: transparent;
-    padding: 0;
+    padding: 10px;
     background-color: rgb(255,255,255);
     display: flex;
     padding-left:13px;
