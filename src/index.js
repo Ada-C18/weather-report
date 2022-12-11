@@ -5,10 +5,30 @@ const state = {
 }
 
 const tempChange = () => {
-  const temp = document.getElementById("displayedTemp");
+  let color = "red";
+  let temp = state.temp
+  if (temp > 80) {
+    color = "red";
+  } else if (temp > 70) {
+    color = "orange";
+  } else if (temp > 60) {
+    color = "yellow";
+  } else if (temp > 50) {
+    color = "green";
+  } else {
+    color = "blue";
+  }
+
+  temp = document.getElementById("displayedTemp");
+  temp.className = color;
   temp.textContent = String(state.temp)
-  
+
   console.log("clicked");
+}
+
+const landscapeChange = () => {
+  let temp = state.temp;
+
 }
 
 const increasedTemp = () => {

@@ -13,7 +13,6 @@ header {
 
 /* id selectors */
 #displayedTemp {
-    color: var(--primaryColor);
     font-weight: bold;
     font-size: 2em;
 }
@@ -56,3 +55,26 @@ header {
 .credits {
     font-size: .8em;
 }
+
+/* color options for 
+temp & landscape background */
+
+.red {
+    color: red;
+    }
+    
+.orange {
+    color: orange;
+    }
+    
+.yellow {
+    color: yellow;
+    }
+    
+.green {
+    color: green;
+    }
+    
+.blue {
+    color: blue;
+    }
