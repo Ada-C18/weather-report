@@ -1,3 +1,4 @@
+
 //select HTML Elements 
 
 const body = document.querySelector('body');
@@ -11,17 +12,20 @@ const search = document.getElementById('search');
 const sky = document.getElementById('sky');
 const skyEmoji = document.querySelector('select');
 const reset = document.getElementById('reset');
+const currentWeather = document.getElementById('current-weather');
+const app = document.getElementById('weather-app');
 
 //dictionary for weather emojis
-const weatherEmojis = {
-    "Snow": `🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨`,
-    "Mist": `🌫☁️🌧☂☁️😶‍🌫️🌫️☁️🌧️☂`,
-    "Rain": `🌧🌈⛈☔️🌧💧⛈🌧🌦☔️💧🌧🌧`,
-    "Haze": `😶‍🌫️🌁🌫😶‍🌫️🏭😷☁️🌁`,
-    "Clouds": `☀️ 🌤️ ⛅️ 🌥️ 🌤️ ⛅️ 🌥️ ☁️`,
-    "Sunny": `☀️☀️☀️☀️☀️☀️☀️☀️☀️`,
-    "Smoke": `🚬😶‍🌫️🔥 🌫😶‍🌫️🏭😷🫁`,
-    "Other": `🌈☀️ 🌤️ ⛅️ 🌥️ 🌤️ ⛅️ 🌥️ ☁️`
+const weatherImages = {
+    "Snow": [`🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨`, 'url(https://images.unsplash.com/photo-1576678052826-04fd6590483f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNub3d5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60)'],
+    "Mist": [`🌫☁️🌧☂☁️😶‍🌫️🌫️☁️🌧️☂`, 'url(https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=860&q=80)'],
+    "Rain": [`🌧🌈⛈☔️🌧💧⛈🌧🌦☔️💧🌧🌧`, 'url(https://images.unsplash.com/photo-1503429134808-fdf0cd4e1bfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHJhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60)'],
+    "Haze": [`😶‍🌫️🌁🌫😶‍🌫️🏭😷☁️🌁`, 'url(https://images.unsplash.com/photo-1571148433633-f62d3cdb5eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBvbGx1dGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)'],
+    "Clouds": [`☀️ 🌤️ ⛅️ 🌥️ 🌤️ ⛅️ 🌥️ ☁️`, 'url(https://images.unsplash.com/photo-1524555259-3e4f9092f97b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNsb3VkeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)'],
+    "Sunny": [`☀️☀️☀️☀️☀️☀️☀️☀️☀️`, 'url(https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'],
+    "Clear": [`☀️☀️☀️☀️☀️☀️☀️☀️☀️`, 'url(https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'],
+    "Smoke": [`🚬😶‍🌫️🔥 🌫😶‍🌫️🏭😷🫁`, 'url(https://images.unsplash.com/photo-1571148433633-f62d3cdb5eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBvbGx1dGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)'],
+    "Other": [`🌈☀️ 🌤️ ⛅️ 🌥️ 🌤️ ⛅️ 🌥️ ☁️`, 'url(https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3ByaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60)']
 };
 
 
@@ -44,6 +48,40 @@ const getSkyData = async function () {
     return weather;
 };
 
+
+const changeColor = function () {
+    const temp = farenheit.innerText;
+
+    if (temp >= 85) {
+        farenheit.style.color = '#BF360C';
+        emojis.innerHTML = `🌵💀🐍☀️🦂💀🌵☀️🐍🏜☀️🦂`;
+    } else if (temp >= 60) {
+        farenheit.style.color = '#F06292';
+        emojis.innerHTML = `🌸🌿🌼☀️🌷🌻🌿☀️☘️🌱🌻🌷`;
+    } else if (temp >= 45) {
+        farenheit.style.color = 'orange';
+        emojis.innerHTML = `🌾🌾🍃🪨🛤🌾🌾🌾🍃`;
+    } else if (temp <= 40) {
+        farenheit.style.color = "darkBlue";
+        emojis.innerHTML = `🌲❄️⛄️🌲⛄️❄️🌲🍁🌲🌲⛄️❄️`;
+    }
+}
+
+const changeSky = function () {
+
+    if (skyEmoji.value in weatherImages) {
+        sky.innerHTML = weatherImages[skyEmoji.value][0];
+    }
+    else {
+        sky.innerHTML = weatherImages["Other"][0];
+    };
+}
+
+const defaultCity = function () {
+    search.value = "New York";
+    return displayData();
+}
+
 const displayData = async function () {
     const data = await getWeather();
 
@@ -55,52 +93,24 @@ const displayData = async function () {
     //display city and country name
     city.innerHTML = `${data["data"]["name"]}, ${data["data"]["sys"]["country"]}`;
 
-    //display sky
+    //display sky emojis
     const skyWeather = await getSkyData();
 
-    if (skyWeather in weatherEmojis) {
-        sky.innerHTML = weatherEmojis[skyWeather];
+    if (skyWeather in weatherImages) {
+        sky.innerHTML = weatherImages[skyWeather][0];
+        body.style.background = weatherImages[skyWeather][1];
     }
     else {
-        sky.innerHTML = weatherEmojis["Other"];
+        sky.innerHTML = weatherImages["Other"];
+        body.style.background = weatherImages["Other"][1];
     };
+
+    //display current weather
+    currentWeather.innerHTML = skyWeather;
 
     //change temp color
     changeColor();
 };
-
-const changeColor = function () {
-    const temp = farenheit.innerText;
-
-    if (temp >= 85) {
-        farenheit.style.color = '#BF360C';
-        emojis.innerHTML = `🌵💀🐍☀️🦂💀🌵🌵☀️🐍🏜☀️🦂`;
-    } else if (temp >= 60) {
-        farenheit.style.color = '#3949AB';
-        emojis.innerHTML = `🌸🌿🌼☀️🌷🌻🌿☀️☘️🌱_🌻🌷`;
-    } else if (temp >= 45) {
-        farenheit.style.color = '#F06292';
-        emojis.innerHTML = `🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃`;
-    } else if (temp <= 40) {
-        farenheit.style.color = '#93C572';
-        emojis.innerHTML = `🌲❄️⛄️🌲⛄️❄️🌲🍁🌲🌲⛄️❄️🌲`;
-    }
-}
-
-const changeSky = function () {
-
-    if (skyEmoji.value in weatherEmojis) {
-        sky.innerHTML = weatherEmojis[skyEmoji.value];
-    }
-    else {
-        sky.innerHTML = weatherEmojis["Other"];
-    };
-}
-
-const defaultCity = function () {
-    search.value = "New York";
-    return displayData();
-}
 
 
 //event listeners 

@@ -10,35 +10,33 @@
 </head>
 
 <body>
-    <header>Weather Report</header>
-    <form>
-        <input type="text" placeholder="Enter City Name" id="search">
-        <button id="weather">Get Weather</button>
-        <button id="reset">Reset City</button>
-    </form>
-
     <div id="weather-app">
         <div id="sky"></div>
-
-        <h2 id="city">City</h2>
-
-        <h3 id="temp">Temperature in Farenheit: <span id="farenheit"></span></h3>
-        <div id="emojis">
-
+        <div id="form-div">
+            <form>
+                <input type="text" placeholder="Enter City Name" id="search">
+                <button id="weather">Get Weather</button>
+                <button id="reset">Reset City</button>
+                <p>Change Sky:
+                    <select name="sky-emoji" id="sky-emoji">
+                        <option value="Sunny">Sunny</option>
+                        <option value="Clouds" selected>Cloudy</option>
+                        <option value="Rain">Rainy</option>
+                        <option value="Snow">Snowy</option>
+                    </select>
+                </p>
+            </form>
         </div>
-        <div>
-            <button id="increase">Increase Temp</button>
-            <button id="decrease">Decrease Temp</button>
 
-            <p>Select Sky:
-                <select name="sky-emoji" id="sky-emoji">
-                    <option value="Sunny">Sunny</option>
-                    <option value="Clouds" selected>Cloudy</option>
-                    <option value="Rain">Rainy</option>
-                    <option value="Snow">Snowy</option>
-                </select>
-            </p>
-        </div>
+        <h1 id="city">City</h2>
+            <h2>Current Weather: <span id="current-weather"></span></h2>
+            <h3 id="temp"><span id="farenheit"></span> °F</h3>
+
+            <div>
+                <button id="increase">Increase Temp</button>
+                <button id="decrease">Decrease Temp</button>
+            </div>
+            <div id="emojis"></div>
 
     </div>
 
