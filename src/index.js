@@ -15,6 +15,7 @@ const plusClickCount = () => {
   state.clickCount += 1;
   plusContainer.textContent = state.clickCount;
   changeColor();
+  changeLandscape();
 };
 
 const minusClickCount = () => {
@@ -22,9 +23,10 @@ const minusClickCount = () => {
   state.clickCount -= 1;
   minusContainer.textContent = state.clickCount;
   changeColor();
+  changeLandscape();
 };
 
-//making range different
+//making text color different
 const changeColor = () => {
   const tempColor = document.querySelector('#Temperature');
   if (state.clickCount < 49) {
@@ -39,8 +41,32 @@ const changeColor = () => {
     tempColor.classList.add('red');
   }
 };
+// change landscape
+const changeLandscape = () => {
+  // Create a new image and set its attribute
+  const newLS = document.createElement('img');
+  const newLandscape = document.querySelector('#landscape');
 
-//   const parrot = document.querySelector('#parrot');
+  if (state.clickCount < 59) {
+    newLS.src = `assets/cold.jpeg`;
+  } else if (state.clickCount >= 60 && state.clickCount < 69) {
+    newLS.src = `assets/cool.jpeg`;
+  } else if (state.clickCount >= 70 && state.clickCount < 79) {
+    newLS.src = `assets/warm.jpeg`;
+  } else if (state.clickCount >= 80) {
+    newLS.src = `assets/hot.jpeg`;
+  }
+
+  newLandscape.prepend(newLS);
+};
+const input = document.querySelector('input');
+const log = document.getElementById('values');
+
+input.addEventListener('input', updateValue);
+
+function updateValue(e) {
+  log.textContent = e.target.value;
+}
 
 const registerEventHandlers = () => {
   const hotterButton = document.getElementById('plusButton');
