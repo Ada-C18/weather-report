@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" id="theme">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <div class="parent">
+        <header>
+            <h1>Weather Report by Dainiz Isabella Irene</h1>
+        </header>
+        <section id="temperature-box" class="container-style">
+            <h2>Temperature</h2>
+            <span id="increaseTempButton">⬆️</span>
+            <h3 id="tempValue" class="red">80</h3>
+            <span id="decreaseTempButton">⬇️</span>
+            <button id="liveTemperatureButton">Get live temperature</button>
+        </section>
+        <section id="city-box"  class="container-style">
+            <h2>City</h2>
+            <h3 id="city-name">Seattle</h3>
+            <label >Input a City Name:</label>
+            <input type="text" id="input-city" value="Seattle"> <br>
+            <button id="reset-city-name">Reset City Name</button>
+            
+        </section>
+        <section id="landscape-box" class="container-style">
+            <h2>Landscape</h2>
+            <label for="sky">Choose a sky:</label>
+            <select name="sky" id="sky">
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+            </select>
+            <section class="landscape-icon">
+                <span id="skyPicture">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span> <br>
+                <span id="landscapePicture">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</span>
+            </section>
+        </section>
+    </div>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>    
 </body>
 </html>
