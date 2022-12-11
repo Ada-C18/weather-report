@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 
 const state = {
   temp: 72,
@@ -21,7 +21,7 @@ const decreasedTemp = () => {
   tempChange();
 }
 
-const loadControls = () => {
+const registerEventHandlers = () => {
   tempChange();
 
   const increasedTempButton = document.getElementById("increaseTemp");
@@ -33,4 +33,4 @@ const loadControls = () => {
   console.log("loaded successfully");
 }
 
-document.addEventListener("DOMContentLoaded", loadControls);
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
