@@ -1,4 +1,4 @@
-// logic to change temperature using the buttons
+
 const state = {
   temp: 45,
   city: 'Seattle',
@@ -6,7 +6,6 @@ const state = {
 
 //converting Kelvin to Fahrenheit
 const convertKelvinToF = (temp) => ((temp - 273.15) * 9) / 5 + 32;
-console.log('Temperature is:', convertKelvinToF(271.54));
 
 //Creating addTemp and minus Temp events
 const addTemp = (event) => {
@@ -23,7 +22,7 @@ const minusTemp = (event) => {
   changeTempNumColor();
 };
 
-//HELPER FUNCTION logic for temperture to change color font, landscape and sky
+//HELPER FUNCTION logic for temperature to change color font, landscape and sky
 const changeTempNumColor = () => {
   let temp = state.temp;
   const skyElement = document.querySelector('#sky');
@@ -56,9 +55,7 @@ const changeTempNumColor = () => {
 const updateCityName = (cityNameInput) => {
   const updatedCityName = document.getElementById('headerCityName');
   state.city = cityNameInput.target.value;
-  console.log("cityNameInput",cityNameInput.target.value);
-  updatedCityName.textContent = `🌍🌟${cityNameInput.target.value}🌟🌍`;
-  console.log('New city name', state.city);
+  updatedCityName.textContent = `🌍🌟${cityNameInput.target.value}`;
   return state.city;
 };
 
@@ -72,18 +69,16 @@ const resetCity = () => {
 const getCurrentTemp = () => {
   //call the API to return the current temp
   getLatAndLon(state.city);
-
 };
 
-//API call for LocationIQ
+//API calls
 locationURL = 'http://127.0.0.1:5000/location';
 weatherURL = 'http://127.0.0.1:5000/weather';
 
 //API calls has 2 responsibilities: 
-//1) get lat&lon from locationURL(sorce is LocationIQ)
+//1) get lat&lon from locationURL(source is LocationIQ)
 //2) then use lat&lon to get temp from weather API
 const getLatAndLon = () => {
-  console.log('inside getLatAndLon', state.city);
   axios
     .get(locationURL, {
       params: {
@@ -94,7 +89,6 @@ const getLatAndLon = () => {
     .then((result) => {
       const lat = result.data[0].lat;
       const lon = result.data[0].lon;
-      console.log(`${state.city} lat: ${lat} lon: ${lon}`);
 
       axios
         .get(weatherURL, {
@@ -104,7 +98,6 @@ const getLatAndLon = () => {
           },
         })
         .then((response) => {
-          console.log(convertKelvinToF(response.data.main.temp));
           state.temp = convertKelvinToF(response.data.main.temp);
           //modify the current temp number
           const currentTempReal = document.querySelector('#currentTemp');
@@ -124,9 +117,8 @@ const getLatAndLon = () => {
 //take user selection and give if/else statement
 const skySelect = () => {
   let selection = document.getElementById('selectSky');
-
   let userChoice = selection.value;
-  console.log('select select select');
+
   if (userChoice == 'Rainy') {
     const gardenSky = document.getElementById('sky');
     gardenSky.textContent = '🌧⛈💧⛈🌦🌧💧🌧🌈';
@@ -150,7 +142,6 @@ const registerEventHandlers = (event) => {
 
   const increaseTempButton = document.querySelector('#increaseTemp');
   increaseTempButton.addEventListener('click', addTemp);
-  console.log('click click!!');
 
   const input = document.querySelector('input');
   input.addEventListener('input', updateCityName);
