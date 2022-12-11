@@ -46,16 +46,13 @@ minus.addEventListener('click', () => {
 let cityNameInsert = document.getElementById('cityNameInput');
 cityNameInsert.addEventListener('input', (event) => {
   event.preventDefault();
-  console.log('hello');
   let cityName = event.target.value;
   document.getElementById('intro').innerHTML = cityName;
-  console.log(cityName);
 });
 
 function getCityName(event) {
   let cityName = document.getElementById('cityNameInput');
   document.getElementById('intro').innerHTML = cityName.value;
-  console.log(cityName);
   return cityName;
 }
 
@@ -65,15 +62,13 @@ const API = 'http://127.0.0.1:5000/';
 
 async function getTemperature(query) {
   let response = await axios.get(API + 'location' + '?q=' + query);
-  console.log(response);
   const lat = response.data[0].lat;
   const lon = response.data[0].lon;
-  console.log(lat, lon);
+
 
   response = await axios.get(API + 'weather' + '?lat=' + lat + '&lon=' + lon);
   const temp = response.data.main.temp;
   const FarenheitTemp = 1.8 * (temp - 273) + 32;
-  console.log(FarenheitTemp);
   document.getElementById('number').innerHTML = Math.round(FarenheitTemp);
   number = Math.round(FarenheitTemp);
   state.number = number;
