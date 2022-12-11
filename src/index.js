@@ -1,9 +1,10 @@
 "use strict";
 
 
-
+// ******* wave 2 *******
 
 let number = parseInt(document.querySelector('.number').innerHTML);
+
 const state = {number: number};
 const stateChange = (number) => {
     if(number >= 80){
@@ -52,6 +53,8 @@ minus.addEventListener('click',() => {
 // let intro = document.getElementById("intro")
 // intro.innerHTML  = cityName.value;
 
+// ******* wave 3 *******
+
 let cityNameInsert = document.getElementById("cityNameInput");
 cityNameInsert.addEventListener("input",(event) => {
     event.preventDefault();
@@ -80,7 +83,7 @@ function getCityName(event){
 // intro.addEventListener("change", getCityName);
 
 
-
+// ******* wave 4 *******
 
 const API = "http://127.0.0.1:5000/"
 
@@ -113,3 +116,22 @@ function getRealTime() {
     getTemperature(getCity);
     stateChange(state.number);
 }
+
+
+// ******* wave 5 *******
+
+// const skyImageDisplay = document.querySelector('#skySelect')
+//         btn.onclick = (event) => {
+//             document.getElementById(skyImage)
+//         };
+
+
+// ******* wave 6 *******
+
+document.getElementById("reset").onclick = function() {
+    document.getElementById("cityNameInput").value = "";
+    document.getElementById("reset").innerHTML = "seattle";
+    getTemperature(seattle);
+    stateChange(state.number);
+ };
+ 
