@@ -72,3 +72,8 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+const changeCityName = () => {
+    const newName = document.getElementById("cityname").value;
+    document.getElementById("greeting").innerHTML = `For the lovely city of ${newName}!`;
+};

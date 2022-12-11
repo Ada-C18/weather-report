@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <h3>For the lovely city of Seattle</h3>
+        <h3 id="greeting">Enter your city below:</h3>
     </header>
     <section id="top-section">
         <section id="temperature">
@@ -32,8 +32,8 @@
         </section>
         <section id="city-name">
             <h3>City Name</h3>
-            <input type="text" id="fname" name="fname">
-            <button>Reset</button>
+            <input type="text" id="cityname" name="cityname">
+            <input type="submit" id="resetBtn" value="Reset" onclick="changeCityName()"></input>
         </section>
     </section>
     <section id="weather-garden">
