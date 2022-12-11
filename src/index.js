@@ -8,14 +8,12 @@ const instance = axios.create({
 });
 // set baseURL for an instance of axios to pass relative URLs to methods of that instance
 
-// Convert Kelvin to Fahrenheit
-// °F = (K − 273.15) × 9/5 + 32
 const convertToFahrenheit = (tempInKelvin) => {
   const fahrenheit = Math.round((tempInKelvin - 273.15) * (9 / 5) + 32);
   return fahrenheit;
 };
 
-const defaultCity = document.getElementById('cityNameInput').value;
+// const defaultCity = document.getElementById('cityNameInput').value;
 const tempValue = document.getElementById('tempValue');
 
 const state = {
@@ -23,12 +21,13 @@ const state = {
 };
 
 // Get temp based on city
-const getTemp = async (city) => {
+const getTemp = async () => {
+  let newCity = document.getElementById('cityNameInput').value;
   const geoLocation = await instance
     .get('/location', {
       params: {
         key: 'LOCATION_KEY',
-        q: city,
+        q: newCity,
         format: 'json',
       },
     })
@@ -58,21 +57,24 @@ const getTemp = async (city) => {
     });
   const currentTemp = weather.main.temp;
   console.log(currentTemp);
-  state.temperature = convertToFahrenheit(currentTemp);
+  state.temperature = Math.round(convertToFahrenheit(currentTemp));
   tempValue.textContent = state.temperature;
+  changeTempAndGarden();
 };
 
-getTemp(defaultCity);
+getTemp();
 
 // Event handler
 const increaseTemp = () => {
   state.temperature += 1;
   tempValue.textContent = state.temperature;
+  changeTempAndGarden();
 };
 
 const decreaseTemp = () => {
   state.temperature -= 1;
   tempValue.textContent = state.temperature;
+  changeTempAndGarden();
 };
 
 const updateCityName = () => {
@@ -83,6 +85,54 @@ const updateCityName = () => {
 const resetToDefaultCity = () => {
   document.getElementById('headerCityName').textContent = 'Atlanta';
   cityNameInput.value = 'Atlanta';
+};
+
+// Event handler for changing sky // not displaying yet...
+const changeSky = () => {
+  const inputSky = document.getElementById('skySelect').value;
+  const skyBox = document.getElementById('sky');
+  let sky = '';
+  if (inputSky === 'Sunny') {
+    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (inputSky === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (inputSky === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (inputSky === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+  skyBox.textContent = sky;
+  const gardenContent = document.getElementById('gardenContent');
+  console.log('changeSky');
+};
+
+// change temp color and garden display // not working yet
+const changeTempAndGarden = () => {
+  let temp = state.temperature;
+  let color = 'white';
+  let landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  if (temp >= 80) {
+    color === 'red';
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temp <= 79 && temp >= 70) {
+    color === 'orange';
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temp <= 69 && temp >= 60) {
+    color === 'yellow';
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (temp <= 59 && temp >= 50) {
+    color === 'green';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (temp <= 49) {
+    color === 'teal';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  }
+  const newLandscape = document.querySelector('#landscape');
+  newLandscape.textContent = landscape;
+  const newtemp = document.querySelector('#tempValue');
+  newtemp.className = color;
+  newtemp.textContent = String(state.temperature);
+  console.log('changeTempAndGarden');
 };
 
 const registerEventHandlers = () => {
@@ -97,6 +147,14 @@ const registerEventHandlers = () => {
 
   const cityNameResetBtn = document.querySelector('#cityNameReset');
   cityNameResetBtn.addEventListener('click', resetToDefaultCity);
+
+  const skySelectDropDown = document.querySelector('#skySelect');
+  skySelectDropDown.addEventListener('change', changeSky);
+
+  const realTimeTempBtn = document.querySelector('#realTimeTemp');
+  realTimeTempBtn.addEventListener('click', getTemp);
+
+  changeTempAndGarden();
 };
 
 // Registers all events. Once webpage is loaded, it ensures all events

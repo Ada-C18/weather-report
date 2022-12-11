@@ -19,30 +19,30 @@
     <section class="temp-section">
         <h2>Temperature </h2>
 			<div class="temp-content">
-				<div id="tempValue" class="blue"></div> 
+				<div id="tempValue"></div> 
                 <div class="temp-controls">
 					<button id="increaseTempControl">🔼</button>
 					<button id="decreaseTempControl">🔽</button>
 				</div>
-                <button id="realTimeTemp" class="realtime-temp-button">🌡️ Realtime Temperature</button>
+                <button id="realTimeTemp" class="realtime-temp-button">🌡️ Get Realtime Temperature</button>
 			</div>
             
 		</section>
 		<section class="sky-section">
-			<h2>Sky </h2>
+			<h2>Sky</h2>
 			<select id="skySelect">
-				<option>Cloudy ☁️</option>
-				<option>Rainy 🌧️</option>
-				<option>Sunny ☀️</option>
-				<option>Snowy ❄️</option>
-				<option>Windy 🌬️</option>
+                <option value="" selected>Select a sky option</option>
+				<option value="cloudy">Cloudy ☁️</option>
+				<option value="rainy">Rainy 🌧️</option>
+				<option value="sunny">Sunny ☀️</option>
+				<option value="snowy">Snowy ❄️</option>
 			</select>
 		</section>
 		<section class="garden-section">
 			<h2>Weather Garden</h2>
-			<div id="gardenContent" class="garden-content sunny">
-				<div id="sky">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div>
-				<div id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+			<div id="gardenContent" class="garden-content">
+				<div id="sky"></div>
+				<div id="landscape"></div>
 			</div>
 		</section>        
 		<section class="city-name-section">
