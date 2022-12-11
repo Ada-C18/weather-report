@@ -2,6 +2,10 @@ body {
     background-color: #00BFFF;
 }
 
+.container {
+    flex-direction: column;
+  }
+
 #Weather-Report {
     text-decoration: unset;
     text-align: left;
@@ -25,7 +29,7 @@ body {
 
 #Weather-Garden {
     border-radius: 37px;
-    background: #D2E0DB;
+    background: #ffffff;
     box-shadow:  35px 35px 0px #939D99,
              /* -35px -35px 0px #FFFFFF; */
 }

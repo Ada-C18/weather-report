@@ -79,6 +79,11 @@ const cityNameInput = (e) => {
   console.log(e.data);
 };
 
+const tempConverter = (temp) => {
+  const ftemp = ((temp - 273.15) * 9) / 5 + 32;
+  return ftemp;
+};
+
 const getRealtimeTemperature = (e) => {
   console.log(getRealtimeTemperature);
 
@@ -95,11 +100,11 @@ const getRealtimeTemperature = (e) => {
           params: {
             lat: response.data[0].lat,
             lon: response.data[0].lon,
-            units: 'imperial',
           },
         })
         .then((response) => {
           let location_temp = response.data.main.temp;
+          location_temp = tempConverter(location_temp);
           let temperature_box = document.getElementById('counter');
           temperature_box.textContent = location_temp;
           console.log('Updated temperature' + temperature_box);
