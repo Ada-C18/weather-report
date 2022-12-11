@@ -17,3 +17,16 @@ body {
     display: flex;
     background-color: plum;
 }
+
+/* #buttonControls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+} */
+
+#cityReset {
+    background-color: plum;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
