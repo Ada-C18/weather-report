@@ -58,19 +58,19 @@ const updateCityName = () => {
 // wave 3
 
 
-const seattleAlways = () => {
-    document.getElementById("input-city").value = "Seattle";
-}
+// const seattleAlways = () => {
+//     document.getElementById("input-city").value = "Seattle";
+// }
 
 
-const newCity = document.getElementById("enterCityButton");
-newCity.addEventListener("click", myFunction);
+// const newCity = document.getElementById("enterCityButton");
+// newCity.addEventListener("click", myFunction);
 
-// const cityName = document.querySelector('input-city').value;
+// // const cityName = document.querySelector('input-city').value;
 
-function myFunction(){
-    document.getElementById("lovelyName").innerHTML = "hello";
-} 
+// function myFunction(){
+//     document.getElementById("lovelyName").innerHTML = "hello";
+// } 
 
     
     // cityElement.innerText = cityName;
@@ -93,27 +93,64 @@ axios
     .get('http://127.0.0.1:5000/location', {
     params: {
         q: city,
-        format: 'json'
-    },
+        format: 'json'},
     })
     .then((response) => {
         const searchResult = response.data[0];
-        console.log(`lat ${searchResult.lat} lon ${searchResult.lat}`);
+        console.log(`lat ${searchResult.lat} lon ${searchResult.lon}`);
         return { lat: searchResult.lat, lon: searchResult.lon};
     })
-    .then((coords) => {
-        return axios.get('http://127.0.0.1:5000/weather', {
+    .then((reponse) => {
+        axios.get('http://127.0.0.1:5000/weather', {
         params: {
-            lat: coords.lat,
-            lon: coords.lon,
-        }
-    });
+            lat:lat,
+            lon:lon}
     })
-    .then((response) => {
-        console.log('weather reponse', response.data)
+            const tempKelvin = response.data.main.temp;
+            StaticRange.temperature = Math.round(1.8 * (tempKelvin - 273) + 32;
+            setTemperature(temp);
+    })
+        .catch((error) => {
+            console.log('error getting temp');
+            console.log(error)
+        });
+    })
+    .catch((error) => {
+        console.log('error in find information!');
+        console.log(error);
     });
-    // .catch((error) => {
-    //     console.log('error in find information!');
-    //     console.log(error);
-    // });
-}
+};
+
+
+const skyCloud = (sky) => {
+    if (sky == 'Sunny'){
+        return `☁️ ☁️ ☁️ ☀️ ☁️ ☁️`;
+    } else if(sky == 'Cloudy'){
+        return `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
+    } else if(sky == 'Rainy'){
+        return `🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧`;
+    } else {
+        return `🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨`
+    }
+};
+document.addEventListener('DOMContentLoaded', () => {
+    let sky = 'Sunny';
+    document.getElementById('sky-garden').innerHTML = skyCloud(sky);
+
+    document.getElementById('sky-select').addEventListener('change', () => {
+    const skyElement = document.getElementById('sky-select').value;
+    document.getElementById('sky-garden').innerHTML = skyCloud(skyElement);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const resetCityButton = document.getElementById('resetCitybutton');
+    setCity('Seattle');
+
+    resetCityButton.addEventListener('click', () => {
+    const defaultCity = 'Seattle';
+    document.querySelector('#input-city').value = defaultCity;
+    document.getElementById('chosen-city').innerText = defaultCity;
+    setCity(defaultCity);
+    });
+});
