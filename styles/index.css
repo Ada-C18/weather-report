@@ -1,0 +1,23 @@
+header {
+    text-align: center;
+}
+
+#top-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#temperature {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#weather-garden {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#temp-value {
+    color: orange;
+}
