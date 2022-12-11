@@ -70,6 +70,7 @@ const changeCityName = () => {
 const resetCityName = () => {
   document.getElementById('greeting').innerHTML =
     'Input a city below for a custom experience!';
+  document.getElementById('cityname').value = '';
 };
 
 const getCity = () => {
@@ -93,7 +94,7 @@ const getWeather = async (lat, lon) => {
     },
   });
   const tempInKelvin = response.data.main.temp;
-  const tempInF = ((tempInKelvin - 273.15) * 9) / 5 + 32;
+  const tempInF = (tempInKelvin - 273.15) * (9 / 5) + 32;
   state.temperature = Math.floor(tempInF);
   changeTempAndLandscape();
 };
