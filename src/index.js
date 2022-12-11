@@ -25,22 +25,26 @@ function decreaseTemp() {
 function updateTempPic() {
   let tempNumber = parseInt(document.getElementById('temp-number').textContent);
   console.log(tempNumber);
+  let color = '';
+  let picture = '';
   if (tempNumber > 80) {
-    document.getElementById('temp-number').style.color = 'red';
-    document.getElementById('season-pic').src = '../assets/summer.jpeg';
+    color = 'red';
+    picture = '../assets/summer.jpeg';
   } else if (tempNumber > 70) {
-    document.getElementById('temp-number').style.color = 'orange';
-    document.getElementById('season-pic').src = '../assets/Autumn.jpeg';
+    color = 'orange';
+    picture = '../assets/Autumn.jpeg';
   } else if (tempNumber > 60) {
-    document.getElementById('temp-number').style.color = 'yellow';
-    document.getElementById('season-pic').src = '../assets/Autumn.jpeg';
+    color = 'yellow';
+    picture = '../assets/Autumn.jpeg';
   } else if (tempNumber > 50) {
-    document.getElementById('temp-number').style.color = 'green';
-    document.getElementById('season-pic').src = '../assets/Spring.jpeg';
+    color = 'green';
+    picture = '../assets/Spring.jpeg';
   } else {
-    document.getElementById('temp-number').style.color = 'teal';
-    document.getElementById('season-pic').src = '../assets/Winter.jpeg';
+    color = 'teal';
+    picture = '../assets/Winter.jpeg';
   }
+  document.getElementById('temp-number').style.color = color;
+  document.getElementById('season-pic').src = picture;
 }
 
 function updateCityName() {
@@ -97,13 +101,5 @@ function getTemperature(latitude, longitude) {
 
 function updateSky() {
   const skyInput = document.getElementById('sky-input').value;
-  if (skyInput === 'Sunny') {
-    document.getElementById('sky-pic').src = '../assets/sunny.jpeg';
-  } else if (skyInput === 'Cloudy') {
-    document.getElementById('sky-pic').src = '../assets/Cloudy.webp';
-  } else if (skyInput === 'Snowy') {
-    document.getElementById('sky-pic').src = '../assets/Snowy.jpg';
-  } else if (skyInput === 'Rainy') {
-    document.getElementById('sky-pic').src = '../assets/Rain.jpeg';
-  }
+  document.getElementById('sky-pic').src = `../assets/${skyInput}.jpeg`;
 }

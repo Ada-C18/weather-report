@@ -37,7 +37,6 @@ header {
 #sky {
     grid-column: 1/2;
     display: block;
-    margin-top: 50%;
     /* background-image: url("../assets/Cloudy.webp"); */
 }
 
@@ -47,7 +46,6 @@ header {
     /* background-image: url("../assets/Winter.jpeg"); */
     height: 80vh;
     top: 20vh;
-    margin-top: 50%;
 }
 #sky-description {
     grid-column: 3/4;
@@ -58,12 +56,11 @@ header {
 }
 
 .bodybox {
+    height: 50%;
     margin-left: 0.3em;
     margin-right: 0.3em;
     text-align: center;
     background-image: linear-gradient(rgb(111, 215, 250), #ffffff) ;
-    margin-top: 50%;
-    margin-bottom: 80%;
 }
 
 #reset-button {
@@ -76,5 +73,9 @@ header {
     margin-right: 0.5em;
     text-size-adjust: 50%;
     border-radius: 8px;
+}
 
+.pics {
+    max-width: 100%;
+    height: auto;
 }
