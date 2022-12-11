@@ -89,9 +89,9 @@ const getWeatherCity = async (event) => {
 
 const resetCityDefault = () => {
   const city = document.querySelector('#cityName');
-  city.value = 'Ada';
+  city.value = 'Seattle';
   console.log(city.value)
-  changeCity('Ada');
+  changeCity('Seattle');
   getWeatherCity();
 
 }
