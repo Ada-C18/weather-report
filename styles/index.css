@@ -1,0 +1,138 @@
+html {
+    background-color: blue;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#headerContainer {
+    display: flex;
+    justify-content: flex-start;
+    padding: 50px;
+    color:aliceblue;
+    
+}
+
+.middleFlex {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+#temperatureContainer {
+    display: flex;
+    flex-direction: column;
+    background-color:lavender;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.leftFlex {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 50px;
+}
+
+
+header {
+    font-size: 40px;
+    color: aliceblue;
+    font-weight: 800;
+}
+
+
+h1 {
+    color:darkgreen;
+    text-decoration: underline;
+}
+
+
+#headerContainer p {
+    padding-left: 20px;
+    color:aliceblue;
+}
+
+
+
+#skyContainer {
+    background-color: cornflowerblue;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#cityNameContainer {
+    background-color: yellowgreen;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#weatherGardenContainer {
+    background-color: blueviolet;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#increaseTemp {
+    background-color:crimson ;
+    color:darkred;
+    font-size: 30px;
+    text-align: left;
+    width: fit-content;
+}
+
+#decreaseTemp {
+    background-color:dodgerblue;
+    color:midnightblue;
+    font-size: 30px;
+    text-align: left;
+    width: fit-content;
+}
+
+#currentTemp {
+    background-color: blanchedalmond;
+    color:darkgoldenrod;
+    width:fit-content;
+}
+
+#cityNameDisplay {
+    color:aliceblue;
+}
+
+p {
+    color:darkolivegreen;
+}
+
+
+
+#weatherGardenContainer {
+    width: 50%;
+    padding-top: 100px;
+    text-align: center;
+    
+}
+
+#temperature {
+    text-align: left;
+    font-size: 75px;
+}
+
+#tempEmoticon {
+    font-size: 30px;
+}
+
+#emojiContainer {
+    font-size: 30px;
+    padding-bottom: 150px;
+}
+
+#weatherGardenTitle {
+    padding-bottom: 20px;
+    color:aliceblue;
+}

@@ -1,3 +1,14 @@
+# Pair Programming Plan of Action
+- Evening work time 5-7pm
+- Class time until 3pm
+- Work together for each Wave
+- Working together, looking up anything we need, breaking it down 
+  - using pythontutor and other resources
+- Open to any type of feedback
+- Practice git skills (just by using notes - don't change code without each other)
+- Talk through code to improve communication skills with describing code
+
+
 # Weather Report
 
 ## Skills Assessed
