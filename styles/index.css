@@ -1,0 +1,254 @@
+img,h1,h2,h3,h4,p,li,ul,.footer {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 200;
+    vertical-align: baseline;
+    color: #36454F;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 200;
+    color: blue;
+}
+
+h4,p,.footer {
+    font-size: 1.5em;
+}
+
+#the-temp {
+    font-style:italic;
+}
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 0.2em;
+}
+
+body {
+    margin: 4em;
+}
+
+.season img {
+    height: 125px;
+}
+
+input {
+    width: 300px;
+    border-color: white;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+h1 {
+    color: #FD069A;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.very-top-banner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.api-weather {
+    display: flex;
+}
+
+.temp-display {
+    padding-bottom: .45em;
+}
+
+.temp {
+    height: 150px;
+    width: 100%;
+    border-color: #AAAAAA;
+    font-size: 25px;
+    display: flex;
+}
+
+#ac-temp{
+    margin-right:0.5em;
+    margin-left:0.5em;
+}
+
+.top-banner {
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    padding-right: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.change-display {
+    padding-bottom: 0.3em;
+    color: blue;
+}
+
+.headers {
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+.sun {
+    max-width: 30%;
+}
+
+.sun img {
+    height: 150px;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5em;
+    border-color: #AAAAAA;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner,.temp,input {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+#desired-temp .number {
+    color: teal;
+    font-weight: 400;
+}
+
+.sky {
+    font-size: 1em;
+    padding-top: 1em;
+    font-weight: 400;
+    color: #FD069A;
+}
+
+.arrow {
+    color: #36454F;
+}
+
+.arrow-down {
+    transform: rotate(180deg);
+}
+
+.arrows {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 1.5em;
+    color: #AAAAAA;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+}
+
+.bottom-duo {
+    width: 90%;
+}
+
+select {
+    font-family: 'Josefin Sans';
+    padding: 0.5em;
+    font-size: 0.6em;
+}
+
+.footer {
+    padding-top: 2em;
+}
+
+#mid-bottom-duo {
+    width:100%;
+}
+
+#hiddenpix {
+    display:none;
+}
+
+/* Colors for discussing Java Script with classmates. */
+#up-temp {
+    background-color: orange;
+}
+
+#down-temp {
+    background-color: white;
+}
+
+#up-sky {
+    background-color: black;
+}
+
+#down-sky {
+    background-color: aqua;
+}
+
+#desired-temp {
+    background-color:pink;
+}
+
+#actual-temp {
+    background-color: blue;
+}
+
+#desired-sky {
+    background-color: greenyellow;
+}
+
+#sun-1 {
+    background-color: red;
+}
+
+#sun-2 {
+    background-color: aquamarine;
+}
+
+#sun-3 {
+    background-color: blueviolet;
+}
+
+.arrows {
+    background-color: #FD069A;
+}
+
+.api-weather {
+    background-color: yellow;
+}
+
+.top-banner {
+    background-color: brown;
+}
+
+.sun {
+    background-color: fuchsia;
+}
+
+.banner {
+    background-color: violet;
+}
+
+.temp-display {
+    background-color: orange;
+}
+
+.footer {
+    background-color: coral;
+}
+
+#mid-bottom-duo {
+    background-color: yellow;
+}
+
+#up-temp,#down-temp,#up-sky,#down-sky,#desired-temp,#actual-temp,#desired-sky,#sun-1,#sun-2,#sun-3,.arrows,.api-weather,.top-banner,.sun, .banner,.temp-display,.footer,#mid-bottom-duo {
+    background-color: white;
+}
