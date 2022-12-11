@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles/index.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <script type="module" src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+    <div class="container">
+        <section>
+            <h1 id="skyscape">☁️ ☁️🌻 ☁️ 🌝 ☁️🌻 ☁️ ☁️</h1>
+            <h1 id="city">Weather Report for the wonderful city of Seattle</h1>
+            <section id="weatherControl">
+                <button id="increaseTemp"> Increase </button>
+                <h1 id="temperature">64</h1>
+                <button id="decreaseTemp"> Decrease </button>
+            </section>
+        </section>
+        <section>
+            <h1 id="landscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</h1>
+        </section>
+        <section id="skyControl">
+            <h3>Sky</h3>
+            <label for="sky"></label>
+            <select name="sky" id="sky">
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+            <option value="stormy">Stormy</option>
+            <option value="apocalyptic">Apocalyptic</option>
+            <option value="magical">Magical</option>
+            <option value="hungry">Hungry</option>
+            </select>
+            <br>
+            <br>
+
+        </section>
+        <section id="cityControl">
+            <h3>City Name</h3>
+            <label for="cityName"></label>
+            <input type="text" id="cityName" name="cityName" required
+            minlength="1" maxlength="35" size="20" value="Seattle">
+            <br>
+            <br>
+            <button id="getWeather">Get Temp</button>
+            <button id="resetCity">Reset</button>
+        </section>
+    </div>
+
 </body>
 </html>
