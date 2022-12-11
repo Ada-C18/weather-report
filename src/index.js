@@ -109,7 +109,7 @@ const changeSky = () => {
 
 //resets button to blank. We can make Seattle default if that is something we want.
 const clearInput = () => {
-  document.getElementById('city-input').value = '';
+  document.getElementById('city-input').value = 'Seattle';
 };
 //register event handlers
 const registerEventHandlers = () => {
