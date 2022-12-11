@@ -11,14 +11,11 @@
     </head>
     <body>
     <div>
-        <main>
+        <header> 
             <h1 id="welcome">Weather Report</h1>
             <p id="new_city_name"></p>
             <p>For the lovely city of ✨<span id="chosen-city">Seattle</span>✨</p>
-            
-            <!-- <p>✨<span id="chosen-city">Seattle</span>✨</p> -->
-            <!-- <p id="lovelyName"></p> -->
-
+        </header>   
             <section id="temperature">
                 <h2>Temperature:</h2>
                 <label id="temperature_numbers"> 70 </label>
@@ -28,7 +25,7 @@
             </section>
                 
             <section id="sky"> 
-                <h2>Sky:</h2>
+                <h2>Option Sky:</h2>
                 <select name="skys" id="sky_selection">
                 <option value="Sunny" selected>Sunny</option>
                 <option value="Cloudy">Cloudy</option>
@@ -40,23 +37,21 @@
             <section id="images_all">
                 <h2>Sky images:</h2>
                 <section id="sky_icons"> </section>
-            
+                <br>
                 <section id="garden_images"> 
                 <h2>Sky garden:</h2>
                 <section id="garden_icons"> </section>
                 </section>
             </section>
 
-            
             <section id="city">
-                    <h2>City Name:</h2>
+                    <h2>Enter the name of the city:</h2>
                     <input type="text" id="input-city" name="city-name" value="Seattle" onkeyup="updateBox();">
                     <button id="enterCityButton" onclick="findCity();">Enter</button>
-                    <h2>Default Mode:</h2>
+                    <!-- <h2>Default Mode:</h2> -->
                     <button id="changeCity" onclick="seattleAlways()">Reset</button>
             </section>
     
-        </main>
             <footer>
                 Created by Intesar & Alma
             </footer>
