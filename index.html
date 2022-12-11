@@ -13,9 +13,8 @@
         <h3> ~  Love Mother Nature  ~ </h3>
         <h2 id="cityNameDisplay">Seattle</h2>
     </header>
-    <section class = "flex-el">
-
-        <section id = "cityName-section">
+    <section id="cityNameSection" class = "flex-el">
+        <!-- <section id = "cityName-section"> -->
             <h4>Enter a City</h4>
             <input id="cityInput" type="text" value="Seattle">
             <button id="resetButton">Reset</button>
@@ -30,21 +29,22 @@
                 <option value="snowy">Snowy</option>
             </select>
         </section>
-
-        <section class = "flex-el"> 
+        <section class="flex-el">
+        <section id="weather" class = "flex-el"> 
             <h4>Toggle or Get Weather</h4>
             <button id="increaseButton">⬆️</button>
             <button id="decreaseButton">⬇️ </button>
             <button id="getTempButton">Get Realtime Temperature</button>
         </section>
+        </section>
         
     </section>
     
-    <section class = "report-section">
+    <section class = "tempDisplayContainer">
         <h3>Today's Forecast</h3>
         <section>
             <section>
-            <span id="skyDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
+            <span class="skyDisplay" id="skyDisplay">'🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'</span>
             </section>
             <section id="tempDisplayContainer">
                 <span id = "tempDisplay" class="tempColor">50</span>

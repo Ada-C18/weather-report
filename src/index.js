@@ -1,16 +1,16 @@
 const BASE_URL = 'http://localhost:5000';
 
 const state = {
-    temp: 50,
-    cityName: 'Seattle',
-    lat: 0,
-    lon: 0,
-    increaseButton: null,
-    decreaseButton: null,
-    skySelect: null,
-    cityInput: null,
-    // temp: null,
-    cityName: null,
+  temp: 50,
+  cityName: 'Seattle',
+  lat: '',
+  lon: '',
+  // increaseButton: null,
+  // decreaseButton: null,
+  // skySelect: null,
+  // cityInput: null,
+  // temp: null,
+  // cityName: null,
 };
 
 const landscapes = {
@@ -49,7 +49,7 @@ const refreshUI = function () {
 
   if (state.temp > 79) {
     tempDisplay.style.color = 'Red';
-    // landscapeDisplay.textContent = landscapes['80+'];
+    landscapeDisplay.textContent = landscapes['80+'];
     landscapeDisplay.images = 'images/sunny.jpg';
   } else if (state.temp > 69) {
     tempDisplay.style.color = 'Orange';
@@ -72,41 +72,46 @@ const updateCity = () => {
 };
 
 const updateCityTemp = (cityName) => {
-    return axios.get(`${BASE_URL}/location?q=${state.cityName}`, {
+  return axios
+    .get(`${BASE_URL}/location?q=${state.cityName}`, {
       params: {
         q: cityInput,
       },
     })
     .then((response) => {
+      console.log(response);
       const lat = response.data[0]['lat'];
       const lon = response.data[0]['lon'];
-      // console.log({ lat, lon});
-      // return {lat, lon};
+      console.log({ lat, lon});
+      return { lat, lon };
+      // refreshUI();
     })
-    .catch((error) => console.log({error}));
-  }
-  const cityWeather = (lat, lon) => { 
-    return axios.get(`${BASE_URL}/weather?lat=${lat}&lon=${lon}`, {
+    .catch((error) => console.log({ error }));
+};
+const cityWeather = (lat, lon) => {
+  return axios
+    .get(`${BASE_URL}/weather?lat=${lat}&lon=${lon}`, {
       params: {
         lat: lat,
         lon: lon,
       },
     })
-    .then(response => {
+    .then((response) => {
+      console.log(response)
       const temp = response.data.main.temp;
-      tempKelvin = cityWeather.data['main']['temp'];
-      state.temp = Math.floor(kelvinToFahrenheit(tempKelvin));
-      refreshUI();
+      // tempKelvin = cityWeather.data['main']['temp'];
+      state.temp = Math.floor(kelvinToFahrenheit(temp));
+      return state.temp;
     })
-    .catch((error) => console.log({error}));
-}
+    .catch((error) => console.log({ error }));
+};
 
 const getRealtimeInfo = async () => {
-  const cityName = cityName.textContent;
-  const {lat, lon} = await updateCityTemp(cityName);
+  // state.cityName = cityName.textContent;
+  const { lat, lon } = await updateCityTemp(state.cityName);
   state.temp = await cityWeather(lat, lon);
   refreshUI();
-}
+};
 
 const updateSky = () => {
   refreshUI();
@@ -137,9 +142,9 @@ const registerEvents = () => {
   state.cityInput.addEventListener('input', updateCity);
   state.cityInput.addEventListener('change', updateCityTemp);
   state.resetButton.addEventListener('click', resetCity);
-  state.getTempButton.addEventListener('click', updateCityTemp);
+  state.getTempButton.addEventListener('click', getRealtimeInfo);
 };
-document.addEventListener("DOMContentLoaded", registerEvents);
+document.addEventListener('DOMContentLoaded', registerEvents);
 const onLoaded = () => {
   loadControls();
   registerEvents();

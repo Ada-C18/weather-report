@@ -31,9 +31,12 @@ span {
     font-size: 2em;
 }
 .flex-el {
-    /* border-radius: 7px; */
-    /* border-width: 8px; */
-    /* padding: 2px; */
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 7px;
+    border-width: 8px;
+    padding: 2px;
     background-color: white;
     box-sizing: content-box;
     display: block;
@@ -41,7 +44,7 @@ span {
     padding: 5px;
     background-color: rgb(169, 254, 234);
     text-align: center;
-    align-self: center;   
+    align-self: center;
 }
 img {
     width: 500px;
@@ -77,7 +80,7 @@ grid-column-start: 1;
 grid-row-start: 2;
 grid-row-end: 5;
 }
-.cityNameDisplay {
+.cityNameSection {
 grid-column-start: 2;
 grid-row-start: 2;
 }
@@ -86,6 +89,221 @@ grid-column-start: 2;
 grid-row-start: 3;
 }
 .skyDisplay {
+grid-column-start: 2;
+grid-row-start: 4;
+}
+h2 {
+    margin: 0 auto 2rem auto;
+}
+  
+body {
+display: grid;
+grid-template-columns: 1fr 2fr;
+grid-template-rows: auto auto auto auto;
+grid-gap: 1rem;
+
+font-family: "Rubik", sans-serif;
+font-size: 18px;
+background-color: #1b69f9;
+margin: 2rem;
+}
+
+header > h1 {
+margin-right: 2rem;
+font-size: 3em;
+}
+.cityNameDisplay{
+font-style: oblique;
+font-size: 2rem;
+} 
+/* .cityNameDisplay::before,
+.cityNameDisplay::after {
+content: "✨";
+} */
+.temperature__section,
+.sky__section,
+.city-name__section {
+border-radius: 8px;
+padding: 2rem;
+background-color: white;
+}
+
+.temperature__section {
+grid-row: 2;
+}
+
+.temperature__section button {
+    background-color: #1b69f9;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px
+}
+
+.skySelect {
+grid-row: 3;
+}
+
+.city-name__section {
+grid-row: 4;
+}
+
+.garden__section {
+grid-row: 2 / span 3;
+grid-column: 2;
+text-align: center;
+align-self: center;
+}
+
+.report-section {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+/* justify-content: center;
+}
+
+#tempValue {
+font-size: 3rem;
+margin-left: 1.5rem;
+/* padding-right: 1rem;
+/* margin-right: 1.5rem;
+}
+
+.temperature__controls {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.garden__section > h2 {
+color: white;
+}
+
+.garden__content {
+min-height: 200px;
+max-width: fit-content;
+margin: auto;
+padding: 2rem;
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+border-radius: 8px;
+font-size: 2em;
+}
+
+.resetButton {
+border: 0;
+background-color: #1655cc;
+color: white;
+border-radius: 8px;
+padding: 1rem;
+font-family: "Rubik", sans-serif;
+} 
+
+.red {
+color: red;
+}
+
+.orange {
+color: orange;
+}
+
+.yellow {
+color: gold;
+}
+
+.yellow-green {
+color: yellowgreen;
+} 
+
+.green {
+color: green;
+}
+
+.teal {
+color: teal;
+}
+
+.cloudy {
+background-color: lightgrey;
+}
+
+.sunny {
+background-color: rgb(221, 255, 255);
+}
+
+.rainy {
+background-color: lightblue;
+}
+
+.snowy {
+background-color: lightsteelblue;
+}
+body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+    border: 1px solid black;
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    background-color: #31255A;
+    margin: 2rem;
+    }
+header {
+    display: flex;
+    color: white;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+h1 {
+    margin: 1rem;
+    font-size: 4em;
+}
+span {
+    font-size: 2em;
+}
+.headerCity_name::before,
+.headerCity_name::after {
+content: ":heart:";
+}
+.headerCity_name {
+color: #8FE0FF
+}
+.temperature_section,
+.sky_section,
+.city_name_section,
+.garden_section {
+border-radius: 50px;
+padding: 2rem;
+background-color: white;
+text-align: center;
+align-self: center;
+}
+.garden_section {
+grid-column-start: 1;
+grid-row-start: 2;
+grid-row-end: 5;
+}
+.city_name_section {
+grid-column-start: 2;
+grid-row-start: 2;
+}
+.temperature_section {
+grid-column-start: 2;
+grid-row-start: 3;
+}
+.sky_section {
 grid-column-start: 2;
 grid-row-start: 4;
 }
