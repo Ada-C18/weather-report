@@ -60,6 +60,15 @@ const changeSky = () => {
   skyContainer.textContent = skyEmojis;
 };
 
+const changeCityName = () => {
+    const newName = document.getElementById("cityname").value;
+    document.getElementById("greeting").innerHTML = `For the lovely city of ${newName}!`;
+};
+
+const resetCityName = () => {
+    document.getElementById("greeting").innerHTML = "Input a city below for a custom experience!"
+};
+
 const registerEventHandlers = () => {
   const increaseTemp = document.getElementById('temp-up');
   increaseTemp.addEventListener('click', tempUp);
@@ -69,15 +78,12 @@ const registerEventHandlers = () => {
 
   const selectSky = document.getElementById('sky-emojis');
   selectSky.addEventListener('change', changeSky);
+
+  const selectCityName = document.getElementById('cityname')
+  selectCityName.addEventListener('input',changeCityName)
+
+  const resetCity = document.getElementById('resetBtn')
+  resetCity.addEventListener('click', resetCityName)
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-const changeCityName = () => {
-    const newName = document.getElementById("cityname").value;
-    document.getElementById("greeting").innerHTML = `For the lovely city of ${newName}!`;
-};
-
-const resetCityName = () => {
-    document.getElementById("greeting").innerHTML = "Input a city below for a custom experience!"
-}
