@@ -65,7 +65,28 @@ const getWeather = async (lat, lon) => {
   return response.data.main;
 };
 
+const skyStyle = (sky) => {
+  if (sky == 'sunny') {
+    return { skyType: `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"` };
+  } else if (sky == 'cloudy') {
+    return { skyType: `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"` };
+  } else if (sky == 'rainy') {
+    return { skyType: `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"` };
+  } else if (sky == 'snowy') {
+    return { skyType: `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"` };
+  }
+};
+
+const skyUpdate = (event) => {
+  document.getElementById('sky').textContent = event.target.value;
+  console.log(event.target.value);
+  let newSky = skyStyle(event.target.value);
+  console.log(newSky);
+  document.getElementById('sky').textContent = newSky.skyType;
+};
+
 function addListeners() {
   document.getElementById('city_input').oninput = (event) =>
     finishTyping(event.target, 500).then(updateWeather);
+  document.getElementById('sky_input').oninput = (event) => skyUpdate(event);
 }
