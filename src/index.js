@@ -131,6 +131,8 @@ skyContainer.textContent = sky;
 skyOptions.addEventListener('change', updateSky);
 
 const updateSky = () => {
+  const inputSky = document.getElementById('skyOptions').value;
+  inputSky.textContent = inputSky;
   let sky = '';
   let skyColor = '';
   if (inputSky === 'clouds') {
