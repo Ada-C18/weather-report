@@ -1,0 +1,158 @@
+body {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto auto auto auto;
+  grid-gap: 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: brown;
+  font-size: 18px;
+  background-color: #f6be00;
+  margin: 2rem;
+}
+
+.header {
+  background-color: rgb(255, 140, 0);
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 26px;
+  border-radius: 14px;
+}
+
+.temperature_section {
+  border-radius: 100px;
+  text-align: right;
+  padding: 2rem;
+  background-color: black;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  font-size: 2rem;
+}
+
+.temperature_content {
+  padding: 2rem;
+  font-size: 4rem;
+}
+
+.sky_section,
+.city-name_section {
+  border-radius: 26px;
+  padding: 2rem;
+  background-color: rgb(255, 223, 63);
+  color: darkorange;
+}
+
+.sky_section {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-size: 2rem;
+}
+
+.city-name_section {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-size: 2rem;
+}
+
+.garden_section {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  border-radius: 26px;
+  padding: 2rem;
+  background-color: rgb(148, 240, 188);
+  color: seagreen;
+  text-align: center;
+  align-self: center;
+  font-size: 2rem;
+}
+
+#increaseTempControl,
+#decreaseTempControl {
+  padding: 2rem;
+  font-size: 2rem;
+  align-self: center;
+  background-color: #f6be00;
+  border-radius: 2rem;
+}
+
+#cityInfo {
+  font-size: 1rem;
+  font-style: italic;
+  color: rgb(148, 240, 188);
+}
+
+#currentTempButton {
+  background-color: coral;
+  color: rgb(146, 61, 0);
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 26px;
+  border-radius: 14px;
+}
+
+#cityNameInput {
+  font-size: 1.5rem;
+  font-style: italic;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#skySelect {
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#cityNameReset {
+  background-color: rgb(255, 183, 0);
+  color: rgb(146, 61, 0);
+  margin-top: 15px;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 14px;
+  font-size: 1.5rem;
+}
+
+#sky {
+  font-size: 2rem;
+  padding-bottom: 30px;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: gold;
+}
+
+.yellow-green {
+  color: yellowgreen;
+}
+
+.green {
+  color: green;
+}
+
+.teal {
+  color: teal;
+}
