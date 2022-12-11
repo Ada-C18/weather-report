@@ -21,7 +21,16 @@ buttonDecrease.addEventListener('click', (_) => {
     updatePage();
 });
 
-citySelector.addEventListener('input', (_) => {
+const State = {
+    city: 'Atlanta',
+    temperature: 70,
+    unit: 'F',
+    latitude: 0,
+    longitude: 0,
+    weather: 'sunny',
+};
+
+const updateLocation = function() {
     axios
         .get('http://127.0.0.1:5000/location', {
             params: {
@@ -39,16 +48,9 @@ citySelector.addEventListener('input', (_) => {
         .catch((error) => {
             console.log(error);
         });
-});
-
-const State = {
-    city: 'Atlanta',
-    temperature: 70,
-    unit: 'F',
-    latitude: 0,
-    longitude: 0,
-    weather: 'sunny',
 };
+
+citySelector.addEventListener('input', updateLocation);
 
 const updateWeather = function() {
     axios
