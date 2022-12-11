@@ -1,7 +1,5 @@
 'use strict';
 
-const axios = require('axios')
-
 const DEFAULT_CITY = 'Seattle';
 // Select the HTML Element the event will occur on
 const increaseTempElement = document.getElementById('increaseTempBtn');
@@ -12,6 +10,7 @@ const cityNameInput = document.getElementById('cityNameInput');
 const headerCityName = document.getElementById('headerCityName');
 const cityNameReset = document.getElementById('cityNameReset');
 const SkyDropDown = document.getElementById('SkyChoice');
+const realtimeTemp = document.getElementById('realTempBtn');
 
 const changingTempColorAndLandscape = () => {
   let currentTemp = parseInt(currentTempTag.textContent);
@@ -45,25 +44,59 @@ const changingSky = () => {
   }
 };
 
-//Wave 4 API 
+//Wave 4 API
 
-const findLatLon = (query) => {
-  let latitude, longitude;
+// const findLatLon = (query) => {
+//   let latitude, longitude;
+//   return axios
+//     .get('http://127.0.0.1:5000/location', {
+//       q: query,
+//     })
+//     .then((response) => {
+//       latitude = response.data[0].lat;
+//       longitude = response.data[0].lon;
+//       console.log('success!', latitude, longitude);
+//       return getWeather({ lat: latitude, lon: longitude });
+//     })
+//     .catch((error) => {
+//       console.log('error!');
+//     });
+// };
+
+// const getWeather = (query) => {
+//   return axios
+//     .get('http://127.0.0.1:5000/weather', {
+//       params: {
+//         lat: query.lat,
+//         lon: query.lon,
+//       },
+//     })
+//     .then((response) => {
+//       return Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
+//     })
+//     .catch((error) => {
+//       console.log('error!');
+//     });
+// };
+
+const findLatLon = () => {
+  const query_city = cityNameInput.value;
+  console.log(query_city);
   return axios
     .get('http://127.0.0.1:5000/location', {
-      q: query,
+      q: query_city,
     })
     .then((response) => {
-      latitude = response.data[0].lat;
-      longitude = response.data[0].lon;
+      console.log(response);
+      const latitude = response.data[0].lat;
+      const longitude = response.data[0].lon;
       console.log('success!', latitude, longitude);
-      return getWeather({ lat: latitude, lon: longitude });
+      return { lat: latitude, lon: longitude };
     })
     .catch((error) => {
-      console.log('error!');
+      console.log('findLatLon error!');
     });
 };
-
 
 const getWeather = (query) => {
   return axios
@@ -74,13 +107,18 @@ const getWeather = (query) => {
       },
     })
     .then((response) => {
-      return Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
+      temp = Math.floor((response.data.main.temp - 273.15) * 1.8 + 32);
+      return temp;
     })
     .catch((error) => {
-      console.log('error!');
+      console.log('getWeather error!');
     });
 };
 
+realtimeTemp.addEventListener('click', () => {
+  findLatLon();
+  currentTemp.textContent = temp;
+});
 
 // Register that function as an 'event listener'
 // increaseTempElement.addEventListener('click', increaseTemperature);
@@ -102,6 +140,7 @@ cityNameReset.addEventListener('click', () => {
   cityNameInput.value = DEFAULT_CITY;
   headerCityName.textContent = DEFAULT_CITY;
 });
+
 SkyDropDown.addEventListener('change', () => {
   changingSky();
 });
