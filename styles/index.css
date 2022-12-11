@@ -76,6 +76,7 @@ h2{
 }
 .number{
     font-size: 3rem;
+    color: green;
 }
 .skyImage{
     grid-row: 3/4;
@@ -136,3 +137,22 @@ h2{
     color: red;
 }
 
+#freezing {
+    color: teal;
+}
+
+#cold {
+    color: green;
+}
+
+#moderate {
+    color: yellow;
+}
+
+#hot {
+    color: orange;
+}
+
+#burning {
+    color: red;
+}
