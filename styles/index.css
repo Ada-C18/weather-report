@@ -19,6 +19,7 @@ body {
 
 #headerCity {
     font-weight: bold;
+    font-size: 25px;
 }
 
 
@@ -106,13 +107,16 @@ body {
 }
 
 #gardenContainer {
-    border: 1px solid;
+    border: 3px groove;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10%;
+    border-color: orangered;
     text-align: center;
     margin: 10px;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 
@@ -122,7 +126,7 @@ body {
 
 #landscape {
     font-size: 2em;
-    bottom: 10px;
+    bottom: 5px;
 }
 
 .sunny {

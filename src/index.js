@@ -126,13 +126,13 @@ const resetCityName = () => {
 
 
 const increaseTemp = () => {
-    i++;
-    currentTemp.innerHTML = i; 
+    state.temp += 1;
+    updateTempLandscape();
 };
 
 const decreaseTemp = () => {
-    i--;
-    currentTemp.innerHTML = i;
+    state.temp -= 1;
+    updateTempLandscape();
 };
 
 const registerEventHandlers = () => {
