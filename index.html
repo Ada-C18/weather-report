@@ -5,8 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
+    <section id="container">
+        <div id="title">
+            <h1> Weather Report</h1>
+            <h2 id="city-container"></h2>
+        </div>
+        <form id="search">
+            <h3> Please enter your city:</h3>
+            <input id="city" type="text" value=""><br>
+            <br>
+            <input type="submit" value="Reset">
+        </form>
     
+        <div id="forecast"> 
+            <section class="widget"> 
+                <h3>Temperature</h3>
+                <button id="realtime" type="button">Get Realtime Temperature</button>
+                <button class="arrows" id="up_arrow"> ⬆️ </button>
+                <p id="big_temp"> <br> </p>
+                <button class="arrows" id="down_arrow"> ⬇️ </button>
+    
+            </section>
+            <br>
+            <section class="widget"> 
+                <h3> Sky Conditions</h3>
+                <select name="sky" id="sky">
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                </select>
+            </section>
+            
+        </div>
+        
+    </section >
+    <section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="garden">
+            <p id="skyDisplay">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</p>
+            <br>
+            <br>
+            <br>
+            <p id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
+        </div>
+    </section2>
+    
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
 </body>
 </html>
