@@ -52,3 +52,35 @@ body {
     text-align: center;
 }
 
+/* #tempNum {
+  color: ;
+} */
+
+
+#tempNum {
+  font-size: 3rem;
+  
+}
+
+
+
+
+.red {
+  color: red;
+  }
+  
+  .orange {
+  color: orange;
+  }
+  
+  .yellow {
+  color: gold;
+  }
+  
+  .yellow-green {
+  color: yellowgreen;
+  }
+  
+  .green {
+  color: green;
+  }
