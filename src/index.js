@@ -46,7 +46,7 @@ const checkTemperatureRange = (countValue) => {
 };
 // toggle celsius and fahrenheit
 
-// --------------------------------wave3 Naming the City----------------------
+// --------------------------------wave3 and 6 Naming the City----------------------
 const cityNameLabel = document.getElementById('cityname');
 const cityNameInput = document.getElementById('cityname-input');
 const resetBtn = document.getElementById('reset-btn');
@@ -101,6 +101,23 @@ const findcity = (latitude, longitude) => {
     .catch((error) => {
       console.log('error in findLocation!');
     });
+};
+
+// --------------------------------------wave5 Calling APIs-------------------
+const optionSky = document.getElementById('slide');
+const selectionSky = optionSky.value;
+const skyPicture = document.getElementById('skyPicture');
+
+const changeselectionSky = (selectionSky) => {
+  if (selectionSky === 'Sunny') {
+    skyPicture.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (selectionSky === 'Cloudy') {
+    skyPicture.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (selectionSky === 'Rainy') {
+    skyPicture.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (selectionSky === 'Snowy	') {
+    skyPicture.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
 };
 
 // JS brower connect
