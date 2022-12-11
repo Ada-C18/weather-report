@@ -66,13 +66,11 @@ const getRealTimeTemp = () => {
   //   // -> open weatherApp -> realTemp for the city (in lat, lon)
   //   // change the element of html page: currentTemp
   // const axios = require('axios');
-
+  console.log('weather');
   axios
-    .get('https://us1.locationiq.com/v1/search.php', {
+    .get('http://127.0.0.1:5000/location', {
       params: {
-        key: process.env['LOCATION_KEY'], // discussed below
         q: 'Seattle',
-        format: 'json',
       },
     })
     .then((response) => {
@@ -81,6 +79,7 @@ const getRealTimeTemp = () => {
     .catch((error) => {
       console.log('error!', error.response.data);
     });
+  console.log('weather2');
 };
 
 const registerEventHandlers = () => {
