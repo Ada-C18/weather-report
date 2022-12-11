@@ -27,12 +27,13 @@ const changeLandscape = (temp) => {
   const landscape = document.getElementById('landscape');
   let ground = '🥶__🧤_🏂_🧊__🧊_';
   if (temp >= 80) {
+    ground = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp >= 70) {
-    ground = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+    ground = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temp >= 60) {
-    ground = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+    ground = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temp >= 50) {
-    ground = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+    ground = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
   landscape.textContent = ground;
 };
@@ -90,16 +91,22 @@ const getWeather = (lat, lon) => {
 
 //Wave 5
 const updateSky = () => {
+  const skyBackground = document.getElementById('weather_visuals');
   if (skyOptions.value === 'Sunny') {
     skySet = '☀️☀️☀️☀️☀️☀️';
+    skypic = 'sun';
   } else if (skyOptions.value === 'Cloudy') {
     skySet = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    skypic = 'clouds';
   } else if (skyOptions.value === 'Rainy') {
     skySet = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skypic = 'rain';
   } else if (skyOptions.value === 'Snowy') {
     skySet = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skypic = 'snow';
   }
   sky.textContent = skySet;
+  skyBackground.classList = skypic;
 };
 
 //Wave 6
