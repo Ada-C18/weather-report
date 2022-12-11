@@ -79,6 +79,7 @@ h2 {
   grid-row: 3/4;
   grid-column: 1/2;
   margin: 0px 2em;
+  padding-top: 20px;
 }
 .cityName {
   grid-row: 4/5;
@@ -100,7 +101,7 @@ h2 {
   place-content: center center;
   place-items: center center;
 }
-.weatherGardenBox {
+#weatherGardenBox {
   margin-top: 10px;
   height: 200px;
   width: 50%;

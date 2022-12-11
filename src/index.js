@@ -96,6 +96,17 @@ function getRealTime() {
 function displaySky() {
   let skyImageDisplay = document.getElementById('skySelect').value;
   document.getElementById('skyImage').innerHTML = skyImageDisplay;
+  if (skyImageDisplay === '☁️ ☁️ ☁️ ☀️ ☁️ ☁️') {
+    document.getElementById('weatherGardenBox').style.background = '#CDFCF6';
+  } else if (skyImageDisplay === '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️') {
+    document.getElementById('weatherGardenBox').style.background = '#EFF5F5';
+  } else if (skyImageDisplay === '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧') {
+    document.getElementById('weatherGardenBox').style.background = '#D8D9CF';
+  } else if (skyImageDisplay === '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨') {
+    document.getElementById('weatherGardenBox').style.background = '#DFF6FF';
+  } else {
+    document.getElementById('weatherGardenBox').style.background = '#CFF5E7';
+  }
 }
 
 // ******* wave 6 *******
