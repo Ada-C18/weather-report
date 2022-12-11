@@ -3,14 +3,14 @@ const state = {
     lat: 40.6526006,
     long: -73.9497211,
     temp: 25,
+    displayName: 'Brooklyn, NY',
   };
   
   const convertKtoF = (temp) => {
     return (temp - 273.15) * (9 / 5) + 32;
   };
   
-  const findLatAndLong = () => {
-    //let lat, long;
+  const getLatLon = () => {
     axios
       .get('http://127.0.0.1:5000/location', {
         params: {
@@ -18,9 +18,10 @@ const state = {
         },
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data[0]);
         state.lat = response.data[0].lat;
         state.long = response.data[0].lon;
+        state.displayName = response.data[0].display_name;
         getWeather();
       })
       .catch((error) => {
@@ -29,14 +30,15 @@ const state = {
   };
   
   const getWeather = () => {
-    axios
-      .get('http://127.0.0.1:5000/weather', {
+    axios.get('http://127.0.0.1:5000/weather', {
         params: {
           lat: state.lat,
           lon: state.long,
+          displayName: state.displayName,
         },
       })
       .then((response) => {
+        console.log(response.data)
         const weather = response.data;
         state.temp = Math.round(convertKtoF(weather.main.temp));
         formatTempAndGarden();
@@ -45,7 +47,7 @@ const state = {
         console.log('Error getting the weather:', error);
       });
   };
-  
+
   const updateSky = () => {
     const inputSky = document.getElementById('skySelect').value;
     const skyContainer = document.getElementById('sky');
@@ -81,6 +83,21 @@ const state = {
     cityNameInput.value = 'Brooklyn';
     updateCityName();
   };
+  const updateDisplayName = () => {
+    let displayName = document.getElementById('weatherDisplayName');
+    // const inputName = document.getElementById('cityNameInput').value;
+    // const headerCityName = document.getElementById('headerCityName');
+    // state.city = inputName;
+    // headerCityName.textContent = state.city;
+    displayName.textContent = state.displayName;
+  };
+  
+  const resetDisplay = () => {
+    const cityNameInput = document.getElementById('weatherDisplayName');
+    cityNameInput.textContent = 'Brooklyn, NY';
+    updateDisplayName();
+  };
+
   
   const formatTempAndGarden = () => {
     let temp = state.temp;
@@ -124,7 +141,7 @@ const state = {
     formatTempAndGarden();
   
     const currentTempButton = document.getElementById('currentTempButton');
-    currentTempButton.addEventListener('click', findLatAndLong);
+    currentTempButton.addEventListener('click', getLatLon);
   
     const increaseTempControl = document.getElementById('increaseTempControl');
     increaseTempControl.addEventListener('click', increaseTemp);
@@ -135,9 +152,16 @@ const state = {
     updateCityName();
     const cityNameInput = document.getElementById('cityNameInput');
     cityNameInput.addEventListener('input', updateCityName);
-  
+    
     const cityNameResetBtn = document.getElementById('cityNameReset');
     cityNameResetBtn.addEventListener('click', resetCityName);
+    
+    updateDisplayName();
+    const cityDisplayName = document.getElementById('currentTempButton');
+    cityDisplayName.addEventListener('click', updateDisplayName);
+    
+    const cityDisplayNameReset = document.getElementById('cityNameReset');
+    cityDisplayNameReset.addEventListener('click', resetDisplay);
   
     updateSky();
     const skySelect = document.getElementById('skySelect');
