@@ -69,9 +69,10 @@ const resetCity = () => {
 };
 
 //Get Current temperature button event
-const getCurrentTemp = (event) => {
+const getCurrentTemp = () => {
   //call the API to return the current temp
   getLatAndLon(state.city);
+
 };
 
 //API call for LocationIQ
