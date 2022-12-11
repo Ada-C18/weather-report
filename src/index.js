@@ -35,11 +35,11 @@ const changeTempNumColor = () => {
     landScapeElement.textContent = '👙🩳⛱🏝🌊⛱🏝🌊👙🩳⛱🏝';
   } else if (temp >= 70 && temp <= 79) {
     document.getElementById('currentTemp').className = 'orange';
-    skyElement.textContent = '🌤☁️🌤☁️🌤☁️🌤☁️🌤☁️';
+    skyElement.textContent = '☁️☁️☁️☁️🌤☁️☁️☁️';
     landScapeElement.textContent = '🌻🌹🍉🌻🌹🍉🌻🌹🍉🌻🌹';
   } else if (temp >= 60 && temp <= 69) {
     document.getElementById('currentTemp').className = 'yellow';
-    skyElement.textContent = '☁️🌥☁️🌥☁️🌥☁️🌥☁️🌥';
+    skyElement.textContent = '☁️☁️☁️☁️☁️🌥☁️☁️';
     landScapeElement.textContent = '🌱🌸💐🌺🌿🌷🌸🌿💐🌺🌷🌱';
   } else if (temp >= 50 && temp <= 59) {
     document.getElementById('currentTemp').className = 'green';
@@ -47,8 +47,8 @@ const changeTempNumColor = () => {
     landScapeElement.textContent = '🍁🍂🌲🌳🍁🍂🌲🌳🍁🍂🌲🌳';
   } else {
     document.getElementById('currentTemp').className = 'teal';
-    skyElement.textContent = '☁️🌧❄️☁️🌧❄️☁️🌧❄️☁️🌧❄️';
-    landScapeElement.textContent = '☃️🧤🎄🏔☃️🧤🎄🥶🏔☃️🧤🎄🏔';
+    skyElement.textContent = '❄️☁️🌧❄️☁️🌧❄️🌧❄️';
+    landScapeElement.textContent = '☃️🧤🎄🏔☃️🧤🎄🥶🏔☃️🧤🎄';
   }
 };
 

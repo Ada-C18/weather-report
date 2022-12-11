@@ -77,8 +77,13 @@ h2{
     padding: 0;
     background-color: rgb(255,255,255);
     display: flex;
-    padding-left:10px;
-    /* padding-left: 130px; */    
+    padding-left:13px;
+    font-size: 25px;
+    color: rgb(73, 128, 168);
+    /* padding-left: 130px;     */
+}
+#increaseTemp:hover{
+    color:rgb(0, 255, 246)
 }
 
 #getCurrentTemp {

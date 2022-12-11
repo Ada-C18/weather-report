@@ -14,7 +14,7 @@ X An element that decreases the temperature by one degree on click
 Depending on what temperature it is, either:
 
 X the temperature number changes color
-- the background of the temperature changes color
+0 the background of the temperature changes color
 
 There must be at least five categories of distinguishable colors.
 
