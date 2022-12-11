@@ -1,93 +1,51 @@
-<!-- soleil edits? -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Report</title>
-    <link href="styles/index.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <header>
-      <h1>Weather Report</h1>
-      <p class="Output" id="cityOutput">Baltimore</p>
-      <section class="searchBox">
-        <!-- <input id="search-box" type="text" placeholder="Enter A City" /> -->
-        <!-- <button id="search-reset-btn">Reset</button> -->
-      </section>
-    </header>
-    <main class="flex-container">
-      <section class="item temp">
-        <section id="temp-arrow-buttons">
-          <h1>Temperature</h1>
-          <button id="arrow-up">⬆️</button>
-          <span id="temperature" class="orange">72°</span>
-          <button id="arrow-down">⬇️</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather Report</title>
+        <link href="styles/index.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header>
+            <h1>Weather Report </h1>
+            <span> for city </span>
+                <h3 class="Output" id="cityOutput">Baltimore</h3>
+        </header>
+        <section class="temp-container" >
+            <h2>Temperature</h2>
+            <button id="arrow-up">⬆️</button>
+            <span id="temperature" class="orange">67°</span>
+            <button id="arrow-down">⬇️</button>
+            <button class="button1" id="getTemp">Get Realtime Temperature</button>
+        </section >
+        <section class="sky-container">
+            <section id="drop-down-menu">
+                <h2>Sky</h2>
+                <select id="select-choices">
+                    <option value="">Choose Your Sky</option>
+                    <option value="☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️">Sunny</option>
+                    <option value="☁️☁️🌥️☁️☁️🌥️☁️☁️🌥️☁️☁️🌥️">Cloudy</option>
+                    <option value="🌧️☔️💧🌧️🌨️☔️💧🌧️🌧️☔️💧🌧️">Rainy</option>
+                    <option value="❄️❄️🌧️❄️❄️❄️🌧️❄️❄️🌧️❄️❄️">Snowy</option>
+                </select>
+            </section>
         </section>
-        <!-- adding real time temprature button  -->
-        <section>
-          <button id="getTemp">Get Realtime Temperature</button>
+        <section class="city-container">
+            <h2 id="userCity">City Name</h2>
+            <br>
+            <input id="search-box" type="text" placeholder="Baltimore" />
+            <input class="button1" type="button" id="addCityButton" value="Add city" />
+            <input class="button1" type="button" id="search-reset-btn" value="Reset" />
         </section>
-      </section>
-      <section class="item sky">
-        <section class="skyEmoji">☀️</section>
-        <section id="drop-down-menu">
-          <select id="select-choices">
-            <option value="">Choose Your Sky</option>
-            <option value="☀️">Sunny</option>
-            <option value="☁️">Cloudy</option>
-            <option value=" 🌧️">Rainy</option>
-            <option value="❄️">Snowy</option>
-            <!-- suny☀️ snowy❄️ rainy 🌧️ cloudy ☁️ -->
-          </select>
+        <section class="weather-container">
+            <h2>Weather Garden</h2>
+            <section class="skyEmoji">🌧️☔️💧🌧️🌨️☔️💧🌧️🌨️☔️💧🌧️</section>
+            <br>
+            <section id="env">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</section>
         </section>
-        <!-- <section class="skyEmoji">☀️</section> -->
-      </section>
-      <section class="item cityName">
-        <h1 id="userCity">City Name</h1>
-        <input id="search-box" type="text" placeholder="City Name" />
-        <input type="button" id="addCityButton" value="Add city" />
-        <input type="button" id="search-reset-btn" value="Reset" />
-        <!-- <button id="search-reset-btn">Reset</button> -->
-      </section>
-
-      <section class="item weather-garden">
-        <h1>Weather Garden</h1>
-        <section id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</section>
-      </section>
-    </main>
-
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script src="src/index.js"></script>
-  </body>
+        <script src="./node_modules/axios/dist/axios.min.js"></script>
+        <script src="src/index.js"></script>
+    </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Report</title>
-    <link href="styles/index.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <header>
-      <h1>Weather Report</h1>
-    </header>
-    <section class="container">
-      <h1>Temprature</h1>
-    </section>
-    <section class="container">
-      <h1>Sky</h1>
-    </section>
-    <section class="container">
-      <h1>City Name</h1>
-    </section>
-    <script
-      src="./node_modules/axios/dist/axios.min.js"
-      src="src/index.js"
-    ></script>
-  </body>
-</html> -->
