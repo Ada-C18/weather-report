@@ -60,6 +60,7 @@ header {
     margin-left: 0.3em;
     margin-right: 0.3em;
     text-align: center;
+    border-radius: 10px;
     background-image: linear-gradient(rgb(111, 215, 250), #ffffff) ;
 }
 
