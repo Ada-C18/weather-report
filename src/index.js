@@ -37,7 +37,7 @@ const State = {
 };
 
 const updateLocation = async function(input) {
-    axios
+    return axios
         .get('http://127.0.0.1:5000/location', {
             params: {
                 q: input,
@@ -49,19 +49,16 @@ const updateLocation = async function(input) {
             State.city = response.data[0]['display_name'];
             State.latitude = response.data[0]['lat'];
             State.longitude = response.data[0]['lon'];
-            updatePage();
+            return updatePage();
         })
+        .then((_) => updateWeather())
         .catch((error) => {
             console.log(error);
         });
 };
 
-citySelector.addEventListener('input', (_) =>
-    updateLocation(citySelector.value).then(updateWeather())
-);
-
-const updateWeather = function() {
-    axios
+const updateWeather = async function() {
+    return axios
         .get('http://127.0.0.1:5000/weather', {
             params: {
                 lat: State.latitude,
@@ -72,7 +69,7 @@ const updateWeather = function() {
             // console.log(response.data);
             State.weather = response.data['weather'][0]['description'];
             State.temperature = response.data['main']['temp'];
-            updatePage();
+            return updatePage();
         })
         .catch((error) => {
             console.log(error);
@@ -86,13 +83,13 @@ const updatePage = async function() {
     tempUnit.textContent = `${State.unit}`;
     weather.textContent = `${State.weather}`;
 
-    if (normalizedTemp < 32) {
+    if (State.temperature < 273.15) {
         landscape.className = 'landscape-cold';
         tempBox.className = 'temp-box-cold';
-    } else if (normalizedTemp < 60) {
+    } else if (State.temperature < 288.7) {
         landscape.className = 'landscape-cool';
         tempBox.className = 'temp-box-cool';
-    } else if (normalizedTemp < 90) {
+    } else if (State.temperature < 305.4) {
         landscape.className = 'landscape-warm';
         tempBox.className = 'temp-box-warm';
     } else {
@@ -110,4 +107,13 @@ const convertTemp = function(unit, K) {
     return 'invalid unit';
 };
 
-updateLocation('Atlanta').then(updateWeather());
+citySelector.addEventListener(
+    'change',
+    (_) => updateLocation(citySelector.value)
+    // .then(setTimeout(() => updateWeather(), 500))
+    // .then(updatePage())
+);
+
+updateLocation('Atlanta');
+// .then(setTimeout(() => updateWeather(), 500))
+// .then(updatePage());
