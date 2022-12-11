@@ -111,7 +111,6 @@ const changeSky = () => {
 const clearInput = () => {
   document.getElementById('city-input').value = '';
 };
-
 //register event handlers
 const registerEventHandlers = () => {
   cityInput.addEventListener('input', inputHandler);
