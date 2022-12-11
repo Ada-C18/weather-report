@@ -84,24 +84,17 @@ const tempColor = () => {
 };
 
 const landscapeImage = () => {
-  // const landscape = document.getElementById('landscape');
   const landscape = document.getElementById('landscape-img');
   let pic;
   if (state.temp >= 80) {
-    // pic = '__😍🐍_🦂_🌵🌵🌵__🐍_🏜_🦂'; //**** add picture ***
     landscape.src = './assets/desert_landscape.jpg';
   } else if (state.temp >= 70) {
-    // pic = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'; //**** add picture ***
     landscape.src = './assets/sunflower_landscape.jpg';
   } else if (state.temp >= 60) {
-    // pic = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃'; //**** add picture ***
     landscape.src = './assets/forest_landscape.jpg';
   } else {
-    // pic = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'; //**** add picture ***
     landscape.src = './assets/winter_landscape.jpg';
   }
-  // landscape.innerText = pic;
-  // landscape.textContent = pic;
 };
 
 const updateTheme = () => {

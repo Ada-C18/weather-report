@@ -10,7 +10,12 @@ body {
     font-size: 18px;
     background-color: #31255a;
     margin: 2rem;
-    }
+}
+
+h1 {
+    margin: 1rem;
+    font-size: 4em;
+}
 
 header {
     display: flex;
@@ -23,54 +28,50 @@ header {
     grid-column-end: 3;
 }
 
-h1 {
-    margin: 1rem;
-    font-size: 4em;
+img {
+    max-width: 50%;
+    max-height: 50%;
 }
 
 span {
     font-size: 2em;
 }
 
-.headerCity_name::before,
-.headerCity_name::after {
-content: "❤️";
+.city_name_section {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.headerCity_name::before, .headerCity_name::after {
+    content: "❤️";
 }
 
 .headerCity_name {
-color: #8fe0ff
-}
-
-.temperature_section,
-.sky_section,
-.city_name_section,
-.garden_section {
-border-radius: 50px;
-padding: 2rem;
-background-color: white;
-text-align: center;
-align-self: center;
+    color: #8fe0ff
 }
 
 .garden_section {
-grid-column-start: 1;
-grid-row-start: 2;
-grid-row-end: 5;
-}
-
-.city_name_section {
-grid-column-start: 2;
-grid-row-start: 2;
-}
-
-.temperature_section {
-grid-column-start: 2;
-grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 5;
 }
 
 .sky_section {
-grid-column-start: 2;
-grid-row-start: 4;
+    grid-column-start: 2;
+    grid-row-start: 4;
+}
+
+.temperature_section {
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+.temperature_section, .sky_section, .city_name_section, .garden_section {
+    border-radius: 50px;
+    padding: 2rem;
+    background-color: white;
+    text-align: center;
+    align-self: center;
 }
 
 #submitButton, #resetButton, #realtime-temp, #sky-options, button {
@@ -82,13 +83,8 @@ grid-row-start: 4;
 }
 
 #submitButton:hover, #resetButton:hover, #realtime-temp:hover, #sky-options:hover, button:hover {
-background: #67ABE0;
-text-decoration: none;
-}
-
-img {
-    max-width: 50%;
-    max-height: 50%;
+    background: #67ABE0;
+    text-decoration: none;
 }
 
 #temp-display, #sky {
