@@ -1,7 +1,5 @@
 'use strict';
 
-// const { default: axios } = require('axios');
-
 console.log('testing');
 
 const BASE_URL = 'http://localhost:5000';
@@ -99,15 +97,12 @@ const resetCityName = (event) => {
 };
 
 const getLatAndLon = () => {
-  // const axios = require('axios');
-
   axios
     .get('http://localhost:5000/location', {
       params: { q: state.city },
     })
 
     .then((response) => {
-      // state.lat = response
       // console.log(response);
       state.lat = response.data[0].lat;
       state.lon = response.data[0].lon;
@@ -118,15 +113,15 @@ const getLatAndLon = () => {
       console.log('Error in get Lat & Lon');
     });
 };
-// add in lat and lon in the parameters below?
 
-const getWeather = (latitude, longitude) => {
+const getWeather = () => {
+  getLatAndLon();
+  changeColorAndGarden();
   axios
     .get('http://127.0.0.1:5000/weather', {
-      // .get('http://localhost:5000/weather', {
       params: {
-        lat: latitude,
-        lon: longitude,
+        lat: state.lat,
+        lon: state.lon,
         units: 'imperial',
       },
     })
@@ -134,11 +129,10 @@ const getWeather = (latitude, longitude) => {
     .then((response) => {
       const temp = response.data.main.temp;
       console.log(response.data.main.temp);
-      document.getElementById('getTemp').innerhtml = temp;
-      // state.temp = Math.round(weather.current.temp - 273.15);
-      // temp is in kelvin- convert to celsius
-      // Math.round((9 / 5)) + 32); convert celsius to farenheit
-      // changeColorAndGarden();
+      // document.getElementById('temp') = temp;
+      state.temp = Math.round((temp - 273.15) * 1.8 + 32);
+      const newTemp = document.getElementById('temp');
+      newTemp.textContent = state.temp;
     })
 
     .catch((error) => {
@@ -151,7 +145,6 @@ const registerEventHandlers = (event) => {
 
   changeColorAndGarden();
   getLatAndLon();
-  getWeather();
 
   const increaseTemp = document.getElementById('increaseTemp');
   increaseTemp.addEventListener('click', increaseTemperature);

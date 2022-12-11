@@ -20,7 +20,7 @@ body {
 .header {
     grid-column: auto / span 2;
     color: white;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .white-boxes {
@@ -57,67 +57,28 @@ body {
 }
 
 .garden_name {
-    background-color: yellow;
-    
     width: 50%;
     border-radius: 10px;
     margin: 10px;
     padding: 5px 22px;
+    font-size: large;
+    color: white;
+    text-align: center;
 }
 
 .garden {
     background-color: white;
-    
     width: 50%;
     border-radius: 10px;
     margin: 10px;
     padding: 55px 22px;
+    text-align: center;
     
     
 }
 
 footer {
-    background-color: red;
     grid-column: auto / span 2;
+    font-size: large;
+    color: white;
 }
-
-/* .red {
-    color: red;
-    }
-    
-.orange {
-    color: orange;
-    }
-    
-.yellow {
-    color: gold;
-    }
-    
-.yellow-green {
-    color: yellowgreen;
-    }
-    
-.green {
-    color: green;
-    }
-    
-.teal {
-    color: teal;
-    } */
-
-
-/* weather-Garden-Container {
-    width: 600px;
-    height: 50px;
-    position:absolute;
-    text-align: center;
-
-}  */
-
-
-
-/* .white {
-    background-color: white;
-    color: black
-} */
-
