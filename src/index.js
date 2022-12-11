@@ -3,14 +3,14 @@ const state = {
     decreaseTempControl: null,
     tempValue: 45,
     tempDisplay: null,
-    gardenContent: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲'
+    landscape: null
 };
 
 const loadControls = () => {
     state.increaseTempControl = document.getElementById('increaseTempControl');
     state.decreaseTempControl = document.getElementById('decreaseTempControl');
     state.tempDisplay = document.getElementById('tempValue');
-    state.gardenContent = document.getElementById('gardenContent');
+    state.landscape = document.getElementById('landscape');
 };
 
 const handleIncreaseTempClicked = (event) => {
@@ -53,21 +53,21 @@ const handleChangeColor = (event) => {
 
 const handleChangeLandscape = (event) => {
     if (state.tempValue >= 80) {
-        state.gardenContent.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+        state.landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
         return;
     }
 
     if (state.tempValue >= 70) {
-        state.gardenContent.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+        state.landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
         return;
     }
 
     if (state.tempValue >= 60) {
-        state.gardenContent.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+        state.landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
         return;
     }
 
-    state.gardenContent.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    state.landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
 }
 
 const registerEvents = () => {
