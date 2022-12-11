@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <script src="./node_modules/axios/dist/axios.min.js" defer></script>
+    <script src="src/index.js" defer></script>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+
+  <body>
+    <header id="sky"></header>
+    <main id="weather-app">
+      <div id="city-box">
+        <h1 id="city-name">Atlanta</h1>
+        <label for="city-selector"
+          >Change city: <input id="city-selector" type="text"
+        /></label>
+        <button id="city-reset">Reset</button>
+      </div>
+      <div id="report-box">
+        <h1 id="temp-box">
+          <span id="temp"></span>&deg <span id="temp-unit"></span> <br /><button
+            id="unit-selector"
+          >
+            F&deg/C&deg
+          </button>
+        </h1>
+        <button id="button-increase">I wish it were warmer</button>
+        <button id="button-decrease">I wish it were cooler</button>
+        <h2 id="weather">sunny</h2>
+      </div>
+    </main>
+    <footer id="landscape"></footer>
+  </body>
 </html>

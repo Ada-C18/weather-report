@@ -1,0 +1,101 @@
+body {
+  background-color: lightblue;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#report-box {
+  display: flex;
+  flex-direction: column;
+}
+
+#sky {
+  background-color: skyblue;
+  height: 100%;
+  width: 100%;
+}
+
+#temp-box {
+  border-radius: 3px;
+  text-align: center;
+}
+
+.temp-box-cold {
+  background-color: cyan;
+}
+
+.temp-box-cool {
+  background-color: lightgrey;
+}
+
+.temp-box-warm {
+  background-color: yellow;
+}
+
+.temp-box-hot {
+  background-color: red;
+}
+
+#landscape {
+  height: 100%;
+  width: 100%;
+}
+
+.landscape-cold {
+  background-image: url("../assets/landscape-cold.jpeg");
+  background-position-y: center;
+}
+
+.landscape-cool {
+  background-image: url("../assets/landscape-cool.jpeg");
+  background-position-y: center;
+}
+
+.landscape-warm {
+  background-image: url("../assets/landscape-warm.jpeg");
+  background-position-y: center;
+}
+
+.landscape-hot {
+  background-image: url("../assets/landscape-hot.jpeg");
+  background-position-y: center;
+}
+
+.sky-thunderstorm {
+  background-image: url("../assets/sky-thunderstorm.webp");
+}
+
+.sky-drizzle {
+  background-image: url("../assets/sky-drizzle.jpeg");
+}
+
+.sky-rain {
+  background-image: url("../assets/sky-rain.jpeg");
+}
+
+.sky-snow {
+  background-image: url("../assets/sky-snow.jpeg");
+}
+
+.sky-clear {
+  background-image: url("../assets/sky-clear.jpeg");
+}
+
+.sky-clouds {
+  background-image: url("../assets/sky-clouds.webp");
+}
+
+.sky-atmosphere {
+  background-image: url("../assets/sky-atmosphere.webp");
+}
