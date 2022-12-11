@@ -30,11 +30,11 @@ const State = {
     weather: 'sunny',
 };
 
-const updateLocation = function() {
+const updateLocation = async function(input) {
     axios
         .get('http://127.0.0.1:5000/location', {
             params: {
-                q: citySelector.value,
+                q: input,
                 format: 'json',
             },
         })
@@ -50,7 +50,9 @@ const updateLocation = function() {
         });
 };
 
-citySelector.addEventListener('input', updateLocation);
+citySelector.addEventListener('input', (_) =>
+    updateLocation(citySelector.value).then(updateWeather())
+);
 
 const updateWeather = function() {
     axios
@@ -61,16 +63,17 @@ const updateWeather = function() {
             },
         })
         .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             State.weather = response.data['weather'][0]['description'];
-            State.temp = response.data['main']['temp'];
+            State.temperature = response.data['main']['temp'];
+            updatePage();
         })
         .catch((error) => {
             console.log(error);
         });
 };
 
-const updatePage = function() {
+const updatePage = async function() {
     cityName.textContent = State.city;
     temperature.textContent = `${State.temperature}`;
     tempUnit.textContent = `${State.unit}`;
@@ -91,4 +94,4 @@ const updatePage = function() {
     }
 };
 
-updatePage();
+updateLocation('Atlanta').then(updateWeather());
