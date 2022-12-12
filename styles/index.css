@@ -22,7 +22,6 @@ h1 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-
 body {
     background-color: rgb(46, 114, 153);
 }
@@ -85,7 +84,6 @@ main {
     justify-content: space-evenly;
 
 }
-    
 
 #sky {
     grid-row: 2 / 3;
@@ -143,7 +141,6 @@ button {
     padding-top: 10%;
     padding-bottom: 5%;
 }
-
 
 .orange-background {
     background-color: orange;

@@ -107,6 +107,7 @@ const findLocLatAndLon = () => {
   });
 };
 
+
 const retrieveWeather = () => {
   axios.get("http://127.0.0.1:5000/weather", {
     params: {
@@ -130,7 +131,6 @@ const retrieveWeather = () => {
 const tempUnitConvert = (temp) => {
   return (temp - 273.15) * (9 / 5) + 32; 
 }
-
 
 
 const registerEventHandlers = (event) => {
