@@ -74,7 +74,7 @@ span {
     align-self: center;
 }
 
-#submitButton, #resetButton, #realtime-temp, #sky-options, button {
+#resetButton, #realtime-temp, #sky-options, button {
     border-radius: 10px;
     color: white;
     background: #75b4e3;
@@ -82,7 +82,7 @@ span {
     text-decoration: none;
 }
 
-#submitButton:hover, #resetButton:hover, #realtime-temp:hover, #sky-options:hover, button:hover {
+#resetButton:hover, #realtime-temp:hover, #sky-options:hover, button:hover {
     background: #67ABE0;
     text-decoration: none;
 }

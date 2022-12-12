@@ -140,8 +140,8 @@ const registerEventHandlers = () => {
   const tempDecreaseButton = document.getElementById('decrease');
   tempDecreaseButton.addEventListener('click', decreaseTemp);
 
-  const inputCity = document.getElementById('submitButton');
-  inputCity.addEventListener('click', updateCity);
+  const inputCity = document.getElementById('cityNameInput');
+  inputCity.addEventListener('input', updateCity);
 
   const resetCityButton = document.getElementById('resetButton');
   resetCityButton.addEventListener('click', resetCity);
