@@ -95,7 +95,10 @@ const getTempByCity = (latitude, longitude) => {
     })
     .then((response) => {
       console.log('success in findWeather!', response.data.main.temp);
-      return response.data.main.temp;
+      const realTemp = response.data.main.temp
+      const fahrenheit = Math.round(1.8*(realTemp - 273.15)+ 32)
+      console.log('here is temp in fahrenheit',fahrenheit);
+      changeTempColor(fahrenheit);
     })
     .catch((error) => {
       console.log('error in findWeather!');
