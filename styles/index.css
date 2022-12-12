@@ -3,6 +3,12 @@
     color: black;
 }
 
+body {
+    background-image: url(/ada-project-docs/assets/sunshine.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
 /* .flex-box-container {
     background-color: white;
     opacity: 25%;
@@ -70,23 +76,11 @@ h3 {
     color: cornflowerblue;
 }
 
-.cold {
-    content: 🧤🧣🧤;
-    font-size: 40pt;
+.purple {
+    color: purple;
 }
 
-.comfortable {
-    content: "✅✅✅";
-    font-size: 40pt;
-}
-
-.balmy {
-    content: 😅😎😅;
-    font-size: 40pt;
-}
-
-.hot {
-    content: 🔥🔥🔥;
+#curWeatherEmojis {
     font-size: 40pt;
 }
 

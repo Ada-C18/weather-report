@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
+
 <body class="coolTheme">
     <header>
         <div id="column" class="flex-box-container">   
@@ -23,34 +24,32 @@
                 </select>
             </label>
             <h1>Weather Report</h1>
-            <h2>Now displaying the temperature for</h2>
+            <h2>Now displaying the temperature for ${cityInput}</h2>
         </div>
     </header>
 
     <section>
         <h2>Find A Temperature By City</h2>
         <div id="row" class="flex-box-container">
-
             <section>
                 <h3>City Name</h3>
                 <div id="topnav">
                     <input id="cityInput" type="text" placeholder="Search.." onkeyup="myFunction()">
-                    <p>Welcome to <span id="demo"></span></p>
+                    <p>Search for <span id="demo"></span></p>
                     <button id="submit" type="submit">Submit</button>
                     <button id="reset" type="reset">Reset</button>
                 </div>
             </section>
-            
             <section id="temp">
                 <h3>Temperature</h3>
+                <p class="realtime">Get Realtime Temperature</p>
                 <button id="increaseBtn"><span>&#43;</span></button>
                 <span id="curTemp">0</span>
                 <span id="tempTag">° F</span>
                 <button id="decreaseBtn"><span>&#8722;</span></button>
                 <br>
-                <button id="realtimeBtn">Get Realtime Temperature</button>
+                <button id="realTime" type="submit">Get Realtime Temperature</button> 
             </section>
-
             <section id="garden">
                 <h3>Your Weather Emojis</h3>
                 <div id="curWeatherEmojis">🧤🧣🧤</div>
