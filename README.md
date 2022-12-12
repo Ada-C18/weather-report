@@ -31,7 +31,7 @@ Our goal is to create a fun, small weather app that focuses on displaying the we
 
 Our weather app will set the weather using user interaction and get the weather from a 3rd party API, OpenWeather.
 
-![Example weather app: The temperature reads 62, in yellow text. The selected dropdown for "Sky" is "Cloudy." There is a depiction of cloudy weather. The city name is "Hoboken." The header reads "Hoboken."](ada-project-docs/assets/cloudy-62.png)  
+<!-- ![Example weather app: The temperature reads 62, in yellow text. The selected dropdown for "Sky" is "Cloudy." There is a depiction of cloudy weather. The city name is "Hoboken." The header reads "Hoboken."](ada-project-docs/assets/cloudy-62.png)   -->
 _Fig. Example weather app displaying the weather for Hoboken._
 
 ![Example weather app: The temperature reads 85, in red text. The selected dropdown for "Sky" is "Sunny." There is a depiction of sunny weather. The city name is "Santo Domingo" The header reads "Santo Domingo."](ada-project-docs/assets/santo-domingo-85.png)  
