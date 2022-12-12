@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles/index.css" rel="stylesheet"></link>
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report for the city of</h1>
+        <span id="headerCityName">New York</span>
+    </header>
+    <main>
+        <section id="temperatureSection">
+            <section id="requestCityInfoSection">
+                <h2>Temperature</h2>
+                <input type="text" id="cityNameInput" value="New York">
+                <button id="getCurrentTempBttn">Get Temperature</button>
+                <button id="cityNameResetBttn">Reset</button>
+                <div id="temperatureDisplay">
+                    <span id="minus">-</span>
+                    <span id="temperature" class="green">45°F</span>
+                    <span id="plus">+</span>
+                </div>
+            </section>
+            <section id="selectSkySection">
+                <h2>Sky</h2>
+                <select id="skySelector">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </section>
+        </section>
+        <section id="gardenSection">
+            <section id="gardenWrapper">
+                <h3>Weather Garden</h3>
+                <div id="gardenContent">
+                    <div id="gardenSky">☁️     ☁️   ☁️ ☀️ ☁️  ☁️</div> 
+                    <div id="gardenLandscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div> 
+                </div> 
+            </section>
+        </section>
+    </main>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
