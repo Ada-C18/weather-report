@@ -5,22 +5,22 @@ let state = {
 };
 
 const updateTemperature = state => {
-  const temperatureContainer = document.getElementById("startingTemp");
-  temperatureContainer.textContent = state.startingTemp;
-};
+    const temperatureContainer = document.getElementById("startingTemp");
+    temperatureContainer.textContent = state.startingTemp;
+    };
 
-const increaseTemperature = () => {
-  state.startingTemp += 1;
-  updateTemperature(state);
-  updateColor();
-  updateLandscape();
-};
+    const increaseTemperature = () => {
+    state.startingTemp += 1;
+    updateTemperature(state);
+    updateColor();
+    updateLandscape();
+    };
 
-const decreaseTemperature = () => {
-  state.startingTemp -= 1;
-  updateTemperature(state);
-  updateColor();
-  updateLandscape();
+    const decreaseTemperature = () => {
+    state.startingTemp -= 1;
+    updateTemperature(state);
+    updateColor();
+    updateLandscape();
 };
 
 const updateColor = () => {
@@ -106,6 +106,7 @@ const getLongLat = () => {
             document.getElementById('startingTemp').textContent = Math.round(fahrenheit);
             state.startingTemp = Math.round(fahrenheit);
             updateColor();
+            updateLandscape();
         })
         .catch ((error) => {
             console.log('error in finding weather');
@@ -114,20 +115,20 @@ const getLongLat = () => {
     }
 
 const registerEventHandlers = () => {
-  const increaseTemperatureButton = document.getElementById('increaseButton');
-  increaseTemperatureButton.addEventListener("click", increaseTemperature);
+    const increaseTemperatureButton = document.getElementById('increaseButton');
+    increaseTemperatureButton.addEventListener("click", increaseTemperature);
 
-  const decreaseTemperatureButton = document.getElementById('decreaseButton');
-  decreaseTemperatureButton.addEventListener("click", decreaseTemperature);
+    const decreaseTemperatureButton = document.getElementById('decreaseButton');
+    decreaseTemperatureButton.addEventListener("click", decreaseTemperature);
 
-  const selectElement = document.getElementById('skyChoice');
-  selectElement.addEventListener('change',updateSky);
+    const selectElement = document.getElementById('skyChoice');
+    selectElement.addEventListener('change',updateSky);
 
-  const userInputCity = document.getElementById('inputCity');
-  userInputCity.addEventListener('input', updateCity);
+    const userInputCity = document.getElementById('inputCity');
+    userInputCity.addEventListener('input', updateCity);
 
-  const getRealTimeTemperature = document.getElementById('getTempButton');
-  getRealTimeTemperature.addEventListener('click', getLongLat);
+    const getRealTimeTemperature = document.getElementById('getTempButton');
+    getRealTimeTemperature.addEventListener('click', getLongLat);
 
 };
 
