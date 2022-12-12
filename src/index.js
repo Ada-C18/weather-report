@@ -16,8 +16,9 @@ const getRealTimeTemp = () => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
       console.log('success in getRealTimeTemp!', latitude, longitude);
-      const temperature = getTempByCity(latitude, longitude);
+      temperature = getTempByCity(latitude, longitude);
       return temperature;
+
     })
     .catch((error) => {
       console.log('error in getRealTimeTemp!');
@@ -37,8 +38,11 @@ const getTempByCity = (latitude, longitude) => {
       const realTemp = response.data.main.temp
       const fahrenheit = Math.round(1.8*(realTemp - 273.15) + 32)
       console.log('here is temp in fahrenheit',fahrenheit);
+      state.currentTemp = fahrenheit
+      const tempContainer = document.querySelector('#currentTemp');
+      tempContainer.textContent = `${state.currentTemp}`;
       changeTempColor(fahrenheit)
-      return fahrenheit
+      
     })
     .catch((error) => {
       console.log('error in findWeather!');
@@ -47,7 +51,7 @@ const getTempByCity = (latitude, longitude) => {
 
 
 const state = {
-  currentTemp: 100,
+  currentTemp:  100,
 };
 
 // temperature
@@ -134,6 +138,7 @@ function updateValue(e) {
 const resetCity = () => {
   const cityContainer = document.getElementById('cityName');
   cityContainer.value = '';
+  updateValue();
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
