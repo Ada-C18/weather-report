@@ -128,7 +128,8 @@ const displayEmojis = () => {
 };
 
 skyContainer.textContent = sky;
-skyOptions.addEventListener('change', updateSky);
+
+// skyOptions.addEventListener('change', updateSky);
 
 const updateSky = () => {
   const inputSky = document.getElementById('skyOptions').value;
@@ -152,9 +153,12 @@ const updateSky = () => {
     skyColor = 'wind';
   }
   skyContainer.textContent = sky;
-  const changeSky = document.getElementById('weatherEmojis');
   weatherEmojis.classList = `${skyColor}`;
+  updateSky();
   // skyOptions.addEventListener('change', updateSky);
 };
+updateSky();
+const chooseSky = document.getElementById('weatherEmojis');
+chooseSky.addEventListener('change', updateSky);
 
 console.log(updateSky);
