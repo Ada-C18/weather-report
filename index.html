@@ -14,43 +14,50 @@
 
 <body class="coolTheme">
     <header>
-        <div id="column" class="flex-box-container">   
-            <label for="sky">Choose your sky:
-                <select id="sky" name="sky">
-                    <option value="sunny" class="background">Sunny</option>
-                    <option value="cloudy" class="background">Cloudy</option>
-                    <option value="rainy" class="background">Rainy</option>
-                    <option value="snowy" class="background">Snowy</option>
-                </select>
-            </label>
-            <h1>Weather Report</h1>
-            <h2>Now displaying the temperature for ${cityInput}</h2>
+        <div id="column" class="flex-box-container">
+            <div class="background-block"></div>
+            <div  class="text-in-front">
+                <label for="sky">Choose your sky:
+                    <select id="sky" name="sky">
+                        <option value="sunny" class="background">Sunny</option>
+                        <option value="cloudy" class="background">Cloudy</option>
+                        <option value="rainy" class="background">Rainy</option>
+                        <option value="snowy" class="background">Snowy</option>
+                    </select>
+                </label>
+                <h1>Weather Report</h1>
+                <h2>Now displaying the temperature for ${cityInput}</h2>
+            </div>
         </div>
     </header>
 
     <section>
-        <h2>Find A Temperature By City</h2>
+        <div class="misc-heading-container">
+            <div class="text-in-front"><h2>Find A Temperature By City</h2></div>
+        </div>
         <div id="row" class="flex-box-container">
-            <section>
+            <section id="city-name" class="text-in-front">
                 <h3>City Name</h3>
                 <div id="topnav">
-                    <input id="cityInput" type="text" placeholder="Search.." onkeyup="myFunction()">
+                    <input id="cityInput" type="text" 
+                    placeholder="Type a city name here..." onkeyup="myFunction()">
                     <p>Search for <span id="demo"></span></p>
                     <button id="submit" type="submit">Submit</button>
                     <button id="reset" type="reset">Reset</button>
                 </div>
+                <br>
             </section>
-            <section id="temp">
+            <section id="temp" class="text-in-front">
                 <h3>Temperature</h3>
-                <p class="realtime">Get Realtime Temperature</p>
                 <button id="increaseBtn"><span>&#43;</span></button>
                 <span id="curTemp">0</span>
                 <span id="tempTag">° F</span>
                 <button id="decreaseBtn"><span>&#8722;</span></button>
                 <br>
                 <button id="realTime" type="submit">Get Realtime Temperature</button> 
+                <br>
             </section>
-            <section id="garden">
+            <section id="garden" class="text-in-front">
                 <h3>Your Weather Emojis</h3>
                 <div id="curWeatherEmojis">🧤🧣🧤</div>
             </section>
@@ -58,7 +65,9 @@
     </section>
 
     <footer>
-        <h3>© 2022 | Alaere & Anika | C18 Snow Leopards</h3>
+        <div class="misc-heading-container">
+            <h3>© 2022 | Alaere & Anika | C18 Snow Leopards</h3>
+        </div>
     </footer>
     <script src="src/index.js"></script>
 </body>

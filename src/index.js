@@ -4,6 +4,7 @@
 
 let increaseBtn = document.getElementById("increaseBtn");
 let decreaseBtn = document.getElementById("decreaseBtn");
+let sumbitBtn = document.getElementById("submit")
 let curTemp = document.getElementById("curTemp");
 let city = document.getElementById("cityInput").value;
 let realTimeBtn = document.getElementById("realTime");
@@ -17,7 +18,6 @@ const state = {
   sky: null,
   lat: null,
   lon: null,
-  garden: null
 };
 
 
@@ -45,6 +45,12 @@ function myFunction() {
   document.getElementById("demo").innerHTML = x;
 }
 
+// submitBtn.addEventListener('click', () => {
+//   counter--;
+//   counterColor();
+//   weatherEmojis();
+//   curTemp.innerHTML = counter;
+// });
 
 const getLatLon = (input) => {
   return axios.get("http://127.0.0.1:5000/location", {
@@ -102,7 +108,7 @@ const getWeather = (latitude, longitude) => {
 
 
 const counterColor = () =>{
-  if (counter <= 32) {
+  if (counter <= 30) {
   curTemp.className="purple";
   } else if (counter <= 49) {
   curTemp.className="cornflowerblue";
@@ -118,7 +124,9 @@ const counterColor = () =>{
 
 
 const weatherEmojis = () =>{
-  if (counter <= 59) {
+  if (counter <= 40) {
+    curWeatherEmojis.textContent="❄️🥶❄️";
+  } else if (counter <= 59) {
   curWeatherEmojis.textContent="🧤🧣🧤";
   } else if (counter <= 69) {
     curWeatherEmojis.textContent="✅✅✅";

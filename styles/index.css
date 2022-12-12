@@ -9,26 +9,51 @@ body {
     background-size:cover;
 }
 
-/* .flex-box-container {
-    background-color: white;
-    opacity: 25%;
-    padding: 30px 30px 30px 30px;
+label {
+    font-weight: 600;
+}
+
+.flex-box-container {
     max-height: 300px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    z-index: 1000;
+}
+
+.misc-heading-container {
+    padding: 15px 15px 15px 15px;
+    max-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-} */
+}
+
+.background-block {
+    background-color: white;
+    opacity: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 107%;
+    width: 100%;
+}
+
+.text-in-front {
+    z-index: 1;
+}
 
 #column {
     flex-direction: column;
+    align-items: center;
 }
 
 #row {
     flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
 header {
@@ -54,6 +79,10 @@ h3 {
 
 #curTemp, #tempTag {
     font-size: 40pt;
+}
+
+#cityInput {
+    font-style: italic;
 }
 
 .red {
