@@ -33,6 +33,7 @@ const skies = {
   else: '🌧🕺🏾⛈🕺🏾🌧',
 };
 
+// https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
 const skyCodes = {
   200: 'rainy',
   // 300: rainy,
@@ -43,18 +44,23 @@ const skyCodes = {
   801: 'cloudy',
 };
 
-const incrementTemp = () => {
-  state.temp += 1;
+const updateTemp = (F = null) => {
+  if (F) {
+    state.temp = F;
+  }
   tempNum.textContent = state.temp;
   changeTempColor();
   changeLandscape();
 };
 
+const incrementTemp = () => {
+  state.temp += 1;
+  updateTemp();
+};
+
 const decrementTemp = () => {
   state.temp -= 1;
-  tempNum.textContent = state.temp;
-  changeTempColor();
-  changeLandscape();
+  updateTemp();
 };
 
 const changeTempColor = () => {
@@ -85,25 +91,37 @@ const changeLandscape = () => {
   }
 };
 
-const changeSky = (s = null) => {
-  console.log(`selector value: ${skySelector.value}`);
+const selectorChangesSky = () => {
+  skyscape.textContent = skies[skySelector.value];
+};
 
-  if (!isNaN(s)) {
-    // that is, if we received an id from the Open Weather API
-    if (s >= 801) {
-      skyscape.textContent = skies[skyCodes['801']];
-    } else if (s === 800) {
-      skyscape.textContent = skies[skyCodes['800']];
-    } else if (s >= 700) {
-      skyscape.textContent = skies[skyCodes['700']];
-    } else if (s >= 600) {
-      skyscape.textContent = skies[skyCodes['600']];
-    } else if (s >= 200) {
-      skyscape.textContent = skies[skyCodes['200']];
-    }
+const updateSky = (sky = null) => {
+  if (Object.hasOwn(skies, sky)) {
+    skySelector.value = sky;
+    selectorChangesSky();
   } else {
-    // if we received a selector event
-    skyscape.textContent = skies[skySelector.value];
+    console.log('requested sky value invalid; sky remains unchanged');
+  }
+};
+
+const apiCallChangesSky = (s = null) => {
+  if (200 <= s) {
+    if (s >= 801) {
+      updateSky(skyCodes['801']);
+    } else if (s === 800) {
+      updateSky(skyCodes['800']);
+    } else if (s >= 700) {
+      updateSky(skyCodes['700']);
+    } else if (s >= 600) {
+      updateSky(skyCodes['600']);
+    } else if (s >= 200) {
+      updateSky(skyCodes['200']);
+    }
+  } else if (!s) {
+    console.log('no sky value received; resetting sky');
+    updateSky('else');
+  } else {
+    console.log('the received sky value is invalid; sky remains unchanged');
   }
 };
 
@@ -141,7 +159,17 @@ const clearInput = () => {
   cityOutput.textContent = 'Seattle';
 };
 
-const updateCityOnClick = () => {
+const resetTempSky = () => {
+  updateTemp(70);
+  updateSky('else');
+};
+
+const resetAll = () => {
+  clearInput();
+  resetTempSky();
+};
+
+const updateCityOnClickAnywhere = () => {
   cityOutput.textContent = cityInput.value;
 
   if (!cityInput.value) {
@@ -171,8 +199,10 @@ const getLatLon = async (cityName) => {
 const kelvinToFahrenheit = (K) => Math.round(((K - 273.15) * 9) / 5 + 32);
 
 const getTemp = async (objLatLon) => {
+  const errorReturn = [-40, 700];
+
   if (objLatLon.lat === 90 && objLatLon.lon === 200) {
-    return -40;
+    return errorReturn;
   }
 
   const response = await axios.get('http://127.0.0.1:5000/weather', {
@@ -184,7 +214,6 @@ const getTemp = async (objLatLon) => {
     cityTemp = kelvinToFahrenheit(cityTemp);
 
     let cityWeather = response.data.weather[0].id;
-    console.log(cityWeather);
 
     return [cityTemp, cityWeather];
   } else if (response.data.cod != 200) {
@@ -192,7 +221,7 @@ const getTemp = async (objLatLon) => {
     console.log(
       `!!! error in getTemp: ${response.data.cod}: ${response.data.message}`
     );
-    return [-40, 'else'];
+    return errorReturn;
   }
 };
 
@@ -205,19 +234,20 @@ const cityWeather = async (cityName) => {
 
 const displayTempSky = () => {
   const cityName = cityInput.value;
+  console.log(`getting the weather for ${cityInput.value}...`);
 
   cityWeather(cityName).then((weatherArr) => {
     const [F, sky] = weatherArr;
-    console.log(`weather: ${F}, ${sky}`);
 
-    tempNum.textContent = F;
-    state.temp = F;
-    changeTempColor();
-    changeLandscape();
+    updateTemp(F);
     console.log(`updated temp to ${F}°F`);
 
-    skySelector.value = 'else';
-    changeSky(sky);
+    apiCallChangesSky(sky);
+    if (skySelector.value !== 'else') {
+      console.log(`updated sky to ${skySelector.value}`);
+    } else {
+      console.log(`updated sky: it's raining men!`);
+    }
   });
 };
 
@@ -234,11 +264,11 @@ const registerEventHandlers = () => {
   goButton.addEventListener('click', displayTempSky);
 
   const resetButton = document.getElementById('reset');
-  resetButton.addEventListener('click', clearInput);
+  resetButton.addEventListener('click', resetAll);
 
-  document.addEventListener('click', updateCityOnClick);
+  document.addEventListener('click', updateCityOnClickAnywhere);
 
-  skySelector.addEventListener('change', changeSky);
+  skySelector.addEventListener('change', selectorChangesSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
