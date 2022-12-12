@@ -1,33 +1,75 @@
 "use strict";
 
-const current = {
+// current state of the page. All functions update this state and pull needed data from the state
+const state = {
   city: 'Chicago',
+  lat: '',
+  lon: '',
   temp: 65,
-  skyChoice: 'cloudy',
   color: 'red',
   sky: "url('../assets/cloudySky.jpg')",
   middle: "url('../assets/snowyMiddle.jpg')",
   land: "url('../assets/snowLand.jpg')",
 };
 
-// change selected city
+// functionality to change city and update weather
+// 1. change selected city
 const changeCity = () => {
   const cityDisplay = document.getElementById('city-display');
   const searchBox = document.getElementById('searchbox')
   
-  current.city = searchBox.value;
-  cityDisplay.innerHTML = current.city
+  state.city = searchBox.value;
+  cityDisplay.innerHTML = state.city
+  getCoordinates();
 };
 
+// 2. fetch city coordinates
+const getCoordinates = () => {
+  axios
+  .get('http://127.0.0.1:5000/location', {
+    params: {
+      q: state.city,
+    },
+  })
+  .then((response) => {
+    state.lat = response.data[0].lat;
+    state.lon = response.data[0].lon;
+    getWeather();
+  })
+  .catch((error) => {
+    console.log("Couldn't find coordinates for this city.");
+  });
+};
+
+// 3. fetch current city weather
+const getWeather = () => {
+  axios
+  .get('http://127.0.0.1:5000/weather', {
+    params: {
+      lat: state.lat,
+      lon: state.lon,
+    },
+  })
+  .then((response) => {
+    const kelvin = response.data['main']['temp'];
+    state.temp = Math.round(((kelvin - 273.15) * 9) / 5 + 32);
+    setColorAndLand();
+  })
+  .catch((error) => {
+    console.log("Couldn't get the temperature for this city.");
+  });
+};
+
+// functionality to change elements on the screen
 // increase temp
 const increaseTemp = () => {
-  current.temp++;
+  state.temp++;
   setColorAndLand();
 };
 
 // decrease temp
 const decreaseTemp = () => {
-  current.temp--;
+  state.temp--;
   setColorAndLand();
 };
 
@@ -36,26 +78,26 @@ const setColorAndLand = () => {
   const tempDisplay = document.getElementById('temp-display');
   const land = document.getElementById('land');
 
-  if (current.temp >= 90) {
-    current.color = 'red';
-    current.land = "url('../assets/desertLand.jpg')"
-  } else if (current.temp >= 70 && current.temp < 90) {
-    current.color = 'orange';
-    current.land = "url('../assets/beachLand.jpg')"
-  } else if (current.temp >= 55 && current.temp < 70) {
-    current.color = 'yellow';
-    current.land = "url('../assets/warmLand.jpg')"
-  } else if (current.temp >= 40 && current.temp < 55) {
-    current.color = 'green';
-    current.land = "url('../assets/coldLand.jpg')"
+  if (state.temp >= 90) {
+    state.color = 'red';
+    state.land = "url('../assets/desertLand.jpg')"
+  } else if (state.temp >= 70 && state.temp < 90) {
+    state.color = 'orange';
+    state.land = "url('../assets/beachLand.jpg')"
+  } else if (state.temp >= 55 && state.temp < 70) {
+    state.color = 'yellow';
+    state.land = "url('../assets/warmLand.jpg')"
+  } else if (state.temp >= 40 && state.temp < 55) {
+    state.color = 'green';
+    state.land = "url('../assets/coldLand.jpg')"
   } else {
-    current.color = 'teal';
-    current.land = "url('../assets/snowLand.jpg')"
+    state.color = 'teal';
+    state.land = "url('../assets/snowLand.jpg')"
   };
   
-  tempDisplay.innerHTML = current.temp;
-  tempDisplay.style.color = current.color;
-  land.style.backgroundImage = current.land;
+  tempDisplay.innerHTML = state.temp;
+  tempDisplay.style.color = state.color;
+  land.style.backgroundImage = state.land;
 };
 
 // change sky and middle
@@ -64,24 +106,22 @@ const setSkyAndMiddle = () => {
   const sky = document.getElementById('sky');
   const middle = document.getElementById('middle');
 
-  console.log(skyDropdown.value)
-
   if (skyDropdown.value === 'Sunny') {
-    current.sky = "url('../assets/sunnySky.jpg')"
-    current.middle = "url('../assets/clearMiddle.jpg')"
+    state.sky = "url('../assets/sunnySky.jpg')"
+    state.middle = "url('../assets/clearMiddle.jpg')"
   } else if (skyDropdown.value === 'Cloudy') {
-    current.sky = "url('../assets/cloudySky.jpg')"
-    current.middle = "url('../assets/cloudyMiddle.jpg')"
+    state.sky = "url('../assets/cloudySky.jpg')"
+    state.middle = "url('../assets/cloudyMiddle.jpg')"
   } else if (skyDropdown.value === 'Rainy') {
-    current.sky = "url('../assets/cloudySky.jpg')"
-    current.middle = "url('../assets/rainyMiddle.jpg')"
+    state.sky = "url('../assets/cloudySky.jpg')"
+    state.middle = "url('../assets/rainyMiddle.jpg')"
   } else {
-    current.sky = "url('../assets/cloudySky.jpg')"
-    current.middle = "url('../assets/snowyMiddle.jpg')"
+    state.sky = "url('../assets/cloudySky.jpg')"
+    state.middle = "url('../assets/snowyMiddle.jpg')"
   };
 
-  sky.style.backgroundImage = current.sky;
-  middle.style.backgroundImage = current.middle;
+  sky.style.backgroundImage = state.sky;
+  middle.style.backgroundImage = state.middle;
 };
 
 // event listeners and triggers
@@ -90,6 +130,7 @@ const registerEventHandlers = () => {
   document.getElementById('increase-temp').addEventListener("click", increaseTemp);
   document.getElementById('decrease-temp').addEventListener("click", decreaseTemp);
   document.getElementById('sky-dropdown').addEventListener("change", setSkyAndMiddle);
+  document.getElementById('get-realtime-temp').addEventListener("click", getWeather);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
