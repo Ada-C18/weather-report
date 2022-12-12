@@ -35,6 +35,36 @@ const resetCityInput = () => {
 };
 
 
+const changeTempColorAndGardenLandscape = () => {
+  let temp = state.temp;
+  let tempColor = "";
+  let landscape = "";
+  if (temp > 80) {
+    tempColor = "red-text";
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temp > 70) {
+    tempColor = "orange-text";
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temp > 60) {
+    tempColor = "yellow-text";
+    landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+  } else if (temp > 50) {
+    tempColor = "green-text";
+    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  } else {
+    tempColor = "teal-text";
+    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  }
+
+  const currentTemp = document.getElementById('temp_value');
+  currentTemp.textContent = state.temp
+  currentTemp.className = tempColor;
+
+  const currentLandscape = document.getElementById('landscape');
+  currentLandscape.textContent = landscape;
+};
+
+
 const changeSkyImage = () => {
   let skyDisplay = "";
   let backgroundColor = "orange-background";
@@ -96,6 +126,7 @@ const retrieveWeather = () => {
   })
 };
 
+
 const tempUnitConvert = (temp) => {
   return (temp - 273.15) * (9 / 5) + 32; 
 }
@@ -124,35 +155,5 @@ const registerEventHandlers = (event) => {
   const changeSkyDisplay = document.getElementById('select_sky');
   changeSkyDisplay.addEventListener('change', changeSkyImage)
 }
-
-
-const changeTempColorAndGardenLandscape = () => {
-  let temp = state.temp;
-  let tempColor = "";
-  let landscape = "";
-  if (temp > 80) {
-    tempColor = "red-text";
-    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (temp > 70) {
-    tempColor = "orange-text";
-    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (temp > 60) {
-    tempColor = "yellow-text";
-    landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
-  } else if (temp > 50) {
-    tempColor = "green-text";
-    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
-  } else {
-    tempColor = "teal-text";
-    landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
-  }
-
-  const currentTemp = document.getElementById('temp_value');
-  currentTemp.textContent = state.temp
-  currentTemp.className = tempColor;
-
-  const currentLandscape = document.getElementById('landscape');
-  currentLandscape.textContent = landscape;
-};
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
