@@ -130,7 +130,7 @@ const updateSky = () => {
   }
   skyContainer.textContent = sky;
   const bgLight = document.querySelector('.bg-light');
-  bgLight.classList = `bg__light ${skyColor}`;
+  bgLight.classList = `bg_light ${skyColor}`;
 };
 
 // registering event handlers
