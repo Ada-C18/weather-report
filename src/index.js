@@ -129,27 +129,28 @@ function app() {
       });
   };
 
-// --------------------------------------wave5 Selecting the Sky-------------------
-const selectElement = document.getElementById('slide');
-const skyPicture = document.getElementById('skyPicture');
+  // --------------------------------------wave5 Selecting the Sky-------------------
+  const selectElement = document.getElementById('slide');
+  const skyPicture = document.getElementById('skyPicture');
 
-const changeselectionSky = (value) => {
-  if (value === 'Sunny') {
-    skyPicture.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (value === 'Cloudy') {
-    skyPicture.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (value === 'Rainy') {
-    skyPicture.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (value === 'Snowy') {
-    skyPicture.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-  }
-};
-selectElement.addEventListener('change', (event) => {
-  // console.log(event.target);
-  const value = event.target.value;
-  // console.log(event.target.value);
-  changeselectionSky(value);
-});
+  const changeselectionSky = (value) => {
+    if (value === 'Sunny') {
+      skyPicture.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    } else if (value === 'Cloudy') {
+      skyPicture.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    } else if (value === 'Rainy') {
+      skyPicture.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    } else if (value === 'Snowy') {
+      skyPicture.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    }
+  };
+  selectElement.addEventListener('change', (event) => {
+    // console.log(event.target);
+    const value = event.target.value;
+    // console.log(event.target.value);
+    changeselectionSky(value);
+  });
+}
 
 // JS brower connect
 if (document.readyState !== 'loading') {
