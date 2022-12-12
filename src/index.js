@@ -85,10 +85,6 @@ const state = {
   };
   const updateDisplayName = () => {
     let displayName = document.getElementById('weatherDisplayName');
-    // const inputName = document.getElementById('cityNameInput').value;
-    // const headerCityName = document.getElementById('headerCityName');
-    // state.city = inputName;
-    // headerCityName.textContent = state.city;
     displayName.textContent = state.displayName;
   };
   
