@@ -76,6 +76,7 @@ body {
     display: inline-block;
     text-align: center;
     border-radius: 10px;
+    transition: all 0.5s ease-out;
 }
 
 #currentTempButton:hover {
@@ -139,7 +140,7 @@ select:hover {
 }
 
 #gardenContent {
-    background-color: white;
+    background-color: rgba(255, 255, 255, .6);
     min-height: 200px;
     max-width: fit-content;
     margin: auto;
@@ -168,6 +169,7 @@ input[type=text]:focus {
     border-radius: 8px;
     padding: 1rem;
     font-family: "Rubik", sans-serif;
+    transition: all 0.5s ease-out;
 }
 
 .city-name__reset-btn:hover {
