@@ -1,0 +1,103 @@
+body {
+    display: grid;
+    grid-gap: 0.25rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    background-color: whitesmoke;
+}
+
+header {
+    padding: 25px;
+    text-align: center;
+    background: royalblue;
+    color: white;
+    text-transform: uppercase;
+}
+
+section {
+    width: 50vw;
+    padding: 10px;
+    border: 5px solid white;
+    margin: 10px;
+}
+
+.blue {
+    color: blue;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.garden-content {
+    min-width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sky-section {
+    grid-row: 3;
+}
+
+.temp-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.temp-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+.temp-section, .sky-section, .city-name-section, .garden-section {
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: lightskyblue;
+}
+
+#tempValue {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+    padding-left: 1.5 rem;
+    margin-left: 1.5 rem;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: gold;
+}
+
+.yellow-green {
+    color: yellowgreen;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+}
+
+.white {
+    color: white;
+}

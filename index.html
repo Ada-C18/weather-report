@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet"/>
 </head>
+
 <body>
-    
+    <header class="header">
+        <h1>Weather Report</h1>
+            <div id="headerCityName" class="header-city-name">
+                <strong><em>Atlanta</em></strong>
+            </div>
+    </header>
+    <div class="main">
+    <section class="temp-section">
+        <h2>Temperature </h2>
+			<div class="temp-content">
+				<div id="tempValue"></div> 
+                <div class="temp-controls">
+					<button id="increaseTempControl">🔼</button>
+					<button id="decreaseTempControl">🔽</button>
+				</div>
+                <button id="realTimeTemp" class="realtime-temp-button">🌡️ Get Realtime Temperature</button>
+			</div>
+            
+		</section>
+		<section class="sky-section">
+			<h2>Sky</h2>
+			<select id="skySelect">
+                <option value="" selected>Select a sky option</option>
+				<option value="cloudy">Cloudy ☁️</option>
+				<option value="rainy">Rainy 🌧️</option>
+				<option value="sunny">Sunny ☀️</option>
+				<option value="snowy">Snowy ❄️</option>
+			</select>
+		</section>
+		<section class="garden-section">
+			<h2>Weather Garden</h2>
+			<div id="gardenContent" class="garden-content">
+				<div id="sky"></div>
+				<div id="landscape"></div>
+			</div>
+		</section>        
+		<section class="city-name-section">
+			<h2>City Name </h2>
+			<input type="text" id="cityNameInput" value="Atlanta">
+			<button id="cityNameReset" class="city-name-reset-button">🔄 Reset to Home City</button>
+		</section>
+    </div>
+    <script src="./node_modules/axios/dist/axios.min.js"></script> 
+    <!-- ^This is for node which is usually part of a build, like a node module/package. Separate thing later on. -->
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
 </html>
