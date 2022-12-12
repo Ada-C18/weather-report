@@ -44,7 +44,7 @@ const getWeather = () => {
       const weather = response.data;
       state.temp = Math.round(convertFromKtoF(weather.main.temp));
       colorAndLandscape();
-      city = weather['name'];
+      city = weather["name"];
     })
     .catch((error) => {
       console.log('Error getting the weather:!', error);
@@ -98,16 +98,17 @@ const decreaseTemp = () => {
 const updateCity = () => {
   const cityForm = document.querySelector('form').cityName.value;
   const cityOutput = document.querySelector('#cityOutput');
-  state.city = cityForm;
-  cityOutput.textContent = `${city}`;
+  state.city = cityForm
+  cityOutput.textContent = `${city}`
   // cityOutput.innerHTML =  `<h3>${state.city}</h3>`;
 };
 
 const resetCity = () => {
-  const cityInput = document.getElementById('cityInput');
-  cityInput.value = 'Seattle';
+  const cityInput = document.getElementById("cityInput");
+  cityInput.value = "Seattle";
   updateCity();
-};
+}
+
 
 const updateSky = () => {
   const weatherState = document.getElementById('wrapper2').value;
@@ -130,9 +131,15 @@ const updateSky = () => {
   skyContainer.textContent = sky;
 };
 
+
+
+
+
 // registering event handlers
 const registerEventHandlers = () => {
   colorAndLandscape();
+
+
 
   const tempInc = document.querySelector('#tempInc');
   tempInc.addEventListener('click', increaseTemp);
@@ -152,11 +159,5 @@ const registerEventHandlers = () => {
   cityNameReset.addEventListener('click', resetCity);
 };
 
-// cityForm.addEventListener('submit',e =>{
-//   // prevent default action
-//   e.preventDefault();
-
-// update with new city
-// updateCity(city);
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
