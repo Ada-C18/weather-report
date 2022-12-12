@@ -7,7 +7,8 @@
     <title>Weather Report</title>
     <link rel="stylesheet" href="styles/index.css">
 </head>
-<body>
+<body id="body">
+<img src="" alt="">
     <div class="city_name">
         <input type="input" id="city_search" placeholder="Your city">
     </div>
@@ -15,6 +16,7 @@
         <div class="weather_details">
                  <h2 id="weather_city">City</h2>
         </div>
+        <input name="button" id="button" type="button" value="Update!" />
        
        <div class="temperature">
         <h2 class="temp_title">Temperature</h2>
@@ -30,7 +32,14 @@
        </div>
         <div class="sky">
             <h2 class="sky">Sky</h2>
-            <button></button>
+            <label for="chooseSky">Choose a sky:</label>
+
+<select name="sky" id="skyId">
+  <option value="sunny">Sunny</option>
+  <option value="cloudy">Cloudy</option>
+  <option value="rainy">Rainy</option>
+  <option value="snowy">Snowy</option>
+</select>
         </div>
         <div class="weather_garden_cont">
             <div class="garden"></div>
