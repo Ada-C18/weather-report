@@ -8,21 +8,36 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    <section>
+    <section class = "temp_section">
         
         
-        <h1>The temperature at : <input placeholder="Enter a city" name = "name"/> 
-            <p id ="values"></p> is <span id="Temperature">0</span> </h1>
-        
-        <button id="minusButton">cooler</button>
-        <button id="plusButton">hotter</button>
-        
-        
-            
+        <h1>The temperature in : <input placeholder="Enter a city" name = "name"/> 
+            <p id ="values"></p> is <span id="Temperature">50</span> </h1>
+            <button id="minusButton">cooler</button>
+            <button id="plusButton">hotter</button>
+            <p>
+                <button id="realTimeButton">Realtime weather</button>
+            </p>
+            <p>
+                <button id="resetButton">Reset</button>
+            </p>
+        </section>
+
+    <section class = "button_section">
+        <label>
+            Choose a sky:
+            <select class="sky" name="sky">
+              <option value="">Select One …</option>
+              <option value="Sunny">Sunny</option>
+              <option value="Cloudy">Cloudy</option>
+              <option value="Rainy">Rainy</option>
+              <option value="Snowy">Snowy</option>
+
+            </select>
+          </label>
     </section>
 
-
-    <section id = "landscape">
+    <section class = "landscape">
         <img id="newLandscape" src="assets/cold.jpeg" />  
     </section>
 
