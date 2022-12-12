@@ -26,20 +26,29 @@ const decreaseTemp = () => {
 const updateBackground = () => {
   const backgroundImage = document.getElementById('bg').style.backgroundImage;
 
-  if (state.tempValue > 100) {
-    backgroundImage = 'url(../assets/sun-surface.jpg)';
-  } else if (state.tempValue > 80) {
-    backgroundImage = 'url(assets/desert.jpg)';
-  } else if (state.tempValue > 70) {
-    backgroundImage = 'url(assets/summer.jpg)';
-  } else if (state.tempValue > 60) {
-    backgroundImage = 'url(assets/spring.jpg)';
-  } else if (state.tempValue > 50) {
-    backgroundImage = 'url(assets/spring2.webp)';
-  } else if (state.tempValue > 40) {
-    backgroundImage = 'url(assets/autumn.jpg)';
-  } else {
-    backgroundImage = 'url(assets/winter-lanscape.webp)';
+  if (state.tempValue > 100){
+    background.style.backgroundImage = 'url(assets/sun-surface.jpg)'
+  }
+  else if (state.tempValue > 90){
+    background.style.backgroundImage = 'url(assets/desert.jpg)'
+  }
+  else if (state.tempValue > 80){
+    background.style.backgroundImage = 'url(assets/desert1.jpg)'
+  }
+  else if (state.tempValue > 70){
+    background.style.backgroundImage = 'url(assets/summer.jpg)'
+  }
+  else if (state.tempValue > 60){
+    background.style.backgroundImage = 'url(assets/spring.jpg)'
+  }
+  else if (state.tempValue > 50){
+    background.style.backgroundImage = 'url(assets/spring2.webp)'
+  }
+  else if (state.tempValue > 40){
+    background.style.backgroundImage = 'url(assets/autumn.jpg)'
+  }
+  else if (state.tempValue > 20){
+    background.style.backgroundImage = 'url(assets/winter-lanscape.webp)'
   }
 };
 
