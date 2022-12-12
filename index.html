@@ -5,8 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+
+    <link rel="stylesheet" href="styles/index.css" type="text/css">
 </head>
 <body>
-    
+    <header class="index_header">
+        <h1>Weather Report</h1>
+        <h2>
+            <span>For the lovly city of </span>
+            <span id="header_cityname">Seattle</span>
+        </h2>
+    </header>
+    <section class="temperature_section">
+        <h2>Temperature</h2>
+        <div class="temperature_content">
+            <div id="temperature_control">
+                <button id="increase_temperature">⬆️</button>
+                <button id="decrease_temperature">⬇️</button>
+            </div>
+            <span id="temperature_value" class="orange">77</span>
+            <button id="realtime_temp">Get Realtime Temperature</button>
+        </div>
+    </section>
+    <section class="sky_section">
+        <h2>Sky</h2>
+        <select id="sky_choose" name="sky_choose">
+            <option id="sunny" value="☁️ ☁️ ☁️ ☀️ ☁️ ☁️">Sunny</option>
+            <option id="cloudy" value="☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️">Cloudy</option>
+            <option id="rainy" value="🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧">Rainy</option>
+            <option id="snowy" value="🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨">Snowy</option>
+        </select>
+    </section>
+    <section class="cityname_section">
+        <h2>City Name</h2>
+        <input type="text" id="cityname_input" value="Seattle">
+        <button id="reset_city">Reset</button>
+    </section>
+    <section class="garden_section">
+        <h2>Weather Garden</h2>
+        <div class="weather_garden_content">
+            <p id="garden_sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</p>
+            <p id="garden_landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
+        </div>
+    </section>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
