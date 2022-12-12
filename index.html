@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="./styles/index.css" rel="stylesheet" type="text/css">
+	<script src="./src/index.js"></script>
+	<script src="./node_modules/axios/dist/axios.min.js"></script>
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body id="body" onload="addListeners(); updateLocation();">
+    <div class="display">
+        <span id="temp">100</span><span class="unit">F</span>
+        <div id="city">Seattle</div>
+    </div>
+    <div class="controls">
+        <label for="city_input">CITY</label>
+        <input type="text" id="city_input"></input>
+        <button id="reset">Reset</button>
+        <div>
+            <button id="temp_increase">Temp++</button>
+            <button id="temp_decrease">Temp--</button>
+        <label for="sky_input">SKY</label>
+        <select name="sky_input" id="sky_input">
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="snowy">Snowy</option>
+            <option value="rainy">Rainy</option>
+        </select>
+        </div>
+    </div>
+    <div id="sky">This is the sky</div>
+    <div id="landscape">This is a landscape</div>
 </body>
 </html>
