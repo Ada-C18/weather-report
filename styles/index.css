@@ -20,11 +20,14 @@ header {
 
 #temperature {
     grid-column: 2/3;
-    top: 50%
+    top: 50%;
+    display: flex;
+    align-items: center;
 }
 
 #temperature button {
     display: inline-block;
+    vertical-align: middle;
 }
 
 #temp-number {
