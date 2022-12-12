@@ -1,5 +1,19 @@
 # Weather Report
 
+# Pair Plan of Action
+- Access Needs
+Sam - Clear communication
+
+- Learning Style
+Sam - Learn by doing
+Yun - Learn by seeing and interacting
+- Feedback Method
+Sam - Text if possible, transparent and direct
+Yun - Transparent and direct
+- Communication Skill to Improve On
+Sam - Open-minded
+Yun - Patience
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
