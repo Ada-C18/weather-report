@@ -23,11 +23,14 @@ const state = {
 };
 
 // adding temperature number
-async function f() { 
-  let promise = new
-  
-  
-  temp = (event) => {
+// async function f() {
+//   let promise = new
+
+// async function addTemp(event) {
+//   state.tempCount += 1;
+// }
+
+const addTemp = (event) => {
   state.tempCount += 1;
 };
 const registerEventHandlers = (event) => {
