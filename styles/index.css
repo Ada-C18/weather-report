@@ -1,0 +1,160 @@
+body {
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+    align-items: center;
+    min-height:100vh;
+    background-color: #ADE2FF;
+    }
+
+h1{
+    font-family:'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 4px 4px #63c8ff;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.temperatureContent {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    /* justify-content: center; */}
+
+.tempControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+
+.defaultTemp{
+    font-family: 'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 3px 3px rgb(251, 162, 67);
+}
+
+#decreaseTempControl{
+    line-height: 2px;
+}
+
+#landscape-image{
+    max-width: 60%;
+    margin-bottom: -10%;
+}
+
+
+.degree-symbol{
+    font-family: 'Itim';
+    font-size: 400%;
+    letter-spacing: 5px;
+    color: white; 
+    /* text-shadow: 4px 2px #f9a4dc; */
+    margin-right: 10px;
+}
+
+.tempControls{
+    font-family: 'Itim';
+    font-size: 300%;
+    letter-spacing: 5px;
+    color: white;
+    transition: color 0.2s;
+    text-shadow: 2px 2px #fdfd96;
+
+}
+
+.tempControls :hover{ 
+    color:#63c8ff;
+}
+
+
+
+.tempImg{
+    max-width: 60%; 
+}
+
+
+
+#image-container, #landscape-container{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+#weatherButton{
+    background-color: #1aafff;
+    border-color:#63c8ff;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family:Itim;
+    margin-bottom: 20px;
+}
+
+.cityNameResetButton{
+    background-color: #1aafff;
+    border-color:#63c8ff;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-family:Itim;
+    margin-bottom: 20px;
+}
+
+#city-input, #skySelect{
+    margin-top: 10px;
+    padding: 8px 30px;
+    background-color: #f7fcd9;
+    font-family:Itim;
+    font-size: 15px;
+    color: #63c8ff;
+    margin-right: 10px;
+    border-color: #ddedea;
+}
+
+.red {
+    font-family: 'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 3px 3px rgba(255, 75, 75, 0.721);}
+
+.orange {
+    font-family: 'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 3px 3px rgb(251, 162, 67);
+}
+
+.yellow {
+    font-family: 'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 3px 3px rgb(253, 238, 143);
+}
+
+
+.green {
+    font-family: 'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 3px 3px rgb(191, 249, 174);
+}
+
+.blue {
+    font-family: 'Itim';
+    font-size: 400%;
+    color: white;
+    text-shadow: 3px 3px rgb(78, 180, 253);
+}
