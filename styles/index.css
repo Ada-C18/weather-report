@@ -9,91 +9,65 @@ body {
   flex-direction: column;
   } 
 
-.sky {
-  background-image: url("https://wallpaperaccess.com/full/425923.jpg");
-  padding-top: 10vh;
-  background-color:aqua;
-  flex-basis: 10vh;
+section {
+  background-size: contain;
 }
 
-.middle {
-  background-color: beige;
+#sky {
+  background-image: url("../assets/sunnySky.jpg");
+  flex-basis: 25vh;
+}
+
+#middle {
+  background-image: url("../assets/snowyMiddle.jpg");
   flex-basis: 50vh;
 }
 
-.land {
-  background-color: brown;
-  flex-basis: 30vh;
+#land {
+  background-image: url("../assets/desertLand.jpg");
+  flex-basis: 25vh;
 }
 
 h1 {
   font-size: 2.5em;
 }
 
-#collapsable {
-  height:100%;
-  padding-bottom: 10px;
-  display: none;
+#searchbox {
+  border-radius: 5px;
+  height: 25px;
+  width: 250px;
+  margin-top: 40px;
 }
 
-#searchbox {
-  height:2em;
-  width:20em;
+#temp-display {
+  font-size: 3em;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  color: teal;
 }
 
 button {
-  padding: 5px;
   border-radius: 5px;
-  background-color: rgb(228, 228, 228);
-  border: 1px solid grey;
-}
-
-button:hover {
-  border: 2px solid rgb(32, 32, 32);
-}
-
-.main-button {
   background-color: rgb(248, 206, 129);
-  border: 1.5px solid rgb(32, 32, 32);
+  border: 1px solid rgb(32, 32, 32);
   padding-right: 10px;
   padding-left: 10px;
+  padding: 5px;
   font-weight: 500;
   font-size:15px;
 }
 
-.btn {
-  height: 30px;
-  width: 30px;
-  border: none;
+button:hover {
+  border: 1.5px solid rgb(32, 32, 32);
 }
 
-#main-temp {
-  font-size: 3.3em;
-  margin-bottom: 20px;
-  margin-top: 20px;
+i {
+  padding: 10px;
 }
 
-.slider-container {
-  padding-bottom: 15px;
+.fa-snowflake:hover {
+  color: blue;
 }
-
-.disasters {
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-
-/* make sure there is even space between elements */
-.disaster-container {
-  display: inline-block;
-}
-
-.disaster-btn {
-  height: 60px;
-  width: 60px;
-  margin: 6px;
-}
-
-.hidden-discription {
-  font-size: 16px;
-  display: none;
+.fa-sun:hover {
+  color: rgb(255, 115, 0);
 }
