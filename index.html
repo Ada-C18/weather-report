@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Weather App</title>
+    <title>Makeesha's Weather App</title>
     <link rel="stylesheet" href="styles/index.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="#" />
   </head>
   <body>
-    <div class="wrapper active">
+    <div class="wrapper ">
       <header><i class='bx bx-left-arrow-alt'></i>Today's Weather Report</header>
       <section class="input-part">
         <p class="info-txt"></p>
+        <form>
         <div>
           <input id="city-content" type="text" spellcheck="false" placeholder="Enter city name" required>
-          <button>Enter</button>
+          <button id="enter-button">Enter</button>
         </div>
+        </form>
       </section>
       <section class="weather-part">
-        <img src="icons/clear.svg" alt="Weather Icon">
+        <img id="weather-icon" src="src/icons/rain.svg" alt="Weather Icon">
         <div class="temp">
             <div class="temperature_controls">
                 <span id="increase-temp-control">🔼</span>
@@ -27,7 +30,7 @@
             </div>
           <span id="tempValue"></span>
             </div>
-        <div class="weather">Cloudy</div>
+        <div class="weather" id="sky-display"></div>
         <div class="location">
           <i class='bx bx-map'></i>
           <span id="location-city"></span>
@@ -36,16 +39,22 @@
           <div class="column feels">
             <i id="weather-garden"></i>
             <div class="details">
-              <div class="temp">
+              <div>
               </div>
               <p>Weather Garden</p>
             </div>
           </div>
-          <div class="column humidity">
-            <i class='bx bxs-droplet-half'></i>
+          <div class="column sky">
             <div class="details">
-              <span>90%</span>
-              <p>Humidity</p>
+                <p>Sky</p>
+                <select id="skySelect">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Foggy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                    <option>Stormy</option>
+                </select>
             </div>
           </div>
         </div>

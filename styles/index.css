@@ -16,12 +16,14 @@ body{
   color: #fff;
   background: #43AFFC;
 }
+/* here */
 .wrapper{
   width: 400px;
   background: #fff;
   border-radius: 7px;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
 }
+/* here */
 .wrapper header{
   display: flex;
   font-size: 25px;
@@ -154,8 +156,9 @@ header i{
   color: #5DBBFF;
   font-size: 40px;
 }
-.column.humidity{
+.column.sky{
   border-left: 1px solid #ccc;
+  
 }
 .column .details{
   margin-left: 3px;
@@ -171,8 +174,9 @@ header i{
   padding: 0 2px 0 1px;
 }
 .column .details p{
-  font-size: 14px;
+  font-size: 24px;
   margin-top: -6px;
+  text-align: center;
 }
 .humidity i{
   font-size: 37px;
@@ -188,21 +192,4 @@ footer{
     justify-content: center;
 }
 
-.red {
-    color: red;
-}
-.orange {
-    color: rgba(246, 94, 7, 0.95);
-}
-.yellow {
-    color: rgb(255, 248, 34);
-}
-.green {
-    color: rgb(15, 102, 15);
-}
-.blue {
-    color: blue;
-}
-.lightblue {
-    color: lightblue;
-}
+
