@@ -1,0 +1,76 @@
+body {
+    color: whitesmoke;
+    font-style: oblique;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url("../images/paxson-woelber-nv7WX42LKjU-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+
+div {
+    margin: auto;
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns:50% 50%;
+    grid-template-rows: 30% 30% 30% 10%; 
+}
+
+header {
+    grid-column: 1 / 1;
+    grid-row: 1 / 2;
+    justify-items:center;
+    align-self: center;
+    font-size: larger;
+}
+
+#temperature {
+    grid-row: 2 / 3 ;
+    grid-column: 1 / 2;
+    position: relative;
+    text-align: center;
+    align-self: center;
+    font-size:xx-large
+}
+
+#sky {
+    grid-colum: 1 / 2;
+    grid-row: 3 / 5;
+    text-align: center;
+    justify-items:center;
+    align-self: center;
+    font-size:x-large
+} 
+
+#images_all{
+    background-color:whitesmoke;
+    color: navy;
+    grid-column: 2 / -1;
+    grid-row:  2 / -1;
+    position: relative;
+    text-align: center;
+    align-self: center;
+    font-size:xx-large;
+
+}
+
+#city {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    text-align: center;
+    justify-items:center;
+    align-self: center;
+}
+
+footer {
+    grid-column: 1 / -1;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+input {
+    -webkit-appearance: none;
+}

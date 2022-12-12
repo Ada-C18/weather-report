@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./src/index.js"></script>
+        <link href="./styles/index.css" rel="stylesheet" />
+    </head>
+    <body>
+    <div>
+        <header> 
+            <h1 id="welcome">Weather Report</h1>
+            <p id="new_city_name"></p>
+            <p>For the lovely city of ✨<span id="chosen-city">Seattle</span>✨</p>
+        </header>   
+            <section id="temperature">
+                <h2>Temperature:</h2>
+                <label id="temperature_numbers"> 70 </label>
+                <label id="temperature_metric">F</label>
+                <a id="temp_go_up"> ⬆️ </a>
+                <a id="temp_go_down"> ⬇️ </a>
+            </section>
+                
+            <section id="sky"> 
+                <h2>Option Sky:</h2>
+                <select name="skys" id="sky_selection">
+                <option value="Sunny" selected>Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+                </select> 
+            </section>
+            
+            <section id="images_all">
+                <!-- <h2>Sky images:</h2> -->
+                <section id="sky_icons"> </section>
+                <br>
+                <section id="garden_images"> 
+                <!-- <h2>Sky garden:</h2> -->
+                <section id="garden_icons"> </section>
+                </section>
+            </section>
+
+            <section id="city">
+                    <h2>Enter the name of the city:</h2>
+                    <input type="text" id="input-city" name="city-name" value="Seattle" onkeyup="updateBox();">
+                    <button id="enterCityButton" onclick="findCity();">Enter</button>
+                    <!-- <h2>Default Mode:</h2> -->
+                    <button id="changeCity" onclick="seattleAlways()">Reset</button>
+            </section>
     
-</body>
+            <footer>
+                Created by Intesar & Alma
+            </footer>
+    </div>
+    </body>
 </html>
