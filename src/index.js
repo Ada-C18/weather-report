@@ -1,5 +1,5 @@
 let temp = 70;
-let city = "";
+let city = '';
 
 // Temperature Helper Function
 let landscapeElem = document.getElementById('landscape');
@@ -43,24 +43,28 @@ const handleSubmitButton = () => {
 };
 
 // Helpler to set temp
+const setTemp = () => {
+  counterDisplayElem.innerHTML = temp;
+}
+
 const decTempBy1 = () => {
   temp--;
-  counterDisplayElem.innerHTML = temp;
+  setTemp();
 };
 const incTempBy1 = () => {
   temp++;
-  counterDisplayElem.innerHTML = temp;
+  setTemp();
 };
+
 
 //Helper for RealTime Temperature
 const handleRealTimeButton = () => {
   getInfo(city);
-  //findLocation();
 };
 
 const init = () => {
   registerEventHandlers();
-  counterDisplayElem.innerHTML = temp;
+  setTemp();
 };
 
 const registerEventHandlers = () => {
@@ -109,8 +113,11 @@ const findLocationTemp = (latitude, longitude) => {
       },
     })
     .then((response) => {
-      console.log('success in findLocation!', response.data);
-      return response.data;
+      let responseTemp = response.data.main.temp;
+      let convertTemp = Math.round((responseTemp - 273.15) * (9 / 5) + 32);
+      console.log('success in findLocation!', convertTemp);
+      temp = convertTemp;
+      setTemp();
     })
     .catch((error) => {
       console.log('error in findLocation!');
