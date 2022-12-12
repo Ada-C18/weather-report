@@ -1,0 +1,197 @@
+// import axios from 'axios';
+
+// const { default: axios } = require('axios');
+
+// REFACTORING
+// This being my first JS project, I didn't realie how many
+// times I would select the same Element. In refactoring this,
+// I would create global variables for the elements that I use
+// repeatedly.
+
+const state = {
+  temp: 0,
+};
+
+const tempChangeUpdateUI = () => {
+  const currentTemp = Number(document.querySelector('#temp-num').innerText);
+  const tempConsole = document.querySelector('#temp-console');
+  const landscape = document.querySelector('#landscape-img');
+  const currentTempType = document.querySelector('#temp-type');
+
+  if (currentTempType.innerText === 'F') {
+    if (currentTemp <= 49) {
+      tempConsole.className = 'teal';
+      landscape.src = 'assets/winter-landscape.png';
+    } else if (currentTemp <= 59) {
+      tempConsole.className = 'green';
+      landscape.src = 'assets/fall-landscape.png';
+    } else if (currentTemp <= 69) {
+      tempConsole.className = 'yellow';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp <= 79) {
+      tempConsole.className = 'orange';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp >= 80) {
+      tempConsole.className = 'red';
+      landscape.src = 'assets/summer-landscape.png';
+    }
+  } else if (currentTempType.innerText === 'C') {
+    if (currentTemp <= 9.44) {
+      tempConsole.className = 'teal';
+      landscape.src = 'assets/winter-landscape.png';
+    } else if (currentTemp <= 15) {
+      tempConsole.className = 'green';
+      landscape.src = 'assets/fall-landscape.png';
+    } else if (currentTemp <= 20.6) {
+      tempConsole.className = 'yellow';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp <= 26.1) {
+      tempConsole.className = 'orange';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp >= 26.7) {
+      tempConsole.className = 'red';
+      landscape.src = 'assets/summer-landscape.png';
+    }
+  }
+};
+
+const decreaseTemp = () => {
+  state.temp -= 1;
+  currentTemp.innerText = state.temp;
+  tempChangeUpdateUI();
+};
+
+const increaseTemp = () => {
+  state.temp += 1;
+  currentTemp.innerText = state.temp;
+  tempChangeUpdateUI();
+};
+
+const convertTemp = () => {
+  const currentTempType = document.querySelector('#temp-type');
+  let currentTempNum = document.querySelector('#temp-num');
+  console.log(currentTempNum);
+  if (currentTempType.innerText === 'F') {
+    currentTempNum.innerText = Math.round(
+      (Number(currentTempNum.innerText) - 32) * (5 / 9)
+    );
+    state.temp = Number(currentTempNum.innerText);
+    currentTempType.innerText = 'C';
+  } else if (currentTempType.innerText === 'C') {
+    currentTempNum.innerText = Math.round(
+      Number(currentTempNum.innerText) * (9 / 5) + 32
+    );
+    state.temp = Number(currentTempNum.innerText);
+    currentTempType.innerText = 'F';
+  }
+};
+
+const updateCity = () => {
+  const locationInput = document.querySelector('.location').value;
+  const city = document.querySelector('#city-name');
+  city.innerText = locationInput;
+};
+
+const getLatLon = async () => {
+  const cityInput = document.querySelector('.location');
+  const city = cityInput.value;
+  let response = await axios
+    .get('http://127.0.0.1:5000/location', { params: { q: city } })
+    .catch((error) => {
+      cityInput.placeholder = 'Please enter a valid city';
+      cityInput.placeholder.style.color = 'red';
+      console.log(`Error: ${error.response.status}`);
+    });
+  const latitude = response.data[0]['lat'];
+  const longitude = response.data[0]['lon'];
+  return [latitude, longitude];
+};
+
+const getWeather = async (latitude, longitude) => {
+  // const [latitude, longitude] = await getLatLon();
+  return axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .catch((error) => {
+      console.log(`Error: ${error.response.status}`);
+    });
+};
+
+const updateWeather = async () => {
+  const [latitude, longitude] = await getLatLon();
+  const response = await getWeather(latitude, longitude);
+  // const weather = response.data.weather[0].description;
+  const weatherAPIType = response.data['weather'][0]['main'];
+  const weatherType = document.querySelector('#weather-type');
+  weatherType.innerText = weatherAPIType;
+
+  // const weatherAPITemp = response.data.main.temp;
+  const apiTemp = response.data['main']['temp'];
+  state.temp = Math.round(apiTemp);
+  const temp = document.querySelector('#temp-num');
+  temp.innerText = state.temp;
+
+  const apiCity = response.data['name'];
+  const cityInput = document.querySelector('.location');
+  cityInput.value = apiCity;
+
+  tempChangeUpdateUI();
+  updateCity();
+};
+
+const selectSky = () => {
+  const skyOptions = document.querySelector('#sky-select');
+  const skyBg = document.querySelector('#app');
+  if (skyOptions.value === 'rainy') {
+    skyBg.style.backgroundImage = 'url("/assets/rain-op-2.png")';
+  } else if (skyOptions.value === 'sunny') {
+    skyBg.style.backgroundImage = 'url("/assets/sunny.png")';
+  } else if (skyOptions.value === 'snowy') {
+    skyBg.style.backgroundImage = 'url("/assets/snow-op-2.png")';
+  } else if (skyOptions.value === 'cloudy') {
+    skyBg.style.backgroundImage = 'url("/assets/cloudy.png")';
+  }
+};
+
+const resetLocTemp = () => {
+  const city = document.querySelector('.location');
+  city.value = '';
+  const weatherType = document.querySelector('#weather-type');
+  weatherType.innerText = 'Search to get weather';
+  const tempNum = document.querySelector('#temp-num');
+  tempNum.innerText = '--';
+  updateCity();
+};
+
+const currentTemp = document.querySelector('#temp-num');
+currentTemp.innerText = state.temp;
+
+const registerEventHandlers = () => {
+  const decrTempBtn = document.querySelector('#decrement');
+  decrTempBtn.addEventListener('click', decreaseTemp);
+
+  const incrTempBtn = document.querySelector('#increment');
+  incrTempBtn.addEventListener('click', increaseTemp);
+
+  const tempButton = document.querySelector('#temp-info');
+  tempButton.addEventListener('click', convertTemp);
+
+  const cityInput = document.querySelector('.location');
+  cityInput.addEventListener('input', updateCity);
+
+  const submitBtn = document.querySelector('#submit');
+  submitBtn.addEventListener('click', updateWeather);
+
+  const skyOptions = document.querySelector('#sky-select');
+  skyOptions.addEventListener('change', selectSky);
+
+  const resetBtn = document.querySelector('#reset-btn');
+  resetBtn.addEventListener('click', resetLocTemp);
+};
+
+window.addEventListener('load', tempChangeUpdateUI);
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
