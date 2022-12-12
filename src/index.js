@@ -134,15 +134,12 @@ const tempUnitConvert = (temp) => {
 
 
 const registerEventHandlers = (event) => {
-  changeTempColorAndGardenLandscape();
-
   const increaseButton = document.querySelector("#increase_temp");
   increaseButton.addEventListener('click', increaseTemp);
 
   const decreaseButton = document.querySelector('#decrease_temp');
   decreaseButton.addEventListener('click', decreaseTemp);
 
-  changeTopCityName();
   const changeCityNameInHeader = document.querySelector('#name');
   changeCityNameInHeader.addEventListener('input', changeTopCityName);
 
