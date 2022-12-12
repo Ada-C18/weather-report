@@ -1,19 +1,14 @@
 /* General Styles */
 :root { 
     --ff-primary:'Roboto', sans-serif;
-    --ff-secondary: 'Londrina Outline', cursive;
     
     --fw-reg: 400;
     --fw-bold: 700;
-
-    --clr-light: rgb(225, 223, 223);
-    --clr-dark: rgb(97, 75, 78);
 
     --fs-h1: 1.8rem;
     --fs-h2: 1.3rem;
     --fs-h3: 1.2rem;
     --fs-body: 1.15rem;
-
 }
 
 body {
@@ -21,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--ff-primary);
-    background-color: rgb(87, 124, 248);    
+    background-color: rgba(87, 124, 248, .7);    
 }
 
 header {
@@ -34,7 +29,6 @@ main {
     display: flex;
     height: 100%;
     padding: 1em;
-    background-color: rgb(228, 170, 228);
 }
 
 /* Typography */
@@ -71,29 +65,53 @@ h2, h3 {
 /* Header */
 header h1 {
     text-align: center;
-    /* color: var(--clr-light); */
     font-weight: var(--fw-bold);
 }
 
 #headerCityName {
-    /* font-family: var(--ff-secondary); */
-    /* color: var(--clr-light); */
     font-size: var(--fs-h1);
 
 }
 
-/* temperature section */
+/* Temperature section */
 #temperatureSection {
     display: flex;
     flex-direction: column;
     width: 40%;
     justify-content: space-evenly;
-    /* background-color: rgb(178, 226, 226); */
 }
 
 #temperatureDisplay {
     font-size: x-large;
     font-weight: bolder;
+}
+
+#temperatureDisplay {
+    padding-top: 1em;
+}
+
+.red {
+    color: red;
+  }
+  
+.orange {
+color: orange;
+}
+
+.yellow {
+color: gold;
+}
+
+.yellow-green {
+color: yellowgreen;
+}
+
+.green {
+color: green;
+}
+
+.teal {
+color: teal;
 }
 
 #requestCityInfoSection, 
@@ -108,18 +126,13 @@ header h1 {
     border-radius: 5px;
     
 }
-
-#temperatureDisplay {
-    padding-top: 1em;
-}
-
-/* Weather Garden Section */
+  
+/* Garden Section */
 #gardenSection {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 60%;
-    /* background-color: darkseagreen; */
 }
 
 #gardenWrapper {
@@ -150,29 +163,5 @@ background-color: rgba(102, 127, 135, 0.5);
 
 .snowy {
 background-color: rgba(73, 100, 135, 0.5);
-}
-  
-.red {
-    color: red;
-  }
-  
-.orange {
-color: orange;
-}
-
-.yellow {
-color: gold;
-}
-
-.yellow-green {
-color: yellowgreen;
-}
-
-.green {
-color: green;
-}
-
-.teal {
-color: teal;
 }
   

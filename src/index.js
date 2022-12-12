@@ -8,8 +8,7 @@ const tempDisplay = document.getElementById('temperature');
 const cityInput = document.getElementById('cityNameInput');
 const cityName = document.getElementById('headerCityName');
 
-
-// Wave 2 -- Changing Temperature
+// Wave 2 -- Updating Temperature
 const displayTemp = () => {
   tempDisplay.textContent = `${state.temp}°${state.unit}`;
 };
@@ -17,33 +16,37 @@ const displayTemp = () => {
 const raiseTemp = () => {
   state.temp += 1;
   displayTemp();
-  updateTempDecor();
+  updateTempColor(state.temp);
+  updateGarden(state.temp);
 };
 
 const lowerTemp = () => {
   state.temp -= 1;
   displayTemp();
-  updateTempDecor();
+  updateTempColor(state.temp);
+  updateGarden(state.temp);
 };
 
-const convertTemp = () => {
-  if (state.unit === 'F') {
-    state.temp = Math.floor((state.temp - 32) * (5 / 9));
-    state.unit = 'C';
-  } else if (state.unit === 'C') {
-    state.temp = Math.floor(state.temp * (9 / 5) + 32);
-    state.unit = 'F';
+const updateTempColor = (currentTemp) => {
+  const tempValueContainer = document.getElementById('temperature');
+  let color = '';
+  if (currentTemp >= 80) {
+    color = 'red';
+  } else if (currentTemp >= 70) {
+    color = 'orange';
+  } else if (currentTemp >= 60) {
+    color = 'yellow';
+  } else if (currentTemp >= 50) {
+    color = 'green';
   }
-  displayTemp();
+  tempValueContainer.classList = color;
 };
-
 
 // Wave 3 -- Updating City
 const updateCity = () => {
   state.city = cityInput.value;
   cityName.textContent = state.city;
 };
-
 
 // Wave 4 -- Calling APIs
 const getLatLon = async () => {
@@ -63,10 +66,9 @@ const getWeatherFromLocation = async (lat, lon) => {
   );
 
   const tempKelvin = weatherData.data.main.temp;
-  state.temp = Math.floor((tempKelvin - 273.15) * 1.8 + 32); // Temperature comes in Kelvin and we need to convert to F
+  state.temp = Math.floor((tempKelvin - 273.15) * 1.8 + 32); // Temperature retrieved from API comes in Kelvin, we need to convert it to F
 
   displayTemp();
-
 };
 
 // Wave 5 -- Selecting the Sky
@@ -94,6 +96,19 @@ const updateSky = () => {
   skyContainer.textContent = sky;
 };
 
+const updateGarden = (currentTemp) => {
+  const landscapeContainer = document.getElementById('gardenLandscape');
+  let landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  if (currentTemp >= 80) {
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (currentTemp >= 70) {
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (currentTemp >= 60) {
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  }
+  landscapeContainer.textContent = landscape;
+};
+
 // Wave 6 -- Resetting city name
 const resetCity = () => {
   cityInput.value = '';
@@ -118,7 +133,6 @@ const registerEventHandlers = () => {
   const cityNameResetBttn = document.getElementById('cityNameResetBttn');
   cityNameResetBttn.addEventListener('click', resetCity);
 
-  // updateSky(); not sure if we have to register functions. Works with or without adding the functions here
   const skySelect = document.getElementById('skySelector');
   skySelect.addEventListener('change', updateSky);
 };
