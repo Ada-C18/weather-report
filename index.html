@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body id="body">
+    <div>
+      <section class="firstheader">
+        <h1>Weather Report</h1>
+        <br /><br />
+        <p class="headerp">
+          for the lovely city of <span>&#10024;</span> 
+          <p id="topCityName" style="font-size:larger;">City Name</p>
+          <span>&#10024;</span>
+        </p>
+      </section>
+      <section class="secondpart">
+        <div id="temperatureBox">
+          <div id="temperaturecontral">
+            <h3 class="topic">Temperature</h3>
+            <button id="up"><span>&#9195;</span></button>
+            <section id="totalCount">Input city</section>
+            <button id="down"><span>&#9196;</span></button>
+          </div>
+          <button id="gettemperature">Get Realtime Temperature</button>
+        </div>
+        <div class="skyBox">
+          <h3 class="topic">Sky</h3>
+            <select id="slide">
+              <option value="Cloudy">Cloudy</option>
+              <option value="Sunny">Sunny</option>
+              <option value="Snowy">Snowy</option>
+              <option value="Rainy">Rainy</option>
+            </select>
+        </div>
+        
+        <div class="cityname">
+          <h3 id="cityname" class="topic" >City Name</h3>
+          <input
+            type="text"
+            id="cityname-input"
+            placeholder="City Name"
+            style="height: 20%; width: 50%"
+          />
+          <button id="reset-btn" style="height: 20%; width: 30%">Reset</button>
+        </div>
+      </section>
+    </div>
+    <section id="garden">
+      <h2>Weather Garden</h2>
+      <h3>Season</h3>
+      <div id="gardenPicture">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+      <h3>Weather</h3>
+      <div id="skyPicture">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div>
+    </section>
+
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>

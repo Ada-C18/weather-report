@@ -1,0 +1,101 @@
+body{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+}
+.firstheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 10px;
+    padding-left: 20px;
+}
+.headerp{
+    font-size: 20px;
+}
+.secondpart{
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 20px;
+    padding-left: 10%;
+}
+#temperatureBox{
+    background-color: aliceblue;
+    height: 200px;
+    width:250px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+#temperaturecontral{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 3%;
+}
+#up{
+    height:30px;
+    width: 30px;
+}
+#down{
+    height:30px;
+    width: 30px;
+}
+#gettemperature{
+    height: 80px;
+    width: 150px;
+    margin-top: 30%;
+    margin-right: 2%;
+}
+.skyBox{
+    background-color: aliceblue;
+    height: 200px;
+    width:250px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+.topic{
+    padding-left: 10%;
+}
+#slide{
+    margin: auto;
+    width: 60%;
+    /* border: 1px rebeccapurple solid; */
+}
+.cityname{
+    background-color: aliceblue;
+    height: 200px;
+    width:250px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+#garden{
+    /* border: 1px solid rebeccapurple; */
+    position: relative;
+    margin-top: 15%;
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background-color: greenyellow;
+  
+}
+#cityname-input{
+    position: relative;
+    top: 10%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+#reset-btn{
+    position: relative;
+    left: 30%; 
+}
+
+  
