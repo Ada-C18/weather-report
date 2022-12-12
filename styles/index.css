@@ -1,0 +1,84 @@
+
+body {
+    background-color: rgb(17, 129, 241);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+
+.container {
+    width: 80%;
+    height: 60%;
+    margin: auto;
+    /* background-color: lightblue; */
+
+    display: grid;
+    grid-template: 15% auto 5% /30% 70%;
+}
+    /* grid-template-columns: 100px 100px; */
+
+.header {
+    grid-column: auto / span 2;
+    color: white;
+    font-size: 40px;
+}
+
+.white-boxes {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+    /* grid-row: auto; */
+}
+
+.white {
+    background-color: white;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 5% 5%;
+    
+    
+}
+
+.content {
+    
+    /* grid-row: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#temp {
+    color: orange
+}
+
+.garden_name {
+    width: 50%;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px 22px;
+    font-size: large;
+    color: white;
+    text-align: center;
+}
+
+.garden {
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 55px 22px;
+    text-align: center;
+    
+    
+}
+
+footer {
+    grid-column: auto / span 2;
+    font-size: large;
+    color: white;
+}

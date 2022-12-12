@@ -2,11 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="styles/index.css" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
 </head>
 <body>
     
+    <div class="container">
+        <header class="header">
+            Weather Report <span>for the lovely city of 
+                <span id="headerCityName">
+                    Seattle
+                </span>
+            </span>
+        </header>
+        <div class="white-boxes">
+            <div class="white" id="temperature_box">
+                <h2>Temperature</h2>
+                <div class="temperature_content">
+                    <div class="change_temperature">
+                        <span id="increaseTemp">⬆️</span>
+                        <span id="temp">70</span>
+                        <span id="decreaseTemp">⬇️</span>
+                    </div>
+                    <button id="getTemp">Get Realtime Temperature</button>
+                    <section id="tempContainer"></section>
+                    <!-- new code added in, grouping element to help with styling -->
+                </div>
+            </div>
+            <div class="white" id="sky_box">
+                <h2>Sky</h2>
+                <select id="selectSky">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </div> 
+            <div class="white" id="city_name">
+                <h2>City name</h2>
+                <input type="text" id="cityNameInput" value="Seattle" />
+                <button id="resetCity" class="resetButton">Reset</button>
+            </div>
+        </div> 
+        <div class="content">
+            <div class = "garden_name">Weather Garden</div>            
+            <div class="garden" id="weatherBox">
+                <div id="sky"></div>
+                <div id="garden"></div>
+            </div>
+        </div>
+        <footer> Lindsey & Masha's Weather Report © 2022 </footer>
+
+
+    <!-- <div class="box">
+
+    </div> -->
+
+
+
+
+
+    
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="/src/index.js"></script>
 </body>
 </html>
