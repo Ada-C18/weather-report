@@ -35,8 +35,16 @@ footer {
     text-align: center;
     position: static; 
     bottom: auto;
-    border: 1px solid black;
     height: 15vh;
+}
+
+img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 90%;
+    margin: 20px auto;
 }
 
 #tempDisplay {
