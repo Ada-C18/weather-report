@@ -1,4 +1,3 @@
-
 const state = {
   temp: 45,
   city: 'Seattle',
@@ -62,7 +61,7 @@ const updateCityName = (cityNameInput) => {
 const resetCity = () => {
   const resetCityName = document.getElementById('cityNameInput');
   resetCityName.value = 'Seattle';
-  updateCityName({target:{value:'Seattle'}});
+  updateCityName({ target: { value: 'Seattle' } });
 };
 
 //Get Current temperature button event
@@ -75,7 +74,7 @@ const getCurrentTemp = () => {
 locationURL = 'http://127.0.0.1:5000/location';
 weatherURL = 'http://127.0.0.1:5000/weather';
 
-//API calls has 2 responsibilities: 
+//API calls has 2 responsibilities:
 //1) get lat&lon from locationURL(source is LocationIQ)
 //2) then use lat&lon to get temp from weather API
 const getLatAndLon = () => {
@@ -102,6 +101,8 @@ const getLatAndLon = () => {
           //modify the current temp number
           const currentTempReal = document.querySelector('#currentTemp');
           currentTempReal.textContent = Math.round(state.temp);
+        })
+        .then((response) => {
           changeTempNumColor();
         })
         .catch((error) => {
@@ -133,7 +134,6 @@ const skySelect = () => {
     gardenSky.textContent = '🌨❄️🌨❄️🌨❄️🌨❄️🌨';
   }
 };
-
 
 ////Registering Event handlers and add event listeners
 const registerEventHandlers = (event) => {
