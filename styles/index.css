@@ -25,10 +25,12 @@ body {
 
 .cityNameBlock {
     grid-row: 3;
+    text-align: center;
 }
 
 .skyConditionBlock {
     grid-row: 4;
+    text-align: center;
 }
 
 .temperatureBlock {
@@ -38,31 +40,14 @@ body {
     align-self: center;
 }
 
-#Temperature {
-    /* min-height: 200px;
-    max-width: fit-content;
-    margin: auto;
-    padding: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    border-radius: 8px;
-    font-size: 2em; */
-}
-
-
 /* Specific Elements */
 .banner {
-    background-color: green;
     grid-column: span 3;
+    text-align: center;
 }
 
 #skyBanner {
     grid-row: 2;
-    text-align: left;
-    background-color: rgb(127, 168, 255);
 }
 
 #siteTitle {
