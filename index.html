@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
-<body>
+<body class="grid-container">
+
+<header id="weather-report">
+    <h1>Weather Report</h1>
+</header>
+<div id="description">
+    <p>For the lovely city of ✨✨<span id="city-name-display"></span>✨✨</p>
+</div>
+<div class="temperature-setting" id="temperature">
+    <div id="temp-title"><h3>Temperature</h3></div>
+    <div id="temperature-up-down"><button class="temp-button" id="temp-up">Up</button>
+    <div id="temp-container">
+    <div id="temp">50</div>
+    <button id="real-time-temp">Real Time Temperature</button>
+    </div>
+    <button class="temp-button" id="temp-down">Down</button>
+    </div>
     
+</div>
+<div class="temperature-setting" id="sky">
+    <h3>Sky</h3>
+    <select id="sky-choice">
+    <option>Sunny</option>
+    <option>Cloudy</option>
+    <option>Rainy</option>
+    <option>Snowy</option>
+    </select>
+</div>
+<div class="temperature-setting" id="city-name">
+    <h3>City Name</h3>
+    <div id="name-reset">
+    <input id="city-name-input" type="text" value="Seattle">
+    <button id="reset">Reset</button>
+    </div>
+</div>
+<div id="landscape">
+    <h3>Landscape</h3>
+    <div id="landscape-display">
+    <div id="sky-display">☁️ ☁️ ☀️ ☁️ ☁️</div>
+    <div id="whitespace-display"><br><br><br></div>
+    <div id="ground-display">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+    </div>
+</div>
+
 </body>
+<script src="./src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </html>

@@ -1,5 +1,20 @@
 # Weather Report
 
+## Pair Plan of Action
+Access needs:
+Laura - okay working outside of class hours/weekend if necessary but would like to be done by 8
+Abby - okay working outside of class/weekend if necessary, we can prioritize getting most work done during coworking time
+Learning Style:
+Laura- work best through applying skills learned
+Abby - trial and error, just try applying things learned and debug thing
+Preferred way of feedback:
+Abby - prefer to talk through call, inperson 
+Laura - take any type of feedback, flexible 
+One comm skill to improve through this:
+Abby - improving communication about code, but also planning for how to structure projects 
+Laura - improving on pair programming skills, communicating ideas for solutions 
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
