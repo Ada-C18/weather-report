@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(179, 190, 190);
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 70px;
+    text-align: center;
+}
+
+.menu-item h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 40px;
+}
+
+.menu-item {
+    flex-grow: 1;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+#header-city-name, #city-phrase {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#realtime-button, #counter-minus{
+    margin-bottom: 10px;
+}
+
+#temp-count {
+    font-size: 50px;
+}
+
+#garden-header{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+}
+
+.weather-display {
+    background-color:lightblue;
+    border: 2px solid;
+    padding: 20px; 
+    width: 400px;
+    margin: auto;
+    overflow: auto;
+}
+#sky-background, #landscape {
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+footer{
+    text-align: center;
+}
+/* Temp Colors */
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+}
+

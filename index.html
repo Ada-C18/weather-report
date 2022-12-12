@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <header id="title"><h1>Weather Report</h1></header>
+    <!-- is div the best tag for this -->
+    <div id="city-phrase">Exploring the city of:</div>
+    <div id="header-city-name"></div>
+    <!-- Content -->
+    <main>
+      <section class="menu-container">
+        <div class="menu-item">
+          <h2>City Name</h2>
+          <div id="form">
+            <input type="text" id="submit-city" placeholder="City Name..." />
+            <button type="button" id="submit-button">Submit</button>
+            <button id="reset-button">Reset</button>
+          </div>
+        </div>
+        <div class="menu-item">
+          <h2>Tempurature</h2>
+          <div class="temp-buttons">
+            <button id="counter-plus">+</button>
+            <h2 class="orange" id="temp-count"></h2>
+            <button id="counter-minus">-</button>
+          </div>
+          <button id="realtime-button">Get real time temp</button>
+        </div>
+        <div class="menu-item">
+          <h2>Sky</h2>
+          <!-- <label for="pet-select">Choose a sky background:</label> -->
+          <select name="sky-select" id="sky-select">
+            <option value="">--Please choose an option--</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+          </select>
+        </div>
+      </section>
+      <h2 id="garden-header">Weather Garden</h2>
+      <div class="weather-display">
+        <div id="sky-background" class="default-bg">
+          ☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️
+        </div>
+        <br></br>
+        <br></br>
+        <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+      </div>
+    </main>
+    <footer>
+      <p>Designed and created by Alyssa Reyes and Alexis Miller</p>
+    </footer>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>

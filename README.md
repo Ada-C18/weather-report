@@ -1,5 +1,21 @@
 # Weather Report
 
+# Plan of Action
+Access Needs:
+Alyssa - 45 mins commute, 5:30 - 7:30 pm, quiet environment
+Alexis - 7:30 pm cutoff, quiet environment as well
+
+Learning Styles:
+Alexis - Example and use
+Alyssa - visual learner, explanation of code, python tutor
+
+Feedback:
+Alexis, Alyssa - open to any and all feeback
+
+One communication skill to work on:
+Alyssa - explaining code
+Alexis - working on on the spot thinking
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
