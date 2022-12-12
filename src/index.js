@@ -96,27 +96,22 @@ const resetCityName = (event) => {
   modifyCityName();
 };
 
-const getLatAndLon = () => {
-  axios
-    .get('http://localhost:5000/location', {
+const getLatAndLon = async () => {
+  try {
+    const response = await axios.get('http://localhost:5000/location', {
       params: { q: state.city },
-    })
-
-    .then((response) => {
-      // console.log(response);
-      state.lat = response.data[0].lat;
-      state.lon = response.data[0].lon;
-      console.log(state);
-    })
-
-    .catch((error) => {
-      console.log('Error in get Lat & Lon');
     });
+    state.lat = response.data[0].lat;
+    state.lon = response.data[0].lon;
+    console.log(state);
+  } catch (error) {
+    console.log('Error in get Lat & Lon');
+  }
 };
 
-const getWeather = () => {
-  getLatAndLon();
-  changeColorAndGarden();
+const getWeather = async () => {
+  await getLatAndLon();
+  // changeColorAndGarden();
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
@@ -133,6 +128,7 @@ const getWeather = () => {
       state.temp = Math.round((temp - 273.15) * 1.8 + 32);
       const newTemp = document.getElementById('temp');
       newTemp.textContent = state.temp;
+      changeColorAndGarden();
     })
 
     .catch((error) => {
