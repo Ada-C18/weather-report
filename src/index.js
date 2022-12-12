@@ -1,12 +1,5 @@
 'use strict';
 
-// const { default: axios } = 'axios';
-
-// State, city, temp, sky
-
-// "https://us1.locationiq.com/v1/search.php"
-// "https://api.openweathermap.org/data/2.5/weather"
-
 const state = {
   city: 'Seattle',
   lat: 47.6038321,
