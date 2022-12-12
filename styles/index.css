@@ -4,15 +4,22 @@ body {
 
 #city-name-textbox{
     display: flex;
-    background-color: rgb(160, 197, 229);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: white;
+    box-sizing: border-box;
+    width: 85%;
+    height: 52px;
+    margin: 0 auto 2rem;
+    border: 2px solid #AAAAAA;
 }
 #weather-display-section {
     box-sizing: border-box;
-
-    width: 945px;
+    padding: 0 10px;
+    width: 85%;
     height: 384px;
-    left: 153px;
-    top: 150px;
+    margin: 0 auto 2rem;
 
     background: #A35FCA;
     /* Border / Subtle */
@@ -28,12 +35,8 @@ body {
 
 
 #city-name-input {
-    box-sizing: border-box;
-    width: 945px;
-    height: 52px;
-    left: 153px;
-    top: 86px;
-    border: 2px solid #AAAAAA;
+    border: none;
+    
 }
 
 #reset {
@@ -54,41 +57,28 @@ body {
 }
 
 #city-name {
-    width: 335px;
+    
+    text-align: center;
     height: 35px;
-    left: 174px;
-    top: 174px;
-
+    
     font-family: 'Racing Sans One';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
     line-height: 20px;
-    /* or 42% */
+    
 
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-color: #000000;
+    color: #000000;
 }
 
 #temp-display{
-    width: 143px;
-    height: 121px;
-    left: 551px;
-    top: 321px;
-
+    text-align: center;
+    margin: 0;
     font-family: 'Racing Sans One';
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
-    line-height: 20px;
-    /* or 31% */
-
-    display: flex;
-    align-items: center;
-    text-align: center;
+    
 
     color: #000000;
 }
@@ -101,59 +91,39 @@ color: #000000;
     left: 156px;
     top: 471px;
 
-background: #FFFFFF;
-/* Border / Subtle */
+    background: #FFFFFF;
 
-border: 2px solid #AAAAAA;
+    border: 2px solid #AAAAAA;
 }
 
 #sky-options {
-    width: 24px;
+    width: 85;
     height: 24px;
     right: 172.91px;
     top: 491.09px;
 }
 
-#temp-title {
+#weather-garden-title {
     box-sizing: border-box;
     width: 382px;
     height: 55px;
     left: 156px;
     top: 562px;
+    color: white;
+    background: #A35FCA;
 
-background: #A35FCA;
-/* Border / Subtle */
-
-border: 2px solid #AAAAAA;
+    border: 2px solid #AAAAAA;
 }
 
-#temp2-display {
-    width: 104px;
-    height: 96px;
-    left: 278px;
-    top: 645px;
-
-    font-family: 'Racing Sans One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 20px;
-    /* or 42% */
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background: #FFFFFF;
-/* Border / Subtle */
-}
-
-
-
-#temp-section, #weather-garden-section {
-    /* display: flex; */
+#weather-garden-section {
+    
     border-radius: 15px;
     padding: 8px;
     background-color: white;
     align-content: space-around;
+}
 
+#temp-controls {
+    display: flex;
+    justify-content:center
 }

@@ -1,16 +1,35 @@
-"use strict";
+// "use strict";
 // import axios from "axios";
 // const { default: axios } = require("axios");
 
 
+const tempDisplay = document.querySelector("#temp-display");
+const state = {temperature: 0};
+
+const incButton = document.querySelector("#increase-temp");
+const decButton = document.querySelector("#decrease-temp");
+
+const increaseTemp = () => {
+  state.temperature += 1;
+  console.log("It's working!");
+  tempDisplay.innerText = state.temperature;
+}
+
+const registerEventHandlers = () => {
+  const incButton = document.getElementById("#increase-temp");
+  incButton.addEventListener("click", increaseTemp);
+};
+
+document.addEventListener("DOMContentLoaded", registerEventHandlers);
+
 // API Calls
-const weatherLoc = (city_name) => {
+const weatherLoc = (cityName) => {
   const getLocation = () => {
     axios
     .get ('http://127.0.0.1:5000/location'), {
       params: {
         key: 'pk.b8aab1a85295b2c1f6e71a4ed20c3120',
-        q: city_name,
+        q: cityName,
         format: 'json'
       }
     }
@@ -35,7 +54,7 @@ const weatherLoc = (city_name) => {
     }
     .then (function(response){
       let kelvinTemp = response.data['main']['temp'];
-      let farhTemp = Math.floor((kelvinTemp - 273.15) * 1.8) + 32;
+      let farhTemp = Math.round((kelvinTemp - 273.15) * 1.8) + 32;
       // VARIABLE.innerText = farhTemp
     })
     .catch (function(error) {

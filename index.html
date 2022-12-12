@@ -14,11 +14,14 @@
     <section id="city-name-textbox">
         <input type="text" id="city-name-input" placeholder="Enter a city name here">
         <button id="reset">Reset</button>
-        <input type="reset" value="Reset">
     </section>
     <div id="weather-display-section">
         <p id="city-name" style="background-image: <needimagehere> "> City Name </p>
-        <p id="temp-display">75&deg</p>
+        <div id="temp-controls">
+            <button id="decrease-temp">-</button>
+            <p id="temp-display">75</p>
+            <button id="increase-temp">+</button>
+        </div>
         <section id="sky-section">
             <h3>Sky</h3>
             <select id="sky-options">
@@ -30,16 +33,9 @@
         </section>
     </div>
     <div id="bottom-section">
-        <section id="temp-section">
-            <h3 id="temp-title">Temperature</h3>
-            <p id="temp2-display">75&deg</p>
-            <div id="temp-controls">
-                <button id="decrease-temp"><</button>
-                <button id="increase-temp">></button>
-            </div>
-        </section>
+        
         <section id="weather-garden-section">
-            <h3>Weather Garden</h3>
+            <h3 id="weather-garden-title">Weather Garden</h3>
             <img id="weather-garden-image" source="" alt="">
         </section>
     </div>
