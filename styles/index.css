@@ -1,0 +1,199 @@
+body {
+    background-color: #94cef2;
+    color: #f77a05;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+}
+
+header {
+    text-align: center;
+    margin: 2rem auto 1rem auto;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.city_wrapper {
+    font-size: 2rem;
+    color: #f8eb5e;
+    font-family: sans-serif;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+#headerCityName {
+    padding: 0.5rem;
+}
+
+.city_container {
+    grid-column: 1 / 3;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.temperature_container, .sky_container, .garden_container {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sky_wrapper, .temp_wrapper, .garden_wrapper{
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 1rem 0 2rem 0;
+    width: 70%;
+    margin: 1rem 0;
+}
+
+.sky_wrapper, .temp_wrapper {
+    height: 13rem;
+}
+
+#skySelect {
+    font-size: 1rem;
+    padding: 7px;
+    border-radius: 5px;
+    color: #f77a05;
+    border: 4px double #f77a05;
+    cursor: pointer;
+}
+
+.my_garden {
+    background: linear-gradient(#4fa3f7 50%, #95ef7a); 
+    height: 20rem;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 10%;
+    opacity: calc(80%);
+}
+
+.sunny {
+    background: linear-gradient(#4fa3f7 50%, #95ef7a); 
+    height: 20rem;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 10%;
+    opacity: calc(80%);
+}
+
+.cloudy {
+    background: linear-gradient(#91b6c8 50%, #74ba5e);
+    height: 20rem;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 10%;
+    opacity: calc(80%);
+}
+
+.rainy {
+    background: linear-gradient(#377290 50%, #75abf1); 
+    height: 20rem;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 10%;
+    opacity: calc(80%);
+}
+
+.snowy {
+    background: linear-gradient(#bbc8cf, #f7f8f7); 
+    height: 20rem;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 10%;
+    opacity: calc(80%);
+}
+
+.temp_controls {
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#increaseTemp:hover, #decreaseTemp:hover {
+    color: #faa352;
+    cursor: pointer;
+}
+
+#tempValue {
+    font-size: 3rem;
+    padding: 0 1rem;
+    /* color: #f8e408; */
+    font-family: sans-serif;
+}
+
+
+.garden_container {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+#sky {
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    padding-top: 1rem;
+}
+
+#landscape {
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    margin-top: 18%;
+}
+
+button, #search {
+    background-color: #f77a05;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 7px;
+    cursor: pointer;
+    border: 4px double #cccccc;
+    font-size: 1rem;
+}
+
+#search {
+    padding: 7.5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover, #search:hover {
+    color:#ffffff;
+    background-color: #faa352;
+    border: 4px double #cccccc;
+}
+
+input {
+    font-size: 1rem;
+    padding: 7px;
+    border-radius: 5px;
+    border: 4px double #f77a05;
+}
+
+.yellow {
+    color: #f8e408;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: rgb(10, 243, 243);
+}
