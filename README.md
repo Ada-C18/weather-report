@@ -1,5 +1,26 @@
 # Weather Report
 
+## Team Plan
+
+* Access needs
+  * No working on the weekend!
+  * defined end times <3
+  * Let's aim for submission deadline of next Wednesday 
+  * don't work on it on your own.  let's work on it together.
+* Your learning style
+  * if one person doesn't get it, the other person shouldn't move on without their partner.
+  * instead, we should work together until everyone understands before moving on.
+  * J: hands-on learning, speaking out loud the problem, diagrams are useful, knowing the why of why we're doing something
+  * L: hands-on learning, knowing the why, speaking out loud the problem, sometimes I need to be slow about understanding it and need to get it before moving on.
+* How you prefer to receive feedback
+  * J: always constructive, don't take it personal, let me know if there's something I'm doing that's not working for you
+  * L: direct, timely, let me know if there's something I'm doing that's not working for you
+* One team communication skill you want to improve with this experience
+  * making a plan up front for what works (which we're doing)
+  * put your seatbelt on
+  * time management!
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
