@@ -1,4 +1,3 @@
-
 ('use strict');
 
 const API_CITY = 'http://127.0.0.1:5000/location';
@@ -6,7 +5,6 @@ const API_WEATHER = 'http://127.0.0.1:5000/weather';
 
 let temperature = 72;
 let city = 'Seattle';
-// const cityDefault = 'Seattle';
 
 const getAndDisplayTemp = () => {
   const spanTempNumber = document.getElementById('temperature-value');
@@ -14,7 +12,7 @@ const getAndDisplayTemp = () => {
   changeTempNumberColor();
   spanTempNumber.textContent = `${temperature}`;
 };
-// Increase temperature
+
 const increaseTemp = () => {
   temperature += 1;
   getAndDisplayTemp();
@@ -25,7 +23,6 @@ const increaseTempOnClick = () => {
   arrowUp.addEventListener('click', increaseTemp);
 };
 
-// Decrease temperature
 const decreaseTemp = () => {
   temperature -= 1;
   getAndDisplayTemp();
@@ -64,7 +61,6 @@ const updateCityName = (event) => {
   const cityName = document.querySelector('#city');
   cityName.textContent = event.target.value;
   city = cityName.textContent;
-  // cityName.textContent = city;
 };
 
 const updateCityNameInput = () => {
@@ -73,16 +69,11 @@ const updateCityNameInput = () => {
 };
 
 const getTempF = () => {
-  // console.log('city inside', city);
   axios
     .get(API_CITY, { params: { q: city, format: 'json' } })
     .then((result) => {
-      console.log(result);
       const latitude = result.data[0].lat;
-
       const lontitude = result.data[0].lon;
-      console.log(city);
-      console.log(latitude, lontitude);
 
       axios
         .get(API_WEATHER, {
@@ -91,17 +82,12 @@ const getTempF = () => {
         .then((result) => {
           const temp = result.data.main.temp;
           const tempF = convertTempKtoF(temp);
-
           temperature = tempF;
           getAndDisplayTemp();
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch((error) => {});
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => {});
 };
 const getRealTemp = () => {
   const tempButton = document.querySelector('#temperature-button');
@@ -117,20 +103,15 @@ const updateSky = () => {
   const spanSkyIcon = document.querySelector('#sky-icons');
   const skyOption = document.querySelector('#sky-button').value;
 
-  if (skyOption === 'sunny') {
-    skyIcon = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (skyOption === 'cloudy') {
-    skyIcon = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (skyOption === 'rainy') {
-    skyIcon = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else {
-    skyIcon = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-  }
+  if (skyOption === 'sunny') skyIcon = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  else if (skyOption === 'cloudy') skyIcon = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  else if (skyOption === 'rainy') skyIcon = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  else skyIcon = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   spanSkyIcon.textContent = skyIcon;
 };
+
 const updateWeaterGardenOnInput = () => {
   let skySelect = document.querySelector('#sky-button');
-
   skySelect.addEventListener('change', updateSky);
 };
 
@@ -140,13 +121,13 @@ const resetCityName = () => {
   cityName.textContent = defaultCityName;
   const inputCity = document.querySelector('#city-name-input');
   inputCity.value = defaultCityName;
+  city = defaultCityName;
 };
-// resetCityName();
+
 const resetCityNameOnClick = () => {
   resetButton = document.querySelector('#reset-button');
   resetButton.addEventListener('click', resetCityName);
 };
-
 
 const EventHandlers = () => {
   increaseTempOnClick();
@@ -156,6 +137,7 @@ const EventHandlers = () => {
   updateWeaterGardenOnInput();
   resetCityNameOnClick();
 };
+
 if (document.readyState !== 'loading') {
   EventHandlers();
 } else {
