@@ -8,45 +8,36 @@
     <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <header class="titleBlock">
-            <h1 id="siteTitle">The Weather Station</h1>
-            <span class="banner" id="skyBanner">...</span>
-        </header>
-
-        <p class="testBlock">eserunt mollit anim id est laborum.</p>
-
-        <div class="middlePageBlock">
-            <div class="leftColumnBlock">
-                <div class="cityNameBlock">
-                    <label id="cityName" for="inputCityName">Seattle</label>
-                    <input type="text" id="inputCityName" placeholder="Berlin"/>
-                    <button id="resetCityName">reset city name</button>
-                </div>         
-                <div class="skyConditionBlock">
-                    <label for="skySelect">Sky Condition</label>
-                    <select name="skyCondition" id="skySelect">
-                        <option value="sunny">Sunny</option>
-                        <option value="cloudy">Cloudy</option>
-                        <option value="rainy">Rainy</option>
-                        <option value="snowy">Snowy</option>
-                    </select>
-                </div>
-            </div>
-            <!-- <div>Date & Time</div> -->
-            <div class="temperatureBlock">
-                <button id="increaseTempButton">Increase Temp</button>
-                <p id="Temperature">Temperature</p>
-                <button id="decreaseTempButton">Decrease Temp</button>
-                <button id="updateTempButton">Update Temperature</button>
-            </div>
-        </div>
-        
-        <span class="banner" id="landscape">...</span>
-        <footer>
-            <p>&copy;Copyright Adies of D18 2022</p>
-        </footer>   
-    </main>
+    <header class="titleBlock">
+        <h1 id="siteTitle">The Weather Station</h1>
+    </header>
+    <span class="banner" id="skyBanner">...</span>
+    <section class="cityNameBlock">
+        <label id="cityName" for="inputCityName">Seattle</label>
+        <input type="text" id="inputCityName" placeholder="Berlin"/>
+        <button id="resetCityName">reset city name</button>
+    </section>         
+    <section class="skyConditionBlock">
+        <label for="skySelect">Sky Condition</label>
+        <select name="skyCondition" id="skySelect">
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </section>
+    <!-- <div>Date & Time</div> -->
+    <section class="temperatureBlock">
+        <button id="increaseTempButton">Increase Temp</button>
+        <p id="Temperature">Temperature</p>
+        <button id="decreaseTempButton">Decrease Temp</button>
+        <button id="updateTempButton">Update Temperature</button>
+    </section>
+    
+    <span class="banner" id="landscape">...</span>
+    <footer>
+        <p>&copy;Copyright Adies of D18 2022</p>
+    </footer>   
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
 </body>

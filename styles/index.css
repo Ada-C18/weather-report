@@ -1,25 +1,18 @@
 body {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     grid-gap: 1rem;
     background-color: rgb(147, 227, 247);
     margin: 1rem;
 }
 
-main {
-    
-}
-
 /* Flexbox Page Layout */
 .titleBlock {
+    grid-row: 1;
     grid-column: span 3;
-    display: flex;
-    align-items: center;
-}
-
-.testBlock {
-    text-align: center;
+    display: grid;
+    align-self: center;
 }
 
 .cityNameBlock,
@@ -33,26 +26,26 @@ main {
 .cityNameBlock {
     background-color: red;
     border: 3px solid white;
-    grid-row: 2;
+    grid-row: 3;
 }
 
 .skyConditionBlock {
     background-color: blue;
     border: 3px solid white;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 .temperatureBlock {
-    background-color: yellow;
+    background-color: green;
     border: 3px solid white;
-    grid-row: 2;
-    grid-column: 2 / span 3;
+    grid-row: 3 / span 3;
+    grid-column: 2;
     text-align: center;
     align-self: center;
 }
 
 #Temperature {
-    min-height: 200px;
+    /* min-height: 200px;
     max-width: fit-content;
     margin: auto;
     padding: 2rem;
@@ -62,16 +55,18 @@ main {
     justify-content: space-between;
 
     border-radius: 8px;
-    font-size: 2em;
+    font-size: 2em; */
 }
 
 
 /* Specific Elements */
 .banner {
-    background-color: blanchedalmond;
+    background-color: green;
+    grid-column: span 3;
 }
 
-#skybanner {
+#skyBanner {
+    grid-row: 2;
     text-align: left;
     background-color: rgb(127, 168, 255);
 }
@@ -116,10 +111,6 @@ main {
 #updateTempButton {
     background-color: bisque;
     border-radius: 3em;
-}
-
-#landscape {
-    background-color: aqua;
 }
 
 #cityName {
