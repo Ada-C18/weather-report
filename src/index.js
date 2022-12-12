@@ -1,5 +1,53 @@
+
+const getRealTimeTemp = () => {
+  //   // input: cityName -> locationQ -> lat, lon
+  //   // -> open weatherApp -> realTemp for the city (in lat, lon)
+  //   // change the element of html page: currentTemp
+  // const axios = require('axios');
+  let latitude, longitude;
+  const cityName = document.getElementById("cityName").value;
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: cityName,
+      },
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log('success in getRealTimeTemp!', latitude, longitude);
+      const temperature = getTempByCity(latitude, longitude);
+      return temperature;
+    })
+    .catch((error) => {
+      console.log('error in getRealTimeTemp!');
+    });
+};
+
+const getTempByCity = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      console.log('success in findWeather!', response.data.main.temp);
+      const realTemp = response.data.main.temp
+      const fahrenheit = Math.round(1.8*(realTemp - 273.15) + 32)
+      console.log('here is temp in fahrenheit',fahrenheit);
+      changeTempColor(fahrenheit)
+      return fahrenheit
+    })
+    .catch((error) => {
+      console.log('error in findWeather!');
+    });
+};
+
+
 const state = {
-  currentTemp: 79,
+  currentTemp: 100,
 };
 
 // temperature
@@ -7,13 +55,11 @@ const increaseTemp = () => {
   state.currentTemp += 1;
   const tempContainer = document.querySelector('#currentTemp');
   tempContainer.textContent = `${state.currentTemp}`;
-  skyChanger();
 };
 const decreaseTemp = () => {
   state.currentTemp -= 1;
   const tempContainer = document.querySelector('#currentTemp');
   tempContainer.textContent = `${state.currentTemp}`;
-  skyChanger();
 };
 const changeTempColor = () => {
   const landscapeContainer = document.querySelector('#landscapeSection');
@@ -61,49 +107,6 @@ const skyChanger = () => {
   }
 };
 
-const getRealTimeTemp = () => {
-  //   // input: cityName -> locationQ -> lat, lon
-  //   // -> open weatherApp -> realTemp for the city (in lat, lon)
-  //   // change the element of html page: currentTemp
-  // const axios = require('axios');
-  let latitude, longitude;
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: 'Seattle',
-      },
-    })
-    .then((response) => {
-      latitude = response.data[0].lat;
-      longitude = response.data[0].lon;
-      console.log('success in getRealTimeTemp!', latitude, longitude);
-      const temperature = getTempByCity(latitude, longitude);
-      return temperature;
-    })
-    .catch((error) => {
-      console.log('error in getRealTimeTemp!');
-    });
-};
-
-const getTempByCity = (latitude, longitude) => {
-  axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: {
-        lat: latitude,
-        lon: longitude,
-      },
-    })
-    .then((response) => {
-      console.log('success in findWeather!', response.data.main.temp);
-      const realTemp = response.data.main.temp
-      const fahrenheit = Math.round(1.8*(realTemp - 273.15)+ 32)
-      console.log('here is temp in fahrenheit',fahrenheit);
-      changeTempColor(fahrenheit);
-    })
-    .catch((error) => {
-      console.log('error in findWeather!');
-    });
-};
 
 const registerEventHandlers = () => {
   const realTimeTemp = document.querySelector('#realTimeTemp');
