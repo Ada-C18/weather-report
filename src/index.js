@@ -42,6 +42,17 @@ const changeColor = () => {
 };
 
 //wave 4 axios call
+const realTimeClick = () => {
+  let query = input.value;
+  // displayTemp();
+  findLocationWeather(query);
+};
+
+const displayTemp = () => {
+  let tempContainer = document.getElementById('Temperature');
+  tempContainer.textContent = state.temp;
+};
+
 const findLocationWeather = (query) => {
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -63,10 +74,12 @@ const findLocationWeather = (query) => {
         })
         .then((response) => {
           console.log('success in findWeather!', response.data);
-          state.temp = Math.floor(
+          const currentTemp = Math.floor(
             (Number(response.data.main.temp) - 273.15) * 1.8 + 32
           );
+          state.temp = currentTemp;
           changeColor();
+          displayTemp();
         })
         .catch((error) => {
           console.log('error in findweather!', error);
@@ -77,12 +90,6 @@ const findLocationWeather = (query) => {
     });
 };
 
-const realTimeClick = () => {
-  let query = input.value;
-  findLocationWeather(query);
-  const tempContainer = document.getElementById('Temperature');
-  tempContainer.textContent = state.temp;
-};
 //wave 5
 
 const selectSky = document.querySelector('.sky');
