@@ -2,20 +2,20 @@
 'use strict';
 
 const state = {
-  clickCount: 50, // # of clicks
+  temp: 32,
 };
 
 const plusClickCount = () => {
   const plusContainer = document.getElementById('Temperature');
-  state.clickCount += 1;
-  plusContainer.textContent = state.clickCount;
+  state.temp += 1;
+  plusContainer.textContent = state.temp;
   changeColor();
 };
 
 const minusClickCount = () => {
   const minusContainer = document.getElementById('Temperature');
-  state.clickCount -= 1;
-  minusContainer.textContent = state.clickCount;
+  state.temp -= 1;
+  minusContainer.textContent = state.temp;
   changeColor();
 };
 //making text color different
@@ -23,37 +23,24 @@ const changeColor = () => {
   const tempColor = document.querySelector('#Temperature');
   const newLS = document.getElementById('newLandscape');
 
-  if (state.clickCount < 49) {
+  if (state.temp < 49) {
     tempColor.style.color = 'teal';
     newLS.src = `assets/cold.jpeg`;
-
-  } else if (state.clickCount >= 50 && state.clickCount < 59) {
+  } else if (state.temp >= 50 && state.temp < 59) {
     tempColor.style.color = 'green';
     newLS.src = `assets/cool.jpeg`;
-
-  } else if (state.clickCount >= 60 && state.clickCount < 69) {
+  } else if (state.temp >= 60 && state.temp < 69) {
     tempColor.style.color = 'yellow';
     newLS.src = `assets/warm.jpeg`;
-
-  } else if (state.clickCount >= 70 && state.clickCount < 79) {
+  } else if (state.temp >= 70 && state.temp < 79) {
     tempColor.style.color = 'orange';
     newLS.src = `assets/beach.jpeg`;
-
-  } else if (state.clickCount >= 80) {
+  } else if (state.temp >= 80) {
     tempColor.style.color = 'red';
     newLS.src = `assets/hot1.jpeg`;
-
   }
 };
-//wave 3
-const input = document.querySelector('input');
-const log = document.getElementById('values');
 
-input.addEventListener('input', updateValue);
-
-function updateValue(e) {
-  log.textContent = e.target.value;
-}
 //wave 4 axios call
 const findLocationWeather = (query) => {
   axios
@@ -76,10 +63,10 @@ const findLocationWeather = (query) => {
         })
         .then((response) => {
           console.log('success in findWeather!', response.data);
-          state.clickCount = Math.floor(
+          state.temp = Math.floor(
             (Number(response.data.main.temp) - 273.15) * 1.8 + 32
           );
-          changeColor()
+          changeColor();
         })
         .catch((error) => {
           console.log('error in findweather!', error);
@@ -94,7 +81,7 @@ const realTimeClick = () => {
   let query = input.value;
   findLocationWeather(query);
   const tempContainer = document.getElementById('Temperature');
-  tempContainer.textContent = state.clickCount;
+  tempContainer.textContent = state.temp;
 };
 //wave 5
 
@@ -105,14 +92,19 @@ selectSky.addEventListener('change', (event) => {
   result.textContent = `The sky is ${event.target.value}`;
 });
 
+//wave 3 update text
+const input = document.querySelector('input');
+const log = document.getElementById('values');
 
+input.addEventListener('input', updateValue);
 
-
-
+function updateValue(e) {
+  log.textContent = e.target.value;
+}
 //wave 6
 const resetCity = () => {
   input.value = '';
-  document.getElementById('values')='';
+  log.textContent = '';
 };
 
 const registerEventHandlers = () => {
