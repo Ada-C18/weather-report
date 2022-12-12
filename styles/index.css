@@ -1,9 +1,72 @@
 body {
     display: grid;
-    grid-template-columns: ;
-    grid-template-row: ;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
     background-color: rgb(147, 227, 247);
+    margin: 1rem;
 }
+
+main {
+    
+}
+
+/* Flexbox Page Layout */
+.titleBlock {
+    grid-column: span 3;
+    display: flex;
+    align-items: center;
+}
+
+.testBlock {
+    text-align: center;
+}
+
+.cityNameBlock,
+.skyConditionBlock,
+.temperatureBlock {
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: white;
+}
+
+.cityNameBlock {
+    background-color: red;
+    border: 3px solid white;
+    grid-row: 2;
+}
+
+.skyConditionBlock {
+    background-color: blue;
+    border: 3px solid white;
+    grid-row: 3;
+}
+
+.temperatureBlock {
+    background-color: yellow;
+    border: 3px solid white;
+    grid-row: 2;
+    grid-column: 2 / span 3;
+    text-align: center;
+    align-self: center;
+}
+
+#Temperature {
+    min-height: 200px;
+    max-width: fit-content;
+    margin: auto;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 8px;
+    font-size: 2em;
+}
+
+
+/* Specific Elements */
 .banner {
     background-color: blanchedalmond;
 }
@@ -42,7 +105,7 @@ body {
 }
 
 #Temperature {
-    background-color: aquamarine;
+    font-size: 30px;
 }
 
 #decreaseTempButton {
