@@ -20,30 +20,32 @@ section {
 
 #middle {
   background-image: url("../assets/snowyMiddle.jpg");
-  flex-basis: 50vh;
+  flex-basis: 45vh;
 }
 
 #land {
   background-image: url("../assets/desertLand.jpg");
-  flex-basis: 25vh;
-}
-
-h1 {
-  font-size: 2.5em;
+  flex-basis: 30vh;
 }
 
 #searchbox {
   border-radius: 5px;
   height: 25px;
   width: 250px;
-  margin-top: 40px;
+  margin-top: 100px;
+}
+
+#city-display {
+  font-size: 2.5em;
 }
 
 #temp-display {
   font-size: 3em;
-  margin-top: 20px;
-  margin-bottom: 0px;
   color: teal;
+}
+
+.middle {
+  display: contents;
 }
 
 button {

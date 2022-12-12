@@ -14,6 +14,7 @@ const current = {
 const changeCity = () => {
   const cityDisplay = document.getElementById('city-display');
   const searchBox = document.getElementById('searchbox')
+  
   current.city = searchBox.value;
   cityDisplay.innerHTML = current.city
 };
@@ -21,13 +22,13 @@ const changeCity = () => {
 // increase temp
 const increaseTemp = () => {
   current.temp++;
-  setColorAndLand;
+  setColorAndLand();
 };
 
 // decrease temp
 const decreaseTemp = () => {
   current.temp--;
-  setColorAndLand;
+  setColorAndLand();
 };
 
 // change temp display, color and land
@@ -63,13 +64,15 @@ const setSkyAndMiddle = () => {
   const sky = document.getElementById('sky');
   const middle = document.getElementById('middle');
 
-  if (skyDropdown.value === 'sunny') {
+  console.log(skyDropdown.value)
+
+  if (skyDropdown.value === 'Sunny') {
     current.sky = "url('../assets/sunnySky.jpg')"
     current.middle = "url('../assets/clearMiddle.jpg')"
-  } else if (skyDropdown.value === 'cloudy') {
+  } else if (skyDropdown.value === 'Cloudy') {
     current.sky = "url('../assets/cloudySky.jpg')"
     current.middle = "url('../assets/cloudyMiddle.jpg')"
-  } else if (skyDropdown.value === 'rainy') {
+  } else if (skyDropdown.value === 'Rainy') {
     current.sky = "url('../assets/cloudySky.jpg')"
     current.middle = "url('../assets/rainyMiddle.jpg')"
   } else {
