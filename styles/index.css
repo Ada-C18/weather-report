@@ -1,14 +1,10 @@
 /* previous instructors ex:
 https://simons-weather-report.surge.sh/
 figma: https://www.figma.com/file/8zHh7xLLNxqUhrTPw6hr5F/Untitled?node-id=0%3A3&t=rSgbliCuqj0Xl7un-0
-project ex: https://enlight.nyc/projects/weather
-another ex: https://www.codingnepalweb.com/build-weather-app-html-javascript/
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-examples
-*/
 
-/*///////////// BASIC LAYOUT  ///////////////*/
+
+/* ///////////// BASIC LAYOUT  /////////////// */
 body {
-    /* background-color: blueviolet; */
     background-image: url(/images/orange_flowers.jpg);
 }
 * {
@@ -21,12 +17,11 @@ body h2 {
     margin-left: 42px;
 }
 .inner-body {
-    /* border-radius: 10px; round the corners */
+    border-radius: 10px;
     margin: auto;
     width: 1300px;
     height: 800px;
-    /* display: flex-grid; */
-    /* height: 725px; */
+
     padding: 20px; 
     background-color: rgb(239, 238, 238);
     opacity: .7;
@@ -63,13 +58,11 @@ body h2 {
 }
 /*/////// ITEMS IN CITY CONTAINER ///////////*/
 #city-name {
-    /* changes to city name style */
     text-transform: capitalize;
     font-size: 40px;
     text-transform: uppercase;
 }
 #city-name::first-letter {
-    /* ideally  have first letter of city be larger than the rest*/
     font-size: 60px;
 }
 form #reset input {
@@ -98,7 +91,6 @@ form #reset input {
 #temp-content {
     display: flex;
     padding: 30px;
-    /* justify-content: space-around; */
     gap: 30px;
 }
 

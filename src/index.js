@@ -68,8 +68,6 @@ const updateCity = inputForm.addEventListener('submit', function(e){
     console.log(cityText.innerHTML);
     getTempFromLocation(inputValue);
     tempValue.style.color = tempRange(Number(tempValue.innerHTML));
-
-    // tempValue.innerHTML = temperature;
 });
 
 
