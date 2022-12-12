@@ -11,7 +11,10 @@ const lon = -122.330062;
 axios
   .get('http://127.0.0.1:5000/weather' + '?lat=' + lat + '&lon=' + lon)
   .then((response) => {
-    console.log(response.data.main.temp);
+    const temp = response.data.main.temp;
+    console.log(temp);
+    const appearanceHeading = document.getElementById('temperaturenumber');
+    appearanceHeading.textContent = temp + ' °F';
   });
 
 //if loading,
