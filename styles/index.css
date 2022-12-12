@@ -24,19 +24,16 @@ body {
 }
 
 .cityNameBlock {
-    background-color: red;
     border: 3px solid white;
     grid-row: 3;
 }
 
 .skyConditionBlock {
-    background-color: blue;
     border: 3px solid white;
     grid-row: 4;
 }
 
 .temperatureBlock {
-    background-color: green;
     border: 3px solid white;
     grid-row: 3 / span 3;
     grid-column: 2;
