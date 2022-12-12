@@ -33,11 +33,24 @@ const state = {
 const addTemp = (event) => {
   state.tempCount += 1;
 };
+
 const registerEventHandlers = (event) => {
   // console.log('in registerEventHandelers:', event);
   const upButton = document.querySelector('#Up');
   upButton.addEventListener('click', addtemp);
 };
+
+async function get_temp(query) {
+  let response = await axios.get;
+}
+
+// const getPromise = (time) => {
+//   const timeoutTime = time * 1000;
+//   const myPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve("It's go time!"), timeoutTime);
+//   });
+//   return myPromise;
+// };
 
 // state.tempCount += 1;
 //   const bookCountContainer = document.querySelector("#bookCount");
