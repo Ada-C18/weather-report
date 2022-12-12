@@ -20,19 +20,23 @@ body {
     text-decoration: unset;
     text-align: center;
     color: rgb(242, 239, 245);
+    font-family: fantasy;
 }
 
 #For-the-lovely-city-of {
     text-decoration: unset;
-    text-align: left;
+    text-align: center;
     color: rgb(242, 239, 245);
+    font-family: cursive;
+    font-size: x-large;
 }
 
 #City-Name-Top {
     text-decoration: unset;
-    text-align: left;
+    text-align: center;
     color: rgb(242, 239, 245);
-    padding: 100px;
+    font-size: x-large;
+    font-family: verdana;
 }
 
 #Weather-Garden {
