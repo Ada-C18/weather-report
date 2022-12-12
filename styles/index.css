@@ -1,0 +1,110 @@
+
+body {
+    font-family: 'Verdana', sans-serif, monospace;
+    background-color: rgb(122, 172, 218); 
+    margin: 10px;
+    text-align: center;     
+} 
+
+button:hover {
+    background-color: rgb(138, 138, 138);
+}
+
+#websiteContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
+    margin: 20px;
+}
+
+.container {
+    width: 300px;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 0px;
+    background-color: white;
+    border: 15px solid rgb(255, 255, 255);
+}
+
+#cityBox {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+#weatherContainer {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background-color: white;
+    width: 400px;
+    padding: 40px;
+    padding-top: 0px;
+    position: relative; 
+}
+
+#temperatureContainer {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#skyContainer {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+
+#cityNameHeader {
+    font-style: italic;
+    font-size: 24px;
+}
+
+header h2 {
+    font-size: 20px;
+}
+
+section h2 {
+    font-size: 30px;
+}
+
+#getTempButton {
+    background-color: lightpink;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border: none;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+#getTempButton:hover {
+    background-color: rgb(158, 158, 158);
+}
+
+#increaseButton {
+    font-size: x-large;
+}
+
+#decreaseButton {
+    font-size: x-large;
+    
+}
+
+#startingTemp {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 5px;
+    color: yellow;
+}
+
+#skyIcons {
+    font-size: 30px;
+    position:absolute;
+    top: 15%;
+}
+
+#landscapeIcons {
+    font-size: 30px;
+    position: absolute;
+    bottom: 0;
+}
