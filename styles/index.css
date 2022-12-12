@@ -1,0 +1,74 @@
+body {
+  background-image: url('https://images.pexels.com/photos/10920428/pexels-photo-10920428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  background-color: #ffffff10;
+  backdrop-filter: blur(10px);
+  border: 3px solid #edc548;
+  border-radius: 75px;
+  display: block;
+  max-width: fit-content;
+  max-height: fit-content;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.search-label {
+  margin-left: 225px;
+  font-size: 18px;
+}
+
+.current-temp {
+  margin-left: 20px;
+}
+.current-city {
+  font-size: 35px;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  
+  }
+
+#displayCity {
+  font-size: 30px;
+  text-align: center;
+
+}
+
+#displayWeather {
+  display: flex;
+  columns: 2;
+  justify-content: center;
+  margin: 10px;
+}
+
+#dropDownMenu {
+  text-align: right;
+  margin: 10px;
+}
+
+#getDisplayCityTemp {
+  background-color: #edc548;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  color: gray;
+  font-size: 15px;
+  font-weight: bolder;
+  margin: 10px;
+  padding: 10px 15px;
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
+}
+
+#Total {
+  font-size: 75px;
+  font-weight: bold;
+  text-align: center;
+}

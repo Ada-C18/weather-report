@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body class="flex-container" >
+    <div class="container">
+      
+      <div id="dropDownMenu">
+        <label for="skyMenu">Change Sky:</label>
+        <br>
+        <select name="sky" id="sky">
+          <option value="snowy" id="snowy">Snowy</option>
+          <option value="sunny" id="sunny">Sunny</option>
+          <option value="cloudy" id="cloudy">Cloudy</option>
+          <option value="rainy" id="rainy">Rainy</option>
+        </select>
+      </div>
+      City  <input type="text" id="city" name="city" value="Sioux City, IA"><br>
+      
+          <input type="button" id="button1" name="button1" value="Change Name">
+          <br><br>
+      <button id="Add">Add</button>
+      <button id="Subtract">Subtract</button>
+      <div id="displayWeather">
+        <div id="Total">50</div>
+        <div>F°</div>
+      </div>
+      <div id="displayCity">Sioux City, IA</div>
+      <div id="realtimeButton">
+        <button id="getDisplayCityTemp">Get Realtime Temperature</button>
+      </div>
+      <div id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+    </div>
+    <script src="./node_modules/axios/dist/axios.min.js"></script> 
+    <script src="./src/index.js"></script> 
+  </body>
 </html>
