@@ -1,19 +1,10 @@
 "use strict";
+// import axios from "axios";
+// const { default: axios } = require("axios");
 
-const { default: axios } = require("axios");
-
-// const changeTemp = tempDisplay => {
-//   const 
-// }
-
-
-// const increaseTemp = () => {
-//   tempDisplay += 1;
-//   changeTemp(tempDisplay)
-// }
 
 // API Calls
-const weatherforecast = (city_name) => {
+const weatherLoc = (city_name) => {
   const getLocation = () => {
     axios
     .get ('http://127.0.0.1:5000/location'), {
@@ -26,15 +17,14 @@ const weatherforecast = (city_name) => {
     .then (function(response){
       let lat = response.data[0]["lat"];
       let lon = response.data[0]["lon"];
-      getWeatherFromLoc(lat, lon);
+      getWeather(lat, lon);
     })
-
     .catch (function(error) {
       console.error(error);
     })
   }
 
-  const getWeatherFromLoc = (lat, lon) => {
+  const getWeather = (lat, lon) => {
     axios
     .get ('http://127.0.0.1:5000/weather'), {
       params: {
@@ -47,6 +37,9 @@ const weatherforecast = (city_name) => {
       let kelvinTemp = response.data['main']['temp'];
       let farhTemp = Math.floor((kelvinTemp - 273.15) * 1.8) + 32;
       // VARIABLE.innerText = farhTemp
+    })
+    .catch (function(error) {
+      console.error(error);
     })
   }
 }
