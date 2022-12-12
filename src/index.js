@@ -1,9 +1,13 @@
-// import axios from "axios";
+"use strict";
 
 const state = {
   temp: 72,
   city: "Seattle",
+  lat:  "47.6038321",
+  lon: "-122.330062",
 }
+
+// display changes
 
 const tempChange = () => {
   let color = "red";
@@ -70,7 +74,59 @@ const resetCity = () => {
   let newCityInput = document.getElementById("newCity");
   newCityInput.value = "Seattle";
   cityNameChange();
+  console.log("reset city");
 }
+
+// API Calls
+
+const toFahrenheit = (k) => (k - 273.15) * (9 / 5) + 32;
+
+const getWeather = () => {
+  axios
+    .get("http://127.0.0.1:5000/weather", {
+      params: {
+        lat: state.lat,
+        lon: state.lon,
+      }
+    })
+    .then( (response) => {
+      const weather = response.data;
+      const cityTemp = Math.round(toFahrenheit(weather.main.temp));
+      state.temp = cityTemp
+      console.log("success!!", response.status);
+      tempChange();
+      landscapeChange();
+    })
+    .catch( (error) => {
+      console.log("weather error", 
+      error.status, error.response);
+    })
+}
+
+const getLatAndLon = () => {
+  let lat, lon;
+  axios
+    .get("http://127.0.0.1:5000/location", {
+      params: {
+        q: state.city,
+        format: "json",
+      }
+    })
+    .then( (response) => {
+      lat = response.data[0].lat;
+      lon = response.data[0].lon;
+      console.log("success!!", response.status);
+      state.lat = lat;
+      state.lon = lon;
+      getWeather();
+    })
+    .catch( (error) => {
+      console.log("location error", 
+      error.status, error.response);
+    })
+}
+
+// Event Listeners
 
 const registerEventHandlers = () => {
   tempChange();
@@ -88,6 +144,9 @@ const registerEventHandlers = () => {
 
   const resetCityButton = document.getElementById("changeCity");
   resetCityButton.addEventListener("click", resetCity);
+
+  const realTimeTemp = document.getElementById("tempRequest");
+  realTimeTemp.addEventListener("click", getLatAndLon);
 
   console.log("loaded successfully");
 }
