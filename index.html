@@ -30,12 +30,20 @@
                 <button id="realtime-button">Get real time temp</button>
             </div>
             <div class="menu-item">
-                <h2>Sky Display</h2>
+                <h2>Sky</h2>
+                <!-- <label for="pet-select">Choose a sky background:</label> -->
+                    <select name="skies" id="sky-select" onchange="handleSkyDisplay()">
+                        <option value="">--Please choose an option--</option>
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select>
             </div>
         </section>
         <h2>Weather Garden</h2>
         <div class="weather-display">
-            <div class="sky-background" class="default-bg"></div>
+            <div id="sky-background" class="default-bg">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div>
             <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
         </div>
     </main>

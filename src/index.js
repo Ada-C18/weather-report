@@ -35,6 +35,7 @@ const handleCounterMinus = () => {
   decTempBy1();
   changeTempDisplay(counterDisplayElem, landscapeElem);
 };
+
 // Helper for City Submit Bar
 const handleSubmitButton = () => {
   city = document.getElementById('submit-city').value;
@@ -45,7 +46,7 @@ const handleSubmitButton = () => {
 // Helpler to set temp
 const setTemp = () => {
   counterDisplayElem.innerHTML = temp;
-}
+};
 
 const decTempBy1 = () => {
   temp--;
@@ -56,7 +57,6 @@ const incTempBy1 = () => {
   setTemp();
 };
 
-
 //Helper for RealTime Temperature
 const handleRealTimeButton = () => {
   getInfo(city);
@@ -66,6 +66,26 @@ const init = () => {
   registerEventHandlers();
   setTemp();
 };
+
+//Helper for Sky Display
+// let skyElem = document.getElementById('sky-select').value;
+// let skyBackground = document.getElementById('sky-background');
+
+// const changeSkyDisplay = (skyElem, skyBackground) => {
+//   if (skyElem === 'Sunny') {
+//     skyBackground.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+//   } else if (skyElem === 'Cloudy') {
+//     skyBackground.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+//   } else if (skyElem === 'Rainy') {
+//     skyBackground.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+//   } else if (skyElem === 'Snowy') {
+//     skyBackground.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+//   }
+// };
+
+// const handleSkyDisplay = () => {
+//   changeSkyDisplay(skyElem, skyBackground);
+// };
 
 const registerEventHandlers = () => {
   //Temperature
@@ -82,6 +102,10 @@ const registerEventHandlers = () => {
   // City Submit Bar
   let submitButton = document.getElementById('submit-button');
   submitButton.addEventListener('click', handleSubmitButton);
+
+  // Sky Display
+  // let skySelector = document.querySelector('.skies');
+  // skySelector.addEventListener('change', handleSkyDisplay);
 };
 
 document.addEventListener('DOMContentLoaded', init);
