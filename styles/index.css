@@ -1,0 +1,116 @@
+/* Web page Color scheme */
+
+:root {
+    --primaryColor: #0066FF;
+    --lightColor: #abaed3; 
+
+}
+
+header {
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* id selectors */
+#displayedTemp {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#increaseTemp {
+    background-color: lightcoral;
+}
+
+#decreaseTemp {
+    background-color: lightblue;
+}
+
+#currentCity {
+    font-size: 2em;
+}
+
+/* class selectors */
+
+.container{
+    display: grid;
+
+    grid-template-areas: 
+    "a b c" 
+    "a b c"
+    "a b c"; 
+
+    gap: 5px;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.interactive{
+    background-color: var(--lightColor);
+}
+
+.credits {
+    font-size: .8em;
+}
+
+/* weather flex box formatting */
+
+.weatherFlexBox {
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sky {
+    text-align: center;
+    font-size: 2em;
+}
+
+#landscape {
+    text-align: center;
+    font-size: 2em;
+}
+
+/* color options for 
+temp & landscape background */
+
+.red {
+    color: red;
+    }
+    
+.orange {
+    color: orange;
+    }
+    
+.yellow {
+    color: yellow;
+    }
+    
+.green {
+    color: green;
+    }
+    
+.blue {
+    color: blue;
+    }
+
+/* color options for atmosphere */
+
+.sunny {
+    background-color: gold;
+}
+
+.cloudy {
+    background-color: beige;
+}
+
+.rainy {
+    background-color: lightskyblue;
+}
+
+.snowy {
+    background-color: snow;
+}
+
+.stormy {
+    background-color: grey;
+}
