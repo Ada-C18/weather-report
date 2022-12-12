@@ -9,12 +9,18 @@ h1 {
     margin: 2rem auto 3rem 0;
     font-size: 60px;
     text-align: center;
-}
+} 
 
+
+h2 {
+    margin: 0 auto 2rem auto;
+    text-align: left;
+}
 
 .header_city {
     font-style: oblique;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    
 }
 
 .temperature_section,
@@ -22,7 +28,7 @@ h1 {
 .city_section {
     border-radius: 8px;
     padding: 2rem;
-    background-color:rgb(237, 189, 196, .7);
+    background-color:rgba(34, 246, 214, 0.7);
     filter: brightness(200%)
 }
 
@@ -40,27 +46,111 @@ h1 {
 }
 
 .garden_section {
-    grid-row: 3 / span 1;
+    grid-row: 3 / span 2;
     grid-column: 2 / span 2;
     text-align: center;
     align-self: center;
+
+    min-height: 150px;
+    max-width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    border-radius: 8px;
+
 } 
 
-h2 {
-    margin: 0 auto 2 rem auto; 
-}
 
 body {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto auto;
-    grid-gap: 1rem;
+    grid-gap: 1rem; 
 
     font-family: 'Lucida Sans';
     font-size: 20px; 
     background-color: #64bdfd;
     margin: 2rem;
+    color: ghostwhite;
 }
+
+
+#tempButton {
+    background-color: #4b67ce;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 10px;
+    filter: brightness(100%);
+    width: 200px;
+    margin-left: 170px;
+
+}
+
+
+.temperature_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+}
+
+
+.garden_section  {
+    color: white;
+
+    min-height: 100px;
+    max-width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    border-radius: 8px;
+    font-size: 1.8em;
+    background-color:rgba(34, 246, 214, 0.7);
+    filter: brightness(200%);
+    margin-left: 100px;
+}
+    
+#reset {
+    border: 0;
+    background-color: #4b67ce;
+    filter: brightness(100%);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: sans-serif;
+}
+
+#temperatureValue {
+    font-size: 3rem;
+    margin-left: 1.5rem;
+}
+
+
+/* .garden_section, option[value=cloudy] {
+    background-color:lightgray;
+    filter: brightness(110%)
+} */
+
+/* .garden_section, option[value=sunny] {
+background-color: rgb(221, 255, 255);
+}
+
+.garden_section, option[value=rainy] {
+background-color: lightblue;
+}
+
+.garden_section, option[value=snowy] {
+background-color: lightsteelblue;
+} */
 
 
 
