@@ -54,7 +54,14 @@ body {
 }
 
 #Total {
-  font-size: 100px;
+  font-size: 75px;
   font-weight: bold;
   text-align: center;
 }
+
+.flex-container {
+
+  display: flex;
+  justify-content: center;
+  
+  }

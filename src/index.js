@@ -42,17 +42,17 @@ document.getElementById('Subtract').addEventListener('click', Subtract);
 document.getElementById('city').addEventListener('input', changeCityName);
 
 
-// window.addEventListener("load", loadpage);
-// function cargaPagina() {
-//     var btn = document.getElementById("button1").addEventListener("click", changevalues);
-// }
+window.addEventListener("load", cargaPagina);
+function cargaPagina() {
+    var btn = document.getElementById("button1").addEventListener("click", cambiaValores);
+}
 
-// function changevalues() {
-//     var inputName = document.getElementById("name");
-//     inputName.value = "Search City";
-// }
+function cambiaValores() {
+    var inputName = document.getElementById("city");
+    inputName.value = "Sioux City, IA";
+}
 
-// var x = document.getElementById("myText");
+var x = document.getElementById("myText");
 
 
 function findCityLatLon () {
