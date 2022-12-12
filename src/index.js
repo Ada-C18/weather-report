@@ -18,4 +18,29 @@ axios
     appearanceHeading.textContent = temp + ' °F';
   });
 
+const state = {
+  tempCount: temp,
+};
+
+// adding temperature number
+async function f() { 
+  let promise = new
+  
+  
+  temp = (event) => {
+  state.tempCount += 1;
+};
+const registerEventHandlers = (event) => {
+  // console.log('in registerEventHandelers:', event);
+  const upButton = document.querySelector('#Up');
+  upButton.addEventListener('click', addtemp);
+};
+
+// state.tempCount += 1;
+//   const bookCountContainer = document.querySelector("#bookCount");
+//   bookCountContainer.textContent = `Book Count: ${state.bookCount}`;
+// };
+
+//registering event handler
+
 //if loading,
