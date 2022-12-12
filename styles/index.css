@@ -1,0 +1,102 @@
+header{
+    /* display: flex;
+    justify-content: flex-start; */
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#city-name {
+    color: #ae78f0;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    color: #1e475b;
+    background-color: #bad0f1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-container{
+    display: grid;
+    grid-template-columns: 100px 300px 20px 300px 100px;
+    grid-template-rows: 50px 150px 20px 200px 50px;
+}
+.general-container{
+    color: #73a3bb;
+    background-color: #ffffff;
+    text-align: center;
+    border: 2px cornflowerblue;
+    border-style: dashed;
+    border-radius: 10px;
+}
+.temperature-container{
+    width: 300px;
+    height: 150px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.city-container{
+    width: 300px;
+    height: 150px;
+    grid-row-start: 2;
+    grid-column-start: 4;
+}
+
+.landscape-container{
+    width: 620px;
+    height: 200px;
+    grid-row-start: 4;
+    grid-column-start: 2;
+}
+
+#tempUp{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-size: 125%;
+}
+
+#tempUp:hover{
+    cursor: pointer;
+}
+
+#tempDown{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-size: 125%;
+}
+
+#tempDown:hover{
+    cursor: pointer;
+}
+
+#get-current-temp{
+    color: whitesmoke;
+    background-color: #1e475b;
+}
+
+#et-current-temp:hover{
+    cursor: pointer;
+}
+
+#tempValue{
+    font-size: 200%;
+    font-weight: bold;
+}
+
+#city-name-btn{
+    color: whitesmoke;
+    background-color: #1e475b;
+}
+
+#city-name-btn{
+    cursor: pointer;
+}
+

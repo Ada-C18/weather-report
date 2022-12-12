@@ -4,9 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+        <h1>Weather Report</h1>
+        <h2>For the lovely city of </h2>
+        <p>✨<span id = "city-name"></span> ✨</p>
+    </header>
+    <main class = "main-container">
+        <section class = "general-container temperature-container">
+            <h2 >Temperature</h2> 
+            <div>
+                <button id ="tempUp">⬆️</button>
+                <span id = "tempValue">80</span>
+                <button id = "tempDown">⬇️</button>
+            </div> 
+            <div>
+                <button type = "button" id = "get-current-temp">Get Realtime Temperature</button>
+            </div>   
+        </section>
+        <section class = "sky"></section>
+        <section class="general-container city-container">
+            <h2>City Name</h2>
+            <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City Name"><br>
+            <br>
+            <button type="button" id = "city-name-btn">Reset</button>
+        </section>
+        <section class = "general-container landscape-container">
+            <h2>Weather Garden</h2>
+            <div class="garden">
+                <h3>Select Sky:</h3>
+                <select name="sky-type" id="skys" value="snowy">
+                    <option value="cloudy">Cloudy</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+                <!-- <div id="sky-garden"></div><br> -->
+                <div id="sky-garden">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div><br>
+                <div id = "weather-garden-containing-landscape"></div>
+            </div>
+        </section>
+    </main>
     
+    <script src ="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </body>
 </html>
