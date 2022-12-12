@@ -42,44 +42,23 @@ const handleDecreaseTempClicked = (event) => {
 }
 
 const handleChangeColor = (event) => {
-    if (state.tempValue >= 80) {
-        state.tempDisplay.className = 'red';
-        return;
-    }
+    if (state.tempValue >= 80) return state.tempDisplay.className = 'red';
     
-    if (state.tempValue >= 70) {
-        state.tempDisplay.className = 'orange';
-        return;
-    }
+    if (state.tempValue >= 70) return state.tempDisplay.className = 'orange';
 
-    if (state.tempValue >= 60) {
-        state.tempDisplay.className = 'yellow';
-        return;
-    }
+    if (state.tempValue >= 60) return state.tempDisplay.className = 'yellow';
 
-    if (state.tempValue >= 50) {
-        state.tempDisplay.className = 'green';
-        return;
-    }
+    if (state.tempValue >= 50) return state.tempDisplay.className = 'green';
 
     state.tempDisplay.className = 'teal';
 }
 
 const handleChangeLandscape = (event) => {
-    if (state.tempValue >= 80) {
-        state.landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-        return;
-    }
+    if (state.tempValue >= 80) return state.landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
 
-    if (state.tempValue >= 70) {
-        state.landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-        return;
-    }
+    if (state.tempValue >= 70) return state.landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
 
-    if (state.tempValue >= 60) {
-        state.landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-        return;
-    }
+    if (state.tempValue >= 60) return state.landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
 
     state.landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
 }
