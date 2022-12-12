@@ -36,17 +36,22 @@
             </div>
             <div id="sky-container">
                 <h2 id="sky-title">Choose the sky type</h2>
-                <label for="sky">What does the sky look like?</label>
-                <select name="sky" id="sky">
-                    <option value="sunny">Sunny</option>
-                    <option value="cloudy">Cloudy</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="snowy">Snowy</option>
-                </select>
+                <div id="sky-content">
+                    <label for="sky">What does the sky look like?</label>
+                    <div id="sky-selector">
+                        <select name="sky" id="sky-option" default="">
+                            <option value="sunny">Sunny</option>
+                            <option value="cloudy">Cloudy</option>
+                            <option value="rainy">Rainy</option>
+                            <option value="snowy">Snowy</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="land-container">
             <!-- emoji landscape -->
+            <span id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span>
             <span id="landscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</span>
         </div>
     </section>

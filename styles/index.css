@@ -9,7 +9,7 @@ https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-examples
 /*///////////// BASIC LAYOUT  ///////////////*/
 body {
     /* background-color: blueviolet; */
-    /* background-image: url(/images/orange_flowers.jpg); */
+    background-image: url(/images/orange_flowers.jpg);
 }
 * {
     padding: 0;
@@ -24,7 +24,7 @@ body h2 {
     /* border-radius: 10px; round the corners */
     margin: auto;
     width: 1300px;
-    height: 700px;
+    height: 800px;
     /* display: flex-grid; */
     /* height: 725px; */
     padding: 20px; 
@@ -33,28 +33,28 @@ body h2 {
 }
 
 #city-container {
-    /* display: flex; */
-    background-color: blue; /* temp color */
     width: 75%;
-    /* justify-content: space-between; */
-    /* align-items: baseline; */
     margin: 20px;
 }
 
 #temp-container {
     width: 400px;
-    background-color: green;
+    background-color: rgb(187, 197, 203);
     margin: 20px;
 }
 #sky-container {
     width: 400px;
-    background-color: coral;
+    background-color: rgb(187, 197, 203);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 #land-container {
     margin-top: 100px;
     width: 1200px;
-    height: 200px;
-    background-color: yellow;
+    height: 300px;
+    background-color: rgb(201, 201, 160);
 }
 #mid-row {
     display: flex;
@@ -86,7 +86,6 @@ form #reset input {
     font-size: 60px;
 }
 #temp-symbol {
-    /* color: white; */
     text-align: right;
     margin-top: 31px;
 }
@@ -106,9 +105,21 @@ form #reset input {
 /* //////////ITEMS WITHIN LANDSCAPE CONTAINER ///////////*/
 #land-container {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 #landscape {
     font-size: 4rem;
+}
+#sky {
+    font-size: 4rem;
+}
+
+/*//////////////IN SKY CONTAINER  //////////////*/
+#sky-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }

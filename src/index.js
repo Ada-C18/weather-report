@@ -1,4 +1,5 @@
-
+const state = {temperature: 65};
+/////////////////// CHANGING LAND, TEMP, AND TEMP COLOR //////////////////
 const tempValue = document.getElementById("tempValue");
 const landType = document.getElementById("landscape");
 
@@ -33,6 +34,29 @@ downButton.addEventListener('click', () => {
     tempValue.style.color = tempRange(Number(tempValue.innerHTML));
 });
 
+//////////////////// CHANGING THE SKY TPE & BACKGROUND /////////////////////
+const skyChoice = document.getElementById("sky");
+
+const changeSky = (option) => {
+    if (option === 'sunny') {
+        skyChoice.innerHTML = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+        document.body.style.backgroundImage = "url('/images/hot_sun.jpg')"
+    } else if (option === 'rainy') {
+        skyChoice.innerHTML = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+        document.body.style.backgroundImage = "url('/images/rainy.jpg')"
+    } else if (option === 'cloudy') {
+        skyChoice.innerHTML = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
+        document.body.style.backgroundImage = "url('/images/cloud.jpg')"
+    } else if (option === 'snowy') {
+        skyChoice.innerHTML = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+        document.body.style.backgroundImage = "url('/images/snowy_day.jpg')"
+    }
+};
+
+skyDropdown = document.getElementById('sky-option');
+skyDropdown.addEventListener('change', () => {
+    console.log(changeSky(skyDropdown.value));
+})
 
 ////////// UPDATING CITY ////////////////
 const cityText = document.querySelector('#city-name');
@@ -42,51 +66,25 @@ const updateCity = inputForm.addEventListener('submit', function(e){
     const inputValue = inputForm.querySelector('input[type="text"]').value;
     cityText.innerText = inputValue;
     console.log(cityText.innerHTML);
+    getTempFromLocation(inputValue);
+    tempValue.style.color = tempRange(Number(tempValue.innerHTML));
+
+    // tempValue.innerHTML = temperature;
 });
 
 
 const resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', () => {
     cityText.innerHTML = 'San Francisco';
+    tempValue.innerHTML = 65;
+    landType.innerHTML = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+    document.body.style.backgroundImage = "url('/images/blossoms.jpg')";
+    skyChoice[0];
 });
 
 
-
-//////////// changing background ////////////
-// https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4
-
-// const images = {
-//     sun: "url('/images/hot_sun.jpg')",
-//     rain: "url('/images/rainy.jpg')",
-//     clouds: "url('/images/cloud.jpg')",
-//     blossoms: "url('/images/blossoms.jpg')",
-//     snow: "url('/images/snowy.jpg')",
-//     poppy: "url('/images/orange_flowers.jpg')"
-// };
-
-// const setBackground = (image) => {
-//     document.body.style.background = images[image];
-// };
-
-// const skyType = document.getElementById('sky');
-// console.log(skyType);
-// skyType[0].addEventListener('click', e => {
-//     if (skyType.innerText === 'Sunny') {
-//         console.log('sunny');
-//         // return setBackground('rain');
-//     }
-// });
-
-
-
-
-
-
-
-
-
-
-const getLatLon = function(location) {
+/////////////////////GET TEMP FOR LOCATION ////////////////////////
+const getTempFromLocation = function(location) {
     let latitude, longitude;
     axios.get('http://127.0.0.1:5000/location',
     {
@@ -97,38 +95,29 @@ const getLatLon = function(location) {
     .then( (response) => {
         latitude = response.data[0].lat;
         longitude = response.data[0].lon;
-        // console.log('success in getLatLon', latitude, longitude);
-
         getWeatherData(latitude, longitude);
     })
     .catch( (error) => {
-        console.log('error on getLatLon!');
+        console.log('error in getTempFromLocation!');
     });
 
 };
-// getWeatherFromLocation('San Francisco')
-// getWeatherFromLocation(cityText.innerHTML)
 
 const getWeatherData = (latitude, longitude) => {
     axios.get('http://127.0.0.1:5000/weather', {
         params: {
             lat: latitude,
             lon: longitude,
-            // units: 'imperial'
-            // units: fahrenheit
-            
         }
     })
     .then( (response) => {
         let tempF = (response.data.main.temp - 273.15) * 9 / 5 + 32;
         console.log(Math.floor(tempF));
-        return Math.floor(tempF);
-
+        temperature = Math.floor(tempF);
+        tempRange(temperature);
+        tempValue.innerHTML = temperature;
     })
-    .catch((err) => {
+    .catch(() => {
         console.log('error in getWeatherData');
     });
 };
-
-const temperature = getLatLon('Newark, CA, USA');
-// console.log(temperature);
