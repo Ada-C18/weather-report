@@ -2,18 +2,60 @@
 const state = {
   temp: 75,
   city: 'Seattle',
+  lat: '47.6038321',
+  long: '-122.330062',
 };
 
+// const axios = require('axios');
 // const cityForm = document.querySelector('form');
 // const landscape = document.querySelector('.card');
 // const card = document.querySelector('.details')
 
+const getLatAndLong = () => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        key: process.env['LOCATION_KEY'],
+        q: state.city,
+        format: 'json',
+      },
+    })
+    .then((response) => {
+      console.log(response.data[0]);
+      state.lat = response.data[0].lat;
+      state.long = response.data[0].lon;
+      getWeather();
+    })
+    .catch((error) => {
+      console.log('Error in find the latitude and longitude!', error.response);
+    });
+};
 
+const getWeather = () => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        appid: process.env['WEATHER_KEY'],
+        lat: state.lat,
+        lon: state.long,
+      },
+    })
+    .then((response) => {
+      const weather = response.data;
+      state.temp = Math.round(convertFromKtoF(weather.main.temp));
+      colorAndLandscape();
+      city = weather["name"];
+    })
+    .catch((error) => {
+      console.log('Error getting the weather:!', error);
+    });
+};
+
+// get city
 // function convertFromKtoF(temp) {
 //   return (temp - 273) * (9 / 5) + 32;
 // }
 const convertFromKtoF = (temp) => (temp - 273) * (9 / 5) + 32;
-// const letsSee = convertFromKtoF(296.48);
 
 const colorAndLandscape = () => {
   let temp = state.temp;
@@ -38,8 +80,7 @@ const colorAndLandscape = () => {
 
   const updateLandscape = document.querySelector('#iconLandscape');
   updateLandscape.textContent = landscape;
-  const temperature = document.querySelector("#tempValue");
-  // for(let )
+  const temperature = document.querySelector('#tempValue');
   temperature.className = color;
   temperature.textContent = String(state.temp);
 };
@@ -54,17 +95,71 @@ const decreaseTemp = () => {
   colorAndLandscape();
 };
 
+const updateCity = () => {
+  const cityForm = document.querySelector('form').cityName.value;
+  const cityOutput = document.querySelector('#cityOutput');
+  state.city = cityForm
+  cityOutput.textContent = `${city}`
+  // cityOutput.innerHTML =  `<h3>${state.city}</h3>`;
+};
+
+// const resetCity = () => {
+
+// }
+const updateSky = () => {
+  const weatherState = document.getElementById('wrapper2').value;
+  const skyContainer = document.querySelector('#iconOfSky');
+  let sky = '';
+  let skyColor = '';
+  if (weatherState === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    skyColor = 'cloudy';
+  } else if (weatherState === 'Sunny') {
+    sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
+    skyColor = 'sunny';
+  } else if (weatherState === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skyColor = 'rainy';
+  } else if (weatherState === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skyColor = 'snowy';
+  }
+  skyContainer.textContent = sky;
+};
+
+
+
+
+
+// registering event handlers
 const registerEventHandlers = () => {
   colorAndLandscape();
 
-  // const currentTempBtn = document.getElementById('currentTempBtn');
-  // currentTempBtn.addEventListener('click');
 
-  const tempInc = document.getElementById('tempInc');
+
+  const tempInc = document.querySelector('#tempInc');
   tempInc.addEventListener('click', increaseTemp);
 
-  const tempDec = document.getElementById('tempDec');
+  const tempDec = document.querySelector('#tempDec');
   tempDec.addEventListener('click', decreaseTemp);
+
+  updateSky();
+  const weatherCondition = document.getElementById('wrapper2');
+  weatherCondition.addEventListener('change', updateSky);
+
+  updateCity();
+  const cityInput = document.querySelector('#cityinput');
+  cityInput.addEventListener('input', updateCity);
+
+  const cityNameReset = document.getElementById('cityNameReset');
+  cityNameReset.addEventListener('click', resetCity);
 };
+
+// cityForm.addEventListener('submit',e =>{
+//   // prevent default action
+//   e.preventDefault();
+
+// update with new city
+// updateCity(city);
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
