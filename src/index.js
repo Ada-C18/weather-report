@@ -27,8 +27,6 @@ const tempChange = () => {
   temp = document.getElementById("displayedTemp");
   temp.className = color;
   temp.textContent = String(state.temp)
-
-  console.log("clicked");
 }
 
 const landscapeChange = () => {
@@ -98,14 +96,12 @@ const cityNameChange = () => {
   let newCity = document.getElementById("newCity").value;
   state.city = newCity;
   currentCity.textContent = state.city;
-  console.log("inputted city");
 }
 
 const resetCity = () => {
   let newCityInput = document.getElementById("newCity");
   newCityInput.value = "Seattle";
   cityNameChange();
-  console.log("reset city");
 }
 
 // API Calls
