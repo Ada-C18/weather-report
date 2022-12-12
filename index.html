@@ -5,8 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css"  />
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report</h1>
+        <span class="subheader">
+            <span id="headerCityName" class="header_city"></span>
+        </span>
+    </header>
+    <div id = "main_section">
+        <section class="tempSection">
+            <h2 id = "tempCaption">Temperature</h2>
+            <div class="temp_wheel">
+                <button id="up">⬆️</button></br>
+                <h2 id="currentTemp">100</h2>
+                <button id="down">⬇️</button> 
+            </div>
+        <div>
+            <span id="temp_value"></span>
+        </div>
+        </section>
+        <section class = "city_section">
+            <h2 id="citySection">City Name</h2>
+            <input id="cityName" placeholder ="Seattle" type="text"  name="name" required
+            minlength="4" maxlength="30" size="30">
+            <button id="realTimeTemp" class="realTempButton">Real Time</button>
+            <button id="resetbutton" type="reset" class = "resetbutton">Reset</button>
+            <p id = "cityNameShown"></p>
+        </section>
+        <section class = "mainSky">
+            <h2 id = "skyCaption"> Sky</h2>
+            <select id = "skyOption">
+                <option value="none" selected disabled hidden>select sky</option>
+                <option value="sun">Sunny</option>
+                <option value="overcast">Cloudy</option>
+                <option value="rain">Rainy</option>
+                <option value="snow">Snowy</option>
+            </select>
+        </section>
+        <section id = "landscapeSection">
+            <h2 id = "gardenCaption">Weather Garden</h2>
+            <span id = "view"></span>
+            <div id="gardenStuff" class="garden">
+                <div id="skyLandscape"></div>
+                <div id="landscape"></div>
+        </section>
+    </div>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
 </html>
