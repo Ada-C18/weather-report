@@ -2,6 +2,12 @@
 
 // const { default: axios } = require('axios');
 
+// REFACTORING
+// This being my first JS project, I didn't realie how many
+// times I would select the same Element. In refactoring this,
+// I would create global variables for the elements that I use
+// repeatedly.
+
 const state = {
   temp: 0,
 };
@@ -10,22 +16,42 @@ const tempChangeUpdateUI = () => {
   const currentTemp = Number(document.querySelector('#temp-num').innerText);
   const tempConsole = document.querySelector('#temp-console');
   const landscape = document.querySelector('#landscape-img');
+  const currentTempType = document.querySelector('#temp-type');
 
-  if (currentTemp <= 49) {
-    tempConsole.className = 'teal';
-    landscape.src = 'assets/winter-landscape.png';
-  } else if (currentTemp <= 59) {
-    tempConsole.className = 'green';
-    landscape.src = 'assets/fall-landscape.png';
-  } else if (currentTemp <= 69) {
-    tempConsole.className = 'yellow';
-    landscape.src = 'assets/spring-landscape.png';
-  } else if (currentTemp <= 79) {
-    tempConsole.className = 'orange';
-    landscape.src = 'assets/spring-landscape.png';
-  } else if (currentTemp >= 80) {
-    tempConsole.className = 'red';
-    landscape.src = 'assets/summer-landscape.png';
+  if (currentTempType.innerText === 'F') {
+    if (currentTemp <= 49) {
+      tempConsole.className = 'teal';
+      landscape.src = 'assets/winter-landscape.png';
+    } else if (currentTemp <= 59) {
+      tempConsole.className = 'green';
+      landscape.src = 'assets/fall-landscape.png';
+    } else if (currentTemp <= 69) {
+      tempConsole.className = 'yellow';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp <= 79) {
+      tempConsole.className = 'orange';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp >= 80) {
+      tempConsole.className = 'red';
+      landscape.src = 'assets/summer-landscape.png';
+    }
+  } else if (currentTempType.innerText === 'C') {
+    if (currentTemp <= 9.44) {
+      tempConsole.className = 'teal';
+      landscape.src = 'assets/winter-landscape.png';
+    } else if (currentTemp <= 15) {
+      tempConsole.className = 'green';
+      landscape.src = 'assets/fall-landscape.png';
+    } else if (currentTemp <= 20.6) {
+      tempConsole.className = 'yellow';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp <= 26.1) {
+      tempConsole.className = 'orange';
+      landscape.src = 'assets/spring-landscape.png';
+    } else if (currentTemp >= 26.7) {
+      tempConsole.className = 'red';
+      landscape.src = 'assets/summer-landscape.png';
+    }
   }
 };
 
@@ -44,12 +70,18 @@ const increaseTemp = () => {
 const convertTemp = () => {
   const currentTempType = document.querySelector('#temp-type');
   let currentTempNum = document.querySelector('#temp-num');
+  console.log(currentTempNum);
   if (currentTempType.innerText === 'F') {
-    currentTempNum = (Number(currentTempNum) - 32) * (5 / 9);
+    currentTempNum.innerText = Math.round(
+      (Number(currentTempNum.innerText) - 32) * (5 / 9)
+    );
+    state.temp = Number(currentTempNum.innerText);
     currentTempType.innerText = 'C';
-    // console.log(currentTemp.innerText);
   } else if (currentTempType.innerText === 'C') {
-    currentTempNum = Number(currentTempNum) * (9 / 5) + 32;
+    currentTempNum.innerText = Math.round(
+      Number(currentTempNum.innerText) * (9 / 5) + 32
+    );
+    state.temp = Number(currentTempNum.innerText);
     currentTempType.innerText = 'F';
   }
 };
@@ -59,38 +91,6 @@ const updateCity = () => {
   const city = document.querySelector('#city-name');
   city.innerText = locationInput;
 };
-
-// const getLatLon = () => {
-//   const city = document.querySelector('#city-name');
-//   axios
-//     .get('http://127.0.0.1:5000/location', {
-//       params: {
-//         q: city,
-//       },
-//     })
-//     .then((response) => {
-//       const latitude = response.data[0]['lat'];
-//       const longitude = response.data[0]['lon'];
-//       return [latitude, longitude];
-//     })
-//     .catch((error) => {
-//       console.log(`Error: ${error.response.status}`);
-//     });
-// }
-
-// const getWeather = () => {
-//   const [latitude, longitude] = getLatLon();
-//   axios
-//     .get('http://127.0.0.1:5000/weather', {
-//       params: {
-//         lat: latitude,
-//         lon: longitude
-//       }
-//     })
-//     .then((response) => {
-
-//     })
-// }
 
 const getLatLon = async () => {
   const cityInput = document.querySelector('.location');
