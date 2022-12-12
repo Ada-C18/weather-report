@@ -1,22 +1,28 @@
-// "use strict";
+"use strict";
 // import axios from "axios";
 // const { default: axios } = require("axios");
 
-
-const tempDisplay = document.querySelector("#temp-display");
+const tempValue = document.querySelector("#temp-value");
 const state = {temperature: 0};
+state.temperature = Number(tempValue.innerText);
 
-const incButton = document.querySelector("#increase-temp");
-const decButton = document.querySelector("#decrease-temp");
 
 const increaseTemp = () => {
+  tempValue.innerText = state.temperature;
   state.temperature += 1;
   console.log("It's working!");
-  tempDisplay.innerText = state.temperature;
+}
+const decreaseTemp = () => {
+  tempValue.innerText = state.temperature;
+  state.temperature -= 1;
+  console.log("It's working!");
 }
 
 const registerEventHandlers = () => {
-  const incButton = document.getElementById("#increase-temp");
+  const decButton = document.querySelector("#decrease-temp");
+  decButton.addEventListener("click", decreaseTemp);
+
+  const incButton = document.querySelector("#increase-temp");
   incButton.addEventListener("click", increaseTemp);
 };
 

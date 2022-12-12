@@ -16,10 +16,11 @@
         <button id="reset">Reset</button>
     </section>
     <div id="weather-display-section">
-        <p id="city-name" style="background-image: <needimagehere> "> City Name </p>
+        <!-- <p id="city-name" style="background-image: <needimagehere> "> City Name </p> -->
+        <p id="city-name">City Name</p>
         <div id="temp-controls">
             <button id="decrease-temp">-</button>
-            <p id="temp-display">75</p>
+            <p id="temp-value">75</p>
             <button id="increase-temp">+</button>
         </div>
         <section id="sky-section">
@@ -32,14 +33,10 @@
             </select>
         </section>
     </div>
-    <div id="bottom-section">
-        
-        <section id="weather-garden-section">
-            <h3 id="weather-garden-title">Weather Garden</h3>
-            <img id="weather-garden-image" source="" alt="">
-        </section>
-    </div>
-    </body>
+    <section id="weather-garden-section">
+        <h3 id="weather-garden-title">Weather Garden</h3>
+        <img id="weather-garden-image" source="" alt="">
+    </section>
 </body>
 <script src="src/index.js" type="text/javascript"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
