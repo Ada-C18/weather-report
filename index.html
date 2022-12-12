@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="styles/index.css" rel="stylesheet">
-</head>
-<body>
-  <h1>Weather Report:</h1>
-  <section id ="upper-header">
-    <h2 id="city">For the lovely city of:</h2>
-  </section>
-  <h1>Temperature</h1>
-  <section id = "temp-Container">
-    <button id ="Increase-temp">&#11014;&#65039;</button>
-      <h2 id="temp"></h2>
-      <button id ="Decrease-temp">&#11015;&#65039;</button>
-      <section>
-        <button id ="get-realtime-temp">Get Realtime Temperature</button>
-      </section>
-  </section>
-    <h1>Sky</h1>
-    <section>
-        <form>
-          <select id = "myList" onchange = "favTutorial()" >
-          <option> ---Select sky--- </option>
-          <option> Sunny </option>
-          <option> Cloudy </option>
-          <option> Rainy </option>
-          <option> Snowy </option>
-          </select>
-          </form>
-    </section>
-    <h1>City Name</h1>
-    <form action="/action_page.php">
-      <input type="text" id="city-name" value=''><br>
-    </form> 
-    <button id ="reset-button">Reset Button</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header id="">
+      <h1>Weather Report</h1>
+      <p id="city-name">For the lovely city of:</p>
+    </header>
 
-    
-    <section id ="weather-garden">
-      <h1>Weather Garden</h1>
-      <div id="sky-emojis"></div>
-      <div id="emojis"></div>
-    </section>
-    <!-- js linking will always be at the bottom -->
-  <script src="src/index.js"></script>
-  <script src="./node_modules/axios/dist/axios.min.js"></script>
-</body>
+    <main>
+      <section id="white-boxes">
+        <section id="temperature">
+          <h2>Temperature</h2>
+          <div id="number">
+            <button id="up-arrow">⬆️</button>
+            <h2 id="degrees"></h2>
+            <button id="down-arrow">⬇️</button>
+          </div>
+          <button id="get-temp">Get Realtime Temperature</button>
+        </section>
+
+        <section id="sky">
+          <h2>Sky</h2>
+          <select id="dropdown">
+            <option value="">--Please choose a Sky option--</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+          </select>
+        </section>
+
+        <section id="city-name">
+          <h2>City Name</h2>
+          <input id="search-bar" type="text" />
+          <button id="reset">Reset</button>
+        </section>
+      </section>
+
+      <section id="weather-garden">
+        <h2>Weather Garden</h2>
+        <div id="sky-emojis"></div>
+        <div id="emojis"></div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
