@@ -40,11 +40,11 @@ h2,
 #temp,
 #farenheit {
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 45px;
 }
 
 #city {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #sky {
@@ -55,7 +55,7 @@ h2,
 #emojis {
   font-size: 35px;
   text-align: center;
-  margin: 50px;
+  margin: 20px;
 }
 
 #increase,

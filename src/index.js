@@ -25,6 +25,7 @@ const weatherImages = {
     "Sunny": [`☀️☀️☀️☀️☀️☀️☀️☀️☀️`, 'url(https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'],
     "Clear": [`☀️☀️☀️☀️☀️☀️☀️☀️☀️`, 'url(https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'],
     "Smoke": [`🚬😶‍🌫️🔥 🌫😶‍🌫️🏭😷🫁`, 'url(https://images.unsplash.com/photo-1571148433633-f62d3cdb5eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBvbGx1dGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)'],
+    "Fog": [`😶‍🌫️🌁🌫😶‍🌫️🏭😷☁️🌁`, 'url(https://images.unsplash.com/photo-1485236715568-ddc5ee6ca227?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60)'],
     "Other": [`🌈☀️ 🌤️ ⛅️ 🌥️ 🌤️ ⛅️ 🌥️ ☁️`, 'url(https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3ByaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60)']
 };
 
@@ -33,11 +34,13 @@ const getCoordinates = async function () {
     const coordinates = await axios.get(`http://localhost:5000/location?q=${search.value}`);
     const lat = coordinates.data[0].lat;
     const lon = coordinates.data[0].lon;
-    return [lat, lon];
-}
+    const name = coordinates.data[0].display_name;
+    console.log(coordinates);
+    return [lat, lon, name];
+};
 
 const getWeather = async function () {
-    coordinates = await getCoordinates();
+    const coordinates = await getCoordinates();
     const weather = await axios.get(`http://localhost:5000/weather?lat=${coordinates[0]}&lon=${coordinates[1]}`);
     return weather;
 };
@@ -49,7 +52,7 @@ const getSkyData = async function () {
 };
 
 
-const changeColor = function () {
+const changeColor = () => {
     const temp = farenheit.innerText;
 
     if (temp >= 85) {
@@ -67,7 +70,7 @@ const changeColor = function () {
     }
 }
 
-const changeSky = function () {
+const changeSky = () => {
 
     if (skyEmoji.value in weatherImages) {
         sky.innerHTML = weatherImages[skyEmoji.value][0];
@@ -77,12 +80,13 @@ const changeSky = function () {
     };
 }
 
-const defaultCity = function () {
-    search.value = "New York";
+const defaultCity = () => {
+    search.value = "Atlanta";
     return displayData();
 }
 
 const displayData = async function () {
+    const location = await getCoordinates();
     const data = await getWeather();
 
     //display temperature
@@ -91,7 +95,8 @@ const displayData = async function () {
     farenheit.innerHTML = tempToFarenheit;
 
     //display city and country name
-    city.innerHTML = `${data["data"]["name"]}, ${data["data"]["sys"]["country"]}`;
+    //city.innerHTML = `${data["data"]["name"]}, ${data["data"]["sys"]["country"]}`;
+    city.innerHTML = location[2];
 
     //display sky emojis
     const skyWeather = await getSkyData();
