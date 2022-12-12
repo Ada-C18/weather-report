@@ -5,7 +5,7 @@ function Add () {
   total_element.innerHTML = total_value + 1;
   let myTemp = total_value + 1;
   changeLandscape(myTemp);
-}
+};
 
 
 function Subtract () {
@@ -14,7 +14,7 @@ function Subtract () {
   total_element.innerHTML = total_value - 1;
   let myTemp = total_value - 1;
   changeLandscape(myTemp);
-}
+};
 
 function changeLandscape (temp) {
   if (temp >=80) {
@@ -26,13 +26,13 @@ function changeLandscape (temp) {
   } else {
     document.getElementById('landscape').innerHTML = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
-}
+};
 
 function changeCityName () {
   let cityInput = document.getElementById('city').value;
   document.getElementById('displayCity').innerHTML = cityInput;
   return cityInput;
-}
+};
 
 
 document.getElementById('Add').addEventListener('click', Add);
@@ -45,13 +45,13 @@ document.getElementById('city').addEventListener('input', changeCityName);
 window.addEventListener("load", cargaPagina);
 function cargaPagina() {
     var btn = document.getElementById("button1").addEventListener("click", cambiaValores);
-}
+};
 
 function cambiaValores() {
     var inputName = document.getElementById("city");
     inputName.value = "Sioux City, IA";
     document.getElementById('displayCity').innerHTML = "Sioux City, IA";
-}
+};
 
 var x = document.getElementById("myText");
 
@@ -68,14 +68,12 @@ function findCityLatLon () {
       console.log(response.data);
       let lat = response.data[0].lat;
       let lon = response.data[0].lon;
-      console.log(lat);
-      console.log(lon);
       getTempWithLocation(lat, lon);
     })
     .catch((error) => {
       console.log('Error given back by the API response:', error);
     });
-}
+};
 
 function getTempWithLocation (lat, lon) {
   axios
@@ -86,24 +84,21 @@ function getTempWithLocation (lat, lon) {
     .then((response) => {
       console.log(response.data);
       let kelvin = response.data['main']['temp'];
-      console.log(kelvin);
       convertToFahrenheit(kelvin);
     })
     .catch((error) => {
       console.log('Error given back by the API response:', error);
     });
-}
+};
 
 function convertToFahrenheit (kelvin) {
   let fahrenheit = Math.round((kelvin * (9/5)) - 459.67);
-  console.log(fahrenheit);
   document.getElementById('Total').innerHTML = fahrenheit;
   changeLandscape(fahrenheit);
-}
+};
 
 function changeSky () {
   let skyDisplay = document.getElementById('sky').value;
-  console.log(skyDisplay);
   if (skyDisplay === 'sunny') {
     document.body.style.backgroundImage = "url('assets/sunny.jpg')";
   } else if (skyDisplay === 'cloudy') {
@@ -113,7 +108,7 @@ function changeSky () {
   } else if (skyDisplay === 'snowy') {
     document.body.style.backgroundImage = "url('assets/snowy.jpg')";
   }
-}
+};
 document.getElementById('getDisplayCityTemp').addEventListener('click', findCityLatLon);
 
 document.getElementById('sky').addEventListener('change', changeSky);
