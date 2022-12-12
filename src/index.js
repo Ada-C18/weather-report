@@ -100,6 +100,7 @@ const totalCount = document.getElementById('totalCount');
 // totalCount.innerHTML = count;
 // Function to increment/decrement count
 
+// Function to increment/decrement count
 const handleIncrease = () => {
   count++;
   totalCount.innerHTML = count;
