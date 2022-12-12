@@ -1,0 +1,20 @@
+* {
+    border-color: black;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: dodgerblue;
+}
+
+#white-boxes {
+    background-color: white;
+}
+
+#weather-garden {
+    background-color: lightgray;
+}
+
+#up-arrow, #down-arrow {
+    border: none;
+}
