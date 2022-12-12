@@ -1,0 +1,105 @@
+body {
+    background-color: #00BFFF;
+}
+
+.container {
+    display: grid;
+    grid-row: auto auto;
+    grid-template-columns: 400px 400px;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-evenly;
+}
+
+.grid-1 {
+    padding: 10px;
+}
+
+#Weather-Report {
+    text-decoration: unset;
+    text-align: center;
+    color: rgb(242, 239, 245);
+    font-family: fantasy;
+}
+
+#For-the-lovely-city-of {
+    text-decoration: unset;
+    text-align: center;
+    color: rgb(242, 239, 245);
+    font-family: cursive;
+    font-size: x-large;
+}
+
+#City-Name-Top {
+    text-decoration: unset;
+    text-align: center;
+    color: rgb(242, 239, 245);
+    font-size: x-large;
+    font-family: verdana;
+}
+
+#Weather-Garden {
+    border-radius: 37px;
+    background: #ffffff;
+    margin: auto;
+    height: 40vh;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 0px;
+}
+
+#Temperature {
+    border-radius: 37px;
+    background: #ffffff;
+    height: 40vh;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 0px;
+}
+
+#Sky {
+    border-radius: 37px;
+    background: #ffffff;
+    height: 40vh;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 0px;
+}
+
+#City-Name {
+    border-radius: 37px;
+    background: #ffffff;
+    height: 40vh;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 0px;
+}
+
+.red {
+    color: red;
+}
+
+.orange{
+    color: orange;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.green{
+    color: green;
+}
+
+.teal{
+    color: teal;
+}

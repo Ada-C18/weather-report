@@ -5,8 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script> 
+    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
 </head>
 <body>
-    
+    <header>
+        <h1 id="Weather-Report"> Weather Report </h1>
+        <h2 id="For-the-lovely-city-of"> For the lovely city of </h2>
+        <h3 id="City-Name-Top"> ✨ Seattle ✨ </h3>
+    </header>
+        <div class="container">
+            <div class="grid-1">
+                    <div id="Temperature"> 
+                        <h2> Temperature </h2>
+                            <div id="number">
+                                <button id="inc">⬆️</button>
+                        <h3 id="counter"> 55 </h3>
+                                <button id="dec">⬇️</button>
+                        <p></p>
+                    </div>
+                <button id="Get-Realtime-Temperature"> 
+                Get Realtime Temperature
+                </button>
+            </div>    
+        </div>
+            <div class="grid-1">
+                <div id="Sky"> 
+        <h2> Sky </h2>
+        <select id="dropdown" onchange="skySelector">
+            <option value="">Please choose an option</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select> 
+    </div>
+            </div>
+            <div class="grid-1">
+                <div id="City-Name"> 
+        <h2> City Name </h2> 
+        <form>
+        <input type="text" placeholder="Seattle" id="city-input" name="city" value="Seattle">
+        <input type="reset">
+        </form>
+    </div>
+            </div>
+            <div class="grid-1">
+                <div id="Weather-Garden"> 
+                    <h2> Weather Garden </h2> 
+                    <div id="dropdown-emojis">🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧</div>
+                    <div id="emojis">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
