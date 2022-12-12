@@ -23,7 +23,7 @@
                     placeholder="Chattanooga" />
                     <!-- replace search text with icon -->
                     <button id="search-button">Search</button> 
-                    <button>Reset</button>
+                    <button id="reset-button">Reset</button>
                 </div>
             </div>
         </header>
@@ -71,8 +71,8 @@
                         <div class="dream-panel-content">
                             <p id="dream-temp-number">°</p>
                             <div id="temp-buttons">
-                                <div id="temp-increase-button" class="increase-button"></div>
-                                <div id="temp-decrease-button"class="decrease-button"></div>
+                                <div id="temp-increase-button" class="increase-button buttons"></div>
+                                <div id="temp-decrease-button"class="decrease-button buttons"></div>
                             </div>
                         </div>
                     </div>
@@ -80,10 +80,13 @@
                         <h3>Dream Sky</h3>
                         <div class="dream-panel-content">
                             <select name="skies" id="sky-select">
-                                <option id="sunshine-sky" value="Sunshine">
+                                <option value="">
+                                    Pick One
+                                </option>
+                                <option id="sunshine-sky" value="sunshine">
                                     Sunshine
                                 </option>
-                                <option id="cloudy-sky" value="cloudy">
+                                <option id="cloudy-sky" value="clouds">
                                     Cloudy
                                 </option>
                                 <option id="rain-sky" value="rain">
@@ -100,8 +103,8 @@
                         <div class="dream-panel-content">
                             <p id="dream-humidity-percent">%</p>
                             <div id="humidity-buttons">
-                                <div id="humidity-increase-button" class="increase-button"></div>
-                                <div id="humidity-decrease-button" class="decrease-button"></div>
+                                <div id="humidity-increase-button" class="increase-button buttons"></div>
+                                <div id="humidity-decrease-button" class="decrease-button buttons"></div>
                             </div>
                         </div>
                     </div>
@@ -109,7 +112,6 @@
             </section>
         </main>
         <footer id="changing-weather-container">
-            <!-- <img id="sunshine-circle" class="icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/> -->
             <div id="circle"></div>
         </footer>
     </body>

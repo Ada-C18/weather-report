@@ -153,7 +153,7 @@ const getFiveDayForecast = () => {
         );
       }
     };
-    console.log(fiveDayForecast);
+    // console.log(fiveDayForecast);
     return fiveDayForecast;
   })
 };
@@ -170,7 +170,7 @@ const saveFiveDayForecast= () => {
         humidity: forecast[i].humidity
       }
     };
-    console.log(forecastState);
+    // console.log(forecastState);
     updateWeatherPanels();
     updateHumidity();
     updateTemp();
@@ -223,24 +223,34 @@ const convertDateToName = (date) => {
 };
 
 // CHANGE DREAM SKY WITH SELECT OPTIONS
-// const updateDreamSky = () => {
-//   const skyChoice = document.getElementById("sunshine-sky");
+const updateDreamSky = () => {
+  const sky = document.getElementById("sky-select").value;
+  // console.log(sky);
 
-//   if (skyChoice === "Sunshine") {
-//     document.footer.appendChild(document.createElement("img"))
-//     .setAttribute("id", "sunshine-circle")
-//     .setAttribute("src", "/icons/sun-icon.png")
-//   }
-// };
-// for sunshine: change circle to icon sun or something better...idk yet
-// for clouds: add clouds to body grid and decrease opacity of weather panels
-// for rain: add rain to the clouds in different spots on the grid
-// for snow: falling snow
+  if (sky === "sunshine") {
+    const circle = document.querySelector("#circle");
+    circle.style.backgroundColor = "#E0571D";
+    circle.style.width = "30rem";
+    circle.style.height = "30rem";
+  } else {
+    const skies = {
+      "": "none",
+      rain: "url('/sky-imgs/rain-sky.png')",
+      clouds: "url('/sky-imgs/cloud-sky.png')",
+      snow: "url('/sky-imgs/snow-sky.png')"
+    };
+    const body = document.querySelector("body");
+    body.style.backgroundImage = skies[sky];
+    updateDreamTempColor()
+    circle.style.width = "13rem";
+    circle.style.height = "13rem";
+  }; 
+};
 
-// tomorrow:
-// finish function: clouds, then rain, then snow, then sun (if sun too hard, move on)
-// figure out how to add event listener to the select options
-// add function and event listener for reset button
+// RESET CITY TO DEFAULT
+const resetToDefault = () => {
+  window.location.reload();
+};
 
 
 // REGISTER EVENT HANDLERS
@@ -266,11 +276,14 @@ const registerEventHandlers = () => {
   searchButton.addEventListener("click", saveFiveDayForecast);
   searchButton.addEventListener("click", saveCurrentWeather);
 
-  // const selectDreamSky = document.getElementById("sky-select");
-  // selectDreamSky.addEventListener("change", updateDreamSky);
+  const skySelect = document.getElementById("sky-select");
+  skySelect.addEventListener("change", updateDreamSky);
 
-  // window.addEventListener("load", saveCurrentWeather);
-  // window.addEventListener("load", saveFiveDayForecast);
+  const resetButton = document.getElementById("reset-button");
+  resetButton.addEventListener("click", resetToDefault);
+
+  window.addEventListener("load", saveCurrentWeather);
+  window.addEventListener("load", saveFiveDayForecast);
 };
 
 // DOM listener
