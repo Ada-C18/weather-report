@@ -123,7 +123,6 @@ const displayEmojis = () => {
 
 const updateSky = () => {
   const inputSky = document.getElementById('climate').value;
-  // inputSky.textContent = inputSky;
   let sky = '';
   let skyColor = '';
   if (inputSky === 'clouds') {
