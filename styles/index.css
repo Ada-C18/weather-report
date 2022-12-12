@@ -1,0 +1,159 @@
+body {
+    background-color: plum;
+}
+
+#city-name-textbox{
+    display: flex;
+    background-color: rgb(160, 197, 229);
+}
+#weather-display-section {
+    box-sizing: border-box;
+
+    width: 945px;
+    height: 384px;
+    left: 153px;
+    top: 150px;
+
+    background: #A35FCA;
+    /* Border / Subtle */
+
+    border: 2px solid #AAAAAA;
+    
+}
+#bottom-section {
+    display:flex;
+    flex-direction: row;
+    background-color: aquamarine;
+}
+
+
+#city-name-input {
+    box-sizing: border-box;
+    width: 945px;
+    height: 52px;
+    left: 153px;
+    top: 86px;
+    border: 2px solid #AAAAAA;
+}
+
+#reset {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 18px;
+    gap: 6px;
+    /* position: absolute; */
+    width: 81px;
+    height: 36px;
+    left: 1008px;
+    top: 94px;
+    background: #A35FCA;
+    border-radius: 4px;
+    border: none;
+}
+
+#city-name {
+    width: 335px;
+    height: 35px;
+    left: 174px;
+    top: 174px;
+
+    font-family: 'Racing Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 20px;
+    /* or 42% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+color: #000000;
+}
+
+#temp-display{
+    width: 143px;
+    height: 121px;
+    left: 551px;
+    top: 321px;
+
+    font-family: 'Racing Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 20px;
+    /* or 31% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+#sky-section {
+    display: flex;
+    box-sizing: border-box;
+    width: 942px;
+    height: 63px;
+    left: 156px;
+    top: 471px;
+
+background: #FFFFFF;
+/* Border / Subtle */
+
+border: 2px solid #AAAAAA;
+}
+
+#sky-options {
+    width: 24px;
+    height: 24px;
+    right: 172.91px;
+    top: 491.09px;
+}
+
+#temp-title {
+    box-sizing: border-box;
+    width: 382px;
+    height: 55px;
+    left: 156px;
+    top: 562px;
+
+background: #A35FCA;
+/* Border / Subtle */
+
+border: 2px solid #AAAAAA;
+}
+
+#temp2-display {
+    width: 104px;
+    height: 96px;
+    left: 278px;
+    top: 645px;
+
+    font-family: 'Racing Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 20px;
+    /* or 42% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #FFFFFF;
+/* Border / Subtle */
+}
+
+
+
+#temp-section, #weather-garden-section {
+    /* display: flex; */
+    border-radius: 15px;
+    padding: 8px;
+    background-color: white;
+    align-content: space-around;
+
+}
