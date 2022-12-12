@@ -1,5 +1,4 @@
 body {
-  /* background-color: #e0ec8c; */
   background-image: url('https://images.pexels.com/photos/10920428/pexels-photo-10920428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
   background-size: cover;
   font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
@@ -17,14 +16,41 @@ body {
   padding: 50px;
 }
 
+.search-label {
+  margin-left: 225px;
+  font-size: 18px;
+}
+
+.current-temp {
+  margin-left: 20px;
+}
+.current-city {
+  font-size: 35px;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  
+  }
+
 #displayCity {
   font-size: 30px;
   text-align: center;
 
 }
 
+#displayWeather {
+  display: flex;
+  columns: 2;
+  justify-content: center;
+  margin: 10px;
+}
+
 #dropDownMenu {
   text-align: right;
+  margin: 10px;
 }
 
 #getDisplayCityTemp {
@@ -40,28 +66,9 @@ body {
   transition: all 200ms ease-in-out;
   text-decoration: none;
 }
-.search-label {
-  margin-left: 225px;
-  font-size: 18px;
-}
-
-.current-temp {
-  margin-left: 20px;
-}
-.current-city {
-  font-size: 35px;
-  text-align: center;
-}
 
 #Total {
   font-size: 75px;
   font-weight: bold;
   text-align: center;
 }
-
-.flex-container {
-
-  display: flex;
-  justify-content: center;
-  
-  }
