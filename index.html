@@ -9,40 +9,40 @@
 </head>
 <body>
     <header>
-        <h1 id = "weather-caption">Weather Report</h1>
-        <span class = "subheader">
+        <h1>Weather Report</h1>
+        <span class="subheader">
             <span id="headerCityName" class="header_city"></span>
         </span>
-        <span id="headerCityName" class="header_city"></span>
     </header>
-    <div class = "main_section">
-        <button id="realTimeTemp" class="realTempButton">Real Time</button>
-        <section id="tempSection">
+    <div id = "main_section">
+        <section class="tempSection">
             <h2 id = "tempCaption">Temperature</h2>
-            <div class="temp_wheel"></div>
-            <button id="up">⬆️</button></br>
-            <h2 id="currentTemp">100</h2>
-            <button id="down">⬇️</button> 
+            <div class="temp_wheel">
+                <button id="up">⬆️</button></br>
+                <h2 id="currentTemp">100</h2>
+                <button id="down">⬇️</button> 
+            </div>
         <div>
             <span id="temp_value"></span>
         </div>
         </section>
+        <section class = "city_section">
+            <h2 id="citySection">City Name</h2>
+            <input id="cityName" placeholder ="Seattle" type="text"  name="name" required
+            minlength="4" maxlength="30" size="30">
+            <button id="realTimeTemp" class="realTempButton">Real Time</button>
+            <button id="resetbutton" type="reset" class = "resetbutton">Reset</button>
+            <p id = "cityNameShown"></p>
+        </section>
         <section class = "mainSky">
             <h2 id = "skyCaption"> Sky</h2>
-            <select id ="skyOption">
+            <select id = "skyOption">
                 <option value="none" selected disabled hidden>select sky</option>
                 <option value="sun">Sunny</option>
                 <option value="overcast">Cloudy</option>
                 <option value="rain">Rainy</option>
                 <option value="snow">Snowy</option>
             </select>
-        </section>
-        <section class = "city_section">
-            <h2 id="citySection">City Name</h2>
-            <input id="cityName" placeholder ="Seattle" type="text"  name="name" required
-            minlength="4" maxlength="30" size="30">
-            <button id="resetbutton" type="reset" class = "resetbutton">Reset</button>
-            <p id = "cityNameShown"></p>
         </section>
         <section id = "landscapeSection">
             <h2 id = "gardenCaption">Weather Garden</h2>

@@ -49,9 +49,14 @@ const getTempByCity = (latitude, longitude) => {
     });
 };
 
+const updateTemp = () => {
+  const tempContainer = document.querySelector('#currentTemp');
+  tempContainer.textContent = `${state.currentTemp}`;
+  changeTempColor(fahrenheit)
+}
 
 const state = {
-  currentTemp:  100,
+  currentTemp:  0,
 };
 
 // temperature
@@ -92,21 +97,22 @@ const changeTempColor = () => {
 
 const skyChanger = () => {
   const skyContainer = document.getElementById('skyLandscape');
-
   if (document.getElementById('skyOption').value === 'sun') {
-    document.querySelector('.mainSky');
+    document.querySelector('.mainSky').style.background ="wheat";
     skyContainer.textContent = '🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤🌤';
+    
   }
   if (document.getElementById('skyOption').value === 'overcast') {
-    document.querySelector('.mainSky');
+    document.querySelector('.mainSky').style.background ="grey";
     skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+
   }
   if (document.getElementById('skyOption').value === 'rain') {
-    document.querySelector('.mainSky');
+    document.querySelector('.mainSky').style.background ="steelblue";
     skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   }
   if (document.getElementById('skyOption').value === 'snow') {
-    document.querySelector('.mainSky');
+    document.querySelector('.mainSky').style.background ="ghostwhite";
     skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };

@@ -1,12 +1,106 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color:lightblue ;
+    background-color:dodgerblue;
 }
 h1 {
     display: flex;
     align-items: left;
-    justify-content: left;
+    justify-content: center;
+    color: aliceblue;
+}
+
+.subheader {
+    display: flex;
+    font-size: 1rem;
+    margin-bottom: 30px;
 }
 .weather-caption {
     align-items: center;
+    margin-bottom: 30px;
+    justify-content: center;
 }
+
+.main_section {
+    background-color: cornflowerblue;
+    flex-direction:column ;
+    justify-content:space-evenly;
+    border: thick
+}
+.tempSection {
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: center;
+
+}
+
+#temp_value {
+    font-size: 33px;
+    margin-right: 1rem;
+    justify-content: center;
+}
+
+.temp_wheel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 3rem;
+    font-size: 18px;
+}
+
+#up {
+    background-color: dodgerblue;
+}
+#down { 
+    background-color: dodgerblue;
+}
+.mainSky {
+    background-color: rgba(81, 0, 179, 0.415);
+    padding: 0px 20px 0px 20px;
+    border-radius: 5px;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.tempSection {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgba(81, 0, 179, 0.415);
+    padding: 0px 20px 0px 20px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+.city_section {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgba(81, 0, 179, 0.415);
+    padding: 0px 20px 0px 20px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+#landscapeSection{
+    background-color: rgba(81, 0, 179, 0.415);
+    ;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px 20px 0px 20px;
+    margin-top: 40px;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    border-radius: 5px;
+    background-color: fir;
+}
+
+#gardenCaption {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 24px;
+    }
+
+#skLandscapey,
+#landscape {
+        font-size: 30px;
+    }
+#tempCaption,
+#citySection,
+#skyCaption,#gardenCaption {
+    color:aliceblue
+}
+
