@@ -5,8 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel = "stylesheet" href = "styles/index.css">
+
 </head>
 <body>
-    
+    <header></header>
+    <section id = "container">
+
+        <div id = "city">TITLE</div>
+        
+        <div id = "garden">
+            <p id = "sky-pics"></p>
+            <p id = "garden-pics"></p>
+        </div>
+        <div id = "temperature">
+            <h2 id = "display-temp"></h2>
+            <button id="increaseButton">⬆️</button>
+            <button id="decreaseButton">⬇️ </button>
+            <button id="real-time-weather">Get real time weather!</button>
+        </div>
+        <div id = "sky">Select a sky option: 
+            <select id = "skyDropdown"> 
+                  <option value="Sunny">Sunny</option>
+                  <option value="Cloudy">Cloudy</option>
+                  <option value="Rainy">Rainy</option>
+                  <option value="Snowy">Snowy</option>
+            </select>
+        </div>
+        
+
+        <div id = "city-lookup">Look up a city:
+            <input type="text" id="city-input">
+            <button id ="resetCityButton"> Reset</button>
+            
+        </div>
+        
+    </section>
+    <footer>(c) Nina & Carina 2022 bffs4eva</footer>
+    <script src = "src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

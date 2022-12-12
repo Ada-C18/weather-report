@@ -1,4 +1,5 @@
-# Wave 2: Increase and Decrease Temperature
+# Wave 2: Increase and Decrease Temperature 
+id = temperature
 
 ## Requirements
 

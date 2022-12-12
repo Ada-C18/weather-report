@@ -1,5 +1,12 @@
 # Weather Report
 
+## Carina & Nina's Pair Plan
+- Don't worry about this project until Wed.!!
+- Access Needs: n/a
+- Learning Style: Learning by doing (Nina) // Try to understand first, later trial and error (Carina)
+- Feedback: Straightforward (Nina) // Don't be mean(?) (Carina)
+- Communication Skills: Be more straightforward, work on explaining code/logic to others (Nina) // Be more assertive, state needs clearly (Carina)
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
