@@ -46,8 +46,35 @@ const landscapeChange = () => {
     landscape = "**shiver shiver**";
   }
 
-  const updatedLandscape = document.getElementById("skyAndLandscape");
+  const updatedLandscape = document.getElementById("landscape");
   updatedLandscape.textContent = landscape;
+}
+
+const skyChange = () => {
+  let skySelection = document.getElementById("updateSky").value;
+  const skyEmojis = document.getElementById("sky");
+  let sky = "";
+  let atmosphere = "";
+  if (skySelection == "Sunny") {
+    sky = "add sun emojis here";
+    atmosphere = "sunny";
+  } else if (skySelection == "Cloudy") {
+    sky = "add cloud emojis here";
+    atmosphere = "cloudy";
+  } else if (skySelection == "Rainy") {
+    sky = "add rain emojis here";
+    atmosphere = "rainy";
+  } else if (skySelection == "Snowy") {
+    sky = "add snow emojis here";
+    atmosphere = "snowy";
+  } else if (skySelection == "Stormy") {
+    sky = "add lightning emojis here";
+    atmosphere = "stormy";
+  }
+
+  skyEmojis.textContent = sky;
+  const weatherBox = document.getElementById("skyAndLandscape");
+  weatherBox.classList = `weatherFlexBox ${atmosphere}`;
 }
 
 const increasedTemp = () => {
@@ -132,6 +159,7 @@ const registerEventHandlers = () => {
   tempChange();
   landscapeChange();
   cityNameChange();
+  skyChange();
 
   const increasedTempButton = document.getElementById("increaseTemp");
   increasedTempButton.addEventListener("click", increasedTemp);
@@ -147,6 +175,9 @@ const registerEventHandlers = () => {
 
   const realTimeTemp = document.getElementById("tempRequest");
   realTimeTemp.addEventListener("click", getLatAndLon);
+
+  const updateSky = document.getElementById("updateSky");
+  updateSky.addEventListener("change", skyChange);
 
   console.log("loaded successfully");
 }

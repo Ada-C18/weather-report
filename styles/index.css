@@ -29,7 +29,6 @@ header {
     font-size: 2em;
 }
 
-
 /* class selectors */
 
 .container{
@@ -44,16 +43,33 @@ header {
     grid-template-columns: repeat(3,1fr);
 }
 
-.b {
-    background-color: var(--primaryColor);
-}
-
 .interactive{
     background-color: var(--lightColor);
 }
 
 .credits {
     font-size: .8em;
+}
+
+/* weather flex box formatting */
+
+.weatherFlexBox {
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sky {
+    text-align: center;
+    line-height: 10;
+    border: 3px solid darkblue;
+}
+
+#landscape {
+    text-align: center;
+    line-height: 10;
+    border: 3px solid darkgrey;
 }
 
 /* color options for 
@@ -78,3 +94,25 @@ temp & landscape background */
 .blue {
     color: blue;
     }
+
+/* color options for atmosphere */
+
+.sunny {
+    background-color: gold;
+}
+
+.cloudy {
+    background-color: beige;
+}
+
+.rainy {
+    background-color: lightskyblue;
+}
+
+.snowy {
+    background-color: oldlace;
+}
+
+.stormy {
+    background-color: grey;
+}
