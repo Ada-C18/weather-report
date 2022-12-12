@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-    <link href="/styles/index.css" rel="stylesheet">
+    <link href="./styles/index.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -14,8 +14,7 @@
         <span>
             For the lovely city of
             <span id="headerCityName">
-                ::before
-                ::after
+                Seattle
             </span>
         </span>
     </header>
@@ -23,13 +22,12 @@
         <h2>Temperature</h2>
         <div class="temperature_content">
             <div class="temperature_controls">
-                <span id="tempValue"> 80 °F</span>
+                <span id="tempValue" class="red"> 80 °F</span>
                 <span id="increaseTempBtn">⬆️</span>
                 <span id="decreaseTempBtn">⬇️</span>
             </div>
             <button id="currentTemp">Get Realtime Temperature</button>
         </div>
-        <div id="temperature-background"></div>
     </section>
     <section class="sky-section">
         <select id="skySelection">
@@ -44,12 +42,6 @@
         <input type="text" id="cityNameInput" value="Seattle">
         <button id="cityResetBtn">Reset</button>
     </section>
-    <!-- <section class="garden_section">
-        <h2>Weather Garden</h2>
-        <div id="gardenContent"> 
-            <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div> 
-        </div>
-    </section> -->
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
 </body>
