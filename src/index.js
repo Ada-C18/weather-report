@@ -18,6 +18,7 @@ const convertKtoF = (temp) => {
   return (temp - 273.15) * (9 / 5) + 32;
 };
 
+// increase/decrease
 const upButton = document.getElementById('up');
 const downButton = document.getElementById('down');
 let display = document.getElementById('tempNum');
@@ -118,30 +119,19 @@ const displayEmojis = () => {
   const temperature = document.getElementById('tempNum');
   temperature.className = numColor;
   temperature.textContent = String(state.temp);
-  // SKY EMOJIS
-  const inputSky = document.getElementById('skyOptions').value;
-  inputSky.textContent = inputSky;
-
-  const skyContainer = document.getElementById('sky-weather');
-  skyContainer.className = skySection;
-  skyContainer.textContent = String(state.temp);
 };
 
-skyContainer.textContent = sky;
-
-// skyOptions.addEventListener('change', updateSky);
-
 const updateSky = () => {
-  const inputSky = document.getElementById('skyOptions').value;
-  inputSky.textContent = inputSky;
+  const inputSky = document.getElementById('climate').value;
+  // inputSky.textContent = inputSky;
   let sky = '';
   let skyColor = '';
   if (inputSky === 'clouds') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
     skyColor = 'cloud';
   } else if (inputSky === 'sunshine') {
-    sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
-    skyColor = 'sunny';
+    sky = '☁️☁️☁️     ☁️   ☁️ ☀️ ☁️  ☁️☁️☁️';
+    skyColor = 'sunnshine';
   } else if (inputSky === 'rain') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
     skyColor = 'rain';
@@ -152,13 +142,12 @@ const updateSky = () => {
     sky = '🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️';
     skyColor = 'wind';
   }
+
+  const skyContainer = document.getElementById('weather-emojis');
   skyContainer.textContent = sky;
-  weatherEmojis.classList = `${skyColor}`;
-  updateSky();
-  // skyOptions.addEventListener('change', updateSky);
 };
 updateSky();
-const chooseSky = document.getElementById('weatherEmojis');
+const chooseSky = document.getElementById('climate');
 chooseSky.addEventListener('change', updateSky);
 
 console.log(updateSky);

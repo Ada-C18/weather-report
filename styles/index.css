@@ -36,7 +36,7 @@ body {
 }
 
 .emojis {
-    background: rgb(0, 255, 204);
+    background: rgb(121, 194, 121);
     float: left;
     width: 50%;
     height: 400px;
@@ -71,4 +71,20 @@ body {
 
 .grey {
   color: grey;
+}
+
+.clouds {
+  color: grey
+}
+.rain {
+  color: cadetblue
+}
+.sunshine {
+  color: orangered
+}
+.wind {
+  color: darkgray
+}
+.snow {
+  color:aliceblue
 }
