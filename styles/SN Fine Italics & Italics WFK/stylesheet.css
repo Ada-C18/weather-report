@@ -2,118 +2,12 @@
 
 
 
-@font-face {
-    font-family: 'SN Fine Italics Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-cond-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-cond-webfont.woff2') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
 
 
 @font-face {
     font-family: 'SN Fine Italics Reg';
     src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-reg-webfont.woff2') format('woff2'),
          url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-reg-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Fine Italics Semi Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-smcn-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-smcn-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Fine Italics Ultra Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-ucn-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-ucn-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Fine Italics Extra Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-xcn-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicfnit-xcn-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Italics Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-cond-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-cond-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Italics Reg';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-reg-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-reg-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Italics Semi Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-smcn-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-smcn-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Italics Ultra Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-ucn-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-ucn-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'SN Italics Extra Cond';
-    src: url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-xcn-webfont.woff2') format('woff2'),
-         url('/styles/SN\ Fine\ Italics\ &\ Italics\ WFK/seriouslynostalgicital-xcn-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
