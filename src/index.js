@@ -43,6 +43,13 @@ const handleSubmitButton = () => {
   //console.log(getInfo(city));
 };
 
+//Helper for Reset Button
+const handleResetButton = () => {
+  city = '';
+  document.getElementById('submit-city').value = '';
+  document.getElementById('header-city-name').textContent = city;
+};
+
 // Helpler to set temp
 const setTemp = () => {
   counterDisplayElem.innerHTML = temp;
@@ -105,6 +112,10 @@ const registerEventHandlers = () => {
   // Sky Display
   let skySelector = document.getElementById('sky-select');
   skySelector.addEventListener('change', handleSkyDisplay);
+
+  //Reset City
+  let resetButton = document.getElementById('reset-button');
+  resetButton.addEventListener('click', handleResetButton);
 };
 
 document.addEventListener('DOMContentLoaded', init);
