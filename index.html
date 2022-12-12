@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Valentina's Weather Report</title>
 </head>
-<body>
-    
+<body class="body" id="body">
+    <h2 id="weather-report">Weather Report</h2>
+    <section class="inner-body">
+        <div id="city-container">
+            <form action="" id="update-city">
+                <h1 id="city-name" onsubmit="myScript" id="original">San Francisco</h1>
+                <label for="city-input">Enter city:</label>
+                <input type="text" id="city-input">
+                <div id="city">
+                    <input type="submit" value="ENTER" id="enter">
+                    <input type="reset" value="RESET" id="reset">
+                </div>
+            </form>
+        </div>
+        <div id="mid-row">
+            <div id="temp-container">
+                <h2 id="temp-title">Temperature</h2>
+                <div id="temp-content">
+                    <div id="temp-buttons">
+                        <button class="button" id="increaseTemp">⬆️</button>
+                        <button class="button" id="decreaseTemp">⬇️</button>
+                    </div>
+                    <span id="tempValue">65</span>
+                    <span id="temp-symbol">&deg;F</span>
+                </div>
+            </div>
+            <div id="sky-container">
+                <h2 id="sky-title">Choose the sky type</h2>
+                <div id="sky-content">
+                    <label for="sky">What does the sky look like?</label>
+                    <div id="sky-selector">
+                        <select name="sky" id="sky-option" default="">
+                            <option value="sunny">Sunny</option>
+                            <option value="cloudy">Cloudy</option>
+                            <option value="rainy">Rainy</option>
+                            <option value="snowy">Snowy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="land-container">
+            <!-- emoji landscape -->
+            <span id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span>
+            <span id="landscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</span>
+        </div>
+    </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
 </html>

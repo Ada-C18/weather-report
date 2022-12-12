@@ -1,0 +1,117 @@
+/* previous instructors ex:
+https://simons-weather-report.surge.sh/
+figma: https://www.figma.com/file/8zHh7xLLNxqUhrTPw6hr5F/Untitled?node-id=0%3A3&t=rSgbliCuqj0Xl7un-0
+
+
+/* ///////////// BASIC LAYOUT  /////////////// */
+body {
+    background-image: url(/images/orange_flowers.jpg);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body h2 {
+    margin-left: 42px;
+}
+.inner-body {
+    border-radius: 10px;
+    margin: auto;
+    width: 1300px;
+    height: 800px;
+
+    padding: 20px; 
+    background-color: rgb(239, 238, 238);
+    opacity: .7;
+}
+
+#city-container {
+    width: 75%;
+    margin: 20px;
+}
+
+#temp-container {
+    width: 400px;
+    background-color: rgb(187, 197, 203);
+    margin: 20px;
+}
+#sky-container {
+    width: 400px;
+    background-color: rgb(187, 197, 203);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#land-container {
+    margin-top: 100px;
+    width: 1200px;
+    height: 300px;
+    background-color: rgb(201, 201, 160);
+}
+#mid-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+/*/////// ITEMS IN CITY CONTAINER ///////////*/
+#city-name {
+    text-transform: capitalize;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+#city-name::first-letter {
+    font-size: 60px;
+}
+form #reset input {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#pencil {
+    margin-bottom: 0;
+}
+/*///////////////// ITEMS IN TEMP CONTAINER /////////////*/
+#tempValue {
+    color: yellow;
+    font-size: 60px;
+}
+#temp-symbol {
+    text-align: right;
+    margin-top: 31px;
+}
+#temp-buttons {
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    width: fit-content;
+}
+#temp-content {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+}
+
+/* //////////ITEMS WITHIN LANDSCAPE CONTAINER ///////////*/
+#land-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#landscape {
+    font-size: 4rem;
+}
+#sky {
+    font-size: 4rem;
+}
+
+/*//////////////IN SKY CONTAINER  //////////////*/
+#sky-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
