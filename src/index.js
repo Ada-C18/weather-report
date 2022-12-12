@@ -29,7 +29,8 @@ const renderPage = () => {
 
   document.getElementById('temp').textContent = tempF(); // TODO add pref
   const newStyle = temperatureStyle(tempF());
-  let newSky = skyStyle();
+  const newSky = skyStyle();
+  document.getElementById('sky_input').value = state.sky;
   document.getElementById('body').style.backgroundColor = newStyle.bgColor;
   document.getElementById('landscape').textContent = newStyle.landscape;
   document.getElementById('sky').textContent = newSky.skyType;
@@ -42,6 +43,16 @@ const finishTyping = (target, delay) => {
   return new Promise(
     (resolve) => (holup[target.id] = setTimeout(resolve, delay))
   );
+};
+
+const increaseTemp = () => {
+  state.temp++;
+  renderPage();
+};
+
+const decreaseTemp = () => {
+  state.temp--;
+  renderPage();
 };
 
 const updateLocation = async () => {
@@ -71,43 +82,49 @@ const getWeather = async (lat, lon) => {
 };
 
 const skyStyle = () => {
-  const conditionIs = word => state.condition.indexOf(word) != -1
-  if(conditionIs("rain") || conditionIs("mist")) {
-    state.sky = "rainy";
+  const conditionIs = (word) => state.condition.indexOf(word) != -1;
+  if (conditionIs('rain') || conditionIs('mist')) {
+    state.sky = 'rainy';
+  } else if (conditionIs('clouds')) {
+    state.sky = 'cloudy';
+  } else if (conditionIs('snow')) {
+    state.sky = 'snowy';
+  } else {
+    state.sky = 'sunny';
   }
-  else if(conditionIs("clouds")) {
-    state.sky = "cloudy";
-  }
-  else if(conditionIs("snow")) {
-    state.sky = "snowy";
-  }
-  else {
-    state.sky = "sunny";
-  }
+  return selectSky(state.sky);
+};
 
-  let sky = state.sky;
-
+const selectSky = (sky) => {
   if (sky == 'sunny') {
-    return { skyType: "☁️ ☁️ ☁️ ☀️ ☁️ ☁️" };
+    return { skyType: '☁️ ☁️ ☁️ ☀️ ☁️ ☁️' };
   } else if (sky == 'cloudy') {
-    return { skyType: "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️" };
+    return { skyType: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️' };
   } else if (sky == 'rainy') {
-    return { skyType: "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧" };
+    return { skyType: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧' };
   } else if (sky == 'snowy') {
-    return { skyType: "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨" };
+    return { skyType: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨' };
   }
 };
 
-const skyUpdate = () => {
-  let newSky = skyStyle();
-  document.getElementById('sky').textContent = newSky.skyType;
+const skyUpdate = (sky) => {
+  document.getElementById('sky').textContent = sky;
 };
 
 function addListeners() {
   document.getElementById('city_input').oninput = (event) =>
     finishTyping(event.target, 500).then(updateLocation);
   document.getElementById('sky_input').oninput = (event) => {
-    state.sky = event.target.value;
-    skyUpdate();
+    document.getElementById('sky').textContent = selectSky(
+      event.target.value
+    ).skyType;
+  };
+  document.getElementById('temp_increase').onclick = increaseTemp;
+  document.getElementById('temp_decrease').onclick = decreaseTemp;
+  document.getElementById('reset').onclick = () => {
+    state.city = 'Seattle';
+    document.getElementById('city_input').value = state.city;
+    document.getElementById('city').textContent = state.city;
+    updateLocation();
   };
 }
