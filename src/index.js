@@ -107,6 +107,7 @@ const findTemp = (query) => {
       state.temperature = tempFahrenheit;
       const tempDisplay = document.querySelector('#temperature');
       tempDisplay.textContent = `${state.temperature}`;
+      changeTemperatureColor(state.temperature, tempDisplay);
     })
     .catch((error) => {
       if (error.response) {
