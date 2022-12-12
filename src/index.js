@@ -10,7 +10,6 @@ const plusClickCount = () => {
   state.clickCount += 1;
   plusContainer.textContent = state.clickCount;
   changeColor();
-  changeLandscape();
 };
 
 const minusClickCount = () => {
@@ -18,41 +17,33 @@ const minusClickCount = () => {
   state.clickCount -= 1;
   minusContainer.textContent = state.clickCount;
   changeColor();
-  changeLandscape();
 };
 //making text color different
 const changeColor = () => {
   const tempColor = document.querySelector('#Temperature');
-  const newLandscape = document.querySelector('#landscape');
+  const newLS = document.getElementById('newLandscape');
 
   if (state.clickCount < 49) {
     tempColor.style.color = 'teal';
+    newLS.src = `assets/cold.jpeg`;
+
   } else if (state.clickCount >= 50 && state.clickCount < 59) {
     tempColor.style.color = 'green';
+    newLS.src = `assets/cool.jpeg`;
+
   } else if (state.clickCount >= 60 && state.clickCount < 69) {
     tempColor.style.color = 'yellow';
+    newLS.src = `assets/warm.jpeg`;
+
   } else if (state.clickCount >= 70 && state.clickCount < 79) {
     tempColor.style.color = 'orange';
+    newLS.src = `assets/beach.jpeg`;
+
   } else if (state.clickCount >= 80) {
     tempColor.style.color = 'red';
-  }
-};
-// change landscape
-const changeLandscape = () => {
-  // Create a new image and set its attribute
-  const newLS = document.createElement('img');
-  const newLandscape = document.querySelector('#landscape');
+    newLS.src = `assets/hot1.jpeg`;
 
-  if (state.clickCount < 59) {
-    newLS.src = `assets/cold.jpeg`;
-  } else if (state.clickCount >= 60 && state.clickCount < 69) {
-    newLS.src = `assets/cool.jpeg`;
-  } else if (state.clickCount >= 70 && state.clickCount < 79) {
-    newLS.src = `assets/warm.jpeg`;
-  } else if (state.clickCount >= 80) {
-    newLS.src = `assets/hot.jpeg`;
   }
-  newLandscape.append(newLS);
 };
 //wave 3
 const input = document.querySelector('input');
@@ -88,6 +79,7 @@ const findLocationWeather = (query) => {
           state.clickCount = Math.floor(
             (Number(response.data.main.temp) - 273.15) * 1.8 + 32
           );
+          changeColor()
         })
         .catch((error) => {
           console.log('error in findweather!', error);
@@ -104,7 +96,20 @@ const realTimeClick = () => {
   const tempContainer = document.getElementById('Temperature');
   tempContainer.textContent = state.clickCount;
 };
+//wave 5
 
+const selectSky = document.querySelector('.sky');
+
+selectSky.addEventListener('change', (event) => {
+  const result = document.querySelector('.result');
+  result.textContent = `The sky is ${event.target.value}`;
+});
+
+
+
+
+
+//wave 6
 const resetCity = () => {
   input.value = '';
   document.getElementById('values')='';
