@@ -24,34 +24,34 @@ const decreaseTemp = () => {
 };
 
 const updateBackground = () => {
-  const backgroundImage = document.getElementById('bg').style.backgroundImage;
+  const background = document.getElementById('bg');
 
   if (state.tempValue > 100){
-    backgroundImage = 'url(assets/sun-surface.jpg)';
+    background.style.backgroundImage = 'url(assets/sun-surface.jpg)';
   }
   else if (state.tempValue > 90){
-    backgroundImage = 'url(assets/desert.jpg)';
+    background.style.backgroundImage = 'url(assets/desert.jpg)';
   }
   else if (state.tempValue > 80){
-    backgroundImage = 'url(assets/desert1.jpg)';
+    background.style.backgroundImage = 'url(assets/desert1.jpg)';
   }
   else if (state.tempValue > 70){
-    backgroundImage = 'url(assets/summer.jpg)';
+    background.style.backgroundImage = 'url(assets/summer.jpg)';
   }
   else if (state.tempValue > 60){
-    backgroundImage = 'url(assets/spring.jpg)';
+    background.style.backgroundImage = 'url(assets/spring.jpg)';
   }
   else if (state.tempValue > 50){
-    backgroundImage = 'url(assets/spring2.webp)';
+    background.style.backgroundImage = 'url(assets/spring2.webp)';
   }
   else if (state.tempValue > 40){
-    backgroundImage = 'url(assets/autumn.jpg)';
+    background.style.backgroundImage = 'url(assets/autumn.jpg)';
   }
   else if (state.tempValue > 30){
-    backgroundImage = 'url(assets/winter-lanscape.webp)';
+    background.style.backgroundImage = 'url(assets/winter-lanscape.webp)';
   }
   else if (state.tempValue > 20){
-    backgroundImage = 'url(assets/deepfreeze.jpg)';
+    background.style.backgroundImage = 'url(assets/deepfreeze.jpg)';
   }
 };
 
@@ -70,17 +70,20 @@ const updateTempColor = () => {
 };
 
 const updateSky = () => {
-  const sky = document.getElementById('sky').textContent;
+  const sky = document.getElementById('sky');
   const skySelection = document.getElementById('skySelection').value;
 
-  if (skySelection === 'Sunny') {
-    sky = '☁️   🕊️☁️        ☀️ ☁️';
-  } else if (skySelection === 'Cloudy') {
-    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (skySelection === 'Rainy') {
-    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧';
-  } else if (skySelection === 'Snowy') {
-    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  if (skySelection === 'Sunny'){
+    sky.textContent = '☁️  🕊️☁️        ☀️ ☁️';
+  }
+  else if (skySelection === 'Cloudy'){
+    sky.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  }
+  else if (skySelection === 'Rainy'){
+    sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧';
+  }
+  else if (skySelection === 'Snowy'){
+    sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
