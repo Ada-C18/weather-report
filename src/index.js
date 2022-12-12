@@ -117,7 +117,7 @@ const retrieveWeather = () => {
   .then((response) => {
     const currentWeather = response.data;
     console.log(currentWeather);
-    state.temp = Math.floor(tempUnitConvert(currentWeather.main.temp));
+    state.temp = Math.round(tempUnitConvert(currentWeather.main.temp));
     changeTempColorAndGardenLandscape();
   })
   .catch((error) => {
