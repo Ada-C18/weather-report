@@ -68,24 +68,23 @@ const init = () => {
 };
 
 //Helper for Sky Display
-// let skyElem = document.getElementById('sky-select').value;
-// let skyBackground = document.getElementById('sky-background');
+const changeSkyDisplay = (skyElem, skyBackground) => {
+  if (skyElem === 'sunny') {
+    skyBackground.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyElem === 'cloudy') {
+    skyBackground.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyElem === 'rainy') {
+    skyBackground.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyElem === 'snowy') {
+    skyBackground.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
 
-// const changeSkyDisplay = (skyElem, skyBackground) => {
-//   if (skyElem === 'Sunny') {
-//     skyBackground.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-//   } else if (skyElem === 'Cloudy') {
-//     skyBackground.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-//   } else if (skyElem === 'Rainy') {
-//     skyBackground.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-//   } else if (skyElem === 'Snowy') {
-//     skyBackground.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-//   }
-// };
-
-// const handleSkyDisplay = () => {
-//   changeSkyDisplay(skyElem, skyBackground);
-// };
+const handleSkyDisplay = () => {
+  let skyElem = document.getElementById('sky-select').value;
+  let skyBackground = document.getElementById('sky-background');
+  changeSkyDisplay(skyElem, skyBackground);
+};
 
 const registerEventHandlers = () => {
   //Temperature
@@ -104,8 +103,8 @@ const registerEventHandlers = () => {
   submitButton.addEventListener('click', handleSubmitButton);
 
   // Sky Display
-  // let skySelector = document.querySelector('.skies');
-  // skySelector.addEventListener('change', handleSkyDisplay);
+  let skySelector = document.getElementById('sky-select');
+  skySelector.addEventListener('change', handleSkyDisplay);
 };
 
 document.addEventListener('DOMContentLoaded', init);
