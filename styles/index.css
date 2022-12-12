@@ -22,7 +22,6 @@ header {
 #temperature {
     grid-column: 2/3;
     top: 50%;
-    display: flex;
     align-items: center;
 }
 
