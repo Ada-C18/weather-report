@@ -5,8 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="interaction" href="src/index.js">
+    <link rel="axios" href="node_modules/axios/dist/axios.min.js">
 </head>
+
 <body>
-    
+    <header class="header__title">
+        <h1>Weather Report for 
+            <span id="headerCity" class="header__city">
+            Los Angeles
+            </span>
+        </h1>
+    </header>
+    <section class="temp__title">
+        <h2>Temperature (°F)</h2>
+        <div class="temp__content">
+            <div class="temp_controls">
+                <span id="tempDown" class="temp__down">🔽</span>
+                <span id="tempVisual" class="temp__visual">53</span>
+                <span id="tempUp" class="temp__up">🔼</span>
+            </div>
+        </div>
+    </section>
+    <section class="sky__title">
+        <h2>Sky</h2>
+        <select id="skyOptions">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
+    </section>
+    <section class="city__title">
+        <h2>City Name</h2>
+        <input type="text" id="cityNameInput" placeholder="Change City Here">
+        <button id="search">Get Real Time Temp</button>
+        <button id="cityReset">Reset</button>
+    </section>
+    <section class="weather_garden__title">
+        <h2>Weather Garden</h2>
+        <div id="myGarden">
+            <div id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️ ☁️</div>
+            <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+        </div>
+    </section>
 </body>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js"></script>
 </html>
