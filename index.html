@@ -5,8 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
+    <header class="titleBlock">
+        <h1 id="siteTitle">The Weather Station</h1>
+    </header>
+    <span class="banner" id="skyBanner"></span>
+    <section class="cityNameBlock">
+        <label id="cityName" for="inputCityName">Seattle</label>
+        <br />
+        <input type="text" id="inputCityName" placeholder="Berlin"/>
+        <button id="resetCityName">reset city name</button>
+    </section>         
+    <section class="skyConditionBlock">
+        <label for="skySelect">Sky Condition</label>
+        <select name="skyCondition" id="skySelect">
+            <option value="default"></option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </section>
+    <!-- <div>Date & Time</div> -->
+    <section class="temperatureBlock">
+        <button id="increaseTempButton">Increase Temp</button>
+        <p id="Temperature">Temperature</p>
+        <button id="decreaseTempButton">Decrease Temp</button>
+        <br />
+        <button id="updateTempButton">Update Temperature</button>
+    </section>
     
+    <span class="banner" id="landscape"></span>
+    <footer></footer>   
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
-</html>
+</html> 
