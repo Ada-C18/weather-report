@@ -109,6 +109,7 @@ const resetCurrentCity = () => {
   const cityNameInput = document.getElementById('cityNameInput');
   cityNameInput.value = 'Albuquerque';
   changeCity();
+  getCurrentTempButton();
 };
 
 const registerEventHandlers = () => {
@@ -137,7 +138,6 @@ const registerEventHandlers = () => {
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 const onLoaded = () => {
-  registerEventHandlers();
   updateCityTemp(state.city);
 };
 
