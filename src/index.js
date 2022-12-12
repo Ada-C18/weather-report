@@ -11,14 +11,14 @@ const temperature = document.getElementById('tempValue');
 
 const increaseTemp = () => {
   state.tempValue += 1;
-  temperature.textContent = String(state.tempValue) + '°F';
+  temperature.textContent = state.tempValue + '°F';
   updateBackground();
   updateTempColor();
 };
 
 const decreaseTemp = () => {
   state.tempValue -= 1;
-  temperature.textContent = String(state.tempValue + '°F');
+  temperature.textContent = state.tempValue + '°F';
   updateBackground();
   updateTempColor();
 };
@@ -140,7 +140,7 @@ const updateTempValue = () => {
     updateWeather().then((weather) => {
       const tempF = Math.floor((weather - 273.15) * 1.8 + 32);
       state.tempValue = tempF;
-      temperature.textContent = state.tempValue;
+      temperature.textContent = state.tempValue + '°F';
       updateBackground();
       updateTempColor();
       return state.tempValue;
