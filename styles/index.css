@@ -1,6 +1,8 @@
 h2 {
     font-family: "Georgia";
     font-size: 3vh;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 
 body {
@@ -31,12 +33,6 @@ main {
     height: 40vh;
 }
 
-footer {
-    text-align: center;
-    position: static; 
-    bottom: auto;
-    height: 15vh;
-}
 
 img {
     display: block;
@@ -53,25 +49,25 @@ img {
 }
 
 #resetCityButton {
-    color: slategray;
+    color: honeydew;
     background-color: black;
     border-radius: 20px;
 }
 
 #tempPlus {
-    color: slategray;
+    color: honeydew;
     background-color: black;
     border-radius: 20px;
 }
 
 #tempMinus {
-    color: slategray;
+    color: honeydew;
     background-color: black;
     border-radius: 20px;
 }
 
 #currentTempButton {
-    color: slategray;
+    color: honeydew;
     background-color: black;
     border-radius: 20px;
 }
