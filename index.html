@@ -13,21 +13,24 @@
 </head>
 <body class="coolTheme">
     <header>
-        <label for="sky">Choose your sky:
-            <select id="sky" name="sky">
-                <option value="sunny" class="background">Sunny</option>
-                <option value="cloudy" class="background">Cloudy</option>
-                <option value="rainy" class="background">Rainy</option>
-                <option value="snowy" class="background">Snowy</option>
-            </select>
-        </label>
-        <h1>Weather Report</h1>
-        <h2>Now displaying the temperature for</h2>
+        <div id="column" class="flex-box-container">   
+            <label for="sky">Choose your sky:
+                <select id="sky" name="sky">
+                    <option value="sunny" class="background">Sunny</option>
+                    <option value="cloudy" class="background">Cloudy</option>
+                    <option value="rainy" class="background">Rainy</option>
+                    <option value="snowy" class="background">Snowy</option>
+                </select>
+            </label>
+            <h1>Weather Report</h1>
+            <h2>Now displaying the temperature for</h2>
+        </div>
     </header>
 
     <section>
         <h2>Find A Temperature By City</h2>
-        <div id="flex-box-container">
+        <div id="row" class="flex-box-container">
+
             <section>
                 <h3>City Name</h3>
                 <div id="topnav">
@@ -40,17 +43,19 @@
             
             <section id="temp">
                 <h3>Temperature</h3>
-                <p class="realtime">Get Realtime Temperature</p>
                 <button id="increaseBtn"><span>&#43;</span></button>
                 <span id="curTemp">0</span>
                 <span id="tempTag">° F</span>
                 <button id="decreaseBtn"><span>&#8722;</span></button>
+                <br>
+                <button id="realtimeBtn">Get Realtime Temperature</button>
+            </section>
+
+            <section id="garden">
+                <h3>Your Weather Emojis</h3>
+                <div id="curWeatherEmojis">🧤🧣🧤</div>
             </section>
         </div>
-    </section>
-    
-    <section>
-        <h5>Weather Garden</h5>
     </section>
 
     <footer>

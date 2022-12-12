@@ -3,18 +3,27 @@
     color: black;
 }
 
-/* #flex-box-container {
-    background-image: linear-gradient(#008d80, white);
-    width: 90%;
-    max-height: 450px;
-    padding-top: 30px;
+/* .flex-box-container {
+    background-color: white;
+    opacity: 25%;
+    padding: 30px 30px 30px 30px;
+    max-height: 300px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    z-index: 1000;
+    position: relative;
 } */
+
+#column {
+    flex-direction: column;
+}
+
+#row {
+    flex-direction: row;
+}
 
 header {
     text-align: center;
@@ -24,10 +33,17 @@ header {
 
 h1 {
     font-size: 50pt;
+    z-index: 1;
+    position: relative;
 }
 
 h2 {
     font-weight: 600;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
 }
 
 #curTemp, #tempTag {
@@ -50,9 +66,28 @@ h2 {
     color: green;
 }
 
-.teal {
-    color: teal;
+.cornflowerblue {
+    color: cornflowerblue;
+}
 
+.cold {
+    content: 🧤🧣🧤;
+    font-size: 40pt;
+}
+
+.comfortable {
+    content: "✅✅✅";
+    font-size: 40pt;
+}
+
+.balmy {
+    content: 😅😎😅;
+    font-size: 40pt;
+}
+
+.hot {
+    content: 🔥🔥🔥;
+    font-size: 40pt;
 }
 
 footer {
