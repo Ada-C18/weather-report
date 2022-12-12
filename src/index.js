@@ -21,7 +21,7 @@ const getLatAndLong = () => {
       },
     })
     .then((response) => {
-      console.log(response.data[0]);
+      // console.log(response.data[0]);
       state.lat = response.data[0].lat;
       state.long = response.data[0].lon;
       getWeather();
@@ -44,7 +44,7 @@ const getWeather = () => {
       const weather = response.data;
       state.temp = Math.round(convertFromKtoF(weather.main.temp));
       colorAndLandscape();
-      city = weather["name"];
+      city = weather['name'];
     })
     .catch((error) => {
       console.log('Error getting the weather:!', error);
@@ -95,20 +95,20 @@ const decreaseTemp = () => {
   colorAndLandscape();
 };
 
+const cityOutput = document.querySelector('#cityOutput');
+
 const updateCity = () => {
   const cityForm = document.querySelector('form').cityName.value;
-  const cityOutput = document.querySelector('#cityOutput');
-  state.city = cityForm
-  cityOutput.textContent = `${city}`
+  state.city = cityForm;
+  cityOutput.textContent = state.city;
   // cityOutput.innerHTML =  `<h3>${state.city}</h3>`;
 };
 
 const resetCity = () => {
-  const cityInput = document.getElementById("cityInput");
-  cityInput.value = "Seattle";
+  const cityInput = document.getElementById('cityInput');
+  cityInput.value = 'Seattle';
   updateCity();
-}
-
+};
 
 const updateSky = () => {
   const weatherState = document.getElementById('wrapper2').value;
@@ -129,17 +129,13 @@ const updateSky = () => {
     skyColor = 'snowy';
   }
   skyContainer.textContent = sky;
+  const bgLight = document.querySelector('.bg-light');
+  bgLight.classList = `bg__light ${skyColor}`;
 };
-
-
-
-
 
 // registering event handlers
 const registerEventHandlers = () => {
   colorAndLandscape();
-
-
 
   const tempInc = document.querySelector('#tempInc');
   tempInc.addEventListener('click', increaseTemp);
@@ -158,6 +154,5 @@ const registerEventHandlers = () => {
   const cityNameReset = document.getElementById('cityNameReset');
   cityNameReset.addEventListener('click', resetCity);
 };
-
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
