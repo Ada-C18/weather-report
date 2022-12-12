@@ -61,8 +61,8 @@ section {
     padding-right: 2rem;
 }
 
-.temp-section, .sky-section, .city-name-section {
-    /* border-radius: 10px; */
+.temp-section, .sky-section, .city-name-section, .garden-section {
+    border-radius: 10px;
     padding: 2rem;
     background-color: lightskyblue;
 }

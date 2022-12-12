@@ -1,26 +1,20 @@
-'use strict'; // To get a little more error reporting help from the browser
-
-// const axios = require('axios'); // imports axios library
+'use strict';
 
 const instance = axios.create({
-  // create new instance of axios
-  baseURL: 'http://127.0.0.1:5000/', // this is the server URL that will be used for the request
+  baseURL: 'http://127.0.0.1:5000/',
 });
-// set baseURL for an instance of axios to pass relative URLs to methods of that instance
 
 const convertToFahrenheit = (tempInKelvin) => {
   const fahrenheit = Math.round((tempInKelvin - 273.15) * (9 / 5) + 32);
   return fahrenheit;
 };
 
-// const defaultCity = document.getElementById('cityNameInput').value;
 const tempValue = document.getElementById('tempValue');
 
 const state = {
   temperature: convertToFahrenheit(tempValue),
 };
 
-// Get temp based on city
 const getTemp = async () => {
   let newCity = document.getElementById('cityNameInput').value;
   const geoLocation = await instance
@@ -64,7 +58,6 @@ const getTemp = async () => {
 
 getTemp();
 
-// Event handler
 const increaseTemp = () => {
   state.temperature += 1;
   tempValue.textContent = state.temperature;
@@ -87,7 +80,6 @@ const resetToDefaultCity = () => {
   cityNameInput.value = 'Atlanta';
 };
 
-// Event handler for changing sky // not displaying yet...
 const changeSky = () => {
   const inputSky = document.getElementById('skySelect').value;
   const skyBox = document.getElementById('sky');
@@ -105,7 +97,6 @@ const changeSky = () => {
   const gardenContent = document.getElementById('gardenContent');
 };
 
-// change temp color and garden display // not working yet
 const changeTempAndGarden = () => {
   let temp = state.temperature;
   let color = 'white';
@@ -154,6 +145,4 @@ const registerEventHandlers = () => {
   changeTempAndGarden();
 };
 
-// Registers all events. Once webpage is loaded, it ensures all events
-// are registered & occurs when triggered (clicked, inputted)
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
