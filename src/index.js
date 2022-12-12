@@ -32,8 +32,9 @@ const findLatLon=()=>{
     weatherLatLon(state.lat,state.lon);
     })
     .catch((error) => {
-    console.log('The value of error is:', error);
-    });
+    console.log('The value of error is:', error
+    );
+    }); 
 };
 
 const weatherLatLon = ()=>{
@@ -41,7 +42,7 @@ const weatherLatLon = ()=>{
     .get('http://127.0.0.1:5000/weather',
     { params:{
         lat:state.lat,
-        lon:state.lon
+        lon:state.lon,
     }
     })
     .then((response)=> {
@@ -49,7 +50,7 @@ const weatherLatLon = ()=>{
         const realtempy=document.getElementById('temp-number');
         console.log(tempy);
         state.temperature=Math.round(convertKtoF(tempy));
-        realtempy.textContent`${state.temperature}°f`;
+        realtempy.textContent=`${state.temperature}°f`;
     })
     .catch((error) => {
         console.log('The value of error is:', error);

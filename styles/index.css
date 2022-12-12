@@ -1,5 +1,6 @@
 body {
-    background: rgb(243, 243, 246);
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,6,6,1) 12%, rgba(0,212,255,1) 100%);
 }
 
 #weather-greet {
@@ -11,13 +12,15 @@ body {
 }
 
 #header-city-name {
-    color:rgb(118, 187, 255)
+    color:whitesmoke;
+    font-size: x-large;
+
 }
 
 h1 {
     display: block;
     margin-right: 2rem;
-    color:rgb(0, 0, 0);
+    color:whitesmoke;
 }
 
 .headerFont {
@@ -28,6 +31,10 @@ h1 {
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    color: whitesmoke;
+    font-size: large;
+    text-align: center;
+
     
 }
 
@@ -44,28 +51,23 @@ h1 {
 }
 .button1{
     border: none;
-    color:  rgb(19, 130, 216);
-    background-color: whitesmoke;
-    padding: 15px 32px;
+    color:  whitesmoke;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 22px;
-    margin: 4px 2px;
+    font-size: 24px;
     cursor: pointer;
 
 }
 
 .button2{
     border: none;
-    color:  rgb(5, 108, 187);
-    background-color: whitesmoke;
-    padding: 15px 32px;
+    background-color: none;
+    color: whitesmoke;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 22px;
-    margin: 4px 2px;
+    font-size: 24px;
     cursor: pointer;
     
     
@@ -80,15 +82,18 @@ h1 {
 }
 footer
 {
-    margin-top: 125px;
+    margin-top: 200px
 }
 .garden-change {
-    background-color: rgb(10, 10, 10);
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,6,6,1) 12%, rgba(0,212,255,1) 100%);
     text-align: center;
     align-self: center;
-    margin-top: 10px;
-    margin-bottom:20px;
-    height: 180px;
+    height: 110px;
+    margin-bottom: 0%;
+    border-style: solid;
+    border-color: whitesmoke
+
 }
 .title-garden
 {
@@ -112,10 +117,26 @@ footer
 #span{
     font-size: large;
 }
-/*span{
-    color: rgb(6, 6, 6);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
-    font-weight: normal;
-    font-weight: 530;
+html{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,6,6,1) 12%, rgba(0,212,255,1) 100%);
+}
+#inc-temp{
+background-color: rgba(2,0,36,1);
+}
+#dec-temp{
+    background-color: black;
+}
+
+#temp-number{
+    text-align: center;
+}
+#real-time{
+    font-size: medium;
+}
+#reset-butt{
+    font-size: medium;
+}
+#sky-select{
+    font-size: medium;
 }
