@@ -29,19 +29,19 @@ function updateTempPic() {
   let picture = '';
   if (tempNumber > 80) {
     color = 'red';
-    picture = '../assets/summer.jpeg';
+    picture = 'assets/summer.jpeg';
   } else if (tempNumber > 70) {
     color = 'orange';
-    picture = '../assets/Autumn.jpeg';
+    picture = 'assets/Autumn.jpeg';
   } else if (tempNumber > 60) {
     color = 'yellow';
-    picture = '../assets/Autumn.jpeg';
+    picture = 'assets/Autumn.jpeg';
   } else if (tempNumber > 50) {
     color = 'green';
-    picture = '../assets/Spring.jpeg';
+    picture = 'assets/Spring.jpeg';
   } else {
     color = 'teal';
-    picture = '../assets/Winter.jpeg';
+    picture = 'assets/Winter.jpeg';
   }
   document.getElementById('temp-number').style.color = color;
   document.getElementById('season-pic').src = picture;
@@ -101,5 +101,5 @@ function getTemperature(latitude, longitude) {
 
 function updateSky() {
   const skyInput = document.getElementById('sky-input').value;
-  document.getElementById('sky-pic').src = `../assets/${skyInput}.jpeg`;
+  document.getElementById('sky-pic').src = `assets/${skyInput}.jpeg`;
 }
