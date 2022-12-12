@@ -86,17 +86,12 @@ const getCurrentWeather = () => {
   return axios.get('http://127.0.0.1:5000/location', {params: {q: cityInput}
   })
   .then(location => {
-    // console.log("location:", location);
-    // console.log("lat", location.data[0].lat);
-    // console.log("lon", location.data[0].lon)
     return {
       lat: location.data[0].lat,
       lon: location.data[0].lon
     }
   })
   .then(coordinates => {
-    // console.log("coordinates.lat:", coordinates.lat);
-    // console.log("coordinates.lon:", coordinates.lon)
     return axios.get('http://127.0.0.1:5000/weather', {
                       params: 
                       {lat: coordinates.lat,
@@ -104,7 +99,6 @@ const getCurrentWeather = () => {
                     })
   })
   .then(weather => {
-    // console.log("weather.data.main:", weather.data.main)
     return weather.data.main;
   })
 };
@@ -132,17 +126,12 @@ const getFiveDayForecast = () => {
   return axios.get('http://127.0.0.1:5000/location', {params: {q: cityInput}
   })
   .then(location => {
-    console.log("location:", location);
-    console.log("lat", location.data[0].lat);
-    console.log("lon", location.data[0].lon)
     return {
       lat: location.data[0].lat,
       lon: location.data[0].lon
     }
   })
   .then(coordinates => {
-    console.log("coordinates.lat:", coordinates.lat);
-    console.log("coordinates.lon:", coordinates.lon)
     return axios.get('http://127.0.0.1:5000/forecast', {
                       params: 
                       {lat: coordinates.lat,
@@ -150,7 +139,6 @@ const getFiveDayForecast = () => {
                     })
   })
   .then(forecast => {
-    // console.log("forecast.data.list:", forecast.data.list);
     const fiveDayForecast = [];
     for (let day of forecast.data.list) {
       let time = day.dt_txt.substring(11);
@@ -159,13 +147,13 @@ const getFiveDayForecast = () => {
           {
             date: day.dt_txt,
             main: day.weather[0].main,
-            temp: day.main.temp,
+            temp: Math.floor(day.main.temp),
             humidity: day.main.humidity,
           }
         );
       }
     };
-    console.log(fiveDayForecast);
+    // console.log(fiveDayForecast);
     return fiveDayForecast;
   })
 };
@@ -176,41 +164,48 @@ const saveFiveDayForecast= () => {
   .then(forecast => {
     for (let i = 0; i < forecast.length; i++) {
       forecastState[i+1] = {
-        day: forecast[i].date,
+        day: convertDateToName(forecast[i].date.substring(0, 10)),
         main: forecast[i].main,
         temp: forecast[i].temp,
         humidity: forecast[i].humidity
       }
     };
     console.log(forecastState);
+    updateWeatherPanels();
+    updateHumidity();
+    updateTemp();
   });
 };
 
 // UPDATE TEMP TO CURRENT TEMP FROM WEATHER RESULT
 const updateTemp = () => {
   const defaultTemp = document.getElementById("dream-temp-number");
-  defaultTemp.textContent = state.temp;
+  defaultTemp.textContent = forecastState[1].temp;
   updateDreamTempColor();
 };
 
 // UPDATE HUMIDITY TO CURRENT HUMIDITY FROM WEATHER RESULT
 const updateHumidity = () => {
   const defaultHumidity = document.getElementById("dream-humidity-percent");
-  defaultHumidity.textContent = state.humidity;
+  defaultHumidity.textContent = forecastState[1].humidity;
 };
 
 // UPDATE WEATHER PANELS
 const updateWeatherPanels = () => {
-  // loop 5 times (total of panels)
-  // use i to determine which panel
-  // update name, temp and humidity for each panel
-  // grab from forecastState
-
   for (let i = 1; i <= 5; i++) {
-    panel = document.getElementById(`panel-${i}`);
-    temp = document.getElementById(`panel-${i}`);
-    humidity = document.getElementById(`panel-${i}`);
-  }
+    let day = document.getElementById(`day-${i}-name`);
+    let temp = document.getElementById(`day-${i}-temp`);
+    let humidity = document.getElementById(`day-${i}-hum`);
+
+    day.textContent = forecastState[i].day;
+    temp.textContent = forecastState[i].temp;
+    humidity.textContent = forecastState[i].humidity;
+  };
+};
+
+// CONVERT DATE TO NAME
+const convertDateToName = (date) => {
+  return new Date(date).toLocaleDateString('en-US', {weekday: 'long'});
 };
 
 // REGISTER EVENT HANDLERS
@@ -233,9 +228,10 @@ const registerEventHandlers = () => {
   searchBar.addEventListener("input", changeCityNameWithInput);
   
   const searchButton = document.getElementById("search-button");
-  // searchButton.addEventListener("click", getFiveDayForecast);
-  searchButton.addEventListener("click", updateTemp);
-  searchButton.addEventListener("click", updateHumidity);
+  searchButton.addEventListener("click", saveFiveDayForecast);
+  searchButton.addEventListener("click", saveCurrentWeather);
+  // searchButton.addEventListener("click", updateTemp);
+  // searchButton.addEventListener("click", updateHumidity);
 
   window.addEventListener("load", saveCurrentWeather);
   window.addEventListener("load", saveFiveDayForecast);
