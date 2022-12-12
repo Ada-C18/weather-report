@@ -74,7 +74,7 @@ h2 {
 }
 .number {
   font-size: 3rem;
-  color:green;
+  color:teal;
 }
 .skyImage {
   grid-row: 3/4;
