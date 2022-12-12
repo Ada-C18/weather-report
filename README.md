@@ -1,31 +1,3 @@
-To-Do
- Wave 2
-
- Show default temp
- Add emojis up and down arrows-ms
- Finish wave 4
-
- button (Register and addEventListener to Get Realtime Temperature button) - Milena
- get API functions working and button get temp - together office hours
- Wave 5 - Milena
-
- set up dropdown select element in HTML file
- connect dropdown values to update sky emojis
- Wave 6 - Puja
-
- add CSS including grid and delete extra comments-Puja
- Fix anything that is not working and also fix wave 4 calling API functions-Puja
- Commit changes made during office hours
-
- Continue working through the to-do list on the README
-
-MS - will check off items in wave 5, add detailed commits, and notify Puja via slack about commits and when I’m done with wave 5
-Puja - Complete wave 6 and anything else working which isnt working and put little style using css and also add grid if possible. Git commit and ping Milena in slack about all commits.
- Submit project
-
-Create pull request - assigned to: ?, when: ?
-Submit on learn - separately
-
 
 ## Pair Plan of Action
 
