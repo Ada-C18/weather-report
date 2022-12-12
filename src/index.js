@@ -25,34 +25,28 @@ const decreaseTemp = () => {
 };
 
 const updateBackground = () => {
-  let backgroundImage = document.getElementById('bg').style.backgroundImage;
+  const background = document.getElementById('bg');
 
-  if (state.tempValue >= 100){
-    backgroundImage = 'url(../../assets/sun-surface.jpg)'
+  if (state.tempValue > 100){
+    background.style.backgroundImage = 'url(assets/sun-surface.jpg)'
   }
-  else if (state.tempValue >= 90){
-    backgroundImage = 'url(../../assets/desert.jpg)'
+  else if (state.tempValue > 80){
+    background.style.backgroundImage = 'url(assets/desert.jpg)'
   }
-  else if (state.tempValue >= 80){
-    backgroundImage = 'url(../../assets/summer2.jpg)'
+  else if (state.tempValue > 70){
+    background.style.backgroundImage = 'url(assets/summer.jpg)'
   }
-  else if (state.tempValue >= 70){
-    backgroundImage = 'url(../../assets/summer.jpg)'
+  else if (state.tempValue > 60){
+    background.style.backgroundImage = 'url(assets/spring.jpg)'
   }
-  else if (state.tempValue >= 60){
-    backgroundImage = 'url(../../assets/spring2.webp)'
+  else if (state.tempValue > 50){
+    background.style.backgroundImage = 'url(assets/spring2.webp)'
   }
-  else if (state.tempValue >= 50){
-    backgroundImage = 'url(../../assets/spring.jpg)'
-  }
-  else if (state.tempValue >= 40){
-    backgroundImage = 'url(../../assets/autumn.jpg)'
-  }
-  else if (state.tempValue >= 20){
-    backgroundImage = 'url(../../assets/winter-lanscape.webp)'
+  else if (state.tempValue > 40){
+    background.style.backgroundImage = 'url(assets/autumn.jpg)'
   }
   else {
-    backgroundImage = 'url(../../assets/deepfreeze.jpg)'
+    background.style.backgroundImage = 'url(assets/winter-lanscape.webp)'
   }
 };
 
@@ -91,10 +85,28 @@ const updateSky = () => {
   }
 };
 
+const getLatLon = () => {
+  return axios.get('http://localhost:5000/location', 
+  {
+    params: {
+      q: state.city,
+    }
+  })
+    .then((response) => {
+      state.lat = response.data[0].lat;
+      state.lon = response.data[0].lon;
+      })
+      
+    .catch((error) => {
+      console.log('error getting lat and lon');
+      });
+};
+
 const updateCityName = () => {
   let cityNameInput = document.getElementById('cityNameInput').value;
   let headerCityName = document.getElementById('headerCityName');
-  headerCityName.textContent = cityNameInput;
+  state.city = cityNameInput;
+  headerCityName.textContent = state.city;
   };
 
 const resetCityName = () => {
@@ -102,6 +114,41 @@ const resetCityName = () => {
     cityNameInput.value = 'Seattle';
     updateCityName();
   }
+
+const updateWeather = () => { 
+  return axios.get('http://localhost:5000/weather', 
+  {
+    params: {
+      lat: state.lat,
+      lon: state.lon
+    }
+  })
+    .then((response) => {
+      const weather = response.data.main.temp;
+      return weather;
+      })
+      .catch((error) => {
+        console.log('error: unable to get weather');
+        console.log(error)
+        });
+  };
+  
+  const updateTempValue = () => {
+      getLatLon()
+      .then(() => {
+        updateWeather()
+          .then(
+            weather => {
+            const tempF = Math.floor((weather - 273.15)* 1.8 +32);
+            state.tempValue = tempF;
+            temperature.textContent = state.tempValue
+            updateBackground();
+            updateTempColor();
+            return state.tempValue;
+          });
+      })
+};
+
 
 const registerEventHandlers = () => {
 
@@ -119,6 +166,9 @@ const registerEventHandlers = () => {
 
   const resetCityBtn = document.getElementById('cityResetBtn');
   resetCityBtn.addEventListener('click', resetCityName);
+
+  const currentTemp = document.getElementById('currentTemp');
+  currentTemp.addEventListener('click', updateTempValue);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

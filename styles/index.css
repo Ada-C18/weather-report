@@ -26,7 +26,7 @@ header span {
     font-size: 60px;
 }
 
-html {
+#bg {
     background-image: url('../assets/desert.jpg');
     
     width:100%;
