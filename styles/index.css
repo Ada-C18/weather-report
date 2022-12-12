@@ -1,0 +1,86 @@
+body {
+    background-color: #355764;
+    font-family: "Josefin Sans", sans-serif;
+    color: white
+}
+
+h1 {
+    display: inline-block;
+    font-size: 7vh;
+}
+
+#city-name {
+    display: inline-block;
+    padding-left: 10vw;
+    font-size: 7vh;
+    text-decoration: underline;
+}
+
+#main-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#left-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#search-box {
+    background-color: #487687;
+    padding: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
+}
+
+#temp-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #487687;
+    padding: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
+}
+
+#temp-and-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#temperature-change-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#temperature {
+    font-size: 5vh;
+    padding: 1vw;
+    color: yellow;
+}
+
+#current-temp {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+#sky-box {
+    background-color: #487687;
+    padding: 2vw;
+    margin: 1vw;
+    margin-left: 2vw;
+}
+
+#weather-garden {
+    background-color: lightblue;
+    padding: 4vw;
+    font-size: 5vh;
+
+}
+
+#right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 15vw;
+}
