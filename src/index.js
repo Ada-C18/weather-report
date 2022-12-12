@@ -59,11 +59,11 @@ const updateDreamTempColor = () => {
     dreamTemp.style.color = "#F09104";
     tempCircle.style.backgroundColor = "#F09104";
   } else if (50 <= state.temp && state.temp <= 59) {
-    dreamTemp.style.color = "blue";
-    tempCircle.style.backgroundColor = "blue";
+    dreamTemp.style.color = "#04A59F";
+    tempCircle.style.backgroundColor = "#04A59F";
   } else if (state.temp <= 49) {
-    dreamTemp.style.color = "purple";
-    tempCircle.style.backgroundColor = "purple";
+    dreamTemp.style.color = "#385EC0";
+    tempCircle.style.backgroundColor = "#385EC0";
   }
 };
 
@@ -153,7 +153,7 @@ const getFiveDayForecast = () => {
         );
       }
     };
-    // console.log(fiveDayForecast);
+    console.log(fiveDayForecast);
     return fiveDayForecast;
   })
 };
@@ -196,17 +196,52 @@ const updateWeatherPanels = () => {
     let day = document.getElementById(`day-${i}-name`);
     let temp = document.getElementById(`day-${i}-temp`);
     let humidity = document.getElementById(`day-${i}-hum`);
+    let icon = document.getElementById(`day-${i}-icon`);
 
     day.textContent = forecastState[i].day;
     temp.textContent = forecastState[i].temp;
     humidity.textContent = forecastState[i].humidity;
+    icon.setAttribute("src", updateWeatherIcons(forecastState[i].main))
   };
 };
+
+// UPDATE WEATHER ICONS
+const updateWeatherIcons = (mainWeather) => {
+  const mainWeatherIcons = {
+    Clear: "/icons/sun-icon.png",
+    Rain: "/icons/rain-icon.png",
+    Clouds: "/icons/cloud-icon.png",
+    Snow: "/icons/snow-icon.png"
+  };
+  return mainWeatherIcons[mainWeather];
+};
+
 
 // CONVERT DATE TO NAME
 const convertDateToName = (date) => {
   return new Date(date).toLocaleDateString('en-US', {weekday: 'long'});
 };
+
+// CHANGE DREAM SKY WITH SELECT OPTIONS
+// const updateDreamSky = () => {
+//   const skyChoice = document.getElementById("sunshine-sky");
+
+//   if (skyChoice === "Sunshine") {
+//     document.footer.appendChild(document.createElement("img"))
+//     .setAttribute("id", "sunshine-circle")
+//     .setAttribute("src", "/icons/sun-icon.png")
+//   }
+// };
+// for sunshine: change circle to icon sun or something better...idk yet
+// for clouds: add clouds to body grid and decrease opacity of weather panels
+// for rain: add rain to the clouds in different spots on the grid
+// for snow: falling snow
+
+// tomorrow:
+// finish function: clouds, then rain, then snow, then sun (if sun too hard, move on)
+// figure out how to add event listener to the select options
+// add function and event listener for reset button
+
 
 // REGISTER EVENT HANDLERS
 const registerEventHandlers = () => {
@@ -230,11 +265,12 @@ const registerEventHandlers = () => {
   const searchButton = document.getElementById("search-button");
   searchButton.addEventListener("click", saveFiveDayForecast);
   searchButton.addEventListener("click", saveCurrentWeather);
-  // searchButton.addEventListener("click", updateTemp);
-  // searchButton.addEventListener("click", updateHumidity);
 
-  window.addEventListener("load", saveCurrentWeather);
-  window.addEventListener("load", saveFiveDayForecast);
+  // const selectDreamSky = document.getElementById("sky-select");
+  // selectDreamSky.addEventListener("change", updateDreamSky);
+
+  // window.addEventListener("load", saveCurrentWeather);
+  // window.addEventListener("load", saveFiveDayForecast);
 };
 
 // DOM listener

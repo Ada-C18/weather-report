@@ -33,31 +33,31 @@
                     <!-- flex box for five day weather panels -->
                     <div id="panel-1" class="weather-panels">
                         <h3 id="day-1-name">Monday</h3>
-                        <img class="sun-icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                        <img id="day-1-icon" class="icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
                             <h4>Temperature: <span id="day-1-temp">°</span></h4>
                             <h4>Humidity: <span id="day-1-hum">%</span></h4>
                     </div>
                     <div id="panel-2" class="weather-panels">
                         <h3 id="day-2-name">Tuesday</h3>
-                        <img class="sun-icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                        <img id="day-2-icon"class="icon" src="/icons/cloud-icon.png" alt="three layered circles of orange and red"/>
                         <h4>Temperature: <span id="day-2-temp">°</span></h4>
                         <h4>Humidity: <span id="day-2-hum">%</span></h4>
                     </div>
                     <div id="panel-3" class="weather-panels">
                         <h3 id="day-3-name">Wednesday</h3>
-                        <img class="sun-icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                        <img id="day-3-icon" class="icon" src="/icons/rain-icon.png" alt="three layered circles of orange and red"/>
                         <h4>Temperature: <span id="day-3-temp">°</span></h4>
                         <h4>Humidity: <span id="day-3-hum">%</span></h4>
                     </div>
                     <div id="panel-4" class="weather-panels">
                         <h3 id="day-4-name">Thursday</h3>
-                        <img class="sun-icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                        <img id="day-4-icon" class="icon" src="/icons/snow-icon.png" alt="three layered circles of orange and red"/>
                         <h4>Temperature: <span id="day-4-temp">°</span></h4>
                         <h4>Humidity: <span id="day-4-hum">%</span></h4>
                     </div>
                     <div id="panel-5" class="weather-panels">
                         <h3 id="day-5-name">Friday</h3>
-                        <img class="sun-icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                        <img id="day-5-icon" class="icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
                         <h4>Temperature: <span id="day-5-temp">°</span></h4>
                         <h4>Humidity: <span id="day-5-hum">%</span></h4>
                     </div>
@@ -80,16 +80,16 @@
                         <h3>Dream Sky</h3>
                         <div class="dream-panel-content">
                             <select name="skies" id="sky-select">
-                                <option value="sunshine">
+                                <option id="sunshine-sky" value="Sunshine">
                                     Sunshine
                                 </option>
-                                <option value="cloudy">
+                                <option id="cloudy-sky" value="cloudy">
                                     Cloudy
                                 </option>
-                                <option value="rain">
+                                <option id="rain-sky" value="rain">
                                     Rain
                                 </option>
-                                <option value="snow">
+                                <option id="snow-sky" value="snow">
                                     Snow
                                 </option>
                             </select>  
@@ -108,8 +108,8 @@
                 </div>
             </section>
         </main>
-        </div>
         <footer id="changing-weather-container">
+            <!-- <img id="sunshine-circle" class="icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/> -->
             <div id="circle"></div>
         </footer>
     </body>
