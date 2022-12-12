@@ -62,13 +62,12 @@ header {
 
 #sky {
     text-align: center;
-    line-height: 10;
-    border: 3px solid darkgrey;
+    font-size: 2em;
 }
 
 #landscape {
     text-align: center;
-    line-height: 10;
+    font-size: 2em;
     border: 3px solid darkgrey;
 }
 
@@ -110,7 +109,7 @@ temp & landscape background */
 }
 
 .snowy {
-    background-color: oldlace;
+    background-color: snow;
 }
 
 .stormy {

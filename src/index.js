@@ -35,19 +35,19 @@ const landscapeChange = () => {
   let temp = state.temp;
   let landscape = "";
   if (temp > 110) {
-    landscape = "deadly";
+    landscape = "🔥🌋🔥🌋🔥🌋🔥🌋🔥🌋";
   } else if (temp > 80) {
-    landscape = "hot hot!";
+    landscape = "🌵🐍🦂🌵🐫🌵🐍🏜🦂🐪";
   } else if (temp > 70) {
-    landscape = "warmm";
+    landscape = "🌸🌿🌼🌷🌻🌿☘️🌱🌻🌷";
   } else if (temp > 60) {
-    landscape = "nice";
+    landscape = "🌾🌾🍃🪨🛤🌾🌾⛰️🌾🍃";
   } else if (temp > 50) {
-    landscape = "cool";
+    landscape = "🌲🌲🌲🍂🌲🍁🌲🌲🍂🌲";
   } else if (temp > 0) {
-    landscape = "coldd";
+    landscape = "🧊❄️⛄🧊❄️⛄🏔️🧊❄️⛄";
   } else {
-    landscape = "**shiver shiver**";
+    landscape = "🧊🧊🐧🧊🧊🧊🐧🧊🧊🧊";
   }
 
   const updatedLandscape = document.getElementById("landscape");
@@ -66,7 +66,7 @@ const skyChange = () => {
     sky = "🌤️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️";
     atmosphere = "cloudy";
   } else if (skySelection == "Rainy") {
-    sky = "🌦️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️";
+    sky = "🌦️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️";
     atmosphere = "rainy";
   } else if (skySelection == "Snowy") {
     sky = "⛅🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️";
