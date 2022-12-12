@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "styles/index.css">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <div class = "container">
+        <header>
+            <h1 id = "city">
+                Seattle
+            </h1>
+            <div id = "city_bar">
+                <input id = "cityInput" type = "text" placeholder=" ">
+                <button id = "change_city">
+                    Change City
+                </button>
+                <button onClick="document.getElementById('cityInput').value = ' '" id = "resetCity">
+                    Reset city
+                </button>
+            </div>
+        </header>
+
+        <section id = "sky">
+            <div id = "sky_vis">
+                🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧
+            </div>
+            
+        </section>
+
+        <section id = "ground">
+            <div id = "ground_vis">
+                🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷
+            </div>       
+        </section>
+    </div>
+
+    <div class = "menu">
+        <section class = "white" id = "temp_display">
+            <div id = "temp">
+                - -            
+            </div>
+            <div id = "unit">
+                ° F 
+            </div>
+        </section>
+
+        <section id = "buttons">
+            <button id = "up">
+                ⬆️
+            </button>
+            <button id = "current">
+                circle
+            </button>
+            <button id = "down">
+                ⬇️
+            </button>
+        </section>
+
+        <section id = "sky_dropdown">
+            <select id = "sky_select">
+                <option value="">--Change the Sky Viewer--</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="sunny">Sunny</option>
+                <option value="snowy">Snowy</option>
+            </select>
+        </section>
+    </div>
+
+<script src="/src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

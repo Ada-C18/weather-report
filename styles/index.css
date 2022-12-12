@@ -1,0 +1,119 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    background-color: rgb(168, 53, 53);
+}
+
+header {
+    grid-row: 1;
+    background-color: blue;
+    grid-template-rows: 3fr 1fr;
+}
+header h1{
+    grid-row: 1;
+}
+
+header .city_bar{
+    grid-row: 2;
+    display: inline block;
+}
+
+#sky{
+    grid-row:2;
+    background-color: darkorange;
+}
+
+#sky_vis{
+    text-align: center;
+    font-size: x-large;
+}
+
+#ground{
+    grid-row:3;
+    background-color: plum;
+    
+}
+
+#ground_vis{
+    text-align: center;
+    font-size: x-large;
+}
+
+.menu{
+    background-color: blueviolet;
+    width: 200px;
+    height: 250px;
+    position: absolute;
+    top: 30vh;
+    left: 5vw ;
+    display: grid;
+    grid-template: 4fr 1fr / 1fr 1fr ;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+#temp_display {
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto;
+    padding: 20px;
+
+    
+}
+
+#buttons {
+    grid-row: 1;
+    grid-column: 2;
+    margin:auto;
+
+
+    
+}
+
+#buttons button{
+    margin: 10px;
+}
+
+#sky_dropdown{
+    grid-row: 2 ;
+    grid-column: 1 / span 2;
+    padding: auto;
+    margin: auto;
+    padding-bottom: 35px;
+}
+
+
+
+/* cahnges temp color */
+
+ .red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.white {
+    background-color: aliceblue;
+}
