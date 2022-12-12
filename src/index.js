@@ -7,10 +7,10 @@ const state = {
   lon: "-122.330062",
 }
 
-// display changes
+// Display Changes
 
 const tempChange = () => {
-  let color = "red";
+  let color = "";
   let temp = state.temp
   if (temp > 80) {
     color = "red";
@@ -33,8 +33,10 @@ const tempChange = () => {
 
 const landscapeChange = () => {
   let temp = state.temp;
-  let landscape = "hot!"
-  if (temp > 80) {
+  let landscape = "";
+  if (temp > 110) {
+    landscape = "deadly";
+  } else if (temp > 80) {
     landscape = "hot hot!";
   } else if (temp > 70) {
     landscape = "warmm";
@@ -42,6 +44,8 @@ const landscapeChange = () => {
     landscape = "nice";
   } else if (temp > 50) {
     landscape = "cool";
+  } else if (temp > 0) {
+    landscape = "coldd";
   } else {
     landscape = "**shiver shiver**";
   }
@@ -56,19 +60,19 @@ const skyChange = () => {
   let sky = "";
   let atmosphere = "";
   if (skySelection == "Sunny") {
-    sky = "add sun emojis here";
+    sky = "☀️";
     atmosphere = "sunny";
   } else if (skySelection == "Cloudy") {
-    sky = "add cloud emojis here";
+    sky = "🌤️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️";
     atmosphere = "cloudy";
   } else if (skySelection == "Rainy") {
-    sky = "add rain emojis here";
+    sky = "🌦️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️";
     atmosphere = "rainy";
   } else if (skySelection == "Snowy") {
-    sky = "add snow emojis here";
+    sky = "⛅🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️";
     atmosphere = "snowy";
   } else if (skySelection == "Stormy") {
-    sky = "add lightning emojis here";
+    sky = "🌥️⛈️🌩️⛈️🌩️⛈️🌩️⛈️🌩️⛈️🌩️⛈️";
     atmosphere = "stormy";
   }
 
