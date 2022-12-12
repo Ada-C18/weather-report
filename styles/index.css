@@ -1,7 +1,13 @@
+body {
+    background-image: linear-gradient(#1b69f9, #ffffff);
+}
+
+.font-style {
+    /* font-family: "Audiowide", sans-serif; */
+}
 #columns {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    background-color: blueviolet;
     height: 80vh
 }
 
@@ -9,13 +15,8 @@ header {
     text-align: center;
     grid-column: 1/span 6;
     height: 20vh;
-    font-size: x-large;
-    font: 
-}
-
-.bodybox {
-    text-align: center;
-    background-color: red;
+    font-size: 200%;
+    /* background-color: #1b69f9; */
 }
 
 #temperature {
@@ -33,18 +34,19 @@ header {
 #temp-number {
     display: inline-block;
     font-size: 200%;
+    color: red;
 }
 
 #sky {
     grid-column: 1/2;
     display: block;
-    background-image: url("../assets/Cloudy.webp");
+    /* background-image: url("../assets/Cloudy.webp"); */
 }
 
 #landscape {
     grid-column: 5/6;
     display: block;
-    background-image: url("../assets/Winter.jpeg");
+    /* background-image: url("../assets/Winter.jpeg"); */
     height: 80vh;
     top: 20vh;
 }
@@ -57,15 +59,27 @@ header {
 }
 
 .bodybox {
+    height: 50%;
     margin-left: 0.3em;
     margin-right: 0.3em;
     text-align: center;
-    background-color: aqua;
-    margin-top: 50%;
-    margin-bottom: 50%;
+    border-radius: 10px;
+    background-image: linear-gradient(rgb(111, 215, 250), #ffffff) ;
 }
 
 #reset-button {
     margin-top: 10px;
 }
 
+#get-temp-button {
+    margin-top: 2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-size-adjust: 50%;
+    border-radius: 8px;
+}
+
+.pics {
+    max-width: 100%;
+    height: auto;
+}

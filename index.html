@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div>
+        <div class="font-style">
             Check out the weather in
         </div>
         <div id="city-name">
@@ -18,17 +18,19 @@
     </header>
     <div id='columns'>
         <section id="sky">
-            <h4>will put a sky pic</h4>
+            <h4 class="font-style">How does the weather look like?</h4>
+            <img id="sky-pic" class="pics" src="../assets/sunny.jpeg" alt="sky">
         </section>
         <section id="temperature" class="bodybox">
-            <h4>Temperature</h4>
+            <h4 class="font-style">Temperature</h4>
             <button id="temp-increase" onclick="increaseTemp()">Up</button>
             <div id="temp-number">50</div>
             <button id="temp-decrease" onclick="decreaseTemp()">Down</button>
+            <button id="get-temp-button" onclick="getLocation()">Get Realtime Temperature</button>
         </section>
         <section id="sky-description" class="bodybox">
-            <h4>Sky</h4>
-            <select>
+            <h4 class="font-style">Sky</h4>
+            <select id="sky-input" onchange="updateSky()">
                 <option>Sunny</option>
                 <option>Cloudy</option>
                 <option>Snowy</option>
@@ -36,15 +38,16 @@
             </select>
         </section>
         <section id="city" class="bodybox">
-            <h4>City Name</h4>
+            <h4 class="font-style">City Name</h4>
             <input type="text" id="city-name-input" oninput="updateCityName()">
             <input type="reset" id="reset-button" onclick="resetCityName()">
         </section>
         <section id="landscape">
-            <img src="assets/Winter.jpeg" alt="pic">
+            <h4 class="font-style">How does the weather feel like?</h4>
+            <img id="season-pic" class="pics" src="../assets/Winter.jpeg" alt="weather">
         </section>
 </div>
-<script src="src/index.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js"></script>
 </body> 
 </html>
