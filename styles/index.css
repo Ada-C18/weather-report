@@ -1,0 +1,75 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* margin: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #cad0bd;
+}
+
+
+.temp-section {
+    background: yellow;
+    float: left;
+    width: 50%;
+    height: 400px;
+    text-align: center;
+    /* padding-bottom: 50%; */
+}
+
+.sky-section{
+    background: lightblue;
+    float: right;
+    width: 50%;
+    height: 400px;
+    text-align: center;
+}
+
+.city_section{
+    background: orange;
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+
+.emojis {
+    background: rgb(121, 194, 121);
+    float: left;
+    width: 50%;
+    height: 400px;
+    text-align: center;
+} 
+
+
+#tempNum {
+    font-size: 3rem;
+
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: gold;
+}
+
+.green {
+    color: green;
+}
+
+.purple {
+  color: purple
+}
+
+.grey {
+  color: grey;
+}
+
