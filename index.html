@@ -5,8 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+    <section class = "temp_section">
+        
+        
+        <h1>The temperature in : <input placeholder="Enter a city" name = "name"/> 
+            <p id ="values"></p> is <span id="Temperature"></span> </h1>
+            <button id="minusButton">cooler</button>
+            <button id="plusButton">hotter</button>
+            <p>
+                <button id="realTimeButton">Realtime weather</button>
+            </p>
+            <p>
+                <button id="resetButton">Reset City</button>
+            </p>
+        </section>
+
+    <section class = "sky_section">
+        <label>
+            Choose a sky:
+            <select class="sky" name="sky">
+              <option value="">Select One …</option>
+              <option value="Sunny">Sunny</option>
+              <option value="Cloudy">Cloudy</option>
+              <option value="Rainy">Rainy</option>
+              <option value="Snowy">Snowy</option>
+
+            </select>
+          </label>
+          <div class="result"></div>
+
+    </section>
+
+    <section class = "landscape">
     
+        <img id="newLandscape" src="assets/cold.jpeg" />  
+    </section>
+
+
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>   
 </body>
 </html>
