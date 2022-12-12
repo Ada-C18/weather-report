@@ -50,6 +50,7 @@ function cargaPagina() {
 function cambiaValores() {
     var inputName = document.getElementById("city");
     inputName.value = "Sioux City, IA";
+    document.getElementById('displayCity').innerHTML = "Sioux City, IA";
 }
 
 var x = document.getElementById("myText");
