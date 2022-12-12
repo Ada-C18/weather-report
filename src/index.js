@@ -96,18 +96,18 @@ const displayCity = () => {
 
 const displayEmojis = () => {
   let numColor = 'red';
-  let emojisBelow = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  let emojisBelow = '🌵__🐍_🦂_🌵🌴__🐍_🏜_🦂';
   if (state.temp > 80) {
-    emojisBelow = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    emojisBelow = '🌴__🐍_🦂_🌴🌵__🐍_🏜_🌴';
     numColor = 'red';
   } else if (state.temp > 70) {
-    emojisBelow = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    emojisBelow = '🌸🌿🌼__🌷🌻🦋_☘️🌱_🦋🌷';
     numColor = 'orange';
   } else if (state.temp > 60) {
-    emojisBelow = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    emojisBelow = '🥾🏞️🏕🧗🚵⛰_🪨🥾🏞️🏕🧗🚵⛰';
     numColor = 'green';
   } else if (state.temp > 50) {
-    emojisBelow = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    emojisBelow = '🍂☕️🪵🍂☕️🪵🍂☕️🪵🍂☕️🪵🍂☕️🪵';
     numColor = 'purple';
   } else {
     emojisBelow = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
@@ -124,27 +124,22 @@ const displayEmojis = () => {
 const updateSky = () => {
   const inputSky = document.getElementById('climate').value;
   let sky = '';
-  let skyColor = '';
   if (inputSky === 'clouds') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-    skyColor = 'cloud';
   } else if (inputSky === 'sunshine') {
     sky = '☁️☁️☁️     ☁️   ☁️ ☀️ ☁️  ☁️☁️☁️';
-    skyColor = 'sunnshine';
   } else if (inputSky === 'rain') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-    skyColor = 'rain';
   } else if (inputSky === 'snow') {
     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-    skyColor = 'snow';
   } else if (inputSky === 'wind') {
     sky = '🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️🌬️☁️';
-    skyColor = 'wind';
   }
 
   const skyContainer = document.getElementById('weather-emojis');
   skyContainer.textContent = sky;
 };
+
 updateSky();
 const chooseSky = document.getElementById('climate');
 chooseSky.addEventListener('change', updateSky);
