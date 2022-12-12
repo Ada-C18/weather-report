@@ -125,7 +125,7 @@ const registerEventHandlers = () => {
   changeSkies();
   // resetCity();
   const cityInput = document.getElementById('inputCity');
-  cityInput.addEventListener('change', updateCity);
+  cityInput.addEventListener('input', updateCity);
   const updateSky = document.getElementById('skies');
   updateSky.addEventListener('change', changeSkies);
   const resetButton = document.getElementById('reset');
