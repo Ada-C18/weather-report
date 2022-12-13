@@ -1,4 +1,4 @@
-# Wave 6: Resetting the City Name
+Wave 6: Resetting the City Name
 
 Include a button that resets the city name.
 

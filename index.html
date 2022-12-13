@@ -5,8 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel=""stylesheet" href="http">
 </head>
+
 <body>
+    <div class="container" id="outermost-margin">
+        <div class="weather-box" id="left-box">
+            <p id="current-date">Today's date</p>
+            <p id="display-city"> City</p>
+            <section id="sky"></section>
+            <section id="temperature-container" class="container">
+                <button type="button" id="decrease-temp-button" class="button">❄️</button>
+                <p id="display-temperature">Temperature</p>
+                <button type="button" id="increase-temp-button" class="button">🔥</button>
+            </section>
+            <section id="landscape">emojis</section><br>
+            <button type="button" id="current-temp-button" class="button">See current weather</button>
+            <br>
+            <button type="button" id="reset-city-button" class="button">reset city</button>
+        </div>
+
+        <div class="weather-box" id="right-box">
+            <select name="weather" id="weather-dropdown" class="dropdown">
+                <option value=" ">Choose your sky!</option>
+                <option value="sun">Sunny</option>
+                <option value="clouds">Cloudy</option>
+                <option value="rain">Rainy</option>
+                <option value="snow">Snowy</option>
+            </select><br>
+
+            <section id="weather-icon" class="weather-images">
+                <!-- <img src="src/photos/sunny_white.png" class="weather-images"/>
+                <img src="src/photos/partly_cloudy_white.png" class="weather-images" />
+                <img src="src/photos/rainy_white.png" class="weather-images" />
+                <img src="src/photos/snowy_white.png" class="weather-images"/> -->
+            </section>
+            
+            <br>Look up your city:<input type="text" id="text-box">
+        </div>
+<script src="node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js" type="text/javascript"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
     
 </body>
 </html>

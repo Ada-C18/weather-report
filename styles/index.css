@@ -1,0 +1,125 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(251, 237, 232);
+}
+
+#outermost-margin {
+    align-items: center;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    width: 75vw;
+    background-color: rgba(255, 255, 255, 0.642);
+    display: flex;
+    justify-content: center;
+
+}
+
+.weather-box {
+    padding: 1.2em;em;
+}
+
+#left-box {
+    background: linear-gradient(15deg, rgba(136,235,239,1) 4%, rgba(235,216,253,1) 100%);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 3%;
+}
+
+#temperature-container {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+#left-box, p {
+    font-weight: 50;
+    color: white;
+    font-size: large;
+}
+
+#current-date{
+    text-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.536);
+}
+
+#display-city {
+    font-size: 22px;
+    text-shadow: 0em 0em 1em rgba(45, 45, 45, 0.51);
+}
+
+#sky {
+    text-shadow: 0em 0em 0.1em rgba(67, 93, 103, 0.641);
+}
+
+#display-temperature {
+    font-size: 30px;
+    text-shadow: 0em 0em 0.1em rgb(222, 221, 221);
+}
+
+#increase-temp-button, #decrease-temp-button {
+    display:inline-block;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.1em;
+    border:none;
+    background-color: #ffffff00;
+    margin:0 0.3em;
+    box-sizing: border-box;
+    font-size: 23px;
+    color:#FFFFFF;
+    text-align:center;
+    text-shadow: 0em 0em 0.1em rgba(65, 65, 65, 0.834);
+    /* background-color: #ffffff3c; */
+    }
+
+#current-temp-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10vw;
+    padding: 4px 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 4px;
+    color: #7ea0a8;
+    background: rgba(255, 255, 255, 0.41);
+    border: none;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+    }
+
+#reset-city-button {
+    display: flex;
+    width: 5vw;
+    padding: 4px 9px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 4px;
+    color: #7ea0a8;
+    background: rgba(255, 255, 255, 0.41);
+    border: none;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+    }
+
+
+#right-box {
+    color: rgb(255, 255, 255);
+    text-shadow: 0em 0em 0.3em rgba(0, 0, 0, 0.44);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 14vw;
+    background-color: rgb(173, 229, 246);
+    background-image: url(../src/photos/SanDiegoCA.jpeg);
+    background-position: 10px;
+    background-position-y: 480px;
+    background-position-x: 400px;
+    border-top-right-radius: 3%;
+    border-bottom-right-radius: 3%;
+}
+
