@@ -1,3 +1,7 @@
+//NEXT STEPS FOR LP: GET THE BUTTON TO ADD VALUE TO THE TEMP COUNT.
+//GET THE AXIOS CALL WORKING
+//LOOK AT THE 7-WONDERS CODE TO TRY TO GET THE PROMISE AND THE ASYNC AND AWAIT FUNCTION WORKING.
+
 //const axios = require('axios');
 //const dotenv = require('dotenv').config();
 //const API_KEY = process.env.API_KEY;
