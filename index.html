@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link rel="stylesheet " href="./styles/index.css">
+    <title>J&G Weather Report</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>J&G Weather Report</h1>
+        <p>It's always sunny in ☀️ <span id="cityName">Denver</span> ☀️</p>
+    </header>
+    <section id="city-section">
+        <p>🌇 Pick a city 🏙️ Any city 🌉</p>
+        <input type="text" id="inputCity" value="Denver">
+        <button id="cityButton">Reset</button>
+        <!-- append div from Dom??? -->
+    </section>
+    <section id="temp-section">
+        <h2>Temperature</h2>
+        <div>
+            <button id="increaseTempControl">👆</button>
+            <div id="tempValue" class='color'>70</div>
+            <button id="decreaseTempControl">👇</button>
+        </div>
+        <div>_</div>
+        <button id="realTempButton">Get Realtime Temp</button>
+        <!-- <input id="temp-input"></input> -->
+    </section>
+    <section id='sky-section'>
+        <h2>Sky's the limit</h2>
+        <select id="sky-select">
+            <option>The Heat Is On</option>
+            <option>Chasing the Clouds Away</option>
+            <option>Purple Rain</option>
+            <option>Ice Ice Baby</option>
+        </select>
+    </section>
+    <section id='landscape-section'>
+        <div id='landscapeContent' class='landscape-content' Chasing the Clouds Away>
+            <div id="emoji-sky">☀️🌈☀️🦄☀️🌈☀️☀️🌈☀️🦄☀️🌈☀️</div>
+            <h3>EmojiLand</h3>
+            <div id="emojis">🥵😍😶‍🌫️🤢🥶</div>
+        </div>
+    </section>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
+
 </html>

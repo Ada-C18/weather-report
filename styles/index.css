@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    background-color: lightskyblue;
+    color: blueviolet;
+}
+
+header,
+#city-section,
+#temp-section,
+#sky-section {
+    background-color: cornsilk;
+    border-radius: 50px;
+    padding-block: 10px;
+    text-align: center;
+    border-style: dotted;
+    border-color: blue;
+}
+
+#landscape-section {
+    background-color: rgb(221, 235, 94);
+    border-radius: 10px;
+    padding-block: 10px;
+    text-align: center;
+    border-style: dotted;
+    border-color: blue;
+}
+
+#increaseTempControl,
+#decreaseTempControl {
+    font-size: large;
+}
+
+#tempValue {
+    font-size: 40pt;
+}
+
+#emojis,
+#emojiSky {
+    font-size: xx-large;
+}
+
+#cityButton,
+#realTempButton {
+    background-color: lightskyblue;
+    border-radius: 50px;
+}
+
+.garden__content {
+    min-height: 200px;
+    max-width: fit-content;
+    margin: auto;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 8px;
+    font-size: 2em;
+}
+
+.landscapeContent {
+    min-height: 200px;
+    max-width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    font-size: 2em;
+
+}
+
+.hot {
+    background-color: red;
+}
+
+.perfect {
+    background-color: rgb(255, 255, 252);
+}
+
+.rainy {
+    background-color: rgb(93, 71, 218);
+}
+
+.snowy {
+    background-color: rgb(9, 23, 41);
+}
