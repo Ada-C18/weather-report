@@ -1,5 +1,4 @@
 
-
 body {
     display: flex;
     justify-content: center;
@@ -9,6 +8,8 @@ body {
     background-color: blueviolet;
     font-size: 120%;
     flex-direction: column;
+    background-image: url('https://images.unsplash.com/photo-1527482937786-6608f6e14c15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+
 }
 .card {
     background-color: gray;
@@ -16,7 +17,7 @@ body {
     border-radius: 30px;
     width: 100%;
     max-width: 420px;
-    margin: 1em;
+    margin: .5em;
     font-family: 'Roboto Mono', monospace;
     font-size: 24px;
 }
@@ -77,7 +78,79 @@ h1.temp {
     border-radius: 30px;
     width: 100%;
     max-width: 420px;
-    margin: 1em;
+    margin: .5em;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+}
+
+.change-temp {
+    background-color: gray;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: .5em;
     font-family: 'Roboto Mono', monospace;
     font-size: 24px;
 }
+    
+.sunny {
+    background:
+        url('https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80')
+        center no-repeat;  
+    }
+
+.raining {
+background:
+    url('https://images.unsplash.com/photo-1572455857811-045fb4255b5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80')
+    center no-repeat;  
+}
+
+.snowing {
+background:
+    url('https://images.unsplash.com/photo-1609700930660-8573f28f8e2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80')
+    center no-repeat;  
+}
+
+.cloudy {
+background:
+    url('https://images.unsplash.com/photo-1614959909713-128c622fad23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2610&q=80')
+    center no-repeat;  
+}
+
+.catastrophic {
+background:
+    url('https://images.unsplash.com/photo-1527482937786-6608f6e14c15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+    center no-repeat;  
+}
+
+
+
+  .arrow {
+    flex-direction: row;
+  }
+
+
+  .red {
+    color: red;
+  }
+  
+  .orange {
+    color: orange;
+  }
+  
+  .yellow {
+    color: gold;
+  }
+  
+  .yellow-green {
+    color: yellowgreen;
+  }
+  
+  .green {
+    color: green;
+  }
+  
+  .teal {
+    color: teal;
+  }
