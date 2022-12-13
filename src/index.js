@@ -1,28 +1,19 @@
 "use strict";
 
-//Do we need the code on line 5 below? I noticed it was commented out.
+const state = {
+  city: 'Portland',
+  temperature: 40,
+  latitude: 45.51,
+  longitude: 122.68,
+}
 
-// const axios = require('axios')
-
-let increaseBtn = document.getElementById("increaseBtn");
-let decreaseBtn = document.getElementById("decreaseBtn");
-let curTemp = document.getElementById("curTemp");
-let city = document.getElementById("cityInput").value;
-let realTimeBtn = document.getElementById("realTime");
+let getcityName = document.getElementById("cityInput");
 let curWeatherEmojis = document.getElementById("curWeatherEmojis");
-let counter = 0;
 
-// I added and removed some things from state, but I'm not sure if we need it.
-// I'm watching a roundtable video and Ansel is saying that what we've got above
-// 'let...' is the preferred representation
-
-// const state = {
-//   city: "Portland",
-//   curTemp: null,
-//   sky: null,
-//   lat: 45.5152,
-//   lon: 122.6784,
-// };
+function myFunction (){
+  const input = document.getElementById("cityInput").value;
+  document.getElementById("cityHeader").textContent = input;
+}
 
 document.getElementById("sky").addEventListener('change', (event) => {
   const bgValue = event.target.options[event.target.selectedIndex].value;
@@ -37,116 +28,121 @@ document.getElementById("sky").addEventListener('change', (event) => {
     }
 });
 
-const cityName = () => {
-  const city = document.getElementById("cityInput").value;
-  document.getElementById("demo") = city;
+const weatherEmojisandColor = () => {
+  let temp = state.temperature;
+  let color;
+  if (temp <= 49) {
+    curWeatherEmojis.textContent="❄️🥶❄️🥶";
+    document.body.style.backgroundImage = "url(/ada-project-docs/assets/snow.png)";
+    color="cornflowerblue";
+  } else if (temp <= 59) {
+    curWeatherEmojis.textContent="🧤🧣🧤🧣";
+    document.body.style.backgroundImage = "url(/ada-project-docs/assets/rain.png)";
+    color = "green";
+  } else if (temp <= 69) {
+    curWeatherEmojis.textContent="✅✅✅✅";
+    document.body.style.backgroundImage = "url(/ada-project-docs/assets/cloudy.png)";
+    color ="yellow";
+  } else if (temp <= 79) {
+    curWeatherEmojis.textContent="😅😎😅😎";
+    document.body.style.backgroundImage = "url(/ada-project-docs/assets/sunshine.png)";
+    color="orange";
+  } else {
+    curWeatherEmojis.textContent="🔥🔥🔥🔥";
+    document.body.style.backgroundImage = "url(/ada-project-docs/assets/dry.png)";
+    color="red"
+  }
+    let tempTag = document.getElementById("tempTag")
+    
+    tempTag.textContent = String(temp)
+    tempTag.className = color
+    
 };
 
-function myFunction() {
-  const x = document.getElementById("cityInput").value;
-  document.getElementById("demo").innerHTML = x;
-}
-
-const getLatLon = (input) => {
+const getLatLon = () => {
   return axios.get("http://127.0.0.1:5000/location", {
     params: {
-      q: input,
+      q: state.city,
     }
   }).then((response)=>{
-    const latitude = response.data[0].lat;
-    const longitude = response.data[0].lon;
+    state.latitude = response.data[0].lat;
+    state.longitude = response.data[0].lon;
 
-    console.log(latitude, longitude)
-    
-    getWeather(latitude, longitude)
-    return {latitude, longitude}
+    getWeather()
+    console.log("working")
 }).catch((error) => {
     console.log("City not found")
   })
 };
 
-const result = getLatLon('Portland')
-
-increaseBtn.addEventListener('click', ()=>{
-  counter++;
-  counterColor();
-  weatherEmojis();
-  bgWeatherMatch();
-  curTemp.innerHTML = counter;
-});
-
-decreaseBtn.addEventListener('click', ()=>{
-  counter--;
-  counterColor();
-  weatherEmojis();
-  bgWeatherMatch();
-  curTemp.innerHTML = counter;
-});
-
-const getWeather = (latitude, longitude) => {
+const getWeather = () => {
   axios.get("http://127.0.0.1:5000/weather", {
     params: {
-    lat: latitude,
-    lon: longitude,
+    lat: state.latitude,
+    lon: state.longitude,
   }})
   .then((response) => {
-    const tempInF = Math.floor((response.data.main.temp - 273.15) * (9/5) + 32);
-    curTemp.innerHTML = tempInF
-    counter = curTemp.innerHTML
-    counterColor()
-    console.log(tempInF);
-    return temp
+    const tempInF = Math.floor((response.data.main.temp - 273.15) * (9/5) + 32)
+    weatherEmojisandColor()
   })
   .catch((error) => {
     console.log("error no temperature found")
   })
 };
 
+const increaseTemp = () => {
+    state.temperature+=1;
+    weatherEmojisandColor();
+  }
 
-const counterColor = () => {
-  if (counter <= 30) {
-  curTemp.className="purple";
-  } else if (counter <= 49) {
-  curTemp.className="cornflowerblue";
-  } else if (counter <= 59) {
-  curTemp.className="green";
-  } else if (counter <= 69) {
-  curTemp.className="yellow";
-  } else if (counter <= 79) {
-  curTemp.className="orange";
-  } else {
-  curTemp.className="red";
-}};
+const decreaseTemp = () => {
+    state.temperature-=1;
+    weatherEmojisandColor();
+}
 
+const adjustCityName = () => {
+  const inputCity = document.getElementById("cityInput").value;
+  const cityHeader = document.getElementById("cityHeader");
+  state.city = inputCity
+  cityHeader.textContent = state.city;
+};
 
-const weatherEmojis = () => {
-  if (counter <= 40) {
-    curWeatherEmojis.textContent="❄️🥶❄️";
-  } else if (counter <= 59) {
-  curWeatherEmojis.textContent="🧤🧣🧤";
-  } else if (counter <= 69) {
-    curWeatherEmojis.textContent="✅✅✅";
-  } else if (counter <= 79) {
-    curWeatherEmojis.textContent="😅😎😅";
-  } else {
-    curWeatherEmojis.textContent="🔥🔥🔥";
-}};
+const adjustTemp = () => {
+  const tempTag = document.getElementById("tempTag");
+  getLatLon().then((temperature)=>{;
+    tempTag.textContent = temperature;
+    state.temp = temperature
+    weatherEmojisandColor()
+  })
+}
 
+const resetCity = () =>{
+  const cityInput = document.getElementById("cityInput");
+  cityInput.value = "Portland";
 
-console.log(result)
+  adjustCityName()
+}
 
+// Section for Event Handlers 
 
-// optional enhancement
+const registerEventHandlers = () => {
+  weatherEmojisandColor()
 
-const bgWeatherMatch = () => {
-  if (counter <= 40) {
-    document.body.style.backgroundImage = "url(/ada-project-docs/assets/snow.png)";
-  } else if (counter <= 59) {
-    document.body.style.backgroundImage = "url(/ada-project-docs/assets/rain.png)";
-  } else if (counter <= 69) {
-    document.body.style.backgroundImage = "url(/ada-project-docs/assets/cloudy.png)";
-  } else if (counter <= 90) {
-    document.body.style.backgroundImage = "url(/ada-project-docs/assets/sunshine.png)";
-  } else {
-    document.body.style.backgroundImage = "url(/ada-project-docs/assets/dry.png)";;
-}};
+  const realTimeTemp = document.getElementById("realTime");
+  realTimeTemp.addEventListener('click', getLatLon)
+  
+  const increaseBtn = document.getElementById("increaseBtn")
+  increaseBtn.addEventListener('click', increaseTemp);
+  
+  const decreaseBtn = document.getElementById("decreaseBtn")
+  decreaseBtn.addEventListener('click', decreaseTemp)
+
+  adjustCityName()
+  getcityName.addEventListener('input', adjustCityName) 
+
+  const resetBtn = document.getElementById("reset");
+  resetBtn.addEventListener('click', resetCity)
+
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);

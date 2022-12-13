@@ -26,7 +26,7 @@
                     </select>
                 </label>
                 <h1>Weather Report</h1>
-                <h2 id="now-showing">Now showing the temperature for <span id="demo"></span></h2>
+                <h2 id="now-showing">Now showing the temperature for <span id="cityHeader"></span></h2>
             </div>
         </div>
     </header>
@@ -39,11 +39,9 @@
             <section id="city-name" class="text-in-front">
                 <h3>City Name</h3>
                 <div id="topnav">
-                    <input id="cityInput" type="text" 
-                    placeholder="Type a city name here..." onkeyup="myFunction()">
+                    <input type="text" id="cityInput" placeholder="Search By Loaction" autocomplete="off" onkeyup="myFunction()">
                     <br>
                     <br>
-                    <button id="submit" type="submit">Submit</button>
                     <button id="reset" type="reset">Reset</button>
                 </div>
                 <br>
@@ -51,12 +49,11 @@
             <section id="temp" class="text-in-front">
                 <h3>Temperature</h3>
                 <button id="increaseBtn"><span>&#43;</span></button>
-                <span id="curTemp">0</span>
-                <span id="tempTag">° F</span>
+                <span id="tempTag">45</span>
                 <button id="decreaseBtn"><span>&#8722;</span></button>
                 <br>
                 <br>
-                <button id="realTime" type="submit">Get Realtime Temperature</button> 
+                <button id="realTime">Get Realtime Temperature</button> 
                 <br>
             </section>
             <section id="garden" class="text-in-front">
