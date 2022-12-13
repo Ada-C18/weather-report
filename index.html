@@ -10,18 +10,18 @@
   <body>
     <!-- weather garden -->
     <section id="garden-container">
-      <header class="sky">
-        <div class="seasons" id="sunny"><span>😎S☀️u🌞n🌅n🌞y😎</span></div>
-        <div class="seasons" id="rainy"><span>🌈R🌧a⛈i💧n🌦y🌈</span></div>
-        <div class="seasons" id="cloudy"><span>☁️C🌥l⛅️o🌤u⛅️d🌥y☁️</span></div>
-        <div class="seasons" id="snowy"><span>❄️S🌨n❅o❆w🌨y❄️</span></div>
+      <header id="sky-dropdown">
+        <div class="seasons" id="Sunny">😎S☀️u🌞n🌅n🌞y😎</div>
+        <div class="seasons" id="Rainy">🌈R🌧a⛈i💧n🌦y🌈</div>
+        <div class="seasons" id="Cloudy">☁️C🌥l⛅️o🌤u⛅️d🌥y☁️</div>
+        <div class="seasons" id="Snowy">❄️S🌨n❅o❆w🌨y❄️</div>
       </header>
       <div></div>
-      <footer class="landscape">
-        <div class="seasons" id="summer"><span>⛱S🍉u👙m🧴m🩳e🍉r⛱</span></div>
-        <div class="seasons" id="spring"><span>🌷S🌸p🌼r🌱i🌼n🌸g🌷</span></div>
-        <div class="seasons" id="fall"><span>🍂A🍁u👻t🎃u👻m🍁n🍂</span></div>
-        <div class="seasons" id="winter"><span>⛄️W🎿i🛷n🧤t⛸e🧣r⛄️</span></div>
+      <footer id="landscape">
+        <div class="seasons" id="summer">⛱S🍉u👙m🧴m🩳e🍉r⛱</div>
+        <div class="seasons" id="spring">🌷S🌸p🌼r🌱i🌼n🌸g🌷</div>
+        <div class="seasons" id="fall">🍂A🍁u👻t🎃u👻m🍁n🍂</div>
+        <div class="seasons" id="winter">⛄️W🎿i🛷n🧤t⛸e🧣r⛄️</div>
       </footer>
     </section>
     <!--------------------->
@@ -50,12 +50,13 @@
         </div>
         <div class="card" id="card2">
           <div style="display: flex; flex-direction: column; gap: 0.5rem">
-            <label>Choose Sky</label>
-            <select id=“skySelect”></select>
-              <option value="sunny">Sunny</option>
-              <option value="rainy">Rainy</option>
-              <option value="cloudy">Cloudy</option>
-              <option value="snowy">Snowy</option>
+            <h3>Sky</h3>
+            <select id="sky-dropdown">
+              <option>Select Conditions</option>
+              <option>Sunny</option>
+              <option>Rainy</option>
+              <option>Cloudy</option>
+              <option>Snowy</option>
             </select>
           </div>
         </div>
@@ -86,7 +87,7 @@
     </section>
     <!-- footer for page -->
     <footer>
-      <h5>By Tiffany Rogers</h5>
+      <h4>By Tiffany Rogers</h4>
     </footer>
     <!--------------------->
     <script type="module" src="./src/index.js"></script>

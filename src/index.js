@@ -1,4 +1,5 @@
 // Accessing DOM/HTML Elements
+
 const upArrow=document.getElementById("up-arrow");
 const downArrow=document.getElementById("down-arrow");
 const temperature=document.getElementById("temp");
@@ -11,22 +12,29 @@ const userSearch=document.getElementById("city-search");
 const callApiBtn=document.getElementById("real-temp-btn");
 const resetCityBtn=document.getElementById("reset-btn");
 const getWeatherBtn=document.getElementById("get-weather-btn");
+const skyDropDown=document.getElementById('sky-dropdown');
+const Sunny=document.getElementById('sunny');
+const Snowy=document.getElementById('snowy');
+const Rainy=document.getElementById('rainy');
+const Cloudy=document.getElementById('cloudy');
+const defaultSky=document.getElementById('default-sky');
 
 // ---------------------------
+
 let temp=0;
 colors();
 getApi();
 
 function getApi() {
-let latitude;
-let longitude;
-    axios
+    let latitude;
+    let longitude;
+        axios
         .get(`http://127.0.0.1:5000/location?q=${userSearch.value}`)
         .then(function apiResponse(response) {
             latitude = response.data[0].lat;
             longitude = response.data[0].lon;
 
-        axios
+            axios
             .get(`http://127.0.0.1:5000/weather?&lat=${latitude}&lon=${longitude}`)
             .then((res) => {
                 const fahrenheitConversion = Math.floor(
@@ -34,13 +42,12 @@ let longitude;
                 temperature.textContent = fahrenheitConversion;
                 temp = fahrenheitConversion;
                 seasonChange()
-            
-            });
-        })
+                })
+            })
             .catch((error) => {
                 alert(error);
-        });    
-}
+            })    
+};
 
 temperature.textContent = temp
 
@@ -104,38 +111,62 @@ function seasonChange(){
     }
 };
 
-function weatherChange(){
-const sky=document.getElementsById("sunny");
-const inputSky=document.getElementById('skySelect').value;
-// const sunny=document.getElementById('card2').value;
-// const cloudy=document.getElementsById("cloudy");
-// const rainy=document.getElementsById("rainy");
-// const snowy=document.getElementsById("snowy");
-    if (inputSky===sky){
-        sunny.style.display="flex"
-        cloudy.style.display="none"
-        rainy.style.display="none"
-        snowy.style.display="none"
-    }
-};
-
 // Func for users city search and display name
-const displayInput = () => {
-cityName.textContent = userSearch.value;
-};
+function displayInput() {
+    cityName.textContent = userSearch.value;
+}
 
-const resetCity = () => {
-    userSearch.value='Columbus';
-    cityName.textContent='Columbus';
+function resetCity() {
+    userSearch.value = 'Columbus';
+    cityName.textContent = 'Columbus';
     getApi();
-};
+}
 
 displayInput()
 seasonChange()
 
+
+// Function for getting value of sky/conditions dropdown
+function dropdownValue() {
+        console.log(skyDropDown.value);
+        console.log('1');
+    // if(skyDropDown.value === 'Select Conditions'){
+    //     sunnySky.style.display = 'none';
+    //     cloudySky.style.display = 'none';
+    //     rainySky.style.display = 'none';
+    //     snowSky.style.display = 'none';
+    //     defaultSky.style.display = 'block';
+    } if (skyDropDown.value === 'Sunny'){
+        Sunny.style.display = 'block'
+        Cloudy.style.display = 'none';
+        Rainy.style.display = 'none';
+        Snowy.style.display = 'none';
+        defaultSky.style.display = 'none';
+    } else if (skyDropDown.value === 'Rainy') {
+        Sunny.style.display = 'none'
+        Cloudy.style.display = 'none';
+        Rainy.style.display = 'block';
+        Snowy.style.display = 'none';
+        defaultSky.style.display = 'none';
+    } else if (skyDropDown.value === 'Cloudy') {
+        Sunny.style.display = 'none'
+        Cloudy.style.display = 'none';
+        Rainy.style.display = 'none';
+        Snowy.style.display = 'block';
+        defaultSky.style.display = 'none';
+    } else if (skyDropDown.value === 'Snowy') {
+        Sunny.style.display = 'none';
+        Cloudy.style.display = 'none';
+        Rainy.style.display = 'none';
+        Snowy.style.display = 'block';
+        defaultSky.style.display = 'none';
+    };
+
+dropdownValue()
+
+upArrow.addEventListener('click', increment);
+downArrow.addEventListener('click', decrement);
 resetCityBtn.addEventListener('click', resetCity);
 getWeatherBtn.addEventListener('click', getApi);
 userSearch.addEventListener('input', displayInput);
-upArrow.addEventListener('click', increment);
-downArrow.addEventListener('click', decrement);
-
+skyDropDown.addEventListener('change', dropdownValue);
