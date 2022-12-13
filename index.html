@@ -12,7 +12,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono&family=Roboto:wght@500&family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <h1>Weather for <span id="city"></span></h1>
+    <div>
+      <input id="cityInput" type="text" size="30" placeholder="Denver, Houston, Miami (test data)" autocomplete="off" />
+      <button id="citySearch">Search</button>
+      <button id="cityReset">Reset</button>
+    </div>
+  
+    <h4>Temperature is <span id="temperature"></span>º F</h4>
+    <div>
+      <button id="decreaseTemp">-</button>
+      <button id="increaseTemp">+</button>
+    </div>
+   
+    <h4>Landscape is <span id="landscape"></span></h4>
+                           
+    <h4>Sky is <span id="sky"></span></h4>
+    <div>
+      <select id="skyInput">
+        <option value="sunny">Sunny</option>
+        <option value="cloudy">Cloudy</option>
+        <option value="rainy">Rainy</option>
+        <option value="snowy">Snowy</option>
+      </select>
+    </div>
+  </body>
+  </html>
 
 
     <script src="src/index.js" ></script>
