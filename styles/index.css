@@ -77,7 +77,7 @@ h3 {
     text-align: center;
 }
 
-#curTemp, #tempTag {
+#tempTag, #tempUnits {
     font-size: 40pt;
 }
 
@@ -103,10 +103,6 @@ h3 {
 
 .cornflowerblue {
     color: cornflowerblue;
-}
-
-.purple {
-    color: purple;
 }
 
 #curWeatherEmojis {
