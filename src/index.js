@@ -6,20 +6,22 @@
 const state = {
   tempCount: 60, //was temp
 };
-
 var tempCountContainer = document.querySelector('#tempCount');
-tempCountContainer.textContent = state.tempCount;
+
+const renderTemp = () => {
+  tempCountContainer.textContent = state.tempCount + ' °F';
+};
+
+renderTemp();
 
 const addTemp = (event) => {
   state.tempCount += 1;
-  tempCountContainer = document.querySelector('#tempCount');
-  tempCountContainer.textContent = state.tempCount;
+  renderTemp();
 };
 
 const subtractTemp = (event) => {
   state.tempCount -= 1;
-  tempCountContainer = document.querySelector('#tempCount');
-  tempCountContainer.textContent = state.tempCount;
+  renderTemp();
 };
 
 const registerEventHandlers = (event) => {
@@ -46,12 +48,18 @@ axios
     var temp = response.data.main.temp;
     temp = Math.round(((temp - 273.15) * 9) / 5 + 32); //convert to Farenheit
     console.log(temp);
-    const appearanceHeading = document.getElementById('tempCount'); //change this to query selector?
-    appearanceHeading.textContent = temp + ' °F';
+
+    //need to update the state.
+    state.tempCount = temp;
+    renderTemp();
   })
   .catch((error) => {
     console.log(`there has been an error in the axios call.  Cause: ${error}`);
   });
+
+//write a function that changes the display text.
+//appearanceHeading.textContent = temp + ' °F';
+//have it rely on state.tempCount.
 
 // async function get_temp(query) {
 //   let response = await axios.get;
