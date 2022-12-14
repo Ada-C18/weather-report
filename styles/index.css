@@ -1,0 +1,32 @@
+#weather-cards-header{
+text-align: center;
+font-size: 2rem;
+color:crimson
+}
+
+.card {
+    border:1.5px solid black;
+    padding:1rem 1rem
+}
+
+#card1{
+min-width: 15%;
+min-height: 15%;
+}
+
+#temp{
+    font-size: 6rem;
+}
+
+.seasons{
+    font-size: 120px;
+    justify-content: center;
+}
+
+#garden-container{
+    background-color: aqua;
+    text-align: center;
+}
+footer{
+    text-align: center;
+}

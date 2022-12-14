@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <!-- weather garden -->
+    <section id="garden-container">
+      <header id="sky-dropdown">
+        <div class="seasons" id="Sunny">😎S☀️u🌞n🌅n🌞y😎</div>
+        <div class="seasons" id="Rainy">🌈R🌧a⛈i💧n🌦y🌈</div>
+        <div class="seasons" id="Cloudy">☁️C🌥l⛅️o🌤u⛅️d🌥y☁️</div>
+        <div class="seasons" id="Snowy">❄️S🌨n❅o❆w🌨y❄️</div>
+      </header>
+      <div></div>
+      <footer id="landscape">
+        <div class="seasons" id="summer">⛱S🍉u👙m🧴m🩳e🍉r⛱</div>
+        <div class="seasons" id="spring">🌷S🌸p🌼r🌱i🌼n🌸g🌷</div>
+        <div class="seasons" id="fall">🍂A🍁u👻t🎃u👻m🍁n🍂</div>
+        <div class="seasons" id="winter">⛄️W🎿i🛷n🧤t⛸e🧣r⛄️</div>
+      </footer>
+    </section>
+    <!--------------------->
+    <section>
+      <!-- header for input weather cards -->
+      <header id="weather-cards-header">
+        <h1>Weather Report</h1>
+        <h4 style="margin-top: -1rem">
+          For the lovely city of <span id="city-name"></span>
+        </h4>
+      </header>
+      <!-------------------------------------->
+      <!-- input weather cards -->
+      <section
+        style="
+          display: flex;
+          align-items: center;
+          gap: 5rem;
+          justify-content: center;
+        "
+      >
+        <div class="card" id="card1">
+          <button class="button" id="up-arrow">Increment</button>
+          <h3><span id="temp"></span>°F</h3>
+          <button class="button" id="down-arrow">Decrement</button>
+        </div>
+        <div class="card" id="card2">
+          <div style="display: flex; flex-direction: column; gap: 0.5rem">
+            <h3>Sky</h3>
+            <select id="sky-dropdown">
+              <option>Select Conditions</option>
+              <option>Sunny</option>
+              <option>Rainy</option>
+              <option>Cloudy</option>
+              <option>Snowy</option>
+            </select>
+          </div>
+        </div>
+        <div class="card" id="card3">
+          <h1>Search a City</h1>
+          <label for="city-search">City Name</label>
+          <input type="text" id="city-search" value="Columbus" />
+          <button
+            style="
+              background-color: red;
+              font-weight: 900;
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                sans-serif;
+              color: white;
+              border-radius: 40px;
+              width: 10rem;
+              padding: 1rem;
+              font-size: 1.5rem;
+            "
+            id="get-weather-btn"
+          >
+            Get Weather
+          </button>
+          <button id="reset-btn">Reset Search</button>
+        </div>
+      </section>
+      <!------------------------->
+    </section>
+    <!-- footer for page -->
+    <footer>
+      <h4>By Tiffany Rogers</h4>
+    </footer>
+    <!--------------------->
+    <script type="module" src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
