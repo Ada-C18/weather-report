@@ -7,14 +7,14 @@
 
     <title>Weather Report</title>
     <link rel="stylesheet" href = "styles/index.css">
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Mono&family=Roboto:wght@500&family=Rubik&display=swap" rel="stylesheet">
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script defer src="src/index.js"></script>
+
 </head>
 <body>
     <h1>Weather for <span id="city"></span></h1>
     <div>
-      <input id="cityInput" type="text" size="30" placeholder="Denver, Houston, Miami (test data)" autocomplete="off" />
+      <input id="cityInput" type="text" size="30" placeholder="Enter city name" />
       <button id="citySearch">Search</button>
       <button id="cityReset">Reset</button>
     </div>
@@ -35,12 +35,6 @@
         <option value="rainy">Rainy</option>
         <option value="snowy">Snowy</option>
       </select>
-    </div>
+    </div>     
   </body>
-  </html>
-
-
-    <script src="src/index.js" ></script>
-</body>
-
 </html>
