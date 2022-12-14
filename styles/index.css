@@ -19,3 +19,16 @@ button {
 #tempCount {
     background-color: pink;
 }
+
+#pink-section {
+    background-color: lightpink;
+}
+
+#garden {
+    background-color: white;
+    border: 1px solid black;
+}
+
+h2 {
+    font-size : 20px;
+}

@@ -7,19 +7,25 @@ const state = {
   tempCount: 60, //was temp
 };
 var tempCountContainer = document.querySelector('#tempCount');
+var gardenContainer = document.querySelector('#garden');
 
 //changing the background color temp function
 const setTempColor = () => {
   if (state.tempCount <= 49) {
     tempCountContainer.style.backgroundColor = 'teal';
+    gardenContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (state.tempCount >= 50 && state.tempCount <= 59) {
     tempCountContainer.style.backgroundColor = 'green';
+    gardenContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (state.tempCount >= 60 && state.tempCount <= 69) {
     tempCountContainer.style.backgroundColor = 'yellow';
+    gardenContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (state.tempCount >= 70 && state.tempCount <= 79) {
     tempCountContainer.style.backgroundColor = 'orange';
+    gardenContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.tempCount >= 80) {
     tempCountContainer.style.backgroundColor = 'red';
+    gardenContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   }
 };
 
