@@ -1,4 +1,4 @@
-// application state management
+//application states
 const state = {
   sky: 'sunny',
   temperature: 0,
@@ -6,7 +6,7 @@ const state = {
 };
 const temperatureChangeStep = 1;
 
-// references to all elements on the page
+//references to all elements on the page
 const elTemperature = document.querySelector('#temperature');
 const elIncreaseTemp = document.querySelector('#increaseTemp');
 const elDecreaseTemp = document.querySelector('#decreaseTemp');
@@ -19,7 +19,6 @@ const elSky = document.querySelector('#sky');
 const elSkyInput = document.querySelector('#skyInput');
 
 //event handlers to intercept user interactions
-
 elSkyInput.addEventListener('change', (event) => {
   setSky(event.target.value);
 });
@@ -89,7 +88,6 @@ const renderCity = () => {
 };
 
 //setters for changing state and calling respective render functions
-
 const setSky = (value) => {
   state.sky = value;
   renderSky();
@@ -106,7 +104,6 @@ const setCity = (value) => {
 };
 
 //functions to run user actions
-
 const increaseTemp = () => {
   setTemperature(state.temperature + temperatureChangeStep);
 };
