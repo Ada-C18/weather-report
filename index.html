@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+
+    <link rel="stylesheet" href="styles/index.css">
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js"></script>
 </head>
+
 <body>
-    
+	<div class = "header">
+		<h1>WEATHER REPORT FOR</h1>
+		<span class="city-header">
+			<p id="setCity"></p>
+		</span>
+
+	<div class="grid-container">
+		<div class="grid-item-cond-data">
+				<h2 class = "cond-switch-title">CURRENT CONDITIONS:</h2>
+				<div class="conditions-controls">
+					<input type="radio" name="Conditions" id="sunny" value="✨">
+					<label for="sunny"/>☀️</label>
+
+					<input type="radio" name="Conditions" id="cloudy" value="⛅">
+					<label for="cloudy"/>☁️</label>
+
+					<input type="radio" name="Conditions" id="rainy" value="🌈">
+					<label for="rainy"/>💦</label>
+
+					<input type="radio" name="Conditions" id="snowy" value="☃️">
+					<label for="snowy"/>❄️</label>
+				</div>
+		</div>
+
+		<div class="grid-item-cond">
+			<script src=src/index.js>	
+				updateCondition()
+			</script>
+			<p id = "cond_result"></p>
+		</div>
+		<div class="grid-item-temp-data">
+				<h2 class = "temp-switch-title">FEELS LIKE:</h2>
+				<div class="temperature-controls">
+					<button type="button" class="tempbutton" id="uppie">☝🏽</button>
+					<button type="button" class="tempbutton" id="downie">👇🏽</button>
+				</div>
+				<div class="display-temp" id="temp_result"></div>
+		</div>
+		<div class="grid-item-temp">
+			<p id="you_are_here">😄</p>
+		</div>
+		<div class="grid-item-field-data">
+				<h2 class = "city-switch-title">BASED IN:</h2>
+				<div class="cityContent">
+						<div class="cityControls">
+								<input id="cityName" class="cityDisplay" type="text" value="Atlanta">
+								<button id="city_reset" class="city_button">🔄</button>
+								<button id="update_weather" class="city_button">*️⃣</button>
+						</div>
+				</div>
+		</div>
+		<div class="grid-item-field">
+			<p id="temp_field">🌷</p>
+		</div>
+	</div> 
+
+
 </body>
+
 </html>
