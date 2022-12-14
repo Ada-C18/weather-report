@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Weather Report</title>
+    <link rel="stylesheet" href = "styles/index.css">
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script defer src="src/index.js"></script>
+
 </head>
 <body>
-    
-</body>
+    <div class="card">
+    <h1>Weather for <span id="city"></span></h1>
+    <div>
+      <input id="cityInput" type="text" size="30" placeholder="Enter city" />
+      <button id="citySearch">Search</button>
+      <button id="cityReset">Reset</button>
+    </div>
+
+    <h4>Temperature is <span id="temperature"></span>º F</h4>
+    <div>
+      <button id="decreaseTemp">-</button>
+      <button id="increaseTemp">+</button>
+    </div>
+    </div>
+   
+    <div class = "landscapeSky">
+    <h4>Landscape is <span id="landscape"></span></h4>
+                           
+    <h4>Sky is <span id="sky"></span></h4>
+    <div>
+      <select id="skyInput">
+        <option value="sunny">Sunny</option>
+        <option value="cloudy">Cloudy</option>
+        <option value="rainy">Rainy</option>
+        <option value="snowy">Snowy</option>
+      </select>
+    </div>
+    </div>     
+  </body>
 </html>
