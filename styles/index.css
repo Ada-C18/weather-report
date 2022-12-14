@@ -15,3 +15,7 @@
 button {
     font-size: x-large;
 }
+
+#tempCount {
+    background-color: pink;
+}

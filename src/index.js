@@ -8,8 +8,24 @@ const state = {
 };
 var tempCountContainer = document.querySelector('#tempCount');
 
+//changing the background color temp function
+const setTempColor = () => {
+  if (state.tempCount <= 49) {
+    tempCountContainer.style.backgroundColor = 'teal';
+  } else if (state.tempCount >= 50 && state.tempCount <= 59) {
+    tempCountContainer.style.backgroundColor = 'green';
+  } else if (state.tempCount >= 60 && state.tempCount <= 69) {
+    tempCountContainer.style.backgroundColor = 'yellow';
+  } else if (state.tempCount >= 70 && state.tempCount <= 79) {
+    tempCountContainer.style.backgroundColor = 'orange';
+  } else if (state.tempCount >= 80) {
+    tempCountContainer.style.backgroundColor = 'red';
+  }
+};
+
 const renderTemp = () => {
   tempCountContainer.textContent = state.tempCount + ' °F';
+  setTempColor();
 };
 
 renderTemp();
@@ -38,7 +54,6 @@ registerEventHandlers(undefined);
 
 //AXIOS CODE
 
-// ('use strict');
 //call to the flask app to get weather
 const lat = 47.6038321;
 const lon = -122.330062;
@@ -57,9 +72,7 @@ axios
     console.log(`there has been an error in the axios call.  Cause: ${error}`);
   });
 
-//write a function that changes the display text.
-//appearanceHeading.textContent = temp + ' °F';
-//have it rely on state.tempCount.
+//what we tried to get async functions working.
 
 // async function get_temp(query) {
 //   let response = await axios.get;
