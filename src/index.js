@@ -12,9 +12,13 @@ const state = {
   tempCount: 60, //was temp
 };
 
+const tempCountContainter = document.querySelector('#tempCount');
+tempCountContainter.textContent = state.tempCount;
+
 const addTemp = (event) => {
   state.tempCount += 1;
-  console.log('the button was clicked!!!');
+  const tempCountContainter = document.querySelector('#tempCount');
+  tempCountContainter.textContent = state.tempCount;
 };
 
 const registerEventHandlers = (event) => {
