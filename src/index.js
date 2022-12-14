@@ -34,19 +34,24 @@ const registerEventHandlers = (event) => {
 
 registerEventHandlers(undefined);
 
+//AXIOS CODE
+
 // ('use strict');
-// //call to the flask app to get weather
-// const lat = 47.6038321;
-// const lon = -122.330062;
-// axios
-//   .get('http://127.0.0.1:5000/weather' + '?lat=' + lat + '&lon=' + lon)
-//   .then((response) => {
-//     var temp = response.data.main.temp;
-//     temp = Math.round(((temp - 273.15) * 9) / 5 + 32); //convert to Farenheit
-//     console.log(temp);
-//     const appearanceHeading = document.getElementById('tempCount'); //change this to query selector?
-//     appearanceHeading.textContent = temp + ' °F';
-//   });
+//call to the flask app to get weather
+const lat = 47.6038321;
+const lon = -122.330062;
+axios
+  .get('http://127.0.0.1:5000/weather' + '?lat=' + lat + '&lon=' + lon)
+  .then((response) => {
+    var temp = response.data.main.temp;
+    temp = Math.round(((temp - 273.15) * 9) / 5 + 32); //convert to Farenheit
+    console.log(temp);
+    const appearanceHeading = document.getElementById('tempCount'); //change this to query selector?
+    appearanceHeading.textContent = temp + ' °F';
+  })
+  .catch((error) => {
+    console.log(`there has been an error in the axios call.  Cause: ${error}`);
+  });
 
 // async function get_temp(query) {
 //   let response = await axios.get;
