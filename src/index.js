@@ -12,20 +12,29 @@ const state = {
   tempCount: 60, //was temp
 };
 
-const tempCountContainter = document.querySelector('#tempCount');
-tempCountContainter.textContent = state.tempCount;
+var tempCountContainer = document.querySelector('#tempCount');
+tempCountContainer.textContent = state.tempCount;
 
 const addTemp = (event) => {
   state.tempCount += 1;
-  const tempCountContainter = document.querySelector('#tempCount');
-  tempCountContainter.textContent = state.tempCount;
+  tempCountContainer = document.querySelector('#tempCount');
+  tempCountContainer.textContent = state.tempCount;
+};
+
+const subtractTemp = (event) => {
+  state.tempCount -= 1;
+  tempCountContainer = document.querySelector('#tempCount');
+  tempCountContainer.textContent = state.tempCount;
 };
 
 const registerEventHandlers = (event) => {
   // console.log('in registerEventHandelers:', event);
-  const upButton = document.querySelector('#Up');
+  const upButton = document.querySelector('#upButton');
+  const downButton = document.querySelector('#downButton');
   console.log(upButton);
   upButton.addEventListener('click', addTemp);
+  downButton.addEventListener('click', subtractTemp);
+  console.log(downButton);
 };
 
 registerEventHandlers(undefined);
