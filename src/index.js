@@ -5,7 +5,7 @@ const state = {
   temperature: 72,
   latitude: 45.5152,
   longitude: 122.6784,
-}
+};
 
 let getCityName;
 let curWeatherEmojis = document.getElementById("curWeatherEmojis");
@@ -17,7 +17,7 @@ const updateCityWhileTyping = () => {
   document.getElementById("now-showing").textContent = 
   `Now showing the temperature for ${input}`
   state.city = input;
-}
+};
 
 document.getElementById("sky").addEventListener('change', (event) => {
   const bgValue = event.target.options[event.target.selectedIndex].value;
@@ -54,12 +54,12 @@ const weatherEmojisandColor = () => {
   } else {
     curWeatherEmojis.textContent="🔥🔥🔥🔥";
     document.body.style.backgroundImage = "url(/ada-project-docs/assets/dry.png)";
-    color="red"
+    color="red";
   }
-    let tempTag = document.getElementById("tempTag")
+    let tempTag = document.getElementById("tempTag");
     
-    tempTag.textContent = String(temp)
-    tempTag.className = color   
+    tempTag.textContent = String(temp);
+    tempTag.className = color;   
 };
 
 const getLatLonAsync = async () => {
@@ -67,17 +67,15 @@ const getLatLonAsync = async () => {
     const response = await axios.get("http://127.0.0.1:5000/location", {
       params: {
         q: state.city,
-      }}
-    )
-    console.log(state.city)
-    console.log("success!", response.data)
+      }});
+    console.log(state.city);
+    console.log("success!", response.data);
     state.latitude = response.data[0].lat;
     state.longitude = response.data[0].lon;
     getWeather();
   } catch (error) {
     console.log("City not found");
-  }
-};
+  }};
 
 const getWeather = () => {
   axios.get("http://127.0.0.1:5000/weather", {
@@ -86,39 +84,37 @@ const getWeather = () => {
       lon: state.longitude,
   }})
   .then((response) => {
-    const tempInF = Math.floor((response.data.main.temp - 273.15) * (9/5) + 32)
-    weatherEmojisandColor()
+    const tempInF = Math.floor((response.data.main.temp - 273.15) * (9/5) + 32);
+    weatherEmojisandColor();
   })
   .catch((error) => {
-    console.log("error no temperature found")
-  })
-};
+    console.log("error no temperature found");
+  })};
 
 const increaseTemp = () => {
     state.temperature+=1;
     weatherEmojisandColor();
-  }
+  };
 
 const decreaseTemp = () => {
     state.temperature-=1;
     weatherEmojisandColor();
-}
+  };
 
 const adjustTemp = () => {
   const tempTag = document.getElementById("tempTag");
-  getLatLon().then((temperature)=>{;
+  getLatLon().then((temperature) => {
     tempTag.textContent = temperature;
-    state.temp = temperature
-    weatherEmojisandColor()
-  })
-}
+    state.temp = temperature;
+    weatherEmojisandColor();
+  })};
 
 const resetCity = () => {
   const defaultCity = document.getElementById("defaultCity");
   defaultCity.value = "Portland, OR";
   state.city = defaultCity.value;
   nowShowingTemp();
-}
+};
 
 const nowShowingTemp = () => {
   document.getElementById("now-showing").textContent = 
