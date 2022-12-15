@@ -79,6 +79,7 @@ h3 {
 
 #tempTag, #tempUnits {
     font-size: 40pt;
+    text-shadow: 1px 1px black;
 }
 
 #cityInput {

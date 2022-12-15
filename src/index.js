@@ -68,8 +68,6 @@ const getLatLonAsync = async () => {
       params: {
         q: state.city,
       }});
-    console.log(state.city);
-    console.log("success!", response.data);
     state.latitude = response.data[0].lat;
     state.longitude = response.data[0].lon;
     getWeather();
@@ -83,11 +81,13 @@ const getWeather = () => {
       lat: state.latitude,
       lon: state.longitude,
   }})
-  .then((response) => {
+  .then ((response) => {
     const tempInF = Math.floor((response.data.main.temp - 273.15) * (9/5) + 32);
+    tempTag.textContent = tempInF
+    state.temperature = tempInF
     weatherEmojisandColor();
   })
-  .catch((error) => {
+  .catch ((error) => {
     console.log("error no temperature found");
   })};
 
@@ -101,18 +101,12 @@ const decreaseTemp = () => {
     weatherEmojisandColor();
   };
 
-const adjustTemp = () => {
-  const tempTag = document.getElementById("tempTag");
-  getLatLon().then((temperature) => {
-    tempTag.textContent = temperature;
-    state.temp = temperature;
-    weatherEmojisandColor();
-  })};
-
 const resetCity = () => {
   const defaultCity = document.getElementById("defaultCity");
   defaultCity.value = "Portland, OR";
   state.city = defaultCity.value;
+  getLatLonAsync();
+  weatherEmojisandColor();
   nowShowingTemp();
 };
 
