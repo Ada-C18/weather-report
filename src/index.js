@@ -1,58 +1,59 @@
 "use strict";
 
-import axios from "axios"
 
+
+const state = {
+    temp : 75,
+    sky : "sunny"
+}
 // let tempValue = 71;
+// Elements Selectors 
+const tempValue = document.getElementById('tempValue');
 
-// API Calls
+const increaseTempControl = document.getElementById('increaseTempControl');
 
-const getLocation = () =>{
-    axios
-    .get ('http://127.0.0.1:5000/locations'), {
-        params:{
-            params: {
-            q: loc_query, 
-            key: 'pk.54a2fbb7573000245e547f11b670d167', 
-            format: 'json'
-        }
-    }
-    .then (function(response){
-        let lat = response.data[0]['lat']
-        let lon = response.data[0]['lon']
-    })
-    .catch (function(error)
-    console.error(error);
-    })
+const decreaseTempControl = document.getElementById('decreaseTempControl');
+
+const skySelect = document.getElementById('skySelect');
+
+// Functions 
+const increaseTemp = () => {
+    state.temp ++;
+    tempValue.innerHTML = state.temp;
+} 
+
+const decreaseTemp = () => {
+    state.temp --;
+    tempValue.innerHTML = state.temp;
 }
 
-const getWeather = (lat, lon) =>{
-    axios
-    .get ('http://127.0.0.1:5000/weather'), {
-        params: {
-            appid: '4f0138081ad5bd26b6a03604fa3b5b15', 
-            lat: lat,
-            lon: lon
-        }
-}
-.then (function(response){
-    let kelvinTemp = response.data["main"]["temp"];
-    let farhTemp = kelvinTemp - 273.15 * 1.8 + 32;
-// conversion from Kelvin to Fahrenheit
-// variable.innerText = farhTemp 
-
-})
-
-
-// Element Selectors
-
-const resetInput = () => {
-    cityName.innerHTML = "Indianapolis, IN";
-    userInput.value='';
-    sky.Select.value="sunny";
-
-    // helper function needed
-    makeItSunny();
-    actualTempNumber.innerText='';
+const skySelector = () => {
+    state.sky ;
+    skySelect.innerHTML = state.sky
+    if (state.sky == "sunny")
+    state.
 }
 
+// Listeners 
 
+increaseTempControl.addEventListener("click", increaseTemp);
+
+decreaseTempControl.addEventListener("click", decreaseTemp);
+
+// skySelect.addEventListener("select", )
+
+
+
+
+
+    // Element Selectors
+
+    // const resetInput = () => {
+    //     cityName.innerHTML = "Indianapolis, IN";
+    //     userInput.value='';
+    //     sky.Select.value="sunny";
+
+    //     // helper function needed
+    //     makeItSunny();
+    //     actualTempNumber.innerText='';
+    // }
