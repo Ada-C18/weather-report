@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/index.css">
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +25,7 @@
                     </select>
                 </label>
                 <h1>Weather Report</h1>
-                <h2 id="now-showing">Now showing the temperature for <span id="cityHeader"></span></h2>
+                <h2 id="now-showing" onLoaded="nowShowingTemp()"></h2>
             </div>
         </div>
     </header>
@@ -37,11 +36,13 @@
         </div>
         <div id="row" class="flex-box-container">
             <section id="city-name" class="text-in-front">
-                <h3>City Name</h3>
+                <h3>Search by City</h3>
                 <div id="topnav">
-                    <input type="text" id="cityInput" placeholder="Search By Loaction" autocomplete="off" onkeyup="myFunction()">
+                    <input type="text" id="defaultCity" placeholder="Portland, OR"  
+                    autocomplete="off" onKeyUp="updateCityWhileTyping()">
                     <br>
                     <br>
+                    <button id="realTime">Get Realtime Temp</button>
                     <button id="reset" type="reset">Reset</button>
                 </div>
                 <br>
@@ -54,7 +55,7 @@
                 <button id="decreaseBtn"><span>&#8722;</span></button>
                 <br>
                 <br>
-                <button id="realTime">Get Realtime Temperature</button> 
+                
                 <br>
             </section>
             <section id="garden" class="text-in-front">
@@ -69,6 +70,7 @@
             <h3>© 2022 | Alaere & Anika | C18 Snow Leopards</h3>
         </div>
     </footer>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
 </body>
 </html>
