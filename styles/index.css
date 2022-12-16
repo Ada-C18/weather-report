@@ -1,0 +1,92 @@
+body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+    max-height: 100vh;
+    min-height: 0;
+    
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    background-color: #31255a;
+    margin: 2rem;
+}
+
+h1 {
+    margin: 1rem;
+    font-size: 4em;
+}
+
+header {
+    display: flex;
+    color: white;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+span {
+    font-size: 2em;
+}
+
+.city_name_section {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.headerCity_name::before, .headerCity_name::after {
+    content: "❤️";
+}
+
+.headerCity_name {
+    color: #8fe0ff
+}
+
+.garden_section {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+.sky_section {
+    grid-column-start: 2;
+    grid-row-start: 4;
+}
+
+.temperature_section {
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+.temperature_section, .sky_section, .city_name_section, .garden_section {
+    border-radius: 50px;
+    padding: 2rem;
+    background-color: white;
+    text-align: center;
+    align-self: center;
+}
+
+#resetButton, #realtime-temp, #sky-options, button {
+    border-radius: 10px;
+    color: white;
+    background: #75b4e3;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+#resetButton:hover, #realtime-temp:hover, #sky-options:hover, button:hover {
+    background: #67ABE0;
+    text-decoration: none;
+}
+
+#temp-display, #sky {
+    font-size: 3rem;
+}

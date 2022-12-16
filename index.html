@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <title>🌦 Weather Report 🌦</title>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Report</h1>
+        <span>
+            For:
+            <span id="headerCityname" class="headerCity_name">
+                Seattle
+            </span>
+        </span>
+    </header>
+    <section class="garden_section" id="garden-section">
+        <h2>Weather Garden</h2>
+        <div class="garden_content">
+            <div id="sky">
+            </div>
+            <div id="landscape">
+                <img src="" id="landscape-img">
+            </div>
+        </div>
+    </section>
+    <section class="city_name_section">
+        <h2>City</h2>
+        <div class="city_content">
+            <label for="cityName"></label>
+            <input type="text" id="cityNameInput" name="name" autocomplete="on" placeholder="Name of City Here">
+            <!-- <input type="submit" value="Submit" id="submitButton"> -->
+            <input type="reset" value="Reset" id="resetButton">
+            
+        </div>
+    </section>
+    <section class="temperature_section">
+        <h2>Temperature</h2>
+        <div class="temperature_content">
+            <div class="temperature_controls">
+                
+            </div> 
+        </div>
+        <div id="temperature">
+            <button id ="decrease" type="button">
+                -
+            </button>
+            <span id ="temp-display">
+                65
+            </span>
+            
+            <button id="increase" type="button">
+                +
+            </button>   
+            <button id="realtime-temp" type = "button">
+                Get Realtime Temp
+            </button>
+    </section>
+    <section class="sky_section">
+        <h2>Sky</h2>
+        <div class="sky_content">
+            <select id="sky-options">
+                <option>- Select -</option>
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Rainy</option>
+                <option>Snowy</option>
+            </select>
+        </div>
+    </section>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
 </body>
 </html>
