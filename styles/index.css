@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Work%20Sans');
+
+body{
+    background-color:rgb(218, 242, 243);
+    font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: large;
+    color: rgb(24, 58, 81);
+}
+
+h2{
+    margin-top: 5px;
+    margin-bottom: 10px;;
+}
+.teal {
+    color: rgb(8, 90, 98)
+}
+
+.green {
+    color: green
+}
+
+.yellow {
+    color: rgb(173, 173, 0)
+}
+
+.orange {
+    color: orange
+}
+
+.red {
+    color: red
+}
+
+.container {
+    display: grid;
+    grid-template: 30% 30% 30% 10%/1fr 1fr;
+    max-height: 450px;
+    max-width: 600px;    
+}
+.gardenContent {
+    background-color:rgb(125, 229, 237) ;
+    min-height: 200px;
+    padding: 10px;
+    display: flex;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.temp_section {
+    background-color: rgb(255,255,255) ;
+    width: 280px;
+    max-height: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: .8;    
+    align-items: center;   
+    margin-top: 20px;
+    margin-left: 20px;
+    grid-column:1/span 1;
+    grid-row:1/span 2;
+}
+
+.sky_section,.city_section {
+    background-color: rgb(255,255,255) ;
+    width: 280px;
+    min-height: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: .8;    
+    align-items: center;   
+    margin-top: 20px;
+    margin-left: 20px; 
+}
+
+#currentTemp {
+    font-size: 30px;
+    font-weight: bold;
+    padding-left:60px;
+}
+
+#increaseTemp, #decreaseTemp {
+    border: transparent;
+    padding: 10px;
+    background-color: rgb(255,255,255);
+    display: flex;
+    padding-left:13px;
+    font-size: 25px;
+    color: rgb(73, 128, 168);
+    padding-left: 73px;    
+}
+
+#increaseTemp:hover, #decreaseTemp:hover{
+    color:rgb(0, 255, 246)
+}
+
+#getCurrentTemp {
+    align-items: flex-start;
+    display: block;
+    margin-top: 10px;
+    background-color: rgb(88, 55, 208);
+    height: 30px;
+    border-radius: 9px;
+    color: rgb(251, 253, 255);
+    border-color: rgb(88, 55, 208);
+}
+
+#resetCityName{
+    background-color: rgb(88, 55, 208);
+    height: 25px;
+    border-radius: 9px;
+    color: rgb(251, 253, 255);
+    border-color: rgb(88, 55, 208);
+}
+
+#getCurrentTemp:hover, #resetCityName:hover{
+    background-color:rgb(125, 229, 237);
+    color: rgb(28, 19, 65);  
+    border-color:rgb(42, 189, 200) ;       
+}
+
+#copyright {
+    height:2.5rem;
+    bottom:0;
+    font-size: small;
+    align-items: center;
+    font-style: italic;
+    opacity: 0.8;
+    grid-row:5/6;
+    margin-top: 70%;
+    grid-column: span;
+}
+
+#garden_section {
+    margin-top: 10px;
+    display:block;
+    align-content: center;
+    margin-left: 20px ;
+    color: rgb(24, 58, 81);
+    opacity: .9;
+    grid-column: 1/ span 2;
+    text-align: center;
+}
+
+.sunny {
+    background-color: rgb(189, 123, 0);
+}
+
+.cloudy {
+    background-color: rgb(186, 178, 178);
+}
+
+.rainy {
+    background-color: aqua;
+}
+
+.snowy {
+    background-color: rgb(172, 202, 227);
+}
+

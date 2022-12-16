@@ -15,9 +15,9 @@ Use these wireframes to guide the rest of your project.
 We recommend you get started by writing the HTML in `index.html`.
 
 You will need to link:
-- `index.css` 
-- `index.js`   
-- `./node_modules/axios/dist/axios.min.js` 
+X `index.css` 
+X `index.js`   
+X `./node_modules/axios/dist/axios.min.js`
 
 ## Tips
 

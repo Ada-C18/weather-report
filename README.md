@@ -83,15 +83,15 @@ However, _at a minimum_, your project must contain these elements:
 
 Wave 2:
 
-1. An element that displays the temperature
-1. A clickable element to increase temperature
-1. A clickable element to decrease temperature
-1. An element that displays a landscape
+x. An element that displays the temperature
+x. A clickable element to increase temperature
+x. A clickable element to decrease temperature
+x. An element that displays a landscape
 
 Wave 3:
 
-1. An element that displays the city name
-1. An element that contains an `<input type="text">` element, used to rename the city
+x. An element that displays the city name
+x. An element that contains an `<input type="text">` element, used to rename the city
 
 Wave 4:
 

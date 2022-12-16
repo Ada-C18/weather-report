@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c103a8d15b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
 </head>
 <body>
+    <header class="header_header">
+        <h1>Duo Weather Forecast</h1>
+        <span>
+            <span id="headerCityName">
+                🌍🌟
+                Seattle
+            </span>
+            Current Weather 
+        </span>
+    </header>
+    <div class="container">
+        <section class="temp_section">
+            <h2>Temperature</h2>
+            <div class ="temp_content">
+                <div class ="temperature_controls">
+                    <button id="increaseTemp"><i class="fa-sharp fa-solid fa-up-long fa-xxl"></i></button>
+                    
+                    <span id="currentTemp" class="teal">45</span>
+                    <button id="decreaseTemp"><i class="fa-sharp fa-solid fa-down-long fa-xxl"></i></button>
+                </div>
+                <button id="getCurrentTemp">Get Current Temperature</button>
+            </div>
+        </section>
+        <section class="sky_section">
+            <h2>Sky</h2>
+            <select id="selectSky">
+                <option value="Snowy">Snowy☃️</option>
+                <option value="Sunny">Sunny☀️</option>
+                <option value="Cloudy">Cloudy☁️</option>
+                <option value="Rainy" >Rainy☔️</option>            
+            </select>
+        </section>
+        <section class="city_section">
+            <h2>City Name</h2>
+            <input type="text" id="cityNameInput" value="Seattle">
+            <button id="resetCityName" class="cityNameResetButton">Reset</button>
+        </section>
+        <section id ="garden_section">
+            <h2>Weather Illustration</h2>
+            <div class = "gardenContent" >            
+                <div id="sky" >🌨❄️🌨❄️🌨❄️🌨🌧</div>
+                <div id="gardenlandscape" >☃️🧤🎄🏔☃️🧤🎄🥶🏔☃️🧤🎄🏔</div>                
+            </div>
+        </section>
+        <section>
+        <footer id="copyright"> © 2022 Built by Minh Seikel and Dominique Daba</footer>
+        </section>
+    </div>
     
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ We should add a `<button>` element that when clicked updates and displays the re
 
 In order to get the weather of the city, we will need to get the latitude and longitude of the city using the [`LocationIQ`](https://locationiq.com/docs) API. We can then use the latitude and longitude with the [`OpenWeather`](https://openweathermap.org/api/one-call-api) API to get current weather data. 
 
-To get started and generate API tokens, create accounts and log into `LocationIQ` and `OpenWeather`.
+X To get started and generate API tokens, create accounts and log into `LocationIQ` and `OpenWeather`.
 
 ## Weather Report Proxy Server
 
