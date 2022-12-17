@@ -13,18 +13,24 @@ let stateTemp = state["temperature"]
 
 const tempColor = (temp) => {
   if (temp < 50){
+    // landscapeImg.innerHTML === "./images/cold-landscape.jpg"
+    document.getElementById('landscape-image').src = './src/images/cold-landscape.jpg';
     return 'blue';
   }
   else if (temp < 60){
+    document.getElementById('landscape-image').src = './src/images/cool-landscape.jpg';
     return 'lightblue';
   }
   else if (temp < 70){
+    document.getElementById('landscape-image').src = './src/images/warm-landscape.jpg';
     return 'lightgreen';
   }
   else if (temp < 80){
+    document.getElementById('landscape-image').src = './src/images/warm-landscape.jpg';
     return 'yellow';
   }
   else {
+    document.getElementById('landscape-image').src = './src/images/hot-landscape.jpg';
     return 'red';
   }
 }
@@ -41,10 +47,9 @@ const registerEventHandlers = () => {
     stateTemp += 1;
     tempVal.style.color = tempColor(Number(stateTemp));
   });
+} 
 
- } 
-
- document.addEventListener("DOMContentLoaded", registerEventHandlers);
+document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
 
 

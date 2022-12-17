@@ -70,14 +70,6 @@ body {
     border: 2px solid #AAAAAA;
 }
 
-#landscape-section {
-    
-    width: 88%;
-    height: 55px;
-    margin: 0 auto 2rem;
-    background-color: white;
-    border: 2px solid #AAAAAA;
-}
 
 #temp-controls {
     display: flex;
@@ -90,3 +82,10 @@ body {
     font-size: 2rem;
 }
 
+#landscape-image {
+    display: flex;
+    width: 88%;
+    height: 284px;
+    margin: 0 auto 2rem;
+    border: 2px solid #AAAAAA;
+}
