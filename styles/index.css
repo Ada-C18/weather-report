@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+body {
+  background-color: #e8f3d6;
+  text-align: center;
+  color: #545454;
+}
+button {
+  background-color: #8caf9a;
+  border: none;
+  color: white;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 10px;
+}
+h1 {
+  font-size: 32px;
+  display: inline;
+  margin: 20px;
+  font-size: 3.5rem;
+  font-family: 'Sacramento', cursive;
+  color: #8B7E74;
+}
+h2 {
+  border: 30px;
+  color: #545454;
+  display: inline;
+}
+.container {
+  display: grid;
+  text-align: center;
+  grid-template-rows: 25% 30% 20% 25%;
+  grid-template-columns: 30% 70%;
+  margin: auto;
+  width: auto;
+  height: 800px;
+}
+.header {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  margin: 20px 2em;
+  vertical-align: middle;
+}
+.temperature {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  margin: 0px 2em;
+  display: block;
+}
+.sky {
+  margin: 20px;
+  padding: 20px;
+  font-size: 25px;
+}
+.landscape {
+  padding: 100px, 20px, 10px, 20px;
+  font-size: 20px;
+  vertical-align: bottom;
+}
+.RealtimeTemperature {
+  background-color: #faab78;
+  border: none;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.number {
+  font-size: 3rem;
+  color:teal;
+}
+.skyImage {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  margin: 0px 2em;
+  padding-top: 20px;
+}
+#skyImage{
+  padding-top: 20px;
+}
+.cityName {
+  grid-row: 4/5;
+  grid-column: 1/2;
+  margin: 0px 2em;
+  display: block;
+}
+#intro {
+  font-size: 24px;
+}
+.skySelect {
+  padding: 30px;
+  margin: 20px;
+}
+.weatherGarden {
+  grid-row: 2/5;
+  grid-column: 2/3;
+  margin: 20px;
+  place-content: center center;
+  place-items: center center;
+}
+#weatherGardenBox {
+  margin-top: 10px;
+  height: 200px;
+  width: 50%;
+  background-color: #f7ebdb;
+  border: 10px;
+  display: inline-grid;
+}
