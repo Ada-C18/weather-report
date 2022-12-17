@@ -17,7 +17,7 @@ body {
 #weather-display-section {
     padding: 0 10px;
     width: 85%;
-    height: 384px;
+    height: 284px;
     margin: 0 auto 2rem;
     background: #A35FCA;
     border: 2px solid #AAAAAA;
@@ -45,27 +45,16 @@ body {
 }
 
 #city-name {
-    
     text-align: center;
     height: 35px;
-    
-    font-family: 'Racing Sans One';
-    font-style: normal;
-    font-weight: 400;
     font-size: 46px;
-    
     color: black;
 }
 
 #temp-value{
     text-align: center;
     margin: 0;
-    font-family: 'Racing Sans One';
-    font-style: normal;
-    font-weight: 400;
     font-size: 64px;
-    
-
     color: #000000;
 }
 
@@ -81,10 +70,9 @@ body {
     border: 2px solid #AAAAAA;
 }
 
-
-
 #landscape-section {
-    width: 85%;
+    
+    width: 88%;
     height: 55px;
     margin: 0 auto 2rem;
     background-color: white;
@@ -102,23 +90,3 @@ body {
     font-size: 2rem;
 }
 
-/* Temp Range Color Changes */
-/* .teal{
-    color: rgb(23, 223, 223);
-}
-
-.green{
-    color: rgb(85, 255, 47);
-}
-
-.yellow{
-    color: yellow;
-}
-
-.orange{
-    color: rgb(249, 165, 9);
-}
-
-.red{
-    color: red;
-} */
