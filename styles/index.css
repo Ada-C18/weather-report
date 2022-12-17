@@ -86,7 +86,7 @@ body {
 
 #increase-temp, #decrease-temp, span {
     border: none;
-    background-color: #A35FCA;
+    background-color: transparent;
     font-size: 2rem;
 }
 
