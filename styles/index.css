@@ -14,19 +14,17 @@ body {
     margin: 0 auto 2rem;
     border: 2px solid #AAAAAA;
 }
+
 #weather-display-section {
     box-sizing: border-box;
     padding: 0 10px;
     width: 85%;
     height: 384px;
     margin: 0 auto 2rem;
-
     background: #A35FCA;
-    /* Border / Subtle */
-
     border: 2px solid #AAAAAA;
-    
 }
+
 #bottom-section {
     display:flex;
     flex-direction: row;
@@ -35,8 +33,7 @@ body {
 
 
 #city-name-input {
-    border: none;
-    
+    border: none; 
 }
 
 #reset {
@@ -80,38 +77,24 @@ body {
     align-items: center;
     padding: 0 10px;
     background-color: white;
-    box-sizing: border-box;
-    width: 85%;
-    height: 52px;
-    margin: 0 auto 2rem;
+    height: 40px;
+    width: 30%;
     border: 2px solid #AAAAAA;
+}
+
+#weather-landscape-header {
     
-}
-
-#sky-options {
-    width: 85;
-    height: 24px;
-    right: 172.91px;
-    top: 491.09px;
-}
-
-#weather-garden-title {
-    box-sizing: border-box;
-    width: 382px;
     height: 55px;
-    left: 156px;
-    top: 562px;
     color: white;
     background: #A35FCA;
-
     border: 2px solid #AAAAAA;
 }
 
-#weather-garden-section {
-    border-radius: 15px;
-    padding: 8px;
+#weather-landscape-section {
+    width: 85%;
+    margin: 0 auto 2rem;
     background-color: white;
-    align-content: space-around;
+    border: 2px solid #AAAAAA;
 }
 
 #temp-controls {
@@ -124,5 +107,25 @@ body {
     border: none;
     background-color: #A35FCA;
     font-size: 2rem;
-    padding: 
+}
+
+
+.teal{
+    color: teal;
+}
+
+.green{
+    color: greenyellow;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.orange{
+    color: orange;
+}
+
+.red{
+    color: red;
 }

@@ -2,25 +2,43 @@
 // import axios from "axios";
 // const { default: axios } = require("axios");
 
-const tempValue = document.querySelector("#temp-value");
 const state = {temperature: 0};
+const tempValue = document.querySelector("#temp-value");
 state.temperature = Number(tempValue.innerText);
+const landscape = document.getElementById('#weather-landscape-section');
 
+const tempRange = tempValue => {
+  if (num < 50) {
+    landscape.innerHTML = "./assests/cold-landscape.jpg"
+    return 'teal'
+  }
+}
 
-const increaseTemp = () => {
-  tempValue.innerText = state.temperature;
-  state.temperature += 1;
-  console.log("It's working!");
-}
-const decreaseTemp = () => {
-  tempValue.innerText = state.temperature;
-  state.temperature -= 1;
-  console.log("It's working!");
-}
+// const increaseTemp = () => {
+//   tempValue.innerText = state.temperature;
+//   state.temperature += 1;
+//   console.log("It's working!");
+// }
+// const decreaseTemp = () => {
+//   tempValue.innerText = state.temperature;
+//   state.temperature -= 1;
+//   console.log("It's working!");
+// }
+
+// const registerEventHandlers = () => {
+//   const decButton = document.querySelector("#decrease-temp");
+//   decButton.addEventListener("click", decreaseTemp);
+
+//   const incButton = document.querySelector("#increase-temp");
+//   incButton.addEventListener("click", increaseTemp);
+// };
+
 
 const registerEventHandlers = () => {
   const decButton = document.querySelector("#decrease-temp");
-  decButton.addEventListener("click", decreaseTemp);
+  decButton.addEventListener("click", () => {
+
+  });
 
   const incButton = document.querySelector("#increase-temp");
   incButton.addEventListener("click", increaseTemp);
@@ -29,13 +47,13 @@ const registerEventHandlers = () => {
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
 // API Calls
-const weatherLoc = (cityName) => {
+const weatherLoc = (userInput) => {
   const getLocation = () => {
     axios
     .get ('http://127.0.0.1:5000/location'), {
       params: {
         key: 'pk.b8aab1a85295b2c1f6e71a4ed20c3120',
-        q: cityName,
+        q: userInput,
         format: 'json'
       }
     }
@@ -45,7 +63,7 @@ const weatherLoc = (cityName) => {
       getWeather(lat, lon);
     })
     .catch (function(error) {
-      console.error(error);
+      console.error('error in getlocation!');
     })
   }
 
@@ -59,12 +77,12 @@ const weatherLoc = (cityName) => {
       }
     }
     .then (function(response){
-      let kelvinTemp = response.data['main']['temp'];
-      let farhTemp = Math.round((kelvinTemp - 273.15) * 1.8) + 32;
-      // VARIABLE.innerText = farhTemp
+      let tempK = response.data['main']['temp'];
+      let tempF = Math.round((tempK - 273.15) * 1.8) + 32;
+      tempValue.innerText = tempF
     })
     .catch (function(error) {
-      console.error(error);
+      console.error('error in getWeather');
     })
   }
 }
