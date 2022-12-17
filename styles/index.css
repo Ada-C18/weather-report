@@ -109,13 +109,13 @@ body {
     font-size: 2rem;
 }
 
-
-.teal{
-    color: teal;
+/* Temp Range Color Changes */
+/* .teal{
+    color: rgb(23, 223, 223);
 }
 
 .green{
-    color: greenyellow;
+    color: rgb(85, 255, 47);
 }
 
 .yellow{
@@ -123,9 +123,9 @@ body {
 }
 
 .orange{
-    color: orange;
+    color: rgb(249, 165, 9);
 }
 
 .red{
     color: red;
-}
+} */
