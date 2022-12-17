@@ -2,16 +2,14 @@
 // import axios from "axios";
 // const { default: axios } = require("axios");
 
-// const state = {temperature: 75};
-// const tempVal = document.querySelector("#temp-value");
-// state.temperature = Number(tempVal.innerText);
-// let stateTemp = state["temperature"]
+
 const state = {temperature: 75};
 const tempVal = document.querySelector("#temp-value");
-state.temperature = Number(tempVal.innerText);
-let stateTemp = state["temperature"]
 const decButton = document.getElementById("decrease-temp");
 const incButton = document.getElementById("increase-temp");
+state.temperature = Number(tempVal.innerText);
+let stateTemp = state["temperature"]
+
 
 const tempColor = (temp) => {
   if (temp < 50){
