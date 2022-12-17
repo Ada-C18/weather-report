@@ -5,8 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet"/>
 </head>
 <body>
-    
+    <header class="header">
+        <h1>Weather Report</h1>
+        <div class="second_header">
+            <span>
+                For the lovely city of
+            </span>
+            <span id="city_name" class="city_name_in_header">
+            Seattle
+            </span>
+        </div> 
+    </header>
+    <main>
+        <section class="garden">
+            <div class="garden_content">
+                <h2>Weather Garden</h2>
+                <div id="garden_pic" class="orange-background">
+                <div>
+                    <div id="sky_image">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+                </div>
+                <div>
+                    <div id="landscape">🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</div>
+                </div>
+            </div>           
+        </section>
+        <section class="container">
+            <div id="temp" class="sidebar">
+                <h2>Temperature</h2>
+                <div class="temp_row">
+                    <div class="temp_content">
+                        <span id="increase_temp">⬆️</span>
+                        <span id="temp_value" class="yellow-text">65</span>
+                        <span id="decrease_temp">⬇️</span>
+                    </div>
+                    <div>
+                        <button id="realtime_temp">Get Realtime Temperature</button>
+                    </div>
+                </div> 
+            </div>    
+            <div id="sky" class="sidebar">
+                <h2>Sky</h2>
+                <select id="select_sky">
+                    <option value="sunny" selected>Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+            </div>
+            <div id="city_name" class="sidebar">
+                <h2>City Name</h2>
+                <input type="text" id="name" value="Seattle" size="15">
+                <button id="reset_button">Reset</button>
+            </div>
+        </section>
+    </main>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

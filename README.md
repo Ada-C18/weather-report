@@ -1,5 +1,12 @@
 # Weather Report
-
+- Wanjun Access Needs: Prefers to be in person for collaboration and problem-solving, but also adaptable to digital co-working tools like Slack huddle, VS Code Live Share, and Zoom Screen share
+- Tami Access Needs: Will be in person as much as possible, and will be available for digital co-working with tools above
+- Wanjun Learning Style: Learn as much as possible by doing this project. Keep a good study and application pace with partner. Work together as much as possible. Open minded to debugging and finding answers to questions together through research and seeking help from instructors and TA's.
+- Tami Learning Style: Same as above. Resource sharing and learning alongside partner.
+- Wanjun and Tami Feedback: Talk and communicate through Slack and discuss any questions or resources.
+- Wanjun Team Communication Skills: Express needs and delivery of ideas to partner.
+- Tami Team Communication Skills: Explaining my thought process and not assuming that partner implicitly understands my thoughts.
+  
 ## Skills Assessed
 
 - Following directions and reading comprehension
