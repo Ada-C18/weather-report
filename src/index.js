@@ -13,16 +13,16 @@ let stateTemp = state["temperature"]
 
 const tempColor = (temp) => {
   if (temp < 50){
-    return 'lightgreen';
+    return 'blue';
   }
   else if (temp < 60){
-    return 'green';
+    return 'lightblue';
   }
   else if (temp < 70){
-    return 'yellow';
+    return 'lightgreen';
   }
   else if (temp < 80){
-    return 'orange';
+    return 'yellow';
   }
   else {
     return 'red';
