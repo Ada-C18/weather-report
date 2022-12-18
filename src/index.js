@@ -53,8 +53,9 @@ const changeCityName = () => {
 
 // State.Location Update
 const locationUpdate = () => {
-    state.location = cityNameInput.value 
+    state.location = cityNameInput.value; 
     console.log(state.location)
+    getLocation();
 }
 
 // CITY SELECT
@@ -133,6 +134,8 @@ const getLocation = () => {
         })
         .then((response) => {
             console.log(response)
+            state.lon = response.data[0].lon
+            state.lat = response.data[0].lat
         })
         .catch((error) => {
             console.log(error)
