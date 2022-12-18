@@ -1,6 +1,5 @@
 "use strict";
-// import axios from "axios";
-// const { default: axios } = require("axios");
+
 
 
 const state = {temperature: 75};
@@ -8,7 +7,8 @@ const tempVal = document.querySelector("#temp-value");
 const decButton = document.getElementById("decrease-temp");
 const incButton = document.getElementById("increase-temp");
 const cityName = document.getElementById("city-name");
-const userInput = document.getElementById("user-input");
+let userInput = document.getElementById("user-input");
+const submitButton = document.getElementById("submit");
 
 const updateCityName = () => {
   cityName.innerHTML = userInput.value;
@@ -16,7 +16,6 @@ const updateCityName = () => {
 
 const tempColor = (temp) => {
   if (temp <= 50){
-    // landscapeImg.innerHTML === "./images/cold-landscape.jpg"
     document.getElementById('landscape-image').src = './src/images/cold-landscape.jpg';
     return 'blue';
   }
@@ -53,49 +52,55 @@ const registerEventHandlers = () => {
   
   updateCityName();
   userInput.addEventListener("input", updateCityName);
+
+  
+  submitButton.addEventListener("click", () =>{
+    getWeatherByLoc();
+    console.log(userInput.value);
+  });
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
 
 
-// // API Calls
-// const weatherLoc = (userInput) => {
-//   const getLocation = () => {
-//     axios
-//     .get ('http://127.0.0.1:5000/location'), {
-//       params: {
-//         key: 'pk.b8aab1a85295b2c1f6e71a4ed20c3120',
-//         q: userInput,
-//         format: 'json'
-//       }
-//     }
-//     .then (function(response){
-//       let lat = response.data[0]["lat"];
-//       let lon = response.data[0]["lon"];
-//       getWeather(lat, lon);
-//     })
-//     .catch (function(error) {
-//       console.error('error in getlocation!');
-//     })
-//   }
+// API Calls
+const getWeatherByLoc = (userInput) => {
+  const getLocation = () => {
+    axios
+    .get ('http://127.0.0.1:5000/location'), {
+      params: {
+        key: 'pk.b8aab1a85295b2c1f6e71a4ed20c3120',
+        q: userInput.value,
+        format: 'json'
+      }
+    }
+    .then (function(response){
+      let lat = response.data[0]["lat"];
+      let lon = response.data[0]["lon"];
+      getWeather(lat, lon);
+    })
+    .catch (function(error) {
+      console.error('error in getlocation!');
+    })
+  }
 
-//   const getWeather = (lat, lon) => {
-//     axios
-//     .get ('http://127.0.0.1:5000/weather'), {
-//       params: {
-//         appid: '76d80595e856e8e068fcdd93241e2622',
-//         lat: lat,
-//         lon: lon
-//       }
-//     }
-//     .then (function(response){
-//       let tempK = response.data['main']['temp'];
-//       let tempF = Math.round((tempK - 273.15) * 1.8) + 32;
-//       tempVal.innerText = tempF
-//     })
-//     .catch (function(error) {
-//       console.error('error in getWeather');
-//     })
-//   }
-// }
+  const getWeather = (lat, lon) => {
+    axios
+    .get ('http://127.0.0.1:5000/weather'), {
+      params: {
+        appid: '76d80595e856e8e068fcdd93241e2622',
+        lat: lat,
+        lon: lon
+      }
+    }
+    .then (function(response){
+      let tempK = response.data['main']['temp'];
+      let tempF = Math.round((tempK - 273.15) * 1.8) + 32;
+      tempVal.innerText = tempF
+    })
+    .catch (function(error) {
+      console.error('error in getWeather');
+    })
+  }
+}
