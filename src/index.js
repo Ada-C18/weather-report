@@ -7,25 +7,23 @@ const state = {temperature: 75};
 const tempVal = document.querySelector("#temp-value");
 const decButton = document.getElementById("decrease-temp");
 const incButton = document.getElementById("increase-temp");
-state.temperature = Number(tempVal.innerText);
-let stateTemp = state["temperature"]
 
 
 const tempColor = (temp) => {
-  if (temp < 50){
+  if (temp <= 50){
     // landscapeImg.innerHTML === "./images/cold-landscape.jpg"
     document.getElementById('landscape-image').src = './src/images/cold-landscape.jpg';
     return 'blue';
   }
-  else if (temp < 60){
+  else if (temp <= 60){
     document.getElementById('landscape-image').src = './src/images/cool-landscape.jpg';
     return 'lightblue';
   }
-  else if (temp < 70){
+  else if (temp <= 70){
     document.getElementById('landscape-image').src = './src/images/warm-landscape.jpg';
     return 'lightgreen';
   }
-  else if (temp < 80){
+  else if (temp <= 80){
     document.getElementById('landscape-image').src = './src/images/warm-landscape.jpg';
     return 'yellow';
   }
@@ -37,17 +35,17 @@ const tempColor = (temp) => {
 
 const registerEventHandlers = () => { 
   decButton.addEventListener("click", () => {
-    tempVal.innerHTML = stateTemp;
-    stateTemp -= 1;
-    tempVal.style.color = tempColor(Number(stateTemp));
+    tempVal.innerHTML = state.temperature;
+    state.temperature -= 1;
+    tempVal.style.color = tempColor(state.temperature);
   });
 
   incButton.addEventListener("click", () => {
-    tempVal.innerHTML = stateTemp;
-    stateTemp += 1;
-    tempVal.style.color = tempColor(Number(stateTemp));
+    tempVal.innerHTML = state.temperature;
+    state.temperature += 1;
+    tempVal.style.color = tempColor(state.temperature);
   });
-} 
+};
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
