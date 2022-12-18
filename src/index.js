@@ -3,36 +3,60 @@
 
 
 const state = {temperature: 75};
-const tempVal = document.querySelector("#temp-value");
+const tempVal = document.getElementById("temp-value");
 const decButton = document.getElementById("decrease-temp");
 const incButton = document.getElementById("increase-temp");
 const cityName = document.getElementById("city-name");
 let userInput = document.getElementById("user-input");
 const submitButton = document.getElementById("submit");
+const skyImg = document.getElementById("sky-image");
+const skyDropdown = document.getElementById("sky-dropdown");
+let landscape = document.getElementById('landscape-image');
 
 const updateCityName = () => {
   cityName.innerHTML = userInput.value;
 };
 
+const updateSky = () => {
+  const skyOption = document.getElementById('sky-dropdown').value
+  if (skyOption == 'Sunny'){
+    skyImg.src = './src/images/sunny-sky.jpg'
+  }
+  else if (skyOption == 'Rainy'){
+    skyImg.src = './src/images/rainy-sky.jpg'
+  }
+  else if (skyOption == 'Cloudy'){
+    skyImg.src = './src/images/cloudy-sky.jpg'
+  }
+  else if (skyOption == 'Snowy'){
+    skyImg.src = './src/images/snowy-sky.jpg'
+  }
+}
+
 const tempColor = (temp) => {
   if (temp <= 50){
-    document.getElementById('landscape-image').src = './src/images/cold-landscape.jpg';
+    landscape.src = './src/images/cold-landscape.jpg';
+    skyImg.src = './src/images/snowy-sky.jpg'
     return 'blue';
   }
   else if (temp <= 60){
-    document.getElementById('landscape-image').src = './src/images/cool-landscape.jpg';
+    landscape.src = './src/images/cool-landscape.jpg';
+    skyImg.src = './src/images/cloudy-sky.jpg'
     return 'lightblue';
   }
   else if (temp <= 70){
-    document.getElementById('landscape-image').src = './src/images/warm-landscape.jpg';
+    landscape.src = './src/images/warm-landscape.jpg';
+    skyImg.src = './src/images/cloudy-sky.jpg'
     return 'lightgreen';
   }
   else if (temp <= 80){
-    document.getElementById('landscape-image').src = './src/images/warm-landscape.jpg';
+    landscape.src = './src/images/warm-landscape.jpg';
+    skyImg.src = './src/images/sunny-sky.jpg'
     return 'yellow';
   }
   else {
-    document.getElementById('landscape-image').src = './src/images/hot-landscape.jpg';
+    landscape.src = './src/images/hot-landscape.jpg';
+    skyImg.src = './src/images/sunny-sky.jpg'
     return 'red';
   }
 }
@@ -53,11 +77,13 @@ const registerEventHandlers = () => {
   updateCityName();
   userInput.addEventListener("input", updateCityName);
 
-  
   submitButton.addEventListener("click", () =>{
     getWeatherByLoc();
-    console.log(userInput.value);
+    console.log("Almost There!");
   });
+
+  updateSky();
+  skyDropdown.addEventListener("change", updateSky)
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);

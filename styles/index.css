@@ -16,8 +16,11 @@ h1 {
     height: 52px;
     margin: 0 auto 2rem;
     border: 2px solid #AAAAAA;
+    
 }
-
+:placeholder-shown {
+    font-family: "Rubik", sans-serif;
+}
 #weather-display-section {
     padding: 0 10px;
     width: 85%;
@@ -32,7 +35,6 @@ h1 {
     flex-direction: row;
     background-color: aquamarine;
 }
-
 
 #user-input {
     border: none; 
@@ -49,7 +51,8 @@ h1 {
     font-family: "Rubik", sans-serif;
 }
 
-#city-name {
+#sky-image {
+    display: flex;
     text-align: center;
     height: 35px;
     font-size: 46px;
