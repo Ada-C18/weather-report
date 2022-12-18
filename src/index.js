@@ -1,7 +1,3 @@
-// const axios = require('axios');
-
-// const { default: axios } = require("axios");
-
 const state = {
     increaseTempControl: null,
     decreaseTempControl: null,
@@ -114,7 +110,7 @@ const onLoaded = () => {
     registerEvents();
 };
 
-onLoaded();
+document.addEventListener('DOMContentLoaded', onLoaded());
 
 ////////////////wave 3\\\\\\\\\\\\\\\\\\\
 
