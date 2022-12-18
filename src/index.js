@@ -11,7 +11,8 @@ let userInput = document.getElementById("user-input");
 const submitButton = document.getElementById("submit");
 const skyImg = document.getElementById("sky-image");
 const skyDropdown = document.getElementById("sky-dropdown");
-let landscape = document.getElementById('landscape-image');
+let landscape = document.getElementById("landscape-image");
+const resetButton = document.getElementById("reset")
 
 const updateCityName = () => {
   cityName.innerHTML = userInput.value;
@@ -84,6 +85,11 @@ const registerEventHandlers = () => {
 
   updateSky();
   skyDropdown.addEventListener("change", updateSky)
+
+  resetButton.addEventListener("click", () => {
+    userInput.value = "Detroit";
+    updateCityName();
+  })
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
