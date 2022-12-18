@@ -7,12 +7,12 @@
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body id="backgroundColor">
     <header class="header__header">
         <h1>Today's Weather</h1>
         <span>Today in the city of   
-            <span id="headerCityName" class="header__city-name"> "insert city"
-
+            <span id="headerCityName" class="header__city-name"> 
+                "insert city"
             </span> 
             </span>
         </span>
@@ -21,7 +21,7 @@
         <h2>Actual Temperature</h2>
         <div class="temperature__content">
             </div>
-            <span id="tempValue" class="orange">65°</span>
+            <span id="actualValue" class="orange">65°</span>
         </div>
     </section>
         <section class="sky__section">
@@ -34,10 +34,10 @@
         </select>
         </section>
         <section class="garden__section">
-            <h1> Weather Garden </h1>
+            <h1> Sky & Garden </h1>
             <div id="gardenContent" class="garden__content sunny">
-                <div id="desiredSky">☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞</div>
-                <div id="landscape">🌼🌸🌸🌸🌼🌸🌸🌸🌼🌸🌸🌸🌼🌸🌸🌸🌼</div>
+                <span id="desiredSky">☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞</span>
+                <span id="landscape">🌼🌸🌸🌸🌼🌸🌸🌸🌼🌸🌸🌸🌼🌸🌸🌸🌼</span>
             </div>
             </h2>
         </section>
@@ -60,8 +60,10 @@
 
     <section class="city-name__section">
         <h2>Please Select a City </h2>
-        <input type="text" id="cityNameInput" value="Indianapolis" />
-        <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
+        <button id="cityNameReset" class="city-name__reset-btn" type="reset">Reset</button>
+        <input type="text" id="cityNameInput" placeholder="Indianapolis" />
+        <button id="cityNameSubmit" class="city-name__submit-btn" type="submit">Submit</button>
+
     </section>
 
 

@@ -71,7 +71,7 @@ h2 {
     /* justify-content: center; */
   }
   
-  #tempValue {
+  #tempValue, #actualValue {
     font-size: 3rem;
     margin-left: 1.5rem;
     /* padding-right: 1rem; */
@@ -102,10 +102,10 @@ h2 {
     font-size: 2em;
   }
   
-  .city-name__reset-btn {
+  .city-name__reset-btn, .city-name__submit-btn{
     border: 0;
     background-color: #4e5662;
-    color: rgb(30, 31, 17);
+    color: rgb(252, 252, 252);
     border-radius: 8px;
     padding: 1rem;
     font-family: "Rubik", sans-serif;
