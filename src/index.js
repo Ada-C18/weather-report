@@ -7,7 +7,12 @@ const state = {temperature: 75};
 const tempVal = document.querySelector("#temp-value");
 const decButton = document.getElementById("decrease-temp");
 const incButton = document.getElementById("increase-temp");
+const cityName = document.getElementById("city-name");
+const userInput = document.getElementById("user-input");
 
+const updateCityName = () => {
+  cityName.innerHTML = userInput.value;
+};
 
 const tempColor = (temp) => {
   if (temp <= 50){
@@ -39,12 +44,15 @@ const registerEventHandlers = () => {
     state.temperature -= 1;
     tempVal.style.color = tempColor(state.temperature);
   });
-
+  
   incButton.addEventListener("click", () => {
     tempVal.innerHTML = state.temperature;
     state.temperature += 1;
     tempVal.style.color = tempColor(state.temperature);
   });
+  
+  updateCityName();
+  userInput.addEventListener("input", updateCityName);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
