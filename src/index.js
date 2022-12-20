@@ -2,8 +2,9 @@
 
 
 
+
 const state = {
-    temp : 70,
+    temp : 70, 
     sky : document.getElementById('skySelect'),
     location : '',
     lon : 0,
@@ -12,6 +13,8 @@ const state = {
 
 // Elements Selectors 
 const tempValue = document.getElementById('tempValue');
+
+const actualTempValue = document.getElementById('actualValue')
 
 const increaseTempControl = document.getElementById('increaseTempControl');
 
@@ -44,6 +47,12 @@ const decreaseTemp = () => {
     state.temp --;
     tempValue.innerHTML = state.temp;
 }
+
+// ACTUAL TEMP
+const actualTempChange = () => {
+    actualTempValue.innerHTML = state.actualTemp
+}
+
 // CITY HEADER
 const changeCityName = () => {
     // set headerCityName = cityNameInput
@@ -57,21 +66,6 @@ const locationUpdate = () => {
     console.log(state.location)
     getLocation();
 }
-
-// CITY SELECT
-
-    // const resetInput = () => {
-    //     cityName.innerHTML = "Indianapolis, IN";
-    //     userInput.value='';
-    //     sky.Select.value="sunny";
-
-    //     // helper function needed
-    //     makeItSunny();
-    //     actualTempNumber.innerText='';
-    // }
-
-
-
 
 //SKY CHANGES 
 const skySelector = () => {
@@ -93,6 +87,26 @@ const skySelector = () => {
         desiredSky.textContent = "🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨"
         console.log("snowy")
     }
+}
+
+const validateSkyCondition = (skyCondition) => {
+    console.log("BEFORE")
+    if (skyCondition == "Thunderstorm" || skyCondition == "Drizzle" || skyCondition == "Rain" ) {
+        state.sky.value = "rainy";
+    } 
+    else if (skyCondition == "Clouds") {
+        state.sky.value = "cloudy";
+    }
+    else if (skyCondition == "Snow") {
+        state.sky.value = "snowy";
+    }
+    else {
+        state.sky.value = "sunny";
+    }
+    
+
+    skySelector()
+    console.log("AFTER")
 }
 
 // LANDSCAPE CHANGES
@@ -133,13 +147,42 @@ const getLocation = () => {
             }
         })
         .then((response) => {
-            console.log(response)
             state.lon = response.data[0].lon
             state.lat = response.data[0].lat
         })
+        .then(()=> {
+            getWeather();
+        }) 
         .catch((error) => {
             console.log(error)
         }); 
+}
+// Weather
+const getWeather = () => {
+    axios
+        .get('http://127.0.0.1:5000/weather', {
+            params: {
+                lat: state.lat,
+                lon: state.lon
+            }
+        })
+        .then((response) => {
+            const kelvinTemp = response.data.main.temp
+            const skyCondition = response.data.weather[0].main
+            //     // k to f
+            state.temp = Math.floor(1.8*(kelvinTemp-273) + 32)
+            tempValue.innerHTML = state.temp;
+            actualTempValue.innerHTML = state.temp;
+            validateSkyCondition(skyCondition)
+
+        })
+        .then(() => {
+            landscapeChange()
+
+        })
+        .catch((error) => {
+            console.log(error)
+        });
 }
 
 
@@ -159,6 +202,9 @@ skySelect.addEventListener("change", skySelector);
 cityNameInput.addEventListener("keyup", changeCityName);
 
 submitButton.addEventListener("click", locationUpdate);
+
+submitButton.addEventListener("click", locationUpdate);
+
 
 
 
