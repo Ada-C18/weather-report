@@ -35,6 +35,9 @@ const cityNameInput = document.getElementById('cityNameInput')
 
 const submitButton = document.getElementById('cityNameSubmit')
 
+const resetButton = document.getElementById('cityNameReset')
+
+
 
 // Functions 
 // TEMP CHANGES
@@ -65,6 +68,13 @@ const locationUpdate = () => {
     state.location = cityNameInput.value; 
     console.log(state.location)
     getLocation();
+}
+
+const resetLocation = () => {
+    console.log("RESET")
+    state.location = '';
+    cityNameInput.value = state.location;
+    changeCityName();
 }
 
 //SKY CHANGES 
@@ -204,6 +214,8 @@ cityNameInput.addEventListener("keyup", changeCityName);
 submitButton.addEventListener("click", locationUpdate);
 
 submitButton.addEventListener("click", locationUpdate);
+
+resetButton.addEventListener("click", resetLocation)
 
 
 
