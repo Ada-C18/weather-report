@@ -13,7 +13,7 @@ h1 {
     padding: 0 10px;
     background-color: white;
     width: 85%;
-    height: 52px;
+    height: 40px;
     margin: 0 auto 2rem;
     border: 2px solid #AAAAAA;
     
@@ -21,12 +21,14 @@ h1 {
 :placeholder-shown {
     font-family: "Rubik", sans-serif;
 }
-#weather-display-section {
-    padding: 0 10px;
+
+#sky-image {
+    /* padding: 0 10px; */
+    display: flex;
     width: 85%;
     height: 284px;
     margin: 0 auto 2rem;
-    background: #A35FCA;
+    /* background: #A35FCA; */
     border: 2px solid #AAAAAA;
 }
 
@@ -38,6 +40,8 @@ h1 {
 
 #user-input {
     border: none; 
+    font-family: "Rubik", sans-serif;
+    font-size: large;
 }
 
 #reset, #submit {
@@ -49,14 +53,6 @@ h1 {
     border-radius: 4px;
     border: none;
     font-family: "Rubik", sans-serif;
-}
-
-#sky-image {
-    display: flex;
-    text-align: center;
-    height: 35px;
-    font-size: 46px;
-    color: black;
 }
 
 #temp-value{
@@ -77,7 +73,6 @@ h1 {
     width: 85%;
     border: 2px solid #AAAAAA;
 }
-
 
 #temp-controls {
     display: flex;
