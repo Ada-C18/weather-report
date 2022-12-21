@@ -1,5 +1,4 @@
 import '.styles/index.css';
-('USE STRICT');
 
 // API CALLS
 const axios_location = require('axios');
@@ -148,7 +147,7 @@ const updateTempies = (adjustedTemp) => {
     tempSetting = 5;
   } else if (adjustedTemp > 79) {
     tempSetting = 4;
-  } else if (adjustedTemp > 59) {
+  } else if (adjustedTemp > 65) {
     tempSetting = 3;
   } else if (adjustedTemp > 39) {
     tempSetting = 2;

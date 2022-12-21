@@ -16,7 +16,7 @@ body {
 
 .header {
     text-align: center;
-    font-family: American Typewriter;
+    font-family: "American Typewriter";
     font-size: 25px;
 }
 
@@ -32,12 +32,12 @@ body {
 
     row-gap: 50px;
 
-    font-family: American Typewriter;
+    font-family: "American Typewriter";
     font-size: 20px;
 }
 
 .grid-item-cond-data {
-    grid-column: span 2;
+    grid-column: 1/3;
 }
 
 .conditions-controls {
@@ -58,7 +58,7 @@ body {
 }
 
 .grid-item-temp-data {
-    grid-column: span 2;
+    grid-column: 1/3;
 }
 
 .temperature-controls {
@@ -88,7 +88,7 @@ body {
 }
 
 .grid-item-field-data {
-    grid-column: span 2;
+    grid-column: 1/3;
 }
 .grid-item-field {
     width: 150px;
