@@ -1,34 +1,117 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgb(237, 243, 243), rgb(2, 223, 252));
-    font-size: 2rem;
-    font-family:'Courier New', Courier, monospace
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: 22px;
+background-color: #e88feb;
+margin: 3rem;
 }
-.container {
-    height: 25rem;
-    width: 40rem;
-    background-color: rgb(63, 190, 254);
-    text-align: center;
-    padding-top: 34px;
-    border-radius: 16px;
-    border: 2px solid rgb(14, 43, 1);
-}
-#temperature { 
-    width: 20rem;
-    height: 5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 4rem;
 
-    
-
+.header__header {
+color: rgb(41, 6, 41);
+grid-column: span 3;
+display: flex;
+align-items: center;
+margin: 2rem auto 3rem 0;
 }
+
+.header__header > h1 {
+margin-right: 10rem;
+font-size: 3em;
+}
+
+.header__city-name {
+font-style: oblique;
+font-size: 2rem;
+}
+
+.header__city-name::before,
+.header__city-name::after {
+content: "✨";
+}
+
+.temperature__section,
+.sky__section,
+.city-name__section {
+border-radius: 8px;
+padding: 2rem;
+background-color: rgb(249, 237, 247);
+padding:initial
+}
+
+.sky__section {
+grid-row: 3;
+}
+
+.city-name__section {
+grid-row: 1;
+}
+
+.garden__section {
+grid-row: 2 / span 3;
+grid-column: 2;
+text-align: center;
+align-self: center;
+}
+
+.temperature__content {
+display: flex;
+flex-direction: row;
+justify-content: center;
+justify-content: center;
+}
+
+#tempValue {
+font-size: 4rem;
+margin-left: 1.5rem;
+padding-right: 1rem;
+margin-right: 1.5rem;
+}
+
+.temperature__controls {
+display: flex;
+color: #8f5e91;
+flex-direction: column;
+align-items: center;
+}
+
+
+.garden__content {
+min-height: 200px;
+max-width: fit-content;
+margin: auto;
+padding: 2rem;
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+border-radius: 8px;
+font-size: 2.4em;
+}
+
+.cloudy {
+background-color: rgb(107, 106, 106);
+}
+
+.sunny {
+background-color: rgb(247, 239, 122);
+}
+
+.rainy {
+background-color: rgb(42, 170, 213);
+}
+
+.snowy {
+background-color: rgb(250, 252, 253);
+}
+
+.sky__section {
+grid-row: 2 / span 3;
+grid-column: 2;
+text-align: center;
+align-self: center;
+}
+
+
+
