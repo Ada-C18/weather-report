@@ -32,10 +32,10 @@ const updateUI = (data) => {
   <h3 id="cityOutput">${weather.name}</h3>
   <div class="my-3">${main}</div>
   <div class="display-4 my-4">
-      <button id=${tempInc}>⬆️</button>
+      <button id=tempInc>⬆️</button>
       <span id="tempValue">${temp}</span>
       <span>&deg;F</span>
-      <button id=${tempDec}>⬇️</button>
+      <button id=tempDec>⬇️</button>
   </div>
   <div><button id="currentTempBtn">Get Current Temperature</button></div>
   `;
@@ -61,6 +61,7 @@ const updateUI = (data) => {
     } else {
       color = 'teal';
     }
+  // increaseTemp()
   const temperature = document.querySelector('#tempValue');
   temperature.className = color;
   
@@ -131,8 +132,8 @@ const registerEventHandlers = () => {
   .catch((err) => console.log(err));
 
 
-  const tempInc = document.querySelector('#tempInc');
-  tempInc.addEventListener('click', increaseTemp);
+  // const tempInc = document.querySelector('#tempInc');
+  // tempInc.addEventListener('click', increaseTemp);
 
 
   const tempDec = document.querySelector('#tempDec');
