@@ -12,8 +12,9 @@ const state = {
 // const card = document.querySelector('.details')
 
 const getLatAndLong = () => {
-  axios
-    .get('http://127.0.0.1:5000/location', {
+  let lat, long;
+  axios.get('http://127.0.0.1:5000/location',
+  {
       params: {
         key: process.env['LOCATION_KEY'],
         q: state.city,
@@ -24,6 +25,8 @@ const getLatAndLong = () => {
       // console.log(response.data[0]);
       state.lat = response.data[0].lat;
       state.long = response.data[0].lon;
+      
+      console.log('success in findLatitudeAndLongitude!', state.lat, state.long);
       getWeather();
     })
     .catch((error) => {
@@ -42,15 +45,16 @@ const getWeather = () => {
     })
     .then((response) => {
       const weather = response.data;
+      // console.log(weather)
       state.temp = Math.round(convertFromKtoF(weather.main.temp));
       colorAndLandscape();
-      city = weather['name'];
     })
     .catch((error) => {
       console.log('Error getting the weather:!', error);
     });
 };
 
+// getLatAndLong();
 // get city
 // function convertFromKtoF(temp) {
 //   return (temp - 273) * (9 / 5) + 32;
@@ -156,3 +160,6 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+
+

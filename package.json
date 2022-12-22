@@ -1,5 +1,16 @@
 {
   "dependencies": {
-    "axios": "^1.2.1"
-  }
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "react-app-env": "^1.2.3",
+    "react-error-overlay": "6.0.9"
+  },
+
+  "resolutions": {
+    "//": "See https://github.com/facebook/create-react-app/issues/11773",
+    "react-error-overlay": "6.0.9"
+  }  
 }

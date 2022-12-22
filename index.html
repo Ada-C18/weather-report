@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
+
+
 </head>
 
 <body>
@@ -22,32 +26,33 @@
             <input type="text" name="cityName" ,id="cityInput" class="form-control p-4">
             <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
         </form>
-
-        <section class="display card shadow-lg rounded">
-            <!-- <img src="https://via.placeholder.com/400x300" class="time card-img-top"> -->
-            <div id="iconOfSky" class="bg-light mx-auto text-center">
+        <!-- place d-none as part of section -->
+        <section class="card shadow-lg rounded display d-none">
+            <img src="https://via.placeholder.com/400x300" class="time card-img-top">
+            <div class="iconLandscape bg-light mx-auto text-center">
+                <img src="" alt="">
             </div>
-            <div class="my-3">Weather condition </div>
-            <section class="skyselection">
-                <div>Sky<select id="wrapper2">
+
+            <!-- <section class="skyselection"> -->
+                <!-- <div>Sky<select id="wrapper2">
                         <option>Sunny</option>
                         <option>Cloudy</option>
                         <option>Rainy</option>
                         <option>Snowy</option>
                     </select></div>
-            </section>
-            <div id="iconLandscape" class="mx-auto text-center"><img src=""></div>
+            </section> -->
+            <!-- <div id="iconLandscape" class="mx-auto text-center"><img src=""></div> -->
 
             <div class="wrapper text-muted text-uppercase text-center details">
                 <h3 id="cityOutput">city</h3>
+                <div class="my-3">Weather condition </div>
                 <div class="display-4 my-4">
-                    <span id="tempInc">⬆️</span>
+                    <button id="tempInc">⬆️</button>
                     <span id="tempValue">temp</span>
                     <span>&deg;F</span>
-                    <span id="tempDec">⬇️</span>
-
-                    <div><button id="currentTempBtn">Get Current Temperature</button></div>
+                    <button id="tempDec">⬇️</button>
                 </div>
+                <div><button id="currentTempBtn">Get Current Temperature</button></div>
             </div>
         </section>
 
@@ -61,9 +66,11 @@
         </div>
     </footer>
 
+    <script src=./node_modules/axios/dist/axios.min.js></script>"'
+    <script src="src/forecast.js"></script>
+    <script src="src/app.js"></script>
+    <!-- <script src="src/index.js"></script> -->
 
-    <script src="src/index.js"></script>
-    <script src=./node_modules/axios/dist/axios.min.js></script>
 </body>
 
 </html>
