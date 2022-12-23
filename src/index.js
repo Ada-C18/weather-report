@@ -1,7 +1,7 @@
 "use strict";
 
 // current state of the page. All functions update this state and pull needed data from the state
-const state = {
+let state = {
   city: 'Chicago',
   lat: '',
   lon: '',
@@ -14,10 +14,10 @@ const state = {
 
 // functionality to change city and update weather
 // 1. change selected city
+const searchBox = document.getElementById('searchbox');
+const cityDisplay = document.getElementById('city-display');
+
 const changeCity = () => {
-  const cityDisplay = document.getElementById('city-display');
-  const searchBox = document.getElementById('searchbox')
-  
   state.city = searchBox.value;
   cityDisplay.innerHTML = state.city
   getCoordinates();
@@ -81,13 +81,13 @@ const setColorAndLand = () => {
   if (state.temp >= 90) {
     state.color = 'red';
     state.land = "url('../assets/desertLand.jpg')"
-  } else if (state.temp >= 70 && state.temp < 90) {
+  } else if (state.temp >= 70) {
     state.color = 'orange';
     state.land = "url('../assets/beachLand.jpg')"
-  } else if (state.temp >= 55 && state.temp < 70) {
+  } else if (state.temp >= 55) {
     state.color = 'yellow';
     state.land = "url('../assets/warmLand.jpg')"
-  } else if (state.temp >= 40 && state.temp < 55) {
+  } else if (state.temp >= 40) {
     state.color = 'green';
     state.land = "url('../assets/coldLand.jpg')"
   } else {
@@ -105,7 +105,7 @@ const setSkyAndMiddle = () => {
   const skyDropdown = document.getElementById('sky-dropdown');
   const sky = document.getElementById('sky');
   const middle = document.getElementById('middle');
-
+  
   if (skyDropdown.value === 'Sunny') {
     state.sky = "url('../assets/sunnySky.jpg')"
     state.middle = "url('../assets/clearMiddle.jpg')"
