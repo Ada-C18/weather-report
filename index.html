@@ -5,8 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css" />
 </head>
 <body>
+    <header id="weather-greet">
+        <h1 class="header-font">Weather Report</h1>
+        <span>
+            The place for your
+            <span id="header-city-name" class="header-font"> Los Angeles </span>
+            Weather!
+        </span>
     
+    </header>
+
+    <main>
+        <section class="container">
+                <section class="inner-section" id="temp-section">
+                    <h3 class="header-font">Temperature</h3>
+                <span><button class="button" id="real-time">Real Time Temp</button></span>
+            <div class="temp-content">
+                <span><button class="button1" id='inc-temp'>ᐱ</button></span>
+                <span id="temp-number"> 76 f</span>
+                <span><button class="button2" id='dec-temp'>ᐯ</button></span>
+            </div>
+            </section>
+                <section class="inner-section" id="sky-section">
+                    <h3 class="header-font">Sky</h3>
+                    <div class="sky-content">
+                        <div class="sky-content">
+                            <select name="skyscape" id="sky-select">
+                                <option value="sunny">Sunny</option>
+                                <option value="cloudy">Cloudy</option>
+                                <option value="rainy">Rainy</option>
+                                <option value="snowy">Snowy</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+                <section class="inner-section" id="city-section">
+                    <h3 class="header-font">City</h3>
+                    <span><button class="button3" id='reset-butt'>Reset city</button></span>
+                    <div>
+                        <label for="cit-name"></label><br>
+                        <br>
+                        <input type="text" id="cit-name" name="cit-name">
+                        <br>
+                    </div>
+                    
+                    <div class="city-section">
+                    </div>
+                </section>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <section class="title-garden" id=titleGarden>
+                <h1 class="header-font">Weather Garden</h1>
+            </section>
+            <section class="garden-change"id="cute-garden">
+                <div id='skyscape'>🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨
+                </div>
+                <div id=gardenia>🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲
+                </div>
+
+            </section>
+        </section>
+    </footer>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="/src/index.js"></script>
 </body>
+
 </html>

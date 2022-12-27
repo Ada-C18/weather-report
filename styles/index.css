@@ -1,0 +1,142 @@
+body {
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,6,6,1) 12%, rgba(0,212,255,1) 100%);
+}
+
+#weather-greet {
+    grid-column: span 3;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#header-city-name {
+    color:whitesmoke;
+    font-size: x-large;
+
+}
+
+h1 {
+    display: block;
+    margin-right: 2rem;
+    color:whitesmoke;
+}
+
+.headerFont {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: whitesmoke;
+    font-size: large;
+    text-align: center;
+
+    
+}
+
+.innerSection {
+    background-color: whitesmoke;
+    margin-right: 1em;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+#tempSection {
+    
+    grid-column: 1;
+}
+.button1{
+    border: none;
+    color:  whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+
+.button2{
+    border: none;
+    background-color: none;
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    
+    
+
+}
+#skySection {
+    grid-column: 2;
+}
+
+.citySection {
+    grid-column: 3;
+}
+footer
+{
+    margin-top: 200px
+}
+.garden-change {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,6,6,1) 12%, rgba(0,212,255,1) 100%);
+    text-align: center;
+    align-self: center;
+    height: 110px;
+    margin-bottom: 0%;
+    border-style: solid;
+    border-color: whitesmoke
+
+}
+.title-garden
+{
+    font-size: x-large;
+    font-family:'Courier New', Courier, monospace;
+    color: rgb(0, 2, 2);
+    text-align: center;
+    
+}
+#cute-garden
+{
+    font-size:x-large ;
+    
+}
+#temp-number
+{
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+#span{
+    font-size: large;
+}
+html{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,6,6,1) 12%, rgba(0,212,255,1) 100%);
+}
+#inc-temp{
+background-color: rgba(2,0,36,1);
+}
+#dec-temp{
+    background-color: black;
+}
+
+#temp-number{
+    text-align: center;
+}
+#real-time{
+    font-size: medium;
+}
+#reset-butt{
+    font-size: medium;
+}
+#sky-select{
+    font-size: medium;
+}
