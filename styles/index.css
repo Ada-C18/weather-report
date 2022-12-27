@@ -1,0 +1,159 @@
+h2 {
+    margin: 0 auto 2rem auto;
+  }
+  
+  body {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    background-color: #519fa2;
+    margin: 3rem;
+  }
+  
+  .header__header {
+    color: white;
+    grid-column: span 3;
+    display: flex;
+    align-items: center;
+    margin: 2rem auto 3rem 0;
+  }
+  
+  .header__header > h1 {
+    margin-right: 2rem;
+    font-size: 3em;
+  }
+  
+  .header__city-name {
+    font-style: oblique;
+    font-size: 2rem;
+  }
+  
+  .header__city-name::before,
+  .header__city-name::after {
+    content: " 😊 ";
+  }
+  
+  .temperature__section,
+  .sky__section,
+  .city-name__section {
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: rgb(30, 91, 205);
+  }
+  
+  .temperature__section {
+    grid-row: 2;
+  }
+  
+  .sky__section {
+    grid-row: 3;
+  }
+  
+  .city-name__section {
+    grid-row: 3;
+  }
+  
+  .garden__section {
+    grid-row: 2 / span 2;
+    grid-column: 2;
+    text-align: center;
+    align-self: center;
+  }
+  
+  .temperature__content {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    /* justify-content: center; */
+  }
+  
+  #tempValue, #actualValue {
+    font-size: 3rem;
+    margin-left: 1.5rem;
+    /* padding-right: 1rem; */
+    /* margin-right: 1.5rem; */
+  }
+  
+  .temperature__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .garden__section > h1 {
+    color: rgb(128, 89, 15);
+  }
+  
+  .garden__content {
+    min-height: 300px;
+    max-width: fit-content;
+    margin: auto;
+    padding: 2rem;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    border-radius: 15px;
+    font-size: 2em;
+  }
+  
+  .city-name__reset-btn, .city-name__submit-btn{
+    border: 0;
+    background-color: #4e5662;
+    color: rgb(252, 252, 252);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .red {
+    color: red;
+  }
+  
+  .orange {
+    color: orange;
+  }
+  
+  .yellow {
+    color: gold;
+  }
+  
+  .yellow-green {
+    color: yellowgreen;
+  }
+  
+  .green {
+    color: green;
+  }
+  
+  .teal {
+    color: teal;
+  }
+  
+  .cloudy {
+    background-color: rgb(64, 80, 86);
+  }
+  
+  .sunny {
+    background-color: rgb(231, 248, 248);
+  }
+  
+  .rainy {
+    background-color: rgb(65, 88, 96);
+  }
+  
+  .snowy {
+    background-color: rgb(21, 36, 204);
+  }
+  | Temperature (F) | Color  |
+| --------------- | ------ |
+| 80+             | Red    |
+| 70-79           | Orange |
+| 60-69           | Yellow |
+| 50-59           | Green  |
+| 49 or below     | Teal   |

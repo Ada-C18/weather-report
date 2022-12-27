@@ -5,8 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body id="backgroundColor">
+    <header class="header__header">
+        <h1>Today's Weather</h1>
+        <span>Today in the city of   
+            <span id="headerCityName" class="header__city-name"> 
+                "insert city"
+            </span> 
+            </span>
+        </span>
+    </header>
+    <section class="temperature__section">
+        <h2>Actual Temperature</h2>
+        <div class="temperature__content">
+            </div>
+            <span id="actualValue" class="orange">65°</span>
+        </div>
+    </section>
+        <section class="sky__section">
+        <h2>Desired Sky</h2>
+        <select id="skySelect">
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+        </section>
+        <section class="garden__section">
+            <h1> Sky & Garden </h1>
+            <div id="gardenContent" class="garden__content sunny">
+                <span id="desiredSky">☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞☀️🌞</span>
+                <span id="landscape">🌼🌸🌸🌸🌼🌸🌸🌸🌼🌸🌸🌸🌼🌸🌸🌸🌼</span>
+            </div>
+            </h2>
+        </section>
+    </section>
+
+    <main id="container">
+    <section class="temperature__section">
+        <h2>Desired Temperature</h2>
+        <div class="temperature__content">
+            <div class="temperature__controls">
+                <span id="increaseTempControl">⬆️</span>
+                <span id="decreaseTempControl">⬇️</span>
+            </div>
+            <span id="tempValue">70°</span>
+        </div>
+    </main>
+    </section>
     
+    </section>
+
+    <section class="city-name__section">
+        <h2>Please Select a City </h2>
+        <button id="cityNameReset" class="city-name__reset-btn" type="reset">Reset</button>
+        <input type="text" id="cityNameInput" placeholder="Indianapolis" />
+        <button id="cityNameSubmit" class="city-name__submit-btn" type="submit">Submit</button>
+
+    </section>
+
+
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
+
 </body>
-</html>
+
+</html> 
