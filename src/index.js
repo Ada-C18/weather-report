@@ -1,91 +1,5 @@
-// import '.styles/index.css';
 console.log('We made it into javascript!');
-
-// // API CALLS
-// const axios_location = require('axios');
-// const axios_weather = require('axios');
-// let locationData, weatherData;
-// let modifiedLocData, modifiedWeathData;
-
-// axios_location
-//   .get('http://127.0.0.1:5000/location', {
-//     params: {
-//       q: inputCity,
-//       format: 'json',
-//     },
-//   })
-//   .then((response) => {
-//     locationData = response;
-
-//     const modifyLocation = (locationData) => {
-//       let latlon = [];
-//       let focusLocation = locationData[0];
-
-//       let focusLat = Number(focusLocation['lat']);
-//       let adjustLat = focusLat.toFixed(2);
-//       latlon.push(adjustLat);
-
-//       let focusLon = Number(focusLocation['lon']);
-//       let adjustLon = focusLon.toFixed(2);
-//       latlon.push(adjustLon);
-
-//       return latlon;
-//     };
-
-//     modifiedLocData = modifyLocation(locationData);
-
-//     axios_weather
-//       .get('http://127.0.0.1:5000/weather', {
-//         params: {
-//           lat: modifiedLocData[0],
-//           lon: modifiedLocData[1],
-//           format: 'json',
-//         },
-//       })
-//       .then((response) => {
-//         weatherData = response;
-
-//         const modifyWeather = (weatherData) => {
-//           let relevantData = [weatherData['main'], weatherData['weather']];
-//           let defTempCond = [];
-
-//           let unmodifiedTemp = relevantData[0]['temp'];
-//           let tempF = ((unmodifiedTemp - 273.15) * 9) / 5 + 32;
-//           let modifiedTemp = tempF.toFixed(0);
-//           defTempCond.push(modifiedTemp);
-
-//           let condID = Number(relevantData[1][0]['id']);
-//           let idToCond = null;
-
-//           if (condID > 800) {
-//             idToCond = 'cloudy';
-//           } else if (condID === 800) {
-//             idToCond = 'sunny';
-//           } else if (condID > 700) {
-//             idToCond = 'cloudy';
-//           } else if (condID > 599) {
-//             idToCond = 'snowy';
-//           } else {
-//             idToCond = 'rainy';
-//           }
-
-//           defTempCond.push(idToCond);
-//           return defTempCond;
-//         };
-
-//         modifiedWeathData = modifyWeather(weatherData);
-//       })
-//       .catch((error) => {
-//         weatherData = 'An error has occured while fetching weather data.';
-//       });
-//   })
-//   .catch((error) => {
-//     locationData = 'An error has occured while fetching location data.';
-//   });
-
 // LOCATION
-
-console.log('Made it to LOCATION!');
 
 const updateCity = () => {
   let inputCity = document.getElementById('cityName').value;
@@ -99,29 +13,18 @@ const resetCity = () => {
   updateCity();
 };
 
-console.log("I've done all I can in LOCATION!");
-
-// updateCity();
-// const setCityInput = document.getElementById('cityName');
-// setCityInput.addEventListener('input', updateCity);
-
-// const resetBtn = document.getElementById('city_reset');
-// resetBtn.addEventListener('click', resetCity);
-
 // CONDITIONS
-
-console.log('Made it to CONDITIONS!');
 
 let selectConditions = document.querySelectorAll('input[type="radio"]');
 
 let condResult = document.getElementById('cond_result');
-condResult.textContent = '✨';
+condResult.innerHTML = '✨';
 
 const updateCondition = () => {
   let selected = document.querySelector(
     "input[name='Conditions']:checked"
   ).value;
-  condResult.textContent = selected;
+  condResult.innerHTML = selected;
 };
 
 // TEMP DEPENDANTS
@@ -168,18 +71,18 @@ const updateTempies = (adjustedTemp) => {
 
 let shownTemp = document.getElementById('temp_result');
 
-shownTemp.textContent = currentTemp;
+shownTemp.innerHTML = currentTemp;
 
 const handleAdd = () => {
   currentTemp++;
-  shownTemp.textContent = currentTemp;
+  shownTemp.innerHTML = currentTemp;
 
   updateTempies(currentTemp);
 };
 
 const handleSub = () => {
   currentTemp--;
-  shownTemp.textContent = currentTemp;
+  shownTemp.innerHTML = currentTemp;
 
   updateTempies(currentTemp);
 };
