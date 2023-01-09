@@ -1,0 +1,100 @@
+body {
+    background-color: #d0d4d4;
+}
+
+main {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;  
+    background-color: inherit;
+}
+
+.box {
+    background-color: #2a52be ;
+    padding: 2vh ;
+}
+
+.left {
+    max-width: 20vw;
+    margin: 2vh;
+    height: 22vh;
+    align-items: center;
+}
+
+.right {
+    width: 60vw;
+    margin: 2vh 5vh;
+    align-items: center;
+}
+
+.divider {
+    height: 100vh;
+    width: 10vw;
+}
+
+h1 {
+    text-align: center;
+    color: #fbfcf8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#garden-header {
+    font-family: fantasy;
+}
+
+.box h2 {
+    color: #fbfcf8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    font-style: oblique;
+    color: #fbfcf8;
+}
+
+#arrow-div {
+    display: inline-flex;
+    align-items: center;
+    margin: 2px;
+}
+
+.arrow {
+    margin: 5px;
+    height: 5vh;
+}
+
+#temp-degree {
+    max-height: 8vh;
+    padding: 10px;
+    background-color: #e3e5e5;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.start-color {
+    color: #FFA500;
+}
+
+.red {
+    color: #FF0000;
+}
+
+.orange {
+    color: #FFA500;
+}
+
+.purple {
+    color: purple;
+}
+
+.blue {
+    color: #002366;
+}
+
+.teal {
+    color: #008080;
+}
+
+#city {
+    height: 15vh;
+}

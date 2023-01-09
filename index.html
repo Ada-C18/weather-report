@@ -5,8 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    
 </head>
 <body>
-    
+    <main>
+        <Section class="box left" id="temp"><!-- temperature section --> 
+            <h2>
+                Temperature
+            </h2>
+            <div id="arrow-div">
+                <button class="arrow" id="up">⬆️</button>
+                <p id="temp-degree" class="start-color"><span id="tempnum">70</span> F</p>
+                <button class="arrow" id="down">⬇️</button>
+            </div>    
+        </Section>
+        
+        <Section class="box left" id="city" ><!-- city section --> 
+            <h2>
+                City Name:
+            </h2>
+            <input type="text" id="city-input" name="city"  
+                placeholder="Seattle" required>
+            <button id="go">Go</button>
+            <button id="reset">Reset</button>
+        </Section>
+
+        <Section class="box left" id="sky"><!-- sky section --> 
+            <h2>
+                Sky
+            </h2>
+            <label for="sky-select">Choose a sky:</label>
+
+            <select name="sky" id="sky-select">
+                <option value="else">--Please choose an option--</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+            <p id="skyscape">🌧🕺🏾⛈🕺🏾🌧</p>
+        </Section>
+
+        <Section class="box right" id="header"><!-- Weather title section -->
+            <h1> 
+                Weather Report for <span id="city-output">Seattle</span>
+            </h1>
+        </Section>
+
+        <Section class="right" id="garden"> <!-- weather garden section -->
+            <h2 id="garden-header">
+                Weather Garden
+            </h2>
+            <p id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</p>
+        </Section>
+    </main>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="/src/index.js"></script>
 </body>
+
 </html>
