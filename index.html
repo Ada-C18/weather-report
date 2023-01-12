@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <title>Stevie's Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css"/>
 </head>
+
 <body>
+    <header class="header__header">
+        <h1>Stevie's Weather Report</h1>
+    </header>
     
+    <section class="city-name__display">
+        <p>For the lovely city of 
+            <span id="cityName" class="header__city-name"></span></p>
+    </section>
+
+    <section class="city-name__section">
+        <h2>City Name</h2>
+        <input type="text" id="inputCity" value="San Luis Obispo" />
+        <button id="currentTempButton" class="city__current-temp-btn">Get Current Temp</button>
+        <button id="resetCityButton" class="city__reset-btn">Reset</button>
+    </section>
+        
+    <section class="temperature__section">
+        <h2>Temperature</h2>
+        <div class="temperature__content">
+            <div class="temperature__controls">
+                <button id="increaseTempControl">👆</button>
+                <button id="decreaseTempControl">👇</button>
+            </div>
+            <span id="tempValue"></span>
+            <span id ="tempStyle">°F</span>
+        </div>
+        <button id="convertTemp" class="temp__convert-btn">Convert to Celsius</button>
+    </section>
+
+    <section class="sky__section">
+        <h2>Sky</h2>
+        <select id="sky-select">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
+    </section>
+
+    <section class="garden__section">
+        <h2>Weather Garden</h2>
+        <div id="gardenContent" class="garden__content">
+            <div id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+            <div id="landscape"></div>
+        </div>
+    </section>
+    
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
+
 </html>
