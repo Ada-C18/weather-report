@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/670affd052.js" crossorigin="anonymous"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script> 
+    <script src="./src/index.js"></script>
+
+    <link rel="stylesheet" href="./styles/index.css">
+
     <title>Weather Report</title>
 </head>
+
 <body>
+    <section id="sky">
+        <div class="sky">       
+            <input id="searchbox" type="text" placeholder="Type city name...">
+            <button id="search-btn">Search</button>
+        </div>
+    </section>
     
+    <section id="middle">
+        <div class="middle">
+            <h1 id="city-display">Brooklyn</h1>
+            <h1 id="temp-display">65</h1>
+            <h5>Click on the icons to change the temperature</h5>
+            <i id="decrease-temp" class="fa-regular fa-snowflake fa-xl"></i>
+            <i id="increase-temp" class="fa-solid fa-sun fa-xl"></i>
+            <h5>Pick an option to change the sky</h5>
+            <select id="sky-dropdown">
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Rainy</option>
+                <option>Snowy</option>
+            </select>
+        </div>
+    </section>
+
+    <section id="land">
+        <button id="get-realtime-temp">Get Realtime Temperature</button>
+    </section>
+
 </body>
 </html>
