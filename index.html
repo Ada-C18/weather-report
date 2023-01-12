@@ -7,8 +7,8 @@
     <title>Weather Report</title>
 
     <link rel="stylesheet" href="styles/index.css">
-    <!-- <script src="src/index.js"></script>
-	<script src="./node_modules/axios/dist/axios.min.js"></script> -->
+
+	<script src="./node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -51,25 +51,23 @@
 				<div class="display-temp" id="temp_result"></div>
 		</div>
 		<div class="grid-item-temp">
-			<p id="you_are_here">😄</p>
+			<p id="you_are_here"></p>
 		</div>
 		<div class="grid-item-field-data">
 				<h2 class = "city-switch-title">BASED IN:</h2>
 				<div class="cityContent">
 						<div class="cityControls">
 								<input id="cityName" class="cityDisplay" type="text" value="Atlanta">
-								<button id="city_reset" class="city_button">🔄</button>
-								<button id="update_weather" class="city_button">*️⃣</button>
+								<button onclick="resetCity()" id="city_reset" class="city_button" title="Reset Location">🔄</button>
+								<button onclick="updateWeather()" id="update_weather" class="city_button" title="Update Weather">*️⃣</button>
 						</div>
 				</div>
 		</div>
 		<div class="grid-item-field">
-			<p id="temp_field">🌷</p>
+			<p id="temp_field"></p>
 		</div>
 	</div> 
-
-	<script type="module" src="src/index.js"></script>
-	<script src="./node_modules/axios/dist/axios.min.js"></script>
+	<script src="src/index.js"></script>
 </body>
 
 </html>
