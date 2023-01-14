@@ -33,7 +33,7 @@ const updateCondition = () => {
 
 // TEMP DEPENDANTS
 
-let defaultTemp = 'LOADING';
+let defaultTemp = 'LOADING...';
 let currentTemp = defaultTemp;
 
 const HOW_YA_FEELIN = ['🥶', '😮‍💨', '😄', '😎', '😅', '🥵', '🤔'];
