@@ -4,9 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Weather Report</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+    <link rel="stylesheet" href="styles/index.css" />
 </head>
+
 <body>
-    
+    <section id= "landscape-container" >
+        <section id="sky">
+            <select id="sky-options">
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Rainy</option>
+                <option>Snowy</option>
+            </select>
+        </section>
+        <img id="snoopy-image" src="assets/eighties-snoopy.gif" alt="snoopy weather pic" />
+        <p id="out"><span id="outside"> 🌵 🐍 🦂 🌵 🌵 🏜 🦂 </span></p>
+        <p id="up"><span id="sky-pic">🌧 🌧 🌧 🌧</span></p>
+    </section>
+    <main>
+        <div class="main-container">
+
+            <div class="location-container">
+                <h1 id="city-name">New York</h1>
+                <!-- <p id="country-time"><span id="country">US</span> - <span id="time">12:00 am</span></p> -->
+            </div>
+            
+            <div class="weather-container">
+                <h2 class= "fifties" id="temp"><span id="value">50</span><span id = "degree"> °F</span></h2>
+                <!-- <h2 <span id="temp" class="default">50</span><span id = "degree">°</span> -->
+                <!-- <p id="feels-like">feels like <span id="feels-like">50</span>°</p> -->
+                <button class="btn" id="increase"><span class="material-symbols-outlined">arrow_upward</span></button>
+                <button class="btn" id="decrease"><span class="material-symbols-outlined">arrow_downward</span></button>
+                <button class="btn" id="reset"><span class="material-symbols-outlined">refresh</span></button>
+            </div>
+            <form>
+                <input type="text" id="city-search" placeholder="enter city name"/>
+                <button type="submit" id="search-button">></button>
+            </form>
+        </div>
+    </main>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>  
 </body>
 </html>
