@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <title>Magic Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
-<body>
-    
+
+
+    <header class="header__header">
+        <h1>Spooky Weather Report👻</h1>
+            <span id="headerCityName" class="header__city-name"></span>
+        </span>
+    </header>
+<section class="garden__section">
+        <span>Spooky Weather in:
+            <span id="weatherDisplayName" class="header__city-name"></span>
+        </span>
+        <div id="gardenContent" class="garden__content">
+            <div id="sky"></div>
+            <div id="landscape"></div>
+        </div>
+    </section>
+
+    <body>
+    <div class="sectionContainer">
+    <section class="temperature__section">
+        <h2>Temperature</h2>
+        <div class="temperature__content">
+            <div class="temperature__controls">
+                <h4>Make a weather wish</h4>
+                <a class='button temp' id="increaseTempControl">🔥hotter</a>
+                <a class='button temp' id="decreaseTempControl">❄️colder</a>
+            </div>
+            <span id="tempValue"></span>
+        </div>
+    </section>
+    <section class="sky__section">
+        <h2>Pick Sky</h2>
+        <select id="skySelect" class="inputsStyle">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
+    </section>
+
+    <section class="city-name__section">
+        <h2>City Name</h2>
+        <input value="Ann Arbor" type="text" id="cityNameInput" placeholder="Enter City" class="inputsStyle" name="search"/>
+        <a id="cityNameReset" class="button">Reset</a>
+        <a id="currentTempButton" class="button">Get Weather</a>
+        <div id="temp">
+            <h1 id="cityNameInput"></h1>
+        </div>
+    </section>
+    </div>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
+
 </html>
