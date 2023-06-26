@@ -1,12 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/SN Regular WFK/stylesheet.css">
+        <link rel="stylesheet" href="styles/SN Fine Italics & Italics WFK/stylesheet.css">
+        <script src="src/index.js" type="module"></script>
+        <script src="/node_modules/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>What are the conditions like in <span id="city-title">Chattanooga</span>?</h1>
+            <div id="search-form">
+                <div>
+                    <label for="search-bar">City name: </label>
+                    <input
+                    type="text" 
+                    id="search-bar"
+                    placeholder="Chattanooga" />
+                    <!-- replace search text with icon -->
+                    <button id="search-button">Search</button> 
+                    <button id="reset-button">Reset</button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="weather-report-section">
+                <div id="weather-report-container">
+                    <!-- flex box for five day weather panels -->
+                    <div id="panel-1" class="weather-panels">
+                        <h3 id="day-1-name">Monday</h3>
+                        <img id="day-1-icon" class="icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                            <h4>Temperature: <span id="day-1-temp">°</span></h4>
+                            <h4>Humidity: <span id="day-1-hum">%</span></h4>
+                    </div>
+                    <div id="panel-2" class="weather-panels">
+                        <h3 id="day-2-name">Tuesday</h3>
+                        <img id="day-2-icon"class="icon" src="/icons/cloud-icon.png" alt="three layered circles of orange and red"/>
+                        <h4>Temperature: <span id="day-2-temp">°</span></h4>
+                        <h4>Humidity: <span id="day-2-hum">%</span></h4>
+                    </div>
+                    <div id="panel-3" class="weather-panels">
+                        <h3 id="day-3-name">Wednesday</h3>
+                        <img id="day-3-icon" class="icon" src="/icons/rain-icon.png" alt="three layered circles of orange and red"/>
+                        <h4>Temperature: <span id="day-3-temp">°</span></h4>
+                        <h4>Humidity: <span id="day-3-hum">%</span></h4>
+                    </div>
+                    <div id="panel-4" class="weather-panels">
+                        <h3 id="day-4-name">Thursday</h3>
+                        <img id="day-4-icon" class="icon" src="/icons/snow-icon.png" alt="three layered circles of orange and red"/>
+                        <h4>Temperature: <span id="day-4-temp">°</span></h4>
+                        <h4>Humidity: <span id="day-4-hum">%</span></h4>
+                    </div>
+                    <div id="panel-5" class="weather-panels">
+                        <h3 id="day-5-name">Friday</h3>
+                        <img id="day-5-icon" class="icon" src="/icons/sun-icon.png" alt="three layered circles of orange and red"/>
+                        <h4>Temperature: <span id="day-5-temp">°</span></h4>
+                        <h4>Humidity: <span id="day-5-hum">%</span></h4>
+                    </div>
+                </div>
+            </section>
+            <section id="dream-weather-section">
+                <h2>What do you wish they were?</h2>
+                <div id="dream-weather-container">
+                    <div id="dream-temp" class="dream-panels">
+                        <h3>Dream Temperature</h3>
+                        <div class="dream-panel-content">
+                            <p id="dream-temp-number">°</p>
+                            <div id="temp-buttons">
+                                <div id="temp-increase-button" class="increase-button buttons"></div>
+                                <div id="temp-decrease-button"class="decrease-button buttons"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dream-sky" class="dream-panels">
+                        <h3>Dream Sky</h3>
+                        <div class="dream-panel-content">
+                            <select name="skies" id="sky-select">
+                                <option value="">
+                                    Pick One
+                                </option>
+                                <option id="sunshine-sky" value="sunshine">
+                                    Sunshine
+                                </option>
+                                <option id="cloudy-sky" value="clouds">
+                                    Cloudy
+                                </option>
+                                <option id="rain-sky" value="rain">
+                                    Rain
+                                </option>
+                                <option id="snow-sky" value="snow">
+                                    Snow
+                                </option>
+                            </select>  
+                        </div>    
+                    </div>
+                    <div id="dream-humidity" class="dream-panels">
+                        <h3>Dream Humidity</h3>
+                        <div class="dream-panel-content">
+                            <p id="dream-humidity-percent">%</p>
+                            <div id="humidity-buttons">
+                                <div id="humidity-increase-button" class="increase-button buttons"></div>
+                                <div id="humidity-decrease-button" class="decrease-button buttons"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer id="changing-weather-container">
+            <div id="circle"></div>
+        </footer>
+    </body>
 </html>
