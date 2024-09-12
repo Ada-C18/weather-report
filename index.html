@@ -1,12 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="bg">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="./styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="header">
+        <div id="sky">☁️   🕊️☁️        ☀️ ☁️</div> 
+        <h1>Weather Report</h1>
+        <span>
+            For the lovely city of
+            <span id="headerCityName">
+                Seattle
+            </span>
+        </span>
+    </header>
+    <section class="temperature-section">
+        <h2>Temperature</h2>
+        <div class="temperature_content">
+            <div class="temperature_controls">
+                <span id="tempValue" class="red"> 80 °F</span>
+                <span id="increaseTempBtn">⬆️</span>
+                <span id="decreaseTempBtn">⬇️</span>
+            </div>
+            <button id="currentTemp">Get Realtime Temperature</button>
+        </div>
+    </section>
+    <section class="sky-section">
+        <select id="skySelection">
+            <option value="Sunny">Sunny</option>
+            <option value="Cloudy">Cloudy</option>
+            <option value="Rainy">Rainy</option>
+            <option value="Snowy">Snowy</option>
+        </select>
+    </section>
+    <section class="city-section">
+        <h2>City Name</h2>
+        <input type="text" id="cityNameInput" value="Seattle">
+        <button id="cityResetBtn">Reset</button>
+    </section>
+    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
+    <script type="text/javascript" src="src/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+}
+
+.temperature-section {
+    display:grid;
+    margin: 30px;
+}
+header h1 {
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+}
+
+header span {
+    font-size: 30px;
+}
+
+#tempValue {
+    font-size: 70px;
+}
+
+#sky {
+    font-size: 60px;
+}
+
+#bg {
+    background-image: url('../assets/desert.jpg');
+    
+    width:100%;
+    height:100%; 
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+} 
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+}
