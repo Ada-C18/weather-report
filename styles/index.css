@@ -1,0 +1,113 @@
+body {
+    background-color: skyblue;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    font-size: 3em;
+    text-align: center;
+    padding:0em;
+    margin:0em;
+}
+
+h4 {
+    text-align: center;
+    font-style: italic;
+}
+
+span {
+    display:none;
+}
+
+#inputButtons {
+    font-family: sans-serif;
+    color: midnightblue;
+    text-align: center;
+    border-radius: 10em;
+    padding: .5em;
+}
+
+#landscapeScene {
+    font-size: 2.5em;
+    margin-top: auto;
+    opacity: .75;
+    text-align: center;
+}
+
+#skyScene {
+    font-size: 2.5em;
+    opacity: .75;
+    text-align: center;
+}
+
+
+#windowScene {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    background-image: url(/assets/transparentWindow.png);
+    background-position-x: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    width: auto;
+
+}
+
+.flexContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+.flexItem {
+    display: flex;
+    flex-flow: column;
+    background-color: lavender;
+    align-self: center;
+    padding: 1em;
+    border-radius: 3em;
+}
+
+.textRed {
+    color: red;
+}
+
+.textOrange {
+    color: orange;
+}
+
+.textYellow {
+    color: yellow;
+}
+
+.textGreen {
+    color: green;
+}
+
+.textTeal {
+    color: teal;
+}
+
+.sunny {
+    display: block;
+}
+
+.cloudy {
+    display: block;
+}
+
+.rainy {
+    display: block;
+}
+
+.windy {
+    display: block;
+}
+
+.snowy {
+    display: block;
+}

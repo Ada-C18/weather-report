@@ -2,7 +2,6 @@
 
 ## Skills Assessed
 
-- Following directions and reading comprehension
 - Structuring content in HTML
 - Applying styles with CSS
 - Using variables
