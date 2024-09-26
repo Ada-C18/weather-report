@@ -5,8 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
-</body>
+    <header>
+        <div class="font-style">
+            Check out the weather in...
+        </div>
+        <div id="city-name" style="font-weight: bolder;">
+            Austin
+        </div>
+    </header>
+    <div id='columns'>
+        <section id="sky">
+            <h4 class="font-style">How does the weather look?</h4>
+            <img id="sky-pic" class="pics" src="assets/sunny.jpeg" alt="sky">
+        </section>
+        <section id="temperature" class="bodybox">
+            <h4 class="font-style">Temperature</h4>
+            <button id="temp-increase" onclick="increaseTemp()">Up</button>
+            <div id="temp-number">50</div>
+            <button id="temp-decrease" onclick="decreaseTemp()">Down</button>
+            <button id="get-temp-button" onclick="getLocation()">Get Realtime Temperature</button>
+        </section>
+        <section id="sky-description" class="bodybox">
+            <h4 class="font-style">Sky</h4>
+            <select id="sky-input" onchange="updateSky()">
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Snowy</option>
+                <option>Rainy</option>
+            </select>
+        </section>
+        <section id="city" class="bodybox">
+            <h4 class="font-style">City Name</h4>
+            <input type="text" id="city-name-input" oninput="updateCityName()" value="Austin">
+            <input type="reset" id="reset-button" onclick="resetCityName()">
+        </section>
+        <section id="landscape">
+            <h4 class="font-style">How does the weather feel?</h4>
+            <img id="season-pic" class="pics" src="assets/Winter.jpeg" alt="weather">
+        </section>
+</div>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js"></script>
+</body> 
 </html>
