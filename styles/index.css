@@ -1,0 +1,117 @@
+* {
+    font-family: 'Rokkitt', serif;
+    color: black;
+}
+
+body {
+    background-image: url(/ada-project-docs/assets/sunshine.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+label {
+    font-weight: 600;
+}
+
+.flex-box-container {
+    max-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.misc-heading-container {
+    padding: 15px 15px 15px 15px;
+    max-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.background-block {
+    background-color: white;
+    opacity: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 107%;
+    width: 100%;
+}
+
+.text-in-front {
+    z-index: 1;
+}
+
+#column {
+    flex-direction: column;
+    align-items: center;
+}
+
+#row {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+header {
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 25px;
+}
+
+h1 {
+    font-size: 50pt;
+    z-index: 1;
+    position: relative;
+}
+
+h2 {
+    font-weight: 600;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+#tempTag, #tempUnits {
+    font-size: 40pt;
+    text-shadow: 1px 1px black;
+}
+
+#cityInput {
+    font-style: italic;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color:orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.cornflowerblue {
+    color: cornflowerblue;
+}
+
+#curWeatherEmojis {
+    font-size: 40pt;
+}
+
+footer {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}

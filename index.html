@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
-<body>
-    
+
+<body class="coolTheme">
+    <header>
+        <div id="column" class="flex-box-container">
+            <div class="background-block"></div>
+            <div  class="text-in-front">
+                <label for="sky">Choose your sky:
+                    <select id="sky" name="sky">
+                        <option value="sunny" class="background">Sunny</option>
+                        <option value="cloudy" class="background">Cloudy</option>
+                        <option value="rainy" class="background">Rainy</option>
+                        <option value="snowy" class="background">Snowy</option>
+                    </select>
+                </label>
+                <h1>Weather Report</h1>
+                <h2 id="now-showing" onLoaded="nowShowingTemp()"></h2>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="misc-heading-container">
+            <div class="text-in-front"><h2>Find A Temperature By City</h2></div>
+        </div>
+        <div id="row" class="flex-box-container">
+            <section id="city-name" class="text-in-front">
+                <h3>Search by City</h3>
+                <div id="topnav">
+                    <input type="text" id="defaultCity" placeholder="Portland, OR"  
+                    autocomplete="off" onKeyUp="updateCityWhileTyping()">
+                    <br>
+                    <br>
+                    <button id="realTime">Get Realtime Temp</button>
+                    <button id="reset" type="reset">Reset</button>
+                </div>
+                <br>
+            </section>
+            <section id="temp" class="text-in-front">
+                <h3>Temperature</h3>
+                <div id="wrapper">
+                    <button id="increaseBtn"><span>&#43;</span></button>
+                    <span id="tempTag">45</span>
+                    <span id="tempUnits">° F</span>
+                    <button id="decreaseBtn"><span>&#8722;</span></button>
+                    <br>
+                    <br>
+                </div>
+            </section>
+            <section id="garden" class="text-in-front">
+                <h3>Your Weather Emojis</h3>
+                <div id="curWeatherEmojis">🧤🧣🧤</div>
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <div class="misc-heading-container">
+            <h3>© 2022 | Alaere & Anika | C18 Snow Leopards</h3>
+        </div>
+    </footer>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>
